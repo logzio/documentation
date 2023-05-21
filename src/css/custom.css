@@ -1,0 +1,654 @@
+/* ===== FONT IMPORTS ===== */
+/* Roboto (body) and Titillium (heading) */
+@import url('https://fonts.googleapis.com/css?family=Lato:400,400i,500,500i,600,600i,700,700i,800,800i&display=swap');
+/* @import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600,600i,700,700i,800,800i&display=swap'); */
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,400i');
+
+/* ===== CSS IMPORTS ===== */
+
+/* If you need to import more css files, put them at the bottom of the list. */
+
+/* ===== PAGE LAYOUT ===== */
+
+body {
+  padding: 0;
+  margin: 0 auto;
+}
+
+.test {
+  color: red !important;
+}
+
+div.big-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+}
+
+.title-container {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+div.body-container {
+  max-width: 850px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 200px;
+}
+
+div.card-container {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 50px;
+}
+
+div.body-container, div.card-container {
+  vertical-align: top;
+  margin-top: 2rem;
+  justify-self: start;
+}
+
+/* media queries */
+
+@media (max-width: 630px) {
+  #log-in {
+    display: none;
+  }
+}
+
+@media (max-width: 975px) {
+/* toc hides at this size */
+
+  header, footer {
+    padding: 0 10px;
+  }
+
+  div.site-badge {
+    min-width: 145px !important;
+  }
+
+  div#toc-collapse-btn {
+    display: inline-block !important;
+  }
+
+  .toc-visibility {
+    display: none !important;
+  }
+
+  div.toc-container {
+    position: fixed;
+    width: 300px;
+    display: block;
+    top: 25px;
+    left: 0;
+    bottom: 0;
+    overflow-y: auto;
+    z-index: 50;
+    }
+
+  div.site-badge img.logz-logo {
+    display: none;
+  }
+
+  div.site-badge img.logz-symbol {
+    display: inline !important;
+  }
+}
+
+@media (max-width: 1210px) {
+  nav.site-links {
+    display: none;
+  }
+
+  nav.site-actions {
+    padding: 0;
+  }
+}
+
+/* ===== BASE STYLES ===== */
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7rem;
+  color: var(--text-normal);
+}
+
+p {
+  margin-bottom: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+code, pre {
+  font-family: var(--mono-font);
+  font-size: .8rem;
+}
+
+main.page-content img, main.page-content video, .post-content iframe {
+  display: block;
+  max-width: 90%;
+  margin: 1.5rem auto;
+  border: 1px solid var(--border-very-light);
+  border-radius: 2px;
+}
+
+main {
+  margin-top: 5px;
+  border-top: 1px solid var(--border-very-light);
+}
+
+.btn-img, .override.btn-img, p.override.btn-img img {
+  margin-left: 0;
+  padding-left: 0;
+  border: none;
+  border-radius: unset;
+}
+
+ol img, ol video {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.no-border {
+  border: none !important;
+}
+
+
+a, a:hover {
+  color: var(--text-link);
+  text-decoration: none;
+}
+
+a.no-link {
+  color: var(--text-normal);
+  cursor: text;
+}
+
+svg.svg-inline--fa, i.li {
+  /* add some breathing room to inline font awesome icons */
+  margin-left: .1rem;
+  margin-right: .1rem;
+}
+
+.fancy-link::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  margin-top: -2px;
+  background: currentColor;
+  transition: width .3s;
+}
+
+.fancy-link:hover::after {
+  width: 100%;
+}
+
+
+/* ===== ONE-OFFS ===== */
+.sm {
+  font-size: .8rem;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.ital {
+  font-style: italic;
+}
+
+.padding-top-10 {
+  padding-top: 10px;
+}
+
+.updated {
+  font-size: .9rem;
+}
+
+.border {
+  border: 1px solid var(--border-dark);
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 6px;
+}
+
+.background {
+  background-color: var(--background-light)
+}
+
+
+/* ===== TABLES ===== */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 2rem auto 2rem 0;
+
+  text-align: left;
+}
+
+td, th {
+  padding: .25rem .75rem;
+}
+
+th {
+  color: var(--heading-normal);
+}
+
+tr {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* tablesorter styling */
+th.tablesorter-header {
+  min-width: 75px;
+}
+
+th.tablesorter-header:focus {
+  outline: none;
+}
+
+.tablesorter-header-inner::after {
+  font-family: var(--fa);
+  padding-left: 10px;
+  color: var(--text-link);
+}
+
+.tablesorter-headerAsc .tablesorter-header-inner::after {
+  content: "\f0d7";
+}
+
+.tablesorter-headerDesc .tablesorter-header-inner::after {
+  content: "\f0d8"
+}
+
+/* ===== CONTRIBUTORS LIST ===== */
+
+div.article-info-container {
+  font-size: .9rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.article-info-container > div {
+  display: flex;
+}
+
+.article-info-container > div > *:not(:last-child), .article-info-container > div:not(:last-child) {
+  margin-right: 1rem;
+}
+
+div.contributor-list svg {
+  margin-right: .25rem;
+}
+
+/* ===== CONTRIBUTORS ===== */
+
+div.contributor-title {
+  font-size: 1.2rem;
+}
+
+div.contributor.icons {
+  font-size: 2rem;
+  padding-bottom: 1.5rem;
+  padding-top: .25rem;
+}
+
+div.contributor.icons a {
+  margin-right: .5rem;
+  color: var(--text-light);
+}
+
+.contributor.icons a:hover {
+  color: var(--text-link);
+}
+
+div.contributions {
+  margin-top: 1.5rem;
+}
+
+div.contributions ul {
+  padding-left: 0;
+  list-style-type: none;
+  margin-right: 5px;
+}
+
+div.contributions ul > li {
+  padding-bottom: .5rem;
+}
+
+/* ===== FEEDBACK BUTTONS ===== */
+
+.feedback-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  margin-top: 4rem;
+  border-top: 1px solid var(--border-light);
+  padding-top: .25rem;
+}
+
+.feedback-container > .feedback.inline-header {
+  margin-top: 4px;
+  color: var(--heading-blue);
+}
+
+.feedback-container > *:not(:last-child) {
+  margin-right: 2rem;
+}
+
+.feedback.button a {
+  color: unset;
+}
+
+.slackin {
+  align-self: center;
+  padding: unset;
+  margin-bottom: -0.5rem;
+  margin-left: auto;
+}
+
+.feedback.button.edit {
+  color: var(--logz-logo-normal);
+}
+
+.feedback.button.issue {
+  color: rgb(var(--app-orange-40));
+}
+
+.feedback.button svg {
+  margin-bottom: -2px;
+  margin-right: 1px;
+  fill: currentColor;
+}
+
+/* ===== RELATED LINKS ===== */
+
+div.related-links-container div {
+  margin-bottom: 2rem;
+  font-size: .8rem;
+}
+
+div.related-links-container ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+div.related-links-container span {
+  font-weight: 700;
+  color: var(--heading-normal);
+}
+
+/* ===== ACCORDIONS & TABS ===== */
+
+details {
+  background-color: var(--background-very-light);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: .4rem 1rem;
+  margin-bottom: 5px;
+}
+
+details[open] > summary {
+  border-bottom: 3px solid currentColor;
+  font-weight: 600;
+}
+
+details > summary:hover {
+  font-weight: 600;
+}
+
+summary {
+  padding-left: .7rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+summary > p {
+  display: inline-block;
+  color: var(--heading-normal);
+  margin: unset;
+}
+
+.branching-container {
+  width: 100%;
+}
+
+.branching-tabs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin: 50px 0 0 0;
+  padding: 0;
+  background: none;
+  list-style-type: none;
+  border-bottom: 2px solid var(--border-very-light);
+}
+
+ol .branching-tabs {
+  margin-top: 25px;
+}
+
+.branching-tabs li {
+  display: inline-block;
+  margin-bottom: 2px;
+  color: var(--tab-inactive);
+}
+
+.branching-tabs li.active, .branching-tabs li:hover {
+  border-bottom: 4px solid currentColor;
+  margin-bottom: -2px;
+}
+
+.branching-tabs li.active {
+  font-weight: 400;
+  color: var(--text-normal);
+}
+
+.branching-tabs li > a {
+  color: unset;
+  display: block;
+  margin: 0;
+  padding: 0px 24px 1px 24px;
+}
+
+.branching-container > div {
+  padding-top: 12px;
+}
+
+/* ===== LOG SHIPPING PAGES ===== */
+
+#on-this-page-toc {
+  background-color: var(--background-very-light);
+  border: 1px solid var(--border-very-light);
+  border-radius: 5px;
+  padding-left: 15px;
+}
+
+#on-this-page-toc div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  padding: 0;
+  margin-top: 1rem;
+  line-height: 1.25rem;
+}
+
+#on-this-page-toc div a {
+  display: block;
+  font-size: 1rem;
+  margin-right: 20px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.breadcrumbs {
+  margin-bottom: 1rem;
+  font-size: .9rem;
+  color: var(--text-link-gray);
+}
+
+.breadcrumbs span:not(:last-child)::after {
+  content: " > ";
+}
+
+/* ===== COPY BUTTON ===== */
+
+div.highlighter-rouge {
+  position: relative;
+}
+
+.copy-btn {
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  padding: 1px;
+  margin: 0;
+
+  opacity: .25;
+  transition: opacity .5s ease;
+}
+
+.copy-btn::before {
+  font-size: .75rem;
+  font-weight: 700;
+  padding: 0 4px;
+  background-color: var(--text-normal);
+  color: white;
+  margin-top: -3px;
+  border-radius: 6px;
+}
+
+.copy-btn:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.copy-btn:hover::before {
+  content: "Copy";
+}
+
+.copy-btn:hover::before {
+  content: "Copy";
+}
+
+.copy-btn.copied {
+  opacity: 1;
+}
+
+.copy-btn.copied::before {
+  content: "Copied!";
+}
+
+/* ===== GITHUB AVATARS ===== */
+
+.avatar.avatar-small {
+  display: inline-block;
+  margin: 0 0 0 0;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+
+h1 .avatar.avatar-small {
+  margin-right: .75rem;
+  margin-top: -4px;
+}
+
+.contributor-list .avatar.avatar-small {
+  margin: 0 1px;
+}
+
+/* ===== OPEN SOURCE BUTTON ===== */
+
+.open-source-btn {
+  color: var(--text-normal);
+  border: 1px solid silver;
+  width: fit-content;
+  border-radius: 3px;
+  padding: 0px 4px;
+  font-size: .85rem;
+  font-weight: 600;
+  background: linear-gradient(to bottom, white, var(--background-light));
+  line-height: 1;
+}
+
+.open-source-btn:hover {
+  background: linear-gradient(to bottom, var(--background-very-light), silver);
+}
+
+.rss-button a {
+  color: orange;
+  border: 1px solid currentColor;
+  font-weight: 700;
+  width: fit-content;
+  padding: 0 5px;
+  border-radius: 6px;
+  margin: 0;
+}
+
+.rss-button a:hover {
+  color: white;
+  background-color: orange;
+  border: 1px solid currentColor;
+}
+
+
+/* ===== FPO - IMAGE PLACEHOLDERS ===== */
+.fpo {
+  display: flex;
+  max-width: 80%;
+  height: 100px;
+  margin: 1.5rem auto;
+  border: 1px solid var(--border-dark);
+  border-radius: 2px;
+  background-color: var(--background-light);
+  justify-content: center;
+}
+
+.fpo::after {
+  content: "[ You really should do something about this placeholder. ]";
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+  color: var(--text-code);
+  font-weight: 700;
+  font-size: .9rem;
+}
+
+.fpo.fpo-1::after {
+  content: "[ Nothing lasts forever, including this placeholder. ]";
+}
+
+.fpo.fpo-2::after {
+  content: "[ You are irreplacable. This placeholder, though... ]";
+}
+
+.fpo.fpo-3::after {
+  content: "[ A picture is worth a thousand words. This placeholder... not so much. ]";
+}
+
+.fpo.fpo-4::after {
+  content: "[ Picture this: A rustic hunting lodge, my latest kill roasting over the fire, and this placeholder isn't just a placeholder. ]"
+}

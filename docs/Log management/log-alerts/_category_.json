@@ -1,0 +1,8 @@
+{
+  "label": "Log alerts",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Log alerts"
+  }
+}

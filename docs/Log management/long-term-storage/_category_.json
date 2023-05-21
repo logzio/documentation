@@ -1,0 +1,8 @@
+{
+  "label": "Long term storage for selected logs",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Long term storage for selected logs"
+  }
+}
