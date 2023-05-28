@@ -1,0 +1,8 @@
+{
+  "label": "Introduction to Prometheus",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Insights"
+  }
+}
