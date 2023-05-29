@@ -9,7 +9,7 @@ The process of getting logs from your system to Logz.io can be tricky,
 and it can be difficult to pinpoint the exact issue.
 In this doc, we'll walk through troubleshooting some common problems.
 
-#### To troubleshoot your log shipping
+#### First steps to troubleshooting your log shipping
 
 Before doing anything,
 make sure you give Logz.io some time to parse and index your logs.
@@ -18,7 +18,7 @@ Sometimes, this can take longer.
 
 
 
-##### Check the Logz.io status page
+#### Check the Logz.io status page
 
 Visit our [status page](http://status.logz.io/)
 to confirm everything is working normally.
@@ -36,7 +36,7 @@ On rare occasions, there may be an issue with our production environment.
 If this happens,
 you'll need to wait until we fix the problem before you can ship your logs.
 
-##### Check your shipper's connectivity
+#### Check your shipper's connectivity
 
 For macOS and Linux, use telnet to make sure your log shipper can connect to Logz.io listeners.
 
@@ -99,7 +99,7 @@ allow communication with the right outbound port
 and the Logz.io listener IP addresses
 for your region.
 
-##### Check your log shipping configuration for the right account token
+#### Check that log shipping configuration is set to the right account token
 
 Logz.io uses your account token to send incoming logs to the correct account.
 If you're not using the right account token,
@@ -132,7 +132,7 @@ and restart your shipper if you need to.
 If your logs still don't appear in OpenSearch Dashboards after a few minutes,
 move on to the next troubleshooting step.
 
-##### Check your log shipper's logs
+#### Check your log shipper's logs
 
 Next, you'll need to check your log shipper's logs.
 If you're not sure where to find the logs,
@@ -144,7 +144,7 @@ look for errors indicating that your logs aren't being shipped.
 Also confirm that the log shipper is running.
 If it's not running, you'll need to troubleshoot the shipper.
 
-###### Common log shipper issues and fixes
+#### Common log shipper issues and fixes
 
 * _Multiple configurations_: Make sure your shipper has one configuration. If it has more than one configuration, remove or comment out extra configurations.
 * _Incorrect paths_: Make sure all the paths in the configuration are correct.

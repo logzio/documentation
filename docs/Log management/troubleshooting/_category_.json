@@ -1,8 +1,8 @@
 {
-  "label": "Troubleshooting",
+  "label": "Troubleshooting Logs and OpenSearch Dashboards",
   "position": 2,
   "link": {
     "type": "generated-index",
-    "description": "Log shipping troubleshooting"
+    "description": "Troubleshooting guides for common logs and OpenSearch Dashboards issues."
   }
 }
