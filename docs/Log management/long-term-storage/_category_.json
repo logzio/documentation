@@ -1,8 +1,8 @@
 {
-  "label": "Long term storage for selected logs",
-  "position": 1,
+  "label": "Logz.io Optimizers",
+  "position": 5,
   "link": {
     "type": "generated-index",
-    "description": "Long term storage for selected logs"
+    "description": "Optimizers are query-based rules that allow you to store logs and aggregations to a timeless account for extended retention."
   }
 }
