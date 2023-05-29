@@ -6,8 +6,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Welcome to Logz.io Docs',
-  favicon: 'img/favicon.ico',
+  title: 'Logz.io Docs',
+  favicon: 'https://logz.io/wp-content/themes/Avada-Child-Theme-logz/theme_favicon/apple-touch-icon.png',
 
   // Set the production url of your site here
   url: 'https://your-docusaurus-test-site.com',
@@ -70,12 +70,12 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg',
       navbar: {
-        title: 'My Site',
+        title: 'Logz.io Docs',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'Logz.io Docs',
+          src: 'https://docs.logz.io/images/logo/logz-symbol.svg',
         },
         items: [
           {
