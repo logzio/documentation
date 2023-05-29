@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 9
 ---
 
 Troubleshooting your applications and systems just got easier with the help of Log Highlighter.

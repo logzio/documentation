@@ -3,7 +3,7 @@ sidebar_position: 2
 ---
 
 
-# Configure optimizers
+# Configure Optimizers
 
 
 To create a new optimizer, start in OpenSearch Dashboards so you can test the query you want to use.
@@ -18,9 +18,9 @@ Once a log is pulled to your Logz.io account, it takes up to **2 hours** until i
 
 If you want help updating an existing optimizer, you can skip the first part of this page.
 
-#### To create an optimizer
+### Create an optimizer:
 
-##### Set your query in OpenSearch Dashboards
+#### Set your query in OpenSearch Dashboards
 
 In OpenSearch Dashboards, type a query in the query bar
 and press **Enter**.
@@ -35,17 +35,17 @@ Click **Create Optimizer** (above the query bar) to open the **Create an optimiz
 Continue with To configure an optimizer.
 
 
-#### To configure an optimizer
+### Configure an optimizer:
 
 ![Configure an Optimizer](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/create-optimizer_aug2021.png)
 
 
 
-##### Name the optimizer
+#### Name the optimizer
 
 Type a **Name** and a detailed **Description**.
 
-##### _(Optional)_ Edit the search settings
+#### _(Optional)_ Edit the optimizer's search settings
 
 If you need to, change your optimizer **Query** and the **Accounts** that the query searches.
 
@@ -56,7 +56,7 @@ The filter tags that are displayed in the Optimizer **Query** section indicate w
 To update the filters, you'll need to add them to your search in **Discover**.
 
 
-##### _(Optional)_ Edit group by settings
+#### _(Optional)_ Edit the optimizer's group-by settings
 
 To store aggregate results, group your search fields.
 
@@ -72,15 +72,15 @@ choose a log type from the **Filter by type** list.
 To show fields for all log types,
 choose **Clear filter**.
 
-##### Set the frequency
+#### Set optimizers' trigger
 
 In the **Trigger** section, choose how often this optimizer should run.
 
-##### Choose a timeless account
+#### Choose the relevant timeless account
 
 In the **Action** section, choose a timeless account to send to.
 
-##### Choose an output format
+#### Choose the optimizer's output format
 
 Choose an **Output**.
 
