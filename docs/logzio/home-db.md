@@ -31,14 +31,14 @@ For example, clicking on Insights or Exceptions will remove all of them from the
 ![Add remove elements](https://dytvr9ot2sszz.cloudfront.net/logz-docs/home-dashboard/add-remove-elements.gif)
 
 
-##### Graph view
+##### Graph overview
 
 This is a visual representation of your account’s data. Hover over the graph to see a breakdown of elements per hour. This view includes the number of overall and unique events.
 
 ![Graph hover view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/home-dashboard/graph-hover-view.png)
 
 
-##### Table view
+##### Table overview
 
 At the bottom of the page, you can view your account's data as a table. The data is broken down by events, and you can view each event’s type, severity, number of grouped events, and the date on which the event was last triggered. 
 
@@ -50,7 +50,7 @@ When hovering over one of the events you'll see an **Investigate** button, which
 
 Home Dashboard offers easy access to your logs and metrics dashboards, allowing you to search any available dashboard across your account. Start typing to search throughout your available dashboards, and click on one of the options to open it in a new tab. This view includes which dashboards you've viewed recently, and you can add critical or important dashboards to your favorites for quick access.
 
-##### Time frame
+##### Set your time frame
 
 The top of the page indicates when the data was last updated, helping you keep up to date with the data.
 

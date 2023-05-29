@@ -15,8 +15,6 @@ Patterns can help you isolate unusual events from a mass of repetitive events, i
 
 To review your log results clustered into Patterns, switch to the **Patterns** tab in OpenSearch Dashboards and filter Patterns in/out of your results.
 
-* toc list
-
 ### Understanding log patterns
 
 ![Log patterns](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/log-patterns-table-1.png)
@@ -41,9 +39,9 @@ Filters
 : Filter a pattern in/out. You'll be taken to the **Logs** tab, where you'll see the filtered log results.
 
 
-### Patterns are specific to your log results
+### Split logs to optimize pattern view
 
-For optimal pattern recognition, we recommend **splitting your logs into multiple types** to allow you to see the different patterns more clearly. Combining many logs into one type may result in many unidentified patterns.
+Patterns are specific to your log results. For optimal pattern recognition, we recommend **splitting your logs into multiple types** to allow you to see the different patterns more clearly. Combining many logs into one type may result in many unidentified patterns.
 
 
 Log Patterns is an alternative view to the log document table. It shows the same logs organized in a different way. As you adjust your search and query parameters, filters, and time frame - Patterns are recalculated in sync with your log results.
@@ -54,7 +52,7 @@ Pattern filters can be used in saved searches, visualizations, and dashboards. T
   
 ![Patterns filter](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/patterns-filter1.png)
 
-### Sorting 
+### Sorting by log patterns
 
 The default sorting for your log document table is chronological, with the newest logs at the top. In contrast, Patterns are organized by default by frequency with the most common patterns at the top.
 
@@ -62,7 +60,7 @@ If you are looking for rare or infrequent logs, click the **Count** or **Ratio**
 
 You can sort your log patterns by their time of first occurrence, ratio, count, and estimated size.
 
-### Variables: Categories vs. Wildcards
+### Log pattern variables: Categories vs. Wildcards
 
 The log pattern reduces specifics in the log message field to generic _variables_.
 
@@ -80,7 +78,7 @@ Variables come in 2 forms:
 
   ![reloading account `.*`log patterns matcher](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/sample-pattern2.png)
 
-### Pattern limitations
+### Log pattern limitations
 
 Unidentified size
 : Estimated size calculations depend on a enabling the log size field in the [Manage accounts page](https://app.logz.io/#/dashboard/settings/manage-accounts). [Learn more](https://docs.logz.io/user-guide/accounts/manage-account-usage.html#enabling-account-utilization-metrics-and-log-size)

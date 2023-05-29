@@ -1,8 +1,8 @@
 {
   "label": "Log alerts",
-  "position": 1,
+  "position": 3,
   "link": {
     "type": "generated-index",
-    "description": "Log alerts"
+    "description": "Log alerts can ensure that you’re notified of critical events."
   }
 }

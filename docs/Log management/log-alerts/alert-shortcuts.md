@@ -1,16 +1,10 @@
 ---
-sidebar_position: 5
+sidebar_position: 4
+title: How to quickly create alerts
 ---
 
 
-# Alert shortcuts
-
-
 Sometimes, you may want to take shortcuts when creating an alert. You have several options for shortening the process:
-
-1. toc list
-
-
 
 ### Create an alert from OpenSearch Dashboards
 
@@ -43,7 +37,7 @@ If an **Application Insight** or **Cognitive Insight** interests you, you can cr
 
   ![Duplicate alert](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/duplicate-alert.png)
 
-### Fill out the alert form
+### Create an alert manually
 
 These are your most standard methods for creating an alert.
 

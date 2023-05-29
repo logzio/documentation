@@ -1,11 +1,9 @@
 ---
-sidebar_position: 2
-
+sidebar_position: 6
+title: Using regex filters in alerts
 
 ---
 
-
-# Trim output with regex filters
 
 
 
@@ -17,7 +15,7 @@ There is no danger that a regex filter will disrupt the notification.
 * If the regex _does not_ match, the filter will be disregarded and the alert output will include the full value, unaltered.
 
 
-## Example for regex filters
+### Regex filters examples
 
 
 :::info

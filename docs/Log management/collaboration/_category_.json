@@ -1,8 +1,8 @@
 {
-  "label": "Collaboration",
-  "position": 1,
+  "label": "Sharing your Logz.io assets",
+  "position": 7,
   "link": {
     "type": "generated-index",
-    "description": "Collaboration"
+    "description": "There are many convenient ways to share and collaborate in your Logz.io account. Here are a few popular options:"
   }
 }

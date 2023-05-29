@@ -1,10 +1,7 @@
 ---
 sidebar_position: 1
+title: Intro to Log alerts
 ---
-
-
-# Alerts
-
 
 
 Log alerts can ensure that you're notified of critical events. Configuring the right alerts is the foundation of any proactive development, DevOps, and validation practice.
@@ -24,7 +21,7 @@ You'll see a paginated list of all alerts configured for your account.
 
 
 
-### Order or filter the list
+### Order or filter your Log alerts
 
 * You can click the column headers or the top filters to sort the list by **severity**, by the user who **created the alert**, by **tags**, or by the **state** of each alert. 
 
@@ -33,7 +30,7 @@ You'll see a paginated list of all alerts configured for your account.
 ![Alert definitions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts-updated-by-screenshot.png)
 
 
-### Manage alerts
+### Manage Log alerts
 
 You can manage each alert individually or act on many alerts at once.
 

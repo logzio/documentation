@@ -1,5 +1,6 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
+title: Collaboration in Logz.io
 ---
 
 There are many convenient ways to collaborate in your Logz.io logging account.

@@ -1,9 +1,10 @@
 ---
 sidebar_position: 2
+title: Exceptions
 ---
 
 
-# Logz.io Exceptions automatically surfaces exceptions and highlights them in your log results.
+Logz.io Exceptions automatically surfaces exceptions and highlights them in your log results.
 
 While troubleshooting in OpenSearch Dashboards, you can easily see the number of exceptions identified in your log results for every query you run. The list is always in-context, and specific to the log results returned by your search.
 
@@ -40,7 +41,7 @@ You can also view all exceptions by navigating to **[Log Management](https://app
 
 <!-- ![Log management insights](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/logs-insights-exceptions.gif) -->
 
-### Exception count
+### Exception count limitations
 To help you stay focused, the list is capped and will always show the top 10 exceptions.
 If there are more exceptions than can be shown, you can fetch the **Most frequent** or **Most recent** exceptions.
 
@@ -82,7 +83,7 @@ By default, exceptions are sorted by their frequency (that is, their number of o
 
 To reorder exceptions by **# of occurrences**, **First occurrence**, or **Last seen**, click the column header to sort the data in ascending/descending order. (An arrow indicates the sorting method.)
 
-### New exceptions
+### Find new exceptions
 
 Exceptions that occurred for the first time within the search time frame are tagged as **New** exceptions.
 

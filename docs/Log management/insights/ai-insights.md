@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+title: AI Insights
 ---
 
 Logz.io AI Insights combines the power of a large language model with existing AI capabilities, including the patented Cognitive Insights system, to help you speed up Mean Time to Identify (MTTI) and cut down Mean Time to Resolve (MTTR).
