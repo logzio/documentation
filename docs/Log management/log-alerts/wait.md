@@ -1,9 +1,7 @@
 ---
-sidebar_position: 2
+sidebar_position: 7
+title: Set alert triggers
 ---
-
-
-# Wait between notifications
 
 
 The same alert can potentially trigger many times over a short period of time. If it is set to send out notifications, it can swamp your channels and get too noisy.
@@ -12,7 +10,7 @@ To avoid this problem, you can add a waiting period between alert notifications 
 
 ![Recipients and wait between notifications](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/recipients-and-wait.png)
 
-### Escalations and De-escalations
+### Alert's escalations and de-escalations configuration
 
 If you add a waiting period between notifications, they do not delay notifications of escalations or de-escalations.
 
@@ -20,7 +18,7 @@ If you have several thresholds with different severities configured for an alert
 
 ![Recipients and wait between notifications](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/multiple-thresholds.png)
 
-### Group by fields
+### Group alert triggers by fields
 
 If an alert includes group-by fields, it will be evaluated independently per set of results.
 

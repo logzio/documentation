@@ -1,5 +1,6 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
+title: Share OpenSearch Dashboards objects
 ---
 
 You can share OpenSearch dashboards, saved searches and visualizations between accounts by exporting and importing them. This is helpful if you have multiple main accounts or accounts on multiple regions. You can also use this process to keep a local backup copy. 
@@ -47,7 +48,7 @@ If any visualization or dashboard did not import, the issue is likely a field re
 
 
 
-### Compatibility for shared objects across different versions
+### Sharing objects across versions
  
  Your saved and shared objects can only be imported into the following OpenSearch Dashboards versions: 
  

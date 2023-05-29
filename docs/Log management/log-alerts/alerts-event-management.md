@@ -13,12 +13,7 @@ Event Management offers a single source of truth into triggered alerts in your e
 
 The events are displayed in a table: You can sort the events table by severity, status, handler (who they’re assigned to), last triggering data, and the last time the event was updated or edited. You can also filter and search the events in the table to further refine your results.
 
-**Topics on this page:**
-
-* toc list
-
-
-## The Event Management table
+## Event Management table overview
 
 
 ![Event management](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/event-management-main.png)
@@ -38,7 +33,7 @@ The information that is provided for each event triggered is summarized in the t
 |Updated|Date of latest changes made to the event and which user made the changes|
 
 
-## Event filtering 
+## Filtering events
 
 Filter events by any combination of the available filters. 
 
@@ -54,7 +49,7 @@ If you're using filters and no events are displayed, try adjusting your filter c
 |Status|Investigation stage of the triggered event. Default =  **All**|  All, New, Assigned, In Progress, Waiting for response, False positive, Resolved   |
 
 
-### Clear filters
+### Clear event filters
 You can always change the filters you've set. 
 To reset all the filters to the defaults, click **Clear filters**. 
 
@@ -89,7 +84,7 @@ This option opens the OpenSearch Dashboards interface, where you can view the re
 
 
 
-## Viewing the event history
+## Viewing events history
 View the alert information for the triggered event, including the:
 
 - Event title 
