@@ -3,7 +3,7 @@ sidebar_position: 5
 ---
 
 
-# Compare traces
+# Compare your traces with Logz.io
 
 You can compare traces by their structural aspects. Logz.io condenses each trace into a tree of unique service / operation paths.  
 
