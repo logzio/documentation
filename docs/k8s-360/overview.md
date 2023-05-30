@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+title: Getting Started with Kubernetes 360
 ---
 
 Kubernetes 360 is part of Logz.io's Open 360, a unified platform combining a true log analytics solution, the best Prometheus metrics monitoring, and the value of distributed tracing powered by Jaeger.
@@ -41,16 +42,16 @@ You can change and adjust Kubernetes 360 application to match your monitoring an
 ![Dashboard breakdown](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/overview-k360.png)
 
 
-##### Clusters
+##### View by clusters
 
 
 Choose which cluster you want to review. The dropdown menu includes all clusters in your Kubernetes account, bundled under their respective accounts.
 
-##### Namespace
+##### Filter by namespace
 
 Environments with many users, teams, or projects use a namespace to bundle relevant clusters and nodes. This filter allows you to focus on all elements inside a specific namespace.
 
-##### Auto refresh
+##### Stop Kubernetes 360 auto refresh
 
 Your Kubernetes 360 application is set to **auto refresh every 60 seconds** to provide you with the most recent data. Hover over the refresh button to see when the data was last updated.
 
@@ -58,7 +59,7 @@ Click on the button to stop the auto refresh. This allows you to investigate an 
 
 ![autorefresh button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/autorefresh.png)
 
-##### View
+##### Choose your main resource
 
 You can switch your view to filter by the following resources: **Nodes**, **Deployments**, **Daemonset**, **Statefulset**, or **Job**.
 
@@ -82,7 +83,7 @@ By default, Kubernetes 360 provides an overview of your current environment. Use
 
 
 
-#### Quick view
+#### Understanding the quick view menu
 
 Click on a deployment, node, or pod to open the quick view menu and get more information about each element. The menu allows you to investigate and understand what’s happening inside your Kubernetes environment by adding more helpful information.
 
@@ -212,9 +213,7 @@ Nodes and pods quick view menu has an additional **Logs** tab containing a table
 
 You can sort the table by clicking on each header: **Time**, **Log level**, or **Message**. Click on the same header again to change your view to ascending/descending. -->
 
-#### Additional information
-
-###### Calculating Log error rate
+#### Calculating Log error rate
 
 To calculate percentage error, we take the percentage of errors in the last 15 minutes and the percentage of errors in the last 2 hours:
 

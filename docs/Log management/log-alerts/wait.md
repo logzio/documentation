@@ -1,6 +1,6 @@
 ---
 sidebar_position: 7
-title: Set alert triggers
+title: Set Alert Triggers
 ---
 
 

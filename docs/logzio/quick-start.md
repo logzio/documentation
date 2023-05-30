@@ -1,22 +1,19 @@
 ---
-sidebar_position: 3
+sidebar_position: 1
 ---
 
-# Getting started with Logz.io
+# Getting Started with Logz.io
 
 
 Logz.io is an end-to-end cloud monitoring service built for scale. It’s the best-of-breed open source monitoring tools on a fully managed cloud service. 
 
 One unified SaaS platform to collect and analyze logs, metrics, and traces, combined with human-powered AI/ML features to improve troubleshooting, reduce response time and help you manage costs.
 
-**In this guide, you can find how to:**
-
-
 
 Whether you are a new user or looking for a refresher on Logz.io, you are invited to join one of our engineers for a **[training session on the Logz.io platform](https://docs.logz.io/training/)**!
 
 
-## Send your data to Logz.io
+### Send your data to Logz.io
 
 Once you’ve set up your account, you can start sending your data.
 
@@ -43,7 +40,7 @@ To learn more about shipping your data, check out **Shipping Log Data to Logz.io
 
 
 
-##### Parsing your data
+#### Parsing your data
 
 Logz.io offers automatic parsing [for over 50 log types](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html).
 
@@ -77,7 +74,7 @@ The following list contains some of the common abilities available in Log Manage
 * Predicting exceptions and critical errors with **Insights**
 
 
-#### Create visualizations with Logz.io's Infrastructure Monitoring
+### Create visualizations with Logz.io's Infrastructure Monitoring
 
 Monitor your **[Infrastructure Monitoring](https://app.logz.io/#/dashboard/metrics)** to gain a clear picture of the ongoing status of your distributed cloud services at all times. 
 
@@ -87,7 +84,7 @@ Logz.io's Infrastructure Monitoring lets your team curate a handy roster of dash
 
 Once you've sent your metrics to Logz.io, you can:
 
-##### Build Metrics visualizations with Logz.io
+### Build Metrics visualizations with Logz.io
 
 
 You can also:
@@ -102,7 +99,7 @@ You can also:
 * [Sending Prometheus metrics to Logz.io](https://logz.io/learn/sending-prometheus-metrics-to-logzio/)
 
 
-#### Take a deep dive into your code with Logz.io's Distributed Tracing
+### Dive deeper into the code with Logz.io's Distributed Tracing
 
 Use Logz.io’s **[Distributed Tracing](https://app.logz.io/#/dashboard/jaeger)** to look under the hood at how your microservices behave, and access rich information to improve performance, investigate, and troubleshoot issues.
 
@@ -116,7 +113,7 @@ To help you understand how Distributed Tracing can enhance your data, check out 
 * **[Correlate logs and traces](https://docs.logz.io/user-guide/distributed-tracing/correlate-traces/)**
 
 
-#### Secure your environment with Logz.io's Cloud SIEM
+### Secure your environment with Logz.io's Cloud SIEM
 
 Logz.io **[Cloud SIEM](https://app.logz.io/#/dashboard/security/summary)** (Security Information and Event Management) aggregates security logs and alerts across distributed environments to allow your team to investigate security incidents from a single observability platform.
 
@@ -130,7 +127,7 @@ Here are some popular Cloud SIEM resources to help you get started:
 * **[Configure a security rule](https://docs.logz.io/user-guide/cloud-siem/manage-security-rules.html)**
 * **[Dashboards and reports](https://docs.logz.io/user-guide/cloud-siem/dashboards/)**
 
-#### Manage your Logz.io account
+### Manage your Logz.io account
 
 Logz.io's account admins can control and edit different elements inside their accounts. These abilities include setting up SSO access, assigning permissions per user, and sharing and managing data.
 

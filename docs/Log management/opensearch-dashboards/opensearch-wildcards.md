@@ -3,7 +3,7 @@ sidebar_position: 5
 ---
 
 
-# Wildcard searches
+# Wildcard Searches
 
 
 Wildcards can be useful when you need to run a search on an indefinite term or a partial string.

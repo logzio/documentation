@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Deployment markers
+# Deployment Markers
 
 #### Adding Deployment markers to Exception graphs
 

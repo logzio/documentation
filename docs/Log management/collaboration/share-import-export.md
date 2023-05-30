@@ -1,6 +1,6 @@
 ---
 sidebar_position: 3
-title: Share OpenSearch Dashboards objects
+title: Share OpenSearch Dashboards Objects
 ---
 
 You can share OpenSearch dashboards, saved searches and visualizations between accounts by exporting and importing them. This is helpful if you have multiple main accounts or accounts on multiple regions. You can also use this process to keep a local backup copy. 

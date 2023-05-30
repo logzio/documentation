@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-title: Sharing links
+title: Sharing Links
 ---
 
 You can use shared tokens to share OpenSearch dashboards and visualizations with

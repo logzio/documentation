@@ -16,18 +16,13 @@ To send information to Logz.io properly in a SELinux environment, it is necessar
 * rsyslog to communicate with logz.io through the desired port
 * rsyslog to access the files and directories needed for it to work properly
 
-On this page:
-
-* toc list
 
 
-
-
-### Possible cause - issue not related to SELinux
+### Possible cause - Issue not related to SELinux
 
 The issue may not be caused by SELinux.
 
-#### Suggested remedy
+###### Suggested remedy
 
 
 Disable SELinux temporarily and see if that solves the problem.
@@ -69,14 +64,14 @@ SELINUX=disabled
 SELINUX=permissive 
 ```
 
-### Possible cause - need exceptions to SELinux for Logz.io
+### Possible cause - Need exceptions to SELinux for Logz.io
 
 You may need to add exception to SELinux configuration to enable Logz.io.
 
-#### Suggested remedy
+###### Suggested remedy
 
 
-##### Install the policycoreutils and the setroubleshoot packages
+###### Install the policycoreutils and the setroubleshoot packages
 
 
 ```shell
@@ -84,7 +79,7 @@ You may need to add exception to SELinux configuration to enable Logz.io.
 $ sudo yum install policycoreutils setroubleshoot
 ```
 
-##### Check which syslog ports are allowed by SELinux
+###### Check which syslog ports are allowed by SELinux
 
 Run the command as in the example below:
 
@@ -95,7 +90,7 @@ output:
 syslogd_port_t udp 514
 ```
 
-##### Add a new port to policy for Logz.io
+###### Add a new port to policy for Logz.io
 
 
 ```shell
@@ -103,7 +98,7 @@ syslogd_port_t udp 514
 $ sudo semanage port -m -t syslogd_port_t -p tcp 5000
 ```
 
-##### Authorize Rsyslog directory
+###### Authorize Rsyslog directory
 
 
 ```shell
@@ -125,7 +120,7 @@ $ sudo semanage fcontext -a -t etc_t "/etc/rsyslog.d"
 $ sudo restorecon -v /etc/rsyslog.d
 ```
 
-##### Restart Rsyslog
+###### Restart Rsyslog
 
 
 ```shell

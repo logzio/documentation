@@ -1,26 +1,24 @@
 ---
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 
-# Troubleshooting Python logs
+# Troubleshooting Python Logs
 
 This section contains some guidelines for handling errors that you may encounter when trying to collect Python logs.
 
-* toc list
 
-
-## Problem: No logs received
+### Problem: No logs received
 
 No logs are observed in your Logz.io account.
 
-### Possible cause - Incorrect token and/or listener URL
+###### Possible cause - Incorrect token and/or listener URL
 
 
 
 Your Logz.io token and/or listener URL may be incorrect.
 
-#### Suggested remedy
+###### Suggested remedy
 
 
 1. Navigate to  **[Manage tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/shared) > [Data shipping tokens - Logs](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs)** and verify your account's log shipping token and listener URL.
@@ -28,7 +26,7 @@ Your Logz.io token and/or listener URL may be incorrect.
 2. Check in the integration code whether the token and listener URL are specified correctly.
 
 
-## Problem: Exception while sending logs to Logz.io
+### Problem: Exception while sending logs to Logz.io
 
 The following error message appears:
 
@@ -36,13 +34,13 @@ The following error message appears:
 Got exception while sending logs to Logz.io, Try (1/4). Message: HTTPSConnectionPool(host='listener.logz.io', port=8071): Max retries exceeded with url: /?token=<<LOG-SHIPPING-TOKEN>> (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x0000017839B4FD30>: Failed to establish a new connection: [WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions.
 ```
 
-### Possible cause - Shipper connectivity failure
+###### Possible cause - Shipper connectivity failure
 
 
 Your host/server may not be connected to your Logz.io listener.
 
 
-#### Suggested remedy
+###### Suggested remedy
 
 
 Verify connectivity of your host/server as follows.
@@ -69,25 +67,25 @@ If you see `Trying xxx.xxx.xxx.xxx...` for more than 10 seconds, your machine is
 
 
 
-### Possible cause - Cannot connect to Logz.io listener
+###### Possible cause - Cannot connect to Logz.io listener
 
 
 Your host/server cannot connect to Logz.io listener and you see `Trying xxx.xxx.xxx.xxx...` for more than 10 seconds, when testing the connection.
 
-#### Suggested remedy
+###### Suggested remedy
 
 
 Confirm that your firewall and network settings allow communication with the correct outbound port and the Logz.io listener IP addresses for your region.
 
 
 
-### Possible cause - Timeout parameter is too short
+###### Possible cause - Timeout parameter is too short
 
 
 
 You can connect to Logz.io listener, but still see no logs.
 
-#### Suggested remedy
+###### Suggested remedy
 
 
 Make sure you have the timeout setting increased as follows:
