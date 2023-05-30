@@ -88,7 +88,7 @@ const config = {
             position: 'left',
             label: 'Tutorial',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {to: '/api', label: 'API', position: 'left'},
           {
             href: 'https://github.com/facebook/docusaurus',
             label: 'GitHub',
@@ -104,46 +104,74 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-              },
-              {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
-              },
-            ],
-          },
-          {
-            title: 'More',
+            title: 'Additional Links',
             items: [
               {
                 label: 'Blog',
-                to: '/blog',
+                href: 'https://logz.io/blog/',
+              },
+              {
+                label: 'Videos',
+                href: 'https://logz.io/learn/video/',
+              },
+              {
+                label: 'Notices for 3rd Party Software included with the Logz.io Platform',
+                to: 'https://dytvr9ot2sszz.cloudfront.net/logz-docs/legal/3rd-party-software-included-with-the-logz.io-platform-sep-2022.pdf',
+              },
+              {
+                label: 'Report a security issue',
+                to: 'https://docs.logz.io/report-a-security-issue/',
+              },
+            ],
+          },
+          {
+            title: 'Legal',
+            items: [
+              {
+                label: 'Privacy Policy',
+                href: 'https://logz.io/about-us/privacy-policy/',
+              },
+              {
+                label: 'Terms of Use',
+                href: 'https://logz.io/about-us/terms-of-use/',
+              },
+              {
+                label: 'Trademark Legal Notice',
+                href: 'https://logz.io/about-us/trademarks-legal-notice/',
+              },
+              {
+                label: 'Contributers',
+                to: 'https://docs.logz.io/credits.html',
+              },
+            ],
+          },
+          {
+            title: 'Social',
+            items: [
+              {
+                label: 'Facebook',
+                href: 'https://www.facebook.com/logz.io',
+              },
+              {
+                label: 'Twitter',
+                href: 'https://twitter.com/logzio',
+              },
+              {
+                label: 'YouTube',
+                href: 'https://www.youtube.com/channel/UC9Rc1hpWHUju8O2rYHAUVXA',
+              },
+              {
+                label: 'LinkedIn',
+                href: 'https://www.linkedin.com/company/4831888',
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/logzio',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Logshero Ltd.`,
       },
       prism: {
         theme: lightCodeTheme,
