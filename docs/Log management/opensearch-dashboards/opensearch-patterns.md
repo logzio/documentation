@@ -3,7 +3,7 @@ sidebar_position: 4
 ---
 
 
-# Log patterns
+# Understanding Log Patterns
 
 The Logz.io Patterns Engine runs advanced clustering algorithms to automatically group logs with similar message fields by their frequency of occurrence.
 

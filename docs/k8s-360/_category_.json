@@ -3,6 +3,6 @@
   "position": 3,
   "link": {
     "type": "generated-index",
-    "description": "Infrastructure monitoring."
+    "description": "Kubernetes 360 is part of Logz.io’s Open 360, a unified platform combining a true log analytics solution, the best Prometheus metrics monitoring, and the value of distributed tracing powered by Jaeger."
   }
 }

@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Intro to Log alerts
+title: Intro to Log Alerts
 ---
 
 
@@ -16,8 +16,6 @@ from the navigation menu.
 ![Alert definitions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alert-definitions-main.png)
 
 You'll see a paginated list of all alerts configured for your account.
-
-* toc list
 
 
 

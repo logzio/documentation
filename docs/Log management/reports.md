@@ -38,7 +38,7 @@ You can use an online tool such as the
 
 Use **Who to send it to** to choose the report's email and Slack recipients.
 
-##### Custom logo & sharing link
+##### Add custom logo & sharing link
 
 ![Logz.io report scheduling form](https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/new-report.png)
 
@@ -61,7 +61,7 @@ Here's an example of what the report email might look like.
 ![Example of Logz.io report email](https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/demo-report-email.png)
 
 
-#### Schedule your report:
+##### Schedule your report
 
 * Open a dashboard, and click **Create report** from the dashboard menu.
 

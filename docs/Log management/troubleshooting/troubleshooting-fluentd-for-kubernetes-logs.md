@@ -2,13 +2,11 @@
 sidebar_position: 3
 ---
 
-# Troubleshooting Fluentd for Kubernetes logs
+# Troubleshooting Fluentd for Kubernetes Logs
 
 This section contains some guidelines for handling errors that you may encounter when trying to run Fluentd to collect Kubernetes logs.
 
-* toc list
-
-## Problem: /file/path.log unreadable
+### Problem: /file/path.log unreadable
 
 The following error appears when running Fluentd:
 
@@ -16,15 +14,15 @@ The following error appears when running Fluentd:
 /file/path.log unreadable. it is excluded and would be examined next time
 ```
 
-### Possible cause
+###### Possible cause
 
 You may need to add more volume and volume mount to your Daemonset.
 
-### Suggested remedy
+###### Suggested remedy
 
 
 
-##### Check on which node your pod is running
+###### Check on which node your pod is running
 
 Find out on which node your Fluentd pod with the errors is running. To do so, use this command:
 
@@ -32,11 +30,11 @@ Find out on which node your Fluentd pod with the errors is running. To do so, us
 kubectl -n <<NAMESPACE>> get pod <<FLUENTD-POD-NAME>> -owide
 ```
   
-##### Connect to the node
+###### Connect to the node
 
 Connect to the node you found in the previous step (ssh, etc...).
 
-##### Find the log's path
+###### Find the log's path
 
 1. Run the following command, to go to the logs directory:
 
@@ -70,7 +68,7 @@ Again, this command will output the file and its symlink, or example:
 
 This directory (`/some/other/path`) is the directory where your log files are mounted at the host. You'll need to add that path to your Daemonset.
 
-##### Add the mount path to your Daemonset
+###### Add the mount path to your Daemonset
 
 1. Open your Daemonset in your preffered text editor.
 2. In the `volumeMounts` section, add the following:
@@ -95,7 +93,7 @@ Replace `<<MOUNT-PATH>>` with the directory path you found in step 3.
 
 4. Save the changes.
 
-##### Deploy your new Daemonset.
+###### Deploy your new Daemonset.
 
 Remove your previous Daemonset from the cluster, and apply the new one.
 
@@ -104,13 +102,13 @@ Applying the new Daemonset without removing the old one will not apply the chang
 
 
 
-##### Check your Fluentd pods to ensure that the error is gone
+###### Check your Fluentd pods to ensure that the error is gone
 
 ```shell
 kubectl -n <<NAMESPACE>> logs <<POD-NAME>>
 ```
   
-##  Problem: You have reached your pull rate limit
+###  Problem: You have reached your pull rate limit
 
 vIn some cases (i.e. spot clusters) where the pods or nodes are replaced frequently, they might reach the pull rate limit for images pulled from dockerhub with the following error:
 
@@ -119,8 +117,7 @@ You have reached your pull rate limit. You may increase the limit by authenticat
 https://www.docker.com/increase-rate-limits
 ```
 
-#### Suggested remedy
-{:.no_toc}
+###### Suggested remedy
 
 You can use the following `--set` commands to use an alternative image repository:
 

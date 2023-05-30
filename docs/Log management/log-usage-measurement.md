@@ -2,7 +2,7 @@
 sidebar_position: 10
 ---
 
-# Log data usage
+# Log Data Usage
 
 From November 2021, Logz.io started migrating customers from indexing log measurement to ingestion log measurement.
 

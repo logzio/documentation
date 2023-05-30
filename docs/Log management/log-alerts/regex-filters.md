@@ -1,6 +1,6 @@
 ---
 sidebar_position: 6
-title: Using regex filters in alerts
+title: Using Regex Filters in Alerts
 
 ---
 

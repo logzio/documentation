@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-title: Configure an alert
+title: Configure an Alert
 ---
 
 You can set up Logz.io log alerts to automatically get notified about issues that demand attention.

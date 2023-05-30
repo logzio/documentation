@@ -1,5 +1,6 @@
 ---
 sidebar_position: 9
+title: Log Highlighter
 ---
 
 Troubleshooting your applications and systems just got easier with the help of Log Highlighter.

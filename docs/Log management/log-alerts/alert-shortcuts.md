@@ -1,6 +1,6 @@
 ---
 sidebar_position: 4
-title: How to quickly create alerts
+title: How to Quickly Create Alerts
 ---
 
 
