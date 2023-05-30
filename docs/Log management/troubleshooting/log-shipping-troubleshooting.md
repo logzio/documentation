@@ -1,8 +1,7 @@
 ---
 sidebar_position: 1
+title: Log shipping troubleshooting
 ---
-
-# Log shipping troubleshooting
 
 
 The process of getting logs from your system to Logz.io can be tricky,
