@@ -1,5 +1,6 @@
 ---
 sidebar_position: 3
+title: Unified Helm Chart
 ---
 
 
@@ -12,14 +13,14 @@ The `logzio-monitoring` Helm Chart ships your Kubernetes telemetry (logs, metric
 Please be aware that this project is presently in its beta stage, and as such, it may undergo alterations.
 :::
 
-::note
+:::note
 To get the most out of Kubernetes 360, try out dedicated dashboard. Install the pre-built dashboard to enhance the observability of your metrics.
 :::
 
 
 
-
-##### Check if you have any taints on your nodes
+### Default Helm Chart configuration
+##### 1. Check if you have any taints on your nodes
 
 ```shell
 kubectl get nodes -o json | jq '"\(.items[].metadata.name) \(.items[].spec.taints)"'
@@ -35,14 +36,14 @@ tolerations:
   effect: 
 ```
 
-##### Add the Helm Chart
+##### 2. Add the Helm Chart
 
 ```shell
 helm repo add logzio-helm https://logzio.github.io/logzio-helm
 helm repo update
 ```
 
-##### Deploy the Chart
+##### 3. Deploy the Chart
 
 ```shell
 helm install -n monitoring \
@@ -72,16 +73,16 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<TRACES-SHIPPING-TOKEN>>` | Replace `<<TRACING-SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=tracing) of the account you want to ship to. |
 | `<<LOGZIO-REGION>>` | Name of your Logz.io traces region e.g `us` or `eu`. You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
 
-##### Check Logz.io for your data
+##### 4. Check Logz.io for your data
 
 Give your data some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). 
 
 
 
 
+### Advanced Helm Chart configuration
 
-
-### Collecting span metrics and Trivy reports
+#### Collecting span metrics and Trivy reports
 
 To enable the `logzio-monitoring` Helm Chart collect span metrics and Trivy reports, add the following command to the default deployment:
 
@@ -103,7 +104,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<LISTENER-HOST>>` | |
 
 
-### Further configuration
+#### Further configuration
 
 You can modify the default `logzio-monitoring` Helm Chart by using the `--set` flag in your `helm install` command:
 
@@ -139,7 +140,7 @@ For instance, if there is a parameter called `someField` in the `logzio-telemetr
 --set logzio-k8s-telemetry.someField="my new value"
 ```
 
-### Sending telemetry data from eks on fargate
+#### Sending telemetry data from eks on fargate
 
 To ship logs from pods running on Fargate, set the `fargateLogRouter.enabled` value to `true`. Doing so will deploy a dedicated `aws-observability` namespace and a `configmap` for the Fargate log router. For more information on EKS Fargate logging, please refer to the [official AWS documentation]((https://docs.aws.amazon.com/eks/latest/userguide/fargate-logging.html).
 
@@ -171,7 +172,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<TRACES-SHIPPING-TOKEN>>` | Replace `<<TRACING-SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=tracing) of the account you want to ship to. |
 | `<<LOGZIO-REGION>>` | Name of your Logz.io traces region e.g `us` or `eu`. You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
 
-### Handling image pull rate limit
+#### Handling image pull rate limit
 
 In certain situations, such as with spot clusters where pods/nodes are frequently replaced, you may encounter the pull rate limit for images fetched from Docker Hub. This could result in the following error: Y`ou have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limits`.
 
