@@ -1,0 +1,8 @@
+{
+  "label": "Telemetry Collector",
+  "position": 7,
+  "link": {
+    "type": "generated-index",
+    "description": "Logz.io Accounts"
+  }
+}
