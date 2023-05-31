@@ -1,5 +1,6 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
+title: Metrics Highlights
 ---
 
 Logz.io Metrics will help you monitor the health of your systems and catch issues BEFORE your customers notice.
@@ -8,9 +9,6 @@ Here's how Logz.io Metrics will get you there.
 Logz.io Metrics is a Prometheus-based infrastructure monitoring platform that integrates seamlessly with the OpenSearch Dashboards-based logging platform. Prometheus is the leading open-source tool for visualizing numerical data at scale, with powerful graphing capabilities of trends, changes over time, derivatives, and inflection curves.
 
 The Logz.io’s Metrics UI, the front-end for Infrastructure Monitoring, is a forked version of the Grafana open-source software, created by Logz.io. Read more [here.](https://logz.io/about-us/forked-statement/)
-
-* toc list
-{:toc}
 
 
 ### Easily correlate metrics with logs
@@ -32,7 +30,7 @@ Metrics dashboards can give you the most recent activity and actionable informat
 That way you can benchmark your goals against past achievements.
 
 
-### Launch with pre-built dashboards
+### Apply and utilize Logz.io's pre-built dashboards
 
 Logz.io’s Metrics platform is pre-loaded with dozens of dashboards to help you hit the ground running and get started immediately. Your Metrics account is ready to accept data from many environments, dockers, container systems, queue management systems, and more.
 
