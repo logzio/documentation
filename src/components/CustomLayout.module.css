@@ -1,0 +1,31 @@
+.customLayout {
+  background-color: lightblue;
+  display: flex;
+  justify-content: flex-start; /* adjust here to control the space between elements */
+  padding: 20px;
+}
+
+.logoTags {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.logo {
+  height: 50px;
+  margin-bottom: 20px; /* add space below the logo */
+}
+
+.tags {
+  margin-bottom: 20px; /* add space below the tags if necessary */
+}
+
+.overview {
+  color: white;
+  margin-left: 50px; /* adjust this to bring the overview closer or further from the left */
+}
+
+.overviewText {
+  color: white;
+  margin-left: 50px; /* adjust this to bring the overview closer or further from the left */
+}
