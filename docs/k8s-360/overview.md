@@ -1,7 +1,12 @@
 ---
 sidebar_position: 1
 title: Getting Started with Kubernetes 360
+tags: ['logs', 'metrics', 'traces', 'siem', 'os']
+
 ---
+
+<Tags tags={frontMatter.tags} />
+
 
 Kubernetes 360 is part of Logz.io's Open 360, a unified platform combining a true log analytics solution, the best Prometheus metrics monitoring, and the value of distributed tracing powered by Jaeger.
 
