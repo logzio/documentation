@@ -21,11 +21,11 @@ Wildcard searches can be very resource heavy and slow to run.
 
 For example, you can run a free text search for `string` but not for `*string`. Similarly, you can run a search for a `field:value` pair, such as `key:string` but not `key:*string`.
 
-### Workarounds and alternatives to using Wildcards
+## Workarounds and alternatives to using Wildcards
 
 
 
-##### Change the field mapping to an analyzed field
+#### Change the field mapping to an analyzed field
 
 If you want to search by partial field content, you have the option to change the field mapping to **analyzed text**.
 
@@ -33,7 +33,7 @@ Analyzed fields support filtering for a value that contains a certain string and
 
 For example, say you are looking for a particular host, instead of searching with a leading wildcard for `host:*prod*`, you can use the filters to filter under the field `host` for a value that contains `prod`.
 
-##### Analyzed text fields tokenize strings
+#### Analyzed text fields tokenize strings
 
 Analyzed text fields tokenize longer strings to support full-text search on individual terms.
 

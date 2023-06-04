@@ -41,8 +41,9 @@ If you have more than 25 alerts you'd like to edit, you can select all of the re
 ![Alert bulk actions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/select-all-alerts.png)
 
 
+:::note
 There is a limit of 1,000 alerts that you can act on simultaneously.
-
+:::
 
 #### Managing individual alerts
 
@@ -51,7 +52,7 @@ Each alert has a **State** button you can toggle to enable or disable the alert 
 
 To edit, duplicate or delete an alert, hover over its line to reveal the **Delete** and **Edit** buttons.
 
-You can click the **Menu button <i class="li li-ellipsis-v"></i>** to open the additional options: **Duplicate** an alert and **View last events**. Select the latter to display the alert query and number of hits.
+You can click the **Menu button :<i class="li li-ellipsis-v"></i>** to open the additional options: **Duplicate** an alert and **View last events**. Select the latter to display the alert query and number of hits.
 
 #### Managing multiple alerts
 

@@ -71,7 +71,7 @@ You may need to add exception to SELinux configuration to enable Logz.io.
 ###### Suggested remedy
 
 
-###### Install the policycoreutils and the setroubleshoot packages
+###### 1. Install the policycoreutils and the setroubleshoot packages
 
 
 ```shell
@@ -79,7 +79,7 @@ You may need to add exception to SELinux configuration to enable Logz.io.
 $ sudo yum install policycoreutils setroubleshoot
 ```
 
-###### Check which syslog ports are allowed by SELinux
+###### 2. Check which syslog ports are allowed by SELinux
 
 Run the command as in the example below:
 
@@ -90,7 +90,7 @@ output:
 syslogd_port_t udp 514
 ```
 
-###### Add a new port to policy for Logz.io
+###### 3. Add a new port to policy for Logz.io
 
 
 ```shell
@@ -98,7 +98,7 @@ syslogd_port_t udp 514
 $ sudo semanage port -m -t syslogd_port_t -p tcp 5000
 ```
 
-###### Authorize Rsyslog directory
+###### 4. Authorize Rsyslog directory
 
 
 ```shell
@@ -120,7 +120,7 @@ $ sudo semanage fcontext -a -t etc_t "/etc/rsyslog.d"
 $ sudo restorecon -v /etc/rsyslog.d
 ```
 
-###### Restart Rsyslog
+###### 5. Restart Rsyslog
 
 
 ```shell

@@ -14,12 +14,11 @@ The following error appears when running Fluentd:
 /file/path.log unreadable. it is excluded and would be examined next time
 ```
 
-###### Possible cause
+<h3 id="#heading-id">Possible cause</h3>
 
 You may need to add more volume and volume mount to your Daemonset.
 
-###### Suggested remedy
-
+<h3 id="#heading-id">Suggested remedy</h3>
 
 
 ###### Check on which node your pod is running
@@ -97,8 +96,9 @@ Replace `<<MOUNT-PATH>>` with the directory path you found in step 3.
 
 Remove your previous Daemonset from the cluster, and apply the new one.
 
+:::note
 Applying the new Daemonset without removing the old one will not apply the changes.
-
+:::
 
 
 
@@ -117,7 +117,8 @@ You have reached your pull rate limit. You may increase the limit by authenticat
 https://www.docker.com/increase-rate-limits
 ```
 
-###### Suggested remedy
+<h3 id="#heading-id">Suggested remedy</h3>
+
 
 You can use the following `--set` commands to use an alternative image repository:
 

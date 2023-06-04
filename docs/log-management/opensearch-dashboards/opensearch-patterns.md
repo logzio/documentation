@@ -19,24 +19,18 @@ To review your log results clustered into Patterns, switch to the **Patterns** t
 
 ![Log patterns](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/log-patterns-table-1.png)
 
-Time
-: The earliest log that matches the pattern for the log results returned by your search.
+**A.** Time: The earliest log that matches the pattern for the log results returned by your search.
 
-Count
-: The number of logs matching the pattern for the log results returned by your search.
+**B.** Count: The number of logs matching the pattern for the log results returned by your search.
 
-Ratio
-: The ratio of logs matching the pattern,
+**C.** Ratio: The ratio of logs matching the pattern,
   relative to the total logs in the dataset.
 
-Estimated size
-: A raw estimate in GBs of the capacity taken up by the log pattern.
+**D.** Estimated size: A raw estimate in GBs of the capacity taken up by the log pattern.
 
-Pattern
-: The patterns identified in the message fields.
+**E.** Pattern: The patterns identified in the message fields.
 
-Filters
-: Filter a pattern in/out. You'll be taken to the **Logs** tab, where you'll see the filtered log results.
+**F.** Filters: Filter a pattern in/out. You'll be taken to the **Logs** tab, where you'll see the filtered log results.
 
 
 ### Split logs to optimize pattern view
@@ -80,11 +74,9 @@ Variables come in 2 forms:
 
 ### Log pattern limitations
 
-Unidentified size
-: Estimated size calculations depend on a enabling the log size field in the [Manage accounts page](https://app.logz.io/#/dashboard/settings/manage-accounts). [Learn more](https://docs.logz.io/user-guide/accounts/manage-account-usage.html#enabling-account-utilization-metrics-and-log-size)
+**A. **Unidentified size: Estimated size calculations depend on a enabling the log size field in the [Manage accounts page](https://app.logz.io/#/dashboard/settings/manage-accounts). [Learn more](/user-guide/accounts/manage-account-usage.html#enabling-account-utilization-metrics-and-log-size)
 
-Unidentified patterns 
-: Logs that don't fall under any pattern are grouped under the unidentified pattern category.
+**B.** Unidentified patterns: Logs that don't fall under any pattern are grouped under the unidentified pattern category.
 
 
 ![Log pattern limitations](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/log-pattern-limitations_aug2021.png)
