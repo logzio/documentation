@@ -5,7 +5,9 @@ title: Configure an Alert
 
 You can set up Logz.io log alerts to automatically get notified about issues that demand attention.
 
+:::note
 Community plans limit the number of alerts that may be enabled. See the official [pricing page](https://logz.io/pricing/) for details.
+:::
 
 ### Configuring an alert
 
@@ -14,24 +16,25 @@ Community plans limit the number of alerts that may be enabled. See the official
 
 Give your alert a meaningful name. When your alert triggers, its name is used as the email subject or notification heading.
 
+:::note
 Your alert name can contain letters, numbers, spaces, and special characters. It **can't** contain emojis or any other elements.
-{:.info-box.note}
-
+:::
 
 
 #### Set search components
 
 Next, set the search components. This determines which logs to look for and in which accounts.
 
-If you intend to create a correlated alert with 2 queries, see this guide.
+If you intend to create a correlated alert with 2 queries, see [this guide](/user-guide/alerts/correlated-alert/).
 
 
 ![Alert group by settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alert-filter-component.gif)
 
 
+:::note
 To perform date range filtering on the `@timestamp` field, include the field as part of a query, 
 rather than by adding it as a filter: `@timestamp` filters are overwritten.
-
+:::
 
 
 ##### Enter query and filters
@@ -88,7 +91,9 @@ Set your threshold and severity levels.
 
 In the _Trigger if..._ section, click **+ Add a threshold** to set up to 5 threshold conditions, each with its own severity tag.
 
+:::note
 You can set the trigger condition time frame between 5 minutes and up to 24 hours (1 day). To set a trigger condition longer than 24 hours, use [Logz.io’s API](https://docs.logz.io/api/#operation/createAlert) to create your alert.
+:::
 
 
 ![Alert trigger thresholds](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--trigger-settings_aug2021.png)
@@ -100,7 +105,9 @@ You can use the scheduling mechanism to manage the trigger condition frequency.
 Scheduling defines the frequency and the time frame for the alerts. To define a schedule, select **On Schedule** and use a [cron expression](https://www.freeformatter.com/cron-expression-generator-quartz.html) to specify when to trigger the alert.
 
 
+:::note
 The cron expression can only be set in increments rounded to the nearest minute.
+:::
 
 
 ![Schedule alert screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/schedule-alert.png)
@@ -139,7 +146,9 @@ Choose the endpoints or email addresses to notify under _Who to send it to_.
 ##### Add an additional email address as a recipient
 
 
+:::note
 Notification emails include up to 10 sample events. If your alert triggers more than 10 events, you can view the complete list in your logs.
+:::
 
 
 To use an **email** as your endpoint, you need to type the email in the Recipients table and click enter.
@@ -152,8 +161,9 @@ see _Notification endpoints_.
 
 Set a time period between notifications to limit how frequently recipients are notified. Logz.io will continue to log triggered alerts without sending notifications, and you can review these alerts directly from the Logz.io platform at any time.
 
+:::note
 The system combines the **Trigger if** time interval with the **Wait time** interval to calculate how long it should snooze notifications and chooses the more extended time duration available. For example, if your trigger condition is 15 minutes and the wait time is 1 hour, the system will snooze notifications for 1 hour before triggering them again.
-
+:::
 
 ##### Select alert's output format & content
 
@@ -165,7 +175,7 @@ If the alert includes any aggregation or group by field, the notification output
 
 ![Output format](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/output_aggregated_aug2021.png)
 
-To be selective about the output, click **<i class="li li-plus"></i> Add a field** and select a field from the dropdown list. If you want, you can also add a sorting rule and a regex filter. Learn more about regex filters for alert notifications
+To be selective about the output, click **<i class="li li-plus"></i> Add a field** and select a field from the dropdown list. If you want, you can also add a sorting rule and a regex filter. [Learn more about regex filters for alert notifications](/user-guide/alerts/regex-filters.html).
 
   * If you select **JSON** format, you can send the full log (with all fields) or select as many as 7 fields.
   * If you select **Table**, you can send as many as 7 fields.

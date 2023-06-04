@@ -8,7 +8,7 @@ The process of getting logs from your system to Logz.io can be tricky,
 and it can be difficult to pinpoint the exact issue.
 In this doc, we'll walk through troubleshooting some common problems.
 
-#### First steps to troubleshooting your log shipping
+## First steps to troubleshooting your log shipping
 
 Before doing anything,
 make sure you give Logz.io some time to parse and index your logs.
@@ -17,7 +17,7 @@ Sometimes, this can take longer.
 
 
 
-#### Check the Logz.io status page
+### Check the Logz.io status page
 
 Visit our [status page](http://status.logz.io/)
 to confirm everything is working normally.
@@ -35,14 +35,16 @@ On rare occasions, there may be an issue with our production environment.
 If this happens,
 you'll need to wait until we fix the problem before you can ship your logs.
 
-#### Check your shipper's connectivity
+### Check your shipper's connectivity
 
 For macOS and Linux, use telnet to make sure your log shipper can connect to Logz.io listeners.
 
+:::note
 As of macOS High Sierra (10.13),
 telnet is not installed by default.
 You can install telnet with Homebrew
 by running `brew install telnet`.
+:::
 
 Run this command from the environment you're shipping from, after adding the appropriate port number:
 
@@ -95,27 +97,28 @@ your machine is having trouble connecting to the Logz.io listener.
 
 Confirm that your firewall and network settings
 allow communication with the right outbound port
-and the Logz.io listener IP addresses
+and the Logz.io [listener IP addresses](/user-guide/log-shipping/listener-ip-addresses.html)
 for your region.
 
-#### Check that log shipping configuration is set to the right account token
+### Check that log shipping configuration is set to the right account token
 
 Logz.io uses your account token to send incoming logs to the correct account.
 If you're not using the right account token,
 your logs won't be indexed to your account.
 
 You can find your account token
-in the account settings
+in the [account settings](https://app.logz.io/#/dashboard/settings/manage-accounts) page.
 
 Compare your account token
 with the token you're sending to Logz.io with your logs.
-Review the instructions for your log shipping method
+Review the instructions for your [log shipping method](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all)
 if you're not sure where to find the token you're sending with your logs.
 
+:::tip
 In most cases, the token is stored in a configuration file
 or as a query parameter in the URL you're shipping logs to.
 You can usually find it by searching for "token".
-
+:::
 
 ###### If the tokens match
 
@@ -131,7 +134,7 @@ and restart your shipper if you need to.
 If your logs still don't appear in OpenSearch Dashboards after a few minutes,
 move on to the next troubleshooting step.
 
-#### Check your log shipper's logs
+### Check your log shipper's logs
 
 Next, you'll need to check your log shipper's logs.
 If you're not sure where to find the logs,
@@ -142,6 +145,7 @@ look for errors indicating that your logs aren't being shipped.
 
 Also confirm that the log shipper is running.
 If it's not running, you'll need to troubleshoot the shipper.
+
 
 #### Common log shipper issues and fixes
 

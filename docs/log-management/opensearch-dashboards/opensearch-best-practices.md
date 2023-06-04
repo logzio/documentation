@@ -51,7 +51,9 @@ Or, find status codes 400-499 with the extension php or html:
 
 #### Apply regex in to search
 
+:::caution
 Using Regex can overload your system and cause performance issues in your account. If Regex is necessary, it's best to apply filters and use shorter timeframes.
+:::
 
 Logz.io uses Apache Lucene's regular expression engine to parse regex queries, supporting regexp and query_string.
 
@@ -145,11 +147,11 @@ For example, if a `metadata` field is assigned as an `Object` in your production
 
 You can also send data from each environment to a dedicated sub account to monitor them individually.
 
-Learn more about creating and managing sub accounts and about field mapping in your account.
+Learn more about [creating and managing sub accounts](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#add-and-manage-a-log-management-sub-account) and about [field mapping](/user-guide/logs/mapping/) in your account.
 
 ## Additional resources
 
 * [Configure an alert](https://docs.logz.io/user-guide/alerts/configure-an-alert.html)
-* Use Insights to detect new exceptions and critical errors
+* [Use Insights to detect new exceptions and critical errors](https://docs.logz.io/user-guide/insights/ai-insights.html)
 * [Use Live tail to get a live view of your logs](https://docs.logz.io/user-guide/live-tail/)
 
