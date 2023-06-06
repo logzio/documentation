@@ -1,5 +1,6 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
+title: Explore in OpenSearch Dashboards
 ---
 
 **Explore in OpenSearch Dashboards** are drilldown links that give you a direct shortcut from your Metrics' visualizations to the relevant logs in OpenSearch Dashboards.
@@ -10,7 +11,7 @@ Drilldown links help you go straight to the related logs whenever you identify a
 
 
 
-#### Add a panel with drilldown links
+## Add a panel with drilldown links
 
 
 **Before you begin, you'll need**:
@@ -18,7 +19,7 @@ Edit-permissions to the dashboard. If you don't, duplicate the dashboard first.
 It's also a good idea to have [variables configured](/user-guide/infrastructure-monitoring/configure-metrics-drilldown-links) for your dashboard. Variables aren't required, but they are highly recommended.
 
 
-##### Add a new panel
+### Add a new panel
 
 If you want to start fresh with a new dashboard, click <i class="fas fa-plus"></i> in the left menu to add it. Otherwise, you can add a new panel: Click the **Add panel** button in the toolbar (in the upper right corner).
 
@@ -26,7 +27,7 @@ Click **Add an empty panel**.
 
 ![Grafana new panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/im-add-panel.png)
 
-##### Configure the panel
+### Configure the panel
 
 Select your Metrics account from the list of datasources.
 
@@ -35,16 +36,18 @@ Configure the **Query**.
 ![Panel configuration, datasource list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/drop-down-metrics.png)
 
 
-##### Configure the visualization
+### Configure the visualization
 
 Click the _Time series_ title on the right to see all visualization options.
 
+:::tip
 If you plan to add alerts to the visualization, note that only **Time series** is supported. (This is a Grafana limitation.)
+:::
 
 
 ![Panel configuration, visualization  options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/im-select-visualization.png)
 
-##### Configure the drilldown link
+### Configure the drilldown link
 
 Go to **Panel options** located at the right side of the screen, and click the **Panel links** section. 
 Click **+ Add link**.
@@ -61,7 +64,7 @@ Click **+ Add link**.
 
   It is a good idea to test your query in OpenSearch Dashboards to make sure you're getting the intended results.
 
-##### Query syntax and tips
+### Query syntax and tips
 
 If you're using variables in your query, note that there is a slight syntax difference depending on whether you've enabled multi-select or not. 
 
@@ -82,7 +85,7 @@ This way you don't specify a particular value selection:
 `/#/explore-kibana-from-grafana?$__url_time_range&query=kubernetes AND “$node”`
 
 
-##### Save and test
+### Save and test
 
 Save your dashboard.
 (The _Save dashboard_ button is in the toolbar in the upper right corner.)

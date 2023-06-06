@@ -11,10 +11,10 @@ To send your Prometheus application metrics to a Logz.io Infrastructure Monitori
 :::
 
 
-#### Configuring Remote Write to Logz.io
+### Configuring Remote Write to Logz.io
 
 
-##### Add a remote_write url
+#### Add a remote_write url
 
 
 Configure your Prometheus yaml file or use a Helm chart: 
@@ -73,7 +73,7 @@ externalLabels:
 ```
 
    
-##### Verify the remote_write configuration
+#### Verify the remote_write configuration
 
 + **Run a query**: If you are scraping Prometheus metrics, you can check that the remote_write configuration is working properly by doing one of the following and verifying that the result is greater than zero (n > 0) for the url:
 
@@ -88,7 +88,7 @@ externalLabels:
     An empty list or the text _no metrics_ indicates that the remote write configuration is not working properly. 
     ![Verify Prometheus metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/select-metric-query.png)
 
-##### Open Metrics Explore
+#### Open Metrics Explore
 
 Once you've verified that your data is available in Logz.io, [explore your Prometheus metrics.](https://docs.logz.io/user-guide/infrastructure-monitoring/metrics-explore-prometheus/)
 

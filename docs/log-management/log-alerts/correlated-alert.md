@@ -20,7 +20,9 @@ Alternatively, you can visit the [**alerts Event Management** page](https://app.
 
 When a correlated alert triggers, it writes 2 event logs - 1 per query. The event logs will be numbered 1/2 and 2/2, respectively. Each event log will have its own **Investigate** drilldown link.
 
+:::note
 The group-by fields used in the alert will be toggled into the table by default.
+:::
 
 ![Correlated events may be grouped by different fields](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/add-another-query.png)
 

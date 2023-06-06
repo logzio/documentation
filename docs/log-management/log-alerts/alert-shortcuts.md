@@ -20,7 +20,7 @@ Your easiest option is to first test out filters and a search query directly in 
 Logz.io Insights scan your logs for errors and group them into logical units.
 If an **Application Insight** or **Cognitive Insight** interests you, you can create an alert to be notified when it recurs.
 
-  From the navigation menu, select **Logs > Insights**. Click the **Menu button <i class="li li-ellipsis-v"></i>** for the relevant Insight and select **Create an alert**.
+  From the navigation menu, select **Logs > Insights**. Click the **Menu button :<i class="li li-ellipsis-v"></i>** for the relevant Insight and select **Create an alert**.
 
   ![Create an alert for Logz.io Insights](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/create-alert-from-insights-new-nav.png)
 

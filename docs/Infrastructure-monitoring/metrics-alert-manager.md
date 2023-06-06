@@ -1,5 +1,6 @@
 ---
-sidebar_position: 4
+sidebar_position: 3
+title: Metrics Alert Manager
 ---
 
 
@@ -10,7 +11,7 @@ Metrics alert manager is fully compatible with the Prometheus Alert Manager, mak
 
 
 
-###### Create an alert
+## Create an alert
 
 There are 2 main ways for you to create a metric alert:
 
@@ -20,8 +21,9 @@ There are 2 main ways for you to create a metric alert:
 Navigate to your **[Metrics account](https://app.logz.io/#/dashboard/metrics/)**, open your dashboard and choose the panel you'd like to use for your alert.
 
 
+:::note
 You can't create an alert from a Gauge type visualization.
-{:.info-box.note}
+:::
 
 
 Click on the name of the panel and choose **Edit**. 
@@ -35,7 +37,7 @@ Then, navigate to the **Alert** tab and click on the **Create alert rule from th
 
 
 
-##### Rule type
+#### Rule type
 
 
 Name your alert and choose the folder you’d like to associate it with. By entering a group name, you can also choose whether to add the alert to a group inside the folder.
@@ -43,7 +45,7 @@ Name your alert and choose the folder you’d like to associate it with. By ente
 ![Name your alert](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metrics-rule-type.png)
 
 
-##### Create a query to be alerted on
+#### Create a query to be alerted on
 
 Next, review and edit the queries pulled from the panel you chose:
 
@@ -61,7 +63,7 @@ Then, choose **Last** to get the most relevant data point. Since the threshold i
 You can also use the **Math** operation to create time series or number data formulas. Math operations take numbers and time series as input and change them to different numbers and time series. For example, `$D > X`, $D being the Reduce expression, and X the series you want to compare it to.
 
 
-##### Define alert conditions
+#### Define alert conditions
 
 
 Next, define the alert's condition. In the **Condition** dropdown, select the query or expression to trigger the alert rule.
@@ -74,7 +76,7 @@ At this point, you can preview the alert and verify it's successfully monitoring
 
 ![Preview alerts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metric-define-alert-condition.png)
 
-##### Add details for your alert
+#### Add details for your alert
 
 
 You can add additional details to the alert to provide context when and if it triggers. For example, adding `{{$labels.path}}` and `{{$values.D}}` to the summary will automatically populate information from the relevant services. 
@@ -121,15 +123,16 @@ You can test your endpoint to make sure it's working correctly.
 Once you're done, click **Save contact point**. 
 
 
-### Notification policies – configure your alerting notifications
+## Notification policies – configure your alerting notifications
 
 Your alert and contact points are ready, and now it's time to determine how alerts are routed to contact points. Notification policies are built in a tree structure, where there can only be one root policy that can't be deleted, but each policy can have one or more child policies.
 
 [Learn more about Grafana's notifications and policies](https://grafana.com/docs/grafana/latest/alerting/fundamentals/notifications/#notification-policies).
 
 
+:::note
 You can't create a notification with more than 1 trigger tag or label since it causes the alert uses the AND operator (instead of OR), resulting in your notification not triggering. To solve this, you can create multiple notification policies that use the same label. 
-{:.info-box.note}
+:::
 
 To set your notification policy, navigate to the main **[Alerting page](https://app.logz.io/#/dashboard/metrics/alerting/)** and click on the **Notification policies** tab. 
 
@@ -161,7 +164,7 @@ Click on **Save policy** to create the new policy.
 ![Alert notification policy](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metric-alert-notification-policy.png)
 
 
-### Silences – temporarily mute notifications
+## Silences – temporarily mute notifications
 
 Your system can trigger many alerts, creating noise that might distract team members from focusing on critical issues. To prevent this, you can use Silences to mute alerts during a certain time frame.
 
@@ -187,7 +190,7 @@ Click on **Submit** to save your silence.
 ![Silence alerts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/silence-alert-metric.png)
 
 
-### Mute timings vs. Silences
+## Mute timings vs. Silences
 
 Similar to Silences, Mute timings do not prevent alert rules from being evaluated nor stop alert instances from being shown in the user interface. They only prevent notifications from being created.
 

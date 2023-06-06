@@ -8,15 +8,16 @@ sidebar_position: 2
 
 To create a new optimizer, start in OpenSearch Dashboards so you can test the query you want to use.
 
-Before creating an optimizer, you'll need a timeless account to send the data to. If you need help setting up a timeless account, see Manage timeless accounts.
+Before creating an optimizer, you'll need a timeless account to send the data to. If you need help setting up a timeless account, see [Manage timeless accounts](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#timeless).
 
 After you've created your account, navigate back to **OpenSearch Dashboards** > **Create an optimizer**, where you can configure the optimizer settings.
 
+:::note
 Once a log is pulled to your Logz.io account, it takes up to **2 hours** until it appears in your timeless account.
+:::
 
 
-
-If you want help updating an existing optimizer, you can skip the first part of this page.
+If you want help updating an existing optimizer, you can [skip the first part of this page](/user-guide/optimizers/configure-optimizers.html#to-configure-an-optimizer).
 
 ### Create an optimizer:
 
@@ -31,8 +32,7 @@ and press **Enter**.
 Review the results in the histogram and the document table,
 and make sure your query returned the expected results.
 
-Click **Create Optimizer** (above the query bar) to open the **Create an optimizer** page. 
-Continue with To configure an optimizer.
+Click **Create Optimizer** (above the query bar) to open the **Create an optimizer** page.
 
 
 ### Configure an optimizer:
@@ -50,10 +50,13 @@ Type a **Name** and a detailed **Description**.
 If you need to, change your optimizer **Query** and the **Accounts** that the query searches.
 
 
+:::caution
 If you use an invalid query, the optimizer will automatically be disabled.
+
 Run your query in OpenSearch Dashboards so you can be sure you're getting the expected results. 
 The filter tags that are displayed in the Optimizer **Query** section indicate which filters you used for the query in **Discover**. 
 To update the filters, you'll need to add them to your search in **Discover**.
+:::
 
 
 #### _(Optional)_ Edit the optimizer's group-by settings
@@ -90,10 +93,12 @@ To send the raw JSON documents to your timeless account, choose **Full log**.
 
 To send a summary table, choose **Aggregations**.
 
-  If you added any groups (in step 3), the aggregations table will show the aggregated fields that you used. To change these fields, you'll need to change your Group by selection.
+:::note
+If you added any groups (in step 3), the aggregations table will show the aggregated fields that you used. To change these fields, you'll need to change your Group by selection.
+:::
 
 
-If you choose **Aggregations**, click <i class="li li-plus"></i> to add a column to the table, and then choose a field to show in the new column.
+If you choose **Aggregations**, click +<i class="li li-plus"></i> to add a column to the table, and then choose a field to show in the new column.
 
 ![Optimizer aggregation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/optimizr-aggreg2_aug2021.png)
 

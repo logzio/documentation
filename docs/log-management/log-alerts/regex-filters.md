@@ -18,7 +18,7 @@ There is no danger that a regex filter will disrupt the notification.
 ### Regex filters examples
 
 
-:::info
+:::note
 When creating a regex filter, you need to take into account **all of the characters** proceeding the one you're trying to filter.
 :::
 

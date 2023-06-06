@@ -26,14 +26,14 @@ For the trial program, your incoming raw data has a 30-day retention period.
 
 Once your metrics are flowing, import your existing Prometheus and Grafana dashboards to Logz.io Infrastructure Monitoring as JSON files.  
 
-For the record, notification endpoints and dashboard annotations are not imported: You'll need to recreate them in Logz.io.  See Notification endpoints and Annotations for more information.
+For the record, notification endpoints and dashboard annotations are not imported: You'll need to recreate them in Logz.io. See [Notification endpoints](/user-guide/integrations/endpoints.html) and [Annotations](/user-guide/infrastructure-monitoring/annotations/) for more information.
 
 
-1. Configure Remote Write. 
-1. Import dashboards.
-1. Configure notification endpoints.
-1. Recreate your dashboard annotations.
-1. Explore your Prometheus metrics
+1. [Configure Remote Write](/user-guide/infrastructure-monitoring/prometheus-remote-write#configuring-remote-write-to-logzio).
+1. [Import dashboards](/user-guide/infrastructure-monitoring/prometheus-importing-dashbds).
+1. [Configure notification endpoints](/user-guide/integrations/endpoints.html).
+1. [Recreate your dashboard annotations](/user-guide/infrastructure-monitoring/annotations/).
+1. [Explore your Prometheus metrics](/user-guide/infrastructure-monitoring/metrics-explore-prometheus/).
 
 
 

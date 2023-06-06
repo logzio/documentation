@@ -1,8 +1,8 @@
 {
-  "label": "Metrics overview",
+  "label": "Metrics Overview",
   "position": 1,
   "link": {
     "type": "generated-index",
-    "description": "Metrics overview"
+    "description": "Logz.io Metrics lets you curate a handy roster of dashboards to oversee continuous deployment, CI/CD pipelines, prevent outages, manage incidents, and remediate crashes in multi-microservice environments, hybrid infrastructures, and complex tech stacks."
   }
 }

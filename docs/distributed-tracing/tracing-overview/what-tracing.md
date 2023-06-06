@@ -1,5 +1,6 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
+title: What is Distributed Tracing?
 ---
 
 
@@ -41,3 +42,16 @@ All of these spans together make up the full trace.
 
 ### Expand your Distributed Tracing horizons: Logz.io blogs for inspiration and insights
 We have some posts that you might be interested in: 
+
+* <a href ="https://logz.io/tag/distributed-tracing/" target="_blank">Logz.io Distributing Tracing blogs</a>  
+* <a href ="https://logz.io/tag/Jaeger/" target="_blank">Logz.io blog articles on Jaeger</a> 
+* <a href ="https://logz.io/blog/jaeger-kubernetes-best-practices/" target="_blank">Deploying Jaeger on Kubernetes</a> 
+* <a href ="https://logz.io/blog/jaeger-persistence/" target="_blank">Jaeger Persistent Storage</a>
+
+**Additional Jaeger tracing resources** 
+
+* <a href ="https://www.youtube.com/watch?v=zb0fdU6c0KU" target="_blank">Jaeger deep-dive <i class="fas fa-external-link-alt"></i></a> 
+* <a href ="https://www.jaegertracing.io" target="_blank">Jaegertracing.io <i class="fas fa-external-link-alt"></i></a> 
+* <a href ="https://medium.com/jaegertracing" target="_blank">Jaeger on Medium <i class="fas fa-external-link-alt"></i></a>
+* <a href ="https://gitter.im/jaegertracing/Lobby" target="_blank">Jaeger tracing community chat <i class="fas fa-external-link-alt"></i></a> 
+

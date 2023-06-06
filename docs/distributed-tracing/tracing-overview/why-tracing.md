@@ -1,10 +1,10 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 # Why Distributed Tracing
 
 
-### Fast track shortcuts: Oh, the Traces You'll Go! 
+<!-- ### Fast track shortcuts: Oh, the Traces You'll Go! -->
 
 ### Logz.io Distributed Tracing - Why go it alone?
 

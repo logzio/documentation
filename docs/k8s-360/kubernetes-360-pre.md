@@ -19,7 +19,7 @@ Kubernetes 360 application provides an overview of your Kubernetes data, providi
 
 
 
-##### Manually shipping Kubernetes data
+### Manually shipping Kubernetes data
 
 
 If you already have Kubernetes 360 data in your Logz.io account or prefer connecting Kubernetes [manually](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=prometheus-sources), you'll need an active **[Infrastructure Monitoring](https://app.logz.io/#/dashboard/metrics)** account, and ensure that your Kubernetes data is [connected to Logz.io](https://app.logz.io/#/dashboard/send-your-data/agent/new).
@@ -32,7 +32,7 @@ In addition, you'll need to ship your cluster metrics from the following sources
 
 And send the following metrics:
 
-|**Metric name**||**Labels**|
+|**Metric name**|**Labels**|
 | --- | --- |
 |*|p8s_logzio_name `// Equivalent to a Cluster's name`|
 |kube_pod_status_phase|pod, uid, node, host_ip, phase, namespace|
@@ -89,7 +89,7 @@ And send the following metrics:
 |kube_job_owner|all labels|
 
 
-##### Manually configuring Security Risks
+### Manually configuring Security Risks
 
 To add Security risks view to your existing Kubernetes data, you need to:
 
