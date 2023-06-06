@@ -1,7 +1,6 @@
 ---
 sidebar_position: 2
-
-
+title: Annotations
 ---
 
 
@@ -9,17 +8,17 @@ Annotations can mark events on your Metrics dashboards based on data from a logg
 
 
 
-#### Configure an annotation
+## Configure an annotation
 
 
 
-##### Pick your dashboard
+### Pick your dashboard
 
 Before you begin, you'll need to make sure you have permissions to edit the dashboard.
 
 If you are using any of the pre-configured dashboards provided by Logz.io, you'll first need to select the option to make it editable. (You can also click the gear **<i class="li li-gear"></i>** in the top menu, then select **Save as > Save**).
 
-##### Add a new annotation
+### Add a new annotation
 
 Go to the dashboard's settings:
 
@@ -31,7 +30,7 @@ Go to the dashboard's settings:
 
 
 
-##### Decide which logs should trigger the annotation
+### Decide which logs should trigger the annotation
 
 You'll be using a OpenSearch Dashboards search query to select the logs you want to mark on your dashboard. They will appear as vertical markers on the dashboard's timeline to indicate when they were sent.
 
@@ -40,7 +39,7 @@ It's best if you double-check your query results in [OpenSearch Dashboards](/use
 
 You can use Metrics interface variables, on condition that the value of the variable actually appears in the target log. For example, the query `logtype:configuration AND pod.name:$pod` would work assuming the fields `logtype` and `pod.name` exist in the log.
 
-##### Enrich the annotation
+### Enrich the annotation
 
 You can make annotations more informative by specifying the fields of interest.
 These should be fields that contain the crucial information from the log. Their values will be shown when you hover over the annotation in the dashboard.
@@ -49,14 +48,14 @@ These should be fields that contain the crucial information from the log. Their 
 
 * **Tags** - Type in one or more log fields. Their values will appear as tags when you hover over annotations in the dashboard. In the example below, the `service` field was selected.
 
-##### Save the annotation & dashboard
+### Save the annotation & dashboard
 
 When you're finished, save the annotation to see it in action.
 
 Once you're satisfied with the annotation, save the changes to the dashboard. (A prompt will make sure you don't forget this part.)
 
 
-### Example
+## Example
 
 As an example, we'll go through the steps of adding an annotation to flag every time there's a configuration change in a Kubernetes cluster.
 

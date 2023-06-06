@@ -6,10 +6,11 @@ title: Share OpenSearch Dashboards Objects
 You can share OpenSearch dashboards, saved searches and visualizations between accounts by exporting and importing them. This is helpful if you have multiple main accounts or accounts on multiple regions. You can also use this process to keep a local backup copy. 
 
 
-##### Export objects from OpenSearch Dashboards 
+### Export objects from OpenSearch Dashboards 
 
+:::note
 You can export data from up to 20 different accounts. To export data from more than 20 accounts, you'll need to add all of your available accounts to the search by clicking `Add all accounts`.
-{:.info-box.note}
+:::
 
 The first step is to export your existing dashboards, searches, and visualizations out of your OpenSearch Dashboards instance.
 
@@ -26,11 +27,12 @@ The first step is to export your existing dashboards, searches, and visualizatio
   <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-videos/export_kibana_objects1.mp4" type="video/mp4" />
 </video> -->
 
+:::note
 The full export is highly recommended. That way, you can be sure that you'll have everything, irrespective of any inter-dependencies. For example, if you export a single object that happens to be dependent on another object, the export can fail.
- {:.info-box.note}
+:::
 
 
-##### Import objects from a JSON
+### Import objects from a JSON
 
 **Before you begin, you'll need**:
 Make sure that the relevant logs have already shipped to your Logz.io account and refresh the OpenSearch Dashboards mapping.
@@ -43,9 +45,9 @@ Assuming you've got a JSON with your exported objects, it's time to import them 
 
 You're done! You're all set to use your newly imported OpenSearch dashboards, saved searches, and visualizations.
 
+:::note
 If any visualization or dashboard did not import, the issue is likely a field referenced in the visualization but not indexed in your Logz.io account. Check that the relevant logs are already in the account and refresh the OpenSearch Dashboards mapping.
- {:.info-box.note}
-
+:::
 
 
 ### Sharing objects across versions

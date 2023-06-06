@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 title: Exceptions
 ---
 
@@ -41,7 +41,7 @@ You can also view all exceptions by navigating to **[Log Management](https://app
 
 <!-- ![Log management insights](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/logs-insights-exceptions.gif) -->
 
-### Exception count limitations
+### Exception fetch limitations
 To help you stay focused, the list is capped and will always show the top 10 exceptions.
 If there are more exceptions than can be shown, you can fetch the **Most frequent** or **Most recent** exceptions.
 
@@ -58,6 +58,7 @@ Logz.io tracks the recurrence of each exception over time, and retains its **Fir
 
 ![Expand an exception for more details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/exception-overview.png)
 
+|Type|Description|
 |---|---|
 |Exception| Concise title auto-detected by Logz.io based on the content of the logs |
 |Tag| Descriptive tags auto-detected by Logz.io that describe the exception type |

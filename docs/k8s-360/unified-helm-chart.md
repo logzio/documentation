@@ -13,8 +13,8 @@ The `logzio-monitoring` Helm Chart ships your Kubernetes telemetry (logs, metric
 Please be aware that this project is presently in its beta stage, and as such, it may undergo alterations.
 :::
 
-:::note
-To get the most out of Kubernetes 360, try out dedicated dashboard. Install the pre-built dashboard to enhance the observability of your metrics.
+:::tip
+To get the most out of Kubernetes 360, try out dedicated [dashboard](/user-guide/k360/kubernetes-360-pre.html). Log in to your Logz.io account and navigate to the current instructions page [inside the Logz.io app](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=prometheus-sources). Install the pre-built dashboard to enhance the observability of your metrics. To view the metrics on the main dashboard, log in to your Logz.io Metrics account, and open the [Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics).
 :::
 
 
@@ -64,8 +64,8 @@ logzio-monitoring logzio-helm/logzio-monitoring
 
 | Parameter | Description |
 | --- | --- |
-| `<<LOG-SHIPPING-TOKEN>>` |  |
-| `<<LISTENER-HOST>>` |  |
+| `<<LOG-SHIPPING-TOKEN>>` | Replace `<<LOG-SHIPPING-TOKEN>>` with the token of the account you want to ship to. |
+| `<<LISTENER-HOST>>` | Replace `<<LISTENER-HOST>>` with the host [for your region](/user-guide/accounts/account-region.html#available-regions). For example, `listener.logz.io` if your account is hosted on AWS US East, or `listener-nl.logz.io` if hosted on Azure West Europe. The required port depends whether HTTP or HTTPS is used: HTTP = 8070, HTTPS = 8071. |
 | `<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>` | Your [metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
 | `<<P8S-LOGZIO-NAME>>` | The name for the environment's metrics, to easily identify the metrics for each environment. |
 | `<<ENV-ID>>` | The name for your environment's identifier, to easily identify the telemetry data for each environment. |
@@ -77,7 +77,9 @@ logzio-monitoring logzio-helm/logzio-monitoring
 
 Give your data some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). 
 
+Log in to your Logz.io account and navigate to the current instructions page [inside the Logz.io app](https://app.logz.io/#/dashboard/send-your-data/prometheus-sources/). Install the pre-built dashboard to enhance the observability of your metrics.
 
+To view the metrics on the main dashboard, log in to your Logz.io Metrics account, and open the [Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
 
 ### Advanced Helm Chart configuration
@@ -100,7 +102,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | --- | --- |
 | `<<SPM-SHIPPING-TOKEN>>` | Your [span metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
 | `<<ENV-ID>>` | The name for your environment's identifier, to easily identify the telemetry data for each environment. |
-| `<<LOG-SHIPPING-TOKEN>>` | |
+| `<<LOG-SHIPPING-TOKEN>>` | Replace `<<LOG-SHIPPING-TOKEN>>` with the token of the account you want to ship to. |
 | `<<LISTENER-HOST>>` | |
 
 

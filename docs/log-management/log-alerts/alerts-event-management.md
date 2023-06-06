@@ -37,7 +37,9 @@ The information that is provided for each event triggered is summarized in the t
 
 Filter events by any combination of the available filters. 
 
+:::tip
 If you're using filters and no events are displayed, try adjusting your filter choices to find what you're looking for.
+:::
 
 
 ![Filter panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/event-filters.png)
@@ -57,8 +59,9 @@ To reset all the filters to the defaults, click **Clear filters**.
 
 You can run a free text **Search** on the information in the **Event details** field -  This includes any of the information in the event title, ID, or **Description**.
 
-
+:::tip
 If you're running a search and no events are displayed, try adjusting your search terms to find what you're looking for. 
+:::
 
 
 ## Editing an event

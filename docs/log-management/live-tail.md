@@ -5,7 +5,7 @@ title: Live Tail
 
 Live Tail gives you a live view of your logs as they come into Logz.io, eliminating the need to SSH into a remote machine.
 
-#### Live Tail basics - Start, stop, scroll, and clear
+### Live Tail basics - Start, stop, scroll, and clear
 
 * Click [**Logs > Live tail**](https://app.logz.io/#/dashboard/live-tail)
 * To start Live Tail, press <i class="li li-play"></i> (play).
@@ -26,7 +26,7 @@ Live Tail gives you a live view of your logs as they come into Logz.io, eliminat
 The **Raw data** view shows the value of the log **message** fields as they enter the log management queue. To view a live tail of logs without the **message** field, use the [**Parsed data view**](#work-in-parsed-data-view).
 :::
 
-#### Find and highlight terms
+### Find and highlight terms
 
 
 
@@ -37,27 +37,27 @@ The **Raw data** view shows the value of the log **message** fields as they ente
   and then type the word or phrase you want to highlight.
   Click <i class="li li-x"></i> on a highlighted term to remove it.
 
-#### Live Tail parsed data view {#work-in-parsed-data-view}
+### Live Tail parsed data view {#work-in-parsed-data-view}
 
 The parsed data view divides logs into columns, saving you from having to visually scan entire lines of raw text.
 When you first switch to parsed data view, you'll see the `@timestamp` and `message` columns.
 
 
 * To add a new column,
-  click <i class="li li-plus"></i> (to the right of the table heading row),
+  click +<i class="li li-plus"></i> (to the right of the table heading row),
   choose a field to show in the new column, and click **Apply**.
 * To remove a column,
-  hover over the column header and click <i class="li li-x"></i>.
+  hover over the column header and click X<i class="li li-x"></i>.
 * To move a column left or right,
-  hover over the column header and click <i class="li li-left-arrow"></i> or <i class="li li-right-arrow"></i>.
+  hover over the column header and click < <i class="li li-left-arrow"></i> or > <i class="li li-right-arrow"></i>.
 * To add a new filter to your session,
   click **Add a filter**,
   choose a field and filter condition,
   and then click **Apply**.
   Click a filter to edit it,
-  or click <i class="li li-x"></i> on that filter to remove it.
+  or click X<i class="li li-x"></i> on that filter to remove it.
 
-#### Troubleshooting Live Tail
+### Troubleshooting Live Tail
 
 In case you encounter the following error when trying to use Live Tail:
 

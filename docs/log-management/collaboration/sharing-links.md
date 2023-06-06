@@ -8,10 +8,10 @@ stakeholders who don't have access to your Logz.io account.
 
 This can be useful for communicating with clients outside your organization or internally with other teams in your organization.
 
-#### Sharing dashboards
+### Sharing dashboards
 
 
-##### Decide which dashboard to share
+#### Decide which dashboard to share
 
 Open the dashboard you would like to share.
 When you share a dashboard, you can decide whether to share the dashboard with a relative or fixed timeframe.
@@ -33,7 +33,7 @@ When you share a dashboard, you can decide whether to share the dashboard with a
 ![Share your dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/dashboard-to-share.gif)
 
 
-##### Understand how recipients will see the shared dashboards
+#### Understand how recipients will see the shared dashboards
 
 When you choose to **Share Public**, your recipients will receive a link to the dashboard you've shared with them. The dashboard will appear without the top and side navigation bars, and without the OpenSearch Dashboards time filtering options.
 
@@ -59,6 +59,6 @@ When you add the time frame string to the end of the URL, it changes the view an
 
 
 
-##### How to test your sharing permalink
+#### How to test your sharing permalink
 
 You can open your sharing link in an incognito browser window to test it and verify it's working.

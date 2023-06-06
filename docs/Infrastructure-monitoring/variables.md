@@ -1,18 +1,19 @@
 ---
 sidebar_position: 4
+title: Dashboard Variables
 ---
 
 Variables will allow you to apply filters on your dashboards and drilldown links.
 
 Follow these steps to add your dashboard variables: 
 
-#### Add dashboard variables 
+## Add dashboard variables 
 
 **Before you begin, you'll need**:
 [Metrics](https://app.logz.io/#/dashboard/metrics/) in your Logz.io metrics account.
 
 
-##### Add a new dashboard and variable
+#### Add a new dashboard and variable
 
 * In the Metrics left menu, click <i class="fas fa-plus"></i>.
 * Click <i class="fas fa-cog"></i> in the dashboard toolbar (upper right corner).
@@ -20,7 +21,7 @@ Follow these steps to add your dashboard variables:
 
 ![Add Metrics interface variables](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metrics-variables.png)
 
-##### Define the variable
+#### Define the variable
 
 In this example, we will be focusing on the most common variable type - `query` variable. However, there are other variable types - you can see the complete list in the [official documentation](https://grafana.com/docs/grafana/latest/variables/variable-types/).
 
@@ -50,7 +51,7 @@ The **Query** field is where things get really fun. There are several options he
 ![Query field preview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metricspreview-of-variables.png)
 
 
-##### Configure the remaining options and save
+#### Configure the remaining options and save
 
 You can set the remaining options to whatever makes the most sense for your metrics.
 

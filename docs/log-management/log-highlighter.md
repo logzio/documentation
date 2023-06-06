@@ -34,7 +34,8 @@ You can share your highlighted logs from the main log analytics Discover view or
 
 Click on **Share > Copy Link** to share your current view. If you want to share the data with members outside your team, ensure you toggle the **Share Public** option before copying the link.
 
+:::note
 If you're viewing your logs in a short timeframe, such as **Last 15 minutes**, it's best to share only your highlighted logs dashboard. Sharing the main log analytics Discover view with the highlighted logs inside it may require users to scroll down and search for the highlighted logs. 
-{:.info-box.note}
+:::
 
 ![Share log highlights](https://dytvr9ot2sszz.cloudfront.net/logz-docs/share-highlights.png)

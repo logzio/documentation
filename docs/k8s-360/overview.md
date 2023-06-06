@@ -19,7 +19,7 @@ The platform utilizes Kubernetes' numerous advantages for R&D and dev teams, all
 
 
 
-#### Getting started with Kubernetes 360
+### Activate Kubernetes 360
 
 To activate your Kubernetes 360 dashboard, connect your Kubernetes data quickly and easily through Logz.io's **[Telemetry Collector](https://app.logz.io/#/dashboard/send-your-data/agent/new)**.
 
@@ -47,16 +47,16 @@ You can change and adjust Kubernetes 360 application to match your monitoring an
 ![Dashboard breakdown](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/overview-k360.png)
 
 
-##### View by clusters
+##### 1. View by clusters
 
 
 Choose which cluster you want to review. The dropdown menu includes all clusters in your Kubernetes account, bundled under their respective accounts.
 
-##### Filter by namespace
+##### 2. Filter by namespace
 
 Environments with many users, teams, or projects use a namespace to bundle relevant clusters and nodes. This filter allows you to focus on all elements inside a specific namespace.
 
-##### Stop Kubernetes 360 auto refresh
+##### 3. Stop Kubernetes 360 auto refresh
 
 Your Kubernetes 360 application is set to **auto refresh every 60 seconds** to provide you with the most recent data. Hover over the refresh button to see when the data was last updated.
 
@@ -64,7 +64,7 @@ Click on the button to stop the auto refresh. This allows you to investigate an 
 
 ![autorefresh button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/autorefresh.png)
 
-##### Choose your main resource
+##### 4. Choose your main resource
 
 You can switch your view to filter by the following resources: **Nodes**, **Deployments**, **Daemonset**, **Statefulset**, or **Job**.
 
@@ -75,7 +75,7 @@ When switching between views, the main cards change to represent the different r
 ![deployments card](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/k360-breakdown.png)
 
 
-##### Change your metrics view
+#### Change your metrics view
 
 By default, Kubernetes 360 provides an overview of your current environment. Use the bottom menu to focus on different metrics according to your monitoring needs:
 
