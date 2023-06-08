@@ -1,5 +1,5 @@
 .customLayout {
-  background-color: lightblue;
+  background-color: white;
   display: flex;
   justify-content: flex-start; /* adjust here to control the space between elements */
   padding: 20px;
@@ -21,11 +21,15 @@
 }
 
 .overview {
-  color: white;
+  color: black;
   margin-left: 50px; /* adjust this to bring the overview closer or further from the left */
 }
 
 .overviewText {
-  color: white;
+  color: black;
   margin-left: 50px; /* adjust this to bring the overview closer or further from the left */
+}
+
+.container {
+  margin-left: 100px; /* adjust this to control the space between overview and the new container */
 }
