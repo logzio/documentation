@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+title: Kubernetes Deployment Reference to Send Traces
 ---
 
 If you're working with Kubernetes, you can ship your traces to Logz.io using a Helm chart, via the OpenTelemetry collector.

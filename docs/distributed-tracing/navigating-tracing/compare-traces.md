@@ -1,13 +1,13 @@
 ---
-sidebar_position: 5
+sidebar_position: 7
 ---
 
 
-# Compare your traces with Logz.io
+# Compare Your Traces with Logz.io
 
 You can compare traces by their structural aspects. Logz.io condenses each trace into a tree of unique service / operation paths.  
 
-## Grouped spans
+## Compare using grouped spans
 Instead of comparing two traces as a graph of the spans, the comparison feature compares traces as a graph of _groups of spans_. Grouping spans into nodes helps analysis by making trace comparisons easier to understand.  
 
 ![Simplified spans](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/grouped-spans.png)
@@ -22,7 +22,7 @@ Jaeger considers two spans to belong in the same group if:
 
 
 
-## Color-coded nodes
+## Compare using color-coded nodes
 Differences in the presence or prevalence of nodes in the trees are color-coded for emphasis:
 
 + Gray - Both traces have the same node and an equal number of spans.

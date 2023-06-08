@@ -2,13 +2,13 @@
 sidebar_position: 1
 ---
 
-# Distributed Tracing Troubleshooting
+# Distributed Tracing troubleshooting
 
 Setting up a Distributed Tracing account might require some additional help. In this doc, we'll walk through troubleshooting some common issues. 
 
 
 
-## Distributed Tracing is not showing data in Service/Operations dropdown lists
+#### Distributed Tracing is not showing data in Service/Operations dropdown lists
 
 You’ve logged into your Distributed Tracing search screen, and you can’t see any data in Service and Operation lists.
 
@@ -17,7 +17,7 @@ You’ve logged into your Distributed Tracing search screen, and you can’t see
 Several scenarios can cause this:
 
 
-### Account token misconfiguration in OTEL collector
+##### Account token misconfiguration in OTEL collector
 
 Distributed Tracing spans are sent to Logz.io and indexed in a Distributed Tracing account the same way as logs. If the spans are sent as expected, you should be able to see them in Open Search Dashboards, the same way you search for logs.
 
@@ -39,7 +39,7 @@ Once your logs appear in Open Search Dashboards, navigate to **Distributed Traci
 
 If there's no data in the Service/Operation dropdown lists, continue to the next step:
 
-### Lost Service and Operation data
+##### Lost Service and Operation data
 
 Service and Operation data reach Logz.io separately from your spans. That's why you might see data in your Tracing account in Open Search Dashboards (as explained in the previous step), but you won't be able to see data in your Service and Operation lists.
 
@@ -49,7 +49,7 @@ After restarting the collector, navigate back to **Distributed Tracing > [Search
 
 If you still can't see data in the Service and Operation lists, contact [Logz.io's Support team](mailto:help@logz.io) for additional help.
 
-### Distributed Tracing Search screen not showing search results
+##### Distributed Tracing Search screen not showing search results
 
 When you're trying to search any combination of parameters in **[Distributed Tracing > Search](https://app.logz.io/#/dashboard/jaeger/),** and the search screen does not yield any results, follow these steps to resolve the issue:
 
@@ -68,7 +68,7 @@ When you're trying to search any combination of parameters in **[Distributed Tra
 
 
 
-## Service Performance Monitoring dashboard showing no data
+#### Service Performance Monitoring dashboard showing no data
 
 Your Service Performance Monitoring dashboard shows a **No Data** message across all elements in your dashboard.
 

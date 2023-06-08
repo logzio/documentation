@@ -1,8 +1,8 @@
 {
-  "label": "Setting up distributed tracing",
-  "position": 1,
+  "label": "Setting Up Distributed Tracing",
+  "position": 2,
   "link": {
     "type": "generated-index",
-    "description": "Setting up distributed tracing"
+    "description": "Get up and about with Logz.io Distributed Tracing."
   }
 }

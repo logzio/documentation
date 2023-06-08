@@ -1,25 +1,27 @@
 ---
 sidebar_position: 1
+title: Getting Started with Logz.io Distributed Tracing
 ---
 Get set and get ready: This section describes what you have to do to get set up - before you can use Distributed Tracing in Logz.io.
 
 If you already use Distributed Tracing, refer to our [guides on how to get connected to Logz.io](https://app.logz.io/#/dashboard/send-your-data/collection?tag=existing-instrumentation&collection=tracing-sources). 
 This information is also available in the [**Logz.io Docs**](https://docs.logz.io/shipping/#tracing-sources), via the **My code is instrumented** filter.
 
-#### To set up Distributed Tracing: 
+## To set up Distributed Tracing: 
 
 
-##### Get access to Logz.io
+### Get access to Logz.io
 
 Sign up for a [free trial account](https://logz.io/freetrial).
-Once you have a Logz.io account, navigate to the [**Distributed Tracing** interface](https://app.logz.io/#/dashboard/jaeger). 
+Once you have a Logz.io account, navigate to the [**Distributed Tracing** interface](https://app.logz.io/#/dashboard/jaeger).
+
 ![Ready to get some trace data!](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing_activate.png)
 
-##### Get your credentials to send tracing data
+### Get credentials to send tracing data
 
 When you configure your system to send tracing data to Logz.io, you need to provide your Logz.io Distributed Tracing token and Region information.
 
-###### Look up your Tracing token
+#### Look up your Tracing token
 
 You must have admin permissions for the Logz.io account to view the **Manage tokens** page. If you're not an admin user for the account, consult with an account admin to get the Distributed Tracing token information. 
 
@@ -35,10 +37,10 @@ You must have admin permissions for the Logz.io account to view the **Manage tok
 
 
 
-###### Look up your Region information
+#### Look up your Region information
 
 
-##### Set up instrumentation
+### Set up instrumentation
 
 Application instrumentation starts with selecting the library based on the programming language that you're using. Logz.io makes the process of collecting data from the software as easy as possible by taking advantage of community-developed plug-ins for the most commonly used libraries and frameworks. 
 
@@ -55,7 +57,7 @@ To determine the best instrumentation strategy for your system, start with [**Tr
 This information is also available in the **Logz.io Docs**, in [**Send your data > Tracing**](https://docs.logz.io/shipping/#tracing-sources).
 
 
-##### Install and Run the OpenTelemetry Collector
+### Install and Run the OpenTelemetry Collector
 
 Logz.io captures end-to-end distributed transactions from your applications and infrastructure with trace spans sent directly to Logz.io via the OpenTelemetry collector, which you install inside your environment.
 

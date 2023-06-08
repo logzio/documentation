@@ -1,11 +1,13 @@
 ---
 sidebar_position: 2
+title: Trace Timeline
 ---
 
 
-# What can I do in the Trace Timeline?
+##  What can I do in the Trace Timeline?
 
 Start here and dig in: 
+
 ![basic timeline](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/timeline1.png)
 
 In the timeline, each horizontal bar is a span with a unique ID. The services are color-coded to help you identify and track the services involved. The duration of each span is indicated and the relative duration is represented by the length of the span’s horizontal bar. A red error icon in the Services & Operations tree indicates that the span was tagged as an error. 

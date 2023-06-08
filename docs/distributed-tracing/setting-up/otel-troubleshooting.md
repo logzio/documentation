@@ -1,9 +1,9 @@
 ---
-sidebar_position: 2
+sidebar_position: 4
 ---
 
 
-# OpenTelemetry Troubleshooting
+# OpenTelemetry troubleshooting
 
 
 This section contains some guidelines for handling errors that you may encounter when trying to collect traces with OpenTelemetry.
@@ -17,7 +17,7 @@ The code has been instrumented, but the traces are not being sent.
 
 The OpenTelemetry collector may not be installed on your system.
 
-###### Suggested remedy
+#### Suggested remedy
 
 Check if you have an OpenTelemetry collector installed and configured to receive traces from your hosts.
 
@@ -26,7 +26,7 @@ Check if you have an OpenTelemetry collector installed and configured to receive
 
 If the collector is installed, it may not have the correct endpoint configured for the receiver.
 
-###### Suggested remedy
+#### Suggested remedy
 
 1. Check that the configuration file of the collector lists the following endpoints:
 
@@ -62,7 +62,7 @@ If the collector is installed, it may not have the correct endpoint configured f
 If the collector is installed and the endpoints are properly configured, the instrumentation code may be incorrect.
 
 
-###### Suggested remedy
+#### Suggested remedy
 
 
 1. Check if the instrumentation can output traces to a console exporter.
@@ -104,7 +104,7 @@ The correct endpoints are:
        endpoint: "<<COLLECTOR-URL>>:9411/api/v2/spans"
 ```
 
-###### Suggested remedy
+#### Suggested remedy
 
 
 1. Activate `debug` logs in the configuration file of the collector as follows:
@@ -127,7 +127,7 @@ If the post request is successful, there will be an additional log with the stat
 
 If the `debug` logs are sent, but the traces are still not generated, the collector logs need to be investigated.
 
-###### Suggested remedy
+#### Suggested remedy
 
 
 1. On Linux and MacOS, see the logs for the collector:
@@ -150,7 +150,7 @@ This is the endpoint to access the collector metrics in order to see different e
 
 Traces may not be generated if the exporter is not configured properly.
 
-###### Suggested remedy
+#### Suggested remedy
 
 
 If you are unable to export traces to a destination, this may be caused by the following:
@@ -180,7 +180,7 @@ otelcol_exporter_enqueue_failed_metric_points{exporter="logging",service_instanc
 Traces may not be generated if the receiver is not configured properly.
 
 
-###### Suggested remedy
+#### Suggested remedy
 
 
 If you are unable to receive data, this may be caused by the following:

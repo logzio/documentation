@@ -10,12 +10,12 @@ Optimizers are query-based rules that allow you to store logs and aggregations t
 
 To view this page, select [**Logs > Optimizers > Optimizer definitions**](https://app.logz.io/#/dashboard/triggers/optimizer-definitions) from the navigation menu.
 
-Disabled optimizer
+* **Disabled optimizer**
 : An optimizer appears as light gray when it's disabled
 
-Enabled optimizer
+* **Enabled optimizer**
 : An optimizer with dark text shows that it's enabled
 
-Optimizer options
+* **Optimizer options**
 : Use the switch to enable or disable an optimizer, or click the menu to see more options
 
