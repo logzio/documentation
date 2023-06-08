@@ -3,29 +3,6 @@ sidebar_position: 1
 title: Logz.io's Home Dashboard
 ---
 
-import Tags from '@site/src/components/Tags';
-
-<Tags tags={frontMatter.tags} />
-
-import CustomLayout from '@site/src/components/CustomLayout';
-
-<CustomLayout 
-  logo="/img/aws.svg" 
-  tags={['tag1', 'tag2', 'tag3']}
-  overviewTitle="Overview"
->
-  This is the content of your overview.
-</CustomLayout>
-
-
-Logz.io Home Dashboard provides an overview of your environments, including the overall usage of your logs, metrics, and traces, the number of alerts triggered, exceptions found, and insights gathered within the chosen time frame.
-
-With Home Dashboard, you can quickly assess the current status of your system and identify which areas require your attention, making it easier to gain observability and manage your system’s health effectively.
-
-
-
-
-
 ### Dashboard overview
 
 Home Dashboard includes your account’s data, logs, metrics, traces, alerts, exceptions, and insights. 
