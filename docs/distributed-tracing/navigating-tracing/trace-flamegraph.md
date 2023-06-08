@@ -1,8 +1,9 @@
 ---
-sidebar_position: 2
+sidebar_position: 6
+title: Trace Flamegraph
 ---
 
-# What can I do in the Trace Flamegraph?
+## What can I do in the Trace Flamegraph?
 
 This view lets you visualize a distributed request trace. Flamegraph groups services together, providing a high-level summary of execution time. Each horizontal bar represents a service, color-coded and time-stamped according to how long it took to complete the operation.
 

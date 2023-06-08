@@ -1,8 +1,8 @@
 ---
-sidebar_position: 4
+sidebar_position: 6
 ---
 
-# Correlate logs and traces
+# Correlate Logs and Traces
 
 
 ## What can I do with my trace and span data in OpenSearch Dashboards?
@@ -21,9 +21,9 @@ Enriching logs with trace ID and span ID must be performed before or during the 
 
 The enrichment process depends on the language and log type: You will have to [configure your deployment](/user-guide/distributed-tracing/deploying-components) to perform these actions _before_ the data is ingested into Logz.io, because retroactive correlation is not available.  
 
-Contact <a class="intercom-launch" href="mailto:help@logz.io">the Support team for additional information on enriching your logs. </a>.
+Contact <a class="intercom-launch" href="mailto:help@logz.io">the Support team for additional information on enriching your logs. </a>
 
-### Correlating Logs and Traces
+### How to correlate Logs and Traces
 
 1. Once the trace ID is part of the log attributes, open the OpenSearch Dashboards left menu, and select **Stack Management**.
 2. To manage log index patterns, click **Index patterns** and go to your default index pattern settings.
@@ -38,11 +38,14 @@ Contact <a class="intercom-launch" href="mailto:help@logz.io">the Support team f
 
 
 Each traceID attribute functions as a drill down link that leads you to the correlated trace view in Jaeger. 
+
 ![traceID to Trace view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/log_trace5-new.png)
 
+:::note
 The Trace ID identifies logs related to traces, and it should be a part of the log. If you're using OpenTelemetry as instrumentation, you can get the Trace ID in context from the OTEL library and attach it to the log on creation. 
-{:.info-box.note}
+:::
 
 ### From traceID to OpenSearch Dashboards
 You can jump from a trace in Jaeger to view it in OpenSearch Dashboards: 
+
 ![traceID lookup](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/view-in-kibana-new.png)

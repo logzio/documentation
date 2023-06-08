@@ -1,61 +1,56 @@
 ---
-sidebar_position: 5
+sidebar_position: 1
 ---
 
 
 # The Grand Distributed Tracing Tour
 
 
-##### What can I do on the Search and Trace pages?
-
-
-##### Log in to your account and go to Distributed Tracing
-
-Your Distributed Tracing account complements your logging ELK stack. To reach it, log into your Logz.io Operations workspace and select the **Jaeger** or **Tracing** tab.
+Your Distributed Tracing account complements your logging stack. To reach it, log into your Logz.io account and select the **Jaeger** or **Tracing** tab.
 
 By default, your Distributed Tracing account is accessed from your main account. 
+
 ![tracing tour](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing_tour-update.png)
 
 
 
-##### Select a data source for the Distributed Tracing interface 
+### Select a data source for the Distributed Tracing interface 
 
 To display tracing data from a single data source in the Distributed Tracing tab, use the Source selector. 
 ![Pick a data source](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing-data-source.gif)
 
 You cannot select multiple data sources for an aggregated view.
 
-##### Search for traces. 
+### Search for traces. 
 You search for and view traces on the **Search** page. 
 Use the following fields to search for traces: 
 ![Search traces page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/trace-search-fields1.png)
 
 
-|-----------------+----------------|
+
 | Field | Description  |
-|---------------+---------------|
+|---------------|---------------|
 | Service   |Select a service in your system  |
 | Operation | Select an available operation from the list        |
 | Tags      | Each span has its own set of tags Use the preconfigured tags that were used to enrich your traces to further refine your trace searches. The added business logic information makes for easier debug processes |
 |Lookback                        |Select the time frame for the query|
 |Min and Max Duration  |Set the minimum and maximum durations for the traces you want the query to      return Use these parameters to obtain more focused results and reveal performance issues |
 | Limit Results                  |Set the maximum number of results for the query Up to 500 traces can be returned|      
-|-----------------+----------------|
 
     
-###### Tag formatting requirements
+#### Tag formatting requirements
 * Use a space for conjunctions 
 * Enclose values that contain whitespace in quotes
 * Tag formatting requirements are summarized here: [logfmt <i class="fas fa-external-link-alt"></i>](https://brandur.org/logfmt) 
 * A list of recommended tags can be found here: [https://github.com/opentracing/specification/blob/master/semantic_conventions.md <i class="fas fa-external-link-alt"></i>](https://github.com/opentracing/specification/blob/master/semantic_conventions.md)
 
-###### Tag examples
+#### Tag examples
 
 *  `error=true` returns the traces with spans that are tagged as an error
 *  `error=true db.statement="select * from User"`  returns the traces with spans that are tagged as `error=true`, which also include the requested db statement.
 *  `http.status_code=500` returns the traces with a communication error   
 
-##### View trace search results on the Search page.
+### View trace search results on the Search page.
 ![Search results](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing_search-results.png)
 
 **Results timeline**
@@ -79,7 +74,7 @@ The colors represent the different services involved in the trace. Each trace sh
 Sort trace results by the time they occured, by duration, or by the number of spans. 
 ![sort trace list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/dist_trace-sort_traces.png)
 
-##### View a trace on the Trace page.
+### View a trace on the Trace page.
 Click a trace from the trace results timeline or from the trace results list to view its trace page. 
 
 By default, the trace opens in the timeline view. Select an option for different perspectives: 
@@ -97,7 +92,7 @@ By default, the trace opens in the timeline view. Select an option for different
 **[What can I do in the Trace Flamegraph?](/user-guide/distributed-tracing/trace-flamegraph)**
 
 
-##### Find a specific trace. 
+### Find a specific trace. 
 After you log in to your Distributed Tracing account, if you need to view a specific trace, you can use trace ID lookup. <!-- or upload a JSON file. -->
 
 * To investigate specific incidents identified by a unique trace ID, use the search box to retrieve the trace data.  Make sure to tag your logs with the proper context to be able to locate the trace ID.
@@ -105,8 +100,8 @@ After you log in to your Distributed Tracing account, if you need to view a spec
   ![traceID lookup](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/traceid.png)
 
 
-##### Compare traces
+### Compare traces
 [Select traces for comparison](/user-guide/distributed-tracing/compare-traces) and find out how they differ.
 
-##### View Topology diagrams for your system
+### View Topology diagrams for your system
 Leverage the power of [topology diagrams](/user-guide/distributed-tracing/topology-system_architecture/) to obtain better observability for your system services and how they interact with each other.

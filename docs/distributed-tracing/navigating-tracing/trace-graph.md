@@ -1,11 +1,10 @@
 ---
-sidebar_position: 2
-
-
+sidebar_position: 3
+title: Trace Graph
 ---
 
 
-# What can I do in the Trace Graph?
+## What can I do in the Trace Graph?
 
 
 The trace graph shows you the sequence of requests, with spans grouped into node blocks that include parent and child spans. 

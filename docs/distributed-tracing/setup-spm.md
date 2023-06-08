@@ -1,7 +1,7 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 ---
-# Set up your Service Performance Monitoring dashboard
+# Setup Your Service Performance Monitoring Dashboard
 
 
 Logz.io Service Performance Monitoring dashboard (SPM) provides an overview of your systems' health by aggregating **Request**, **Error**, and **Duration** (R.E.D) metrics from span data. The dashboard helps you to pinpoint and isolate incidents in your system quickly.
@@ -15,13 +15,11 @@ The first pipeline sends the spans to the Logz.io backend, where you can analyze
 
 The second pipeline extracts the metrics from the same spans, aggregates them, and sends them to Logz.io’s Prometheus-based account.
 
-* toc list
-{:toc}
+### Activate the Service Performance Monitoring dashboard
 
-#### Activate the Service Performance Monitoring dashboard
-
+:::note
 Only account admins can activate the Service Performance Monitoring dashboard.
-{:.info-box.note}
+:::
 
 To get started with Service Performance Monitoring, navigate to **[Tracing](https://app.logz.io/#/dashboard/jaeger)**, switch to the Monitor tab located at the top of the screen, and click on the **Start now** button.
 
@@ -38,8 +36,7 @@ Once setup is complete, you can change and re-adjust your data allocation by nav
 If you don't have enough UTS available in your existing Metrics account, you'll need to **[re-allocate](https://app.logz.io/#/dashboard/settings/manage-accounts)** or **[purchase additional UTS](https://app.logz.io/#/dashboard/settings/plan-and-billing/plan)** to your account.
 
 
-##### Logz.io sub account users
-{:.no_toc}
+### Logz.io sub account users
 
 You can only activate Service Performance Monitoring from your **main Logz.io account**.
 
@@ -75,7 +72,7 @@ Click on the main tracing account, and add the sub account to allow it to view d
 
 This process is only needed to activate the SPM. Once activated, the admin can remove the sub account's permissions - as they are no longer necessary to use the Service Performance Monitoring dashboard. -->
 
-#### Configure and ship your data
+### Configure and ship your data
 
 You'll need to configure your collector to extract metrics from your data. Log into your Logz.io account and follow these steps to **[modify the OpenTelemetry collector](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/span-metrics)**. 
 
@@ -85,6 +82,6 @@ Before deploying, make sure the collector you're using is version **v0.44.0** an
 
 Once everything is set, restart the collector to apply the configuration changes. 
 
-#### Check Logz.io for your metrics
+### Check Logz.io for your metrics
 
 Give your metrics some time to reach and render from your system to Logz.io, then navigate to **[Tracing](https://app.logz.io/#/dashboard/jaeger/) > [Monitor](https://app.logz.io/#/dashboard/jaeger/monitor)** to view the aggregated metrics for your services and operations.

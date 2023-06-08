@@ -1,5 +1,6 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
+title: Sending Demo Traces With the HotROD Application
 ---
 
 Not ready to instrument and deploy components? We've got you covered with an app that can send demo traces to your Distributed Tracing.
@@ -45,20 +46,27 @@ During this process, you'll use a simple yaml configuration file to deploy the f
 
 To run the demo configuration and deploy the components, you must have the following software installed: 
 
+* [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+* [Docker](https://docs.docker.com/get-docker/)
+
+
+
 ### Update the **.env** file from the Logz.io tracing-demo repository
 
+:::note
 The **.env** file might be hidden.
+:::
 
 
 1. Use a **terminal** to grab the repo code using the git command:  `git clone https://github.com/logzio/tracing-demo.git` and change directories: `cd tracing-demo`.
 
-1. Open the `.env` file and update the parameters with your preferred text editor.
-1. Enter your Distributed Tracing account token in the first line: `ACCOUNT_TOKEN=Enter your account token here`. You must have admin permissions for the Logz.io account to view the **Manage tokens** page. If you’re not an admin user for the account, consult with an account admin to get the Distributed Tracing token information.
+2. Open the `.env` file and update the parameters with your preferred text editor.
+3. Enter your Distributed Tracing account token in the first line: `ACCOUNT_TOKEN=Enter your account token here`. You must have admin permissions for the Logz.io account to view the **Manage tokens** page. If you’re not an admin user for the account, consult with an account admin to get the Distributed Tracing token information.
     
     1. From the **Tracing** or <i class="li li-gear"></i> (**Settings**) menu, go to **[Manage tokens > Data shipping tokens > Tracing](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=tracing)**
     ![Distributed Tracing tokens](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing-token_sept2021.png)
     1. Find the Distributed Tracing account you want to ship to in the table, and copy the token.
-1. Enter the correct 2-letter code for your region in the second line: `REGION_CODE=Enter your region code here`
+4. Enter the correct 2-letter code for your region in the second line: `REGION_CODE=Enter your region code here`
     Look up the 2-letter code for your region in the Regions and Listener Hosts table.
    
    You can find the region code for your account in the General settings page, here >Settings > General**.
@@ -66,14 +74,14 @@ The **.env** file might be hidden.
    ![Navigate to general settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/traces-general-settings_oct21.png	)
 
 
-1. Save and close the updated **.env** file.
+5. Save and close the updated **.env** file.
 
-1. In the terminal, run `docker network create dockercompose_testcluster` to create a Docker network.
+6. In the terminal, run `docker network create dockercompose_testcluster` to create a Docker network.
 
-
+:::info
 Updating the **.env** file in the Logz.io tracing demo repo with your tracing account token and region code 
 adds your `jaeger-logzio-collector` definition parameters to the yaml file, in the `environment` section.
-
+:::
 
 ### Deploy the demo app
 
@@ -88,7 +96,7 @@ _To run the demo:_
 
 ### Command summary
 
-|-----------------+------------|
+
 |Command|Description|
 |---------------|---------------|
 |`docker-compose up`| Starts the demo app|
@@ -101,4 +109,8 @@ _To run the demo:_
 After sending traces with the tracing demo app, navigate to the [Distributed Tracing](https://app.logz.io/#/dashboard/jaeger/search?switchToAccountId=2977) tab in Logz.io, select a service and click **Find Traces** to view your generated trace data.    
 
 ## Additional resources
+
+* [Learn more about Jaeger's HotROD project](https://github.com/jaegertracing/jaeger/tree/master/examples/hotrod).
+* [See Read more about Logz.io's HotROD demo project](https://github.com/logzio/tracing-demo/blob/main/README.md).
+* [Read about Logz.io Distributed Tracing platform](/user-guide/distributed-tracing).
 
