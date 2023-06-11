@@ -170,6 +170,7 @@ ol img, ol video {
 a, a:hover {
   color: var(--text-link);
   text-decoration: none;
+  color:#2c8eb8
 }
 
 a.no-link {
