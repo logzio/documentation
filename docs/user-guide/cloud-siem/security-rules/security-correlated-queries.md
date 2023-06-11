@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 ---
 
-# Correlated rules
+# Correlated Rules
 
 
 Some security incidents are best detected by a sequence of logs originating from different products, i.e. log types.

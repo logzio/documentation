@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 11
 ---
 
-# Select dashboards for your Cloud SIEM Summary page
+# Select Dashboards For Your Cloud SIEM Summary Page
 
 
 

@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
-# Static lookups
+# Static Lookups
 
 
 
@@ -19,7 +19,7 @@ In **Static lookups**, you define fields and values that do not change during th
 
 #### Managing and using lookup lists 
 
-::note
+:::tip
 To create a large lookup list with up to 200 elements, we recommend that you use a CSV file to upload values. The [lookup lists API endpoints](https://docs.logz.io/api/#tag/Lookup-lists) also let you independently manage lookup lists: To create a new list, you'd use the [Create lookup lists API](https://docs.logz.io/api/#tag/Lookup-lists), and add elements (either via CSV file  or via the [Add element to a lookup list API](https://docs.logz.io/api/#operation/createLookupListElement).
 :::
 
@@ -90,6 +90,6 @@ If your CSV file includes elements that are already in the lookup list, the valu
 
 
 
-##### Additional resources
+###### Additional resources
 
 Learn how you can use a query to create a [Dynamic lookup list](/user-guide/lookups/dynamic-lookup.html).

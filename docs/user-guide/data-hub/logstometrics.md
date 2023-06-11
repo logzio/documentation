@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 3
 ---
 
 # LogMetrics
@@ -11,10 +11,8 @@ LogMetrics utilizes the full power of PromQL, letting you visualize numeric-base
 
 By converting log data into metrics, you get a visual representation of your logs which you can monitor in real-time without paying for growing data volumes.
 
-###### On this page
 
-
-#### Which types of metrics can you create?
+## Which types of metrics can you create?
 
 With LogMetrics, you can create the following types of metrics:
 
@@ -27,7 +25,7 @@ With LogMetrics, you can create the following types of metrics:
 |Maximum|Gauge|`max(metric_name_field_max{}) by (foo)`|
 
 
-#### Configure LogMetrics
+## Configure LogMetrics
 
 
 

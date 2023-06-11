@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 ---
 
 # Integrate with Cortex xSOAR
@@ -23,7 +23,7 @@ their Logz.io accounts or investigate specific events to retrieve the logs respo
 
 
 
-#### To set up the integration in Cortex xSOAR
+## Set up the integration in Cortex xSOAR
 
 In Cortex xSOAR, click **Settings > Integrations** and search for Logz.io. Click the cogswheel to configure a new instance and open the integration panel.
 

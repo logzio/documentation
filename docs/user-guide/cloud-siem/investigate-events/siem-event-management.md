@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 4
 ---
 # Cloud SIEM Event Management
 
@@ -36,7 +36,7 @@ The information that is provided for each event triggered by a Cloud SIEM rule i
 
 Filter events by any combination of the available filters. 
 
-:::note
+:::tip
 If you're using filters and no events are displayed, try adjusting your filter choices to find what you're looking for.
 :::
 
@@ -57,7 +57,7 @@ To reset all the filters to the defaults, click **Clear filters**.
 
 You can run a free text **Search** on the information in the **Event details** field -  This includes any of the information in the event title, ID, or **Description**.
 
-:::note
+:::tip
 If you're running a search and no events are displayed, try adjusting your search terms to find what you're looking for.
 :::
 

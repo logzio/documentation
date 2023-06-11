@@ -1,7 +1,7 @@
 ---
-sidebar_position: 4
+sidebar_position: 1
 ---
-# Optimize your Logz.io data
+# Optimize Your Logz.io Data
 
 
 
@@ -15,7 +15,7 @@ To get started, navigate to **[Data hub > Optimize](https://app.logz.io/#/dashbo
 
 
 
-#### Explore Metrics and Logs
+## Explore Metrics and Logs
 
 You can switch between your **Logs** and **Metrics** overview.
 
@@ -43,7 +43,7 @@ The **Logs** table includes the following details:
 ![Optimization hub logs overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/optimization-hub/log-overview.png)
 
 
-#### Filter your Metrics view
+## Filter your Metrics view
 
 
 The Metrics overview includes two primary filters you can apply: **Account** and **Used**.
@@ -52,7 +52,7 @@ The **Account** filter includes all of the accounts associated with your user, a
 
 You can apply these filters quickly from within the table by clicking on the desired values.
 
-:::note
+:::tip
 To identify which metrics can be optimized, apply the **Not used** filter. The results will include all metrics not used by any dashboard or alert, which you can drop.
 :::
 
@@ -60,12 +60,12 @@ To identify which metrics can be optimized, apply the **Not used** filter. The r
 ![Filter your metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/optimization-hub/click-to-apply-filters.gif)
 
 
-#### Drop and optimize
+### Drop and optimize
 
 After viewing and analyzing your data, it's time to optimize your usage by using the drop action.
 
 
-##### Metrics optimization
+### Metrics optimization
 
 You can drop individual metrics or logs or perform a bulk-drop action by selecting several metrics or logs.
 
@@ -79,7 +79,7 @@ Once selected, a new **Drop** button will appear at the top of the table. Click 
 
 Manage your dropped metrics by navigating to **[Data Hub > Drop filters > Metrics](https://app.logz.io/#/dashboard/tools/metrics-drop-filters)**.
 
-##### Logs optimization
+## Logs optimization
 
 You can drop different types of logs by hovering over its line and clicking on the **Drop** button.
 

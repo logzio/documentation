@@ -2,14 +2,14 @@
 sidebar_position: 4
 ---
 
-# Sampling rules
+# Sampling Rules
 
 
 Sampling rules let you choose which traces you want to index and monitor inside your account. They help you focus your attention on events that are happening right now inside your systems and services. In addition, applying Sampling rules optimizes your quota management by only indexing critical and actionable spans or full traces.
 
 
 
-### Sampling rules overview
+## Sampling rules overview
 
 The Sampling rules screen has these main components:
 
@@ -20,9 +20,9 @@ The Sampling rules screen has these main components:
 
 ![Sampling rules overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/sampling-rules/sampling-rules.png)
 
-### Create custom Sampling rules
+## Create custom Sampling rules
 
-:::note
+:::tip
 By creating a separate set of rules per each tracing account, you can control the span volume more accurately.
 :::
 
@@ -51,7 +51,7 @@ Once you create a set of rules, navigate to the **[OTEL configuration generator]
 
 
 
-### Configure and apply your Sampling rules
+## Configure and apply your Sampling rules
 
 Creating your Sampling rules is the first step. Once you've finished creating a set of rules for your chosen account, you need to configure them through the OTEL configuration generator. 
 

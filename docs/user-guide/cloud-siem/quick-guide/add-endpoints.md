@@ -1,5 +1,6 @@
 ---
-sidebar_position: 1
+sidebar_position: 6
+title: Adding Notification and SOAR Endpoints
 ---
 
 A notification endpoint defines where a notification of a rule execution needs to be sent to. Logz.io has a number of pre-configured endpoints, such as Slack or Opsgenie. Otherwise you can easily add any notification endpoint using the **Custom** feature. The latter option is currently used to integrate with SOARs.

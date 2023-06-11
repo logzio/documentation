@@ -1,9 +1,9 @@
 ---
-sidebar_position: 5
+sidebar_position: 3
 ---
 
 
-# Preparing a feed
+# Preparing a Feed
 
 
 You can enrich log threat detection by adding your own private feeds to those provided by Logz.io.
@@ -22,7 +22,7 @@ Supported IOC types include:
 * Custom indicators (Custom indicators can be used to create lists of usernames, email addresses, or any other indicators, according to your own use case.)
 
 
-### General guidelines
+## General guidelines
 
 * **IOC-specific**
 
@@ -52,6 +52,7 @@ Supported IOC types include:
 ### Validated format by IOC type
 
 | IOC type | Format |
+|--|--|
 | IP | valid IP address |
 | DNS | valid domain name (string) |
 | URL  | valid URL |

@@ -1,9 +1,9 @@
 ---
-sidebar_position: 5
+sidebar_position: 2
 ---
 
 
-# Highlights
+# Cloud SIEM Highlights
 
 
 Logz.io Cloud SIEM will help you detect threats and investigate security incidents as soon as you start sending logs.

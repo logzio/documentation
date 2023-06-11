@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 9
 ---
 # Dashboards & Reports
 
@@ -28,4 +28,4 @@ To schedule your report:
 
 * Select **Reports** in the top menu, and click **+ New report**.
 
-For further information, [scheduling reports.
+For further information, [scheduling reports](https://docs.logz.io/user-guide/reports/).

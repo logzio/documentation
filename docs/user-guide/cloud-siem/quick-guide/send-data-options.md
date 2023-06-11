@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# View the "Send your data" options
+# View the "Send your data" Options
 
 The **Send your data** pages contain detailed instructions on how to send data from various sources to your Logz.io account. 
 

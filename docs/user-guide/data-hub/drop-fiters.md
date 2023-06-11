@@ -1,8 +1,8 @@
 ---
-sidebar_position: 4
+sidebar_position: 2
 ---
 
-# Drop filters
+# Drop Filters
 
 
 Drop filters offer a great way to filter out logs from an account to help manage your account volume and lower costs.
@@ -80,7 +80,7 @@ to open the _New drop filter_ form.
 ![New drop filter form](https://dytvr9ot2sszz.cloudfront.net/logz-docs/drop-filters/new-drop-filter.png)
 
 
-##### Choose a log type
+### 1. Choose a log type
 
 
 If you choose a **Log type**,
@@ -88,14 +88,14 @@ only logs of that type are dropped.
 
 To include all log types, leave **Log type** blank.
 
-##### Add fields to filter
+### 2. Add fields to filter
 
 
 Add up to 3 **Field**:**Value** pairs to filter.
 Each pair must be an exact match.
 Drop filters are case sensitive.
 
-###### An example
+#### An example
 
 Logs from a Docker container might contain this field-value pair:
 
@@ -110,7 +110,7 @@ and **Value** to `system-logs`.
 If we set **Value** to anything else—such as `system`—those logs
 are not filtered.
 
-##### Confirm and save
+### 3. Confirm and save
 
 
 Before saving, it's important to know that all the logs that meet
