@@ -24,12 +24,23 @@ The metrics are grouped by name.
 
   In the image below, the Kubernetes metrics start with the term `kube`. 
 
-
+<div>
+    <video width="100%" height="auto" controls autoplay loop muted>
+      <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/p8s-xplore11-metricslist.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+</div>
 
 
 - **Query autocomplete:** Use the query autocomplete option to explore the available metrics name suggestions. 
   For example, if you’re monitoring Kubernetes and looking for a specific pod metric, start typing the term `pod` to see which results come up, then click the desired metric name.
 
+<div>
+    <video width="100%" height="auto" controls autoplay loop muted>
+      <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/p8s-explore-query.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+</div>
 
 
 :::note
@@ -55,7 +66,12 @@ Splitting the screen is especially effective for checking how queries behave in 
 To split the screen, click the **<i class="fas fa-columns"></i> Split** button.
 If you want to sync both views so they both cover the same time range, click the **<i class="fas fa-link"></i>** button to link the views.
 
-
+<div>
+    <video width="100%" height="auto" controls autoplay loop muted>
+      <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/p8s-xplore-split-sync.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+</div>
 
 ### Calculating Infrastructure Monitoring usage
 

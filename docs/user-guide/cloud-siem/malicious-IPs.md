@@ -11,6 +11,12 @@ You can filter the dashboard by feed name, feed confidence, or country of origin
 
 Once you are ready to investigate a particular IP, click the IP drilldown link. It will lead you to the **IP Investigation** dashboard for the selected IP. There you'll be able to see the details of its activity in your environments and investigate the original logs for further information.
 
+<div>
+    <video width="100%" height="auto" controls autoplay loop muted>
+      <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/investigate-ip2_aug2021.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+</div>
 
 
 ### Log enrichment for IPs
