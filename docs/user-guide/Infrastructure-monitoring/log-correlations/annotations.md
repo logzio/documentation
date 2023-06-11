@@ -28,7 +28,12 @@ Go to the dashboard's settings:
   1. Select an informative **Name**. The name should describe the significance of the event.
   2. Select a **Data source** from your logging accounts. This is the relevant OpenSearch Dashboards account you want to correlate with your metrics.
 
-
+<div>
+    <video width="100%" height="auto" controls autoplay loop muted>
+      <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-videos/metrics-annotations.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+</div>
 
 ### Decide which logs should trigger the annotation
 
