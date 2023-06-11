@@ -1,5 +1,6 @@
 ---
-sidebar_position: 1
+sidebar_position: 4
+title: Investigate Events
 ---
 
 The **Summary** dashboard has a dedicated section for events, which are security rules or alerts that got executed.

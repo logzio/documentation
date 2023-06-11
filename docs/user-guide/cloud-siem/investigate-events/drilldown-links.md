@@ -1,7 +1,7 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
-# Add drilldown links
+# Add Drilldown Links
 
 
 A drilldown link is a redirect link that takes users directly from an informative log field to another dashboard, already filtered by the selected field.

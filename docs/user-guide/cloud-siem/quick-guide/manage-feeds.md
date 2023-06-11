@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 10
 ---
 
-# Manage your threat feeds
+# Manage Your Threat Feeds
 
 
 There are two types of threat feeds in Cloud SIEM:
@@ -57,4 +57,4 @@ To create a private feed:
 
    * If required, add the connection header.
 
-10. Select **Save**.
+2. Select **Save**.

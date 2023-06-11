@@ -1,28 +1,28 @@
 ---
-sidebar_position: 5
+sidebar_position: 2
 ---
 
 
-# Adding a private feed
+# Adding a Private Feed
 
 
 You can enrich log threat detection by adding your own private feeds to those provided by Logz.io. To do so, you'll need to maintain files with lists of IOCs and host them online to make them accessible by HTTP/HTTPS to Logz.io.
 
 To share private feeds with your other SIEM accounts, include the feeds a shared SIEM Repository account. You can learn more about the SIEM Repository [here
 
-#### Configure Logz.io to pull your private feed
+## Configure Logz.io to pull your private feed
 
 
 
-##### Prepare a feed
+### 1. Prepare a feed
 
 Prepare a list of IOCs as decribed [hereand host it where it can be fetched by Logz.io.
 
-##### Add a new feed
+### 2. Add a new feed
 
 Go to **Threats > Threat Intelligence Feeds** from the top menu, and select the option **+ Add private feed**.
 
-##### Configure the connection
+### 3. Configure the connection
 
 
 Fill in the form to configure the connection.   
@@ -47,7 +47,7 @@ Fill in the form to configure the connection.
     If your feed is password protected, you'll need to encode the credentials (username:password in base64) and pass them as an authorization header. See [this page for further instructions.
 
 
-##### Give the sync some time
+### 4. Give the sync some time
 
 The first time Logz.io connects to your private feed, it will validate the connection and download the list within an hour.
 
@@ -56,7 +56,7 @@ After that, Logz.io will sync the feed once every 24 hours to look for updates.
 If the connection fails at some point in the future, say if the feed is migrated to another hosting site or authorization headers are changed, you will be prompted to make the necessary changes.
 
 
-##### To manage private feeds
+### 5. Manage private feeds
 
 To edit or delete a private feed, hover over the feed in the list,
   and click <i class="li li-pencil"></i> (edit)

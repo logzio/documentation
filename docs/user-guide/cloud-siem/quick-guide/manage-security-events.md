@@ -1,5 +1,6 @@
 ---
-sidebar_position: 1
+sidebar_position: 9
+title: Managing Security Events
 ---
 
 Cloud SIEM has an integrated platform for security events management. Here you can view security events that have occured, edit them, assign a security rule to a team member. You can filter the list using the top menu filters and the search bar.
@@ -8,10 +9,9 @@ Cloud SIEM has an integrated platform for security events management. Here you c
 
 
 
-
+:::note
 The event manager has a retention period of 2 weeks. Older events are **saved as logs** on your security account and can be viewed from OpenSearch Dashboards.
-{:.info-box.note}
-
+:::
 
 
 ### Access Event Management

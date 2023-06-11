@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 5
 ---
 
-# Creating security rules
+# Creating Security Rules
 
 
 Security rules define events and their execution conditions. A rule can contain one or more queries. You can create a security rule  either from scratch or by using an existing rule.

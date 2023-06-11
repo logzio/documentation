@@ -1,9 +1,9 @@
 ---
-sidebar_position: 4
+sidebar_position: 1
 ---
 
 
-# Lookup lists
+# Lookup Lists
 
 
 
@@ -30,11 +30,13 @@ a **Dynamic lookup list** uses a query as its source of data. The query's result
 
 Learn more about the two lookup lists and how to use them:
 
-* **[Create a Static lookup**
-* **[Create a Dynamic lookup**
-* [Filter by lookup lists in OpenSearch Dashboards
-* [Add a lookup list filter to a security rule
-* [Delete a lookup list
+
+
+* **[Create a Static lookup](/user-guide/lookups/static-lookup.html)**
+* **[Create a Dynamic lookup](/user-guide/lookups/dynamic-lookup.html)**
+* [Filter by lookup lists in OpenSearch Dashboards](/user-guide/lookups/#filter-by-lookup-lists-in-opensearch-dashboards)
+* [Add a lookup list filter to a security rule](/user-guide/lookups/#add-a-lookup-list-filter-to-a-security-rule)
+* [Delete a lookup list](/user-guide/lookups/#delete-a-lookup-list)
 
 ## Filter by lookup lists in OpenSearch Dashboards
 
@@ -60,7 +62,7 @@ Next, select the lookup list you'd like to refer to from the dropdown menu.
 
 **Save** your filter, and continue editing the rule.
 
-[Learn more about managing security rules
+[Learn more about managing security rules](https://docs.logz.io/user-guide/cloud-siem/manage-security-rules.html)
 
 ## Delete a lookup list
 

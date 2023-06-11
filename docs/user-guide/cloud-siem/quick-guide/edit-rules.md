@@ -1,5 +1,6 @@
 ---
-sidebar_position: 1
+sidebar_position: 8
+title: Edit Rules and Protected Rules
 ---
 
 
@@ -10,7 +11,7 @@ There are two types of rules in Cloud SIEM:
 * A regular rule is a rule defined by the user. These rules appear in the **Rule definitions** list without a tag. You can edit the name and logic of a regular rule, as well as define what accounts to apply the rule to, edit the trigger conditions, tags and recipient endpoints of the rule.
 
 
-To edit a regular rule:
+## Edit a regular rule:
 
 1. Sign in to Logz.io.
 
@@ -31,7 +32,7 @@ To edit a regular rule:
 
 If you need to customize a protected rule, you can clone it, adjust the cloned rule to your needs and then disable the original protected rule. To do tis:
 
-To edit a rule:
+## Clone and edit an existing rule:
 
 1. Sign in to Logz.io.
 

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 2
 ---
 
 
@@ -11,7 +11,7 @@ Integrate your Logz.io Cloud SIEM with [Siemplify](https://www.siemplify.co/) to
 
 Siemplify is an industry-leading Security Orchestration, Automation & Response (SOAR) solution that gives SOC teams the ability to manage Security Operations from a single platform.
 
-## Advantages of the Logz.io  Siemplify integration
+## Advantages of the Logz.io - Siemplify integration
 
 * Siemplify can automatically fetch Logz.io security events as new cases.
   If you prefer to be selective about event fetching, filter Logz.io security events by rule severity and/or rule name. Retroactive fetching is fully supported.
@@ -22,7 +22,7 @@ Siemplify is an industry-leading Security Orchestration, Automation & Response (
 
 * Implement the out-of-the-box **Logz.io Indicator Hunting Playbook** for guidance and best practices for conducting an investigation.
 
-#### Setting up the integration in Siemplify
+## Setting up the integration in Siemplify
 
 
 **Before you begin, you'll need**:
@@ -31,7 +31,7 @@ Siemplify is an industry-leading Security Orchestration, Automation & Response (
 * An active account with Logz.io.
 * A valid [Logz.io API](https://app.logz.io/#/dashboard/settings/manage-tokens/api) token. Contact support if your account doesn't have one.
 
-##### Add a Logz.io instance to your Siemplify workspace
+### 1. Add a Logz.io instance to your Siemplify workspace
 
 To set up an integration with Logz.io as a **Default Environment**, you can add Logz.io directly from the Siemplify Marketplace.
 
@@ -46,7 +46,7 @@ Alternatively, if you prefer to add Logz.io as a **Shared Instance**, select the
 
 
 
-##### Configure a Custom Trigger for the Siemplify playbook
+### 2. Configure a Custom Trigger for the Siemplify playbook
 
 Each playbook starts with a custom trigger from an incoming alert. 
 
@@ -71,7 +71,7 @@ For incoming Logz.io alerts, the event trigger is **`[Event.event_name] Equals <
 ![Configured Custom Trigger ](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify_custom-trigger-for-alert.png)
 
 
-##### Fill in the Logz.io integration panel
+### 3. Fill in the Logz.io integration panel
 
 Fill in the Logz.io integration panel:
 
@@ -87,7 +87,7 @@ Fill in the Logz.io integration panel:
 ![Logz.io integration panel for Siemplify](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-configure-instance.png)
 
 
-##### Create the Logz.io connector
+### 4. Create the Logz.io connector
 
 
 Configure the Logz.io connector `LOGZ.IO fetch-security-events` to create cases in your Siemplify workspace from Logz.io security events.
@@ -100,8 +100,10 @@ Logz.io writes a security event log whenever a security rule triggers in your Lo
 
 1. Configure the connector to open new Siemplify cases based on security events triggered in Logz.io Cloud SIEM. You can make use of the filtering options to be selective about the events.
 
+:::note
 Set the `Run Every` field to **at least** 30 seconds.
-{:.info-box.note}
+:::
+
 
 2. Enable the connector.
 
@@ -112,7 +114,7 @@ Set the `Run Every` field to **at least** 30 seconds.
 ![Configure a Siemplify Logz.io connector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-integrations-panel.png)
 
 
-##### Use Logz.io Actions and Playbooks
+### 5. Use Logz.io Actions and Playbooks
 
 The Logz.io integration offers a sample indicator hunting playbook for Siemplify. The playbook can be used to investigate and hunt Indicators of Compromise (IOCs), such as file hashes, suspicious IP addresses, domains, and URLS.
 
@@ -123,7 +125,7 @@ The playbook makes use of Logz.io actions that investigate events and output rel
 
 
 
-#### Logz.io Actions for Siemplify
+## Logz.io Actions for Siemplify
 
 
 
@@ -187,7 +189,6 @@ Fetches the logs that triggered a security event using the [Logz.io Cloud SIEM A
     * `logzio_operations_token`
     * `logzio_region`
     * `logzio_custom_endopoint`
-
 
 
 | Parameter | Type | Required/Default | Description |
@@ -257,11 +258,11 @@ Pings Logz.io to test and validate connectivity to both your Logz.io security an
 
 
 
-#### Initializing the Logz.io playbook in Siemplify
+## Initializing the Logz.io playbook in Siemplify
 
 
 
-##### Add the Logz.io Playbook
+### 1. Add the Logz.io Playbook
 
 In your Siemplify workspace, import the playbook **Logz.io Indicator Hunting**.
 
@@ -277,7 +278,7 @@ The playbook makes use of the following actions:
 * Create entity relationship
 
 
-##### Initialize the block parameters
+### 2. Initialize the block parameters
 
 The playbook offers 4 use-cases (aka _branches_), each specific to a single indicator type: hash, URL, IP, and domain.
 
@@ -297,7 +298,7 @@ Configure the input parameter that will initialize the playbook.
 ![Initialize the input block for the Logz.io playbook for Siemplify](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/siemplify-initialize-block2.png)
 
 
-##### Initialize the json-adapter parameters
+### 3. Initialize the json-adapter parameters
 
 Whenever the initializing block is triggered, the `Logzio-search-logs` action will automatically run a search query in your Logz.io account for logs that match the output of the initializing block.
 
@@ -315,7 +316,7 @@ You can provide more than 1 field, regardless of the log type.
 ![Initialize the Logz.io json adapter for Siemplify](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siemplify-integration/hash-json-adapter.png)
 
 
-##### Investigate the indicator
+### 4. Investigate the indicator
 
 In our example, the playbook ran an action to extract the field `sourceHostName` from all logs. As a result, the playbook identified another `hostname` affected by the same hash indicator. The red color indicates that the new station is involved and was discovered by the playbook.
 

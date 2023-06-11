@@ -1,5 +1,6 @@
 ---
-sidebar_position: 1
+sidebar_position: 7
+title: Configure SIEM to Automatically Create JIRA Tickets by Alert
 ---
 
 You can configure the notification endpoint to create a JIRA ticket in your preferred board, every time there is a new alert.
@@ -32,7 +33,7 @@ To add a pre-configured notification endpoint:
    ![Notification](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/endpoint-2.png)
 
 
-3. Select **Custom** from the **Type** menu.
+4. Select **Custom** from the **Type** menu.
 
    ![Notification](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/endpoint-3.png)
 
@@ -81,6 +82,6 @@ To add a pre-configured notification endpoint:
    Replace `<project board key>` with the key of your JIRA project board.
    Replace `<board specific issue type>` with the issue type specific to your project board.
 
-4. Select **Add endpoint**.
+5. Select **Add endpoint**.
 
 

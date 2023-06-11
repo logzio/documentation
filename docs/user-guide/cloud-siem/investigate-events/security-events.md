@@ -3,7 +3,7 @@ sidebar_position: 1
 ---
 
 
-# Investigate security events
+# Investigate Security Events
 
 
 Cloud SIEM logs a security event every time a rule triggers. The terms **triggered rules** and **security events** have the same meaning and are used interchangeably.
@@ -14,8 +14,9 @@ The event log includes details about the security incident and the rule that cau
 
 ### Log fields of interest
 
-|---|---|
-| Time | Indicates when the rule triggered.|
+| Field | Description |
+|--|--|
+| Time | Indicates when the rule triggered|
 | logzio-alert-title | The name of the security rule in your Cloud SIEM |
 | logzio-alert-triggered-severity | Severity of the event, as defined in the rule's trigger settings. It is customizable. |
 | logzio-hits | The number of logs involved in the security event. This is the number of logs that triggered the security rule before applying any aggregations, if applicable. |
@@ -25,7 +26,7 @@ The event log includes details about the security incident and the rule that cau
 
 ### Other paths of investigation
 
-You can click the **<i class="fas fa-angle-right"></i>** button to expand the document. You'll be able to view the full event log and view surrounding documents.
+You can click the >**<i class="fas fa-angle-right"></i>** button to expand the document. You'll be able to view the full event log and view surrounding documents.
 
 ### Log retention concerns
 

@@ -1,9 +1,9 @@
 ---
-sidebar_position: 4
+sidebar_position: 1
 ---
 
 
-# Logz.io security rules
+# Logz.io Security Rules
 
 
 Use security rules to ensure you're notified of critical events in your systems and machine. Logz.io offers a set of updated preconfigured rules which you can refine and edit or create custom rules with your desired thresholds and triggers.
@@ -17,7 +17,7 @@ To open the **Rules** page, navigate to your **[SIEM account](https://app.logz.i
 You'll see a paginated list of all rules configured for your account.
 
 
-### Order or filter the list
+### Order or filter security rules list
 
 * You can click the column headers or the top filters to sort the list by **severity**, by the user who **created the rule**, by **tags**, or by the **state** of each rule. 
 
@@ -25,7 +25,7 @@ You'll see a paginated list of all rules configured for your account.
 
 ![Rules definitions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/rules-table-sort.png)
 
-### Manage rules
+### Manage security rules
 
 You can manage each rule individually or act on many rules at once.
 
@@ -41,8 +41,9 @@ If you have more than 25 rules you'd like to edit, you can select all of the res
 ![Rules bulk actions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/select-all-rules.png)
 
 
+:::note
 There is a limit of 1,000 rules that you can act on simultaneously.
-{:.info-box.note}
+:::
 
 #### Managing individual rules
 
