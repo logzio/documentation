@@ -1,8 +1,8 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
-# Split an array
+# Split an Array
 
 
 
@@ -17,9 +17,9 @@ Some shipping methods offer the option to parse an array of JSON objects into di
 
 ### Shipping methods that support arrays
 
-* The [Logz.io Kinesis Lambda function - The parameter `MESSAGES_ARRAY` controls the option to parse an array of JSON objects into discrete events.
+* The [Logz.io Kinesis Lambda function](https://docs.logz.io/shipping/log-sources/kinesis.html) - The parameter `MESSAGES_ARRAY` controls the option to parse an array of JSON objects into discrete events.
 
-#### Parsed array: before & after
+### Parsed array: before & after
 
 Here's an example of a log document that contains an array in the `messages` field:
 

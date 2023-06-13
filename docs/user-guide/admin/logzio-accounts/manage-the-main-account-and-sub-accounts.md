@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 title: Manage Log, Metrics, Tracing, and SIEM accounts
 
 ---

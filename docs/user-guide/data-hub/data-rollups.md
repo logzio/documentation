@@ -10,7 +10,7 @@ You can compact and discard some of your metrics as it ages to focus on the data
 
 
 
-### Create a Rollup
+## Create a Rollup
 
 To create a Metric Rollup, navigate to **[Data Hub > Rollups](https://app.logz.io/#/dashboard/tools/metrics-rollups)** and click on the **Add a Rollup rule** button.
 
@@ -24,7 +24,7 @@ Once your Rollup is ready, click on **Create Rollup**.
 
 ![Rollup table](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Infrastructure-monitoring/rollups/rollup-dialog-2.png)
 
-### View and manage your Rollups
+## View and manage your Rollups
 
 Once you've created one or more Rollups, they'll appear in a table view.
 

@@ -30,7 +30,7 @@ With LogMetrics, you can create the following types of metrics:
 
 
 
-##### Find the relevant logs
+### 1. Find the relevant logs
 
 
 You can create a LogMetric from OpenSearch Dashboards by clicking the **Create Metric** button at the top. This button is enabled whenever you apply a filter to your search, and currently, it does not support Lucene queries, free text search, or "is between" filters.
@@ -40,21 +40,21 @@ You can create a LogMetric from OpenSearch Dashboards by clicking the **Create M
 You can also create a custom LogMetrics by navigating to [**Data Hub > LogMetrics > New Metric**](https://app.logz.io/#/dashboard/logs-to-metrics/new).
 
 
-##### Name your LogMetric
+### 2. Name your LogMetric
 
 
 Give your metric a meaningful name. You can use letters, numbers, and underscore.
 
 
 
-##### Set the metric
+### 3. Set the metric
 
 
 Use the **Group by** option to add dimensions to measure metrics per unique values, based on the fields you're adding. You can bundle up to 6 fields together.
 
 Next, choose how you would like to aggregate your data; by log count, fields, or both. 
 
-##### Set the output
+### 4. Set the output
 
 Use the dropdown to select which Metrics account will store the metrics output. The metrics are saved in 1-minute granularity and downsampled later for best performance. Retention is based on the settings of the chosen metrics account.
 
@@ -67,7 +67,7 @@ Click **Save** to create your LogMetrics.
 
 
 
-#### View and manage your LogMetrics
+## View and manage your LogMetrics
 
 After saving your LogMetrics, you'll be able to view and manage it on the main [Log Metrics](https://app.logz.io/#/dashboard/logs-to-metrics/definitions) page. 
 
@@ -81,7 +81,7 @@ Toggle the **Status** button to disable/enable the LogMetrics. In addition, you 
 * **Duplicate** - You can duplicate an existing metric by clicking on the menu <i class="li li-ellipsis-v"></i> and choosing Duplicate. 
 
 
-### Additional information
+#### Additional information
 
 LogMetrics has the following requirements:
 

@@ -1,9 +1,9 @@
 ---
-sidebar_position: 4
+sidebar_position: 3
 ---
 
 
-# Logz.io DIY parsing
+# Logz.io DIY Parsing
 
 
 
@@ -20,7 +20,7 @@ parsing can be an invaluable tool.
 
 
 
-## Customize your log parsing with Logz.io Data Parsing
+### Customize your log parsing with Logz.io Data Parsing
 
 Create your own parsing rule sets for logs that are being ingested to your Logz.io account. Once validated on your end and on ours, your rule sets will be applied to your Logz.io account to transform your logs. 
 
@@ -55,7 +55,7 @@ The Logz.io Data Parsing Editor tool works with the Logz.io public API and lets 
 
 **Logz.io Data Parsing** is available [**here**](https://parsing.logz.io/).
 
-:::note
+:::caution Important
 Logz.io's Data Parsing tool has strict guidelines and requires additional fields that are `optional` in GitHub. For example, when using the Date Processor, you must specify the timezone parameter with the relevant time zone; `"timeZone": "Europe/Paris"`.
 :::
 
@@ -68,7 +68,7 @@ Field data type determines how each field is indexed and shown in OpenSearch Das
 
 Changing a field's data type may affect any dashboards, visualizations, searches, alerts, optimizers, and integrations using that field.
 
-##### Date data fields
+#### Date data fields
 
 :::note
 Before changing, editing, and sending date data fields, contact **[Logz.io Support team](mailto:help@logz.io)**.
@@ -82,13 +82,13 @@ There are additional restrictions for **date data field** types:
 Therefore, to change the mapping of any field to a date field, contact **[Logz.io Support team](mailto:help@logz.io)** before sending the fields.
 
 
-#### Create a parsing rule set with Sawmill
+### Create a parsing rule set with Sawmill
 
 This process creates a parsing rule set for the specified log type. The log type is a field used to differentiate the source of each log. You need to select one of your existing log types (or create a new log type) for the parsing rules. When you submit a rule set to be applied on the backend, only the logs of the selected log type are processed.
 
 
 
-##### Prerequisites
+#### 1. Prerequisites
 
 
 To use the Data Parsing Editor you need a Logz.io API token. To get an API token, you must be an admin of a Logz.io account and follow the instructions below: 
@@ -100,7 +100,7 @@ To use the Data Parsing Editor you need a Logz.io API token. To get an API token
 2. Select your region. You can look up your Logz.io account region in [**Settings > General settings > Account settings > Region**](https://app.logz.io/#/dashboard/settings/general).  
 
 
-##### Set up the Data parsing editor
+#### 2. Set up the Data parsing editor
 
 In the [Data parsing editor](https://parsing.logz.io), click **Editor setup**.  
 
@@ -109,7 +109,7 @@ The **Editor setup** screen opens.
 
 ![credentials and log info](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/parsing_cred-sept2021.png)
 
-##### Set up your credentials and sample log information
+#### 3. Set up your credentials and sample log information
 
 
 In the **Editor setup** screen:
@@ -119,9 +119,9 @@ In the **Editor setup** screen:
    + New log type: This option lets you add a custom string for a log type and enables you to assign parsing rules for future logs that are associated with the log type you add.  
    + Pre-built parsing: These log types are documented in the [Default parsing](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html) topic. You can select a pre-built parsing type and create additional rules that run _after_ the default rules for these types are executed. 
 
-      :::note
-      When you select a pre-built parsing rule, the original rule configuration is not displayed in the **Parsing rules workspace**. The log types list displays log types ingested by Logz.io in the last 24 hours.
-      :::
+:::note
+When you select a pre-built parsing rule, the original rule configuration is not displayed in the **Parsing rules workspace**. The log types list displays log types ingested by Logz.io in the last 24 hours.
+:::
 
    ![Custom log type](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/new_logtype2.gif)
 
@@ -131,7 +131,7 @@ In the **Editor setup** screen:
 
 
 
-#####  Write parsing rules
+#### 4. Write parsing rules
 
 
 You create your Sawmill rule set in the left panel of the editor screen, either by writing a new rule set or by editing a predefined rule set loaded to the panel. The created rule set must be a valid JSON file.
@@ -145,7 +145,7 @@ Use **Auto re-format** to clean up your indentations.
 ![Processor autoreformat](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/reformat_parsing-sept2021.png) 
 
 
-##### Validate your rule set
+#### 5. Validate your rule set
 
 
 Once you're satisfied with your draft rule set, click **Validate your rules** to execute your rule set against the log sample you provided. 
@@ -154,13 +154,13 @@ Once you're satisfied with your draft rule set, click **Validate your rules** to
 The Logz.io backend has a sequence of rule sets that run on your logs: Some of the rule sets are system wide and may affect the final result you see.   Once validation is complete, you'll  be able to see the results in the **PARSED LOG** tab of the right panel. Use the display in the right panel to verify that your results reflect the parsed logs you expect to see.
 :::
 
-##### Test parsing rules
+#### 6. Test parsing rules
 
 
 The right panel is where you view and modify your log sample, and test how your rules are applied. 
 ![Testing parsing rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/test_parsing-sept2021.gif)
    
-##### Submit your rule set for review
+#### 7. Submit your rule set for review
 
 
 To ensure that your parsing works properly, our Support team reviews your rule set for consistency and then either applies the rule set or contacts you if there are issues that need to be addressed.
@@ -172,12 +172,12 @@ To ensure that your parsing works properly, our Support team reviews your rule s
 The parsing rules you create can only be applied to the Logz.io account that matches your API token, and are only valid for the log type you chose. To apply the parsing rules you create, you must be an admin for the account. 
 :::
 
-## Parsing rule examples
+### Parsing rule examples
 
 The goal of log parsing is to transform your log text into useable data fields so you can then run queries and refine query performance, and to extend the text in your logs to create data visualizations and dashboards. 
 
 
-### Example 1: Grok transformation
+#### Example 1: Grok transformation
 
 
 Grok parsing leverages regular expressions to enable you to name existing patterns or combine them into more complex patterns, or both.
@@ -231,7 +231,7 @@ In this example, for the log sample: `2021-06-21T20:19:40.45+01:00 DEBUG This sh
 ###### **Click here for additional [Grok pattern examples for log parsing](https://logz.io/blog/grok-pattern-examples-for-log-parsing/).**
 
 
-### Example 2: Conditional parsing 
+#### Example 2: Conditional parsing 
 
 
 Logz.io parsing lets you apply conditional logic, based on your original logs. 
@@ -306,7 +306,7 @@ The resulting transformation is:  ![Conditional parsing example](https://dytvr9o
 ```
 
 
-### Example 3: Template parsing
+#### Example 3: Template parsing
 
 
 In Logz.io parsing, templating lets you include your original field values with various transformations, wherever you decide it's relevant. 
@@ -325,7 +325,6 @@ In this example, the resulting transformation consolidates several fields and ti
 ```
 
 ###### Applied parsing rule 
-{:.no_toc}
 
 ```json
 {
