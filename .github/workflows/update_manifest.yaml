@@ -1,0 +1,44 @@
+name: update manifest and create new release
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'docs/shipping/**'
+
+jobs:
+  update_manifest_content:
+    name: update manifest content
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - run: python3 manifest/manifest_generator.py
+      - uses: actions/upload-artifact@v3
+        with:
+          name: new_manifest
+          path: manifest/manifest.json
+  update_manifest_release:
+    name: update manifest release
+    runs-on: ubuntu-latest
+    needs: update_manifest_content
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: actions/download-artifact@v3
+        with:
+          name: new_manifest
+      - name: unix timestamp
+        id: unix_timestamp
+        run: echo "manifest_id=$(date +%s)\n" >> $GITHUB_OUTPUT
+      - name: Upload to aws
+        run: |
+          sudo apt-get update
+          sudo apt-get install awscli
+          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY }}
+          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_KEY }}
+          aws configure set region us-east-1
+          aws s3 cp ./manifest.json s3://docs-manifest/manifest_${{ steps.unix_timestamp.outputs.manifest_id}} --acl public-read
