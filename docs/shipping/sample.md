@@ -2,8 +2,10 @@
 id: sample
 title: Sample Document
 sidebar_position: 1
-description: test
-tags: [hello, docusaurus]
+overview: test
+product: ['logs', 'metrics']
+os: ['windows', 'linux']
+filters: ['aws', 'cloud']
 logo: https://docs.logz.io/images/logo/logz-symbol.svg
 logs_dashboards: ['dfsdfgsdgfds', 'sdfgsdfg', 'hrtgwgs']
 logs_alerts: ['sdfgs', 'xcvdb']
@@ -16,26 +18,12 @@ test
 
 
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-<Tabs>
-  <TabItem value="apple" label="Apple" default>
-    This is an apple 🍎
-  </TabItem>
-  <TabItem value="orange" label="Orange">
-    This is an orange 🍊
-  </TabItem>
-  <TabItem value="banana" label="Banana">
-    This is a banana 🍌
-  </TabItem>
-</Tabs>
+<!-- logzio-inject:s3-config -->
+fhjkfkfkjfkj
+<!-- logzio-inject:s3-config -->
 
 
-
-
-
-
+{@include: ../_include/test.md}
 
 
 
