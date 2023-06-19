@@ -38,6 +38,31 @@ const config = {
     // Add your options here, if any
     },
     ],
+    [
+      'docusaurus-plugin-includes',
+      {
+        sharedFolders: [
+          { source: '../../_shared', target: '../docs/shared'},
+          { source: '../../static/includes', target: '../docs/includes'}, // Added your shared folder here
+        ],
+        postBuildDeletedFolders: ['shared'],
+        replacements: [
+          { key: '{ProductName}', value: 'Logz.io' },
+          { key: '{ShortName}', value: 'Logz' },
+        ],
+        embeds: [
+          {
+            key: 'myAwesomePlugin',
+            embedFunction: function(code) { 
+              return `...`; // Adjust according to your needs
+            }
+          }
+        ],
+        injectedHtmlTags: {
+          preBodyTags: [`<link rel="stylesheet" href="https://cdn.example.com/style.css" type="text/css">`]
+        }
+      },
+    ],
     ],
 
   presets: [
