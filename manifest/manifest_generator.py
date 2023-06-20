@@ -13,6 +13,7 @@ SHIPPING_PATH_PREFIX = 'docs/shipping/'
 MANIFEST_PATH = 'manifest/manifest.json'
 
 FIELD_COLLECTORS = 'collectors'
+FIELD_AVAILABLE_FILTERS = 'availableFilters'
 FIELD_LINK = 'dataLink'
 FIELD_ID = 'id'
 FIELD_TITLE = 'title'
@@ -48,13 +49,15 @@ def run():
 
 
 def handle_shipping_docs():
-    unique_tags = []
-    manifest_object = {FIELD_COLLECTORS: []}
+    manifest_object = {FIELD_COLLECTORS: [], FIELD_AVAILABLE_FILTERS: []}
     shipping_paths = get_file_paths(SHIPPING_PATH_PREFIX)
     logger.info(f'Handling the following paths: {shipping_paths}')
     for file_path in shipping_paths:
         collector_item = get_metadata_from_file(file_path)
         manifest_object[FIELD_COLLECTORS].append(collector_item)
+        for tag in collector_item[FIELD_FILTER_TAGS]:
+            if tag not in manifest_object[FIELD_AVAILABLE_FILTERS]:
+                    manifest_object[FIELD_AVAILABLE_FILTERS].append(tag)
     return manifest_object
 
 
