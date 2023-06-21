@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Manage account usage
+title: Manage Account Usage
 ---
 
 If your account is nearing its daily quota,
@@ -30,10 +30,11 @@ below **Advanced options**.
 This page is available
 only from your main account—you won't be able to make this change from a sub account.
 
+:::note
 Even though you need to be an **account admin** to enable this setting,
 everyone who has access to your Logz.io account
 can see the resulting logs.
-{:.info-box.note}
+:::
 
 
 ### Log utilization
@@ -137,14 +138,16 @@ However, if you're sending logs that you'll need only sometimes
 (such as debug logs),
 you can set up a drop filter.
 
-Logs caught by [drop filters aren't ingested,
+Logs caught by [drop filters](/user-guide/accounts/drop-filters/) aren't ingested,
 so they won't count against your plan limits.
 However, the volume of logs you can filter is based on your plan's quota.
-For more information, see [Some important notes on drop filtering.
+For more information, see [Some important notes on drop filtering](/user-guide/accounts/drop-filters/#some-important-notes).
 <!-- This number varies from one account to the next,
 so please <a class="intercom-launch" href="mailto:help@logz.io">contact the Support team</a>
 for more information on your drop filter limits. -->
 
+:::caution Important
 Dropped logs will never arrive at your Logz.io account,
 so they can't be searched or trigger alerts.
 Always confirm you're dropping the right logs when you apply a new filter.
+:::
