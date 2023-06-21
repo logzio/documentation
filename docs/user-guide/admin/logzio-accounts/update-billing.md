@@ -1,14 +1,16 @@
 ---
-sidebar_position: 2
-title: Update your Logz.io billing info
+sidebar_position: 8
+title: Update Your Logz.io Billing Info
 
 ---
 
 Logz.io self-purchase customers can update their billing info and payment method through Stripe's Logz.io portal.
 
-This section is relevant to Logz.io's **self-purchase plan**. If you have a different plan, contact the [Support team](mailto:help@logz.io) to update your billing info. 
+:::note
+This section is relevant to Logz.io's **self-purchase plan**. If you have a different plan, contact the [Support team](mailto:help@logz.io) to update your billing info.
+:::
 
-### Open your Logz.io account
+## View Logz.io billing info
 
 Log into your Logz.io account and navigate to the [Plan and usage](https://app.logz.io/#/dashboard/settings/plan-and-billing/plan) page.
 
@@ -19,7 +21,7 @@ Find **Billing info** on the left menu, and click on **Update**.
 You'll be redirected to Stripe's portal.
 
 
-### Update your billing info
+## Update your billing info
 
 Once inside Stripe's portal, you'll get a quick overview of your plan: 
 

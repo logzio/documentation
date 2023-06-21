@@ -1,6 +1,6 @@
 ---
-sidebar_position: 2
-title: Monitor account usage
+sidebar_position: 4
+title: Monitor Account Usage
 ---
 
 Logz.io provides you with dashboards to easily track your daily and monthly usage. These dashboards let you monitor your overall usage and understand whether you're about to go over your plan limits.
