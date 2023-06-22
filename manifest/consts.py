@@ -1,3 +1,11 @@
+ENV_LINK_PREFIX = 'LINK_PREFIX'
+ENV_SHIPPING_PATH_PREFIX = 'SHIPPING_PATH_PREFIX'
+ENV_MANIFEST_PATH = 'MANIFEST_PATH'
+
+DEFAULT_LINK_PREFIX = 'https://raw.githubusercontent.com/logzio/documentation/master/'
+DEFAULT_SHIPPING_PATH_PREFIX = 'docs/shipping/'
+DEFAULT_MANIFEST_PATH = 'manifest/manifest.json'
+
 FIELD_COLLECTORS = 'collectors'
 FIELD_AVAILABLE_FILTERS = 'availableFilters'
 FIELD_LINK = 'dataLink'

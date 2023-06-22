@@ -10,11 +10,9 @@ import consts
 logging.basicConfig(stream=sys.stdout, level=logging.INFO, format='%(asctime)s line:%(lineno)d %(levelname)s - %(message)s')
 logger = logging.getLogger()
 
-LINK_PREFIX = 'https://raw.githubusercontent.com/logzio/documentation/master/'
-SHIPPING_PATH_PREFIX = 'docs/shipping/'
-MANIFEST_PATH = 'manifest/manifest.json'
-
-
+LINK_PREFIX = os.getenv(consts.ENV_LINK_PREFIX, consts.DEFAULT_LINK_PREFIX)
+SHIPPING_PATH_PREFIX = os.getenv(consts.ENV_SHIPPING_PATH_PREFIX, consts.DEFAULT_SHIPPING_PATH_PREFIX)
+MANIFEST_PATH = os.getenv(consts.ENV_MANIFEST_PATH, consts.DEFAULT_MANIFEST_PATH)
 
 
 def run():
