@@ -74,7 +74,7 @@ BUNDLE_META = [META_LOGS_DASHBOARDS, META_LOGS_ALERTS, META_LOGS_TO_METRICS, MET
 
 
 def run():
-    manifest_object = handle_shipping_docs()
+    manifest_object = get_manifest()
     try:
         update_manifest(manifest_object)
     except Exception as e:
@@ -83,7 +83,7 @@ def run():
     logger.info(f'New manifest successfully generated at {MANIFEST_PATH}')
 
 
-def handle_shipping_docs():
+def get_manifest():
     manifest_object = {FIELD_COLLECTORS: [], FIELD_AVAILABLE_FILTERS: []}
     shipping_paths = get_file_paths(SHIPPING_PATH_PREFIX)
     logger.info(f'Handling the following paths: {shipping_paths}')
