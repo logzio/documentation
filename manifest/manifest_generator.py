@@ -5,7 +5,7 @@ import os
 import sys
 
 # set logger
-logging.basicConfig(stream=sys.stdout, level=logging.INFO)
+logging.basicConfig(stream=sys.stdout, level=logging.INFO, format='%(asctime)s line:%(lineno)d %(levelname)s - %(message)s')
 logger = logging.getLogger()
 
 LINK_PREFIX = 'https://raw.githubusercontent.com/logzio/documentation/master/'
@@ -24,18 +24,51 @@ FIELD_FILTER_TAGS = 'filterTags'
 FIELD_OS_TAGS = 'osTags'
 FIELD_TAG = 'tag'
 FIELD_DISPLAY_NAME = 'displayName'
+FIELD_BUNDLES = 'bundles'
+FIELD_BUNDLES_TYPE = 'type'
+FIELD_BUNDLES_ID = 'id'
+
+META_ID = 'id'
+META_TITLE = 'title'
+META_OVERVIEW = 'overview'
+META_LOGO = 'logo'
+META_PRODUCT = 'product'
+META_FILTERS = 'filters'
+META_OS = 'os'
+META_LOGS_DASHBOARDS = 'logs_dashboards'
+META_LOGS_ALERTS = 'logs_alerts'
+META_LOGS_TO_METRICS = 'logs2metrics'
+META_METRICS_DASHBOARDS = 'metrics_dashboards'
+META_METRICS_ALERTS = 'metrics_alerts'
+META_INSIGHTS = 'insights'
+
+BUNDLE_TYPE_OSD_DASHBOARD = 'OSD_DASHBOARD'
+BUNDLE_TYPE_GRAFANA_DASHBOARD = 'GRAFANA_DASHBOARD'
+BUNDLE_TYPE_LOGZIO_ALERT = 'LOGZIO_ALERT'
+BUNDLE_TYPE_GRAFANA_ALERT = 'GRAFANA_ALERT'
+BUNDLE_TYPE_LOGZIO_INSIGHT = 'LOGZIO_INSIGHT'
 
 MD_TO_MANIFEST_KEYS = {
-    'id': FIELD_ID,
-    'title': FIELD_TITLE,
-    'overview': FIELD_DESCRIPTION,
-    'logo': FIELD_LOGO,
-    'product': FIELD_PRODUCT_TAGS,
-    'filters': FIELD_FILTER_TAGS,
-    'os': FIELD_OS_TAGS
+    META_ID: FIELD_ID,
+    META_TITLE: FIELD_TITLE,
+    META_OVERVIEW: FIELD_DESCRIPTION,
+    META_LOGO: FIELD_LOGO,
+    META_PRODUCT: FIELD_PRODUCT_TAGS,
+    META_FILTERS: FIELD_FILTER_TAGS,
+    META_OS: FIELD_OS_TAGS,
+}
+
+META_TO_BUNDLE_TYPE = {
+    META_LOGS_DASHBOARDS: BUNDLE_TYPE_OSD_DASHBOARD,
+    META_LOGS_ALERTS: BUNDLE_TYPE_LOGZIO_ALERT,
+    META_METRICS_DASHBOARDS: BUNDLE_TYPE_GRAFANA_DASHBOARD,
+    META_METRICS_ALERTS: BUNDLE_TYPE_GRAFANA_ALERT,
+    META_INSIGHTS: BUNDLE_TYPE_LOGZIO_INSIGHT
 }
 
 ARRAY_KEYS = [FIELD_PRODUCT_TAGS, FIELD_FILTER_TAGS, FIELD_OS_TAGS]
+BUNDLE_META = [META_LOGS_DASHBOARDS, META_LOGS_ALERTS, META_LOGS_TO_METRICS, META_METRICS_DASHBOARDS,
+               META_METRICS_ALERTS]
 
 
 def run():
@@ -57,7 +90,7 @@ def handle_shipping_docs():
         manifest_object[FIELD_COLLECTORS].append(collector_item)
         for tag in collector_item[FIELD_FILTER_TAGS]:
             if tag not in manifest_object[FIELD_AVAILABLE_FILTERS]:
-                    manifest_object[FIELD_AVAILABLE_FILTERS].append(tag)
+                manifest_object[FIELD_AVAILABLE_FILTERS].append(tag)
     return manifest_object
 
 
@@ -93,6 +126,10 @@ def get_metadata_from_file(file_path):
                 logger.error(f'Invalid key in line {line_number}, skipping...')
             try:
                 norm_key, norm_val = normalize_key_val(key_val_pair[key_index], key_val_pair[value_index])
+                if norm_key == FIELD_BUNDLES:
+                    if FIELD_BUNDLES in collector_item:
+                        collector_item[norm_key] = collector_item[norm_key] + norm_val
+                        continue
                 collector_item[norm_key] = norm_val
             except KeyError as ke:
                 logger.debug(ke)
@@ -102,17 +139,29 @@ def get_metadata_from_file(file_path):
         return collector_item
 
 
-
 def normalize_key_val(key, val):
+    is_valid_key = False
     norm_key = key.strip().lower()
     if norm_key in MD_TO_MANIFEST_KEYS:
         norm_key = MD_TO_MANIFEST_KEYS[norm_key]
-    else:
-        raise KeyError(f'Specified key {key} not in list of supported keys')
+        is_valid_key = True
     norm_val = val.strip()
-    if norm_key in ARRAY_KEYS:
+    if norm_key in ARRAY_KEYS or norm_key in BUNDLE_META:
         norm_val = ast.literal_eval(norm_val)
+    if norm_key in BUNDLE_META:
+        is_valid_key = True
+        return normalize_bundle_item(norm_key, norm_val)
+    if not is_valid_key:
+        raise KeyError(f'Specified key {key} not in list of supported keys')
     return norm_key, norm_val
+
+
+def normalize_bundle_item(norm_key, id_arr):
+    bundles = []
+    bundle_type = META_TO_BUNDLE_TYPE[norm_key]
+    for item_id in id_arr:
+        bundles.append({FIELD_BUNDLES_TYPE: bundle_type, FIELD_BUNDLES_ID: item_id})
+    return FIELD_BUNDLES, bundles
 
 
 def update_manifest(manifest_object):
