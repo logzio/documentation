@@ -88,7 +88,7 @@ def handle_shipping_docs():
     shipping_paths = get_file_paths(SHIPPING_PATH_PREFIX)
     logger.info(f'Handling the following paths: {shipping_paths}')
     for file_path in shipping_paths:
-        collector_item = get_metadata_from_file(file_path)
+        collector_item = get_collector_item_from_file(file_path)
         manifest_object[FIELD_COLLECTORS].append(collector_item)
         for tag in collector_item[FIELD_FILTER_TAGS]:
             if tag not in manifest_object[FIELD_AVAILABLE_FILTERS]:
@@ -105,7 +105,7 @@ def get_file_paths(path_prefix):
     return full_paths
 
 
-def get_metadata_from_file(file_path):
+def get_collector_item_from_file(file_path):
     separator = '---'
     separator_appearances = 2
     key_index = 0
