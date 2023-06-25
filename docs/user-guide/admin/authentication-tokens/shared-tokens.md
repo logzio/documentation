@@ -1,6 +1,6 @@
 ---
-sidebar_position: 1
-title: Manage shared tokens
+sidebar_position: 5
+title: Manage Shared Tokens
 
 ---
 
@@ -38,7 +38,7 @@ These best-practice recommendations will help you keep your data secure when usi
 
   Opt for in-app sharing options whenever possible. If you plan on sharing links with clients, you can use sub accounts to keep each client's logs separate and more secure.
 
-#### Managing shared tokens
+## Managing shared tokens
 
 To manage your shared tokens: 
 
@@ -46,7 +46,7 @@ From your account, go to the <a href="https://app.logz.io/#/dashboard/settings/m
 
 The token for each account is listed in the table along with the date it was created.
 
-##### Working with shared tokens
+### Working with shared tokens
 
 * To create a token, click **+Add shared token**, type a brief **token name**, select **filters** from the dropdown list, and click **Add**.
 * To delete a token, hover over it, and click **delete** <i class="li li-trash"></i> to delete it.
@@ -56,7 +56,7 @@ The token for each account is listed in the table along with the date it was cre
 * To remove filters from a token, hover over the token, click **edit** <i class="li li-pencil"></i>, <i class="li li-x"></i> out the filters you want to remove, and click **Save**.
 
 
-##### Working with token filters
+### Working with token filters
 
 Each token filter is a `field: value` key-value pair. The value needs to be an exact match. Wildcards are not supported.
 
@@ -71,10 +71,12 @@ Each token filter is a `field: value` key-value pair. The value needs to be an e
 
   If the filter you just deleted was used in any sharing links, they will immediately be updated to reflect the new access permissions.
 
-##### Testing token filters
+### Testing token filters
 
 You can open an incognito browser window to test your sharing links.
 
 For example, if you're trying to share a dashboard, you can add or remove token filters and refresh the view in your browser window to see how the filters affect what your recipients will see.
 
+:::warning Warning
 Remember, the OpenSearch Dashboards filters at the dashboard or visualization level affect what your recipients will see. However - from a security point of view - they don't control access tightly enough. Make sure to apply the token filters you need to keep your data secure.
+:::
