@@ -20,7 +20,12 @@ jobs:
         with:
           python-version: '3.10'
       - run: python3 _manifest/manifest_generator.py
+      - name: Extract branch name
+        shell: bash
+        run: echo "branch=${GITHUB_REF#refs/heads/}" >> $GITHUB_OUTPUT
+        id: extract_branch
       - uses: EndBug/add-and-commit@v9
         with:
           add: './data/manifest.json'
           default_author: github_actions
+          push: origin ${{ steps.extract_branch.outputs.branch }} --force
