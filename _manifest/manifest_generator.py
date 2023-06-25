@@ -10,24 +10,22 @@ import consts
 logging.basicConfig(stream=sys.stdout, level=logging.INFO, format='%(asctime)s line:%(lineno)d %(levelname)s - %(message)s')
 logger = logging.getLogger()
 
-LINK_PREFIX = os.getenv(consts.ENV_LINK_PREFIX, consts.DEFAULT_LINK_PREFIX)
-SHIPPING_PATH_PREFIX = os.getenv(consts.ENV_SHIPPING_PATH_PREFIX, consts.DEFAULT_SHIPPING_PATH_PREFIX)
-MANIFEST_PATH = os.getenv(consts.ENV_MANIFEST_PATH, consts.DEFAULT_MANIFEST_PATH)
-
 
 def run():
+    manifest_path = os.getenv(consts.ENV_MANIFEST_PATH, consts.DEFAULT_MANIFEST_PATH)
     manifest_object = get_manifest()
     try:
-        update_manifest(manifest_object)
+        update_manifest(manifest_object, manifest_path)
     except Exception as e:
         logger.fatal(f'Could not update manifest: {e}')
         exit(1)
-    logger.info(f'New manifest successfully generated at {MANIFEST_PATH}')
+    logger.info(f'New manifest successfully generated at {manifest_path}')
 
 
 def get_manifest():
+    shipping_path_prefix = os.getenv(consts.ENV_SHIPPING_PATH_PREFIX, consts.DEFAULT_SHIPPING_PATH_PREFIX)
     manifest_object = {consts.FIELD_COLLECTORS: [], consts.FIELD_AVAILABLE_FILTERS: []}
-    shipping_paths = get_file_paths(SHIPPING_PATH_PREFIX)
+    shipping_paths = get_file_paths(shipping_path_prefix)
     logger.info(f'Handling the following paths: {shipping_paths}')
     for file_path in shipping_paths:
         collector_item = get_collector_item_from_file(file_path)
@@ -42,7 +40,7 @@ def get_file_paths(path_prefix):
     file_names = os.listdir(path_prefix)
     full_paths = []
     for name in file_names:
-        full_path = f'{SHIPPING_PATH_PREFIX}{name}'
+        full_path = f'{path_prefix}{name}'
         full_paths.append(full_path)
     return full_paths
 
@@ -54,6 +52,7 @@ def get_collector_item_from_file(file_path):
     value_index = 1
     line_number = 0
     collector_item = {}
+    link_prefix = os.getenv(consts.ENV_LINK_PREFIX, consts.DEFAULT_LINK_PREFIX)
     with open(file_path) as doc_file:
         while separator_appearances > 0:
             line = doc_file.readline().strip()
@@ -79,7 +78,7 @@ def get_collector_item_from_file(file_path):
                 logger.warning(ke)
             except Exception as e:
                 logger.error(e)
-        collector_item[consts.FIELD_LINK] = f'{LINK_PREFIX}{file_path}'
+        collector_item[consts.FIELD_LINK] = f'{link_prefix}{file_path}'
         return collector_item
 
 
@@ -108,14 +107,15 @@ def normalize_bundle_item(norm_key, id_arr):
     return consts.FIELD_BUNDLES, bundles
 
 
-def update_manifest(manifest_object):
+def update_manifest(manifest_object, manifest_path):
     try:
         logger.info('converting manifest to JSON...')
         manifest_json = json.dumps(manifest_object)
-        with open(MANIFEST_PATH, 'w') as manifest_file:
+        with open(manifest_path, 'w') as manifest_file:
             manifest_file.write(manifest_json)
     except Exception as e:
         raise Exception(f'Could not convert manifest to JSON: {e}')
 
 
-run()
+if __name__ == '__main__':
+    run()
