@@ -1,19 +1,20 @@
 ---
-sidebar_position: 1
-title: Single sign-on with AWS
+sidebar_position: 8
+title: Single Sign-On with AWS
 ---
 
 Logz.io offers a quick integration for SSO with AWS.
 
 
-#### To set up single sign-on for AWS
+## To set up single sign-on for AWS
 
 
-##### Request SSO access from Logz.io
+### Request SSO access from Logz.io
 
 
+:::note
 Only account admins can request single sign-on access for their accounts.
-
+:::
 
 To set up your AWS SSO, you'll first need to email [help@logz.io](mailto:help@logz.io) and write that you want to set up AWS SAML SSO for Logz.io.
 
@@ -24,7 +25,7 @@ Include these items in the message:
 
 The Support team will respond with the connection information needed to set up your AWS SSO.
 
-##### Set a custom SAML app in AWS
+### Set a custom SAML app in AWS
 
 Log into your [AWS SSO dashboard](https://us-east-1.console.aws.amazon.com/singlesignon/identity/home).
 
@@ -46,7 +47,7 @@ Next, in **Application metadata**, click on the link located underneath the brow
 
 Click on **Save changes** to create your app.
 
-##### Send your SAML details to Logz.io
+### Send your SAML details to Logz.io
 
 Draft a new email to Support, and include these items:
 
@@ -57,11 +58,12 @@ Draft a new email to Support, and include these items:
 
 When Support has received the information and created your AWS + Logz.io connection, you'll receive confirmation that your AWS SSO is ready to go, and you can start logging in to Logz.io through your AWS account.
 
-##### Assign users to Logz.io's SSO connection
+### Assign users to Logz.io's SSO connection
 
 In your main SAML application you've just created, navigate to the **Assigned users** tab and click on **Assign users**. Here you can choose and add all relevant users from your organization who can use your new SSO connection.
 
+:::note
 Users must also have a Logz.io account to use the new SSO feature.
-{:.info-box.note}
+:::
 
 ![Assign users](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/aws/assign-users.png)
