@@ -1,29 +1,30 @@
 ---
-sidebar_position: 1
-title: Single sign-on with Google Workspace
+sidebar_position: 7
+title: Single Sign-On with Google Workspace
 ---
 
 Logz.io offers a quick integration for SSO with Google Workspace.
 
 
-#### To set up single sign-on for Google Workspace
+## To set up single sign-on for Google Workspace
 
 
-##### Request SSO access from Logz.io
+### Request SSO access from Logz.io
 
-
+:::note
 Only account admins can request single sign-on access for their accounts.
+:::
 
 To set up your Google Workspace SSO, you'll first need to email [help@logz.io](mailto:help@logz.io) and write that you want to set up Google Workspace SAML SSO for Logz.io.
 
 Include these items in the message:
 
-* Your Logz.io [account ID
+* Your Logz.io [account ID](https://docs.logz.io/user-guide/accounts/finding-your-account-id.html)
 * The last six characters of your [account token](https://app.logz.io/#/dashboard/settings/manage-accounts)
 
 The Support team will respond with the connection information needed to set up your Google Workspace SSO.
 
-##### Set a custom SAML app in Google Workspace
+### Set a custom SAML app in Google Workspace
 
 Log into your [Google Workspace panel](https://admin.google.com/AdminHome).
 
@@ -45,7 +46,7 @@ Continue to the final screen. Edit the Google Directory attributes to **Basic In
 
 Click on Finish to add the custom SAML app.
 
-##### Send your SAML details to Logz.io
+### Send your SAML details to Logz.io
 
 Draft a new [email to Support](mailto:help@logz.io), and include these items:
 
@@ -56,7 +57,7 @@ When Support has received the information and created your Google Workspace + Lo
 
 
 
-#### Google Workspace SSO groups
+## Google Workspace SSO groups
 
 
 When [creating access groups for Google Workspace](https://support.google.com/a/answer/9050643?hl=en), you need to add a custom attribute to connect it to your Logz.io SAML application.

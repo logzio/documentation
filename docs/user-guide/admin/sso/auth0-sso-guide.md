@@ -1,6 +1,6 @@
 ---
-sidebar_position: 1
-title: Single sign-on (SSO) for Auth0
+sidebar_position: 6
+title: Single Sign-On (SSO) for Auth0
 ---
 
 The following guide helps account admins set up a Single sign-on connection for Auth0.
@@ -13,23 +13,24 @@ To get started, you need the following privileges:
 * Permissions to create a new native application in Auth0
 * Owner role permissions for the account for which you are creating the Logz.io resource 
 
-##### Request SSO access from Logz.io
+### Request SSO access from Logz.io
 
+:::note
 Only account admins can request single sign-on access for their accounts. 
 To access and use the SSO link that is created for a Logz.io Auth0 integration resource, users must be defined in the associated Auth0 account. 
-{:.info-box.note}
+:::
 
 To kick off this process, send an email to [help@logz.io](mailto:help@logz.io).
 Write that you want to set up Auth0 SSO for Logz.io.
 Include these items in the message:
 
-* Your Logz.io [account ID
+* Your Logz.io [account ID](https://docs.logz.io/user-guide/accounts/finding-your-account-id.html)
 * The last six characters of your [account token](https://app.logz.io/#/dashboard/settings/manage-accounts)
 
 The Support Team will respond with the connection information you'll need to give in Auth0.
 
 
-##### Create a native application in Auth0
+### Create a native application in Auth0
 
 Log into your Auth0 account. Navigate to **Applications > Applications** and create a new **Native** application.
 
@@ -45,7 +46,7 @@ Click on **Endpoints** tab and copy the SAML Protocol URL.
 
 Save your configuration.
 
-##### Send your SAML details to Logz.io
+### Send your SAML details to Logz.io
 
 Draft a new [email to Support](mailto:help@logz.io), and include these items:
 
@@ -53,7 +54,7 @@ Draft a new [email to Support](mailto:help@logz.io), and include these items:
 * Your SAML Protocol URL.
 
 
-##### Activate SAML connection in Auth0
+### Activate SAML connection in Auth0
 
 Return to your Native app in Auth0 (**Applications > Applications**), click the **Addons** tab, and toggle SAML2 Web App.
 
@@ -66,7 +67,7 @@ Click on **Settings**, paste the Single Sign-in URL that Logz.io support Team ha
 When Support has created your Auth0 + Logz.io connection, you're done!
 You can start logging in to Logz.io through your Auth0 account.
 
-##### Adding New Auth0 SSO users
+### Adding New Auth0 SSO users
 
 New users who weren't a part of your account when you first created the SSO configuration, should apply a first login to Logz.io via the Auth0 platform by navigating to Application > SAML2 Web App > Addon settings.
 

@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Types of tokens
+title: Types of Tokens
 ---
 
 
@@ -22,9 +22,9 @@ Every account has its own tokens.
 
 You can click any **Token** to copy it with one-click.
 
-* Learn more about managing your [Log shipping tokens 
-* Learn more about your [Metrics shipping token 
-* Learn more about your [Distributed Tracing shipping token 
+* Learn more about managing your [Log shipping tokens](https://docs.logz.io/user-guide/tokens/log-shipping-tokens/)
+* Learn more about your [Metrics shipping token](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/)
+* Learn more about your [Distributed Tracing shipping token](https://docs.logz.io/user-guide/accounts/finding-your-tracing-account-token/)
 
 ### Share dashboards and more
 
@@ -37,7 +37,7 @@ Keep your data secure by attaching a filter to every token and deleting tokens y
 
 To manage your shared tokens, select [**<i class="li li-gear"></i> > Tools > Manage tokens**](https://app.logz.io/#/dashboard/settings/manage-tokens/shared) in the top menu and select the **Shared tokens** tab.
 
-* For more information on [managing shared tokens 
+* For more information on [managing shared tokens](https://docs.logz.io/user-guide/tokens/shared-tokens.html)
 
 ### Develop an integration
 
@@ -48,8 +48,8 @@ API tokens are available to Enterprise and Pro plan subscribers, as well as duri
 
 To manage your API tokens, select [**<i class="li li-gear"></i> > Tools > Manage tokens**](https://app.logz.io/#/dashboard/settings/manage-tokens/api) in the top menu and select the **API tokens** tab.
 
-* For more information on [managing API tokens 
-* If you want to build your own integration, visit the [Logz.io API Developer Guide 
+* For more information on [managing API tokens](https://docs.logz.io/user-guide/tokens/api-tokens.html)
+* If you want to build your own integration, visit the [Logz.io API Developer Guide](https://docs.logz.io/api/)
 
 ## About token permissions
 
