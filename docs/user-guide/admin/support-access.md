@@ -1,7 +1,7 @@
 ---
-sidebar_position: 4
+sidebar_position: 8
 ---
-# Support access
+# Granting Access to Logz.io Support
 
 
 If you need help in your account that we can't resolve over chat or email, the Logz.io Support team may access your account to investigate and troubleshoot further.
