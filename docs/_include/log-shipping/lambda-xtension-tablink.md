@@ -1,0 +1,1 @@
+(https://app.logz.io/#/dashboard/send-your-data/log-sources/lambda-extensions?type=tables)

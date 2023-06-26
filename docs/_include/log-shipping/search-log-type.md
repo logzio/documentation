@@ -1,0 +1,1 @@
+You'll be able to find these logs by searching for `type:{{include.type}}`.

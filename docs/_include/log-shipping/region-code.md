@@ -1,0 +1,1 @@
+Logz.io 2-letter region code. [Learn more](https://docs.logz.io/user-guide/accounts/account-region.html).

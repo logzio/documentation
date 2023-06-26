@@ -1,0 +1,1 @@
+File names in ascending alphanumeric order. This is important because the S3 fetcher's offset is determined by the name of the last file fetched. We recommend using standard AWS naming conventions to determine the file name ordering and to avoid log duplication.

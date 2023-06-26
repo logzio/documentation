@@ -1,0 +1,2 @@
+| external_labels | Parameters to tag the metrics from this specific Prometheus server. |
+| p8s_logzio_name |Use the value of the parameter `p8s_logzio_name` to identify from which Prometheus environment the metrics are arriving to Logz.io. Replace the `<labelvalue>` placeholder with a label that will be added to all the metrics that are sent from this specific Prometheus server. | 

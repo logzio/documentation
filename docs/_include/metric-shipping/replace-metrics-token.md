@@ -1,0 +1,1 @@
+Replace `<<METRICS-SHIPPING-TOKEN>>` with a [token](https://app.logz.io/#/dashboard/settings/manage-accounts) for the Metrics account you want to ship to.  [Look up your Metrics token.](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/)
