@@ -1,0 +1,18 @@
+{%- comment -%}
+This include is used for the API cookbooks. It creates a 'read more' info box
+that links to the relevant section of the API doc.
+For usage in context, see examples in _source/api/cookbook/
+
+To use this include, pass these parameters:
+- title: Human-readable title of the API section
+- id: operationId from the API.
+    It's easiest to find this by opening the live API doc, then scrolling to
+    the section you want, then copying the hash.
+
+Example:
+  {% include api-cookbook/read-more-api-doc.html title="Retrieve this account" id="whoAmI" %}
+{%- endcomment -%}
+
+:::note
+This API endpoint is documented in the API docs.
+:::

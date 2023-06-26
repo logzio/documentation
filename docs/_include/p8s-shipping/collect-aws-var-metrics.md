@@ -1,0 +1,3 @@
+* {@include: ./collect-aws-var-metrics-part1.md}
+| AWS_NAMESPACES | Comma-separated list of namespaces of the metrics you want to collect.  For `{{include.namespace}}`, this is `AWS/{{include.namespace}}`. You can find a complete list of namespaces at [_AWS Services That Publish CloudWatch Metrics_](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html).   **Note:** This Environment variable is required unless you define the `CUSTOM_CONFIG_PATH` Environment variable | Required |
+* {@include: ./collect-aws-var-metrics-part2.md}
