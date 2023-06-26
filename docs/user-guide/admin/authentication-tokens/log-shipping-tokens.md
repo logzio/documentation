@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-title: Log shipping tokens
+title: Log Shipping Tokens
 
 
 ---
@@ -14,11 +14,14 @@ To manage your log shipping tokens, select an account. You can manage your token
 ### Manage Tokens page
 
 
- 
+{@include: ../../../_include/general-shipping/manage-tokens-nav.md}
+{@include: ../../../_include/general-shipping/data-shipping-tokens_vars.md} <!-- Nico -->
+
+:::note
 The number of log shipping tokens that can be enabled at the same time is limited: 
 **Community** plans may have a single token enabled. 
 **Pro** and **Enterprise** plans may have up to 15 tokens enabled.
-{:.info-box.note}
+:::
 
 ### Managing log shipping tokens
 
@@ -40,7 +43,7 @@ To view your default token, go to [**<i class="li li-gear"></i> > Settings > Gen
 
 The default token is auto-populated in the [configuration instructions](https://app.logz.io/#/dashboard/send-your-data/log-sources/) in the app. You can replace the token with another enabled token.
 
-If you prefer to view the configuration instructions outside the app, note that you will need to replace the the `<<SHIPPING-TOKEN>>` parameter with one of your enabled log shipping tokens. See more in the [log shipping guide 
+If you prefer to view the configuration instructions outside the app, note that you will need to replace the the `<<SHIPPING-TOKEN>>` parameter with one of your enabled log shipping tokens. See more in the [log shipping guide](https://docs.logz.io/shipping/).
 
 
 ### Security advantages
