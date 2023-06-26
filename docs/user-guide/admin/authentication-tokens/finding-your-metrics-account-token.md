@@ -1,6 +1,6 @@
 ---
-sidebar_position: 2
-title: Metrics shipping token
+sidebar_position: 3
+title: Metrics Shipping Token
 
 
 
@@ -12,9 +12,13 @@ When you're setting up data shipping to your Metrics account, you'll need to inc
 Here's how to get the metrics token:
 
 
-### Via the Manage Tokens page
+## Via the Manage Tokens page
 
-### Via the Manage accounts page
+{@include: ../../../_include/general-shipping/manage-tokens-nav.md}
+
+{@include: ../../../_include/general-shipping/data-shipping-tokens_vars.md} <!-- Nico - product="Metrics" -->
+
+## Via the Manage accounts page
 
 You must have admin permissions for the Logz.io Infrastructure Monitoring account to view the **Manage accounts** page. If you're not an admin user for the account, consult with an account admin to get the Infrastructure Monitoring token information. 
 

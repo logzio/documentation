@@ -1,6 +1,6 @@
 ---
-sidebar_position: 2
-title: Distributed Tracing shipping token
+sidebar_position: 4
+title: Distributed Tracing Shipping Token
 
 
 ---
@@ -12,4 +12,11 @@ Here's how to get the tracing token:
 
 ### Via the Manage Tokens page
 
+{@include: ../../../_include/general-shipping/manage-tokens-nav.md}
+{@include: ../../../_include/general-shipping/data-shipping-tokens_vars.md} <!-- Nico -->
+
+
 ### Via the Manage accounts page
+
+{@include: ../../../_include/tracing-shipping/tracing-token.md} <!-- Nico -->
+

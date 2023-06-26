@@ -1,11 +1,11 @@
 ---
-sidebar_position: 1
-title: Manage API tokens
+sidebar_position: 6
+title: Manage API Tokens
 
 ---
 
 If you're an Enterprise or Pro plan subscriber (or during your trial period),
-your account includes API access. You can reference the [API guide and [Terraform Logz.io Provider guide to help you build integrations with Logz.io.
+your account includes API access. You can reference the [API guide](https://docs.logz.io/api/) and [Terraform Logz.io Provider guide](https://docs.logz.io/integrations/terraform/) to help you build integrations with Logz.io.
 
 API tokens are unique to each account. The only exception is a subset of account configuration operations that must be run with the API token of the main account.
 
@@ -15,10 +15,11 @@ From your account, go to the <a href="https://app.logz.io/#/dashboard/settings/m
 
 The token for each account is listed in the table along with the date it was created.
 
+:::note
 Community plans do not currently include API tokens. See the official [pricing page](https://logz.io/pricing/) for details.
+:::
 
-
-#### Working with API tokens
+## Working with API tokens
 
 You have full control over your API tokens, to create and delete them at any time.
 
@@ -27,7 +28,7 @@ You have full control over your API tokens, to create and delete them at any tim
 
   Deleting a token affects any integrations that use that token. Make sure you update integrations that use a token you deleted.
 
-### Each account has its own set of API tokens
+## Each account has its own set of API tokens
 
 | Account type | How to get the API token |
 |---|---|
