@@ -1,11 +1,11 @@
 ---
-sidebar_position: 2
-title: Kubernetes 360 Prerequisite
+sidebar_position: 1
+title: FAQs About Sending Log Data
 ---
 
 If you're interested in integrating our logs with a specific service or application, here are some FAQs to help troubleshoot the process:
 
-#### Can I integrate with a 3rd-party application or service?
+### Can I integrate with a 3rd-party application or service?
 
 - If the logs are only viewable within the 3rd-party service or application, the most likely answer is "no“, because there is no way to have the logs ingested and indexed on our clusters.
 
@@ -13,13 +13,13 @@ If you're interested in integrating our logs with a specific service or applicat
 
 
 
-#### Can I integrate with a proprietary application or service?
+### Can I integrate with a proprietary application or service?
 
 We offer various [Send Your Data integrations](https://app.logz.io/#/dashboard/send-your-data/collection?tag=from-your-code&collection=log-sources) to enable you to ship logs directly from your code, based on the language you're using.
 
 This information is also available in the Logz.io Docs, via [**Ship data > Logs**](https://docs.logz.io/shipping/#log-sources), when you select the **From your code** filter.
 
-#### Can I integrate using a client-side solution?
+### Can I integrate using a client-side solution?
 
 You can try and ship data to Logz.io's bulk HTTP/S endpoint. However, we advise collecting the logs on a central server you control and using it to ship data to Logz.io. This is a more reliable method since it doesn't require the end-users to change their network setup to ensure the required ports (8070 for HTTP, 8071 for HTTPS) are open.
 
@@ -29,9 +29,9 @@ Logz.io's listeners are accessible via non-standard ports that vary based on the
 
 Shipping from a centralized location has additional advantages: it simplifies the debugging process and reduces the risk of losing logs due to network setup issues. 
 
-#### Logs written to a file
+## Logs written to a file
 
-##### **For a one time upload:**
+### **For a one time upload:**
 
 **cURL file upload** enables single file shipping and comes native with both MacOs and Linux.  The full command syntax can be found in our [cURL shipping instructions](https://app.logz.io/#/dashboard/send-your-data/log-sources/curl). 
 Windows users can [download the files from the official website.](https://curl.haxx.se/download.html)
@@ -48,7 +48,7 @@ This information is also available in the Logz.io Docs, in [**Ship your data > L
 
 This information is also available in the Logz.io Docs, in [**Ship your data > Logs > Upload log files using Invoke-RestMethod**](https://docs.logz.io/shipping/log-sources/file-upload.html).
 
-##### **For continuous shipping:**
+### **For continuous shipping:**
 
 [Filebeat](https://app.logz.io/#/dashboard/send-your-data/log-sources/filebeat) is your best option: It's lightweight, reliable, and easy to set up. This method requires outside communication on port 5015.
 
@@ -61,27 +61,27 @@ Other options:
 This information is also available in the Logz.io Docs **Ship your data** section in the [Filebeat](https://docs.logz.io/shipping/log-sources/filebeat.html), [Logstash](https://docs.logz.io/shipping/log-sources/logstash.html), [Rsyslog over TLS](https://docs.logz.io/shipping/log-sources/rsyslog.html), and [Fluentd](https://docs.logz.io/shipping/log-sources/fluentd.html) topics.
 
 
-#### Logs written to cloud storage
+## Logs written to cloud storage
 
 We have existing integrations with both [S3](https://app.logz.io/#/dashboard/send-your-data/log-sources/s3-bucket) and [Azure Blob](https://app.logz.io/#/dashboard/send-your-data/log-sources/azure-blob) storage.
 
 This information is also available in the Logz.io Docs **Ship your data** section, in the [S3 Bucket](https://docs.logz.io/shipping/log-sources/s3-bucket.html) and [Azure Blob Storage](https://docs.logz.io/shipping/log-sources/azure-blob-trigger.html) topics.
 
-#### Logs that are accessible via API
+## Logs that are accessible via API
 
-##### **For a one time upload:**
+### **For a one time upload:**
 
 Run the relevant API query per the instructions provided by the application or service and send the response as  payload to the [Logz.io JSON bulk uploads over HTTP/HTTPs](https://app.logz.io/#/dashboard/send-your-data/log-sources/json-uploads?type=http-config) endpoint. 
 
 This method requires outside bulk HTTP/S endpoint communication on ports 8070 (HTTP) and 8071 (HTTPS).
 
- 
+:::caution Important
 The payload must be formatted as inline JSON objects separated by a newline. Arrays or pretty-printed JSON payloads will fail.
- 
+:::
 
 This information is also available in the Logz.io Docs **Ship your data** section, in the [Upload JSON logs](https://docs.logz.io/shipping/log-sources/json-uploads.html) topic.
 
 
-##### **For continuous shipping:**
+### **For continuous shipping:**
 
 This method follows the same instructions as the one time upload, but we recommend that you script the process to save time and effort. 
