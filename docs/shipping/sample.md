@@ -1,5 +1,5 @@
 ---
-id: sample
+id: sample2
 title: Sample Document
 sidebar_position: 1
 overview: test

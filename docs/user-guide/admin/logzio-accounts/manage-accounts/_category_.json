@@ -1,0 +1,8 @@
+{
+  "label": "Manage Main and Sub Account",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Manage your Logz.io Log, Metrics, Tracing, and SIEM accounts, sub accounts, timeless accounts, and more."
+  }
+}

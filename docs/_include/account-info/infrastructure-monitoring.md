@@ -1,25 +1,17 @@
-Logz.io Metrics lets your team curate dashboards to oversee continuous deployment, CI/CD pipelines, prevent outages, manage incidents, and remediate crashes in multi-microservice environments, hybrid infrastructures, and complex tech stacks.
+Logz.io **Metrics** lets your team curate dashboards to oversee continuous deployment, CI/CD pipelines, prevent outages, manage incidents, and remediate crashes in multi-microservice environments, hybrid infrastructures, and complex tech stacks.
 
 If you're an admin for the main account, you can manage the main account and sub accounts from the [**Manage Accounts**](https://app.logz.io/#/dashboard/settings/manage-accounts) page (**<i class="li li-gear"></i> > Settings > Manage accounts** in the navigation menu).
 
 
 The Infrastructure Monitoring plan panel is located at the bottom of the **[Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts)** page.
 
+:::note
 If you don't have an Infrastructure Monitoring account yet,
 reach out to your account manager or email [the Sales team](mailto:sales@logz.io).
-{:.info-box.note}
-
-##### Manage your Infrastructure Monitoring account
-
-* View plan summary
-* View details and abilities for a specific account
-* Configure which accounts can access a Metrics data source
-* Add a Metrics account to your plan
-* Delete a Metrics account
-* Change how many UMs are allocated to each Metrics account
+:::
 
 
-#### View plan summary
+## View Metrics plan summary
 
 Your Metrics account is calculated according to the unique metrics (UMs) you're using. These metrics are a combination of the metric type queries by PromQL, including counters, gauges, histograms, and summaries.
 
@@ -27,7 +19,7 @@ You can view your daily and monthly available UMs, and a breakdown of each accou
 
 ![Metrics plan overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/metrics-plan-overview.png)
 
-#### View details and abilities for a specific account
+## View details and abilities for a specific account
 
 To see the detailed information and the configurable options for each account, click the account name in the table or pie chart.
 
@@ -47,11 +39,11 @@ You can edit the following elements:
 
 ![Metrics accounts details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/metrics-account-details.png)
 
-#### Configure which accounts can access a Metrics data source
+## Configure which accounts can access a Metrics data source
 
 Each Metrics account can become a data source for other Logz.io Metrics accounts. To manage access to your metrics data, you create an access list of the Logz.io main account and sub accounts that can view the data for each Metrics account. In the account selector, you can see the list of all the sub accounts (and main account) in the top right of the application page.
 
-##### To grant access to the data in a Metrics account
+### To grant access to the data in a Metrics account
 
 If users are logged in to the accounts you add here, they'll be able to read the metrics in this account.
 
@@ -62,10 +54,11 @@ If users are logged in to the accounts you add here, they'll be able to read the
 ![Metrics add account visibility](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/metrics-visibility.gif)
 
 
-#### Add a Metrics account to your plan
+## Add a Metrics account to your plan
 
+:::note
 You can add up to 5 Metrics accounts for your Infrastructure Monitoring plan. If you need the ability to add more accounts, reach out to your account manager or [Logz.io's Sales team](mailto:sales@logz.io).
-{:.info-box.note}
+:::
 
 **To create a new account**
 
@@ -75,13 +68,13 @@ You can add up to 5 Metrics accounts for your Infrastructure Monitoring plan. If
 4. Configure the **total monthly UMs** you want to allocate to the new account. If you don’t have UMs available, you’ll be prompted to reduce the allocation of another account.
 5. Click **Apply** to apply your changes.
 
-#### Delete a Metrics account from your plan
+## Delete a Metrics account from your plan
 
 Choose the Metrics account you want to delete, and click the **Delete** icon located next to its name. 
 
 Then, confirm (or Cancel) the action.
 
-#### Change how many UMs are allocated to each account within your plan
+## Change how many UMs are allocated to each account within your plan
 
 Set how many unique metrics (UMs) are allocated to each account from the overall Infrastructure Monitoring plan. 
 

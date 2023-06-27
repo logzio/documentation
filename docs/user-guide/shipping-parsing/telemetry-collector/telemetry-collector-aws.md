@@ -49,8 +49,9 @@ Click **Generate snippet** to continue.
 
 Copy the code snippet and **run it in your EC2** to install the AWS Telemetry Collector.
 
+:::note
 Some platforms might require additional details, such as admin privileges or passwords, to complete the installation. These details are not sent to or stored by Logz.io.
-{:.info-box.note}
+:::
 
 ![Review collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/collector-localhost-finish.png)
 

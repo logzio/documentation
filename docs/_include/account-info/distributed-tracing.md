@@ -4,25 +4,13 @@ The Distributed Tracing Account plan panel is located in the middle of the **[Ma
 
 You can view your Distributed Tracing account plan and the specific details and options that can be updated for each account within the plan.
 
+:::note
 If you don't have a Distributed Tracing account yet, start a trial in the Distributed Tracing tab.
 <!-- reach out to your account manager or email [the Sales team](mailto:sales@logz.io).-->
-{:.info-box.note}
-
-### Manage your Tracing account
-
-* View plan summary
-* View details of specific accounts
-* Update account name 
-* Configure account access 
-* Add a Tracing account
-* Delete a Tracing account 
-* Edit and allocate spans 
-* Tracing surge protection 
-* Troubleshooting 
+:::
 
 
-
-#### View the plan summary and account allocations
+## View the Tracing plan summary and account allocations
 
 Your Tracing account is based on spans: a building block of a trace, a named, timed operation representing a piece of the workflow in distributed systems.
 
@@ -30,7 +18,7 @@ You can view your monthly available spans, your plan's data retention time, and 
 
 ![Tracing account summary](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/main-tracing-account-jul.png)
 
-#### View details and options for a specific account
+## View details and options for a specific account
 
 To see the detailed information and the configurable options for each account, click the account name in the table or pie chart. 
 
@@ -49,13 +37,13 @@ And change the following account options:
 * Total spans allocated from the Distributed Tracing plan to this specific data source, which defines how many spans per calendar month can be ingested into this data source
 * Remaining portion of the overall Distributed Tracing plan that can still be allocated to additional tracing data sources (accounts) 
 
-#### Update the account name
+## Update the account name
 
 Enter a new **Tracing account name** and **Save** to update your changes, or **Cancel** to discard them.
 
 ![Rename a tracing account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/tracing-new-name-jul.png)
 
-#### Configure which accounts can access a tracing data source
+## Configure which accounts can access a tracing data source
 
 Each Distributed Tracing account can function as a data source for other Logz.io accounts.
 To manage access to your tracing data, you create an access list of the Logz.io main account and sub accounts that can view the span data for each tracing account. You can see the list of all the sub accounts (and main account) in the top right of the application page, in the account selector.
@@ -74,10 +62,11 @@ they can choose the tracing account as a data source in the Jaeger interface of 
   ![Access to tracing account data for other accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/tracing-sub-account.gif)
 
 
-#### Add a tracing account to your plan
+## Add a tracing account to your plan
 
+:::note
 You can configure up to 5 tracing accounts for your Distributed Tracing plan. If you need the ability to add more tracing accounts, reach out to your account manager or [the Sales team](mailto:sales@logz.io).
-{:.info-box.note}
+:::
 
 **To create a new account**
 
@@ -92,7 +81,7 @@ You can configure up to 5 tracing accounts for your Distributed Tracing plan. If
 
 ![Adding a new tracing account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/new-tracing-account-flow-jul.gif)
 
-#### Delete a tracing account from your plan
+## Delete a tracing account from your plan
  
 1. In the account details, click the **Delete** icon next to the account name.
   ![delete](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/delete-tracing-account-jul.png)   
@@ -101,7 +90,7 @@ You can configure up to 5 tracing accounts for your Distributed Tracing plan. If
   ![Confirm delete](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/confirm-delete-tracingacct2.png)
 
 
-#### Change spans allocation across Distributed Tracing accounts within your plan
+## Change spans allocation across Distributed Tracing accounts within your plan
 
 Juggle the allocated spans per month of your Distributed Tracing account plan between the different tracing accounts according to each account's current usage details. Each data source has its quota defined in the **Spans** column. 
 
@@ -117,7 +106,7 @@ By **setting a daily limit**, you can ensure incidents and issues won't consume 
 In the example below, **New Tracing Account 2**  is not using its allocated spans: It would be reasonable to reduce its monthly allocation and increase the allocation for the **Tracing** account. 
 ![juggle allocated spans](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/shiftspans-betweenaccts-jul.png)
 
-#### Tracing surge protection
+## Tracing surge protection
 
 Your Distributed Tracing accounts are limited by a monthly quota of a number of spans, representing your Distributed Tracing plan. 
 
@@ -137,7 +126,7 @@ If your Tracing account's overall daily span number exceeds the **estimated dail
 
 When an account exceeds 80% of the allowed daily spans, account admins will receive an email alert indicating an unusual traffic event in the Tracing account, providing extra time to examine the issue before the ingestion stops.
 
-#### Troubleshooting
+## Troubleshooting
 
 If your Tracing account exceeded its quota, the first thing you'll need to do is check that the overall quota is assigned to your account.
 
