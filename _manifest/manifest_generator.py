@@ -40,7 +40,7 @@ def get_file_paths(path_prefix):
     file_names = os.listdir(path_prefix)
     full_paths = []
     for name in file_names:
-        full_path = f'{path_prefix}{name}'
+        full_path = os.path.join(path_prefix, name)
         full_paths.append(full_path)
     return full_paths
 

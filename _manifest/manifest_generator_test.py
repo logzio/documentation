@@ -38,6 +38,7 @@ class ManifestGeneratorTest(unittest.TestCase):
                    {"type": "GRAFANA_DASHBOARD", "id": "sdfgfsdg"}, {"type": "GRAFANA_DASHBOARD", "id": "sdfgsdyuiuyifg"},
                    {"type": "GRAFANA_ALERT", "id": "azxsvb"}]
         self.assertCountEqual(collector_item[consts.FIELD_BUNDLES], bundles)
+        self.assertEqual(collector_item[consts.FIELD_LINK], 'https://raw.githubusercontent.com/logzio/documentation/master/_manifest/test/sample.md')
 
     def test_normalize_key_val_strings(self):
         valid_keys_strings = [consts.META_ID, consts.META_TITLE, consts.META_OVERVIEW, consts.META_LOGO]
