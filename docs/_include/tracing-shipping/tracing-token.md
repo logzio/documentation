@@ -1,6 +1,7 @@
 You must have admin permissions for the Logz.io account to view the **Manage tokens** page. If you're not an admin user for the account, consult with an account admin to get the Distributed Tracing token information. 
 
-   1. From the **Tracing** or  <i class="li li-gear"></i> (**Settings**) menu, go to <a href="https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=tracing" target ="_blank"> **Manage tokens > Data shipping tokens > Tracing** </a>
+
+   1. From the **Tracing** or  <i class="li li-gear"></i> (**Settings**) menu, go to <a href="https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=tracing" target ="_blank"> **Manage tokens > Data shipping tokens > Tracing**
 
       ![Distributed Tracing tokens](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing-token_sept2021.png)
 

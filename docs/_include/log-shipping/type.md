@@ -1,0 +1,1 @@
+Declare your log type for parsing purposes. Logz.io applies default parsing pipelines to the following list of [built-in log types](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html). If you declare another type, contact support for assistance with custom parsing. Can't contain spaces.
