@@ -1,8 +1,8 @@
 {
   "label": "Integrations",
-  "position": 10,
+  "position": 9,
   "link": {
     "type": "generated-index",
-    "description": "Infrastructure monitoring."
+    "description": "Connecting your data to Logz.io in all its forms."
   }
 }

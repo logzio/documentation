@@ -1,19 +1,19 @@
 ---
 sidebar_position: 2
+title: ServiceNow Endpoint Configuration
 ---
 
-# Configure an endpoint for ServiceNow
 
 
 Integrate with ServiceNow to receive Logz.io notifications in your ServiceNow workspace.
 
 
 
-#### Adding a ServiceNow notification endpoint
+## Adding a ServiceNow notification endpoint
 
  
 
-##### Add a dedicated user in your ServiceNow workspace
+### 1. Add a dedicated user in your ServiceNow workspace
 
 Open your ServiceNow instance and create a new user. See [ServiceNow docs for details](https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/users-and-groups/task/t_CreateAUser.html).
 
@@ -26,7 +26,7 @@ Special requirements:
 
 
 
-##### Add the endpoint
+### 2. Add the endpoint
 
 Go to the [Notification endpoints](https://app.logz.io/#/dashboard/alerts/endpoints) page, and click **Add endpoint**. Fill in the form:
 
@@ -38,13 +38,13 @@ Go to the [Notification endpoints](https://app.logz.io/#/dashboard/alerts/endpoi
 
 
 
-##### Test the endpoint (_Optional_)
+### 3. Test the endpoint (_Optional_)
 
 Click **Run the test** to test your endpoint. Logz.io shows if the message was successfully sent.
 
 Check that the message arrived at the target endpoint.
 
-##### Save the endpoint
+### 4. Save the endpoint
 
 **Save** your endpoint.
  
@@ -66,6 +66,6 @@ The double-brackets indicate variables that will be auto-populated by Logz.io wi
 }
 ```
  
-
+:::caution Important
 ServiceNow endpoints do not support Logz.io resolved alerts.
- 
+:::

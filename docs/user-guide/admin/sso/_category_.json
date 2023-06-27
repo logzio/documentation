@@ -3,6 +3,6 @@
   "position": 5,
   "link": {
     "type": "generated-index",
-    "description": "SSO"
+    "description": "Single sign-on (SSO) lets you manage access to your Logz.io account from various identity management tools."
   }
 }

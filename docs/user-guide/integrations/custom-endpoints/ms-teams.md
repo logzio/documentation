@@ -2,46 +2,46 @@
 sidebar_position: 2
 ---
 
-# Configure an endpoint for Microsoft Teams
+# Configure an Endpoint for Microsoft Teams
 
 
 
 Integrate with Microsoft Teams using a Logz.io custom webhook to receive Logz.io notifications in your Microsoft Teams workspace.
 
 
-#### Adding your Microsoft Teams endpoint
+## Adding your Microsoft Teams endpoint
 
  
-##### Allow firewall access
+### 1. Allow firewall access
 
-See [Custom Endpoints  for general instructions on setting up firewall access for Logz.io notifications.
+See [Custom Endpoints](https://docs.logz.io/user-guide/integrations/custom-endpoints.html) for general instructions on setting up firewall access for Logz.io notifications.
 
 This may include whitelisting Logz.io IPs and/or creating a verification token.
 
 
 
-##### Add the endpoint
+### 2. Add the endpoint
 
 1. To add a new custom endpoint, click **Add endpoint**.
 2. **Type**: Select the option **Custom**.
 3. **URL**: See [MS docs](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook) for instructions on creating the webhook URL.
 4. **Method**: Select the **POST** method. 
 5. **Headers**: Add `Content-Type=application/json`.
-3. **Payload**: Add your payload message. See the next step for details.
+6. **Payload**: Add your payload message. See the next step for details.
 
 ![Configure a custom endpoint](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/ms-teams-endpoint.png)
 
 
-##### Add your payload
+### 3. Add your payload
 
 Microsoft Teams requires that you send either the `text` or `summary` properties. [Learn more from Microsoft.](https://docs.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/cards/cards-reference#office-365-connector-card)
 
 
-###### Example payload
+#### Example payload
 
 To use this example in your own endpoint, copy the payload. Note that double-brackets indicate parameters that will be auto-populated by Logz.io.
 
-{% raw %}
+<!--{% raw %}-->
 
 ```
 {
@@ -65,15 +65,15 @@ To use this example in your own endpoint, copy the payload. Note that double-bra
     ]
 }
 ```
-{% endraw %}
+<!-- {% endraw %}-->
 
 
-##### Test the endpoint (_Optional_)
+### 4. Test the endpoint (_Optional_)
 
 Click **Run the test** to test your endpoint. Logz.io shows if the message was successfully sent.
 
 Check that the message arrived at the target endpoint.
 
-##### Save the endpoint
+### 5. Save the endpoint
 
 **Save** your endpoint.
