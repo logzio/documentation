@@ -1,8 +1,8 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
-# Create an integration with StatusPage
+# Create an Integration with StatusPage
 
 
 
@@ -21,28 +21,28 @@ To implement the integration, you will:
 
 
 
-#### Creating a custom endpoint to update StatusPage components
+## Creating a custom endpoint to update StatusPage components
 
  
 
-##### Look up your `page_id`
+### 1. Look up your `page_id`
 1. Log in to your StatusPage account.
 2. Click your profile picture.
 3. Select **API info** from the menu.
 4. Find your `page_id`.
 
-##### Look up your `component_id`
+### 2. Look up your `component_id`
 1. Log in to your StatusPage account.
 2. In the left menu, click  `Components` and select the component you want to update.
 3. Scroll to the bottom to see your **Component API ID**.
 
-##### Look up your StatusPage API key
+### 3. Look up your StatusPage API key
 1. Log in to your StatusPage account.
 2. Click your profile picture.
 3. Select **API info** from the menu.
 4. Find your account `API key`.
 
-##### Create the endpoint
+### 4. Create the endpoint
 The endpoint makes use of the StatusPage API, which can be found [here](https://developer.statuspage.io/#operation/putPagesPageIdComponentsComponentId).
 
 
@@ -55,11 +55,11 @@ The endpoint makes use of the StatusPage API, which can be found [here](https://
 
 ![StatusPage custom endpoint](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/statuspage-custom-endpoint.png) 
 
-##### Add your message
+### 5. Add your message
 
 Use the following code and replace the placeholder with the relevant status parameter.
 
-###### Message body structure
+#### Message body structure
 
 ```yml
 {
@@ -69,7 +69,7 @@ Use the following code and replace the placeholder with the relevant status para
 }
 ```
 
-###### Status parameter options
+#### Status parameter options
 
 
 + `operational`
@@ -78,7 +78,7 @@ Use the following code and replace the placeholder with the relevant status para
 + `major_outage`
 + `under_maintenance`
 
-######  Payload example
+####  Payload example
 
 
 ```json
@@ -94,13 +94,13 @@ Use the following code and replace the placeholder with the relevant status para
 
 
 
-##### Test the endpoint (_optional_)
+### 6. Test the endpoint (_optional_)
 
 Click **Run the test** to verify your endpoint. Logz.io shows if the message was successfully sent.
 
 Check that the message arrived at the target endpoint.
 
-##### Save the endpoint
+### 7. Save the endpoint
 
 **Save** your endpoint.
  

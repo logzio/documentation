@@ -1,16 +1,17 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
-# Opsgenie notifications for resolved metrics alerts
+# Opsgenie Notifications for Resolved Metrics Alerts
 
 
 Change your configuration within Opsgenie to receive notifications for resolved Logz.io metrics alerts.
 
+:::note
  This feature is not available on free Opsgenie accounts.
- 
+:::
 
-### Define or modify a Logz.io integration in Opsgenie
+## Define or modify a Logz.io integration in Opsgenie
 
 To define a new integration or modify an existing Logz.io integration in Opsgenie:
 
@@ -44,7 +45,7 @@ When updating an existing integration, after clicking **Save integration**, you 
 
 ![Opsgenie confirm](https://dytvr9ot2sszz.cloudfront.net/logz-docs/opsgenie-resolved-metrics/opsgenie_confirm_advanced.png)
 
-### Logz.io fields shared with Opsgenie
+## Logz.io fields shared with Opsgenie
 The following fields are sent to Opsgenie when an Opsgenie alert is triggered: 
 
 
@@ -59,7 +60,7 @@ The following fields are sent to Opsgenie when an Opsgenie alert is triggered:
 |alert_severity| Alert severity|
 
 
-###### Field value examples
+## Field value examples
 
 ```
 "alert_title": "httpcode200test alert",

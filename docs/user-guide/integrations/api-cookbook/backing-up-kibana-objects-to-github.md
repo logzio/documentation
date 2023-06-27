@@ -1,8 +1,8 @@
 ---
-sidebar_position: 2
+sidebar_position: 4
 ---
 
-# Backing up Kibana objects to GitHub
+# Backing Up Kibana Objects to GitHub
 
 
 
@@ -16,12 +16,12 @@ Your Kibana objects will be accessible from GitHub if you ever need to migrate c
 Even though this tutorial covers backing up to GitHub, you can use these methods to back up to other Git hosting providers—like GitLab, BitBucket, or your own self-hosted Git.
 
  
-#### Making sure you have everything you need {#making-sure-you-have-everything-you-need}
+## Making sure you have everything you need {#making-sure-you-have-everything-you-need}
 
 Let's set up the prerequisites now so that we can use the command line for the rest of the tutorial.
 
  
-##### Create a GitHub repo
+### 1. Create a GitHub repo
 
 Make sure you're signed in to GitHub, and [create a new repository](https://github.com/new).
 
@@ -30,7 +30,7 @@ Select **Initialize this repository with a README**, and then click **Create rep
 
 Your new repo is created and you're taken to its main page.
 
-##### Clone the repo to your local machine
+### 2. Clone the repo to your local machine
 
 If Git isn't already installed on your local machine, install it now.
 See [Install Git](https://www.atlassian.com/git/tutorials/install-git) from Atlassian if you need help with this.
@@ -39,7 +39,9 @@ See [Install Git](https://www.atlassian.com/git/tutorials/install-git) from Atla
 
 Choose whether you want to clone using HTTPS or SSH, and then copy the URL.
 
+:::note Read more
   If you're not sure whether to use HTTPS or SSH to clone your repo, see [Which remote URL should I use?](https://help.github.com/articles/which-remote-url-should-i-use/) from GitHub.
+:::
  
 In the command line, clone the repo into a new folder named "kibana-backup" and `cd` into the kibana-backup folder:
 
@@ -49,13 +51,13 @@ cd kibana-backup
 ```
 
  
-#### Downloading Kibana objects {#downloading-kibana-objects}
+## Downloading Kibana objects {#downloading-kibana-objects}
 
 You can use the Logz.io API to download all Kibana objects of each type (dashboards, visualizations, and saved searches), one at a time.
 This means that you'll need to make three API requests to Logz.io.
 
  
-##### Sample request 1: Write saved searches to a file
+### Sample request 1: Write saved searches to a file
 
 ```shell
 curl -X POST \
@@ -66,8 +68,12 @@ curl -X POST \
   -o kibana-search.json
 ```
 
+:::note Read more
+This API endpoint is documented in [Export Kibana objects](https://docs.logz.io/api#operation/exportSavedObjects) in the API docs.
+:::
+
  
-###### ...and the response
+#### ...and the response
 
 The `-o` flag in the request tells cURL to output the response to a file (in this case, kibana-search.json).
 Because of this, you won't see a response in the command line.
@@ -123,7 +129,7 @@ If you _do_ have saved searches, they're stored as objects in the `hits` array, 
 }
 ```
 
-##### Sample request 2: Write visualizations to a file
+### Sample request 2: Write visualizations to a file
 
 ```shell
 curl -X POST \
@@ -134,7 +140,7 @@ curl -X POST \
   -o kibana-visualization.json
 ```
 
-###### ...and the response
+#### ...and the response
 
 This time, you used `-o` to output the response to kibana-visualization.json.
 
@@ -177,7 +183,7 @@ kibana-backup/
   └╴kibana-visualization.json
 ```
 
-##### Sample request 3: Write dashboards to a file
+### Sample request 3: Write dashboards to a file
 
 ```shell
 curl -X POST \
@@ -188,7 +194,7 @@ curl -X POST \
   -o kibana-dashboard.json
 ```
 
-###### ...and the response
+#### ...and the response
 
 This time, you used `-o` to output the response to kibana-dashboard.json.
 
@@ -235,11 +241,11 @@ kibana-backup/
 ```
  
 
-#### Committing and pushing to GitHub {#committing-and-pushing-to-github}
+## Committing and pushing to GitHub {#committing-and-pushing-to-github}
 
 Once you've run all three requests and retrieved saved searches, visualizations, and dashboards, you're ready to send everything to GitHub.
 
-##### Code sample
+### Code sample
 
 ```shell
 git add .

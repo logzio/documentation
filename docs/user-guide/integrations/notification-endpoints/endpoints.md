@@ -1,16 +1,12 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
-# Notification endpoints
+# Notification Endpoints
 
 
 Configure Logz.io to send notifications to your preferred endpoints.
-Notifications are typically sent when alerts are triggered,
-when a user shares an OpenSearch Dashboards object,
-or when Logz.io
-[Insights 
-identifies new exceptions in your logs.
+Notifications are typically sent when alerts are triggered, when a user shares an OpenSearch Dashboards object, or when Logz.io [Insights](https://docs.logz.io/user-guide/insights/ai-insights.html) identifies new exceptions in your logs.
 
 ![Notification endpoints animation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/notification_endpoints_2021.gif)
 
@@ -33,9 +29,9 @@ There are two types of endpoints.
   You'll need to specify the URL, method, and headers,
   and optionally the message body.
 
-  Click for [detailed instructions 
+  Click for [detailed instructions](https://docs.logz.io/user-guide/integrations/custom-endpoints.html).
 
-#### To manage notification endpoints
+## Manage notification endpoints
 
 * To add a new endpoint, click **Add endpoint**,
   fill in the required information, and click **Save**.
@@ -52,8 +48,10 @@ There are two types of endpoints.
   or <i class="li li-trash"></i> (delete).
 
  
+:::caution Important
 Alerts can only be sent on **ports 80 & 443**.
 If you accidently set a custom port for an alert endpoint, the alert will not be sent.
+:::
  
 
 ## Example - Adding an Opsgenie endpoint
@@ -63,12 +61,13 @@ To add it, select **Opsgenie** from the dropdown list,
 name the endpoint,
 and fill in your Opsgenie API key.
 
+:::caution Important
 Note that currently only Opsgenie accounts hosted by the US data center are supported. You'll know you're in the US region if you log into your Opsgenie account at https://app.opsgenie.com. If you're hosted in another region, you can configure a [custom endpoint]({{site.baseurl}}/user-guide/integrations/custom-endpoints.html).
-{:.info-box.important}
+:::
 
 ![Opsgenie endpoints](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/opsgenie-endpoint07-2021.png)
 
-See [Opsgenie notifications for resolved metrics alerts for related information.
+See [Opsgenie notifications for resolved metrics alerts](https://docs.logz.io/user-guide/integrations/resolved-metrics-alerts.html) for related information.
 
 ## Typical use case
 

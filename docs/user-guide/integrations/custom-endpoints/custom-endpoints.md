@@ -1,8 +1,8 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
 
-# Custom endpoints
+# Custom Endpoints
 
 
 Integrate with your favorite tools using a custom webhook. Configuring a custom endpoint will allow you to send Logz.io notifications to your preferred apps,
@@ -11,22 +11,23 @@ even if they aren't on the list of preconfigured options.
 Custom endpoints offer the advantage
 of allowing you to customize the message body too.
 
-#### Adding a custom endpoint
+## Adding a custom endpoint
 
  
-##### Allow firewall access
+### 1. Allow firewall access
 
 Set up your systems to receive notifications from Logz.io.
 
- 
+:::caution Important
 Alerts can only be sent on **ports 80 & 443**.
 If you try to set another port in your end point, the alert will NOT be sent.
- 
+:::
 
-###### Allowlist IPs per region
+#### Allowlist IPs per region
 
- 
-##### Create a verification token (_Best practice but optional_)
+{@include: ../../../_include/general-shipping/allowed-ips.md}
+
+### 2. Create a verification token (_Best practice but optional_)
 
 The Logz.io IP range is used by all customers and should be used together with a verification token.
 
@@ -37,7 +38,7 @@ It is best to restrict external access only to this specific endpoint.
 
 Here's an example of a JSON payload for an alert that includes a verification token:
 
-{% raw %}
+<!-- {% raw %} -->
 
 ```json
 {
@@ -49,25 +50,26 @@ Here's an example of a JSON payload for an alert that includes a verification to
 "alert_tags":["{{alert_tags_json}}"]
 }
 ```
-{% endraw %}
+<!--{% endraw %} -->
 
 
-##### Add the endpoint
+### 3. Add the endpoint
 
 1. To add a new custom endpoint, click **Add endpoint**.
 2. Specify the URL, method, and headers.
 3. For POST/PUT methods, you can add a payload with a message.
 
+:::caution Important
 Some endpoints require a particular attribute/payload. For example, [Microsoft Teams](/user-guide/integrations/ms-teams.html#add-your-payload).
-{:.info-box.important}
+:::
 
 
 ![Configure a custom endpoint](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/custom-endpoint-POST_2021.png)
 
 
-##### Configure your payload to add data to your alert notifications
+### 4. Configure your payload to add data to your alert notifications
 
-{% raw %}
+<!-- {% raw %}-->
 
 You can enhance your alert notifications with data pulled from the triggered alert.
 
@@ -113,18 +115,19 @@ All variables are HTML escaped by default. If you want to return **unescaped HTM
 
 Prints samples of raw logs, to be used instead of `alert_samples` when using a correlated alert.
 
+:::caution Important
 Test your payload. Some parameters may not be supported by the service receiving the alerts from Logz.io.
-{:.info-box.important}
+:::
 
 
-##### Test the endpoint (_Optional_)
+### 5. Test the endpoint (_Optional_)
 
 Click **Run the test** to test your endpoint.
 Logz.io shows if the message was successfully sent.
 
 Check that the message arrived at the target endpoint.
 
-##### Save the endpoint
+### 6. Save the endpoint
 
 **Save** your endpoint.
 
@@ -159,4 +162,4 @@ The following list is provided for convenience, to make it easy to copy & paste 
 ```
 
 
-{% endraw %}
+<!-- {% endraw %}-->

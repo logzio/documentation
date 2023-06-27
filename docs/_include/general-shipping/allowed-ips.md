@@ -16,4 +16,3 @@ If necessary, allowlist the relevant IPs in your firewalls. These depend on the 
 <!--  21 Oct 2021: These table entries are on hold until the issue with Azure regions is resolved
 | westeurope | x.x.x.x | Azure |
 | westus2 | x.x.x.x | Azure |  -->
-

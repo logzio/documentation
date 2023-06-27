@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Terraform
+# Terraform Logz.io Provider
 
 The Terraform Logz.io provider offers a great way to build integrations using Logz.io APIs.
 
@@ -30,16 +30,14 @@ The following Logz.io API endpoints are supported by this provider:
 * [OpenSearch Dashboards objects](https://docs.logz.io/api/#tag/Import-or-export-Kibana-objects)
 * [S3 Fetcher](https://docs.logz.io/api/#tag/Connect-to-S3-Buckets)
 
-#### Working with Terraform
-
-<div class="tasklist">
+## Working with Terraform
 
 **Before you begin, you'll need**:
 
 * [Terraform CLI](https://learn.hashicorp.com/tutorials/terraform/install-cli)
 * [Logz.io API token](/)
 
-##### Get the Terraform Logz.io Provider
+### 1. Get the Terraform Logz.io Provider
 
 To install this provider, copy and paste this code into your Terraform configuration:
 
@@ -57,7 +55,7 @@ This will install the latest Logz.io provider.
 If you wish to use a specific version of the provider, add under `source` the field `version` and specify your preferred version.
 
 
-##### Configuring the provider
+### 2. Configuring the provider
 
 The provider accepts the following arguments:
 
@@ -66,7 +64,7 @@ The provider accepts the following arguments:
 * **region** - (Defaults to null) The 2-letter region code identifies where your Logz.io account is hosted.
 Defaults to null for accounts hosted in the US East - Northern Virginia region. [Learn more about account regions](https://docs.logz.io/user-guide/accounts/account-region.html)
 
-###### Example
+#### Example
 
 You can pass the variables in a bash command for the arguments:
 
@@ -76,10 +74,9 @@ provider "logzio" {
   region= var.your_api_region
 }
 ```
-</div>
 
 
-### Example - Create a new alert and a new Slack notification endpoint
+#### Example - Create a new alert and a new Slack notification endpoint
 
 Here's a great example demonstrating how easy it is to get up and running quickly with the Terraform Logz.io Provider.
 
@@ -127,7 +124,7 @@ resource "logzio_alert" "my_alert" {
 }
 ```
 
-### Example - Create user
+#### Example - Create user
 
 This example will create a user in your Logz.io account.
 
