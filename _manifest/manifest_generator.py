@@ -111,9 +111,13 @@ def update_manifest(manifest_object, manifest_path):
     try:
         logger.info('converting manifest to JSON...')
         manifest_json = json.dumps(manifest_object)
+    except TypeError as te:
+        raise TypeError(f'Could not convert manifest to JSON due to TypeError: {te}')
+
+    try:
         with open(manifest_path, 'w') as manifest_file:
             manifest_file.write(manifest_json)
-    except Exception as e:
+    except (FileNotFoundError, PermissionError, OSError) as e:
         raise Exception(f'Could not convert manifest to JSON: {e}')
 
 
