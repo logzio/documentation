@@ -7,15 +7,7 @@ If you're an admin for the main account, you can manage the main account and sub
 If you're interested in adding a Cloud SIEM plan, reach out to your account manager or email [the Sales team](mailto:sales@logz.io).
 :::
 
-### Manage your Cloud SIEM account
-
-* [Add a Cloud SIEM account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#add-a-cloud-siem-account)
-* [Configure or update your Cloud SIEM account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#configure-or-update-a-cloud-siem-account)
-* [Delete a Cloud SIEM account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#delete-a-cloud-siem-account-from-your-plan)
-* [Investigate security events](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#investigate-security-events)
-
-
-#### Add a Cloud SIEM account
+## Add a Cloud SIEM account
 
 You'll find your Cloud SIEM accounts
 in the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page
@@ -27,7 +19,7 @@ The number of accounts you can create is listed.
 ![Add a Cloud SIEM account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/add-security-account11.png)
 
 
-#### Configure or update a Cloud SIEM account
+## Configure or update a Cloud SIEM account
 
 ![Configure a Cloud SIEM account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/config-security-account.png)
 
@@ -39,8 +31,9 @@ Fill in the form:
 
     Logs are not shipped directly to your Cloud SIEM accounts. Instead, you'll grant read-access to log accounts you want a security account to monitor.
 
+    :::note
     You can add the same log account to multiple Security accounts. It will be monitored by each   Security account independently.
-    {:.info-box.note}
+    :::
 
 3. **Automatically pull dashboards, visualizations, and saved searches from these Security accounts** - Select which security accounts you can automatically pull shared objects from. 
 
@@ -56,14 +49,14 @@ Fill in the form:
   + You can use this process to keep a local backup copy of these data objects. 
   + Create a library of data objects in your main Security account, and then enable client accounts to use objects from your main account.  
 
-#### Save your changes
+## Save your changes
 
 Click **Create**/**Apply** to save your changes.
 
 When you first add a new account, give it a few minutes to finish setting up.
 
 
-#### Delete a Cloud SIEM account from your plan 
+## Delete a Cloud SIEM account from your plan 
  
 1. In the account details, click the **Delete** icon next to the account name.
   ![delete](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/delete-SIEM.png)   
@@ -72,7 +65,7 @@ When you first add a new account, give it a few minutes to finish setting up.
   ![Confirm delete](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/confirm-delete-siem-acct.png)
 
 
-### Investigate security events
+## Investigate security events
 
 Cloud SIEM logs a security event every time a rule triggers. The terms **triggered rules** and **security events** have the same meaning and are used interchangeably.
 

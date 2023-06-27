@@ -2,21 +2,9 @@ Logz.io **Log Management** is where you can search and query your logs. It is op
 
 If you're an admin for the main account, you can manage the main account and sub accounts from the [**Manage Accounts**](https://app.logz.io/#/dashboard/settings/manage-accounts) page (**<i class="li li-gear"></i> > Settings > Manage accounts** in the navigation menu).
 
-The Log Management plan panel is located at the top of the **[Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts)** page.
+The Log Management plan panel is located at the top of the **[Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts)** page. 
 
-##### Manage your Log Management account
-
-* View plan summary 
-* View and edit account details 
-* Configure which accounts can access a Logs data source 
-* Main vs. sub account 
-* Add and manage a Log Management sub account 
-* No correlation between logs and usage quota 
-* Delete a sub account from your plan 
-* Change how many GB are reserved to each account within your plan 
- 
-
-#### View Log Management plan summary
+## View Log Management plan summary
 
 Your Log account is calculated based on the data you ingest. You can choose to use a flexible volume to get more control over how you allocate space and data between your accounts.
 
@@ -24,7 +12,7 @@ You can view the total number of daily GB available and the account's retention.
 
 ![Log plan overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/log-management-overview.png)
 
-#### View and edit account details
+## View and edit account details
 
 To see the detailed information and the configurable options for each account, click the account name in the table or pie chart.
 
@@ -45,11 +33,11 @@ You can add the following elements:
 
 ![Logs accounts details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/log-management-account-inner.png)
 
-#### Configure which accounts can access a Logs data source
+## Configure which accounts can access a Logs data source
 
 Each log account can become a data source for other Logz.io Log Management accounts. To manage access to your data, you create an access list of the Logz.io main account and sub accounts that can view the data. 
 
-##### To grant access to the data in a Logs account
+### To grant access to the data in a Logs account
 
 Users that are logged in to the accounts you add here will be able to read the data in this account.
 
@@ -60,7 +48,7 @@ Users that are logged in to the accounts you add here will be able to read the d
 ![Logs add account visibility](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/log-management-add-account.gif)
 
 
-#### Main vs. sub account
+## Main vs. sub account
 
 If you're on a Pro or Enterprise plan, you can create sub accounts to help manage user access to your data.
 
@@ -72,7 +60,7 @@ Sub accounts can also help you control access to sensitive data.
 
 By default, all users of your main account have permission to view the data in other logging sub accounts and timeless accounts. You can route different logs to different sub accounts to limit access to data.
 
-#### Add and manage a Log Management sub account
+## Add and manage a Log Management sub account
 
 Sub accounts share the same setting options as the main account (See the list above). In addition, sub accounts have settings used to control access to the data.
 
@@ -99,7 +87,7 @@ If you already have a sub account and you'd like to re-configure it, choose the 
 ![Manage existing sub accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/manage-sub-accounts.gif)
 
 
-#### No correlation between your logs and usage quota
+## No correlation between your logs and usage quota
 
 You or your team see a small number of logs ingested with a high usage quota. 
 
@@ -108,13 +96,13 @@ This happens when you apply the **Today** time frame to view logs and is the res
 
 If you encounter this issue, you can adjust the time frame settings or contact **[Logz.io's Support team](mailto:help@logz.io)** for additional info and assistance.
 
-#### Delete a sub account from your plan
+## Delete a sub account from your plan
 
 Choose the Log Management sub account you want to delete, and click the **Delete** icon located next to its name. 
 
 Then, confirm (or Cancel) the action.
 
-#### Change how many GB are reserved for each account within your plan
+## Change how many GB are reserved for each account within your plan
 
 You can edit the amount of GB reserved for each of your Log Management accounts.
 

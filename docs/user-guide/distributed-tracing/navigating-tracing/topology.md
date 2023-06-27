@@ -23,7 +23,7 @@ This ability is genuinely useful when it’s not possible to view that service i
 2. Enter a service or operation in the search box to highlight it in the deep dependency graph.
 ![highlight DDG](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/ddgraph_highligh.png)
 
- 
+<!-- 
 ## Viewing system architecture diagrams
 
 The system architecture diagrams are based on all the trace data in your system, compiled over a given time frame and refreshed periodically. 
@@ -52,3 +52,4 @@ Each line represents the interaction requests between the connected services. Th
 To make it easier to see values in the graph, you can grab and drag the nodes to rearrange them.
 
 ![Change focus in dag](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/moving-traces.gif)
+-->
