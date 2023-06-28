@@ -5,30 +5,83 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'User Guide',
-    link: "/docs/user-guide/logzio/home-db",
+    title: 'Logz.io quick start guide',
+    link: "/docs/user-guide/logzio/quick-start",
     Svg: require('@site/static/img/aws.svg').default,
-    description: (
-      <>
-        Explore the comprehensive Logz.io User Guide and learn how to maximize your observability and security data.
-      </>
-    ),
+    description: <>Learn how to make the most out of the Logz.io platform.</>,
   },
   {
-    title: 'Integrations',
-    link: "/docs/shipping/sample",
+    title: 'Telemetry Collector',
+    link: "/docs/user-guide/shipping-parsing/telemetry-collector/",
     Svg: require('@site/static/img/azure.svg').default,
-    description: (
-      <>
-        Send logs, metrics and traces from your Azure cloud services to Logz.io.
-      </>
-    ),
+    description: <>Send logs, metrics, and traces data quickly and easily.</>,
+  },
+  {
+    title: 'Kubernetes 360',
+    link: "/docs/user-guide/k8s-360/overview",
+    Svg: require('@site/static/img/aws.svg').default,
+    description: <>Monitor and troubleshoot applications deployed in Kubernetes environments.</>,
+  },
+  {
+    title: 'OpenSearch Dashboards',
+    link: "/docs/user-guide/log-management/opensearch-dashboards/",
+    Svg: require('@site/static/img/azure.svg').default,
+    description: <>Stay on top of your logs with rich visualizations.</>,
+  },
+  {
+    title: 'Logz.io integrations',
+    link: "/docs/shipping/",
+    Svg: require('@site/static/img/aws.svg').default,
+    description: <>All the different ways to send your data to Logz.io.</>,
+  },
+  {
+    title: 'API',
+    link: "https://docs.logz.io/api/",
+    Svg: require('@site/static/img/azure.svg').default,
+    description: <>Grow your own integration.</>,
+  },
+  {
+    title: 'Alerting',
+    link: "/docs/user-guide/log-management/log-alerts/intro",
+    Svg: require('@site/static/img/aws.svg').default,
+    description: <>Set up alerts to get notified of critical events in your logs.</>,
+  },
+  {
+    title: 'Log troubleshooting',
+    link: "/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting",
+    Svg: require('@site/static/img/azure.svg').default,
+    description: <>Troubleshoot common log related issues.</>,
+  },
+  {
+    title: 'Your accounts',
+    link: "/docs/user-guide/admin/logzio-accounts/accounts",
+    Svg: require('@site/static/img/aws.svg').default,
+    description: <>Manage your accounts & optimize costs.</>,
+  },
+  {
+    title: 'Free trial',
+    link: "https://logz.io/freetrial/",
+    Svg: require('@site/static/img/azure.svg').default,
+    description: <></>,
+  },
+  {
+    title: 'Webinars',
+    link: "https://logz.io/learn/webinar/",
+    Svg: require('@site/static/img/aws.svg').default,
+    description: <></>,
+  },
+  {
+    title: 'Features',
+    link: "https://logz.io/learn/product/",
+    Svg: require('@site/static/img/azure.svg').default,
+    description: <></>,
   },
 ];
 
-function Feature({Svg, title, description, link}) {
+
+function Feature({Svg, title, description, link}, index) {
   return (
-    <Link to={link} className={clsx('col col--4', styles.featureCard)}>
+    <Link to={link} className={clsx('col col--3', styles.featureCard, index >= 9 ? styles.smallCard : '')}>
       <div className="text--center">
         <Svg className={styles.featureSvg} role="img" />
       </div>

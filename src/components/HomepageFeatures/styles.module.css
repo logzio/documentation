@@ -10,11 +10,10 @@
   width: 200px;
 }
 
-
 .featureCard {
   display: block;
   padding: 20px;
-  margin-bottom: 30px;
+  margin: 10px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -35,5 +34,10 @@
 
 .centeredRow {
   display: flex;
-  justify-content: space-evenly;
+  flex-wrap: wrap;
+  justify-content: center; /* Centers the row */
+}
+
+.smallCard {
+  height: 60%; /* Adjust this value as per your requirement */
 }
