@@ -2,7 +2,6 @@
 sidebar_position: 7
 title: Configure SIEM to Automatically Create JIRA Tickets by Alert
 ---
-
 You can configure the notification endpoint to create a JIRA ticket in your preferred board, every time there is a new alert.
 
 ### Pre-requisites
@@ -46,7 +45,7 @@ To add a pre-configured notification endpoint:
 
    * Select **POST** from the **Method** menu.
 
-   * Enter the following header into the **Headers** field: `content-type=application/json,x-token=<YOUR-ATLASSIAN-API-TOKEN>`. Replace `<YOUR-ATLASSIAN-API-TOKEN>` with the API token to your Atlassian account.
+   * Enter the following header into the **Headers** field: `authorization: Basic <API-TOKEN>`. Replace `<API-TOKEN>` with the API token to your Atlassian account.
 
    * Add the following code as the payload:
 

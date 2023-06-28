@@ -135,7 +135,11 @@ p {
 code, pre {
   font-family: var(--mono-font);
   font-size: .8rem;
+  color:#e53935;
+  background-color: #f6f8fa;
 }
+
+
 
 main.page-content img, main.page-content video, .post-content iframe {
   display: block;
