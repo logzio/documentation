@@ -1,3 +1,151 @@
+@font-face {
+  font-family: "Logzio Icons";
+  src: url('../../../static/fonts/logzio-icons.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+i.li {
+  font-family: "Logzio Icons";
+  font-style: normal;
+  font-size: .85rem;
+}
+
+i.li-bar-graph::before {
+  content: "\f154";
+}
+
+i.li-eye::before {
+  content: "\f192";
+}
+
+i.li-left-arrow::before {
+  content: "\f10d";
+}
+
+i.li-right-arrow::before {
+  content: "\f10f";
+}
+
+i.li-logz::before {
+  content: "\f15e";
+}
+
+i.li-ellipsis-v::before {
+  content: "\f164";
+  padding-left: .2rem;
+  padding-right: .2rem;
+}
+
+i.li-data::before {
+  content: "\f18b";
+}
+
+i.li-pencil::before {
+  content: "\f135";
+}
+
+i.li-trash::before {
+  content: "\f1b1";
+}
+
+i.li-plus::before {
+  content: "\f17b";
+}
+
+i.li-wrench::before {
+  content: "\f106";
+}
+
+i.li-x::before {
+  content: "\f121";
+}
+
+i.li-clear::before {
+  content: "\f11e";
+}
+
+i.li-plane::before {
+  content: "\f15b";
+}
+
+i.li-bell::before {
+  content: "\f10a";
+}
+
+i.li-code::before {
+  content: "\f122";
+}
+
+i.li-signal::before {
+  content: "\f159";
+}
+
+i.li-gear::before {
+  content: "\f18c";
+}
+
+i.li-minus::before {
+  content: "\f167";
+}
+
+i.li-scroll::before {
+  content: "\f189";
+  font-size: 1.1rem;
+}
+
+i.li-play::before {
+  content: "\f177";
+}
+
+i.li-stop::before {
+  content: "\f19c";
+}
+
+i.li-pie_chart::before {
+  content: "\f175";
+}
+
+i.li-donut_small::before {
+  content: "\f12e";
+}
+
+i.li-donut_large::before {
+  content: "\f12f";
+}
+
+i.li-kibana::before {
+  content: "\f153";
+}
+
+i.li-stars::before {
+  content: "\f1Bd";
+}
+
+i.li-dashboard::before {
+  content: "\f129";
+}
+
+i.li-visualization::before {
+  content: "\f1ba";
+}
+
+i.li-blob::before {
+  content: "\f141";
+}
+
+i.li-points::before {
+  content: "\f155";
+}
+
+i.li-repository::before {
+  content: "\f180";
+}
+
+i.li-infinity::before {
+  content: "\f137";
+}
+
 .features {
   display: flex;
   align-items: center;
