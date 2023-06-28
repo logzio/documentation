@@ -105,18 +105,15 @@ const config = {
         items: [
           {
             type: 'search',
-            position: 'left',
+            position: 'right',
           },
+          {to: '/docs/shipping/', label: 'Ship data', position: 'left'},
+          {to: 'https://docs.logz.io/api/', label: 'API', position: 'left'},
+          {to: 'https://status.logz.io/', label: 'System status', position: 'left'},
+          {to: 'https://logz.io/blog/', label: 'Blog', position: 'left'},
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Tutorial',
-          },
-          {to: '/api', label: 'API', position: 'left'},
-          {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
+            href: 'https://app.logz.io/',
+            label: 'Login',
             position: 'right',
           },
         ],
