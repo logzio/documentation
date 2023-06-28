@@ -3,6 +3,15 @@ sidebar_position: 2
 title: Manage Log, Metrics, Tracing, and SIEM accounts
 
 ---
+
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="logs" label="Logs" default>
+
+
 Logz.io **Log Management** is where you can search and query your logs. It is optimized for debugging and troubleshooting issues as quickly and effectively as possible.
 
 If you're an admin for the main account, you can manage the main account and sub accounts from the [**Manage Accounts**](https://app.logz.io/#/dashboard/settings/manage-accounts) page (**<i class="li li-gear"></i> > Settings > Manage accounts** in the navigation menu).
@@ -114,12 +123,17 @@ You can edit the amount of GB reserved for each of your Log Management accounts.
 
 Choose the relevant account you'd like to edit, increase or decrease the reserved volume assigned to it, and click **Apply** to save your changes.
 
+</TabItem>
+  <TabItem value="timeless" label="Timeless">
 
 
-hile your main account and sub accounts
+## Create or manage a timeless account
+
+
+While your main account and sub accounts
 are better suited for short-term monitoring of your log data,
 they're not really a cost-effective way to view long-term patterns and trends.
-That's where timeless accounts come in.
+That's where **timeless** accounts come in.
 
 Timeless accounts work with optimizers,
 allowing you to save a subset of your logs for as long as you need them.
@@ -131,8 +145,6 @@ If you're an admin for the main account, you can manage the main account and sub
 
 
 ![Timeless accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/accounts--timeless-accounts.png)
-
-## Create or manage a timeless account
 
 
 
@@ -203,19 +215,12 @@ You can view your Distributed Tracing account plan and the specific details and 
 
 If you don't have a Distributed Tracing account yet, start a trial in the Distributed Tracing tab.
 
+</TabItem>
+  
+<TabItem value="tracing" label="Tracing">
+    
 
-### Manage your Tracing account
-
-* [View plan summary
-* [View details of specific accounts
-* [Update account name
-* [Configure account access
-* [Add a Tracing account
-* [Delete a Tracing account
-* [Edit and allocate spans
-* [Tracing surge protection
-* [Troubleshooting
-
+## Manage your Tracing account
 
 #### View the plan summary and account allocations
 
@@ -366,12 +371,11 @@ If you're interested in adding a Cloud SIEM plan,
 reach out to your account manager
 or email [the Sales team](mailto:sales@logz.io).
 
+</TabItem>
+<TabItem value="cloud-siem" label="Cloud SIEM">
 
-### Manage your Cloud SIEM account
 
-* [Add a Cloud SIEM account
-* [Configure or update your Cloud SIEM account
-* [Delete a Cloud SIEM account
+## Manage your Cloud SIEM account
 
 
 #### Add a Cloud SIEM account
@@ -441,18 +445,13 @@ The Infrastructure Monitoring plan panel is located at the bottom of the **[Mana
 If you don't have an Infrastructure Monitoring account yet,
 reach out to your account manager or email [the Sales team](mailto:sales@logz.io).
 
+</TabItem>
 
-##### Manage your Infrastructure Monitoring account
+<TabItem value="metrics" label="Infrastructure Monitoring (Metrics)">
 
-* [View plan summary
-* [View details and abilities for a specific account
-* [Configure which accounts can access a Metrics data source
-* [Add a Metrics account to your plan
-* [Delete a Metrics account
-* [Change how many UMs are allocated to each Metrics account
+## Manage your Infrastructure Monitoring account
 
-
-#### View plan summary
+### View plan summary
 
 Your Metrics account is calculated according to the unique metrics (UMs) you're using. These metrics are a combination of the metric type queries by PromQL, including counters, gauges, histograms, and summaries.
 
@@ -460,7 +459,7 @@ You can view your daily and monthly available UMs, and a breakdown of each accou
 
 ![Metrics plan overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/metrics-plan-overview.png)
 
-#### View details and abilities for a specific account
+### View details and abilities for a specific account
 
 To see the detailed information and the configurable options for each account, click the account name in the table or pie chart.
 
@@ -480,11 +479,11 @@ You can edit the following elements:
 
 ![Metrics accounts details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/metrics-account-details.png)
 
-#### Configure which accounts can access a Metrics data source
+### Configure which accounts can access a Metrics data source
 
 Each Metrics account can become a data source for other Logz.io Metrics accounts. To manage access to your metrics data, you create an access list of the Logz.io main account and sub accounts that can view the data for each Metrics account. In the account selector, you can see the list of all the sub accounts (and main account) in the top right of the application page.
 
-##### To grant access to the data in a Metrics account
+#### To grant access to the data in a Metrics account
 
 If users are logged in to the accounts you add here, they'll be able to read the metrics in this account.
 
@@ -495,7 +494,7 @@ If users are logged in to the accounts you add here, they'll be able to read the
 ![Metrics add account visibility](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/metrics-visibility.gif)
 
 
-#### Add a Metrics account to your plan
+### Add a Metrics account to your plan
 
 You can add up to 5 Metrics accounts for your Infrastructure Monitoring plan. If you need the ability to add more accounts, reach out to your account manager or [Logz.io's Sales team](mailto:sales@logz.io).
 
@@ -508,13 +507,13 @@ You can add up to 5 Metrics accounts for your Infrastructure Monitoring plan. If
 4. Configure the **total monthly UMs** you want to allocate to the new account. If you don’t have UMs available, you’ll be prompted to reduce the allocation of another account.
 5. Click **Apply** to apply your changes.
 
-#### Delete a Metrics account from your plan
+### Delete a Metrics account from your plan
 
 Choose the Metrics account you want to delete, and click the **Delete** icon located next to its name. 
 
 Then, confirm (or Cancel) the action.
 
-#### Change how many UMs are allocated to each account within your plan
+### Change how many UMs are allocated to each account within your plan
 
 Set how many unique metrics (UMs) are allocated to each account from the overall Infrastructure Monitoring plan. 
 
@@ -522,3 +521,6 @@ Choose the relevant account you'd like to edit, increase or decrease the Unique 
 
 ![Allocate metrics ums](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/allocate-metrics-data.gif)
 
+
+  </TabItem>
+</Tabs>
