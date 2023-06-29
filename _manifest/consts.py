@@ -9,7 +9,7 @@ DEFAULT_MANIFEST_PATH = '_manifest/manifest.json'
 DEFAULT_TEST_MANIFEST_PATH = '_manifest/test-manifest.json'
 
 FIELD_COLLECTORS = 'collectors'
-FIELD_AVAILABLE_FILTERS = 'availableFilters'
+FIELD_AVAILABLE_FILTERS = 'filterTags'
 FIELD_LINK = 'dataLink'
 FIELD_ID = 'id'
 FIELD_TITLE = 'title'
