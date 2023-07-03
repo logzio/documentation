@@ -89,13 +89,6 @@ To find one of the values in the field, such as `fox`, you'll need to use the fo
 
 Learn how to search and filter your log data with Logz.io.
 
-<div>
-    <video width="100%" height="auto" controls autoplay loop muted>
-      <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/searching-and-filtering.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-</div>
-
 <div style={{position: 'relative', paddingBottom: '56.25%'}}>
   <iframe style={{position: 'absolute', top: '0', left: '0', width: '100%', height: '100%'}} src="https://fast.wistia.com/embed/iframe/kq0z0sux4d" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
@@ -145,13 +138,6 @@ The **Show dates** option lets you set a start and end time. In the popup, selec
 ### Create Log Visualizations with Logz.io
 
 In the following video, you'll be able to see how to create a visualization dashboard based on your logs: 
-
-<div>
-    <video width="100%" height="auto" controls autoplay loop muted>
-      <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/log-visualizations-velcfd5tpr.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-</div>
 
 <div style={{position: 'relative', paddingBottom: '56.25%'}}>
   <iframe style={{position: 'absolute', top: '0', left: '0', width: '100%', height: '100%'}} src="https://fast.wistia.com/embed/iframe/velcfd5tpr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
