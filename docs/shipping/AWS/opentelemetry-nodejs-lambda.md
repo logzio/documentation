@@ -5,6 +5,7 @@ sidebar_position: 1380
 overview: test
 product: ['tracing', 'aws']
 os: ['windows', 'linux']
+filters: ['aws']
 logo: lambda-nodejs2.png
 ---
 
@@ -104,7 +105,9 @@ service:
       exporters: [logzio/traces]
 ```
 
-  
+{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
+
+{@include: ../../_include/tracing-shipping/tail-sampling.md}
 
 
 
