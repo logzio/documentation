@@ -105,10 +105,7 @@ service:
 ```
 
   
-<!-- {@include: ./tracing-shipping/replace-tracing-token.html}
 
-
-{@include: ./tracing-shipping/tail-sampling.md} -->
 
 
 ### 3. Direct the OpenTelemetry collector to the configuration file
