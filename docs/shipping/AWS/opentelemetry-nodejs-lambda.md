@@ -1,5 +1,5 @@
 ---
-id: Node.js AWS Lambda
+id: opentelemetry-nodejs-lambda
 title: Sending traces from your Node.js application on AWS Lambda using OpenTelemetry
 sidebar_position: 1380
 overview: test
