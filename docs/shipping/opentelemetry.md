@@ -1,19 +1,19 @@
 ---
-id: nodejs-otel-auto
-title: Sending traces from Node.js applications via auto instrumentation with OpenTelemetry
+id: opentelemetry
+title: Send traces from your OpenTelemetry installation to Logz.io 
 sidebar_position: 1380
 overview: test
-product: ['tracing', 'nodejs']
+product: ['tracing', 'otel']
 os: ['windows', 'linux']
-filters: ['nodejs', 'new-instrumentation']
-logo: nodejs.svg
+filters: ['existing-instrumentation', 'otel']
+logo: opentelemetry-icon-color.png
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs>
 
+<Tabs>
 
 
 <!-- tab:start -->
@@ -21,17 +21,15 @@ import TabItem from '@theme/TabItem';
 <TabItem value="overview" label="Overview" default>
 
 
-Deploy this integration to enable automatic instrumentation of your Node.js application using OpenTelemetry. 
+Deploy this integration to send traces from your OpenTelemetry installation to Logz.io.
 
 ## Architecture overview
 
 This integration includes:
 
-* Installing the OpenTelemetry Node.js instrumentation packages on your application host
-* Installing the OpenTelemetry collector with Logz.io exporter
-* Running your Node.js application in conjunction with the OpenTelemetry instrumentation
+* Configuring the OpenTelemetry collector to receive traces from your OpenTelemetry installation and send them to Logz.io
 
-On deployment, the Node.js instrumentation automatically captures spans from your application and forwards them to the collector, which exports the data to your Logz.io account.
+On deployment, your OpenTelemetry instrumentation captures spans from your application and forwards them to the collector, which exports the data to your Logz.io account.
 
 </TabItem>
 
@@ -43,14 +41,12 @@ On deployment, the Node.js instrumentation automatically captures spans from you
 <TabItem value="local-host" label="Local host">
 
 
-## Setup auto-instrumentation for your locally hosted Node.js application and send traces to Logz.io
+
+## Set up your locally hosted OpenTelemetry installation to send traces to Logz.io
 
 **Before you begin, you'll need**:
 
-* A Node.js application without instrumentation
 * An active account with Logz.io
-* Port `4318` available on your host system
-* A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 
 <!-- info-box-start:info -->
 :::note
@@ -59,26 +55,54 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 <!-- info-box-end -->
 
 
-{@include: ../../_include/tracing-shipping/node-steps.md}
-
-
 ### Download and configure OpenTelemetry collector
 
-Create a dedicated directory on the host of your Node.js application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.70.0) that is relevant to the operating system of your host.
-
+Create a dedicated directory on the host of your application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.70.0) that is relevant to the operating system of your host.
 
 After downloading the collector, create a configuration file `config.yaml` with the following parameters:
 
-{@include: ../../_include/tracing-shipping/collector-config.md}
+{@include: ../_include/tracing-shipping/collector-config.md}
 
--
+{@include: ../_include/tracing-shipping/replace-tracing-token.html}
 
-{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
+{@include: ../_include/tracing-shipping/tail-sampling.md}
+
+
+If you already have an OpenTelemetry installation, add the following parameters to the configuration file of your existing OpenTelemetry collector:
+
+* Under the `exporters` list
+
+```yaml
+  logzio/traces:
+    account_token: <<TRACING-SHIPPING-TOKEN>>
+    region: <<LOGZIO_ACCOUNT_REGION_CODE>>
+```
+
+* Under the `service` list:
+
+```yaml
+  extensions: [health_check, pprof, zpages]
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [tail_sampling, batch]
+      exporters: [logzio/traces]
+```
+
+{@include: ../_include/tracing-shipping/replace-tracing-token.html}
+
+An example configuration file looks as follows:
+
+{@include: ../_include/tracing-shipping/collector-config.md}
+
+### Instrument the application
+
+If your application is not yet instrumented, instrument the code as described in our [tracing documents](https://docs.logz.io/shipping/#tracing-sources).
 
 
 ### Start the collector
 
-Run the following command from the directory of your application file:
+Run the following command:
 
 ```shell
 <path/to>/otelcontribcol_<VERSION-NAME> --config ./config.yaml
@@ -88,11 +112,7 @@ Run the following command from the directory of your application file:
 
 ### Run the application
 
-Run the application to generate traces:
-
-```shell
-node --require './tracer.js' <YOUR-APPLICATION-FILE-NAME>.js
-```
+Run the application to generate traces.
 
 
 ### Check Logz.io for your traces
@@ -108,48 +128,38 @@ Give your traces some time to get from your system to ours, and then open [Traci
 <TabItem value="docker" label="Docker">
 
 
-
-## Setup auto-instrumentation for your Node.js application using Docker and send traces to Logz.io
-
-This integration enables you to auto-instrument your Node.js application and run a containerized OpenTelemetry collector to send your traces to Logz.io. If your application also runs in a Docker container, make sure that both the application and collector containers are on the same network.
+## Set up your OpenTelemetry installation using containerized collector to send traces to Logz.io
 
 **Before you begin, you'll need**:
 
-* A Node.js application without instrumentation
 * An active account with Logz.io
-* Port `4317` available on your host system
-* A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 
 
-{@include: ../../_include/tracing-shipping/node-steps.md}
+### Instrument the application
+
+If your application is not yet instrumented, instrument the code as described in our [tracing documents](https://docs.logz.io/shipping/#tracing-sources).
 
 
-{@include: ../../_include/tracing-shipping/docker.md}
+{@include: ../_include/tracing-shipping/docker.md}
 
-
-{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
-
+{@include: ../_include/tracing-shipping/replace-tracing-token.html}
 
 ### Run the application
 
-{@include: ../../_include/tracing-shipping/collector-run-note.md}
+{@include: ../_include/tracing-shipping/collector-run-note.md}
 
 
-Run the application to generate traces:
-
-```shell
-node --require './tracer.js' <YOUR-APPLICATION-FILE-NAME>.js
-```
+Run the application to generate traces.
 
 
 ### Check Logz.io for your traces
 
 Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
 
+
 </TabItem>
 
 <!-- tab:end -->
-
 
 <!-- tab:start -->
 
@@ -176,8 +186,7 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 ## Standard configuration
 
 
-
-### 1. Deploy the Helm chart
+### Deploy the Helm chart
  
 Add `logzio-helm` repo as follows:
  
@@ -186,41 +195,25 @@ helm repo add logzio-helm https://logzio.github.io/logzio-helm
 helm repo update
 ```
 
-### 2. Run the Helm deployment code
+### Run the Helm deployment code
 
 ```
 helm install  \
 --set config.exporters.logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
 --set config.exporters.logzio.account_token=<<TRACING-SHIPPING-TOKEN>> \
+--set traces.enabled=true \ 
 logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 ```
 
-{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
+{@include: ../_include/tracing-shipping/replace-tracing-token.html}
 `<<LOGZIO_ACCOUNT_REGION_CODE>>` - Your Logz.io account region code. [Available regions](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
 
-### 3. Define the logzio-k8s-telemetry dns name
-
-In most cases, the service name will be `logzio-k8s-telemetry.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
-  
-If you are not sure what your cluster domain name is, you can run the following command to look it up: 
-  
-```shell
-kubectl run -it --image=k8s.gcr.io/e2e-test-images/jessie-dnsutils:1.3 --restart=Never shell -- \
-sh -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.default//"'
-```
-  
-It will deploy a small pod that extracts your cluster domain name from your Kubernetes environment. You can remove this pod after it has returned the cluster domain name.
-  
-
-{@include: ../../_include/tracing-shipping/node-steps.md}
-
-### 4. Check Logz.io for your traces
+### Check Logz.io for your traces
 
 Give your traces some time to get from your system to ours, then open [Logz.io](https://app.logz.io/).
 
 
-
-## Customizing Helm chart parameters
+##  Customizing Helm chart parameters
 
 ### Configure customization options
 
@@ -231,6 +224,7 @@ You can use the following options to update the Helm chart parameters:
 * Edit the `values.yaml`.
 
 * Overide default values with your own `my_values.yaml` and apply it in the `helm install` command. 
+
 
 If required, you can add the following optional parameters as environment variables:
   
@@ -309,8 +303,7 @@ logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 
 Replace `<PATH-TO>` with the path to your custom `values.yaml` file.
 
-{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
-
+{@include: ../_include/tracing-shipping/replace-tracing-token.html}
 
 
 
@@ -330,13 +323,11 @@ helm uninstall logzio-k8s-telemetry
 
 <!-- tab:end -->
 
-
-
 <!-- tab:start -->
 
 <TabItem value="troubleshooting" label="Troubleshooting">
 
-{@include: ../../_include/tracing-shipping/otel-troubleshooting.md}
+{@include: ../_include/tracing-shipping/otel-troubleshooting.md}
 
 </TabItem>
 

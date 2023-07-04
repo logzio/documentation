@@ -1,4 +1,4 @@
-##### Download instrumentation packages
+### Download instrumentation packages
 
 Run the following command from the application directory:
 
@@ -13,7 +13,7 @@ npm install --save @opentelemetry/auto-instrumentations-node
 npm install --save @opentelemetry/sdk-node
 ```
 
-##### Create a tracer file
+### Create a tracer file
 
 In the directory of your application file, create a file named `tracer.js` with the following configuration:
 
