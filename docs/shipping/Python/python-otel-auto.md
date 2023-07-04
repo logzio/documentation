@@ -1,37 +1,80 @@
 ---
-id: nodejs-otel-auto
-title: Sending traces from Node.js applications via auto instrumentation with OpenTelemetry
+id: python-otel-auto
+title: Sending traces from Python applications via auto instrumentation with OpenTelemetry
 sidebar_position: 1380
 overview: test
-product: ['tracing', 'nodejs']
+product: ['tracing', 'python']
 os: ['windows', 'linux']
-filters: ['nodejs', 'new-instrumentation']
-logo: nodejs.svg
+filters: ['python', 'new-instrumentation']
+logo: python.svg
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+
 <Tabs>
-
-
 
 <!-- tab:start -->
 
 <TabItem value="overview" label="Overview" default>
 
-
-Deploy this integration to enable automatic instrumentation of your Node.js application using OpenTelemetry. 
+Deploy this integration to enable automatic instrumentation of your Python application using OpenTelemetry.
 
 ## Architecture overview
 
 This integration includes:
 
-* Installing the OpenTelemetry Node.js instrumentation packages on your application host
+* Installing the OpenTelemetry Python instrumentation packages on your application host
 * Installing the OpenTelemetry collector with Logz.io exporter
-* Running your Node.js application in conjunction with the OpenTelemetry instrumentation
+* Running your Python application in conjunction with the OpenTelemetry instrumentation
 
-On deployment, the Node.js instrumentation automatically captures spans from your application and forwards them to the collector, which exports the data to your Logz.io account.
+On deployment, the Python instrumentation automatically captures spans from your application and forwards them to the collector, which exports the data to your Logz.io account.
+
+### Trace context
+
+If you're sending traces with OpenTelemetry instrumentation (auto or manual), you can correlate your logs with the trace context.
+In this way, your logs will have traces data in it, such as service name, span id and trace id.
+To enable this feature, set the `add_context` param in your handler configuration to `True`, like in this example:
+
+```python
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'logzioFormat': {
+            'format': '{"additional_field": "value"}',
+            'validate': False
+        }
+    },
+    'handlers': {
+        'logzio': {
+            'class': 'logzio.handler.LogzioHandler',
+            'level': 'INFO',
+            'formatter': 'logzioFormat',
+            'token': '<<LOG-SHIPPING-TOKEN>>',
+            'logzio_type': 'python-handler',
+            'logs_drain_timeout': 5,
+            'url': 'https://<<LISTENER-HOST>>:8071',
+            'retries_no': 4,
+            'retry_timeout': 2,
+            'add_context': True
+        }
+    },
+    'loggers': {
+        '': {
+            'level': 'DEBUG',
+            'handlers': ['logzio'],
+            'propagate': True
+        }
+    }
+}
+```
+
+{@include: ../../_include/general-shipping/replace-placeholders.html}
+
+
+Note that this feature is only available from version 4.0.0.
 
 </TabItem>
 
@@ -43,13 +86,13 @@ On deployment, the Node.js instrumentation automatically captures spans from you
 <TabItem value="local-host" label="Local host">
 
 
-## Setup auto-instrumentation for your locally hosted Node.js application and send traces to Logz.io
+## Setup auto-instrumentation for your locally hosted Python application and send traces to Logz.io
 
 **Before you begin, you'll need**:
 
-* A Node.js application without instrumentation
+* A Python application without instrumentation
 * An active account with Logz.io
-* Port `4318` available on your host system
+* Port `4317` available on your host system
 * A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 
 <!-- info-box-start:info -->
@@ -59,26 +102,26 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 <!-- info-box-end -->
 
 
-{@include: ../../_include/tracing-shipping/node-steps.md}
+{@include: ../../_include/tracing-shipping/python-steps.md}
 
 
 ### Download and configure OpenTelemetry collector
 
-Create a dedicated directory on the host of your Node.js application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.70.0) that is relevant to the operating system of your host.
+Create a dedicated directory on the host of your Python application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.70.0) that is relevant to the operating system of your host.
 
 
-After downloading the collector, create a configuration file `config.yaml` with the following parameters:
+After downloading the collector, create a configuration file `config.yaml` with the parameters below.
+
+* {@include: ../../_include/tracing-shipping/replace-tracing-token.md}
 
 {@include: ../../_include/tracing-shipping/collector-config.md}
 
--
-
-{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
+{@include: ../../_include/tracing-shipping/tail-sampling.md}
 
 
 ### Start the collector
 
-Run the following command from the directory of your application file:
+Run the following command:
 
 ```shell
 <path/to>/otelcontribcol_<VERSION-NAME> --config ./config.yaml
@@ -86,18 +129,20 @@ Run the following command from the directory of your application file:
 * Replace `<path/to>` with the path to the directory where you downloaded the collector.
 * Replace `<VERSION-NAME>` with the version name of the collector applicable to your system, e.g. `otelcontribcol_darwin_amd64`.
 
-### Run the application
+### Run the OpenTelemetry instrumentation in conjunction with your Python application
 
-Run the application to generate traces:
+Run the following command from the directory of your Python application script:
 
 ```shell
-node --require './tracer.js' <YOUR-APPLICATION-FILE-NAME>.js
+opentelemetry-instrument python3 <YOUR-APPLICATION-SCRIPT>.py
 ```
 
+Replace `<YOUR-APPLICATION-SCRIPT>` with the name of your Python application script.
 
 ### Check Logz.io for your traces
 
 Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
+
 
 </TabItem>
 
@@ -108,39 +153,37 @@ Give your traces some time to get from your system to ours, and then open [Traci
 <TabItem value="docker" label="Docker">
 
 
+## Setup auto-instrumentation for your Python application using Docker and send traces to Logz.io
 
-## Setup auto-instrumentation for your Node.js application using Docker and send traces to Logz.io
-
-This integration enables you to auto-instrument your Node.js application and run a containerized OpenTelemetry collector to send your traces to Logz.io. If your application also runs in a Docker container, make sure that both the application and collector containers are on the same network.
+This integration enables you to auto-instrument your Python application and run a containerized OpenTelemetry collector to send your traces to Logz.io. If your application also runs in a Docker container, make sure that both the application and collector containers are on the same network.
 
 **Before you begin, you'll need**:
 
-* A Node.js application without instrumentation
+* A Python application without instrumentation
 * An active account with Logz.io
 * Port `4317` available on your host system
 * A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 
 
-{@include: ../../_include/tracing-shipping/node-steps.md}
+{@include: ../../_include/tracing-shipping/python-steps.md}
 
 
 {@include: ../../_include/tracing-shipping/docker.md}
 
-
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
-
-### Run the application
+### Run the OpenTelemetry instrumentation in conjunction with your Python application
 
 {@include: ../../_include/tracing-shipping/collector-run-note.md}
 
 
-Run the application to generate traces:
+Run the following command from the directory of your Python application script:
 
 ```shell
-node --require './tracer.js' <YOUR-APPLICATION-FILE-NAME>.js
+opentelemetry-instrument python3 `<<YOUR-APPLICATION-SCRIPT>>`.py
 ```
 
+Replace `<<YOUR-APPLICATION-SCRIPT>>` with the name of your Python application script.
 
 ### Check Logz.io for your traces
 
@@ -149,8 +192,7 @@ Give your traces some time to get from your system to ours, and then open [Traci
 </TabItem>
 
 <!-- tab:end -->
-
-
+  
 <!-- tab:start -->
 
 <TabItem value="kubernetes" label="Kubernetes">
@@ -177,7 +219,7 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 
 
 
-### 1. Deploy the Helm chart
+### Deploy the Helm chart
  
 Add `logzio-helm` repo as follows:
  
@@ -186,7 +228,7 @@ helm repo add logzio-helm https://logzio.github.io/logzio-helm
 helm repo update
 ```
 
-### 2. Run the Helm deployment code
+### Run the Helm deployment code
 
 ```
 helm install  \
@@ -198,7 +240,7 @@ logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 `<<LOGZIO_ACCOUNT_REGION_CODE>>` - Your Logz.io account region code. [Available regions](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
 
-### 3. Define the logzio-k8s-telemetry dns name
+### Define the logzio-k8s-telemetry service dns
 
 In most cases, the service name will be `logzio-k8s-telemetry.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
   
@@ -212,15 +254,14 @@ sh -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.defaul
 It will deploy a small pod that extracts your cluster domain name from your Kubernetes environment. You can remove this pod after it has returned the cluster domain name.
   
 
-{@include: ../../_include/tracing-shipping/node-steps.md}
+{@include: ../../_include/tracing-shipping/python-steps.md}
 
-### 4. Check Logz.io for your traces
+### Check Logz.io for your traces
 
 Give your traces some time to get from your system to ours, then open [Logz.io](https://app.logz.io/).
 
 
-
-## Customizing Helm chart parameters
+##  Customizing Helm chart parameters
 
 ### Configure customization options
 
@@ -329,8 +370,6 @@ helm uninstall logzio-k8s-telemetry
 </TabItem>
 
 <!-- tab:end -->
-
-
 
 <!-- tab:start -->
 
