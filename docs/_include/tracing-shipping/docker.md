@@ -64,8 +64,8 @@ service:
 ```
 
 
-{% include /tracing-shipping/replace-tracing-token.html %}
-{% include /tracing-shipping/tail-sampling.md %}
+{@include: ../_include//tracing-shipping/replace-tracing-token.html}
+{@include: ../_include//tracing-shipping/tail-sampling.md}
 
 
 If you already have an OpenTelemetry installation, add the following parameters to the configuration file of your existing OpenTelemetry collector:
@@ -89,7 +89,7 @@ If you already have an OpenTelemetry installation, add the following parameters 
       exporters: [logzio/traces]
 ```
 
-{% include /tracing-shipping/replace-tracing-token.html %}
+{@include: ../_include//tracing-shipping/replace-tracing-token.html}
 
 An example configuration file looks as follows:
 
@@ -143,8 +143,8 @@ service:
       exporters: [logzio/traces]
 ```
 
-{% include /tracing-shipping/replace-tracing-token.html %}
-{% include /tracing-shipping/tail-sampling.md %}
+{@include: ../_include//tracing-shipping/replace-tracing-token.html}
+{@include: ../_include//tracing-shipping/tail-sampling.md}
 
 
 ##### Run the container

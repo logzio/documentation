@@ -81,11 +81,11 @@ function Feature({Svg, title, description, link}, index) {
     <Link to={link} className={clsx('col col--3', styles.featureCard, index >= 9 ? styles.smallCard : '')}>
       <div className="text--center">
         {Svg && <Svg className={styles.featureSvg} role="img" />}
-      </div>
+       
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
         <p>{description}</p>
-      </div>
+       
     </Link>
   );
 }
@@ -98,8 +98,8 @@ export default function HomepageFeatures() {
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
           ))}
-        </div>
-      </div>
+         
+       
     </section>
   );
 }

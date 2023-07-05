@@ -17,7 +17,7 @@ const Sidebar = () => (
         <li key={idx}><Link to={item.link}>{item.label}</Link></li>
       ))}
     </ul>
-  </div>
+   
 );
 
 export default Sidebar;

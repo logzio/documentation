@@ -94,11 +94,11 @@ Learn how to search and filter your log data with Logz.io.
       <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/searching-and-filtering.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
-</div>
+ 
 
 <div style={{position: 'relative', paddingBottom: '56.25%'}}>
   <iframe style={{position: 'absolute', top: '0', left: '0', width: '100%', height: '100%'}} src="https://fast.wistia.com/embed/iframe/kq0z0sux4d" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+ 
 
 #### Add more data to your log results
 
@@ -151,11 +151,11 @@ In the following video, you'll be able to see how to create a visualization dash
       <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/log-visualizations-velcfd5tpr.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
-</div>
+ 
 
 <div style={{position: 'relative', paddingBottom: '56.25%'}}>
   <iframe style={{position: 'absolute', top: '0', left: '0', width: '100%', height: '100%'}} src="https://fast.wistia.com/embed/iframe/velcfd5tpr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+ 
 
 ## Divide your log data
 

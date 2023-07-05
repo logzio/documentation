@@ -19,7 +19,7 @@ All it takes to ship your metrics data to Logz.io is to use Remote Write on each
 
 <div style={{position: 'relative', paddingBottom: '56.25%'}}>
   <iframe style={{position: 'absolute', top: '0', left: '0', width: '100%', height: '100%'}} src="https://fast.wistia.com/embed/iframe/w2lic9vv1z" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+ 
 
 
 Your data is formatted as JSON documents by the Logz.io listener. 

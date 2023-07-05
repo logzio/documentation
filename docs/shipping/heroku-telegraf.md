@@ -1,0 +1,80 @@
+---
+id: Amazon-S3
+title: Amazon S3
+sidebar_position: 1
+overview: This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon S3 metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
+product: ['metrics']
+os: ['windows', 'linux']
+filters: ['gcp', 'cloud']
+logo: https://docs.logz.io/images/logo/logz-symbol.svg
+logs_dashboards: []
+logs_alerts: []
+logs2metrics: []
+metrics_dashboards: ['1Pm3OYbu1MRGoELc2qhxQ1']
+metrics_alerts: []
+---
+
+## Overview
+
+Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud. Deploy this integration to install and launch Telegraf on the dynos of your Heroku app. Deploy this integration to install and launch Telegraf on the dynos of your Heroku app. This integration buildpack downloads the latest Telegraf release, extracts it on your dyno and starts it via a .profile.d script.
+
+#### Configuring Telegraf to send your Heroku app metrics to Logz.io
+
+**Before you begin, you'll need**:
+
+* [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
+
+ 
+
+:::note
+All commands in these instructions should be run from your Heroku app directory.
+:::
+ 
+
+##### Download the Telegraf configuration file
+
+``` shell
+
+wget -O telegraf.conf https://raw.githubusercontent.com/logzio/heroku-buildpack-telegraf/master/telegraf.conf
+
+```
+
+##### Enable environment variable
+
+``` shell
+
+heroku labs:enable runtime-dyno-metadata -a <<HEROKU_APP_NAME>>
+
+heroku config:set LOGZIO_LISTENER=https://<<LISTENER-HOST>>:8053   
+
+heroku config:set LOGZIO_TOKEN=<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
+
+git add .
+
+git commit -m "Telegraf config" 
+
+git push heroku main
+
+```
+
+{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+* Replace `<<HEROKU_APP_NAME>>` with the name of your Heroku app
+
+##### Add the buildpack to the list of your Heroku buildpacks
+
+``` shell
+
+heroku buildpacks:add --index 1 https://github.com/logzio/heroku-buildpack-telegraf.git
+
+git commit --allow-empty -m "Rebuild slug"
+
+git push heroku main
+
+```
+
+##### Check Logz.io for your metrics
+
+Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
+
+
+ 

@@ -29,7 +29,7 @@ The metrics are grouped by name.
       <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/p8s-xplore11-metricslist.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
-</div>
+ 
 
 
 - **Query autocomplete:** Use the query autocomplete option to explore the available metrics name suggestions. 
@@ -40,7 +40,7 @@ The metrics are grouped by name.
       <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/p8s-explore-query.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
-</div>
+ 
 
 
 :::note
@@ -71,7 +71,7 @@ If you want to sync both views so they both cover the same time range, click the
       <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/p8s-xplore-split-sync.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
-</div>
+ 
 
 ### Calculating Infrastructure Monitoring usage
 
