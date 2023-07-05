@@ -1,4 +1,4 @@
-##### Install general Python OpenTelemetry instrumentation components
+### Install general Python OpenTelemetry instrumentation components
 
 Run the following commands:
 
@@ -9,7 +9,7 @@ opentelemetry-bootstrap --action=install
 pip3 install opentelemetry-exporter-otlp
 ```
 
-##### Set environment variables 
+### Set environment variables 
 
 After installation, configure the exporter by running the following command:
 

@@ -1,10 +1,10 @@
-##### Pull the Docker image for the OpenTelemetry collector
+### Pull the Docker image for the OpenTelemetry collector
 
 ```shell
 docker pull otel/opentelemetry-collector-contrib:0.78.0
 ```
 
-##### Create a configuration file
+### Create a configuration file
 
 Create a file `config.yaml` with the following content:
 
@@ -62,10 +62,12 @@ service:
       processors: [tail_sampling, batch]
       exporters: [logging, logzio/traces]
 ```
+ 
+  
+{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
-
-{@include: ../_include//tracing-shipping/replace-tracing-token.html}
-{@include: ../_include//tracing-shipping/tail-sampling.md}
+{@include: ../../_include/tracing-shipping/tail-sampling.md}
+ 
 
 
 If you already have an OpenTelemetry installation, add the following parameters to the configuration file of your existing OpenTelemetry collector:
@@ -89,7 +91,8 @@ If you already have an OpenTelemetry installation, add the following parameters 
       exporters: [logzio/traces]
 ```
 
-{@include: ../_include//tracing-shipping/replace-tracing-token.html}
+
+{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
 An example configuration file looks as follows:
 
@@ -143,8 +146,11 @@ service:
       exporters: [logzio/traces]
 ```
 
-{@include: ../_include//tracing-shipping/replace-tracing-token.html}
-{@include: ../_include//tracing-shipping/tail-sampling.md}
+
+{@include: ../_include/tracing-shipping/replace-tracing-token.html}
+
+
+{@include: ../../_include/tracing-shipping/tail-sampling.md}
 
 
 ##### Run the container

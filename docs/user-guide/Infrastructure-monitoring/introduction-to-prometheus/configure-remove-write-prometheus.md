@@ -14,6 +14,8 @@ To send your Prometheus application metrics to a Logz.io Infrastructure Monitori
 ### Configuring Remote Write to Logz.io
 
 
+{@include: ./p8s-shipping/remotewrite-syd-userguide.md}
+
 #### Add a remote_write url
 
 

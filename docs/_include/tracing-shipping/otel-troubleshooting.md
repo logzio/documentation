@@ -45,7 +45,7 @@ If the collector is installed and the endpoints are properly configured, the ins
 
 1. Check if the instrumentation can output traces to a console exporter.
 2. Use a web-hook to check if the traces are going to the output.
-3. Use the metrics endpoint of the collector (http://<<COLLECTOR-HOST>>:8888/metrics) to see the number of spans received per receiver and the number of spans sent to the Logz.io exporter.
+3. Use the metrics endpoint of the collector (http://`<<COLLECTOR-HOST>>`:8888/metrics) to see the number of spans received per receiver and the number of spans sent to the Logz.io exporter.
 
 * Replace `<<COLLECTOR-HOST>>` with the address of your collector host, e.g. `localhost`, if the collector is hosted locally.
 
