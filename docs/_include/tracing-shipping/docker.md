@@ -62,11 +62,12 @@ service:
       processors: [tail_sampling, batch]
       exporters: [logging, logzio/traces]
 ```
-
-
+ 
+  
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
 {@include: ../../_include/tracing-shipping/tail-sampling.md}
+ 
 
 
 If you already have an OpenTelemetry installation, add the following parameters to the configuration file of your existing OpenTelemetry collector:
@@ -89,6 +90,7 @@ If you already have an OpenTelemetry installation, add the following parameters 
       processors: [tail_sampling, batch]
       exporters: [logzio/traces]
 ```
+
 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
@@ -144,7 +146,9 @@ service:
       exporters: [logzio/traces]
 ```
 
-{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
+
+{@include: ../_include/tracing-shipping/replace-tracing-token.html}
+
 
 {@include: ../../_include/tracing-shipping/tail-sampling.md}
 

@@ -9,12 +9,12 @@ const LayoutWithSidebar = ({children, ...props}) => {
         <div className="row">
           <div className="col col--3">
             <Sidebar />
-          </div>
+           
           <div className="col col--9">
             {children}
-          </div>
-        </div>
-      </div>
+           
+         
+       
     </Layout>
   );
 };

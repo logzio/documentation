@@ -40,7 +40,7 @@ To learn more about shipping your data, check out **Shipping Log Data to Logz.io
 
 <div style={{position: 'relative', paddingBottom: '56.25%'}}>
   <iframe style={{position: 'absolute', top: '0', left: '0', width: '100%', height: '100%'}} src="https://fast.wistia.com/embed/iframe/oi6qydmyk6" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+ 
 
 #### Parsing your data
 
@@ -90,7 +90,7 @@ Once you've sent your metrics to Logz.io, you can:
 
 <div style={{position: 'relative', paddingBottom: '56.25%'}}>
   <iframe style={{position: 'absolute', top: '0', left: '0', width: '100%', height: '100%'}} src="https://fast.wistia.com/embed/iframe/w7lkltrofb" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+ 
 
 You can also:
 

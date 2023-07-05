@@ -1,17 +1,17 @@
 ---
-id: sample
-title: Sample Document
+id: Amazon-S3
+title: Amazon S3
 sidebar_position: 1
-overview: test
-product: ['logs', 'metrics']
+overview: This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon S3 metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
+product: ['metrics']
 os: ['windows', 'linux']
-filters: ['aws', 'cloud']
+filters: ['gcp', 'cloud']
 logo: https://docs.logz.io/images/logo/logz-symbol.svg
-logs_dashboards: ['dfsdfgsdgfds', 'sdfgsdfg', 'hrtgwgs']
-logs_alerts: ['sdfgs', 'xcvdb']
-logs2metrics: ['ersefg']
-metrics_dashboards: ['sdfgfsdg', 'sdfgsdyuiuyifg']
-metrics_alerts: ['azxsvb']
+logs_dashboards: []
+logs_alerts: []
+logs2metrics: []
+metrics_dashboards: ['1Pm3OYbu1MRGoELc2qhxQ1']
+metrics_alerts: []
 ---
 
 # .NET
@@ -199,8 +199,8 @@ namespace dotnet_log4net
 
 | Parameter | Description | Default/Required |
 |---|---|---|
-| token | Your [Logz.io log shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs) securely directs the data to your Logz.io account. {% include log-shipping/log-shipping-token.html %} | Required |
-| listenerUrl  | Listener URL and port. {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |
+| token | Your [Logz.io log shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs) securely directs the data to your Logz.io account. {@include: ../_include/log-shipping/log-shipping-token.html} | Required |
+| listenerUrl  | Listener URL and port. {@include: ../_include/log-shipping/listener-var.html}  | `https://listener.logz.io:8071` |
 | type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `log4net` |
 | bufferSize | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
 | bufferTimeout | Maximum time to wait for more log lines, as _hh:mm:ss.fff_. | `00:00:05` |
@@ -399,8 +399,8 @@ LogManager.Configuration = config;
 
 | Parameter | Description | Default/Required |
 |---|---|---|
-| token | Y[Logz.io log shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs) securely directs the data to your Logz.io account. {% include log-shipping/log-shipping-token.html %} | Required |
-| listenerUrl  | Listener URL and port. {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |
+| token | Y[Logz.io log shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs) securely directs the data to your Logz.io account. {@include: ../_include/log-shipping/log-shipping-token.html} | Required |
+| listenerUrl  | Listener URL and port. {@include: ../_include/log-shipping/listener-var.html}  | `https://listener.logz.io:8071` |
 | type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `nlog` |
 | bufferSize | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
 | bufferTimeout | Maximum time to wait for more log lines, as _hh:mm:ss.fff_. | `00:00:05` |
@@ -622,8 +622,8 @@ hierarchy.Configured = true;
 
 | Parameter | Description | Default/Required |
 |---|---|---|
-| token | [Logz.io log shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs) securely directs the data to your Logz.io account. {% include log-shipping/log-shipping-token.html %} | Required |
-| listenerUrl  | Listener URL and port. {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |
+| token | [Logz.io log shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs) securely directs the data to your Logz.io account. {@include: ../_include/log-shipping/log-shipping-token.html} | Required |
+| listenerUrl  | Listener URL and port. {@include: ../_include/log-shipping/listener-var.html}  | `https://listener.logz.io:8071` |
 | type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `log4net` |
 | bufferSize | Maximum number of messages the logger will accumulate before sending them all in bulk. | `100` |
 | bufferTimeout | Maximum time to wait for more log lines, as _hh:mm:ss.fff_. | `00:00:05` |
@@ -832,9 +832,9 @@ Create `appsettings.json` file and copy the following configuration:
 }
 ```
 
-{% include log-shipping/log-shipping-token.html %}
+{@include: ../_include/log-shipping/log-shipping-token.html}
 
-{% include log-shipping/listener-var.html %} 
+{@include: ../_include/log-shipping/listener-var.html} 
 
 Replace `<<TYPE>` with the type that you want to assign to your logs. You will use this value to identify these logs in Logz.io.
 
@@ -906,9 +906,9 @@ namespace Example
 }
 ```
 
-{% include log-shipping/log-shipping-token.html %}
+{@include: ../_include/log-shipping/log-shipping-token.html}
 
-{% include log-shipping/listener-var.html %} 
+{@include: ../_include/log-shipping/listener-var.html} 
 
 Replace `<<TYPE>` with the type that you want to assign to your logs. You will use this value to identify these logs in Logz.io.
 

@@ -5,7 +5,7 @@ const Tags = ({ tags }) => (
       {tags && tags.map((tag, index) => (
         <span key={index} style={{ backgroundColor: 'grey', padding: '5px', margin: '5px' }}>{tag}</span>
       ))}
-    </div>
+     
   );
   
   export default Tags;
