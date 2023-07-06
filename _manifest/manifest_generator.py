@@ -94,6 +94,8 @@ def normalize_key_val(key, val):
     if norm_key in consts.BUNDLE_META:
         is_valid_key = True
         return normalize_bundle_item(norm_key, norm_val)
+    if norm_key == consts.FIELD_PRODUCT_TAGS:
+        return normalize_product_types(norm_key, norm_val)
     if not is_valid_key:
         raise KeyError(f'Specified key {key} not in list of supported keys')
     return norm_key, norm_val
@@ -105,6 +107,16 @@ def normalize_bundle_item(norm_key, id_arr):
     for item_id in id_arr:
         bundles.append({consts.FIELD_BUNDLES_TYPE: bundle_type, consts.FIELD_BUNDLES_ID: item_id})
     return consts.FIELD_BUNDLES, bundles
+
+
+def normalize_product_types(key, tags_arr):
+    norm_tags = []
+    for tag in tags_arr:
+        try:
+            norm_tags.append(consts.DOCS_TO_OBJ_PRODUCT_TYPE[tag])
+        except KeyError:
+            logger.error(f'Specified product type {tag} is not supported. Skipping.')
+    return key, norm_tags
 
 
 def update_manifest(manifest_object, manifest_path):

@@ -28,7 +28,7 @@ class ManifestGeneratorTest(unittest.TestCase):
         self.assertEqual(collector_item[consts.FIELD_TITLE], 'Sample Document')
         self.assertNotIn('sidebar_position', collector_item)
         self.assertEqual(collector_item[consts.FIELD_DESCRIPTION], 'this is the description of a test')
-        self.assertCountEqual(collector_item[consts.FIELD_PRODUCT_TAGS], ['logs', 'metrics'])
+        self.assertCountEqual(collector_item[consts.FIELD_PRODUCT_TAGS], [consts.PRODUCT_TYPE_LOGS, consts.PRODUCT_TYPE_METRICS])
         self.assertCountEqual(collector_item[consts.FIELD_OS_TAGS], ['windows', 'linux'])
         self.assertCountEqual(collector_item[consts.FIELD_FILTER_TAGS], ['aws', 'cloud'])
         self.assertEqual(collector_item[consts.FIELD_LOGO], 'https://docs.logz.io/images/logo/logz-symbol.svg')
