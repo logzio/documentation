@@ -22,11 +22,11 @@ TeamCity is a general-purpose CI/CD solution that allows the most flexibility fo
 
 To send your Prometheus-format TeamCity metrics to Logz.io, you need to add the **inputs.prometheus** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["1mdHqslZMi4gXaNCLZo9G1"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["1mdHqslZMi4gXaNCLZo9G1"] -->
 
 #### Configuring Telegraf to send your metrics data to Logz.io
 
- 
+
 
 ##### Set up Telegraf v1.17 or higher
 
@@ -52,10 +52,10 @@ First you need to configure the input plug-in to enable Telegraf to scrape the T
 
 
 ##### Add the outputs.http plug-in
-  
+
 {@include: ../_include/metric-shipping/telegraf-outputs.md}
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
-  
+
 ##### Start Telegraf
 
 {@include: ../_include/metric-shipping/telegraf-run.md}
@@ -66,8 +66,8 @@ Give your metrics some time to get from your system to ours.
 
 {@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["1mdHqslZMi4gXaNCLZo9G1"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["1mdHqslZMi4gXaNCLZo9G1"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html} 
+{@include: ../_include/metric-shipping/generic-dashboard.html}
 
- 
+

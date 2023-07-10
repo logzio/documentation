@@ -15,7 +15,7 @@ metrics_alerts: []
 ---
 
 
-Jenkins is an automation server for building, testing, and deploying software. This integration allows you to send logs from your Jenkins servers to your Logz.io account. 
+Jenkins is an automation server for building, testing, and deploying software. This integration allows you to send logs from your Jenkins servers to your Logz.io account.
 
 #### Shipping Jenkins logs with Filebeat
 
@@ -25,7 +25,7 @@ Jenkins is an automation server for building, testing, and deploying software. T
 * Root access
 * Port 5015 open
 
- 
+
 
 {@include: ../_include/log-shipping/certificate.md}
 
@@ -35,7 +35,7 @@ In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Jenkins to 
 
 {@include: ../_include/log-shipping/log-shipping-token.html}
 
-Replace <<JENKINS-HOME>> with home location of your Jenkins installation
+Replace "JENKINS-HOME" with home location of your Jenkins installation
 
 {@include: ../_include/log-shipping/filebeat-input-extension.md}
 
@@ -100,7 +100,7 @@ The above configuration assumes the following defaults:
 If Logz.io is not an output, add it now.
 Remove all other outputs.
 
-{@include: ../_include/log-shipping/listener-var.html} 
+{@include: ../_include/log-shipping/listener-var.html}
 
 ```yaml
 # ...
@@ -109,7 +109,7 @@ output.logstash:
   ssl:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
- 
+
 ##### Start Filebeat
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.

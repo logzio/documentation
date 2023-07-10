@@ -22,11 +22,11 @@ Telegraf is a plug-in driven server agent for collecting and sending metrics and
 To send your Prometheus-format System metrics to Logz.io, you need to add multiple system-related inputs and **outputs.http** plug-ins to your Telegraf configuration file.
 
 
-<!-- logzio-inject:install:grafana:dashboards ids=["32X5zm8qW7ByLlp1YPFkrJ"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["32X5zm8qW7ByLlp1YPFkrJ"] -->
 
 #### Configuring Telegraf to send your metrics data to Logz.io
 
- 
+
 
 ##### Set up Telegraf v1.17 or higher
 
@@ -57,13 +57,13 @@ First you need to configure the input plug-in to enable Telegraf to scrape the s
 [[inputs.processes]]
 [[inputs.procstat]]
     pattern = ".*"
-    fieldpass = ["cpu_usage", "memory_rss"] 
+    fieldpass = ["cpu_usage", "memory_rss"]
 ```
 
 :::note
 The full list of data scraping and configuring options can be found [here](https://docs.influxdata.com/telegraf/v1.18/plugins/).
 :::
- 
+
 
 ##### Add the outputs.http plug-in
 
@@ -78,9 +78,9 @@ The full list of data scraping and configuring options can be found [here](https
 
 {@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["32X5zm8qW7ByLlp1YPFkrJ"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["32X5zm8qW7ByLlp1YPFkrJ"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html} 
+{@include: ../_include/metric-shipping/generic-dashboard.html}
 
 
- 
+

@@ -24,11 +24,11 @@ Telegraf is a plug-in driven server agent for collecting and sending metrics and
 
 To send your Prometheus-format metrics to Logz.io, you add the **outputs.http** plug-in to your Telegraf configuration file.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["32X5zm8qW7ByLlp1YPFkrJ"] --> 
-  
+<!-- logzio-inject:install:grafana:dashboards ids=["32X5zm8qW7ByLlp1YPFkrJ"] -->
+
 #### Configuring Telegraf to send your metrics data to Logz.io
 
- 
+
 
 ##### Set up Telegraf v1.17 or higher:
 
@@ -80,24 +80,24 @@ After you create a config file for Telegraf, configure the output plug-in to ena
      Content-Encoding = "snappy"
      X-Prometheus-Remote-Write-Version = "0.1.0"
      Authorization = "Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>"
-``` 
+```
 
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
 
 :::note
 The full list of data scraping and configuring options can be found [here](https://docs.influxdata.com/telegraf/v1.18/plugins/).
 :::
- 
+
 
 
 ##### Check Logz.io for your metrics
 
 {@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["32X5zm8qW7ByLlp1YPFkrJ"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["32X5zm8qW7ByLlp1YPFkrJ"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html} 
+{@include: ../_include/metric-shipping/generic-dashboard.html}
 
- 
+
 
 

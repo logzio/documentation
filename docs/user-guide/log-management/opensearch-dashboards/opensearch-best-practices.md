@@ -25,7 +25,7 @@ You can search for free text by typing the text string you want to find; for exa
 
 You can also use the `exists` query with the relevant value. For example:
 
-`_exists_:error`. 
+`_exists_:error`.
 
 To search for a value in a specific field, use the following syntax:
 
@@ -74,7 +74,7 @@ However, you can still use reserved characters by applying a backslash or double
 `\()` will render as brackets.
 
 
-To use Regex in a search query in OpenSearch, you'll need to use the following template: 
+To use Regex in a search query in OpenSearch, you'll need to use the following template:
 
 `fieldName:/.*value.*/`.
 
@@ -89,37 +89,39 @@ To find one of the values in the field, such as `fox`, you'll need to use the fo
 
 Learn how to search and filter your log data with Logz.io.
 
- 
+
 <div>
     <video width="100%" height="auto" controls autoplay loop muted>
       <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/searching-and-filtering.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
- 
- 
+</div>
+
+
 <div style={{position: 'relative', paddingBottom: '56.25%'}}>
   <iframe style={{position: 'absolute', top: '0', left: '0', width: '100%', height: '100%'}} src="https://fast.wistia.com/embed/iframe/kq0z0sux4d" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
- 
+</div>
+
 
 #### Add more data to your log results
 
 You can add additional columns to your logs field view.
 
-Find the field you'd like to add, hover over it and click on the **+** button. 
+Find the field you'd like to add, hover over it and click on the **+** button.
 
 ![Add field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/add-field-discover.png)
 
-Once the field is added, you can move or remove it using its inner menu. 
+Once the field is added, you can move or remove it using its inner menu.
 
 ![Edit field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/add-field-overview.gif)
 
-Finally, you can save your search and its view by clicking on the **Save** option, at the top navigation bar. 
+Finally, you can save your search and its view by clicking on the **Save** option, at the top navigation bar.
 
 ![Save field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/save-your-fields.png)
 
 ### Filter your log results
 
-To narrow down your search, click the **Add filter** option underneath the search bar. 
+To narrow down your search, click the **Add filter** option underneath the search bar.
 
 Choose the field, operator, and value you'd like to apply in your filter, and click save. You can also create a custom label to rename the filter for better identification.
 
@@ -127,7 +129,7 @@ Choose the field, operator, and value you'd like to apply in your filter, and cl
 
 Once you've set your filter, clicking on it will open additional abilities such as pinning it across all apps, excluding results, temporarily disabling it, editing, or deleting it.
 
-### Select the time frame for your logs 
+### Select the time frame for your logs
 
 The default period to display results is 15 minutes. You can edit this time frame by clicking on the **Show dates** link or clicking on the calendar icon.
 
@@ -145,20 +147,21 @@ The **Show dates** option lets you set a start and end time. In the popup, selec
 
 ### Create Log Visualizations with Logz.io
 
-In the following video, you'll be able to see how to create a visualization dashboard based on your logs: 
+In the following video, you'll be able to see how to create a visualization dashboard based on your logs:
 
- 
+
 <div>
     <video width="100%" height="auto" controls autoplay loop muted>
       <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/log-visualizations-velcfd5tpr.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
- 
+</div>
 
- 
+
+
 <div style={{position: 'relative', paddingBottom: '56.25%'}}>
   <iframe style={{position: 'absolute', top: '0', left: '0', width: '100%', height: '100%'}} src="https://fast.wistia.com/embed/iframe/velcfd5tpr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
- 
+</div>
 
 ## Divide your log data
 

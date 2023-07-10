@@ -1,5 +1,5 @@
 ---
-id: Amazon-S3
+id: dotnet
 title: Amazon S3
 sidebar_position: 1
 overview: This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon S3 metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
@@ -49,16 +49,16 @@ For a complete list of options, see the configuration parameters below the code 
 ```xml
 <log4net>
     <appender name="LogzioAppender" type="Logzio.DotNet.Log4net.LogzioAppender, Logzio.DotNet.Log4net">
-    	<!-- 
-		Required fields 
+    	<!--
+		Required fields
 	-->
 	<!-- Your Logz.io API token -->
 	<token><<LOG-SHIPPING-TOKEN>></token>
-			
-	<!-- 
-		Optional fields (with their default values) 
+
+	<!--
+		Optional fields (with their default values)
 	-->
-	<!-- The type field will be added to each log message, making it 
+	<!-- The type field will be added to each log message, making it
 	easier for you to differ between different types of logs. -->
     	<type>log4net</type>
 	<!-- The URL of the Lgz.io listener -->
@@ -79,14 +79,14 @@ For a complete list of options, see the configuration parameters below the code 
 	<!--<parseJsonMessage>true</parseJsonMessage>-->
 	<!-- Enable the appender's internal debug logger (sent to the console output and trace log) -->
 	<debug>false</debug>
-	<!-- If you have custom fields keys that start with capital letter and want to see the fields 
-	with capital letter in Logz.io, set this field to true. The default is false 
+	<!-- If you have custom fields keys that start with capital letter and want to see the fields
+	with capital letter in Logz.io, set this field to true. The default is false
 	(first letter will be small letter). -->
 	<jsonKeysCamelCase>false</jsonKeysCamelCase>
 	<!-- Add trace context (traceId and spanId) to each log. The default is false -->
 	<addTraceContext>false</addTraceContext>
     </appender>
-    
+
     <root>
     	<level value="INFO" />
     	<appender-ref ref="LogzioAppender" />
@@ -95,7 +95,7 @@ For a complete list of options, see the configuration parameters below the code 
 ```
 
 Add a reference to the configuration file in your code, as shown in the example [here](https://github.com/logzio/logzio-dotnet/blob/master/sample-applications/LogzioLog4netSampleApplication/Program.cs).
-	
+
 ###### Code sample
 
 ```csharp
@@ -125,7 +125,7 @@ namespace dotnet_log4net
     }
 }
 ```
-	
+
 
 ##### Option 2: In the code
 
@@ -134,11 +134,11 @@ var hierarchy = (Hierarchy)LogManager.GetRepository();
 var logzioAppender = new LogzioAppender();
 logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
 logzioAppender.AddListenerUrl("<<LISTENER-HOST>>");
-// <-- Uncomment and edit this line to enable proxy routing: --> 
+// <-- Uncomment and edit this line to enable proxy routing: -->
 // logzioAppender.AddProxyAddress("http://your.proxy.com:port");
-// <-- Uncomment this to enable sending logs in Json format -->  
+// <-- Uncomment this to enable sending logs in Json format -->
 // logzioAppender.ParseJsonMessage(true);
-// <-- Uncomment these lines to enable gzip compression --> 
+// <-- Uncomment these lines to enable gzip compression -->
 // logzioAppender.AddGzip(true);
 // logzioAppender.ActivateOptions();
 // logzioAppender.JsonKeysCamelCase(false);
@@ -148,7 +148,7 @@ hierarchy.Root.AddAppender(logzioAppender);
 hierarchy.Root.Level = Level.All;
 hierarchy.Configured = true;
 ```
-	
+
 
 ###### Code sample
 
@@ -167,20 +167,20 @@ namespace dotnet_log4net
             var hierarchy = (Hierarchy)LogManager.GetRepository();
             var logger = LogManager.GetLogger(typeof(Program));
             var logzioAppender = new LogzioAppender();
-            
+
             logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
             logzioAppender.AddListenerUrl("https://<<LISTENER-HOST>>:8071");
-            // <-- Uncomment and edit this line to enable proxy routing: --> 
+            // <-- Uncomment and edit this line to enable proxy routing: -->
             // logzioAppender.AddProxyAddress("http://your.proxy.com:port");
-            // <-- Uncomment this to enable sending logs in Json format -->  
+            // <-- Uncomment this to enable sending logs in Json format -->
             // logzioAppender.ParseJsonMessage(true);
-            // <-- Uncomment these lines to enable gzip compression --> 
+            // <-- Uncomment these lines to enable gzip compression -->
             // logzioAppender.AddGzip(true);
             // logzioAppender.ActivateOptions();
             // logzioAppender.JsonKeysCamelCase(false)
             // logzioAppender.AddTraceContext(false);
             logzioAppender.ActivateOptions();
-            
+
             hierarchy.Root.AddAppender(logzioAppender);
             hierarchy.Configured = true;
             hierarchy.Root.Level = Level.All;
@@ -274,20 +274,20 @@ namespace dotnet_log4net
             var hierarchy = (Hierarchy)LogManager.GetRepository();
             var logger = LogManager.GetLogger(typeof(Program));
             var logzioAppender = new LogzioAppender();
-            
+
             logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
             logzioAppender.AddListenerUrl("https://<<LISTENER-HOST>>:8071");
-            // <-- Uncomment and edit this line to enable proxy routing: --> 
+            // <-- Uncomment and edit this line to enable proxy routing: -->
             // logzioAppender.AddProxyAddress("http://your.proxy.com:port");
-            // <-- Uncomment this to enable sending logs in Json format -->  
+            // <-- Uncomment this to enable sending logs in Json format -->
             // logzioAppender.ParseJsonMessage(true);
-            // <-- Uncomment these lines to enable gzip compression --> 
+            // <-- Uncomment these lines to enable gzip compression -->
             // logzioAppender.AddGzip(true);
             // logzioAppender.ActivateOptions();
             // logzioAppender.JsonKeysCamelCase(false)
             logzioAppender.AddTraceContext(true);
             logzioAppender.ActivateOptions();
-            
+
             hierarchy.Root.AddAppender(logzioAppender);
             hierarchy.Configured = true;
             hierarchy.Root.Level = Level.All;
@@ -338,8 +338,8 @@ For a complete list of options, see the configuration parameters below the code 
 	<add assembly="Logzio.DotNet.NLog"/>
     </extensions>
     <targets>
-	<!-- parameters are shown here with their default values. 
-	Other than the token, all of the fields are optional and can be safely omitted.            
+	<!-- parameters are shown here with their default values.
+	Other than the token, all of the fields are optional and can be safely omitted.
         -->
 
 	<target name="logzio" type="Logzio"
@@ -387,7 +387,7 @@ var logzioTarget = new LogzioTarget {
     Debug = false,
     JsonKeysCamelCase = false,
     AddTraceContext = false,
-    // ParseJsonMessage = true, 
+    // ParseJsonMessage = true,
     // ProxyAddress = "http://your.proxy.com:port"
 };
 
@@ -510,7 +510,7 @@ var logzioTarget = new LogzioTarget {
     Debug = false,
     JsonKeysCamelCase = false,
     AddTraceContext = true,
-    // ParseJsonMessage = true, 
+    // ParseJsonMessage = true,
     // ProxyAddress = "http://your.proxy.com:port"
 };
 
@@ -557,16 +557,16 @@ For a complete list of options, see the configuration parameters below the code 
 ```xml
 <log4net>
     <appender name="LogzioAppender" type="Logzio.DotNet.Log4net.LogzioAppender, Logzio.DotNet.Log4net">
-    	<!-- 
-		Required fields 
+    	<!--
+		Required fields
 	-->
 	<!-- Your Logz.io API token -->
 	<token><<LOG-SHIPPING-TOKEN>></token>
-			
-	<!-- 
-		Optional fields (with their default values) 
+
+	<!--
+		Optional fields (with their default values)
 	-->
-	<!-- The type field will be added to each log message, making it 
+	<!-- The type field will be added to each log message, making it
 	easier for you to differ between different types of logs. -->
     	<type>log4net</type>
 	<!-- The URL of the Lgz.io listener -->
@@ -590,7 +590,7 @@ For a complete list of options, see the configuration parameters below the code 
         <!-- Add trace context (traceId and spanId) to each log. The default is false -->
         <addTraceContext>false</addTraceContext>
     </appender>
-    
+
     <root>
     	<level value="INFO" />
     	<appender-ref ref="LogzioAppender" />
@@ -605,9 +605,9 @@ var hierarchy = (Hierarchy)LogManager.GetRepository();
 var logzioAppender = new LogzioAppender();
 logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
 logzioAppender.AddListenerUrl("<<LISTENER-HOST>>");
-// Uncomment and edit this line to enable proxy routing: 
+// Uncomment and edit this line to enable proxy routing:
 // logzioAppender.AddProxyAddress("http://your.proxy.com:port");
-// Uncomment these lines to enable gzip compression 
+// Uncomment these lines to enable gzip compression
 // logzioAppender.AddGzip(true);
 // logzioAppender.ActivateOptions();
 // logzioAppender.JsonKeysCamelCase(false);
@@ -646,22 +646,22 @@ Update Startup.cs file in Configure method to include the Log4Net middleware as 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
     {
         ...
-        
+
         loggerFactory.AddLog4Net();
-        
+
         ...
-    } 
+    }
 ```
 
 In the Controller, add Data Member and Constructor, as in the code below.
 
 ```csharp
     private readonly ILoggerFactory _loggerFactory;
-    
+
     public ExampleController(ILoggerFactory loggerFactory, ...)
         {
             _loggerFactory = loggerFactory;
-            
+
             ...
         }
 ```
@@ -674,15 +674,15 @@ In the Controller methods:
     {
         var logger = _loggerFactory.CreateLogger<ExampleController>();
         var logRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());
-            
+
         // Replace "App.config" with the config file that holds your log4net configuration
         XmlConfigurator.Configure(logRepository, new FileInfo("log4net.config"));
-            
+
         logger.LogInformation("Hello");
         logger.LogInformation("Is it me you looking for?");
-            
+
         LogManager.Shutdown();
-            
+
         return Ok();
     }
 ```
@@ -713,7 +713,7 @@ In the Controller methods:
 
                 logger.LogInformation("Hello");
                 logger.LogInformation("Is it me you looking for?");
-                
+
                 LogManager.Shutdown();
             }
         }
@@ -770,9 +770,9 @@ var hierarchy = (Hierarchy)LogManager.GetRepository();
 var logzioAppender = new LogzioAppender();
 logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
 logzioAppender.AddListenerUrl("<<LISTENER-HOST>>");
-// Uncomment and edit this line to enable proxy routing: 
+// Uncomment and edit this line to enable proxy routing:
 // logzioAppender.AddProxyAddress("http://your.proxy.com:port");
-// Uncomment these lines to enable gzip compression 
+// Uncomment these lines to enable gzip compression
 // logzioAppender.AddGzip(true);
 // logzioAppender.ActivateOptions();
 // logzioAppender.JsonKeysCamelCase(false);
@@ -785,12 +785,12 @@ hierarchy.Configured = true;
 
 
 ### Serilog
-  
+
 :::note
 This integration is based on [Serilog.Sinks.Logz.Io repository](https://github.com/serilog-contrib/Serilog.Sinks.Logz.Io). Refer to this repo for further usage and settings information.
 :::
-  
-  
+
+
 **Before you begin, you'll need**:
 
 * .NET Core SDK version 2.0 or higher
@@ -834,7 +834,7 @@ Create `appsettings.json` file and copy the following configuration:
 
 {@include: ../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../_include/log-shipping/listener-var.html} 
+{@include: ../_include/log-shipping/listener-var.html}
 
 Replace `<<TYPE>` with the type that you want to assign to your logs. You will use this value to identify these logs in Logz.io.
 
@@ -908,7 +908,7 @@ namespace Example
 
 {@include: ../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../_include/log-shipping/listener-var.html} 
+{@include: ../_include/log-shipping/listener-var.html}
 
 Replace `<<TYPE>` with the type that you want to assign to your logs. You will use this value to identify these logs in Logz.io.
 

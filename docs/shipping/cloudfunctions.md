@@ -21,14 +21,14 @@ Google Cloud Functions is a serverless execution environment for building and co
 
 To send your Prometheus-format Google Cloud Functions metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["78mU6GZUeRLhMtExlMvshT"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["78mU6GZUeRLhMtExlMvshT"] -->
 
 #### Configuring Telegraf to send your metrics data to Logz.io
 
 **Before you begin, you'll need**:
  GCP project
 
- 
+
 
 ##### Set relevant credentials in GCP
 
@@ -44,7 +44,7 @@ To send your Prometheus-format Google Cloud Functions metrics to Logz.io, you ne
 :::note
 You must be a Service Account Key Admin to select Compute Engine and Cloud Asset roles.
 :::
- 
+
 
 ##### Add an environment variable for the key
 
@@ -63,7 +63,7 @@ Replace `<<PATH-TO-YOUR-GCP-KEY>>` with the path to the JSON file created in the
 
 ##### Add the inputs.stackdriver plug-in
 
-First you need to configure the input plug-in to enable Telegraf to scrape the GCP data from your hosts. To do this, add the below code to the configuration file. 
+First you need to configure the input plug-in to enable Telegraf to scrape the GCP data from your hosts. To do this, add the below code to the configuration file.
 
 ``` ini
 [[inputs.stackdriver]]
@@ -82,17 +82,17 @@ First you need to configure the input plug-in to enable Telegraf to scrape the G
 :::note
 The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/blob/release-1.18/plugins/inputs/stackdriver/README.md)
 :::
- 
+
 
 ##### Add the outputs.http plug-in
-  
+
 {@include: ../_include/metric-shipping/telegraf-outputs.md}
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
 
 ##### Start Telegraf
 
-{@include: ../_include/metric-shipping/telegraf-run.md}  
-  
+{@include: ../_include/metric-shipping/telegraf-run.md}
+
 ##### Check Logz.io for your metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
@@ -100,8 +100,8 @@ Give your data some time to get from your system to ours, then log in to your Lo
 
 {@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["78mU6GZUeRLhMtExlMvshT"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["78mU6GZUeRLhMtExlMvshT"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html} 
+{@include: ../_include/metric-shipping/generic-dashboard.html}
 
- 
+
