@@ -21,11 +21,11 @@ RabbitMQ is an open-source message-broker software that originally implemented t
 
 To send your Prometheus-format RabbitMQ metrics to Logz.io, you need to add the **inputs.rabbitmq** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["77P29wgQwu1pqCaZFMcwnC"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["77P29wgQwu1pqCaZFMcwnC"] -->
 
 #### Configuring Telegraf to send your metrics data to Logz.io
 
- 
+
 
 ##### Set up Telegraf v1.17 or higher on the RabbitMQ server
 
@@ -95,13 +95,13 @@ First you need to configure the input plug-in to enable Telegraf to scrape the R
 :::note
 The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/blob/release-1.18/plugins/inputs/rabbitmq/README.md)
 :::
- 
+
 
 ##### Add the outputs.http plug-in
-  
+
 {@include: ../_include/metric-shipping/telegraf-outputs.md}
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
-  
+
 ##### Start Telegraf
 
 {@include: ../_include/metric-shipping/telegraf-run.md}
@@ -112,10 +112,10 @@ Give your metrics some time to get from your system to ours.
 
 {@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["77P29wgQwu1pqCaZFMcwnC"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["77P29wgQwu1pqCaZFMcwnC"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html} 
+{@include: ../_include/metric-shipping/generic-dashboard.html}
 
 
 
- 
+

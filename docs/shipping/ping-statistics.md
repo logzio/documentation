@@ -19,13 +19,13 @@ metrics_alerts: []
 
 Deploy this integration to collect metrics of ping statistics collected from your preferred web addresses and send them to Logz.io.
 
-The integration is based on a Lambda function that will be auto-deployed together with the layer [LogzioLambdaExtensionLogs](https://github.com/logzio/logzio-lambda-extensions/tree/main/logzio-lambda-extensions-logs). 
+The integration is based on a Lambda function that will be auto-deployed together with the layer [LogzioLambdaExtensionLogs](https://github.com/logzio/logzio-lambda-extensions/tree/main/logzio-lambda-extensions-logs).
 
 
-<!-- logzio-inject:install:grafana:dashboards ids=["1rNO8llFw8Cm9N8U3M3vCQ"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["1rNO8llFw8Cm9N8U3M3vCQ"] -->
 
 
- 
+
 
 ##### Auto-deploy the Lambda function
 
@@ -82,9 +82,9 @@ Give your metrics some time to get from your system to ours, and then open [Open
 
 {@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["1rNO8llFw8Cm9N8U3M3vCQ"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["1rNO8llFw8Cm9N8U3M3vCQ"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html} 
+{@include: ../_include/metric-shipping/generic-dashboard.html}
 
- 
+
 

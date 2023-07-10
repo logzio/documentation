@@ -13,7 +13,7 @@ logs2metrics: []
 metrics_dashboards: ['1Pm3OYbu1MRGoELc2qhxQ1']
 metrics_alerts: []
 ---
- 
+
 
 OpenShift is a family of containerization software products developed by Red Hat. Deploy this integration to ship logs from your OpenShift cluster to Logz.io. Deploy this integration to ship logs from your OpenShift cluster to Logz.io. This integration will deploy the default daemonset, which sends only container logs while ignoring all containers with "openshift" namespace.
 
@@ -22,7 +22,7 @@ OpenShift is a family of containerization software products developed by Red Hat
 * Working Openshift cluster
 * Openshift CLI (oc) installed on your machine
 
- 
+
 
 ##### Create monitoring namespace
 
@@ -39,7 +39,7 @@ oc create secret generic logzio-logs-secret \
   -n monitoring
 ```
 {@include: ../_include/log-shipping/log-shipping-token.md}
-{@include: ../_include/log-shipping/listener-var.html} 
+{@include: ../_include/log-shipping/listener-var.html}
 
 ##### Deploy the resources
 
@@ -52,7 +52,7 @@ oc create -f https://raw.githubusercontent.com/logzio/logzio-openshift/main/reso
 :::note
 Fluentd will fetch all existing logs, as it is not able to ignore older logs.
 :::
- 
+
 
 ##### Check Logz.io for your logs
 
@@ -61,17 +61,17 @@ Give your logs some time to get from your system to ours, and then open [Open Se
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 
- 
- 
 
-OpenShift is a family of containerization software products developed by Red Hat. Deploy this integration to ship logs from your OpenShift cluster to Logz.io. Deploy this integration to ship logs from your OpenShift cluster to Logz.io. This integration will deploy the daemonset with your custom configuration. 
+
+
+OpenShift is a family of containerization software products developed by Red Hat. Deploy this integration to ship logs from your OpenShift cluster to Logz.io. Deploy this integration to ship logs from your OpenShift cluster to Logz.io. This integration will deploy the daemonset with your custom configuration.
 
 **Before you begin, you'll need**:
 
 * Working Openshift cluster
 * Openshift CLI (oc) installed on your machine
 
- 
+
 
 ##### Create monitoring namespace
 
@@ -88,7 +88,7 @@ oc create secret generic logzio-logs-secret \
   -n monitoring
 ```
 {@include: ../_include/log-shipping/log-shipping-token.md}
-{@include: ../_include/log-shipping/listener-var.html} 
+{@include: ../_include/log-shipping/listener-var.html}
 
 ##### Download the resources file
 
@@ -100,22 +100,22 @@ In the resources file, go to the Daemonset section and edit the following enviro
 
 | Parameter | Description |
 |---|---|
-| output_include_time | **Default**: `true` <br>  To append a timestamp to your logs when they're processed, `true`. Otherwise, `false`. |
-| LOGZIO_BUFFER_TYPE | **Default**: `file` <br>  Specifies which plugin to use as the backend. |
-| LOGZIO_BUFFER_PATH | **Default**: `/var/log/Fluentd-buffers/stackdriver.buffer` <br>  Path of the buffer. |
-| LOGZIO_OVERFLOW_ACTION | **Default**: `block` <br>  Controls the behavior when the queue becomes full. |
-| LOGZIO_CHUNK_LIMIT_SIZE | **Default**: `2M` <br>  Maximum size of a chunk allowed |
-| LOGZIO_QUEUE_LIMIT_LENGTH | **Default**: `6` <br>  Maximum length of the output queue. |
-| LOGZIO_FLUSH_INTERVAL | **Default**: `5s` <br>  Interval, in seconds, to wait before invoking the next buffer flush. |
-| LOGZIO_RETRY_MAX_INTERVAL | **Default**: `30s` <br>  Maximum interval, in seconds, to wait between retries. |
-| LOGZIO_FLUSH_THREAD_COUNT | **Default**: `2` <br>  Number of threads to flush the buffer. |
-| LOGZIO_LOG_LEVEL | **Default**: `info` <br> The log level for this container. |
-| INCLUDE_NAMESPACE | **Default**: `""`(All namespaces) <br> Use if you wish to send logs from specific k8s namespaces, space delimited. Should be in the following format: <br> `kubernetes.var.log.containers.**_<<NAMESPACE-TO-INCLUDE>>_** kubernetes.var.log.containers.**_<<ANOTHER-NAMESPACE>>_**`. |
+| output_include_time | **Default**: `true` <br />  To append a timestamp to your logs when they're processed, `true`. Otherwise, `false`. |
+| LOGZIO_BUFFER_TYPE | **Default**: `file` <br />  Specifies which plugin to use as the backend. |
+| LOGZIO_BUFFER_PATH | **Default**: `/var/log/Fluentd-buffers/stackdriver.buffer` <br />  Path of the buffer. |
+| LOGZIO_OVERFLOW_ACTION | **Default**: `block` <br />  Controls the behavior when the queue becomes full. |
+| LOGZIO_CHUNK_LIMIT_SIZE | **Default**: `2M` <br />  Maximum size of a chunk allowed |
+| LOGZIO_QUEUE_LIMIT_LENGTH | **Default**: `6` <br />  Maximum length of the output queue. |
+| LOGZIO_FLUSH_INTERVAL | **Default**: `5s` <br />  Interval, in seconds, to wait before invoking the next buffer flush. |
+| LOGZIO_RETRY_MAX_INTERVAL | **Default**: `30s` <br />  Maximum interval, in seconds, to wait between retries. |
+| LOGZIO_FLUSH_THREAD_COUNT | **Default**: `2` <br />  Number of threads to flush the buffer. |
+| LOGZIO_LOG_LEVEL | **Default**: `info` <br /> The log level for this container. |
+| INCLUDE_NAMESPACE | **Default**: `""`(All namespaces) <br /> Use if you wish to send logs from specific k8s namespaces, space delimited. Should be in the following format: <br /> `kubernetes.var.log.containers.**_<<NAMESPACE-TO-INCLUDE>>_** kubernetes.var.log.containers.**_<<ANOTHER-NAMESPACE>>_**`. |
 
 :::note
 The above variables can be edited directly in the DaemonSet without the Configmap.
 {:.info-box.read}
- 
+
 
 ##### Add additional configuration in the Configmap
 
@@ -137,7 +137,7 @@ Give your logs some time to get from your system to ours, and then open [Open Se
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 
- 
 
-  
+
+
 

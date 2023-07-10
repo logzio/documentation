@@ -19,7 +19,7 @@ Vector by Datadog is a lightweight, ultra-fast tool for building observability p
 
 #### Configure Vector
 
- 
+
 
 ##### Install Vector
 
@@ -30,7 +30,7 @@ curl https://sh.vector.dev -sSf | sh
 ```
 
 For alternate installation instructions,
-see [Installation](https://vector.dev/docs/setup/) from Vector. 
+see [Installation](https://vector.dev/docs/setup/) from Vector.
 
 ##### Configure Vector with Logz.io sink
 
@@ -40,7 +40,7 @@ We recommend the configuaration shown in the code block.
 :::note
 Find the complete configuration docs at [http sink](https://vector.dev/docs/reference/configuration/sinks/http/) from Vector.
 {:.info-box.read}
- 
+
 
 ```toml
 [sinks.logzio]
@@ -67,14 +67,14 @@ Find the complete configuration docs at [http sink](https://vector.dev/docs/refe
 ```
 
 :::note
-If you get a 400 error when using `json` encoding, try use port 8081 instead of 8071. 
+If you get a 400 error when using `json` encoding, try use port 8081 instead of 8071.
 :::
- 
+
 
 :::note
-If your logs are sent in batches, change the `encoding.codec` setting from `json` to `text`. 
+If your logs are sent in batches, change the `encoding.codec` setting from `json` to `text`.
 :::
- 
+
 
 
 
@@ -82,7 +82,7 @@ If your logs are sent in batches, change the `encoding.codec` setting from `json
 
 | Parameter | Description |
 |---|---|
-| uri (Required) | Your Logz.io region's listener URL account token, and log type. <br> {@include: ../_include/log-shipping/listener-var.html}  <br> {@include: ../_include/log-shipping/log-shipping-token.html} |
+| uri (Required) | Your Logz.io region's listener URL account token, and log type. <br /> {@include: ../_include/log-shipping/listener-var.html}  <br /> {@include: ../_include/log-shipping/log-shipping-token.html} |
 {:.paramlist}
 
 ##### Run Vector
@@ -97,4 +97,4 @@ Give your logs some time to get from your system to ours, and then open [Open Se
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
- 
+

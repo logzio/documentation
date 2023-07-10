@@ -14,7 +14,7 @@ metrics_dashboards: ['1Pm3OYbu1MRGoELc2qhxQ1']
 metrics_alerts: []
 ---
 
- 
+
 
 Real-time log collection is the recommended method, as it sends logs immediately as they are generated. However, if you prefer to collect logs at specific time intervals, please refer to the [Logs at user-defined intervals](#intervals) for configuring this option.
 
@@ -28,7 +28,7 @@ This project will create 2 Lambda functions:
 
 When the Trigger function is run for the first time, it will add subscription filters to the log groups chosen by the user. If the user chose a service, the Trigger function will also get triggered whenever a log group is created to check if this log group is for a service that is one of the services that the user has selected. If yes, it will add a subscription filter to it.
 
- 
+
 
 ##### Auto-deploy the Lambda function
 
@@ -36,22 +36,22 @@ When the Trigger function is run for the first time, it will add subscription fi
 
 | REGION           | DEPLOYMENT                                                                                                                                                                                                                                                                                                                                                     |
 |------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `us-east-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071)           | 
-| `us-east-2`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-us-east-2.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071)           | 
-| `us-west-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-us-west-1.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071)           | 
-| `us-west-2`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-us-west-2.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071)           | 
-| `eu-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-eu-central-1.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071)     | 
-| `eu-north-1`     | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-north-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-eu-north-1.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071)         | 
-| `eu-west-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-eu-west-1.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071)           | 
-| `eu-west-2`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-eu-west-2.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071)           | 
-| `eu-west-3`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-3#/stacks/create/review?templateURL=https://logzio-aws-integrations-eu-west-3.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071)           | 
-| `sa-east-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=sa-east-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-sa-east-1.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071)           | 
-| `ap-northeast-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-northeast-1.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071) | 
-| `ap-northeast-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-northeast-2.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071) | 
-| `ap-northeast-3` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-3#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-northeast-3.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071) | 
-| `ap-south-1`     | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-south-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-south-1.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071)         | 
-| `ap-southeast-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-southeast-1.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071) | 
-| `ap-southeast-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-southeast-2.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071) | 
+| `us-east-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071)           |
+| `us-east-2`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-us-east-2.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071)           |
+| `us-west-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-us-west-1.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071)           |
+| `us-west-2`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-us-west-2.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071)           |
+| `eu-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-eu-central-1.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071)     |
+| `eu-north-1`     | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-north-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-eu-north-1.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071)         |
+| `eu-west-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-eu-west-1.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071)           |
+| `eu-west-2`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-eu-west-2.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071)           |
+| `eu-west-3`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-3#/stacks/create/review?templateURL=https://logzio-aws-integrations-eu-west-3.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071)           |
+| `sa-east-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=sa-east-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-sa-east-1.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071)           |
+| `ap-northeast-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-northeast-1.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071) |
+| `ap-northeast-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-northeast-2.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071) |
+| `ap-northeast-3` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-3#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-northeast-3.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071) |
+| `ap-south-1`     | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-south-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-south-1.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071)         |
+| `ap-southeast-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-southeast-1.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071) |
+| `ap-southeast-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-southeast-2.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071) |
 | `ca-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ca-central-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ca-central-1.s3.amazonaws.com/cloudwatch-shipper-trigger/1.1.1/sam-template.yaml&stackName=logzio-cloudwatch&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071)     |
 
 
@@ -67,7 +67,7 @@ Specify the stack details as per the table below, check the checkboxes and selec
 | `logzioToken`          | Replace `<<SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.                                                                                                     | **Required**                      |
 | `logGroup\*`                                     | CloudWatch Log Group name from where you want to send logs.                                                                                                                                                                             |
 | `logzioListener`       | Listener host, and port (for example, `https://<<LISTENER-HOST>>:8071`).                                                                                                                                                                | **Required**                      |
-| `logzioType`           | The log type you'll use with this Lambda. This can be a [built-in log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br> You should create a new Lambda for each log type you use. | `logzio_cloudwatch_logs` |
+| `logzioType`           | The log type you'll use with this Lambda. This can be a [built-in log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br /> You should create a new Lambda for each log type you use. | `logzio_cloudwatch_logs` |
 | `logzioFormat`         | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields.                                                                                    | `text`                   |
 | `logzioCompress`       | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs.                                                                                                                                           | `true`                   |
 | `logzioEnrich`         | Enrich CloudWatch events with custom properties, formatted as `key1=value1;key2=value2`.                                                                                                                                                | -                                 |
@@ -87,7 +87,7 @@ Specify the stack details as per the table below, check the checkboxes and selec
 :::note
 AWS limits every log group to have up to 2 subscription filters. If your chosen log group already has 2 subscription filters, the trigger function won't be able to add another one.
 :::
- 
+
 
 
 ##### Send logs
@@ -99,7 +99,7 @@ Once new logs are added to your chosen log group, they will be sent to your Logz
 :::note
 If you've used the `services` field, you'll have to **wait 6 minutes** before creating new log groups for your chosen services. This is due to cold start and custom resource invocation, that can cause the cause Lambda to behave unexpectedly.
 {:.info-box.important}
- 
+
 
 ##### Check Logz.io for your logs
 
@@ -108,8 +108,8 @@ Give your logs some time to get from your system to ours, and then open [Open Se
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 
- 
-  
+
+
 #### Logs at user-defined intervals
 
 By using this integration, you can easily deploy Logz.io's Cloudwatch Fetcher to your K8S cluster. With the Cloudwatch Fetcher, you can define a specific time interval for fetching logs from AWS Cloudwatch and ship them to Logz.io.
@@ -133,11 +133,11 @@ AWS access keys with permissions to:
 :::note
 The solution can handle only one AWS account per container. If you want to monitor multiple accounts, you'll need to create multiple deployments, one for each AWS account.
 {:.info-box.important}
- 
 
 
 
- 
+
+
 
 
 ##### Add Logz.io Helm repo:
@@ -178,7 +178,7 @@ collection_interval: 10
 Use the following command, and replace the placeholders with your parameters:
 
 ```shell
-helm install -n monitoring --create-namespace \                 
+helm install -n monitoring --create-namespace \
 --set secrets.logzioShippingToken="<<LOG-SHIPPING-TOKEN>>" \
 --set secrets.logzioListener="<<LISTENER-HOST>>" \
 --set secrets.awsAccessKey="<<AWS-ACCESS-KEY>>" \
@@ -203,7 +203,7 @@ Give your logs some time to get from your system to ours, and then open [Logz.io
 :::note
 Note that the logs will have the original timestamp from Cloudwatch, so when you're searching for them, make sure that you're viewing the relevant time frame.
 {:.info-box.important}
- 
+
 
 
 ###### Further Configuration
@@ -244,12 +244,12 @@ To uninstall the Cloudwatch Fetcher release:
 helm uninstall -n monitoring cloudwatch-fetcher
 ```
 
- 
+
 
 ##### Using Docker
 
 
- 
+
 
 
 ##### Pull Docker image
@@ -265,7 +265,7 @@ This directory will store the configuration and position files for the fetcher. 
 ```shell
 mkdir logzio-cloudwatch-fetcher \
 && cd logzio-cloudwatch-fetcher
-``` 
+```
 
 ##### Create a configuration file
 
@@ -311,7 +311,7 @@ Give your logs some time to get from your system to ours, and then open [Logz.io
 
 **NOTE** that the logs will have the original timestamp from Cloudwatch, so when you're searching for them, make sure that you're viewing the relevant time frame.
 
- 
+
 
 ##### Stop docker container
 
@@ -331,7 +331,7 @@ If the container is stopped, the file enables the fetcher to resume from the exa
 
 
 
- 
+
 
 The advanced configuration settings for this integration include:
 
@@ -346,7 +346,7 @@ The advanced configuration settings for this integration include:
 
 #### Manual configuration with a Lambda function
 
- 
+
 
 ##### Create a new Lambda function
 
@@ -379,7 +379,7 @@ git clone https://github.com/logzio/logzio_aws_serverless.git \
 :::note
 You can alternatively zip the required files manually. To do this, zip folders `cloudwatch` and `shipper` in `python3` directory.
 :::
- 
+
 
 You'll upload `logzio-cloudwatch.zip` in the next step.
 
@@ -398,7 +398,7 @@ You'll upload `logzio-cloudwatch.zip` in the next step.
 | Parameter | Description | Required/Default |
 |---|---|---|
 | TOKEN | Your Logz.io account token. {@include: ../_include/log-shipping/log-shipping-token.html}  | Required  |
-| LISTENER_URL |  Determines protocol, listener host, and port. For example, `https://<<LISTENER-HOST>>:8071`. <br > Replace `<<LISTENER-HOST>>` with your region's listener host (for example, `listener.logz.io`). For more information on finding your account's region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html) . |
+| LISTENER_URL |  Determines protocol, listener host, and port. For example, `https://<<LISTENER-HOST>>:8071`. <br /> Replace `<<LISTENER-HOST>>` with your region's listener host (for example, `listener.logz.io`). For more information on finding your account's region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html) . |
 | URL (Deprecated) | Use REGION instead. | -- |
 | TYPE | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type.    You should create a new Lambda for each log type you use. | `logzio_cloudwatch_lambda` |
 | FORMAT | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. | `text` |
@@ -421,7 +421,7 @@ In Basic settings, we recommend starting with these settings:
 These default settings are just a starting point.
 Check your Lambda usage regularly, and adjust these values if you need to.
 :::
- 
+
 
 
 {@include: ../_include/log-shipping/cloudwatch-defaults.md}
@@ -440,25 +440,25 @@ Give your logs some time to get from your system to ours, and then open [Open Se
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
- 
+
 
 
 
 #### Deployment using a module
 
 Deploy this integration to add a module for CloudWatch to your existing stack. This integration uses CloudWatch Public Registry.
-  
+
 :::note
 Logz.io Public Registry extensions are currently only available on the AWS region `us-east-1`.
 :::
- 
+
 
 **Before you begin, you'll need**:
 
 * A CloudFormation stack
 * An S3 bucket to store the CloudFormation package
 
- 
+
 
 ##### Select the Logz.io AWS Cloudwatch extension
 
@@ -513,7 +513,7 @@ Save the template as a yaml file and add the values of your stack to the as per 
 | LogzioSendAll | Set to `true` to send all logs |  |
 | LogzioEnrich | Enrich CloudWatch events with custom properties, formatted as `key1=value1;key2=value2`. | -- |
 | LogGroup | CloudWatch log group. | -- |
-  
+
 ##### Add your stack values to the configuration template
 
 If you are creating a new stack:
@@ -547,7 +547,7 @@ If you are editing an existing stack:
 
 
 
- 
+
 
 
 
@@ -555,7 +555,7 @@ If you are editing an existing stack:
 
 You can deploy this integration using Terraform with [AWS Provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs).
 
- 
+
 
 ##### Zip the source files
 Clone the CloudWatch Logs Shipper - Lambda project from GitHub to your computer, and zip the Python files in the src/ folder as follows:
@@ -588,7 +588,7 @@ export AWS_DEFAULT_REGION="<<AWS-REGION>>"
 This configuration uses AWS keys credentials.
 If you're using another authentication method for AWS, see [here](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#shared-credentials-file) how to configure your provider accordingly.
 :::
- 
+
 
 ##### Configure Terraform
 
@@ -713,7 +713,7 @@ terraform plan -out terraform.plan
 The following command will apply the execution plan you've created in the previous step, meaning that Terraform will create the resources you described in the configuration:
 
 ```bash
-terraform apply terraform.plan  
+terraform apply terraform.plan
 ```
 
 ##### Check Logz.io for your logs
@@ -730,7 +730,7 @@ To destroy the resources, use the following:
 ```bash
 terraform destroy
 ```
- 
+
 
 
 #### Working with test events
@@ -738,18 +738,18 @@ terraform destroy
 You can generate test events using the Logz.io Lambda test events generator and add these events to your Lambda function. This functionality is currently only available on Linux & macOS.
 
 
- 
+
 
 ##### Generate a test event
 
 1. In your terminal, run the following command:
-  
+
    ```shell
-   bash <(curl -s https://raw.githubusercontent.com/logzio/logzio_aws_serverless/master/python3/cloudwatch/test_events/test_event_generator.sh)      
+   bash <(curl -s https://raw.githubusercontent.com/logzio/logzio_aws_serverless/master/python3/cloudwatch/test_events/test_event_generator.sh)
    ```
-               
+
    This script generates a test event with a UTC timestamp of the moment you run the script.
-               
+
 2. Copy the output JSON.
 
 ##### Add the generated test event to your Lambda function
@@ -758,7 +758,7 @@ You can generate test events using the Logz.io Lambda test events generator and 
 2. Open the **Test** tab.
 3. Select **New event**.
 4. In the **Template** field, select **CloudWatch Logs**.
-5. In the **Name** field, enter a name for the test event. No specific naming convention is required. 
+5. In the **Name** field, enter a name for the test event. No specific naming convention is required.
 6. Populate the body field with the output JSON of the test event generated in the previous step.
 7. Select **Format** to format the test event.
 8. Select **Save changes**.
@@ -768,13 +768,13 @@ You can generate test events using the Logz.io Lambda test events generator and 
 To run the test event, select **Test** in the **Test** tab. The Lambda function will run and generate the following two logs in your account:
 `[ERROR] Logz.io cloudwatch test log1` `[ERROR] Logz.io cloudwatch test log2`
 
- 
+
 
 #### Multiline support
 
 
 AWS Lambda treats each log line as a separate event. However, you can use JSON in your logs as a workaround to help you gain multiline support.
 
-JSON can be used regardless of the language you're currently using, and you'll need to replace `/n` with `/r` when printing the log message. This will replace the new lines generated with a return action, allowing you to view multiline log events. 
+JSON can be used regardless of the language you're currently using, and you'll need to replace `/n` with `/r` when printing the log message. This will replace the new lines generated with a return action, allowing you to view multiline log events.
 
- 
+

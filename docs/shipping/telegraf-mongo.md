@@ -22,11 +22,11 @@ MongoDB is a source-available cross-platform document-oriented database program.
 To send your Prometheus-format MongoDB metrics to Logz.io, you need to add the **inputs.mongodb** and **outputs.http** plug-ins to your Telegraf configuration file.
 
 
-<!-- logzio-inject:install:grafana:dashboards ids=["13q1IECY8zfnnDXvUq7vvH"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["13q1IECY8zfnnDXvUq7vvH"] -->
 
 #### Configuring Telegraf to send your metrics data to Logz.io
 
- 
+
 
 ##### Set up Telegraf v1.17 or higher
 
@@ -60,7 +60,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the M
 :::note
 The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/blob/release-1.18/plugins/inputs/mongodb/README.md).
 :::
- 
+
 
 ##### Add the outputs.http plug-in
 
@@ -75,8 +75,8 @@ The full list of data scraping and configuring options can be found [here](https
 
 {@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["13q1IECY8zfnnDXvUq7vvH"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["13q1IECY8zfnnDXvUq7vvH"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html} 
+{@include: ../_include/metric-shipping/generic-dashboard.html}
 
- 
+

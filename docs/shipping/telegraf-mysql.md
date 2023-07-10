@@ -21,11 +21,11 @@ MySQL is an open-source relational database management system. Telegraf is a plu
 
 To send your Prometheus-format MySQL metrics to Logz.io, you need to add the **inputs.mysql** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["2zMVEOdWnIMgOPATDLByX7"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["2zMVEOdWnIMgOPATDLByX7"] -->
 
 #### Configuring Telegraf to send your metrics data to Logz.io
 
- 
+
 
 ##### Set up Telegraf v1.17 or higher
 
@@ -83,7 +83,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the M
 
   # gather metrics from PERFORMANCE_SCHEMA.EVENTS_STATEMENTS_SUMMARY_BY_DIGEST
    gather_perf_events_statements = true
-  
+
   # gather metrics from PERFORMANCE_SCHEMA.EVENTS_STATEMENTS_SUMMARY_BY_ACCOUNT_BY_EVENT_NAME
    gather_perf_sum_per_acc_per_event = true
 ```
@@ -96,10 +96,10 @@ First you need to configure the input plug-in to enable Telegraf to scrape the M
 :::note
 The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/blob/release-1.18/plugins/inputs/mysql/README.md)
 :::
- 
+
 
 ##### Add the outputs.http plug-in
-  
+
 {@include: ../_include/metric-shipping/telegraf-outputs.md}
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
 
@@ -111,9 +111,9 @@ The full list of data scraping and configuring options can be found [here](https
 
 {@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["2zMVEOdWnIMgOPATDLByX7"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["2zMVEOdWnIMgOPATDLByX7"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html} 
+{@include: ../_include/metric-shipping/generic-dashboard.html}
 
 
- 
+

@@ -27,7 +27,7 @@ You can use Google Cloud Pub/Sub to forward your logs from Stackdriver to Logz.i
 * [a GCP project](https://console.cloud.google.com/projectcreate)
 * [a GCP Pub/Sub topic and subscribers](https://cloud.google.com/pubsub/docs/quickstart-console) to your GCP project
 
- 
+
 
 ##### Export your logs to Stackdriver
 
@@ -77,7 +77,7 @@ wget https://raw.githubusercontent.com/logzio/logzio-pubsub/master/create-creden
 If you rename the file, follow [these steps](#cred-info) as well.
 
 
- 
+
 
 ###### Option 2: Build the credentials file in the Cloud Console
 
@@ -105,7 +105,7 @@ Move it to the `/etc/logzio-pubsub` folder you've created at the beginning of th
 * If your credentials file name isn't of the default format `<<project_id>>-credentials.json`, follow [the steps below](#cred-info) as well.
 
 
- 
+
 
 ##### Build your Pub/Sub input YAML file
 
@@ -181,9 +181,9 @@ logzio/logzio-pubsub
 
 * If you're working with multiple topics, add this line for every credentials file you've created. Insert your project id instead of the parameters:
 
-    ```
-    -v /etc/logzio-pubsub/<<PROJECT_ID>>-credentials.json:/logzio-pubsub/<<PROJECT_ID>>-credentials-file.json \
-    ```
+```
+-v /etc/logzio-pubsub/<PROJECT_ID>-credentials.json:/logzio-pubsub/<PROJECT_ID>-credentials-file.json \
+```
 
 
 * If your credentials file name isn't of the default format `<<project_id>>-credentials.json`, follow [the steps below](#cred-info) as well.
@@ -216,10 +216,10 @@ If you decide to give the credentials file another name, please follow these ins
 
 2. On step 5 - running the docker, add the following line for every credentials file you've created:
 
-    '-v /etc/logzio-pubsub/<<credentials-file-name>>.json:/logzio-pubsub/<<credentials-file-name>>.json \'.
+`-v /etc/logzio-pubsub/<<credentials-file-name>>.json:/logzio-pubsub/<<credentials-file-name>>.json \`
 
-    Replace `<<credentials-file-name>>` with your credentials file's name.
+Replace `<<credentials-file-name>>` with your credentials file's name.
 
- 
 
- 
+
+

@@ -14,7 +14,7 @@ metrics_dashboards: ['1Pm3OYbu1MRGoELc2qhxQ1']
 metrics_alerts: []
 ---
 
- 
+
 
 ## Overview
 
@@ -24,12 +24,12 @@ To send your Prometheus-format Google Cloud SQL metrics to Logz.io, you need to 
 
 {@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["4KUp9D8EhuMuCuLLhIZBEP"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["4KUp9D8EhuMuCuLLhIZBEP"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html} 
+{@include: ../_include/metric-shipping/generic-dashboard.html}
 
 
-  
+
 
 #### Configuring Telegraf to send your metrics data to Logz.io
 
@@ -38,7 +38,7 @@ To send your Prometheus-format Google Cloud SQL metrics to Logz.io, you need to 
 * GCP project
 * [Stackdriver monitoring API](https://cloud.google.com/monitoring/api/enable-api#console) enabled for the GCP project.
 
- 
+
 
 ##### Set relevant credentials in GCP
 
@@ -54,7 +54,7 @@ To send your Prometheus-format Google Cloud SQL metrics to Logz.io, you need to 
 :::note
 You must be a Service Account Key Admin to select Compute Engine and Cloud Asset roles.
 :::
- 
+
 
 ##### Add an environment variable for the key
 
@@ -73,7 +73,7 @@ Replace `<<PATH-TO-YOUR-GCP-KEY>>` with the path to the JSON file created in the
 
 ##### Add the inputs.stackdriver plug-in
 
-First you need to configure the input plug-in to enable Telegraf to scrape the GCP data from your hosts. To do this, add the below code to the configuration file. 
+First you need to configure the input plug-in to enable Telegraf to scrape the GCP data from your hosts. To do this, add the below code to the configuration file.
 
 ``` ini
 [[inputs.stackdriver]]
@@ -92,17 +92,17 @@ First you need to configure the input plug-in to enable Telegraf to scrape the G
 :::note
 The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/blob/release-1.18/plugins/inputs/stackdriver/README.md)
 :::
- 
+
 
 ##### Add the outputs.http plug-in
-  
+
 {@include: ../_include/metric-shipping/telegraf-outputs.md}
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
 
 ##### Start Telegraf
 
-{@include: ../_include/metric-shipping/telegraf-run.md}  
-  
+{@include: ../_include/metric-shipping/telegraf-run.md}
+
 ##### Check Logz.io for your metrics
 
 Give your metrics some time to get from your system to ours.
@@ -110,19 +110,19 @@ Give your metrics some time to get from your system to ours.
 
 {@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["4KUp9D8EhuMuCuLLhIZBEP"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["4KUp9D8EhuMuCuLLhIZBEP"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html} 
+{@include: ../_include/metric-shipping/generic-dashboard.html}
 
 
-  
+
 
 #### Configuring Telegraf to send your metrics data to Logz.io
 
 **Before you begin, you'll need**:
  GCP project
 
- 
+
 
 ##### Set relevant credentials in GCP
 
@@ -138,7 +138,7 @@ Give your metrics some time to get from your system to ours.
 :::note
 You must be a Service Account Key Admin to select Compute Engine and Cloud Asset roles.
 :::
- 
+
 
 ##### Add an environment variable for the key
 
@@ -157,7 +157,7 @@ Replace `<<PATH-TO-YOUR-GCP-KEY>>` with the path to the JSON file created in the
 
 ##### Add the inputs.stackdriver plug-in
 
-First you need to configure the input plug-in to enable Telegraf to scrape the GCP data from your hosts. To do this, add the below code to the configuration file. 
+First you need to configure the input plug-in to enable Telegraf to scrape the GCP data from your hosts. To do this, add the below code to the configuration file.
 
 ``` ini
 [[inputs.stackdriver]]
@@ -176,17 +176,17 @@ First you need to configure the input plug-in to enable Telegraf to scrape the G
 :::note
 The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/blob/release-1.18/plugins/inputs/stackdriver/README.md)
 :::
- 
+
 
 ##### Add the outputs.http plug-in
-  
+
 {@include: ../_include/metric-shipping/telegraf-outputs.md}
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
 
 ##### Start Telegraf
 
-{@include: ../_include/metric-shipping/telegraf-run.md}  
-  
+{@include: ../_include/metric-shipping/telegraf-run.md}
+
 ##### Check Logz.io for your metrics
 
 Give your metrics some time to get from your system to ours.
@@ -194,9 +194,8 @@ Give your metrics some time to get from your system to ours.
 
 {@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["5DIgZxsYxBjeNlEAexf2A3"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["5DIgZxsYxBjeNlEAexf2A3"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html} 
+{@include: ../_include/metric-shipping/generic-dashboard.html}
 
 
-  

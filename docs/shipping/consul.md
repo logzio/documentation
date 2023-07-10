@@ -25,11 +25,11 @@ This project lets you configure the OpenTelemetry collector to send your Prometh
 * Consul installed on your host
 * Golang
 
- 
+
 
 ##### Update Consul configuration
 
-1. Navigate to the Consul server and create a new file called `prometheus.json` under the Consul config library at `/etc/consul.d.` 
+1. Navigate to the Consul server and create a new file called `prometheus.json` under the Consul config library at `/etc/consul.d.`
 
 2. Add the following telemetry stanza to the `prometheus.json`:
 
@@ -38,7 +38,7 @@ This project lets you configure the OpenTelemetry collector to send your Prometh
      "telemetry": {
        "disable_hostname": true,
        "prometheus_retention_time": "72h"
-   
+
      }
    }
    ```
@@ -53,18 +53,18 @@ http://127.0.0.1:8500/v1/agent/metrics?format=prometheus
 
 
 ##### Download OpenTelemetry collector
-  
+
 :::note
 If you already have OpenTelemetry, proceed to the next step.
 :::
- 
+
 
 Create a dedicated directory on your host and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.60.0) that is relevant to the operating system of your host.
 
 After downloading the collector, create a configuration file `config.yaml`.
 
 ##### Configure the receivers
-  
+
 Open the configuration file and make sure that it states the receivers required for your source:
 
 ```yaml
@@ -106,21 +106,21 @@ processors:
 ##### Configure the exporters
 
 In the same configuration file, add the following to the `exporters` section:
-  
-```yaml  
+
+```yaml
 exporters:
   prometheusremotewrite:
     endpoint: https://<<LISTENER-HOST>>:8053
     headers:
       Authorization: Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
 ```
-  
+
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
 
 ##### Configure the service pipeline
-  
+
 In the `service` section of the configuration file, add the following configuration
-  
+
 ```yaml
 service:
   pipelines:
@@ -150,12 +150,12 @@ Run the following command:
 
 {@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["4E7r0H6dqvzzCDsbhO4Yi4", "4iO9XKgTZZhzy2tU9Z84Pj", "7pbQAcavNuZXhT3ab9DxIs"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["4E7r0H6dqvzzCDsbhO4Yi4", "4iO9XKgTZZhzy2tU9Z84Pj", "7pbQAcavNuZXhT3ab9DxIs"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html} 
+{@include: ../_include/metric-shipping/generic-dashboard.html}
 
 
- 
+
 
 
 

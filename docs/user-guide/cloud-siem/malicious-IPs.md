@@ -16,7 +16,8 @@ Once you are ready to investigate a particular IP, click the IP drilldown link. 
       <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/investigate-ip2_aug2021.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
- 
+</div>
+
 
 
 ### Log enrichment for IPs

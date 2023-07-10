@@ -22,33 +22,33 @@ Telegraf is a plug-in driven server agent for collecting and sending metrics and
 
 To send your JMX-format Apache Cassandra metrics to Logz.io, you need to add the **inputs.jolokia2_agent** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["5oCUt52hGJu6LmVGHPOktr", "6J2RujMalRK3oC4y0r88ax"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["5oCUt52hGJu6LmVGHPOktr", "6J2RujMalRK3oC4y0r88ax"] -->
 
 #### Configuring Telegraf to send your metrics data to Logz.io
 
- 
-  
+
+
 ##### Install Jolokia agent on your Cassandra server
-  
+
 :::note
 You need to install and enable Jolokia on every Cassandra server.
 :::
- 
-    
+
+
 Download Jolokia agent to `/usr/share/java`:
-  
+
 ```shell
 RUN curl -L http://search.maven.org/remotecontent?filepath=org/jolokia/jolokia-jvm/1.6.0/jolokia-jvm-1.6.0-agent.jar
 ```
 
 ##### Enable Jolokia agent on your Cassandra server
-    
+
 ```shell
 JVM_OPTS="$JVM_OPTS -javaagent:/usr/share/java/jolokia-jvm-1.6.0-agent.jar=port=8778,host=localhost"
 ```
-  
+
 ##### Restart Cassandra
-  
+
 ```shell
 sudo service cassandra restart
 ```
@@ -64,9 +64,9 @@ curl http://localhost:8778/jolokia/
 :::note
 You need to install Telegraf on every Cassandra server.
 :::
- 
 
-  
+
+
 {@include: ../_include/metric-shipping/telegraf-setup.md}
 
 ##### Add the inputs.jolokia2_agent plug-in
@@ -159,7 +159,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the A
 :::note
 The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/jolokia2).
 :::
- 
+
 
 ##### Add the outputs.http plug-in
 
@@ -174,8 +174,8 @@ The full list of data scraping and configuring options can be found [here](https
 
 {@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["5oCUt52hGJu6LmVGHPOktr", "6J2RujMalRK3oC4y0r88ax"] --> 
+<!-- logzio-inject:install:grafana:dashboards ids=["5oCUt52hGJu6LmVGHPOktr", "6J2RujMalRK3oC4y0r88ax"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html} 
+{@include: ../_include/metric-shipping/generic-dashboard.html}
 
- 
+

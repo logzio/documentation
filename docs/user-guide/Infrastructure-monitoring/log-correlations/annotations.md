@@ -33,7 +33,8 @@ Go to the dashboard's settings:
       <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-videos/metrics-annotations.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
- 
+</div>
+
 
 ### Decide which logs should trigger the annotation
 
