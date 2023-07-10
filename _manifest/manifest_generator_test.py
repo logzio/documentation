@@ -1,3 +1,4 @@
+import logging
 import os
 import unittest
 import consts
@@ -76,6 +77,21 @@ class ManifestGeneratorTest(unittest.TestCase):
         invalid_key = 'invalid_key'
         val = 'some value'
         self.assertRaises(KeyError, manifest_generator.normalize_key_val, invalid_key, val)
+
+    def test_normalize_product_types(self):
+        key = consts.FIELD_PRODUCT_TAGS
+        val = [consts.DOCS_PRODUCT_TYPE_SIEM, consts.DOCS_PRODUCT_TYPE_TRACES]
+        nk, nv = manifest_generator.normalize_product_types(key, val)
+        self.assertEqual(len(nv), 2)
+        self.assertCountEqual(nv, [consts.PRODUCT_TYPE_SIEM, consts.PRODUCT_TYPE_TRACES])
+
+    def test_normalize_product_types_not_supported(self):
+        key = consts.FIELD_PRODUCT_TAGS
+        val = [consts.DOCS_PRODUCT_TYPE_SIEM, consts.DOCS_PRODUCT_TYPE_TRACES, 'not_supported', consts.DOCS_PRODUCT_TYPE_METRICS]
+        nk, nv = manifest_generator.normalize_product_types(key, val)
+        self.assertEqual(len(nv), 3)
+        self.assertCountEqual(nv, [consts.PRODUCT_TYPE_METRICS, consts.PRODUCT_TYPE_SIEM, consts.PRODUCT_TYPE_TRACES])
+        self.assertLogs(manifest_generator.logger, logging.ERROR)
 
 
 if __name__ == '__main__':
