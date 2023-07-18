@@ -1,8 +1,8 @@
 ---
-id: Amazon-S3
-title: Amazon S3
+id: Cloudwatch
+title: Cloudwatch
 sidebar_position: 1
-overview: This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon S3 metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
+overview: Ship Cloudwatch metrics.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
@@ -10,7 +10,7 @@ logo: https://docs.logz.io/images/logo/logz-symbol.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['1Pm3OYbu1MRGoELc2qhxQ1']
+metrics_dashboards: []
 metrics_alerts: []
 ---
 
@@ -98,7 +98,7 @@ Once new logs are added to your chosen log group, they will be sent to your Logz
 
 :::note
 If you've used the `services` field, you'll have to **wait 6 minutes** before creating new log groups for your chosen services. This is due to cold start and custom resource invocation, that can cause the cause Lambda to behave unexpectedly.
-{:.info-box.important}
+:::
 
 
 ##### Check Logz.io for your logs
@@ -132,7 +132,7 @@ AWS access keys with permissions to:
 
 :::note
 The solution can handle only one AWS account per container. If you want to monitor multiple accounts, you'll need to create multiple deployments, one for each AWS account.
-{:.info-box.important}
+:::
 
 
 
@@ -202,7 +202,7 @@ Give your logs some time to get from your system to ours, and then open [Logz.io
 
 :::note
 Note that the logs will have the original timestamp from Cloudwatch, so when you're searching for them, make sure that you're viewing the relevant time frame.
-{:.info-box.important}
+:::
 
 
 

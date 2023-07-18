@@ -1,8 +1,8 @@
 ---
-id: Amazon-S3
+id: Amazon-S3-Bucket
 title: Amazon S3
 sidebar_position: 1
-overview: This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon S3 metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
+overview: Some AWS services can be configured to ship their logs to an S3 bucket, where Logz.io can fetch those logs directly.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
@@ -10,7 +10,7 @@ logo: https://docs.logz.io/images/logo/logz-symbol.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['1Pm3OYbu1MRGoELc2qhxQ1']
+metrics_dashboards: ['']
 metrics_alerts: []
 ---
 
@@ -73,7 +73,7 @@ The configuration wizard will open.
 :::note
 Logz.io fetches logs that are generated after configuring an S3 bucket.
 Logz.io cannot fetch old logs retroactively.
-{:.info-box.important}
+:::
  
 
 ##### Enable Logz.io to access your S3 bucket
@@ -242,7 +242,7 @@ The configuration wizard will open.
 :::note
 Logz.io fetches logs that are generated after configuring an S3 bucket.
 Logz.io cannot fetch old logs retroactively.
-{:.info-box.important}
+:::
  
 
 ##### Enable Logz.io to access your S3 bucket
@@ -468,7 +468,7 @@ Saving the trust policy at this point
 will immediately change your role's external ID.
 Any other Logz.io configurations that use this role
 will stop working until you update them.
-{:.info-box.important}
+:::
 
 Click **Update Trust Policy** to use the Logz.io external ID for this role.
 

@@ -18,7 +18,7 @@ AWS Cost and Usage Reports function tracks your AWS usage and provides estimated
 
 :::note
 Your Lambda function needs to run within the AWS Lambda limits, such as memory allocation and timeout. Make sure you understand these limits. If you can't adjust your settings to stay within the Lambda limits, you can use the AWS [Support Center console](https://console.aws.amazon.com/support/v1#/case/create?issueType=service-limit-increase) to request an increase. [Learn more about AWS Lambda Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
-{:.info-box.important}
+:::
  
   
 

@@ -50,7 +50,7 @@ cp sample-rules.conf.disabled audit-rules.conf
 
 :::note
 You need root privileges to interact with the auditd rules file.
-{:.info-box.important}
+:::
  
 
 ##### Add auditd as a source input and Logz.io as an output

@@ -1,8 +1,8 @@
 ---
-id: Amazon-S3
-title: Amazon S3
+id: Stackdriver
+title: Google Cloud Platform (GCP) Stackdriver
 sidebar_position: 1
-overview: This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon S3 metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
+overview: Google Cloud Platform (GCP) Stackdriver collects logs from your cloud services. You can use Google Cloud Pub/Sub to forward your logs from Stackdriver to Logz.io using a continuously runnung Docker container.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
@@ -10,7 +10,7 @@ logo: https://docs.logz.io/images/logo/logz-symbol.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['1Pm3OYbu1MRGoELc2qhxQ1']
+metrics_dashboards: []
 metrics_alerts: []
 ---
 
@@ -50,10 +50,6 @@ mkdir /etc/logzio-pubsub && cd /etc/logzio-pubsub
 Next, you'll need to build a credentials file so Pub/Sub can authenticate
 and get the right permissions.
 
-You can build it through:
-
-* [The command line](#credentials-cmd)
-* [The Cloud console](#credentials-console)
 
 
 
@@ -74,7 +70,6 @@ wget https://raw.githubusercontent.com/logzio/logzio-pubsub/master/create-creden
 && python create-credentials.py <<project_id>>
 ```
 
-If you rename the file, follow [these steps](#cred-info) as well.
 
 
 
@@ -155,7 +150,7 @@ Click here for more information about [filebeat for Google Cloud Pub/Sub](https:
 | listener | The Logz.io listener host. {@include: ../_include/log-shipping/listener-var.html}  |
 | pubsubs | This is an array of one or more GCP subscriptions. For each subscription, provide topic and subscription IDs, as given from Pub/Sub. |
 | token | Your Logz.io shipping token. For each project under `pubsubs`. Replace `<<LOG-SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to. You can send your logs to different accounts that are in the same region, you can do that by inserting a different token per project.  |
-| credentials_file (Not required, Default value: '<project_id>-credentials.json') | This field is only required if your credentials file is named differently than the default value. For an example of adding this field go to [input example file](https://github.com/logzio/logzio-pubsub/blob/master/pubsub-input-example.yml). |
+| credentials_file (Not required, Default value: `'<project_id>-credentials.json'`) | This field is only required if your credentials file is named differently than the default value. For an example of adding this field go to [input example file](https://github.com/logzio/logzio-pubsub/blob/master/pubsub-input-example.yml). |
 {:.paramlist}
 
 ##### Pull the Docker image
@@ -204,9 +199,9 @@ and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
 The default naming convention for the credentials file is: `<<project_id>>-credentials.json`.
 
-When you create the credentials file through the [command line](#credentials-cmd), it is automatically named as per the default.
+When you create the credentials file through the command line, it is automatically named as per the default.
 
-If you create the credentials file using the [GCP Console](#credentials-console), you'll have the option to select the file name. We strongly recommend that you stick to the default format: `<<project_id>>-credentials.json`.
+If you create the credentials file using the GCP Console, you'll have the option to select the file name. We strongly recommend that you stick to the default format: `<<project_id>>-credentials.json`.
 
 If you decide to give the credentials file another name, please follow these instructions:
 

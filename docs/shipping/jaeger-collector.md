@@ -1,12 +1,17 @@
 ---
-id: jaeger-collector
-title: Send traces from your Jaeger installation to Logz.io
-sidebar_position: 1380
-overview: test
-product: ['tracing', 'opensource', 'jaeger']
+id: Jaeger
+title: Jaeger
+sidebar_position: 1
+overview: Deploy this integration to send traces from your Jaeger installation to Logz.io.
+product: ['metrics']
 os: ['windows', 'linux']
-filters: ['opensource', 'existing-instrumentation', 'jaeger']
-logo: jaeger.svg
+filters: ['gcp', 'cloud']
+logo: https://docs.logz.io/images/logo/logz-symbol.svg
+logs_dashboards: []
+logs_alerts: []
+logs2metrics: []
+metrics_dashboards: []
+metrics_alerts: []
 ---
 
 

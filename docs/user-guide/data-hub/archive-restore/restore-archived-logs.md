@@ -54,7 +54,7 @@ There are a few things you need to check before you begin the process.
     If the limit is exceeded, the restore will **fail at the end of the process**.
 
     It's best to restore data for the smallest time frame, to ensure that the volume of data to be restored will not approach the max limit.
-    {:.info-box.important} -->
+    ::: -->
 
 
 ### 2. Apply power search and filters 

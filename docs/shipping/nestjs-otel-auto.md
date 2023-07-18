@@ -1,27 +1,19 @@
 ---
-id: nestjs-otel-auto
-title: Sending traces from NestJS applications via auto instrumentation with OpenTelemetry
-sidebar_position: 1380
-overview: test
-product: ['tracing', 'nodejs']
+id: Nestjs
+title: NestJS OpenTelemetry
+sidebar_position: 1
+overview: Deploy this integration to enable automatic instrumentation of your NestJS application using OpenTelemetry. 
+product: ['metrics']
 os: ['windows', 'linux']
-filters: ['nodejs', 'new-instrumentation']
-logo: nest-logo.svg
+filters: ['gcp', 'cloud']
+logo: https://docs.logz.io/images/logo/logz-symbol.svg
+logs_dashboards: []
+logs_alerts: []
+logs2metrics: []
+metrics_dashboards: ['']
+metrics_alerts: []
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-
-<!-- tabContainer:start -->
-
-
-
-
-<!-- tab:start -->
-
-<Tabs>
-<TabItem value="overview" label="Overview" default>
 
 Deploy this integration to enable automatic instrumentation of your NestJS application using OpenTelemetry. 
 
@@ -35,14 +27,6 @@ This integration includes:
 
 On deployment, the NestJS instrumentation automatically captures spans from your application and forwards them to the collector, which exports the data to your Logz.io account.
 
-</TabItem>
-
-<!-- tab:end -->
-
-
-<!-- tab:start -->
-
-<TabItem value="local-host" label="Local host">
 
 
 ## Setup auto-instrumentation for your locally hosted NestJS application and send traces to Logz.io
@@ -186,13 +170,6 @@ npm run start
 Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
 
 
-</TabItem>
-
-<!-- tab:end -->
-
-<!-- tab:start -->
-
-<TabItem value="docker" label="Docker">
 
 
 ## Setup auto-instrumentation for your NestJS application using Docker and send traces to Logz.io
@@ -311,15 +288,6 @@ npm run start
 Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
 
 
-</TabItem>
-
-<!-- tab:end -->
-
-
-<!-- tab:start -->
-
-<TabItem value="kubernetes" label="Kubernetes">
-
 ## Overview
 
 You can use a Helm chart to ship Traces to Logz.io via the OpenTelemetry collector. The Helm tool is used to manage packages of pre-configured Kubernetes resources that use charts.
@@ -333,7 +301,7 @@ This chart is a fork of the [opentelemtry-collector](https://github.com/open-tel
 <!-- info-box-end -->
 
 <!-- info-box-start:info -->
-:::caution Important
+:::caution 
 This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
 :::
 <!-- info-box-end -->
@@ -569,20 +537,6 @@ To uninstall the `logzio-k8s-telemetry` deployment, use the following command:
 helm uninstall logzio-k8s-telemetry
 ```
 
-</TabItem>
-
-<!-- tab:end -->
-
-<!-- tab:start -->
-
-<TabItem value="troubleshooting" label="Troubleshooting">
 
 {@include: ../../_include/tracing-shipping/otel-troubleshooting.md}
 
-</TabItem>
-
-<!-- tab:end -->
-
-</Tabs>
-
-<!-- tabContainer:end -->

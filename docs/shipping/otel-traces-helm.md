@@ -1,12 +1,17 @@
 ---
-id: otel-traces-helm
-title: Sending traces from your Kubernetes cluster using OpenTelemetry
-sidebar_position: 1380
-overview: test
-product: ['tracing', 'kubernetes', 'otel']
+id: opentelemtry-collector
+title: OpenTelemetry traces over Helm
+sidebar_position: 1
+overview: You can use a Helm chart to ship Traces to Logz.io via the OpenTelemetry collector. The Helm tool is used to manage packages of pre-configured Kubernetes resources that use charts.
+product: ['metrics']
 os: ['windows', 'linux']
-filters: ['kubernetes', 'existing-instrumentation', 'otel']
-logo: kubernetes.svg
+filters: ['gcp', 'cloud']
+logo: https://docs.logz.io/images/logo/logz-symbol.svg
+logs_dashboards: []
+logs_alerts: []
+logs2metrics: []
+metrics_dashboards: ['']
+metrics_alerts: []
 ---
 
 

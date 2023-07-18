@@ -1,8 +1,8 @@
 ---
-id: Amazon-S3
-title: Amazon S3
+id: Fluentd-Helm
+title: Fluentd Helm
 sidebar_position: 1
-overview: This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon S3 metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
+overview: Helm is a tool for managing packages of pre-configured Kubernetes resources using Charts. Logzio-fluentd allows you to ship logs from your Kubernetes cluster to Logz.io, using Fluentd. Fluentd is flexible enough and has the proper plugins to distribute logs to different third parties such as Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
@@ -28,7 +28,7 @@ The chart defaults to configuration for Conatinerd CRI. If your cluster uses Doc
 
 :::note
 Fluentd will fetch all existing logs, as it is not able to ignore older logs.
-{:.info-box.important}
+:::
  
 
 ###### Sending logs from nodes with taints

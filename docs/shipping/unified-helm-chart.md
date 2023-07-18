@@ -1,8 +1,8 @@
 ---
-id: Amazon-S3
-title: Amazon S3
+id: logzio-monitoring
+title: Unified Helm Chart
 sidebar_position: 1
-overview: This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon S3 metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
+overview: The logzio-monitoring Helm Chart ships your Kubernetes telemetry (logs, metrics, traces and security reports) to your Logz.io account.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
@@ -10,7 +10,7 @@ logo: https://docs.logz.io/images/logo/logz-symbol.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['1Pm3OYbu1MRGoELc2qhxQ1']
+metrics_dashboards: ["7nILXHYFZbThgTSMObUxkw", "5TGD77ZKuTiZUXtiM51m6V", "6pY6DKD0oQJL4sO7bW728", "5kkUAuEwA0Ygvlgm9iXTHY", "53g5kSILqoj1T10U1jnvKV", "5e1xRaDdQnOvs5LCuwKCh5", "7Cy6DUN78jlKUtMCsbt6GC", "29HGYsE3kgFEdgJbalTqeY", "1Hij49FKdnAKVJTjOmpDbH" ]
 metrics_alerts: []
 ---
 
@@ -26,7 +26,7 @@ Please be aware that this project is presently in its beta stage, and as such, i
 
 :::note
 To get the most out of Kubernetes 360, try out dedicated [dashboard](/user-guide/k360/kubernetes-360-pre.html).
-{:.info-box.important}
+:::
 
 
  {@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics. <!-- logzio-inject:install:grafana:dashboards ids=["7nILXHYFZbThgTSMObUxkw", "5TGD77ZKuTiZUXtiM51m6V", "6pY6DKD0oQJL4sO7bW728", "5kkUAuEwA0Ygvlgm9iXTHY", "53g5kSILqoj1T10U1jnvKV", "5e1xRaDdQnOvs5LCuwKCh5", "7Cy6DUN78jlKUtMCsbt6GC", "29HGYsE3kgFEdgJbalTqeY", "1Hij49FKdnAKVJTjOmpDbH" ] --> {@include: ../_include/metric-shipping/generic-dashboard.html}

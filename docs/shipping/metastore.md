@@ -1,20 +1,17 @@
 ---
-title: Ship Google Dataproc Metastore metrics
-image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: Ship Google Dataproc Metastore metrics to Logz.io
-logo:
-  logofile: gcpdataproc.png
-  orientation: vertical
-data-source: Google Dataproc Metastore
-data-for-product-source: Metrics
-templates: ["docker"]
-contributors:
-  - daniel-tk
-  - nshishkin
-shipping-tags:  
-  - prometheus
-  - gcp
-order: 800
+id: Google-Dataproc-Metastore 
+title: Google Dataproc Metastore 
+sidebar_position: 1
+overview: Google Dataproc Metastore is a critical component of data lakes built on open source processing frameworks like Apache Hadoop, Apache Spark, Apache Hive, Trino, Presto, and many others. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+product: ['metrics']
+os: ['windows', 'linux']
+filters: ['gcp', 'cloud']
+logo: https://docs.logz.io/images/logo/logz-symbol.svg
+logs_dashboards: []
+logs_alerts: []
+logs2metrics: []
+metrics_dashboards: ['']
+metrics_alerts: []
 ---
 
 ## Overview

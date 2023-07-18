@@ -1,24 +1,19 @@
 ---
-id: kafka-java-otel-auto-copy
-title: Sending traces from Java applications with Kafka via auto instrumentation with OpenTelemetry
-sidebar_position: 1380
-overview: test
-product: ['tracing', 'java']
+id: java-kafka
+title: Java traces with Kafka using OpenTelemetry
+sidebar_position: 1
+overview: Deploy this integration to enable automatic instrumentation of your Java application with Kafka using OpenTelemetry.
+product: ['metrics']
 os: ['windows', 'linux']
-filters: ['aws', 'new-instrumentation']
-logo: kafka.svg
+filters: ['gcp', 'cloud']
+logo: https://docs.logz.io/images/logo/logz-symbol.svg
+logs_dashboards: []
+logs_alerts: []
+logs2metrics: []
+metrics_dashboards: ['']
+metrics_alerts: []
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-
-<Tabs>
-
-
-<!-- tab:start -->
-
-<TabItem value="overview" label="Overview" default>
 
 Deploy this integration to enable automatic instrumentation of your Java application with Kafka using OpenTelemetry.
 
@@ -32,15 +27,6 @@ This integration includes:
 
 On deployment, the Java agent automatically captures spans from your application and forwards them to the collector, which exports the data to your Logz.io account.
 
-</TabItem>
-
-<!-- tab:end -->
-
-
-
-<!-- tab:start -->
-
-<TabItem value="docker" label="Docker">
 
 
 ## Setup auto-instrumentation for your Java application using Docker and send traces to Logz.io
@@ -120,14 +106,6 @@ Supported values for `otel.traces.sampler` are
 - "parentbased_traceidratio": ParentBased(root=TraceIdRatioBased). `otel.traces.sampler.arg` sets the ratio.
 
 
-</TabItem>
-
-<!-- tab:end -->
-
-
-<!-- tab:start -->
-
-<TabItem value="Kubernetes" label="kubernetes">
 
 ## Overview
 
@@ -142,7 +120,7 @@ This chart is a fork of the [opentelemtry-collector](https://github.com/open-tel
 <!-- info-box-end -->
 
 <!-- info-box-start:info -->
-:::caution Important
+:::caution 
 This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
 :::
 <!-- info-box-end -->
@@ -324,20 +302,6 @@ To uninstall the `logzio-k8s-telemetry` deployment, use the following command:
 helm uninstall logzio-k8s-telemetry
 ```
 
-</TabItem>
-
-<!-- tab:end -->
-
-<!-- tab:start -->
-
-<TabItem value="troubleshooting" label="Troubleshooting">
 
 {@include: ../../_include/tracing-shipping/otel-troubleshooting.md}
 
-</TabItem>
-
-<!-- tab:end -->
-
-</Tabs>
-
-<!-- tabContainer:end -->
