@@ -1,8 +1,7 @@
 ---
-id: Amazon-S3
-title: Amazon S3
-sidebar_position: 1
-overview: This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon S3 metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
+id: Prometheus-cloudwatch-exporter
+title: Cloudwatch metrics over Premetheus
+overview: With this integration, you can collect Cloudwatch metrics and forward them to Logz.io using the OpenTelemetry collector. We simplify the data export and collection of your metrics. You tell us the desired namespaces and regions that you want to send your data from and we fetch the most relevant metrics to display in the Logz.io pre-built infrastructure monitoring dashboards.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
@@ -10,7 +9,7 @@ logo: https://docs.logz.io/images/logo/logz-symbol.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['1Pm3OYbu1MRGoELc2qhxQ1']
+metrics_dashboards: []
 metrics_alerts: []
 ---
 

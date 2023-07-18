@@ -1,8 +1,8 @@
 ---
-id: Amazon-S3
-title: Amazon S3
+id: Burrow
+title: Burrow
 sidebar_position: 1
-overview: This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon S3 metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
+overview: Burrow is a monitoring application for Apache Kafka that monitors committed offsets for all consumers and calculates the status of those consumers on demand. It automatically monitors all consumers and their consumed partitions.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']

@@ -1,12 +1,17 @@
 ---
-id: ecs-fargate
-title: Ship Metrics and Traces from ECS Fargate using AWS OTel Collector
-sidebar_position: 1380
-overview: test
-product: ['tracing', 'ecs', 'fargate']
+id: Fargate
+title: AWS-Fargate 
+sidebar_position: 1
+overview: AWS Fargate is a serverless compute engine for building applications without managing servers. This integration will create a new container that will run your image to send your AWS ECS Fargate logs to Logz.io using AWS OTel Collector. The integration will automatically create the replica.
+product: ['metrics']
 os: ['windows', 'linux']
-filters: ['ecs', 'fargate', 'existing-instrumentation', 'aws', 'otel']
-logo: aws-fargate.svg
+filters: ['gcp', 'cloud']
+logo: https://docs.logz.io/images/logo/logz-symbol.svg
+logs_dashboards: []
+logs_alerts: []
+logs2metrics: []
+metrics_dashboards: []
+metrics_alerts: []
 ---
 
 

@@ -1,8 +1,8 @@
 ---
-id: Amazon-S3
-title: Amazon S3
+id: Check-Point
+title: Check Point
 sidebar_position: 1
-overview: This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon S3 metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
+overview: Check Point provides hardware and software products for IT security, including network security, endpoint security, cloud security, mobile security, data security and security management. This integration allows you to send Check Point logs to your Logz.io SIEM account.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
@@ -10,7 +10,7 @@ logo: https://docs.logz.io/images/logo/logz-symbol.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['1Pm3OYbu1MRGoELc2qhxQ1']
+metrics_dashboards: []
 metrics_alerts: []
 ---
  

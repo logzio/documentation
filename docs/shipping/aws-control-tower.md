@@ -147,7 +147,7 @@ It can take a few minutes after the stack creation for EventBridge rule to be tr
 
 :::note
 If want to delete the S3 Hook Stack - you'll need to detach the policy "LambdaAccessBuckets" first.
-{:.info-box.important}
+:::
  
 
 ##### Check Logz.io for your logs
@@ -176,7 +176,7 @@ Both variables ought to contain a comma-separated list of regular expressions, c
 
 :::note
 Each time a new object is added to your bucket, this will trigger your Lambda function. Nonetheless, if the key fails to match the regexes, the function will terminate without sending the logs.
-{:.info-box.important}
+:::
  
 
 

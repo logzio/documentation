@@ -1,8 +1,8 @@
 ---
-id: Amazon-S3
-title: Amazon S3
+id: Fluentd
+title: Fluentd
 sidebar_position: 1
-overview: This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon S3 metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
+overview: Fluentd is an open source data collector and a great option because of its flexibility. This implementation uses a Fluentd DaemonSet to collect Kubernetes logs and send them to Logz.io. The Kubernetes DaemonSet ensures that some or all nodes run a copy of a pod.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
@@ -10,7 +10,7 @@ logo: https://docs.logz.io/images/logo/logz-symbol.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['1Pm3OYbu1MRGoELc2qhxQ1']
+metrics_dashboards: []
 metrics_alerts: []
 ---
  
@@ -27,7 +27,7 @@ The latest version pulls the image from `logzio/logzio-fluentd`. Previous versio
 
 :::note
 Fluentd will fetch all existing logs, as it is not able to ignore older logs.
-{:.info-box.important}
+:::
  
 
 For troubleshooting this solution, see our [user guide](https://docs.logz.io/user-guide/kubernetes-troubleshooting/).

@@ -1,12 +1,17 @@
 ---
-id: istio-traces
-title: Sending traces from your Istio service mesh using OpenTelemetry
-sidebar_position: 1380
-overview: test
-product: ['tracing', 'opensource', 'istio']
+id: Istio
+title: Istio
+sidebar_position: 1
+overview: Deploy this integration to send traces from your Istio service mesh layers to Logz.io via the OpenTelemetry collector.
+product: ['metrics']
 os: ['windows', 'linux']
-filters: ['opensource', 'new-instrumentation', 'istio']
-logo: istio.png
+filters: ['gcp', 'cloud']
+logo: https://docs.logz.io/images/logo/logz-symbol.svg
+logs_dashboards: []
+logs_alerts: []
+logs2metrics: []
+metrics_dashboards: []
+metrics_alerts: []
 ---
 
 

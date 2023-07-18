@@ -1,8 +1,8 @@
 ---
-id: Amazon-S3
-title: Amazon S3
+id: CloudTrail
+title: CloudTrail
 sidebar_position: 1
-overview: This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon S3 metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
+overview: This integration sends CloudTrail logs.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
@@ -10,7 +10,7 @@ logo: https://docs.logz.io/images/logo/logz-symbol.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['1Pm3OYbu1MRGoELc2qhxQ1']
+metrics_dashboards: []
 metrics_alerts: []
 ---
 
@@ -47,7 +47,7 @@ And verify the definition of the bucket is under the CloudTrail path:
 ![Trail definition](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/trail-object-library.png)
 
 Region data must be created under the CloudTrain path BEFORE the S3 bucket is defined on Logz.io. Otherwise, you won't be able to proceed with sending CloudTrail data to Logz.io. ![Trail regions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/trail-regions.png)
-{:.info-box.important}
+:::
 
 Next, note the bucket's name and the way the prefix is constructed, for example:
 
@@ -96,7 +96,7 @@ You may need to fill in 2 parameters when creating the bucket - {BUCKET_NAME} an
 :::note
 Logz.io fetches logs that are generated after configuring an S3 bucket.
 Logz.io cannot fetch past logs retroactively.
-{:.info-box.important}
+:::
  
 
 ##### Check Logz.io for your logs

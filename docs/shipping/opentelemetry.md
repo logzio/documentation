@@ -1,12 +1,17 @@
 ---
-id: opentelemetry
-title: Send traces from your OpenTelemetry installation to Logz.io 
-sidebar_position: 1380
-overview: test
-product: ['tracing', 'otel']
+id: OpenTelemetry
+title: OpenTelemetry
+sidebar_position: 1
+overview: Deploy this integration to send traces from your OpenTelemetry installation to Logz.io.
+product: ['metrics']
 os: ['windows', 'linux']
-filters: ['existing-instrumentation', 'otel']
-logo: opentelemetry-icon-color.png
+filters: ['gcp', 'cloud']
+logo: https://docs.logz.io/images/logo/logz-symbol.svg
+logs_dashboards: []
+logs_alerts: []
+logs2metrics: []
+metrics_dashboards: ['']
+metrics_alerts: []
 ---
 
 import Tabs from '@theme/Tabs';

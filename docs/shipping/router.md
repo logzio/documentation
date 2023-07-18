@@ -1,8 +1,8 @@
 ---
-id: Amazon-S3
-title: Amazon S3
+id: Google-Cloud-Router
+title: Google Cloud Router
 sidebar_position: 1
-overview: This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon S3 metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
+overview: Google Cloud Router enables you to dynamically exchange routes between your Virtual Private Cloud (VPC) and on-premises networks by using Border Gateway Protocol (BGP). Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
@@ -10,7 +10,7 @@ logo: https://docs.logz.io/images/logo/logz-symbol.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['1Pm3OYbu1MRGoELc2qhxQ1']
+metrics_dashboards: ['']
 metrics_alerts: []
 ---
 

@@ -1,8 +1,8 @@
 ---
-id: Amazon-S3
-title: Amazon S3
+id: Azure-blob-trigger
+title: Azure Blog Trigger
 sidebar_position: 1
-overview: This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon S3 metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
+overview: Azure Blob Storage is Microsoft's object storage solution for the cloud. Deploy this integration to forward logs from your Azure Blob Storage account to Logz.io using an automated deployment process via the trigger function. Each new log in the container path inside the storage account (including sub directories), will trigger the Logz.io function that will ship the file content to Logz.io. 
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
@@ -10,7 +10,7 @@ logo: https://docs.logz.io/images/logo/logz-symbol.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['1Pm3OYbu1MRGoELc2qhxQ1']
+metrics_dashboards: []
 metrics_alerts: []
 ---
  
@@ -40,7 +40,7 @@ This Logz.io function supports the following data types:
 
 :::note
 The file name does not have to explicitly include these extensions.
-{:.info-box.important}
+:::
  
 
 ### Supported file formats
@@ -51,7 +51,7 @@ The Logz.io function supports the following file formats:
   
 :::note
 The file name does not have to explicitly include these extensions.
-{:.info-box.important}
+:::
  
 
   
@@ -124,7 +124,7 @@ If you still don’t see your logs, see [log shipping troubleshooting](https://d
 
 :::note
 If your existing blob storage account is of any other kind, it will NOT work. Instead, follow the process to set up a new blob storage account.
-{:.info-box.important}
+:::
  
 
 
@@ -166,7 +166,7 @@ In the **Custom deployment** screen, fill in all the parameters as per table bel
 
 :::note
 Logs that were in the container before the deployment will be shipped to Logz.io. If these logs have already been shipped to Logz.io, we recommend that you empty the container before the deployment, or use the FilterDate and FilterDateJsonPath parameters.
-{:.info-box.important}
+:::
  
 
 ##### Confirm the deployment parameters

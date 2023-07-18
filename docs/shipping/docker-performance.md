@@ -1,8 +1,8 @@
 ---
-id: Amazon-S3
-title: Amazon S3
+id: Docker
+title: Docker
 sidebar_position: 1
-overview: This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon S3 metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
+overview: Docker is a set of platform as a service products that deliver software in containers. This integration allows you to ship performance logs of your Docker containers to your Logz.io account. 
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
