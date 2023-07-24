@@ -24,6 +24,9 @@ python3 _manifest/manifest_generator_test.py
 
 
 ### Changelog:
+
+- **0.0.3**:
+  - Set default path for manifest under folder `static`.
 - **0.0.2**:
   - Ignore files that aren't `.md`.
 - **0.0.1**:
