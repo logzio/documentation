@@ -5,7 +5,7 @@ ENV_TEST_MANIFEST_PATH = 'TEST_MANIFEST_PATH'
 
 DEFAULT_LINK_PREFIX = 'https://raw.githubusercontent.com/logzio/documentation/master/'
 DEFAULT_SHIPPING_PATH_PREFIX = 'docs/shipping/'
-DEFAULT_MANIFEST_PATH = '_manifest/manifest.json'
+DEFAULT_MANIFEST_PATH = 'static/manifest.json'
 DEFAULT_TEST_MANIFEST_PATH = '_manifest/test-manifest.json'
 
 FIELD_COLLECTORS = 'collectors'
