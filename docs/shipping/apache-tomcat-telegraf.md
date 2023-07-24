@@ -6,7 +6,7 @@ overview: test
 product: ['logs', 'metrics']
 os: ['windows', 'linux']
 filters: ['apache', 'cloud']
-logo: https://docs.logz.io/images/logo/logz-symbol.svg
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/tomcat-logo.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

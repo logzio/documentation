@@ -6,7 +6,7 @@ overview: AWS Cost and Usage Reports function tracks your AWS usage and provides
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://docs.logz.io/images/logo/logz-symbol.svg
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

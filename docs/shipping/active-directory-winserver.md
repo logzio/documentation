@@ -6,7 +6,7 @@ overview: Active Directory is a directory service developed by Microsoft for Win
 product: ['siem']
 os: ['windows', 'linux']
 filters: ['firewall']
-logo: https://docs.logz.io/images/logo/logz-symbol.svg
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/windows.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

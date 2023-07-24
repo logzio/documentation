@@ -1,12 +1,12 @@
 ---
-id: AWS App Runner 
-title: AWS-App-Runner 
+id: AWS-App-Runner 
+title: AWS App Runner
 sidebar_position: 1
 overview: AWS App Runner is a fully managed service for deployment of containerized web applications and APIs. This integration allows you to send logs from your AppRunner instances to your Logz.io account.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://docs.logz.io/images/logo/logz-symbol.svg
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-fusion.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

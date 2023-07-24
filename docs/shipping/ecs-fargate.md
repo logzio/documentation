@@ -1,12 +1,12 @@
 ---
 id: Fargate
-title: AWS-Fargate 
+title: AWS Fargate 
 sidebar_position: 1
 overview: AWS Fargate is a serverless compute engine for building applications without managing servers. This integration will create a new container that will run your image to send your AWS ECS Fargate logs to Logz.io using AWS OTel Collector. The integration will automatically create the replica.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://docs.logz.io/images/logo/logz-symbol.svg
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

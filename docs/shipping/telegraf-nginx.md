@@ -6,7 +6,8 @@ overview: Nginx is a web server that can also be used as a reverse proxy, load b
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://docs.logz.io/images/logo/logz-symbol.svg
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+/logz-symbol.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

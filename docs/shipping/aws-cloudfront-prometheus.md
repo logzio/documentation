@@ -1,12 +1,12 @@
 ---
-id: Amazon CloudFront
-title: Amazon-CloudFront
+id: Amazon-CloudFront
+title: AWS CloudFront
 sidebar_position: 1
 overview: This CloudFormation template allows shipping AWS Logs and Metrics to logz.io.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://docs.logz.io/images/logo/logz-symbol.svg
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-cloudfront.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

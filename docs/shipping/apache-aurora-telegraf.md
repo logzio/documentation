@@ -6,7 +6,7 @@ overview: This is an AWS Lambda function that collects Amplify access logs and s
 product: ['logs']
 os: ['windows', 'linux']
 filters: ['apache', 'cloud']
-logo: https://docs.logz.io/images/logo/logz-symbol.svg
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aurora-logo.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
