@@ -30,7 +30,7 @@ const FeatureList = [
   },
   {
     title: 'Logz.io integrations',
-    link: "/docs/telemetry-shipping/",
+    link: "/docs/category/telemetry-shipping/",
     Svg: require('@site/static/img/integrations.svg').default,
     description: <>All the different ways to send your data to Logz.io.</>,
   },
