@@ -1,12 +1,12 @@
 ---
 id: Amazon-DynamoDB
-title: Amazon DynamoDB
+title: AWS DynamoDB
 sidebar_position: 1
 overview: Deploy this integration to simultaneously ship logs from multiple AWS accounts to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://docs.logz.io/images/logo/logz-symbol.svg
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-dynamodb.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

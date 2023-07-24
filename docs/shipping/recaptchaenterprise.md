@@ -1,12 +1,12 @@
 ---
 id: Google-reCAPTCHA-Enterprise
-title: Google reCAPTCHA Enterprise
+title: GCP reCAPTCHA Enterprise
 sidebar_position: 1
 overview: Google reCAPTCHA Enterprise service helps detect abusive traffic on websites. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://docs.logz.io/images/logo/logz-symbol.svg
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

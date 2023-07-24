@@ -1,12 +1,12 @@
 ---
 id: Google-Cloud-Healthcare
-title: Google Cloud Healthcare
+title: GCP Cloud Healthcare
 sidebar_position: 1
 overview: TGoogle Cloud Healthcare API provides a managed solution for storing and accessing healthcare data in Google Cloud, providing a critical bridge between existing care systems and applications hosted on Google Cloud. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://docs.logz.io/images/logo/logz-symbol.svg
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

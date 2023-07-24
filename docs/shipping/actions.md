@@ -1,12 +1,12 @@
 ---
 id: Google-Assistant-Smart-Home
-title: Google Assistant Smart Home
+title: GCP Assistant Smart Home
 sidebar_position: 1
 overview: Google Assistant Smart Home is an artificial intelligence–powered virtual assistant developed by Google for smart home devices. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp']
-logo: https://docs.logz.io/images/logo/logz-symbol.svg
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/assistant.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
@@ -39,6 +39,7 @@ To send your Prometheus-format Google Assistant Smart Home metrics to Logz.io, y
 
 :::note
 You must be a Service Account Key Admin to select Compute Engine and Cloud Asset roles.
+:::
 
 
 ##### Add an environment variable for the key

@@ -6,7 +6,7 @@ overview: test
 product: ['logs']
 os: ['windows', 'linux']
 filters: ['cloud']
-logo: https://docs.logz.io/images/logo/logz-symbol.svg
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
@@ -40,6 +40,7 @@ metrics_alerts: []
    ```shell
    [<<LOG-SHIPPING-TOKEN>>] <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [type=Aiven] %msg%\n
    ```
+   
    {@include: ../_include/log-shipping/log-shipping-token.html} Make sure to insert the log shipping token into squared brackets `[]`.  |
 
    * PEM encoded CA certificate: 

@@ -1,12 +1,12 @@
 ---
 id: Amazon-S3-Access
-title: Amazon S3 Access
+title: AWS S3 Access
 sidebar_position: 1
 overview: Amazon S3 Access Logs provide detailed records about requests that are made to your S3 bucket. This integration allows you to send these logs to your Logz.io account.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://docs.logz.io/images/logo/logz-symbol.svg
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

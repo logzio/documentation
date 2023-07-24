@@ -1,12 +1,12 @@
 ---
 id: Google-Cloud-Armor
-title: Google Cloud Armor
+title: GCP Cloud Armor
 sidebar_position: 1
 overview: Google Cloud Armor is a network security service that provides defenses against DDoS and application attacks, and offers a rich set of WAF rules.  Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://docs.logz.io/images/logo/logz-symbol.svg
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

@@ -1,12 +1,12 @@
 ---
-id: Amazon-S3
-title: Amazon S3
+id: Docker
+title: Docker
 sidebar_position: 1
 overview: Deploy this integration to ship metrics from your Docker network using containerized Telegraf agent.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://docs.logz.io/images/logo/logz-symbol.svg
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

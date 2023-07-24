@@ -1,12 +1,12 @@
 ---
 id: Stackdriver
-title: Google Cloud Platform (GCP) Stackdriver
+title: GCP Stackdriver
 sidebar_position: 1
 overview: Google Cloud Platform (GCP) Stackdriver collects logs from your cloud services. You can use Google Cloud Pub/Sub to forward your logs from Stackdriver to Logz.io using a continuously runnung Docker container.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://docs.logz.io/images/logo/logz-symbol.svg
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

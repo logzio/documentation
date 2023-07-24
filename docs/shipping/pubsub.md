@@ -1,12 +1,12 @@
 ---
 id: Google-PubSub
-title: Amazon S3
+title: AWS S3
 sidebar_position: 1
 overview: Google Pub/Sub is designed to provide reliable, many-to-many, asynchronous messaging between applications. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://docs.logz.io/images/logo/logz-symbol.svg
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

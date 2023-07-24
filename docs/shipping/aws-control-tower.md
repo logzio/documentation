@@ -6,7 +6,7 @@ overview: AWS Control Tower is a tool to control a top-level summary of policies
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://docs.logz.io/images/logo/logz-symbol.svg
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-control-tower.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
