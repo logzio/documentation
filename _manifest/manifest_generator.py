@@ -39,8 +39,12 @@ def get_manifest():
 def get_file_paths(path_prefix):
     file_names = os.listdir(path_prefix)
     full_paths = []
+    index_suffix = 1
     for name in file_names:
         full_path = os.path.join(path_prefix, name)
+        if os.path.splitext(full_path)[index_suffix] != '.md':
+            logger.info(f'Ignoring file {name}')
+            continue
         full_paths.append(full_path)
     return full_paths
 
