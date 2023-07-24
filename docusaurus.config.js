@@ -107,7 +107,7 @@ const config = {
             type: 'search',
             position: 'right',
           },
-          {to: '/docs/shipping/', label: 'Ship data', position: 'left'},
+          {to: '/docs/category/telemetry-shipping/', label: 'Ship data', position: 'left'},
           {to: 'https://docs.logz.io/api/', label: 'API', position: 'left'},
           {to: 'https://status.logz.io/', label: 'System status', position: 'left'},
           {to: 'https://logz.io/blog/', label: 'Blog', position: 'left'},
