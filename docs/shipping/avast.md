@@ -1,7 +1,6 @@
 ---
 id: Avast
 title: Avast
-sidebar_position: 1
 overview: Avast is a family of cross-platform internet security applications. This topic describes how to send system logs from your Avast Antivirus platform to Logz.io. 
 product: ['metrics']
 os: ['windows', 'linux']

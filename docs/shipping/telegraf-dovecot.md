@@ -1,7 +1,6 @@
 ---
 id: Dovecot
 title: Dovecot
-sidebar_position: 1
 overview: Dovecot is an open-source IMAP and POP3 server for Unix-like operating systems, written primarily with security in mind. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

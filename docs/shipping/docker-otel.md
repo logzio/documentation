@@ -1,7 +1,6 @@
 ---
 id: Docker traces
 title: Docker traces
-sidebar_position: 1
 overview: This integration enables you to send traces from your instrumented applications running in Docker. This is achieved by using a dedicated Logz.io OpenTelemetry collector deployed in the same Docker network as your application. 
 product: ['metrics']
 os: ['windows', 'linux']

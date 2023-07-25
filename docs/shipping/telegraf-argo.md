@@ -1,7 +1,6 @@
 ---
 id: Argo-CD
 title: Argo CD
-sidebar_position: 1
 overview: Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

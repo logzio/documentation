@@ -1,7 +1,6 @@
 ---
 id: Vertex
 title: GCP Vertex AI
-sidebar_position: 1
 overview: Google Vertex AI is a unified MLOps platform to help data scientists/ML engineers increase experimentation, deploy faster, and manage models with confidence. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

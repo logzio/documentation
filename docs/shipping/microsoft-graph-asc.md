@@ -1,7 +1,6 @@
 ---
 id: Logzio-MSGraph
 title: Logzio MSGraph
-sidebar_position: 1
 overview: You can ship logs available from Azure Security Center via the Microsoft Graph APIs with Logzio-MSGraph. Logzio-MSGraph is a self-hosted application.
 product: ['metrics']
 os: ['windows', 'linux']

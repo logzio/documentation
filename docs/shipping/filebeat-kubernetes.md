@@ -1,7 +1,6 @@
 ---
 id: Filebeat
 title: Filebeat
-sidebar_position: 1
 overview: This implementation uses a Filebeat DaemonSet to collect Kubernetes logs from your cluster and ship them to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']

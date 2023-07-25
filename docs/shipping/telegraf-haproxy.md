@@ -1,7 +1,6 @@
 ---
 id: HAProxy
 title: HAProxy
-sidebar_position: 1
 overview: HAProxy is a free and open source software that provides a high availability load balancer and proxy server for TCP and HTTP-based applications that spreads requests across multiple servers. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

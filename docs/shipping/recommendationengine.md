@@ -1,7 +1,6 @@
 ---
 id: Google-Recommendations
 title: GCP Recommendations
-sidebar_position: 1
 overview: Google Recommendations AI is a product that helps retailers deliver highly personalized product recommendations at scale. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

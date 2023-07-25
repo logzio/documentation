@@ -1,7 +1,6 @@
 ---
 id: Prometheus-Remote-Write-Shipping
 title: Prometheus Remote Write Shipping
-sidebar_position: 1
 overview: To send your Prometheus application metrics to a Logz.io Infrastructure Monitoring account, use remote write to connect to Logz.io as the endpoint. Your data is formatted as JSON documents by the Logz.io listener.
 product: ['metrics']
 os: ['windows', 'linux']

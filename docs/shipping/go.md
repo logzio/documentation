@@ -1,7 +1,6 @@
 ---
 id: GO
 title: GO
-sidebar_position: 1
 overview: This shipper uses goleveldb and goqueue as a persistent storage implementation of a persistent queue, so the shipper backs up your logs to the local file system before sending them.
 product: ['metrics']
 os: ['windows', 'linux']

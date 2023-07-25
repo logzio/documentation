@@ -1,7 +1,6 @@
 ---
 id: logzio-monitoring
 title: Unified Helm Chart
-sidebar_position: 1
 overview: The logzio-monitoring Helm Chart ships your Kubernetes telemetry (logs, metrics, traces and security reports) to your Logz.io account.
 product: ['metrics']
 os: ['windows', 'linux']

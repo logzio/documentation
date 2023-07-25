@@ -1,7 +1,6 @@
 ---
 id: VMware-vSphere 
 title: VMware vSphere
-sidebar_position: 1
 overview: VMware vSphere is VMware's cloud computing virtualization platform. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

@@ -1,7 +1,6 @@
 ---
 id: OpenTelemetry
 title: OpenTelemetry
-sidebar_position: 1
 overview: Deploy this integration to send traces from your OpenTelemetry installation to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']

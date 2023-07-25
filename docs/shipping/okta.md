@@ -1,7 +1,6 @@
 ---
 id: Okta
 title: Okta
-sidebar_position: 1
 overview: Okta is an enterprise-grade, identity management service, built for the cloud, but compatible with many on-premises applications.
 product: ['metrics']
 os: ['windows', 'linux']

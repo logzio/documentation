@@ -1,7 +1,6 @@
 ---
 id: Jaeger
 title: Jaeger
-sidebar_position: 1
 overview: Deploy this integration to send traces from your Jaeger installation to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']

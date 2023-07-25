@@ -1,7 +1,6 @@
 ---
 id: Node-js
 title: Node.js
-sidebar_position: 1
 overview: Node.js metrics
 product: ['metrics']
 os: ['windows', 'linux']

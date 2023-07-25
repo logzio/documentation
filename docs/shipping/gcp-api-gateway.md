@@ -1,12 +1,11 @@
 ---
-id: gcp-app-engine
-title: GCP App Engine
-sidebar_position: 1
-overview: Apigee, part of Google Cloud, helps design, secure, and scale application programming interfaces (APIs). Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+id: Google-API-Gateway
+title: GCP API Gateway
+overview: Google API Gateway allows you to create, secure, and monitor APIs for Google Cloud serverless back ends, including Cloud Functions, Cloud Run, and App Engine. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/appengine.png
+logo: hhttps://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/apigateway.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
@@ -16,9 +15,9 @@ metrics_alerts: []
 
 ## Overview
 
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+Google API Gateway allows you to create, secure, and monitor APIs for Google Cloud serverless back ends, including Cloud Functions, Cloud Run, and App Engine. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
-To send your Prometheus-format Google App Engine metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
+To send your Prometheus-format Google API Gateway metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
 
 #### Configuring Telegraf to send your metrics data to Logz.io
 
@@ -68,7 +67,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the G
   project = "<<YOUR-PROJECT>>"
 
   metric_type_prefix_include = [
-    "appengine.googleapis.com",
+    "apigateway.googleapis.com",
   ]
 
   interval = "1m"

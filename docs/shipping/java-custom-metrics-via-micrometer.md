@@ -1,7 +1,6 @@
 ---
 id: Java-Custom-Metrics-via-Micrometer
 title: Java Custom Metrics via Micrometer
-sidebar_position: 1
 overview: This sends Java Custom metrics to your Logz.io account.
 product: ['metrics']
 os: ['windows', 'linux']

@@ -1,7 +1,6 @@
 ---
 id: Google-Cloud-Storage
 title: Google Cloud Storage
-sidebar_position: 1
 overview: TGoogle Cloud Storage is a RESTful online file storage web service for storing and accessing data on Google Cloud Platform infrastructure. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

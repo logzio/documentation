@@ -1,7 +1,6 @@
 ---
 id: GO
 title: GO
-sidebar_position: 1
 overview: Deploy this integration to send custom metrics to Logz.io from your GO application. 
 product: ['metrics']
 os: ['windows', 'linux']

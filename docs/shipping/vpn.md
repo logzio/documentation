@@ -1,7 +1,6 @@
 ---
 id: VPN
 title: GCP Cloud VPN
-sidebar_position: 1
 overview: Google Cloud VPN provides networking functionality to Compute Engine virtual machine (VM) instances, Google Kubernetes Engine (GKE) clusters, and the App Engine flexible environment. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

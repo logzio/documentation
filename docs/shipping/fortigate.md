@@ -1,7 +1,6 @@
 ---
 id: FortiGate
 title: FortiGate
-sidebar_position: 1
 overview: FortiGate units are installed as a gateway or router between two networks. This integration allows you to send FortiGate logs to your Logz.io SIEM account.
 product: ['metrics']
 os: ['windows', 'linux']

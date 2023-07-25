@@ -1,7 +1,6 @@
 ---
 id: Amazon-CloudFront
 title: AWS CloudFront
-sidebar_position: 1
 overview: Amazon CloudFront is a content delivery network operated by Amazon Web Services. When you set Logz.io to fetch CloudFront logs, Logz.io will periodically read logs from the configured S3 bucket.
 product: ['metrics']
 os: ['windows', 'linux']

@@ -1,7 +1,6 @@
 ---
 id: Rsyslog
 title: Rsyslog
-sidebar_position: 1
 overview: Most Unix systems these days come with pre-installed rsyslog, which is a great lightweight service to consolidate logs.
 product: ['metrics']
 os: ['windows', 'linux']

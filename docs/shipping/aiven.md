@@ -1,7 +1,6 @@
 ---
 id: Aiven
 title: Aiven
-sidebar_position: 1
 overview: test
 product: ['logs']
 os: ['windows', 'linux']

@@ -1,7 +1,6 @@
 ---
 id: Google-Cloud-IDS
 title: GCP Cloud IDS
-sidebar_position: 1
 overview: Google Cloud IDS delivers cloud-native, managed, network-based threat detection, built with Palo Alto Networks’ industry-leading threat detection technologies to provide high levels of security efficacy. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

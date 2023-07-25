@@ -1,7 +1,6 @@
 ---
 id: Elasticsearch
 title: Elasticsearch
-sidebar_position: 1
 overview: Elasticsearch is a search engine based on the Lucene library. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

@@ -1,7 +1,6 @@
 ---
 id: Google-Cloud-Tasks
 title: GCP Cloud Tasks
-sidebar_position: 1
 overview: Google Cloud Tasks is a fully managed service that allows you to manage the execution, dispatch, and delivery of a large number of distributed tasks. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

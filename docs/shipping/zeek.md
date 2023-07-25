@@ -1,7 +1,6 @@
 ---
 id: Zeek
 title: Zeek
-sidebar_position: 1
 overview: Zeek is a free and open-source software network analysis framework. This integration allows you to send Zeek logs to your Logz.io SIEM account.
 product: ['metrics']
 os: ['windows', 'linux']

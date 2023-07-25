@@ -1,7 +1,6 @@
 ---
 id: Riak
 title: Riak
-sidebar_position: 1
 overview: Riak is a distributed NoSQL key-value data store that offers high availability, fault tolerance, operational simplicity, and scalability.  Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

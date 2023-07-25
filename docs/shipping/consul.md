@@ -1,7 +1,6 @@
 ---
 id: Hashicorp-Consul
 title: Hashicorp Consul
-sidebar_position: 1
 overview: This project lets you configure the OpenTelemetry collector to send your Prometheus-format metrics from Hashicorp Consul to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']

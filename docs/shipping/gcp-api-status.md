@@ -1,7 +1,6 @@
 ---
 id: API-status-metrics
 title: API status metrics
-sidebar_position: 1
 overview: Deploy this integration to collect API status metrics of user API and send them to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']

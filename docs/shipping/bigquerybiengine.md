@@ -1,7 +1,6 @@
 ---
 id: Google-BigQuery-BI-Engine
 title: GPC BigQuery BI Engine
-sidebar_position: 1
 overview: TBigQuery BI Engine is a fast, in-memory analysis service to analyze data stored in BugQuery. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

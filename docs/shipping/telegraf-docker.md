@@ -1,7 +1,6 @@
 ---
 id: Docker
 title: Docker
-sidebar_position: 1
 overview: Deploy this integration to ship metrics from your Docker network using containerized Telegraf agent.
 product: ['metrics']
 os: ['windows', 'linux']

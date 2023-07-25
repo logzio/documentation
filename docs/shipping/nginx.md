@@ -1,7 +1,6 @@
 ---
 id: Nginx
 title: Nginx
-sidebar_position: 1
 overview: TNginx is a web server that can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache. Deploy this integration to ship Nginx metrics, including Plus API, Plus, Stream STS, VTS. This integration allows you to send nginx logs to your Logz.io SIEM account.
 product: ['metrics']
 os: ['windows', 'linux']

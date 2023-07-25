@@ -1,7 +1,6 @@
 ---
 id: Google-Cloud-Run
 title: GCP Cloud Run
-sidebar_position: 1
 overview: Google Cloud Run is a fully managed platform that takes a Docker container image and runs it as a stateless, autoscaling HTTP service. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

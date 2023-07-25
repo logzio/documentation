@@ -1,7 +1,6 @@
 ---
 id: PostgreSQL
 title: PostgreSQL
-sidebar_position: 1
 overview: PostgreSQL is a free and open-source relational database management system emphasizing extensibility and SQL compliance. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

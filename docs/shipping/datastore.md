@@ -1,7 +1,6 @@
 ---
 id: Google-Cloud-Datastore
 title: GCP Cloud Datastore
-sidebar_position: 1
 overview: Google Cloud Datastore is a highly scalable, fully managed NoSQL database service. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

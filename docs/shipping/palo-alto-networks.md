@@ -1,7 +1,6 @@
 ---
 id: Palo-Alto-Networks 
 title: Palo Alto Networks 
-sidebar_position: 1
 overview: Palo Alto Networks provides advanced protection, security and consistency across locations and clouds. This integration allows you to send logs from your Palo Alto Networks applications to your Logz.io SIEM account.
 product: ['metrics']
 os: ['windows', 'linux']

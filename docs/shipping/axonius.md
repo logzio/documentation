@@ -1,7 +1,6 @@
 ---
 id: Axonius
 title: Axonius
-sidebar_position: 1
 overview: This integration sends system logs from your Axonius platform to Logz.io. 
 product: ['metrics']
 os: ['windows', 'linux']

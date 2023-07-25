@@ -1,7 +1,6 @@
 ---
 id: Docker-Swarm
 title: Docker Swarm
-sidebar_position: 1
 overview: Deploy this integration to ship metrics from your Docker Swarm network using containerized Telegraf agent.
 product: ['metrics']
 os: ['windows', 'linux']

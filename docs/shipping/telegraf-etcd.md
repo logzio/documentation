@@ -1,7 +1,6 @@
 ---
 id: etcd
 title: etcd
-sidebar_position: 1
 overview: etcd is an open source, distributed, consistent key-value store for shared configuration, service discovery, and scheduler coordination of distributed systems or clusters of machines. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

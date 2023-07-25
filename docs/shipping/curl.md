@@ -1,7 +1,6 @@
 ---
 id: cURL
 title: cURL
-sidebar_position: 1
 overview: cURL is a command line utility for transferring data. cURL is a quick and easy way to test your configuration or troubleshoot your connectivity to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']

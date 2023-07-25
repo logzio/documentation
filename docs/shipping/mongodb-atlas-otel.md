@@ -1,7 +1,6 @@
 ---
 id: MongoDB-Atlas
 title: MongoDB Atlas
-sidebar_position: 1
 overview: MongoDB Atlas is a fully-managed cloud database that handles deploying, managing and healing deployments on its cloud service provider.  
 product: ['metrics']
 os: ['windows', 'linux']

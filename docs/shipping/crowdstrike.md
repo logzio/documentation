@@ -1,7 +1,6 @@
 ---
 id: Crowdstrike
 title: Crowdstrike
-sidebar_position: 1
 overview: Crowdstrike is a SaaS (software as a service) system security solution. Deploy this integration to ship Crowdstrike events from your Crowdstrike account to Logz.io using FluentD.
 product: ['metrics']
 os: ['windows', 'linux']

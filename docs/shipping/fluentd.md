@@ -1,7 +1,6 @@
 ---
 id: Fluentd
 title: Fluentd
-sidebar_position: 1
 overview: Fluentd is a data collector, which unifies the data collection and consumption. This integration allows you to use Fluentd to send logs to your Logz.io account.
 product: ['metrics']
 os: ['windows', 'linux']

@@ -1,7 +1,6 @@
 ---
 id: Sysmon
 title: Sysmon (System Monitor)
-sidebar_position: 1
 overview: Sysmon (System Monitor) is a Windows system service that monitors and logs system activity of the Windows event log. It tracks process creations, network connections, and changes to file creation time.
 product: ['metrics']
 os: ['windows', 'linux']

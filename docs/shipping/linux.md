@@ -1,7 +1,6 @@
 ---
 id: Linux
 title: Linux
-sidebar_position: 1
 overview: This integration sends Linux logs to Logz.io
 product: ['metrics']
 os: ['windows', 'linux']

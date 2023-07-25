@@ -1,7 +1,6 @@
 ---
 id: Python-Handler
 title: Python Handler
-sidebar_position: 1
 overview: Logz.io Python Handler sends logs in bulk over HTTPS to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']

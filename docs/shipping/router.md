@@ -1,7 +1,6 @@
 ---
 id: Google-Cloud-Router
 title: Google Cloud Router
-sidebar_position: 1
 overview: Google Cloud Router enables you to dynamically exchange routes between your Virtual Private Cloud (VPC) and on-premises networks by using Border Gateway Protocol (BGP). Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

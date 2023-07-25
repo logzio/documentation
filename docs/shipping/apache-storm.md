@@ -1,7 +1,6 @@
 ---
 id: Apache-Storm
 title: Apache Storm
-sidebar_position: 1
 overview: test
 product: ['logs', 'metrics']
 os: ['windows', 'linux']

@@ -1,7 +1,6 @@
 ---
 id: CloudTrail
 title: AWS CloudTrail
-sidebar_position: 1
 overview: This integration sends CloudTrail logs.
 product: ['metrics']
 os: ['windows', 'linux']

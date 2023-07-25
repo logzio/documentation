@@ -1,7 +1,6 @@
 ---
 id: DC-OS
 title: DC/OS
-sidebar_position: 1
 overview: DC/OS (the Distributed Cloud Operating System) is an open-source, distributed operating system based on the Apache Mesos distributed systems kernel. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

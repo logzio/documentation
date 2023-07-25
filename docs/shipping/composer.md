@@ -1,7 +1,6 @@
 ---
 id: Google-Cloud-Composer
 title: GCP Cloud Composer
-sidebar_position: 1
 overview: Google Cloud Composer is a fully managed data workflow orchestration service that empowers you to author, schedule, and monitor pipelines. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

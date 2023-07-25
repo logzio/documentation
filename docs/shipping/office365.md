@@ -1,7 +1,6 @@
 ---
 id: Microsoft-365
 title: Microsoft 365
-sidebar_position: 1
 overview: Deploy this integration to send Unified Audit Logging logs from Microsoft 365 to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']

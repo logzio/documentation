@@ -1,7 +1,6 @@
 ---
 id: Google-Contact-Center-AI-Insights
 title: GCP Contact Center AI Insights
-sidebar_position: 1
 overview: Google Contact Center AI Insights helps users detect and visualize patterns in their contact center data. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

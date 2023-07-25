@@ -1,7 +1,6 @@
 ---
 id: Cloudwatch
 title: AWS Cloudwatch
-sidebar_position: 1
 overview: Ship Cloudwatch metrics.
 product: ['metrics']
 os: ['windows', 'linux']

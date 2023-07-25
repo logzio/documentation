@@ -1,7 +1,6 @@
 ---
 id: HashiCorp-Vault
 title: HashiCorp Vault
-sidebar_position: 1
 overview: HashiCorp Vault secures, stores, and tightly controls access to tokens, passwords, certificates, API keys, and other secrets in modern computing. This integration allows you to send HashiCorp Vault logs to your Logz.io SIEM account.
 product: ['metrics']
 os: ['windows', 'linux']

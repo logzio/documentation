@@ -1,7 +1,6 @@
 ---
 id: MySQL
 title: MySQL
-sidebar_position: 1
 overview: MySQL is an open-source relational database management system. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

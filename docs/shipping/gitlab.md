@@ -1,7 +1,6 @@
 ---
 id: GitLab
 title: GitLab
-sidebar_position: 1
 overview: GitLab is a DevOps platform that combines the ability to develop, secure, and operate software in a single application. This integration allows you to send logs from your GitLan platform to your Logz.io account.
 product: ['metrics']
 os: ['windows', 'linux']

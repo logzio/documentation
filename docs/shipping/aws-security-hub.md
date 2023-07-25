@@ -1,11 +1,10 @@
 ---
 id: AWS-Security-Hub
 title: AWS Security Hub
-sidebar_position: 1
 overview: This integration ships events from AWS Security Hub to Logz.io. It will automatically deploy resources to your AWS Account.
-product: ['metrics']
+product: ['logs']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['aws', 'cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
 logs_dashboards: []
 logs_alerts: []

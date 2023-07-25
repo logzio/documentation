@@ -1,7 +1,6 @@
 ---
 id: Logzio-MSGraph
 title: Logzio MSGraph
-sidebar_position: 1
 overview: You can ship logs available from the Microsoft Graph APIs with Logzio-MSGraph.
 product: ['metrics']
 os: ['windows', 'linux']

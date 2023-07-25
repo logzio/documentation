@@ -1,7 +1,6 @@
 ---
 id: Intercom
 title: Intercom
-sidebar_position: 1
 overview: Intercom is a messaging platform with bots, apps, product tours and oher features. Deploy this integration to ship Intercom events from your Intercom account to Logz.io using webhooks. 
 product: ['metrics']
 os: ['windows', 'linux']

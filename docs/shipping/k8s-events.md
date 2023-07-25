@@ -1,7 +1,6 @@
 ---
 id: Kubernetes-events
 title: Kubernetes events
-sidebar_position: 1
 overview: This guide uses the kubernetes-event-exporter tool to ship kubernetes events to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']

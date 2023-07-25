@@ -1,7 +1,6 @@
 ---
 id: McAfee-ePolicy-Orchestrator
 title: McAfee ePolicy Orchestrator
-sidebar_position: 1
 overview: McAfee ePolicy Orchestrator (McAfee ePO) software centralizes and streamlines management of endpoint, network, data security, and compliance solutions. This integration allows you to send McAfee ePolicy Orchestrator logs to your Logz.io SIEM account.
 product: ['metrics']
 os: ['windows', 'linux']
