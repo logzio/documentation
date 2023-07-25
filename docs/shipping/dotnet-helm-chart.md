@@ -1,12 +1,12 @@
 ---
 id: Dotnet-helm-chart
-title: .NET 
-sidebar_position: 1
+title: .NET via Helm
+sidebar_position: 2
 overview: Helm is a tool for managing packages of pre-configured Kubernetes resources using Charts. This integration allows you to collect and ship diagnostic metrics of your .NET application in Kubernetes to Logz.io, using dotnet-monitor and OpenTelemetry. logzio-dotnet-monitor runs as a sidecar in the same pod as the .NET application.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/docker.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

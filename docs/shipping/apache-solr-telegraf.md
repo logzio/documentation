@@ -6,7 +6,7 @@ overview: Solr is an open-source enterprise-search platform, written in Java. Te
 product: ['logs']
 os: ['windows', 'linux']
 filters: ['apache', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/solr-logo.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

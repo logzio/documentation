@@ -6,7 +6,7 @@ overview: Amazon CloudFront is a content delivery network operated by Amazon Web
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-cloudfront.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

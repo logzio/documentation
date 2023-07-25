@@ -6,7 +6,7 @@ overview: Google Dataproc is a fully managed and highly scalable service for run
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/gcpdataproc.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
