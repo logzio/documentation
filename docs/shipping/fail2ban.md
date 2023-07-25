@@ -1,7 +1,6 @@
 ---
 id: Fail2Ban
 title: Fail2Ban
-sidebar_position: 1
 overview: Fail2Ban is an intrusion prevention software framework that protects computer servers from brute-force attacks. This integration allows you to send Fail2ban logs to your Logz.io SIEM account.
 product: ['metrics']
 os: ['windows', 'linux']

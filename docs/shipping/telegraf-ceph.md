@@ -1,7 +1,6 @@
 ---
 id: Ceph
 title: Ceph
-sidebar_position: 1
 overview: Ceph is an open-source software (software-defined storage) storage platform, implements object storage on a single distributed computer cluster, and provides 3-in-1 interfaces for object-, block- and file-level storage. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

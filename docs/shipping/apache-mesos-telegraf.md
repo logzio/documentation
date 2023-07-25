@@ -1,7 +1,6 @@
 ---
 id: Apache-Mesos
 title: Apache Mesos
-sidebar_position: 1
 overview: Apache Mesos is an open-source project to manage computer clusters. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['logs']
 os: ['windows', 'linux']

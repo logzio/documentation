@@ -1,7 +1,6 @@
 ---
 id: OpenVAS
 title: OpenVAS
-sidebar_position: 1
 overview: These instructions show you how to configure Filebeat to send OpenVAS reports to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']

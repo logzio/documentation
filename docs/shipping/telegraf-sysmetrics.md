@@ -1,7 +1,6 @@
 ---
 id: Telegraf-sysmetrics
 title: Telegraf System Metrics
-sidebar_position: 1
 overview: Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

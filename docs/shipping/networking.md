@@ -1,7 +1,6 @@
 ---
 id: Google-Network-Topology
 title: GCP Network Topology
-sidebar_position: 1
 overview: TGoogle Network Topology is a visualization tool that shows the topology of your Virtual Private Cloud (VPC) networks, hybrid connectivity to and from your on-premises networks, connectivity to Google-managed services, and the associated metrics. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

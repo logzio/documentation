@@ -1,7 +1,6 @@
 ---
 id: Memcached
 title: Memcached
-sidebar_position: 1
 overview: Memcached is a general-purpose distributed memory-caching system. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

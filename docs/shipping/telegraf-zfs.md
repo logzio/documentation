@@ -1,7 +1,6 @@
 ---
 id: ZFS
 title: ZFS
-sidebar_position: 1
 overview: ZFS combines a file system with a volume manager. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

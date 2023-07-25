@@ -1,7 +1,6 @@
 ---
 id: AWS-Lambda-traces
 title: AWS Lambda
-sidebar_position: 1
 overview: Deploy this integration to auto-instrument your Node.js application running on AWS Lambda and send the traces to your Logz.io account. This is done by adding a dedicated layer for OpenTelemetry collector, a dedicated layer for Node.js auto-instrumentation and configuring environment variables of these layers. This integration will require no change to your application code.
 product: ['metrics']
 os: ['windows', 'linux']

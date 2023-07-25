@@ -1,7 +1,6 @@
 ---
 id: Google-BigQuery-Data-Transfer-Service
 title: GPC BigQuery Data Transfer Service
-sidebar_position: 1
 overview: The BigQuery Data Transfer Service automates data movement into BigQuery on a scheduled, managed basis. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

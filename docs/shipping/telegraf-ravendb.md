@@ -1,7 +1,6 @@
 ---
 id: RavenDB
 title: RavenDB
-sidebar_position: 1
 overview: RavenDB is an open source document-oriented NoSQL designed especially for the .NET/Windows platform. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

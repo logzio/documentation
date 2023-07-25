@@ -1,7 +1,6 @@
 ---
 id: GKE
 title: GCP Kubernetes Engine (GKE)
-sidebar_position: 1
 overview: Google Kubernetes Engine (GKE) is a managed, production-ready environment for running containerized applications. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

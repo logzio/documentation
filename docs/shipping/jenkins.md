@@ -1,7 +1,6 @@
 ---
 id: Jenkins
 title: Jenkins
-sidebar_position: 1
 overview: Jenkins is an automation server for building, testing, and deploying software. This integration allows you to send logs from your Jenkins servers to your Logz.io account.
 product: ['metrics']
 os: ['windows', 'linux']

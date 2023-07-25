@@ -1,7 +1,6 @@
 ---
 id: Falco
 title: Falco
-sidebar_position: 1
 overview: Falco is a CNCF-approved container security and Kubernetes threat detection engine that logs illegal container activity at runtime. Shipping your Falco logs to your Cloud SIEM can help you monitor your Kubernetes workloads for potentially malicious behavior. This can help you catch attempts to remove logging data from a container, to run recon tools inside a container, or add potentially malicious repositories to a container. 
 product: ['metrics']
 os: ['windows', 'linux']

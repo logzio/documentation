@@ -1,7 +1,6 @@
 ---
 id: Auth0
 title: Auth0
-sidebar_position: 1
 overview: Auth0 is an easy to implement, adaptable authentication and authorization platform. Deploy this integration to ship Auth0 events from your Auth0 account to Logz.io using custom log stream via webhooks.
 product: ['metrics']
 os: ['windows', 'linux']

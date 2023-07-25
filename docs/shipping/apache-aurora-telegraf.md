@@ -1,7 +1,6 @@
 ---
 id: Apache-Aurora
 title: Apache Aurora
-sidebar_position: 1
 overview: Collect Aurora metrics using Telegraf
 product: ['logs']
 os: ['windows', 'linux']

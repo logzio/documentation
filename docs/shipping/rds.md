@@ -1,7 +1,6 @@
 ---
 id: RDS
 title: Amazon RDS
-sidebar_position: 1
 overview: This integration csends AWS RDS metrics to your Logz.io account.
 product: ['metrics']
 os: ['windows', 'linux']

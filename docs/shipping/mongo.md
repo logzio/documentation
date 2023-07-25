@@ -1,7 +1,6 @@
 ---
 id: MongoDB
 title: MongoDB
-sidebar_position: 1
 overview: MongoDB is a source-available cross-platform document-oriented database program. Fluentd is an open source data collector and a great option because of its flexibility. This integration lets you send logs from your MongoDB instances to your Logz.io account using Fluentd.
 product: ['metrics']
 os: ['windows', 'linux']

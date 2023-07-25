@@ -1,7 +1,6 @@
 ---
 id: Google-Managed-Service-for-Microsoft-Active-Directory
 title: GCP Managed Service for Microsoft Active Directory
-sidebar_position: 1
 overview: Google Managed Service for Microsoft Active Directory is a fully managed, real-time log management with storage, search, analysis and alerting at exabyte scale.  Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

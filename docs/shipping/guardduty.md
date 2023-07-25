@@ -1,7 +1,6 @@
 ---
 id: GuardDuty
 title: GuardDuty
-sidebar_position: 1
 overview: This integration sends GuardDuty logs.
 product: ['metrics']
 os: ['windows', 'linux']

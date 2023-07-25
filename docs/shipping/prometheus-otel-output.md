@@ -1,7 +1,6 @@
 ---
 id: Prometheus OpenTelemetry
 title: Prometheus-OpenTelemetry
-sidebar_position: 1
 overview: This project lets you configure the OpenTelemetry collector to send your collected Prometheus-format metrics to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']

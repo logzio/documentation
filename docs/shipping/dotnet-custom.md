@@ -1,7 +1,6 @@
 ---
 id: Dotnet-custom
 title: .NET custom
-sidebar_position: 1
 overview: You can send custom metrics from your .NET Core application using Logzio.App.Metrics. Logzio.App.Metrics is an open-source and cross-platform .NET library used to record metrics within an application and forward the data to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']

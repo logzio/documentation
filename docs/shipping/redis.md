@@ -1,7 +1,6 @@
 ---
 id: GPC-Redis
 title: Google Memorystore for Redis
-sidebar_position: 1
 overview: Google Memorystore for Redis a fully managed Redis service for the Google Cloud.  Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

@@ -1,7 +1,6 @@
 ---
 id: Google-Cloud-Interconnect
 title: GCP Cloud Interconnect
-sidebar_position: 1
 overview: Google Cloud Interconnect provides low latency, high availability connections that enable you to reliably transfer data between your on-premises and Google Cloud Virtual Private Cloud (VPC) networks. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

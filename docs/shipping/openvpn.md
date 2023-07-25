@@ -1,7 +1,6 @@
 ---
 id: OpenVPN
 title: OpenVPN
-sidebar_position: 1
 overview: OpenVPN  is a virtual private network system for secure point-to-point or site-to-site connections.
 product: ['metrics']
 os: ['windows', 'linux']

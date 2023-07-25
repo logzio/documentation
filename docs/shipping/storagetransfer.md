@@ -1,7 +1,6 @@
 ---
 id: Google-Storage-Transfer 
 title: GCP Storage Transfer Service
-sidebar_position: 1
 overview: Google Storage Transfer Service for on-premises data are secure, low-cost services for transferring data from cloud or on-premises sources. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

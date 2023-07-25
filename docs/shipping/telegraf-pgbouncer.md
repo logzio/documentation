@@ -1,7 +1,6 @@
 ---
 id: PgBouncer
 title: PgBouncer
-sidebar_position: 1
 overview: PgBouncer is a lightweight connection pooler for PostgreSQL. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

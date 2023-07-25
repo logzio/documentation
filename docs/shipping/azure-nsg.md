@@ -1,7 +1,6 @@
 ---
 id: Azure-NSG
 title: Azure NSG
-sidebar_position: 1
 overview: Enable an Azure function to forward NSG logs from your Azure Blob Storage account to your Logz.io account.
 product: ['metrics']
 os: ['windows', 'linux']

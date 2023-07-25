@@ -1,7 +1,6 @@
 ---
 id: Google-Compute-Engine-Autoscaler
 title: GCP Compute Engine Autoscaler
-sidebar_position: 1
 overview: Google Compute Engine Autoscaler allows to automatically add or remove VM instances from a managed instance group based on increases or decreases in load. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

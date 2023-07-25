@@ -1,7 +1,6 @@
 ---
 id: SonicWall
 title: SonicWall
-sidebar_position: 1
 overview: SonicWall firewalls allow you to identify and control all of the applications in use on your network. This integration allows you to send logs from your SonicWall applications to your Logz.io SIEM account.
 product: ['metrics']
 os: ['windows', 'linux']

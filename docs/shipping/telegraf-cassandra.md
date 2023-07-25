@@ -1,7 +1,6 @@
 ---
 id: Apache-Cassandra
 title: Apache Cassandra
-sidebar_position: 1
 overview: Apache Cassandra is an open source NoSQL distributed database management system designed to process large amounts of data across commodity servers.Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

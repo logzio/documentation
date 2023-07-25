@@ -1,7 +1,6 @@
 ---
 id: AWS-cross-account
 title: AWS cross account
-sidebar_position: 1
 overview: Deploy this integration to simultaneously ship logs from multiple AWS accounts to Logz.io.
 product: ['logs']
 os: ['windows', 'linux']

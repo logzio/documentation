@@ -1,7 +1,6 @@
 ---
 id: SentinelOne
 title: SentinelOne
-sidebar_position: 1
 overview: SentinelOne platform delivers the defenses to prevent, detect, and undo—known and unknown—threats. This integration allows you to send logs from your SentinelOne applications to your Logz.io SIEM account.
 product: ['metrics']
 os: ['windows', 'linux']

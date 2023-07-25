@@ -1,7 +1,6 @@
 ---
 id: pfSense
 title: pfSense
-sidebar_position: 1
 overview: pfSense is an open source firewall solution. This topic describes how to configure pfSense to send system logs to Logz.io via Filebeat running on a dedicated server. 
 product: ['metrics']
 os: ['windows', 'linux']

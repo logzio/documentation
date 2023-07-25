@@ -1,7 +1,6 @@
 ---
 id: Stormshield
 title: Stormshield
-sidebar_position: 1
 overview: Stormshield provides cyber-security solutions. This integration allows you to send logs from your Stormshield applications to your Logz.io SIEM account.
 product: ['metrics']
 os: ['windows', 'linux']

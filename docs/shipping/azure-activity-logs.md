@@ -1,7 +1,6 @@
 ---
 id: Azure-Activity
 title: Azure activity logs
-sidebar_position: 1
 overview: Ship your Azure activity logs using an automated deployment process.
 product: ['metrics']
 os: ['windows', 'linux']

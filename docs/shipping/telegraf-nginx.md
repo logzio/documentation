@@ -1,7 +1,6 @@
 ---
 id: Nginx
 title: Nginx
-sidebar_position: 1
 overview: Nginx is a web server that can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache. Deploy this integration to ship Nginx metrics.
 product: ['metrics']
 os: ['windows', 'linux']

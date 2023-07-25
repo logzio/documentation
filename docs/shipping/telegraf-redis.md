@@ -1,7 +1,6 @@
 ---
 id: Redis
 title: Redis
-sidebar_position: 1
 overview: Redis is an in-memory data structure store, used as a distributed, in-memory key–value database, cache and message broker, with optional durability. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

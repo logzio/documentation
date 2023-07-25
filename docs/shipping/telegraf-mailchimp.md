@@ -1,7 +1,6 @@
 ---
 id: Mailchimp
 title: Mailchimp
-sidebar_position: 1
 overview: Mailchimp is the All-In-One integrated marketing platform for small businesses. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

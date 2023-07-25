@@ -1,7 +1,6 @@
 ---
 id: Amazon-S3-Bucket
 title: AWS S3
-sidebar_position: 1
 overview: Some AWS services can be configured to ship their logs to an S3 bucket, where Logz.io can fetch those logs directly.
 product: ['metrics']
 os: ['windows', 'linux']

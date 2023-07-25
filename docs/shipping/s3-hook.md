@@ -1,7 +1,6 @@
 ---
 id: Amazon-S3-hook
 title: AWS S3 hook
-sidebar_position: 1
 overview: With this integration, you can collect logs from an S3 bucket and forward them to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']

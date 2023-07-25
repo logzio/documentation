@@ -1,7 +1,6 @@
 ---
 id: Ruby
 title: Rubt
-sidebar_position: 1
 overview: Deploy this integration to enable automatic instrumentation of your Ruby application using OpenTelemetry.
 product: ['metrics']
 os: ['windows', 'linux']

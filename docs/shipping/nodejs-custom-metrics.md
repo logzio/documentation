@@ -1,7 +1,6 @@
 ---
 id: Node-js-custom
 title: Node.js
-sidebar_position: 1
 overview: Deploy this integration to send custom metrics from your Node.js application to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']

@@ -1,7 +1,6 @@
 ---
 id: Apache-Tomcat
 title: Apache Tomcat
-sidebar_position: 1
 overview: test
 product: ['logs', 'metrics']
 os: ['windows', 'linux']

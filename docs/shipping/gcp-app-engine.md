@@ -1,7 +1,6 @@
 ---
 id: gcp-app-engine
 title: GCP App Engine
-sidebar_position: 1
 overview: Apigee, part of Google Cloud, helps design, secure, and scale application programming interfaces (APIs). Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

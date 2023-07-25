@@ -1,7 +1,6 @@
 ---
 id: Ping-statistics
 title: Ping statistics
-sidebar_position: 1
 overview: Deploy this integration to collect metrics of ping statistics collected from your preferred web addresses and send them to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']

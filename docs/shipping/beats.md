@@ -1,7 +1,6 @@
 ---
 id: Beats
 title: Beats
-sidebar_position: 1
 overview: This document describes the way to get logs from your system to Logz.io using any of the Beats shippers.
 product: ['metrics']
 os: ['windows', 'linux']

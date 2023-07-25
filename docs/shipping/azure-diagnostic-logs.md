@@ -1,7 +1,6 @@
 ---
 id: Azure-Diagnostic-Logs
 title: Azure Diagnostic Logs
-sidebar_position: 1
 overview: Ship your Azure diagnostic logs using an automated deployment process.
 product: ['metrics']
 os: ['windows', 'linux']

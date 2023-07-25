@@ -1,7 +1,6 @@
 ---
 id: Java-Custom-Metrics
 title: Java Custom Metrics 
-sidebar_position: 1
 overview: This sends Java Custom metrics to your Logz.io account.
 product: ['metrics']
 os: ['windows', 'linux']

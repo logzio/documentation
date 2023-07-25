@@ -1,7 +1,6 @@
 ---
 id: dotnet
 title: .NET
-sidebar_position: 1
 overview: Send .NET metrics.
 product: ['metrics']
 os: ['windows', 'linux']

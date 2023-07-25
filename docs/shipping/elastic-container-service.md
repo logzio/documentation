@@ -1,7 +1,6 @@
 ---
 id: ECS
 title: AWS Elastic Container Service (ECS)
-sidebar_position: 1
 overview: This integration uses Fluentd in a Docker container to forward logs from your Amazon Elastic Container Service (ECS) cluster to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']

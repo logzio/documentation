@@ -1,7 +1,6 @@
 ---
 id: Amazon-CloudFront
 title: AWS CloudFront
-sidebar_position: 1
 overview: This CloudFormation template allows shipping AWS Logs and Metrics to logz.io.
 product: ['metrics']
 os: ['windows', 'linux']

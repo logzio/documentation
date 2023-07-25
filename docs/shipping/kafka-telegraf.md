@@ -1,7 +1,6 @@
 ---
 id: Apache-Kafka
 title: Apache Kafka
-sidebar_position: 1
 overview: Apache Kafka is a distributed event store and stream-processing platform. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

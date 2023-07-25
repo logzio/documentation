@@ -1,7 +1,6 @@
 ---
 id: GKE
 title: GKE
-sidebar_position: 1
 overview: logzio-k8s-telemetry allows you to ship metrics from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
 product: ['metrics']
 os: ['windows', 'linux']

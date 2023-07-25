@@ -1,7 +1,6 @@
 ---
 id: Logstash
 title: Logstash
-sidebar_position: 1
 overview: This integration ships Logstash metrics to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']

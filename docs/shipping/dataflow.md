@@ -1,7 +1,6 @@
 ---
 id: Google-Dataflow
 title: GCP Dataflow
-sidebar_position: 1
 overview: Google Dataflow is a fully managed streaming analytics service that minimizes latency, processing time, and cost through autoscaling and batch processing. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

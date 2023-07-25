@@ -1,7 +1,6 @@
 ---
 id: ESET
 title: ESET
-sidebar_position: 1
 overview: ESET provides anti-virus and firewall solutions. This integration allows you to send ESET logs to your Logz.io SIEM account.
 product: ['metrics']
 os: ['windows', 'linux']

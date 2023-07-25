@@ -1,7 +1,6 @@
 ---
 id: Check-Point
 title: Check Point
-sidebar_position: 1
 overview: Check Point provides hardware and software products for IT security, including network security, endpoint security, cloud security, mobile security, data security and security management. This integration allows you to send Check Point logs to your Logz.io SIEM account.
 product: ['metrics']
 os: ['windows', 'linux']

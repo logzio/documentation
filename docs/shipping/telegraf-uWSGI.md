@@ -1,7 +1,6 @@
 ---
 id: uWSGI
 title: uWSGI
-sidebar_position: 1
 overview: uWSGI is a software application that aims at developing a full stack for building hosting services. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

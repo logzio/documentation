@@ -1,7 +1,6 @@
 ---
 id: Bitbucket
 title: Bitbucket
-sidebar_position: 1
 overview: Bitbucket is a Git-based source code repository hosting service. This integration allows you to ship logs from your Bitbucket repository to your Logz.io account.
 product: ['metrics']
 os: ['windows', 'linux']

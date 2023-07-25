@@ -1,7 +1,6 @@
 ---
 id: MarkLogic
 title: MarkLogic
-sidebar_position: 1
 overview: MarkLogic is a NoSQL database platform that is used in publishing, government, finance and other sectors, with hundreds of large-scale systems in production. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

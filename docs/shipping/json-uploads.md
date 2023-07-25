@@ -1,7 +1,6 @@
 ---
 id: JSON
 title: JSON
-sidebar_position: 1
 overview: If you want to ship logs from your code but don't have a library in place, you can send them directly to the Logz.io listener as a minified JSON file.
 product: ['metrics']
 os: ['windows', 'linux']

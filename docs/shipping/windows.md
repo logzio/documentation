@@ -1,7 +1,6 @@
 ---
 id: Winlogbeat
 title: Winlogbeat
-sidebar_position: 1
 overview: Winlogbeat metrics.
 product: ['metrics']
 os: ['windows', 'linux']

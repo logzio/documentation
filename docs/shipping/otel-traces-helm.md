@@ -1,7 +1,6 @@
 ---
 id: opentelemtry-collector
 title: OpenTelemetry traces over Helm
-sidebar_position: 1
 overview: You can use a Helm chart to ship Traces to Logz.io via the OpenTelemetry collector. The Helm tool is used to manage packages of pre-configured Kubernetes resources that use charts.
 product: ['metrics']
 os: ['windows', 'linux']

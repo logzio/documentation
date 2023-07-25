@@ -1,7 +1,6 @@
 ---
 id: Redfish
 title: Redfish
-sidebar_position: 1
 overview: DMTF's Redfish is a standard designed to deliver simple and secure management for converged, hybrid IT and the Software Defined Data Center (SDDC).Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

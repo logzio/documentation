@@ -1,7 +1,6 @@
 ---
 id: ClickHouse
 title: ClickHouse
-sidebar_position: 1
 overview: ClickHouse is a fast open-source column-oriented database management system that allows generating analytical data reports in real-time using SQL queries. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

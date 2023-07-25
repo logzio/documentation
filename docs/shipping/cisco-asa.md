@@ -1,7 +1,6 @@
 ---
 id: Cisco-ASA
 title: Cisco ASA
-sidebar_position: 1
 overview: Cisco ASA is a security device that combines firewall, antivirus, intrusion prevention, and virtual private network (VPN) capabilities.
 product: ['metrics']
 os: ['windows', 'linux']
