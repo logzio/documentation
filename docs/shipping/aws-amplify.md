@@ -1,6 +1,6 @@
 ---
 id: Amplify
-title: Amplify
+title: AWS Amplify
 sidebar_position: 1
 overview: This is an AWS Lambda function that collects Amplify access logs and sends them to Logz.io in bulk over HTTP.
 product: ['logs']
