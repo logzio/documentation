@@ -2,7 +2,7 @@
 id: Alcide-kAudit
 title: Alcide kAudit
 overview: Alcide kAudit is a security service for monitoring Kubernetes audit logs, and easily identifying abnormal administrative activity and compromised Kubernetes resources.
-product: ['logs']
+product: ['logs','siem']
 os: ['windows', 'linux']
 filters: ['kubernetes']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/alcide.png

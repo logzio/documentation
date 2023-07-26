@@ -1,10 +1,10 @@
 ---
 id: Auditbeat
-title: Auditbeat
+title: Auditd
 overview: As its name suggests, auditd is a service that audits activities in a Linux environment. It's available for most major Linux distributions.
-product: ['metrics']
-os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+product: ['logs','siem']
+os: ['linux']
+filters: ['audit','on premise']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/linux.svg
 logs_dashboards: []
 logs_alerts: []

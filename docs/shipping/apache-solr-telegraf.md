@@ -2,9 +2,9 @@
 id: Solr
 title: Solr
 overview: Solr is an open-source enterprise-search platform, written in Java. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
-product: ['logs']
+product: ['metrics']
 os: ['windows', 'linux']
-filters: ['apache', 'cloud']
+filters: ['database']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/solr-logo.png
 logs_dashboards: []
 logs_alerts: []

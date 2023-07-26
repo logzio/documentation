@@ -3,8 +3,8 @@ id: Amplify
 title: AWS Amplify
 overview: This is an AWS Lambda function that collects Amplify access logs and sends them to Logz.io in bulk over HTTP.
 product: ['logs']
-os: ['windows', 'linux']
-filters: ['aws', 'cloud']
+os: []
+filters: ['aws', 'cloud','website']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/amplify.png
 logs_dashboards: []
 logs_alerts: []
