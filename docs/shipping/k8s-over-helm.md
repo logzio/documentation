@@ -5,7 +5,7 @@ overview: Logzio-k8s-logs allows you to ship logs from your Kubernetes cluster t
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/k8s-helm.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

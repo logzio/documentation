@@ -5,7 +5,7 @@ overview: Vector by Datadog is a lightweight, ultra-fast tool for building obser
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/vector.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

@@ -5,8 +5,7 @@ overview: Google Firestore is a NoSQL document database built for automatic scal
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
-logs_dashboards: []
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/firestore.png
 logs_alerts: []
 logs2metrics: []
 metrics_dashboards: []

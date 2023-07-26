@@ -5,7 +5,7 @@ overview: ZFS combines a file system with a volume manager. Telegraf is a plug-i
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/zfs-logo.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

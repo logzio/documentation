@@ -5,7 +5,7 @@ overview: Amazon S3 Access Logs provide detailed records about requests that are
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-s3.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

@@ -5,7 +5,7 @@ overview: Google AI Platform is a suite of services on Google Cloud specifically
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/gcpai.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

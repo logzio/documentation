@@ -5,7 +5,7 @@ overview: Disque is a distributed message broker. Telegraf is a plug-in driven s
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/disque-telegraf.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

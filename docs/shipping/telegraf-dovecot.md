@@ -5,7 +5,7 @@ overview: Dovecot is an open-source IMAP and POP3 server for Unix-like operating
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/dovecot.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

@@ -5,7 +5,7 @@ overview: FortiGate units are installed as a gateway or router between two netwo
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/fortinet.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

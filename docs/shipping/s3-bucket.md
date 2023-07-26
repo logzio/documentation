@@ -5,7 +5,7 @@ overview: Some AWS services can be configured to ship their logs to an S3 bucket
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-s3.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

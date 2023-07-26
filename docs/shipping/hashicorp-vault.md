@@ -5,7 +5,7 @@ overview: HashiCorp Vault secures, stores, and tightly controls access to tokens
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/hashicorp-vault.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
