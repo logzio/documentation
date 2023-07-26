@@ -4,7 +4,7 @@ title: Microsoft 365
 overview: Deploy this integration to send Unified Audit Logging logs from Microsoft 365 to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/office365.png
 logs_dashboards: []
 logs_alerts: []

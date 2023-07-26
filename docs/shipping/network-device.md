@@ -4,7 +4,7 @@ title: Network devices
 overview: This integration allows you to send logs from your network devices to your Logz.io account. 
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/network-device.svg
 logs_dashboards: []
 logs_alerts: []

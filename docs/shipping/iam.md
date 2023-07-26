@@ -4,7 +4,7 @@ title: GCP Identity and Access Management
 overview: Google Identity and Access Management lets administrators authorize who can take action on specific resources, giving them full control and visibility to manage Google Cloud resources centrally. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/gcpiam.png
 logs_dashboards: []
 logs_alerts: []

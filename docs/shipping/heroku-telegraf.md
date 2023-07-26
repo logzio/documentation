@@ -4,7 +4,7 @@ title: Heroku
 overview: Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud. Deploy this integration to install and launch Telegraf on the dynos of your Heroku app. Deploy this integration to install and launch Telegraf on the dynos of your Heroku app. This integration buildpack downloads the latest Telegraf release, extracts it on your dyno and starts it via a .profile.d script.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/heroku.svg
 logs_dashboards: []
 logs_alerts: []

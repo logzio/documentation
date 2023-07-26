@@ -4,7 +4,7 @@ title: Docker
 overview: Docker is a set of platform as a service products that deliver software in containers. This integration allows you to ship performance logs of your Docker containers to your Logz.io account. 
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/docker.png
 logs_dashboards: []
 logs_alerts: []

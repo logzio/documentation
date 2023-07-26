@@ -1,10 +1,10 @@
 ---
-id: Telegraf
-title: Telegraf
+id: Telegraf-windows-performance
+title: Telegraf Windows Performance
 overview: TTelegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
-os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+os: ['windows']
+filters: ['Monitoring Tools', 'Data Collection']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/windows.svg
 logs_dashboards: []
 logs_alerts: []

@@ -4,7 +4,7 @@ title: HAProxy
 overview: HAProxy is a network device, so it needs to transfer logs using the syslog protocol.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/haproxy-logo.png
 logs_dashboards: []
 logs_alerts: []

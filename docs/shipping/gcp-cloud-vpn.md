@@ -1,24 +1,27 @@
 ---
-id: Google-Workflows
-title: GCP Workflows
-overview: Google Workflows is a service to orchestrate and automate Google Cloud and HTTP-based API services. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+id: GCP-Cloud-VPN
+title: GCP Cloud VPN
+overview: Google Cloud VPN provides networking functionality to Compute Engine virtual machine (VM) instances, Google Kubernetes Engine (GKE) clusters, and the App Engine flexible environment. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/workflows.png
+filters: ['GCP', 'Cloud']
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-vpn.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['1Pm3OYbu1MRGoELc2qhxQ1']
+metrics_dashboards: ['4gdYz2iIWFeIL3WDDcYRm']
 metrics_alerts: []
 ---
 
 
 ## Overview
 
-Google Workflows is a service to orchestrate and automate Google Cloud and HTTP-based API services. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+Google Cloud VPN provides networking functionality to Compute Engine virtual machine (VM) instances, Google Kubernetes Engine (GKE) clusters, and the App Engine flexible environment. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
-To send your Prometheus-format Google Workflows metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
+To send your Prometheus-format Google Cloud VPN metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
+
+
+<!-- logzio-inject:install:grafana:dashboards ids=["4gdYz2iIWFeIL3WDDcYRm"] -->
 
 #### Configuring Telegraf to send your metrics data to Logz.io
 
@@ -68,7 +71,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the G
   project = "<<YOUR-PROJECT>>"
 
   metric_type_prefix_include = [
-    "workflows.googleapis.com",
+    "vpn.googleapis.com"
   ]
 
   interval = "1m"
@@ -92,7 +95,10 @@ The full list of data scraping and configuring options can be found [here](https
   
 ##### Check Logz.io for your metrics
 
-Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
+{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboards to enhance the observability of your metrics.
 
+<!-- logzio-inject:install:grafana:dashboards ids=["4gdYz2iIWFeIL3WDDcYRm"] -->
+
+{@include: ../_include/metric-shipping/generic-dashboard.html}
 
  

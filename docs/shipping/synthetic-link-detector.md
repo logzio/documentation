@@ -4,7 +4,7 @@ title: Synthetic link detector
 overview: Deploy this integration to collect data on broken links in a web page, and to get additional data about the links.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/link.png
 logs_dashboards: []
 logs_alerts: []

@@ -4,7 +4,7 @@ title: Java Custom Metrics via Micrometer
 overview: This sends Java Custom metrics to your Logz.io account.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/micrometer-java.png
 logs_dashboards: []
 logs_alerts: []

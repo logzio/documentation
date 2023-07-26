@@ -4,7 +4,7 @@ title: Ruby
 overview: Deploy this integration to enable automatic instrumentation of your Ruby application using OpenTelemetry.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/ruby.svg
 logs_dashboards: []
 logs_alerts: []

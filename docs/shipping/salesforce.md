@@ -4,7 +4,7 @@ title: Salesforce
 overview: Salesforce is a customer relationship management solution. The Account sObject is an abstraction of the account record and holds the account field information in memory as an object. This integration allows you to collect sObject data from Salesforce and send it to your Logz.io account.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/salesforce-commerce-cloud-logo.png
 logs_dashboards: []
 logs_alerts: []

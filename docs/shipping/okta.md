@@ -4,7 +4,7 @@ title: Okta
 overview: Okta is an enterprise-grade, identity management service, built for the cloud, but compatible with many on-premises applications.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/okta.png
 logs_dashboards: []
 logs_alerts: []

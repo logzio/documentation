@@ -4,7 +4,7 @@ title: Fluentd
 overview: Fluentd is a data collector, which unifies the data collection and consumption. Deploy this integration to ship logs from Docker containers on your host system to Logz.io using Fluentd running in a separate container. The host system refers to a physical or virtual machine that hosts your Docker containers. 
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/FluentD_Docker.png
 logs_dashboards: []
 logs_alerts: []

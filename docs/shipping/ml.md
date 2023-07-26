@@ -4,7 +4,7 @@ title: GCP AI Platform
 overview: Google AI Platform is a suite of services on Google Cloud specifically targeted at building, deploying, and managing machine learning models in the cloud. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/gcpai.png
 logs_dashboards: []
 logs_alerts: []

@@ -4,7 +4,7 @@ title: NestJS OpenTelemetry
 overview: Deploy this integration to enable automatic instrumentation of your NestJS application using OpenTelemetry. 
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/nest-logo.svg
 logs_dashboards: []
 logs_alerts: []

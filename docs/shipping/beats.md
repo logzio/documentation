@@ -4,7 +4,7 @@ title: Beats
 overview: This document describes the way to get logs from your system to Logz.io using any of the Beats shippers.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/beats.svg
 logs_dashboards: []
 logs_alerts: []

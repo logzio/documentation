@@ -4,7 +4,7 @@ title: Sophos
 overview: Sophos Endpoint is an endpoint protection product that combines antimalware, web and application control, device control and much more. This integration allows you to send logs from your Linux-based Sophos applications to your Logz.io SIEM account.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/sophos-shield.png
 logs_dashboards: []
 logs_alerts: []
