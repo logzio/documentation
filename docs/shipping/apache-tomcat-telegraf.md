@@ -2,9 +2,9 @@
 id: Apache-Tomcat
 title: Apache Tomcat
 overview: test
-product: ['logs', 'metrics']
+product: ['metrics']
 os: ['windows', 'linux']
-filters: ['apache', 'cloud']
+filters: ['web servers']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/tomcat-logo.png
 logs_dashboards: []
 logs_alerts: []

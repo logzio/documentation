@@ -2,9 +2,9 @@
 id: Apache-Aurora
 title: Apache Aurora
 overview: Collect Aurora metrics using Telegraf
-product: ['logs']
+product: ['metrics']
 os: ['windows', 'linux']
-filters: ['apache', 'cloud']
+filters: ['apache','containers','orchestration']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aurora-logo.png
 logs_dashboards: []
 logs_alerts: []

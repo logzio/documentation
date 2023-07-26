@@ -2,9 +2,9 @@
 id: Active-Directory
 title: Active Directory
 overview: Active Directory is a directory service developed by Microsoft for Windows domain networks. This integration allows you to send Active Directory logs to your Logz.io SIEM account.
-product: ['siem']
-os: ['windows', 'linux']
-filters: ['firewall']
+product: ['logs','siem']
+os: ['windows']
+filters: ['Identity Management']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/windows.svg
 logs_dashboards: []
 logs_alerts: []

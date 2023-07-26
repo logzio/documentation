@@ -1,9 +1,9 @@
 ---
 id: Aiven
 title: Aiven
-overview: test
+overview: 'Aiven is a cloud service provider that specializes in managed open-source database, messaging, and event streaming solutions'
 product: ['logs']
-os: ['windows', 'linux']
+os: []
 filters: ['cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
 logs_dashboards: []
