@@ -5,7 +5,7 @@ overview: VMware vSphere is VMware's cloud computing virtualization platform. Te
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/vsphere-logo.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

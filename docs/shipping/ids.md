@@ -5,7 +5,7 @@ overview: Google Cloud IDS delivers cloud-native, managed, network-based threat 
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/ids.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

@@ -5,7 +5,7 @@ overview: Google Cloud Armor is a network security service that provides defense
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/cloudarmor.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

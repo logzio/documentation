@@ -5,7 +5,7 @@ overview: If you want to ship logs from your code but don't have a library in pl
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/json.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

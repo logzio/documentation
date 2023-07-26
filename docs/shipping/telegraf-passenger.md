@@ -5,7 +5,7 @@ overview: Phusion Passenger is a free web server and application server with sup
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/phfusion-logo.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

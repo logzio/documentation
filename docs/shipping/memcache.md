@@ -5,7 +5,7 @@ overview: Google Memorystore for Memcached is a fully managed Memcached service 
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/memorystore.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

@@ -5,7 +5,7 @@ overview: Google Certificate Authority Service is a highly available, scalable G
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/certmanager.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

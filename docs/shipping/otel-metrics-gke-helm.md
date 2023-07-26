@@ -5,7 +5,7 @@ overview: logzio-k8s-telemetry allows you to ship metrics from your Kubernetes c
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/gcpkubernetes.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

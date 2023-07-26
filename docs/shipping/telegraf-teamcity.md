@@ -5,7 +5,7 @@ overview: TeamCity is a general-purpose CI/CD solution that allows the most flex
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/TeamCity-logo.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

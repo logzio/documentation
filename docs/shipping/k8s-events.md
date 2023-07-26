@@ -5,7 +5,7 @@ overview: This guide uses the kubernetes-event-exporter tool to ship kubernetes 
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/kubernetes.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

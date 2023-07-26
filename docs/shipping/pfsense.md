@@ -5,7 +5,7 @@ overview: pfSense is an open source firewall solution. This topic describes how 
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/pfsense-logo.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

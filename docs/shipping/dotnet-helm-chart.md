@@ -5,7 +5,7 @@ overview: Helm is a tool for managing packages of pre-configured Kubernetes reso
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/docker.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/dotnet.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

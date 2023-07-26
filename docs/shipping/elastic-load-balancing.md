@@ -5,7 +5,7 @@ overview: When you set Logz.io to fetch Elastic Load Balancing (ELB) logs, Logz.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-elb.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

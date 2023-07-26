@@ -5,7 +5,7 @@ overview: Google Cloud TPU is the custom-designed machine learning ASIC that pow
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/tpu.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
