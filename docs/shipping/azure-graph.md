@@ -5,7 +5,7 @@ overview: Microsoft Graph is a RESTful web API that enables you to access Micros
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/graph-api-logo.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

@@ -5,7 +5,7 @@ overview: Check Point provides hardware and software products for IT security, i
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/check-point.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

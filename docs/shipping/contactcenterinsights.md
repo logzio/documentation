@@ -5,7 +5,7 @@ overview: Google Contact Center AI Insights helps users detect and visualize pat
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['gcp', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/gcpai.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

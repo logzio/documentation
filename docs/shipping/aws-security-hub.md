@@ -5,7 +5,7 @@ overview: This integration ships events from AWS Security Hub to Logz.io. It wil
 product: ['logs']
 os: ['windows', 'linux']
 filters: ['aws', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aiven-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
