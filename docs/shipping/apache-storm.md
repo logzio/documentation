@@ -2,7 +2,7 @@
 id: Apache-Storm
 title: Apache Storm
 overview: 'This integration allows you to send logs from your Apache Storm server instances to your Logz.io account'
-product: ['logs]
+product: ['logs']
 os: ['linux']
 filters: ['compute']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/apache-storm.png
