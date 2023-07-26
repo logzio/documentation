@@ -4,7 +4,7 @@ title: GCP Firewall Insights
 overview: Google Firewall Insights is a service that provides data about how firewall rules are being used, exposes misconfigurations, and identifies rules that could be made more strict. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/gcpfirewall.png
 logs_dashboards: []
 logs_alerts: []

@@ -4,7 +4,7 @@ title: Nginx
 overview: Nginx is a web server that can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache. Deploy this integration to ship Nginx metrics.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/nginx.png
 logs_dashboards: []
 logs_alerts: []

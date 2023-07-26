@@ -4,7 +4,7 @@ title: Prometheus-OpenTelemetry
 overview: This project lets you configure the OpenTelemetry collector to send your collected Prometheus-format metrics to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/opentelemetry-icon-color.png
 logs_dashboards: []
 logs_alerts: []

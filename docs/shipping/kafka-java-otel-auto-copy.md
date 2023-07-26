@@ -4,7 +4,7 @@ title: Java traces with Kafka using OpenTelemetry
 overview: Deploy this integration to enable automatic instrumentation of your Java application with Kafka using OpenTelemetry.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/kafka.svg
 logs_dashboards: []
 logs_alerts: []

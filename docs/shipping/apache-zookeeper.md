@@ -1,10 +1,10 @@
 ---
-id: ZooKeeper
+id: Apache-ZooKeeper
 title: Apache ZooKeeper
 overview: Apache ZooKeeper is an open-source server for highly reliable distributed coordination of cloud applications. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/zookeeper-logo.png
 logs_dashboards: []
 logs_alerts: []

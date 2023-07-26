@@ -4,7 +4,7 @@ title: Jaeger
 overview: Deploy this integration to send traces from your Jaeger installation to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aeger.svg
 logs_dashboards: []
 logs_alerts: []

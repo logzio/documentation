@@ -4,7 +4,7 @@ title: Amazon RDS
 overview: This integration csends AWS RDS metrics to your Logz.io account.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-rds.svg
 logs_dashboards: []
 logs_alerts: []

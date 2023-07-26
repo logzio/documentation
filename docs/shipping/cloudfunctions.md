@@ -4,7 +4,7 @@ title: GCP Cloud Functions
 overview: Google Cloud Functions is a serverless execution environment for building and connecting cloud services. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/cloudfunctions.png
 logs_dashboards: []
 logs_alerts: []

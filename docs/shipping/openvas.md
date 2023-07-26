@@ -4,7 +4,7 @@ title: OpenVAS
 overview: These instructions show you how to configure Filebeat to send OpenVAS reports to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/openvas.png
 logs_dashboards: []
 logs_alerts: []

@@ -4,7 +4,7 @@ title: GCP Cloud Internet of Things (IoT) Core
 overview: Google Cloud Internet of Things (IoT) Core is a fully managed service for securely connecting and managing IoT devices. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/googleiot.png
 logs_dashboards: []
 logs_alerts: []

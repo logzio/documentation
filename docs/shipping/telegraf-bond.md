@@ -4,7 +4,7 @@ title: Bond
 overview: This integration allows you to collects metrics from all bond interfaces in your network. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/bond-logo.png
 logs_dashboards: []
 logs_alerts: []

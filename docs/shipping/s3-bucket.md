@@ -4,7 +4,7 @@ title: AWS S3
 overview: Some AWS services can be configured to ship their logs to an S3 bucket, where Logz.io can fetch those logs directly.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-s3.svg
 logs_dashboards: []
 logs_alerts: []

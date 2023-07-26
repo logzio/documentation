@@ -4,7 +4,7 @@ title: Fluentd
 overview: Fluentd is a data collector, which unifies the data collection and consumption. This integration allows you to use Fluentd to send logs from your Windows system to your Logz.io account.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/fluentd.svg
 logs_dashboards: []
 logs_alerts: []

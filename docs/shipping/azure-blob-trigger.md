@@ -4,7 +4,7 @@ title: Azure Blog Trigger
 overview: Azure Blob Storage is Microsoft's object storage solution for the cloud. Deploy this integration to forward logs from your Azure Blob Storage account to Logz.io using an automated deployment process via the trigger function. Each new log in the container path inside the storage account (including sub directories), will trigger the Logz.io function that will ship the file content to Logz.io. 
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/azure-blob.svg
 logs_dashboards: []
 logs_alerts: []

@@ -4,7 +4,7 @@ title: IPMI
 overview: IPMI is a standardized computer system interface used by system administrators to manage a computer system and monitor its operation. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/ipmi.png
 logs_dashboards: []
 logs_alerts: []

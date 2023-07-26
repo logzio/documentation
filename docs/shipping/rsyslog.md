@@ -4,7 +4,7 @@ title: Rsyslog
 overview: Most Unix systems these days come with pre-installed rsyslog, which is a great lightweight service to consolidate logs.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/linux.svg
 logs_dashboards: []
 logs_alerts: []

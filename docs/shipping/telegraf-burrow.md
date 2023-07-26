@@ -4,7 +4,7 @@ title: Burrow
 overview: Burrow is a monitoring application for Apache Kafka that monitors committed offsets for all consumers and calculates the status of those consumers on demand. It automatically monitors all consumers and their consumed partitions.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/kafka.svg
 logs_dashboards: []
 logs_alerts: []

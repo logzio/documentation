@@ -4,7 +4,7 @@ title: Lambda extensions
 overview: The Logz.io Lambda extension for logs, uses the AWS Extensions API and AWS Logs API and sends your Lambda Function Logs directly to your Logz.io account.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/AWS-Lambda.svg
 logs_dashboards: []
 logs_alerts: []

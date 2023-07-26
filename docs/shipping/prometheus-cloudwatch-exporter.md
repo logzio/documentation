@@ -4,7 +4,7 @@ title: GCP metrics over Premetheus
 overview: With this integration, you can collect Cloudwatch metrics and forward them to Logz.io using the OpenTelemetry collector. We simplify the data export and collection of your metrics. You tell us the desired namespaces and regions that you want to send your data from and we fetch the most relevant metrics to display in the Logz.io pre-built infrastructure monitoring dashboards.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-cloudwatch.svg
 logs_dashboards: []
 logs_alerts: []

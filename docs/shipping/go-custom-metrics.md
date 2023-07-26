@@ -4,7 +4,7 @@ title: GO
 overview: Deploy this integration to send custom metrics to Logz.io from your GO application. 
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/go.svg
 logs_dashboards: []
 logs_alerts: []

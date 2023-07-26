@@ -4,7 +4,7 @@ title: Logzio MSGraph
 overview: You can ship logs available from the Microsoft Graph APIs with Logzio-MSGraph.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/azure.svg
 logs_dashboards: []
 logs_alerts: []

@@ -4,7 +4,7 @@ title: Azure NSG
 overview: Enable an Azure function to forward NSG logs from your Azure Blob Storage account to your Logz.io account.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/nsg-logo.png
 logs_dashboards: []
 logs_alerts: []

@@ -3,8 +3,8 @@ id: Winlogbeat
 title: Winlogbeat
 overview: Winlogbeat metrics.
 product: ['metrics']
-os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+os: ['windows']
+filters: ['Monitoring']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/windows.svg
 logs_dashboards: []
 logs_alerts: []

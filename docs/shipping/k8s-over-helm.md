@@ -4,7 +4,7 @@ title: Kubernetes over Helm
 overview: Logzio-k8s-logs allows you to ship logs from your Kubernetes cluster to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/k8s-helm.svg
 logs_dashboards: []
 logs_alerts: []

@@ -4,7 +4,7 @@ title: Fluentd Helm
 overview: Helm is a tool for managing packages of pre-configured Kubernetes resources using Charts. Logzio-fluentd allows you to ship logs from your Kubernetes cluster to Logz.io, using Fluentd. Fluentd is flexible enough and has the proper plugins to distribute logs to different third parties such as Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/kubernetes.svg
 logs_dashboards: []
 logs_alerts: []

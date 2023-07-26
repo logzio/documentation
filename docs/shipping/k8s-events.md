@@ -4,7 +4,7 @@ title: Kubernetes events
 overview: This guide uses the kubernetes-event-exporter tool to ship kubernetes events to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/kubernetes.svg
 logs_dashboards: []
 logs_alerts: []

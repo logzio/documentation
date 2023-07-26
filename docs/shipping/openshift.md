@@ -4,7 +4,7 @@ title: OpenShift
 overview: OpenShift is a family of containerization software products developed by Red Hat. Deploy this integration to ship logs from your OpenShift cluster to Logz.io. Deploy this integration to ship logs from your OpenShift cluster to Logz.io. This integration will deploy the default daemonset, which sends only container logs while ignoring all containers with "openshift" namespace.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/openshift.png
 logs_dashboards: []
 logs_alerts: []

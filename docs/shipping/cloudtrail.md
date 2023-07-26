@@ -4,7 +4,7 @@ title: AWS CloudTrail
 overview: This integration sends CloudTrail logs.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-cloudtrail.svg
 logs_dashboards: []
 logs_alerts: []

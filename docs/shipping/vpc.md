@@ -4,7 +4,7 @@ title: VPC
 overview: VPC Flow Logs is a feature that enables you to capture information about the IP traffic going to and from network interfaces in your VPC. This integration allows you to send these logs to your Logz.io account. 
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/vpc.png
 logs_dashboards: []
 logs_alerts: []

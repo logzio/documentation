@@ -4,7 +4,7 @@ title: ModSecurity
 overview: ModSecurity, sometimes called Modsec, is an open-source web application firewall. This integration allows you to send ModSecurity logs to your Logz.io SIEM account.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['gcp', 'cloud']
+filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/modsec.png
 logs_dashboards: []
 logs_alerts: []
