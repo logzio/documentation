@@ -5,7 +5,7 @@ overview: Apache Mesos is an open-source project to manage computer clusters. Te
 product: ['logs']
 os: ['windows', 'linux']
 filters: ['apache', 'cloud']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/solr-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/mesos-logo.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
