@@ -1,10 +1,10 @@
 ---
-id: NSQ
-title: NSQ
+id: NSQ Consumer
+title: NSQ Consumer
 overview: NSQ is a realtime distributed messaging platform designed to operate at scale, handling billions of messages per day. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: []
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/nsq.png
 logs_dashboards: []
 logs_alerts: []

@@ -1,10 +1,10 @@
 ---
-id: Logzio-MSGraph
-title: Logzio MSGraph
-overview: You can ship logs available from Azure Security Center via the Microsoft Graph APIs with Logzio-MSGraph. Logzio-MSGraph is a self-hosted application.
-product: ['metrics']
+id: zure-active-Directory
+title: Azure Active Directory
+overview: You can ship logs available from the Microsoft Graph APIs with Logzio-MSGraph.
+product: ['siem']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: []
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/azure.svg
 logs_dashboards: []
 logs_alerts: []
@@ -14,11 +14,13 @@ metrics_alerts: []
 ---
 
 
-You can ship logs available from Azure Security Center via the Microsoft Graph APIs with Logzio-MSGraph. Logzio-MSGraph is a self-hosted application.
+You can ship logs available from the Microsoft Graph APIs with Logzio-MSGraph.
+Logzio-MSGraph is a self-hosted application.
 
-Logzio-MSGraph currently supports the following Azure Security Center APIs:
+Logzio-MSGraph supports these APIs:
 
-* Alerts
+* Azure Active Directory audit logs
+* Azure Active Directory sign-in logs
 
 There are many other APIs available through Microsoft Graph.
 If you don't see your API in the list,
@@ -62,10 +64,10 @@ and click **Add a permission**.
 
 Select **Microsoft Graph > Application permissions**.
 
-Select this item:
+Select these items:
 
-* **SecurityEvents.Read.All**
-
+* **AuditLog.Read.All**
+* **Directory.Read.All**
 
 Click **Add permissions**.
 
@@ -84,24 +86,16 @@ For a complete list of options, see the configuration parameters below.👇
 
 ```yaml
 senderParams:
-  accountToken: "<<SHIPPING-TOKEN>>"
+  accountToken: "<<LOG-SHIPPING-TOKEN>>"
   listenerUrl: "<<LISTENER-HOST>>"
 
 azureADClient:
   pullIntervalSeconds: 300
   tenantId: "<<AD_TENANT_ID>>"
   clientId: "<<APP_CLIENT_ID>>"
-  clientSecret: "<<APP_CLIENT_SECRET>>"
-
-targetApi:
-  ASCApis:
-    - <<supportedApi1>>
+  clientSecret: "<<APP_CLIENT_SECRET_VALUE>>"
 
 logLevel: INFO
-
-additionalFields:
-  <<KEY>>: "<<VALUE>>"
-
 ```
 
 ###### Parameters
@@ -110,14 +104,14 @@ additionalFields:
 |---|---|---|
 | senderParams.accountToken | Your Logz.io account token. {@include: ../_include/log-shipping/log-shipping-token.html} | Required |
 | senderParams.listenerUrl  | Listener URL.    {@include: ../_include/log-shipping/listener-var.html}  | `listener.logz.io` |
-| senderParams.fromDisk  | If `true`, logs are stored on disk until they're shipped. (See **If from-disk=true** below). If `false`, logs persist in memory until they're shipped. (See **If from-disk=false** below. | Optional. Set to `true` by default. |
-| senderParams.senderDrainIntervals | How often the sender should drain the queue, in seconds. | Optional, set to `30` by default. |
+| senderParams.fromDisk  | If `true`, logs are stored on disk until they're shipped. (See **If from-disk=true** below). If `false`, logs persist in memory until they're shipped. (See **If from-disk=false** below. | `true` |
+| senderParams.senderDrainIntervals | How often the sender should drain the queue, in seconds. | `30` |
 | azureADClient.tenantId  | Azure Active Directory tenant ID. You can find this in the _Overview_ section of the app you registered in step 1. | Required |
 | azureADClient.clientId  | Application client ID.    You can find this in the _Overview_ section of the app you registered in step 1. | Required |
 | azureADClient.clientSecret | Value of the Application Client Secret you created in step 2. | Required |
 | azureADClient.pullIntervalSeconds | Time interval, in seconds, to pull the logs with the Graph API. | `300` |
 | logLevel | Log level for Logizo-MSGraph to omit. Can be one of: `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`. | `INFO` |
-
+| targetApi	 | Specifies types of api lists to run, each API provider has its own list. Must contain at least 1 list with 1 api in the list. Current supported providers: ADApis, ASCApis. | Required |
 
 ###### If fromDisk=true
 
