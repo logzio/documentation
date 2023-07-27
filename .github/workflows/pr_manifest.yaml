@@ -1,0 +1,98 @@
+name: validate manifest
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+    paths:
+      - 'docs/shipping/**'
+jobs:
+  validate_current_pr:
+    name: validate_pr
+    runs-on: ubuntu-latest
+    env:
+      MANIFEST_PATH: '_manifest/validation_manifest.json'
+    steps:
+      - name: Checkout PR
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - run: python3 _manifest/manifest_generator.py
+      - run: |
+          diff_output=$(python3 _manifest/compare_manifests.py)
+          # Get the commit SHA from the environment variable
+          commit_sha=$GITHUB_SHA
+
+          # Use the GitHub REST API to fetch commit details
+          commit_message=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+              "https://api.github.com/repos/${GITHUB_REPOSITORY}/commits/${commit_sha}" | \
+              jq -r '.commit.message')
+          echo "$commit_message"
+          # Possible outputs: 'nodiff', 'isdiff'
+          if [ "$diff_output" == "isdiff" ]; then
+            if [ "$commit_message" != "auto generated manifest" ]; then
+              cp ${{env.MANIFEST_PATH}} static/manifest.json
+            fi
+          else
+            echo "manifest is ok"
+            exit 0
+          fi
+      - id: auto-commit-manifest
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          file_pattern: './static/manifest.json'
+          commit_message: 'auto generated manifest'
+          commit_options: "--no-gpg-sign"
+          push_options: '--force'
+      - name: Manifest update success
+        if: ${{ success() }}
+        run: |
+          curl --request POST \
+          --url https://api.github.com/repos/${{ github.repository }}/statuses/${{ github.sha }} \
+          --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+          --header 'content-type: application/json' \
+          --data '{
+            "context": "Manifest update",
+            "state": "success",
+            "description": "Manifest updated succesfully",
+            "target_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            }'
+          
+          curl --request POST \
+          --url https://api.github.com/repos/${{ github.repository }}/statuses/${{ steps.auto-commit-manifest.outputs.commit_hash }} \
+          --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+          --header 'content-type: application/json' \
+          --data '{
+            "context": "Manifest update",
+            "state": "success",
+            "description": "Manifest updated successfully",
+            "target_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            }'
+      - name: Manifest update failure
+        if: ${{ failure() }}
+        run: |
+          curl --request POST \
+          --url https://api.github.com/repos/${{ github.repository }}/statuses/${{ github.sha }} \
+          --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+          --header 'content-type: application/json' \
+          --data '{
+              "context": "Manifest update",
+              "state": "failure",
+              "description": "Manifest update failed",
+              "target_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            }'
+          
+          curl --request POST \
+          --url https://api.github.com/repos/${{ github.repository }}/statuses/${{ steps.auto-commit-manifest.outputs.commit_hash }} \
+          --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+          --header 'content-type: application/json' \
+          --data '{
+              "context": "Manifest update",
+              "state": "failure",
+              "description": "Manifest update failed",
+              "target_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            }'
