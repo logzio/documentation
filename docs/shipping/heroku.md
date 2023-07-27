@@ -2,9 +2,9 @@
 id: Heroku
 title: Heroku
 overview: Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud. This integration allows you to send logs from your Heroku applications to your Logz.io account. 
-product: ['metrics']
-os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+product: ['logs','metrics']
+os: []
+filters: ['Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/heroku.svg
 logs_dashboards: []
 logs_alerts: []
@@ -14,7 +14,10 @@ metrics_alerts: []
 ---
 
 
-Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud. This integration allows you to send logs from your Heroku applications to your Logz.io account. 
+Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud. This integration allows you to send logs and metrics from your Heroku applications to your Logz.io account. 
+
+## Logs
+
 #### Set up a Heroku log drain
 
 **Before you begin, you'll need**:
@@ -60,4 +63,64 @@ Give your logs some time to get from your system to ours, and then open [Open Se
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
+## Metrics
+
+#### Configuring Telegraf to send your Heroku app metrics to Logz.io
+
+**Before you begin, you'll need**:
+
+* [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
+
  
+
+:::note
+All commands in these instructions should be run from your Heroku app directory.
+:::
+ 
+
+##### Download the Telegraf configuration file
+
+``` shell
+
+wget -O telegraf.conf https://raw.githubusercontent.com/logzio/heroku-buildpack-telegraf/master/telegraf.conf
+
+```
+
+##### Enable environment variable
+
+``` shell
+
+heroku labs:enable runtime-dyno-metadata -a <<HEROKU_APP_NAME>>
+
+heroku config:set LOGZIO_LISTENER=https://<<LISTENER-HOST>>:8053   
+
+heroku config:set LOGZIO_TOKEN=<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
+
+git add .
+
+git commit -m "Telegraf config" 
+
+git push heroku main
+
+```
+
+{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+* Replace `<<HEROKU_APP_NAME>>` with the name of your Heroku app
+
+##### Add the buildpack to the list of your Heroku buildpacks
+
+``` shell
+
+heroku buildpacks:add --index 1 https://github.com/logzio/heroku-buildpack-telegraf.git
+
+git commit --allow-empty -m "Rebuild slug"
+
+git push heroku main
+
+```
+
+##### Check Logz.io for your metrics
+
+Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
+
+

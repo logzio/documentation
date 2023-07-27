@@ -1,10 +1,10 @@
 ---
-id: Java-Custom-Metrics
-title: Java Custom Metrics 
-overview: This sends Java Custom metrics to your Logz.io account.
-product: ['metrics']
+id: Java
+title: Java 
+overview: Send logs, metrics and traces from your Java code
+product: ['logs','metrics','traces']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['Java']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/java.svg
 logs_dashboards: []
 logs_alerts: []
@@ -14,7 +14,13 @@ metrics_alerts: []
 ---
 
 
- 
+:::tip
+
+If your code is running inside kubernetes the best practice will be to use our kubernetes integration to collect the different telemetry types
+
+:::
+
+## Logs 
 
 #### Configure Log4j 2
 
@@ -466,13 +472,300 @@ If the log appender does not ship logs, add `<inMemoryQueue>true</inMemoryQueue>
 </configuration>
 ```
   
-# Traces
+## Metrics
+### Usage
+
+#### Via maven
+
+```xml
+<dependency>
+    <groupId>io.logz.micrometer</groupId>
+    <artifactId>micrometer-registry-logzio</artifactId>
+    <version>1.0.2</version>
+</dependency>
+```
+
+#### Via gradle groovy
+
+```groovy
+implementation 'io.logz.micrometer:micrometer-registry-logzio:1.0.2'
+```
+
+#### Via gradle Kotlin
+
+```kotlin
+implementation("io.logz.micrometer:micrometer-registry-logzio:1.0.2")
+```
+
+#### Import in your package
+
+```java
+import io.micrometer.logzio.LogzioConfig;
+import io.micrometer.logzio.LogzioMeterRegistry;
+```
+
+## Quick start
+
+Replace the placeholders in the code (indicated by the double angle brackets `<< >>`) to match your specifics.
+
+| Environment variable | Description |Required/Default|
+|---|---|---|
+|`<<LISTENER-HOST>>`|  The full Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic (example: https://listener.logz.io:8053). For more details, see the [regions page](https://docs.logz.io/user-guide/accounts/account-region.html) in logz.io docs | Required|
+|`<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>`| The Logz.io Prometheus Metrics account token. Find it under **Settings > Manage accounts**. [Look up your Metrics account token.](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/)  | Required|
+|interval | The interval in seconds, to push metrics to Logz.io **Note that your program will need to run for at least one interval for the metrics to be sent**  | Required|
+
+#### In your package
+
+```java
+package your_package;
+import io.micrometer.core.instrument.*;
+import io.micrometer.core.instrument.Timer;
+import io.micrometer.logzio.LogzioConfig;
+import io.micrometer.logzio.LogzioMeterRegistry;
+
+class MicrometerLogzio {
+
+   public static void main(String[] args) {
+       // initilize config
+      LogzioConfig logzioConfig = new LogzioConfig() {
+         @Override
+         public String get(String key) {
+            return null;
+         }
+         @Override
+         public String uri() {
+           return "https://<<LISTENER-HOST>>";
+           // example:
+           // return "https://listener.logz.io:8053"; 
+         }
+         
+         @Override
+         public String token() {
+            return "<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>";
+         }
+
+         @Override
+         public Duration step() {
+           return Duration.ofSeconds(<<interval>>);
+           // example:
+           // return Duration.ofSeconds(30);                    
+         }
+         @Override
+         public Hashtable<String, String> includeLabels() {
+             return new Hashtable<>();
+         }
+         @Override
+         public Hashtable<String, String> excludeLabels() {
+             return new Hashtable<>();
+      };
+      // Initialize registry
+       LogzioMeterRegistry registry = new LogzioMeterRegistry(logzioConfig, Clock.SYSTEM);
+       // Define tags (labels)
+       ArrayList<Tag> tags = new ArrayList<>();
+       tags.add(Tag.of("env","dev-micrometer"));
+
+      // Create counter
+      Counter counter = Counter
+              .builder("counter_example")
+              .description("a description of what this counter does") // optional
+              .tags(tags) // optional
+              .register(registry);
+      // Increment your counter
+      counter.increment(); 
+      counter.increment(2); 
+   }
+}
+```
+
+## Common tags
+
+You can attach common tags to your registry that will be added to all metrics reported, for example:
+
+```java
+// Initialize registry
+LogzioMeterRegistry registry = new LogzioMeterRegistry(logzioConfig, Clock.SYSTEM);
+// Define tags (labels)
+registry.config().commonTags("key", "value");
+```
+
+## Filter labels
+
+You can the `includeLabels` or `excludeLabels` functions to filter your metrics by labels.
+
+#### Include
+
+Take for example this following usage, In your `LogzioConfig()` constructor:
+
+```java
+@Override
+public Hashtable<String, String> includeLabels() {
+    Hashtable<String, String> includeLabels = new Hashtable<>();
+    includeLabels.put("__name__", "my_counter_abc_total|my_second_counter_abc_total");
+    includeLabels.put("k1", "v1");
+    return includeLabels;
+}
+```
+The registry will keep only metrics with the label `__name__` matching the regex `my_counter_abc_total|my_second_counter_abc_total`, and with the label `k1` matching the regex `v1`.
+
+#### Exclude
+
+In your `LogzioConfig()` constructor
+
+```java
+@Override
+public Hashtable<String, String> excludeLabels() {
+    Hashtable<String, String> excludeLabels = new Hashtable<>();
+    excludeLabels.put("__name__", "my_counter_abc_total|my_second_counter_abc_total");
+    excludeLabels.put("k1", "v1");
+    return excludeLabels;
+}
+```
+
+The registry will drop all metrics with the label `__name__` matching the regex `my_counter_abc_total|my_second_counter_abc_total`, and with the label `k1` matching the regex `v1`.
 
 
+## Meter binders
+
+Micrometer provides a set of binders for monitoring JVM metrics out of the box, for example:
+
+```java
+// Initialize registry
+LogzioMeterRegistry registry = new LogzioMeterRegistry(logzioConfig, Clock.SYSTEM);
+
+// Gauges buffer and memory pool utilization
+new JvmMemoryMetrics().bindTo(registry);
+// Gauges max and live data size, promotion and allocation rates, and times GC pauses
+new JvmGcMetrics().bindTo(registry);
+// Gauges current CPU total and load average.
+new ProcessorMetrics().bindTo(registry);
+// Gauges thread peak, number of daemon threads, and live threads
+new JvmThreadMetrics().bindTo(registry);
+// Gauges loaded and unloaded classes
+new ClassLoaderMetrics().bindTo(registry);
+
+// File descriptor metrics gathered by the JVM
+new FileDescriptorMetrics(tags).bindTo(registry);
+// Gauges The uptime and start time of the Java virtual machine
+new UptimeMetrics(tags).bindTo(registry);
+
+// Counter of logging events
+new LogbackMetrics().bindTo(registry);
+new Log4j2Metrics().bindTo(registry);
+```
+
+For more information about other binders check out [Micrometer-core](https://github.com/micrometer-metrics/micrometer/tree/main/micrometer-core/src/main/java/io/micrometer/core/instrument/binder) Github repo.
+
+## Types of metrics 
+
+Refer to the Micrometer [documentation](https://micrometer.io/docs/concepts) for more details.
+
+
+| Name | Behavior | 
+| ---- | ---------- | 
+| Counter           | Metric value can only go up or be reset to 0, calculated per `counter.increment(value); ` call. |
+| Gauge             | Metric value can arbitrarily increment or decrement, values can set automaticaly by tracking `Collection` size or set manually by `gauge.set(value)`  | 
+| DistributionSummary | Metric values captured by the `summary.record(value)` function, the output is a distribution of `count`,`sum` and `max` for the recorded values during the push interval. |
+| Timer       | Mesures timing, metric values can be recorded by `timer.record()` call. |
+
+### [Counter](https://micrometer.io/docs/concepts#_counters)
+
+```java
+Counter counter = Counter
+        .builder("counter_example")
+        .description("a description of what this counter does") // optional
+        .tags(tags) // optional
+        .register(registry);
+// Increment your counter
+counter.increment(); 
+counter.increment(2); 
+// The following metric will be created and sent to Logz.io: counter_example_total{env="dev"} 3
+```
+
+### [Gauge](https://micrometer.io/docs/concepts#_gauges)
+
+```java
+// Create Gauge
+List<String> cache = new ArrayList<>(4);
+// Track list size
+Gauge gauge = Gauge
+        .builder("cache_size_gauge_example", cache, List::size)
+        .tags(tags)
+        .register(registry);
+cache.add("1");
+// The following metric will be created and sent to Logz.io: cache_size_gauge_example{env="dev"} 1
+        
+// Track map size
+Map<String, Integer> map_gauge = registry.gaugeMapSize("map_gauge_example", tags, new HashMap<>());
+map_gauge.put("key",1);
+// The following metric will be created and sent to Logz.io: map_gauge_example{env="dev"} 1
+        
+// set value manually
+AtomicInteger manual_gauge = registry.gauge("manual_gauge_example", new AtomicInteger(0));
+manual_gauge.set(83);
+// The following metric will be created and sent to Logz.io:: manual_gauge_example{env="dev"} 83
+```
+
+### [DistributionSummary](https://micrometer.io/docs/concepts#_distribution_summaries)
+
+```java
+// Create DistributionSummary
+DistributionSummary summary = DistributionSummary
+        .builder("summary_example")
+        .description("a description of what this summary does") // optional
+        .tags(tags) // optional
+        .register(registry);
+// Record values to distributionSummary
+summary.record(10);
+summary.record(20);
+summary.record(30);
+// // The following metrics will be created and sent to Logz.io: 
+// summary_example_count{env="dev"} 3
+// summary_example_max{env="dev"} 30
+// summary_example_sum{env="dev"} 60
+```
+
+### [Timer](https://micrometer.io/docs/concepts#_timers)
+
+```java
+// Create Timer
+Timer timer = Timer
+        .builder("timer_example")
+        .description("a description of what this timer does") // optional
+        .tags(tags) // optional
+        .register(registry);
+// You can set a value manually
+timer.record(1500,TimeUnit.MILLISECONDS);
+// You can record the timing of a function
+timer.record(()-> {
+    try {
+        Thread.sleep(1500);
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+});
+// The following metrics will be created and sent to Logz.io: 
+// timer_example_duration_seconds_count{env="dev"} 2
+// timer_example_duration_seconds_max{env="dev"} 1501
+// timer_example_duration_seconds_sum{env="dev"} 3000
+```
+
+
+
+##### Run your application
+
+Run your application to start sending metrics to Logz.io.
+
+
+##### Check Logz.io for your metrics
+
+Give your metrics some time to get from your system to ours, and then open [Metrics dashboard](https://app.logz.io/#/dashboard/metrics/discover?).
+
+
+## Traces
 
 Deploy this integration to enable automatic instrumentation of your Java application using OpenTelemetry.
 
-## Architecture overview
+### Architecture overview
 
 This integration includes:
 
@@ -482,7 +775,7 @@ This integration includes:
 
 On deployment, the Java agent automatically captures spans from your application and forwards them to the collector, which exports the data to your Logz.io account.
 
-## Setup auto-instrumentation for your locally hosted Java application and send traces to Logz.io
+### Setup auto-instrumentation for your locally hosted Java application and send traces to Logz.io
 
 **Before you begin, you'll need**:
 
@@ -546,7 +839,7 @@ java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
 Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
 
 
-## Controlling the number of spans
+### Controlling the number of spans
 
 To limit the number of outgoing spans, you can use the sampling option in the Java agent.
 
@@ -566,267 +859,3 @@ Supported values for `otel.traces.sampler` are
 - "parentbased_always_off": ParentBased(root=AlwaysOffSampler)
 - "parentbased_traceidratio": ParentBased(root=TraceIdRatioBased). `otel.traces.sampler.arg` sets the ratio.
 
-
-
-
-## Setup auto-instrumentation for your Java application using Docker and send traces to Logz.io
-
-This integration enables you to auto-instrument your Java application and run a containerized OpenTelemetry collector to send your traces to Logz.io. If your application also runs in a Docker container, make sure that both the application and collector containers are on the same network.
-
-**Before you begin, you'll need**:
-
-* A Java application without instrumentation
-* An active account with Logz.io
-* Port `4317` available on your host system
-* A name defined for your tracing service. You will need it to identify the traces in Logz.io.
-
-
-### 1. Download Java agent
-
-Download the latest version of the [OpenTelemetry Java agent](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar) to the host of your Java application.
-
-
-{@include: ./tracing-shipping/docker.md}
-
-{@include: ./tracing-shipping/replace-tracing-token.html}
-
-
-
-### 2. Attach the agent to the collector and run it
-
-{@include: ./tracing-shipping/collector-run-note.md}
-
-
-Run the following command from the directory of your Java application:
-
-```shell
-java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
-     -Dotel.traces.exporter=otlp \
-     -Dotel.metrics.exporter=none \
-     -Dotel.resource.attributes=service.name=<YOUR-SERVICE-NAME> \
-     -Dotel.exporter.otlp.endpoint=http://localhost:4317 \
-     -jar target/*.jar
-```
-
-* Replace `<path/to>` with the path to the directory where you downloaded the agent.
-* Replace `<YOUR-SERVICE-NAME>` with the name of your tracing service defined earlier.
-
-
-### 3. Check Logz.io for your traces
-
-Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
-
-
-## Controlling the number of spans
-
-To limit the number of outgoing spans, you can use the sampling option in the Java agent.
-
-The sampler configures whether spans will be recorded for any call to `SpanBuilder.startSpan`.
-
-| System property                 | Environment variable            | Description                                                  |
-|---------------------------------|---------------------------------|--------------------------------------------------------------|
-| otel.traces.sampler              | OTEL_TRACES_SAMPLER              | The sampler to use for tracing. Defaults to `parentbased_always_on` |
-| otel.traces.sampler.arg          | OTEL_TRACES_SAMPLER_ARG          | An argument to the configured tracer if supported, for example a ratio. |
-
-Supported values for `otel.traces.sampler` are
-
-- "always_on": AlwaysOnSampler
-- "always_off": AlwaysOffSampler
-- "traceidratio": TraceIdRatioBased. `otel.traces.sampler.arg` sets the ratio.
-- "parentbased_always_on": ParentBased(root=AlwaysOnSampler)
-- "parentbased_always_off": ParentBased(root=AlwaysOffSampler)
-- "parentbased_traceidratio": ParentBased(root=TraceIdRatioBased). `otel.traces.sampler.arg` sets the ratio.
-
-
-
-
-## Kubernetes overview
-
-You can use a Helm chart to ship Traces to Logz.io via the OpenTelemetry collector. The Helm tool is used to manage packages of pre-configured Kubernetes resources that use charts.
-
-**logzio-k8s-telemetry** allows you to ship traces from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
-
-<!-- info-box-start:info -->
-:::note
-This chart is a fork of the [opentelemtry-collector](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-collector) Helm chart. The main repository for Logz.io helm charts are [logzio-helm](https://github.com/logzio/logzio-helm).
-:::
-<!-- info-box-end -->
-
-<!-- info-box-start:info -->
-:::caution 
-This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
-:::
-<!-- info-box-end -->
-
-## Standard configuration
-
-### 1. Deploy the Helm chart
- 
-Add `logzio-helm` repo as follows:
- 
-```shell
-helm repo add logzio-helm https://logzio.github.io/logzio-helm
-helm repo update
-```
-
-### 2. Run the Helm deployment code
-
-```
-helm install  \
---set config.exporters.logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
---set config.exporters.logzio.account_token=<<TRACING-SHIPPING-TOKEN>> \
-logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
-```
-
-{@include: ./tracing-shipping/replace-tracing-token.html}
-
-`<<LOGZIO_ACCOUNT_REGION_CODE>>` - (Optional): Your logz.io account region code. Defaults to "us". Required only if your logz.io region is [different than US East](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
-
-
-### 3. Define the logzio-k8s-telemetry dns name
-
-In most cases, the dns name will be `logzio-k8s-telemetry.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
-  
-If you are not sure what your cluster domain name is, you can run the following command to look it up: 
-  
-```shell
-kubectl run -it --image=k8s.gcr.io/e2e-test-images/jessie-dnsutils:1.3 --restart=Never shell -- \
-sh -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.default//"'
-```
-  
-It will deploy a small pod that extracts your cluster domain name from your Kubernetes environment. You can remove this pod after it has returned the cluster domain name.
-
-### 4. Download Java agent
-
-Download the latest version of the [OpenTelemetry Java agent](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar) to the host of your Java application.
-
-### 5. Attach the agent to your java application 
-
-Add the following command to your Java application Dockerfile or equivalent:
-
-```shell
-java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
-     -Dotel.traces.exporter=otlp \
-     -Dotel.metrics.exporter=none \
-     -Dotel.resource.attributes=service.name=<<YOUR-SERVICE-NAME>> \
-     -Dotel.exporter.otlp.endpoint=http://<<logzio-k8s-telemetry-service-dns>>:4317 \
-     -jar target/*.jar
-```
-
-* Replace `<<path/to>>` with the path to the directory where you downloaded the agent.
-* Replace `<<YOUR-SERVICE-NAME>>` with a name for your service under which it will appear in Logz.io Jaeger UI.
-* Replace `<<logzio-k8s-telemetry-service-dns>>` with the OpenTelemetry collector service dns obtained previously (service IP is also allowed here).
-
-### 6. Check Logz.io for your traces
-
-Give your traces some time to get from your system to ours, then open [Logz.io](https://app.logz.io/).
-
-
-
-##  Customizing Helm chart parameters
-
-### Configure customization options
-
-You can use the following options to update the Helm chart parameters: 
-
-* Specify parameters using the `--set key=value[,key=value]` argument to `helm install`.
-
-* Edit the `values.yaml`.
-
-* Overide default values with your own `my_values.yaml` and apply it in the `helm install` command. 
-
-If required, you can add the following optional parameters as environment variables:
-  
-| Parameter | Description | 
-|---|---|
-| secrets.SamplingLatency | Threshold for the spand latency - all traces slower than the threshold value will be filtered in. Default 500. | 
-| secrets.SamplingProbability | Sampling percentage for the probabilistic policy. Default 10. | 
-
-### Example
-
-You can run the logzio-k8s-telemetry chart with your custom configuration file that takes precedence over the `values.yaml` of the chart.
-
-For example:
-
-<!-- info-box-start:info -->
-:::note
-The collector will sample **ALL traces** where is some span with error with this example configuration. 
-:::
-<!-- info-box-end -->
-
-```yaml
-baseCollectorConfig:
-  processors:
-    tail_sampling:
-      policies:
-        [
-          {
-            name: error-in-policy,
-            type: status_code,
-            status_code: {status_codes: [ERROR]}
-          },
-          {
-            name: slow-traces-policy,
-            type: latency,
-            latency: {threshold_ms: 400}
-          },
-          {
-            name: health-traces,
-            type: and,
-            and: {
-              and_sub_policy:
-              [
-                {
-                  name: ping-operation,
-                  type: string_attribute,
-                  string_attribute: { key: http.url, values: [ /health ] }
-                },
-                {
-                  name: main-service,
-                  type: string_attribute,
-                  string_attribute: { key: service.name, values: [ main-service ] }
-                },
-                {
-                  name: probability-policy-1,
-                  type: probabilistic,
-                  probabilistic: {sampling_percentage: 1}
-                }
-              ]
-            }
-          },
-          {
-            name: probability-policy,
-            type: probabilistic,
-            probabilistic: {sampling_percentage: 20}
-          }
-        ] 
-```
-
-```
-helm install -f <PATH-TO>/my_values.yaml \
---set logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
---set logzio.tracing_token=<<TRACING-SHIPPING-TOKEN>> \
---set traces.enabled=true \
-logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
-```
-
-Replace `<PATH-TO>` with the path to your custom `values.yaml` file.
-
-{@include: ./tracing-shipping/replace-tracing-token.html}
-
-
-
-
-## Uninstalling the Chart
-
-The uninstall command is used to remove all the Kubernetes components associated with the chart and to delete the release.  
-
-To uninstall the `logzio-k8s-telemetry` deployment, use the following command:
-
-```shell
-helm uninstall logzio-k8s-telemetry
-```
-
-
-{@include: ../../_include/tracing-shipping/otel-troubleshooting.md}
- 

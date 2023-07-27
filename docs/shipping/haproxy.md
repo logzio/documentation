@@ -2,9 +2,9 @@
 id: HAProxy
 title: HAProxy
 overview: HAProxy is a network device, so it needs to transfer logs using the syslog protocol.
-product: ['metrics']
+product: ['logs,metrics']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['load balancer']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/haproxy-logo.png
 logs_dashboards: []
 logs_alerts: []
@@ -14,10 +14,12 @@ metrics_alerts: []
 ---
 
 
+## Logs
 
 HAProxy is a network device, so it needs to transfer logs using the syslog protocol.
 To ship HAProxy logs to an ELK stack, you'll first need to configure HAProxy logging to transmit the logs to a local rsyslog server.
 From there, you can ship the logs from rsyslog to Logz.io.
+
 
 #### Guided configuration
 
@@ -103,4 +105,69 @@ Give your logs some time to get from your system to ours, and then open [Open Se
 
 If you don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
+ ## Metrics
+
+ o send your Prometheus-format HAProxy metrics to Logz.io, you need to add the **inputs.haproxy** and **outputs.http** plug-ins to your Telegraf configuration file.
+
+#### Configuring Telegraf to send your metrics data to Logz.io
+
  
+
+##### Set up Telegraf v1.17 or higher
+
+{@include: ../_include/metric-shipping/telegraf-setup.md}
+ 
+##### Add the inputs.haproxy plug-in
+
+First you need to configure the input plug-in to enable Telegraf to scrape the HAProxy data from your hosts. To do this, add the following code to the configuration file:
+
+
+``` ini
+[[inputs.haproxy]]
+  ## An array of address to gather stats about. Specify an ip on hostname
+  ## with optional port. ie localhost, 10.10.3.33:1936, etc.
+  ## Make sure you specify the complete path to the stats endpoint
+  ## including the protocol, ie http://10.10.3.33:1936/haproxy?stats
+
+  ## Credentials for basic HTTP authentication
+  # username = "admin"
+  # password = "admin"
+
+  ## If no servers are specified, then default to 127.0.0.1:1936/haproxy?stats
+  servers = ["http://myhaproxy.com:1936/haproxy?stats"]
+
+  ## You can also use local socket with standard wildcard globbing.
+  ## Server address not starting with 'http' will be treated as a possible
+  ## socket, so both examples below are valid.
+  # servers = ["socket:/run/haproxy/admin.sock", "/run/haproxy/*.sock"]
+
+  ## By default, some of the fields are renamed from what haproxy calls them.
+  ## Setting this option to true results in the plugin keeping the original
+  ## field names.
+  # keep_field_names = false
+
+  ## Optional TLS Config
+  # tls_ca = "/etc/telegraf/ca.pem"
+  # tls_cert = "/etc/telegraf/cert.pem"
+  # tls_key = "/etc/telegraf/key.pem"
+  ## Use TLS but skip chain & host verification
+  # insecure_skip_verify = false
+```
+
+:::note
+The database name is only required for instantiating a connection with the server and does not restrict the databases that we collect metrics from. The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/blob/release-1.18/plugins/inputs/haproxy/README.md).
+:::
+ 
+
+##### Add the outputs.http plug-in
+
+{@include: ../_include/metric-shipping/telegraf-outputs.md}
+{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+
+##### Check Logz.io for your metrics
+
+Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
+
+
+ 
+
