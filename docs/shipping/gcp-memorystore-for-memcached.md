@@ -1,5 +1,5 @@
 ---
-id: GCP-Memorystore-for-Memcached
+id: gcp-memorystore-for-memcached
 title: GCP Memorystore for Memcached
 overview: Google Memorystore for Memcached is a fully managed Memcached service for Google Cloud. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
