@@ -1,5 +1,5 @@
 ---
-id: Internet-Information-Services
+id: internet-information-services
 title: Internet Information Services (IIS)
 overview: Internet Information Services (IIS) for Windows® Server is a flexible, secure and manageable Web server for hosting on the Web. This integration allows you to send logs from your IIS services to your Logz.io account. 
 product: ['metrics']
