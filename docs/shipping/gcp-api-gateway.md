@@ -5,7 +5,7 @@ overview: Google API Gateway allows you to create, secure, and monitor APIs for 
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['GCP', 'Cloud']
-logo: hhttps://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/apigateway.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/apigateway.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
