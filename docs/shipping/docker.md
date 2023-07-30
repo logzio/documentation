@@ -2,7 +2,7 @@
 id: Docker
 title: Docker
 overview: This integration collect logs and metrics from your docker enviroment.
-product: ['logs',metrics']
+product: ['logs','metrics']
 os: ['windows', 'linux']
 filters: ['docker']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/docker.png
