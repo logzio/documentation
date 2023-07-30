@@ -5,7 +5,7 @@ overview: Google API Gateway allows you to create, secure, and monitor APIs for 
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['GCP', 'Cloud']
-logo: hhttps://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/apigateway.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/apigateway.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
@@ -13,7 +13,7 @@ metrics_dashboards: []
 metrics_alerts: []
 ---
 
-## Overview
+## Overview 
 
 Google API Gateway allows you to create, secure, and monitor APIs for Google Cloud serverless back ends, including Cloud Functions, Cloud Run, and App Engine. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
