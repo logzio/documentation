@@ -1,5 +1,5 @@
 ---
-id: Google-Workflows
+id: GCP-Workflows
 title: GCP Workflows
 overview: Google Workflows is a service to orchestrate and automate Google Cloud and HTTP-based API services. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']

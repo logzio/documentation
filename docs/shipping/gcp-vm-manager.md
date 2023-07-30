@@ -1,5 +1,5 @@
 ---
-id: Google-VM-Manager
+id: GCP-VM-Manager
 title: GCP VM Manager
 overview: Google VM Manager is a suite of tools that can be used to manage operating systems for large virtual machine (VM) fleets. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']

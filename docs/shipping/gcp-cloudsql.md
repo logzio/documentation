@@ -1,5 +1,5 @@
 ---
-id: Google-Cloud-SQL
+id: GCP-Cloud-SQL
 title: GCP Cloud SQL
 overview: Google Cloud SQL is a fully-managed database service that is used to set up, maintain, manage, and administer MySQL and PostgreSQL databases in the cloud. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']

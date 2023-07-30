@@ -1,5 +1,5 @@
 ---
-id: Google-Dataproc
+id: GCP-Dataproc
 title: GCP Dataproc
 overview: Google Dataproc is a fully managed and highly scalable service for running Apache Spark, Apache Flink, Presto, and 30+ open source tools and frameworks. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']

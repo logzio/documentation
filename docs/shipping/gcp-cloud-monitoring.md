@@ -1,5 +1,5 @@
 ---
-id: Google-Cloud-Monitoring
+id: GCP-Cloud-Monitoring
 title: GCP Cloud Monitoring
 overview: Google Cloud Monitoring provides visibility into the performance, uptime, and overall health of cloud-powered applications. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']

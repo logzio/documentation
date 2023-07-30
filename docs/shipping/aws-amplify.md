@@ -1,5 +1,5 @@
 ---
-id: Amplify
+id: AWS-Amplify
 title: AWS Amplify
 overview: This is an AWS Lambda function that collects Amplify access logs and sends them to Logz.io in bulk over HTTP.
 product: ['logs']

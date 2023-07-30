@@ -1,5 +1,5 @@
 ---
-id: Google-Cloud-API
+id: GCP-Cloud-API
 title: GCP Cloud API
 overview: Google Cloud APIs allow you to automate your workflows by using your favorite language. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
