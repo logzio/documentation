@@ -1,5 +1,5 @@
 ---
-id: GCP-Load-Balancing
+id: gcp-load-balancing
 title: GCP Load Balancing
 overview: Google Cloud Load Balancing is a fully distributed, software-defined, managed service for all Google Cloud traffic. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
