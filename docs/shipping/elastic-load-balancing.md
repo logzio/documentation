@@ -1,5 +1,5 @@
 ---
-id: ELB
+id: Elastic-Load-Balancing
 title: Elastic Load Balancing (ELB)
 overview: When you set Logz.io to fetch Elastic Load Balancing (ELB) logs, Logz.io will periodically read logs from the configured S3 bucket. Elastic Load Balancing logs are useful for application usage intelligence and monitoring.
 product: ['metrics']

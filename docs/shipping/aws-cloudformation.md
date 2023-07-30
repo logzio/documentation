@@ -1,5 +1,5 @@
 ---
-id: CloudFormation
+id: AWS-CloudFormation
 title: AWS CloudFormation
 overview: This CloudFormation template allows shipping AWS Logs and Metrics to logz.io.
 product: ['metrics']

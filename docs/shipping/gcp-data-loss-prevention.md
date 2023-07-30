@@ -1,6 +1,6 @@
 ---
-id: Google-Cloud-Data-Loss-Prevention
-title: GCP Cloud Data Loss Prevention
+id: GCP-Data-Loss-Prevention
+title: GCP Data Loss Prevention
 overview: Google Cloud Data Loss Prevention provides tools to classify, mask, tokenize, and transform sensitive elements to help better manage the data that is collected, stored, or used for business or analytics. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

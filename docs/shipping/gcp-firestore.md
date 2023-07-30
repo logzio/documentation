@@ -1,5 +1,5 @@
 ---
-id: Google-Firestore
+id: GCP-Firestore
 title: GCP Firestore
 overview: Google Firestore is a NoSQL document database built for automatic scaling, high performance, and ease of application development. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']

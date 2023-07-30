@@ -1,5 +1,5 @@
 ---
-id: Google-Cloud-DNS
+id: GCP-Cloud-DNS
 title: GCP Cloud DNS
 overview: Google Cloud DNS is a high-performance, resilient, global Domain Name System (DNS) service that publishes domain names to the global DNS in a cost-effective way. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']

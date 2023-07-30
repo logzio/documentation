@@ -1,5 +1,5 @@
 ---
-id: Google-Cloud-Logging
+id: GCP-Cloud-Logging
 title: GCP Cloud Logging
 overview: Google Cloud Logging is fully managed, real-time log management with storage, search, analysis and alerting at exabyte scale. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']

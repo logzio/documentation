@@ -1,5 +1,5 @@
 ---
-id: Google-Compute-Engine
+id: GCP-Compute-Engine
 title: GCP Compute Engine
 overview: Google Compute Engine is the Infrastructure as a Service component of Google Cloud Platform which is built on Google's global infrastructure. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']

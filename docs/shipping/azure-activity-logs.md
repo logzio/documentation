@@ -1,5 +1,5 @@
 ---
-id: Azure-Activity
+id: Azure-Activity-logs
 title: Azure activity logs
 overview: Ship your Azure activity logs using an automated deployment process.
 product: ['metrics']

@@ -1,5 +1,5 @@
 ---
-id: Google-Firebase
+id: GCP-Firebase
 title: GCP Firebase
 overview: Google Firebase is a platform for creating mobile and web applications. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
