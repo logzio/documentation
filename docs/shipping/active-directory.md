@@ -14,21 +14,19 @@ metrics_alerts: []
 ---
 Active Directory is a directory service developed by Microsoft for Windows domain networks. This integration allows you to send Active Directory logs to your Logz.io SIEM account.
 
-#### Configuration
-
 **Before you begin, you'll need**:
 [Winlogbeat 8](https://www.elastic.co/guide/en/beats/winlogbeat/8.7/winlogbeat-installation-configuration.html#installation), [Winlogbeat 7.0.0](https://www.elastic.co/downloads/past-releases/winlogbeat-7-0-0) or
 [Winlogbeat 6](https://www.elastic.co/guide/en/beats/winlogbeat/6.8/winlogbeat-installation.html).
 
 
-##### Download the Logz.io public certificate
+### Download the Logz.io public certificate
 
 Download the
 [Logz.io public certificate]({@include: ../_include/log-shipping/certificate-path.md})
 to `C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt`
 on your machine.
 
-##### Configure Windows applications as an input
+### Configure Windows applications as an input
 
 If you're working with the default configuration file,
 (`C:\Program Files\Winlogbeat\winlogbeat.yml`)
@@ -79,7 +77,7 @@ processors:
       ignore_missing: true
 ```
 
-##### Set Logz.io as the output
+### Set Logz.io as the output
 
 If Logz.io isn't the output, set it now.
 
@@ -95,13 +93,13 @@ output.logstash:
     certificate_authorities: ['C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### Restart Winlogbeat
+### Restart Winlogbeat
 
 ```powershell
 Restart-Service winlogbeat
 ```
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
