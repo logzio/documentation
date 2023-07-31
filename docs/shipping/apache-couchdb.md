@@ -1,5 +1,5 @@
 ---
-id: Apache-CouchDB 
+id: apache-couchdb
 title: Apache CouchDB 
 overview: Apache CouchDB is an open-source document-oriented NoSQL database, implemented in Erlang. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
