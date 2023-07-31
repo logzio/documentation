@@ -1,24 +1,26 @@
 ---
-id: GCP-Firewall-Insights
-title: GCP Firewall Insights
-overview: Google Firewall Insights is a service that provides data about how firewall rules are being used, exposes misconfigurations, and identifies rules that could be made more strict. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+id: gcp-memorystore-for-memcached
+title: GCP Memorystore for Memcached
+overview: Google Memorystore for Memcached is a fully managed Memcached service for Google Cloud. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['GCP', 'Network', 'Security']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/gcpfirewall.png
+filters: ['GCP', 'Memory Caching']
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/memorystore.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: []
+metrics_dashboards: ['6V6DBzsX8cRZXCSvuSkHiA']
 metrics_alerts: []
 ---
 
 
 ## Overview
 
-Google Firewall Insights is a service that provides data about how firewall rules are being used, exposes misconfigurations, and identifies rules that could be made more strict. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+Google Memorystore for Memcached is a fully managed Memcached service for Google Cloud. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
-To send your Prometheus-format Google Firewall Insights metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
+To send your Prometheus-format Google Memorystore for Memcached metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["6V6DBzsX8cRZXCSvuSkHiA"] -->
 
 #### Configuring Telegraf to send your metrics data to Logz.io
 
@@ -68,7 +70,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the G
   project = "<<YOUR-PROJECT>>"
 
   metric_type_prefix_include = [
-    "firewallinsights.googleapis.com",
+    "memcache.googleapis.com",
   ]
 
   interval = "1m"
@@ -92,7 +94,10 @@ The full list of data scraping and configuring options can be found [here](https
   
 ##### Check Logz.io for your metrics
 
-Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
+{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboards to enhance the observability of your metrics.
 
+<!-- logzio-inject:install:grafana:dashboards ids=["6V6DBzsX8cRZXCSvuSkHiA"] -->
+
+{@include: ../_include/metric-shipping/generic-dashboard.html} 
 
  

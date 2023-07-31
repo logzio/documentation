@@ -1,24 +1,23 @@
 ---
-id: GCP-Cloud-Internet-of-Things
-title: GCP Cloud Internet of Things (IoT) Core
-overview: Google Cloud Internet of Things (IoT) Core is a fully managed service for securely connecting and managing IoT devices. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+id: google-certificate-authority-service
+title: Google Certificate Authority Service
+overview: Google Certificate Authority Service is a highly available, scalable Google Cloud service that enables you to simplify, automate, and customize the deployment, management, and security of private certificate authorities (CA). Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['GCP', 'IoT']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/googleiot.png
+filters: ['GCP', 'Security']
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/certmanager.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: []
+metrics_dashboards: ['']
 metrics_alerts: []
 ---
 
-
 ## Overview
 
-Google Cloud Internet of Things (IoT) Core is a fully managed service for securely connecting and managing IoT devices. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+Google Certificate Authority Service is a highly available, scalable Google Cloud service that enables you to simplify, automate, and customize the deployment, management, and security of private certificate authorities (CA). Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
-To send your Prometheus-format Google IoT Core metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
+To send your Prometheus-format Google Certificate Authority Service metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
 
 #### Configuring Telegraf to send your metrics data to Logz.io
 
@@ -68,7 +67,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the G
   project = "<<YOUR-PROJECT>>"
 
   metric_type_prefix_include = [
-    "cloudiot.googleapis.com",
+    "privateca.googleapis.com",
   ]
 
   interval = "1m"

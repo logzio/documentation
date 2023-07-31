@@ -1,5 +1,5 @@
 ---
-id: Java-traces-with-Kafka-using-OpenTelemetry
+id: java-traces-with-kafka-using-opentelemetry
 title: Java traces with Kafka using OpenTelemetry
 overview: Deploy this integration to enable automatic instrumentation of your Java application with Kafka using OpenTelemetry.
 product: ['traces']

@@ -1,11 +1,11 @@
 ---
-id: GCP-Contact-Center-AI-Insights
-title: GCP Contact Center AI Insights
-overview: Google Contact Center AI Insights helps users detect and visualize patterns in their contact center data. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+id: gcp-managed-service-for-microsoft-active-directory
+title: GCP Managed Service for Microsoft Active Directory
+overview: Google Managed Service for Microsoft Active Directory is a fully managed, real-time log management with storage, search, analysis and alerting at exabyte scale.  Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['GCP', 'Other']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/gcpai.png
+filters: ['GCP', 'Access Management']
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/gcpiam.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
@@ -16,9 +16,9 @@ metrics_alerts: []
 
 ## Overview
 
-Google Contact Center AI Insights helps users detect and visualize patterns in their contact center data. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+Google Managed Service for Microsoft Active Directory is a fully managed, real-time log management with storage, search, analysis and alerting at exabyte scale.  Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
-To send your Prometheus-format Google Contact Center AI Insights metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
+To send your Prometheus-format Google Managed Service for Microsoft Active Directory metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
 
 #### Configuring Telegraf to send your metrics data to Logz.io
 
@@ -68,7 +68,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the G
   project = "<<YOUR-PROJECT>>"
 
   metric_type_prefix_include = [
-    "contactcenterinsights.googleapis.com",
+    "managedidentities.googleapis.com",
   ]
 
   interval = "1m"

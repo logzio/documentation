@@ -1,31 +1,34 @@
 ---
-id: GCP-Network-Topology
-title: GCP Network Topology
-overview: Google Network Topology is a visualization tool that shows the topology of your Virtual Private Cloud (VPC) networks, hybrid connectivity to and from your on-premises networks, connectivity to Google-managed services, and the associated metrics. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+id: gcp-load-balancing
+title: GCP Load Balancing
+overview: Google Cloud Load Balancing is a fully distributed, software-defined, managed service for all Google Cloud traffic. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['GCP', 'Network']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/gcpnetwork.png
+filters: ['GCP', 'Load Balancer']
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/gcplb.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['']
+metrics_dashboards: ['2qF8pBXlwH0Pw6noOMfzRk', '48vnzAEl0x6hh3DWKIWkpx', '7s5HblMf4IVimoRSwnCRJ6']
 metrics_alerts: []
 ---
 
 
 ## Overview
 
-Google Network Topology is a visualization tool that shows the topology of your Virtual Private Cloud (VPC) networks, hybrid connectivity to and from your on-premises networks, connectivity to Google-managed services, and the associated metrics. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+Google Cloud Load Balancing is a fully distributed, software-defined, managed service for all Google Cloud traffic. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
-To send your Prometheus-format Google Network Topology metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
+To send your Prometheus-format Google Cloud Load Balancing metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
+
+
+<!-- logzio-inject:install:grafana:dashboards ids=["2qF8pBXlwH0Pw6noOMfzRk", "48vnzAEl0x6hh3DWKIWkpx", "7s5HblMf4IVimoRSwnCRJ6"] -->
 
 #### Configuring Telegraf to send your metrics data to Logz.io
 
 **Before you begin, you'll need**:
  GCP project
 
- 
+
 
 ##### Set relevant credentials in GCP
 
@@ -41,7 +44,7 @@ To send your Prometheus-format Google Network Topology metrics to Logz.io, you n
 :::note
 You must be a Service Account Key Admin to select Compute Engine and Cloud Asset roles.
 :::
- 
+
 
 ##### Add an environment variable for the key
 
@@ -60,7 +63,7 @@ Replace `<<PATH-TO-YOUR-GCP-KEY>>` with the path to the JSON file created in the
 
 ##### Add the inputs.stackdriver plug-in
 
-First you need to configure the input plug-in to enable Telegraf to scrape the GCP data from your hosts. To do this, add the below code to the configuration file. 
+First you need to configure the input plug-in to enable Telegraf to scrape the GCP data from your hosts. To do this, add the below code to the configuration file.
 
 ``` ini
 [[inputs.stackdriver]]
@@ -68,7 +71,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the G
   project = "<<YOUR-PROJECT>>"
 
   metric_type_prefix_include = [
-    "networking.googleapis.com",
+    "loadbalancing.googleapis.com",
   ]
 
   interval = "1m"
@@ -79,20 +82,27 @@ First you need to configure the input plug-in to enable Telegraf to scrape the G
 :::note
 The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/blob/release-1.18/plugins/inputs/stackdriver/README.md)
 :::
- 
+
 
 ##### Add the outputs.http plug-in
-  
+
 {@include: ../_include/metric-shipping/telegraf-outputs.md}
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
 
 ##### Start Telegraf
 
-{@include: ../_include/metric-shipping/telegraf-run.md}  
-  
+{@include: ../_include/metric-shipping/telegraf-run.md}
+
 ##### Check Logz.io for your metrics
 
-Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
+Give your metrics some time to get from your system to ours.
 
 
- 
+{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["2qF8pBXlwH0Pw6noOMfzRk", "48vnzAEl0x6hh3DWKIWkpx", "7s5HblMf4IVimoRSwnCRJ6"] -->
+
+{@include: ../_include/metric-shipping/generic-dashboard.html}
+
+
+

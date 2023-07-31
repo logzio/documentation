@@ -1,26 +1,24 @@
 ---
-id: GCP-Memorystore-for-Memcached
-title: GCP Memorystore for Memcached
-overview: Google Memorystore for Memcached is a fully managed Memcached service for Google Cloud. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+id: gcp-contact-center-ai-insights
+title: GCP Contact Center AI Insights
+overview: Google Contact Center AI Insights helps users detect and visualize patterns in their contact center data. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['GCP', 'Memory Caching']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/memorystore.png
+filters: ['GCP', 'Other']
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/gcpai.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['6V6DBzsX8cRZXCSvuSkHiA']
+metrics_dashboards: []
 metrics_alerts: []
 ---
 
 
 ## Overview
 
-Google Memorystore for Memcached is a fully managed Memcached service for Google Cloud. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+Google Contact Center AI Insights helps users detect and visualize patterns in their contact center data. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
-To send your Prometheus-format Google Memorystore for Memcached metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
-
-<!-- logzio-inject:install:grafana:dashboards ids=["6V6DBzsX8cRZXCSvuSkHiA"] -->
+To send your Prometheus-format Google Contact Center AI Insights metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
 
 #### Configuring Telegraf to send your metrics data to Logz.io
 
@@ -70,7 +68,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the G
   project = "<<YOUR-PROJECT>>"
 
   metric_type_prefix_include = [
-    "memcache.googleapis.com",
+    "contactcenterinsights.googleapis.com",
   ]
 
   interval = "1m"
@@ -94,10 +92,7 @@ The full list of data scraping and configuring options can be found [here](https
   
 ##### Check Logz.io for your metrics
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboards to enhance the observability of your metrics.
+Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
-<!-- logzio-inject:install:grafana:dashboards ids=["6V6DBzsX8cRZXCSvuSkHiA"] -->
-
-{@include: ../_include/metric-shipping/generic-dashboard.html} 
 
  

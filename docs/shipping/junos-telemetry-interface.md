@@ -1,5 +1,5 @@
 ---
-id: Junos-Telemetry-Interface
+id: junos-telemetry-interface
 title: Junos Telemetry Interface
 overview: Junos Telemetry Interface (JTI) is a push mechanism to collect operational metrics for monitoring the health of a network that has no scaling limitations. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['logs']
