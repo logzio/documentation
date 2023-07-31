@@ -1,4 +1,4 @@
-###### For Windows:
+#### For Windows:
 
 ```shell
 wget https://dl.influxdata.com/telegraf/releases/telegraf-1.19.2_windows_amd64.zip
@@ -8,7 +8,7 @@ After downloading the archive, extract its content into `C:\Program Files\Logzio
 
 The configuration file is located at `C:\Program Files\Logzio\telegraf\`.
 
-###### For MacOS:
+#### For MacOS:
 
 ```shell
 brew install telegraf
@@ -16,7 +16,7 @@ brew install telegraf
 
 The configuration file is located at `/usr/local/etc/telegraf.conf`.
 
-###### For Linux:
+#### For Linux:
 
 **Ubuntu & Debian**
 
