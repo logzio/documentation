@@ -4,7 +4,7 @@ title: GCP Workflows
 overview: Google Workflows is a service to orchestrate and automate Google Cloud and HTTP-based API services. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['GCP', 'Orchestration']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/workflows.png
 logs_dashboards: []
 logs_alerts: []

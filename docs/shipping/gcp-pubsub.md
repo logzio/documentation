@@ -4,7 +4,7 @@ title: GCP PubSub
 overview: Google Pub/Sub is designed to provide reliable, many-to-many, asynchronous messaging between applications. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['GCP', 'Distributed Messaging']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/pubsub.png
 logs_dashboards: []
 logs_alerts: []

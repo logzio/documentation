@@ -4,7 +4,7 @@ title: GPC BigQuery
 overview: BigQuery is a serverless, multicloud data warehouse designed to help you turn big data into business insights. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['GCP', 'Data Store']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/bigquery.png
 logs_dashboards: []
 logs_alerts: []

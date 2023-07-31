@@ -2,9 +2,9 @@
 id: Axonius
 title: Axonius
 overview: This integration sends system logs from your Axonius platform to Logz.io. 
-product: ['metrics']
+product: ['logs', 'siem']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['Other']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/axonius.png
 logs_dashboards: []
 logs_alerts: []

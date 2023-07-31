@@ -3,8 +3,8 @@ id: Microsoft-SQL-Server
 title: Microsoft SQL Server
 overview: Microsoft SQL Server is a relational database management system developed by Microsoft. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
-os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+os: ['windows']
+filters: ['Database']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/mysql.svg
 logs_dashboards: []
 logs_alerts: []

@@ -4,7 +4,7 @@ title: bCache
 overview: bCache is a cache in the Linux kernel's block layer, which is used for accessing secondary storage devices. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['Memory Caching']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/linux.svg
 logs_dashboards: []
 logs_alerts: []

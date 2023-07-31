@@ -2,9 +2,9 @@
 id: AWS-CloudFront
 title: AWS CloudFront
 overview: This CloudFormation template allows shipping AWS Logs and Metrics to logz.io.
-product: ['logs,metrics']
+product: ['logs' , 'metrics']
 os: []
-filters: ['aws', 'cloud']
+filters: ['AWS', 'Network']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-cloudfront.svg
 logs_dashboards: []
 logs_alerts: []

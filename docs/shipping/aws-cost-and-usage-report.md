@@ -4,7 +4,7 @@ title: AWS Cost and Usage Reports
 overview: AWS Cost and Usage Reports function tracks your AWS usage and provides estimated charges associated with your account. This integration allows you to ship logs from your AWS Cost and Usage Reports to your Logz.io account.
 product: ['logs']
 os: ['windows', 'linux']
-filters: ['aws', 'cloud']
+filters: ['AWS', 'Other']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws.svg
 logs_dashboards: []
 logs_alerts: []

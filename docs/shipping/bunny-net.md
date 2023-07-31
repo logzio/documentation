@@ -2,9 +2,9 @@
 id: BUNNY-NET
 title: BUNNY.NET
 overview: BUNNY.NET is a content delivery network offering features and performance with a fast global network. This document describes how to send system logs from your bunny.net pull zones to Logz.io.
-product: ['metrics']
+product: ['logs']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['Other']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/bunny.png
 logs_dashboards: []
 logs_alerts: []

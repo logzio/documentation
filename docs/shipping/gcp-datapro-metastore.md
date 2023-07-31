@@ -4,7 +4,7 @@ title: GCP Dataproc Metastore
 overview: Google Dataproc Metastore is a critical component of data lakes built on open source processing frameworks like Apache Hadoop, Apache Spark, Apache Hive, Trino, Presto, and many others. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['GCP', 'Data Store']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/gcpdataproc.png
 logs_dashboards: []
 logs_alerts: []

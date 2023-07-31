@@ -4,7 +4,7 @@ title: Beanstalkd
 overview: Beanstalkd is a simple, fast work queue. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['Orchestration']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/beanstalk-logo.png
 logs_dashboards: []
 logs_alerts: []

@@ -4,7 +4,7 @@ title: AWS Fargate
 overview: AWS Fargate is a serverless compute engine for building applications without managing servers. This integration will create a new container that will run your image to send your AWS ECS Fargate logs to Logz.io using FireLens. The integration will automatically create the replica.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['AWS', 'Compute', 'Containers']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-fargate.svg
 logs_dashboards: []
 logs_alerts: []

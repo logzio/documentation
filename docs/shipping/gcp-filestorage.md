@@ -4,7 +4,7 @@ title: GCP Filestore
 overview: Google Filestore is a fully managed Google Cloud service that provides network file storage. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['GCP', 'Data Store']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/gcpfilestore.png
 logs_dashboards: []
 logs_alerts: []

@@ -2,9 +2,9 @@
 id: Kinesis
 title: Kinesis
 overview: This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon S3 metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
-product: ['metrics']
+product: ['logs']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['AWS', 'Distributed Messaging']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/Amazon-Kinesis-Data-Firehose.svg
 logs_dashboards: []
 logs_alerts: []

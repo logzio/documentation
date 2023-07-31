@@ -2,9 +2,9 @@
 id: OpenTelemetry
 title: OpenTelemetry
 overview: Deploy this integration to send traces from your OpenTelemetry installation to Logz.io.
-product: ['metrics']
+product: ['traces']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['Other']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/opentelemetry-icon-color.png
 logs_dashboards: []
 logs_alerts: []

@@ -4,7 +4,7 @@ title: MongoDB Atlas
 overview: MongoDB Atlas is a fully-managed cloud database that handles deploying, managing and healing deployments on its cloud service provider.  
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['Data Store']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/mongoatlas-logo.png
 logs_dashboards: []
 logs_alerts: []

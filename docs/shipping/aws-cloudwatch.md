@@ -4,7 +4,7 @@ title: AWS Cloudwatch
 overview: Ship Cloudwatch metrics.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['AWS', 'Monitoring']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-cloudwatch.svg
 logs_dashboards: []
 logs_alerts: []

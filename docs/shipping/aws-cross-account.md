@@ -4,7 +4,7 @@ title: AWS cross account
 overview: Deploy this integration to simultaneously ship logs from multiple AWS accounts to Logz.io.
 product: ['logs']
 os: ['windows', 'linux']
-filters: ['aws', 'cloud']
+filters: ['AWS', 'Access Management']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-cloudwatch.svg
 logs_dashboards: []
 logs_alerts: []

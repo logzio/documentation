@@ -2,9 +2,9 @@
 id: OSSEC
 title: OSSEC
 overview: OSSEC is a multiplatform, open source and free Host Intrusion Detection System (HIDS). This integration allows you to send OSSEC logs to your Logz.io SIEM account.
-product: ['metrics']
+product: ['siem', 'logs']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['Security']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/ossec.png
 logs_dashboards: []
 logs_alerts: []

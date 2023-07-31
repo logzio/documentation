@@ -2,9 +2,9 @@
 id: Azure-Diagnostic-Logs
 title: Azure Diagnostic Logs
 overview: Ship your Azure diagnostic logs using an automated deployment process.
-product: ['metrics']
+product: ['logs']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['Azure', 'Other']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/azure-monitor.svg
 logs_dashboards: []
 logs_alerts: []

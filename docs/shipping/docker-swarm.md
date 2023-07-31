@@ -4,7 +4,7 @@ title: Docker Swarm
 overview: Deploy this integration to ship metrics from your Docker Swarm network using containerized Telegraf agent.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['Containers', 'Orchestration']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/docker.png
 logs_dashboards: []
 logs_alerts: []

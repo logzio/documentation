@@ -2,9 +2,9 @@
 id: Bitdefender
 title: Bitdefender
 overview: Bitdefender is an antivirus software. This integration allows you to send Bitdefender logs to your Logz.io SIEM account.
-product: ['metrics']
+product: ['logs']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['Security']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/bitdefender.svg
 logs_dashboards: []
 logs_alerts: []

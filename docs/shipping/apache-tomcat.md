@@ -4,7 +4,7 @@ title: Apache Tomcat
 overview: test
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['web servers']
+filters: ['Compute']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/tomcat-logo.png
 logs_dashboards: []
 logs_alerts: []

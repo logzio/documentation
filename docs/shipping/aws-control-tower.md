@@ -4,7 +4,7 @@ title: AWS Control Tower
 overview: AWS Control Tower is a tool to control a top-level summary of policies applied to the AWS environment. This integration sends logs from S3 buckets that the AWS Control Tower automatically creates in your AWS environment.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['aws', 'cloud']
+filters: ['AWS', 'Access Management']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-control-tower.png
 logs_dashboards: []
 logs_alerts: []

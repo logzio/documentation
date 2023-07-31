@@ -4,7 +4,7 @@ title: GitHub
 overview: This integration enable you to collect logs and metrics from github
 product: ['logs','  metrics']
 os: ['windows', 'linux']
-filters: ['Cloud']
+filters: ['CI/CD']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/github.png
 logs_dashboards: []
 logs_alerts: []

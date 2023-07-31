@@ -4,7 +4,7 @@ title: Ping statistics
 overview: Deploy this integration to collect metrics of ping statistics collected from your preferred web addresses and send them to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['Synthetic monitoring']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/ping-logo.png
 logs_dashboards: []
 logs_alerts: []

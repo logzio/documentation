@@ -4,7 +4,7 @@ title: GCP Memorystore for Redis
 overview: Google Memorystore for Redis a fully managed Redis service for the Google Cloud.  Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['GCP', 'Memory Caching']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/memorystore.png
 
 logs_dashboards: []
