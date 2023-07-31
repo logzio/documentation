@@ -85,7 +85,11 @@ def get_changed_files():
         return []
     files_str = files_str.replace(' ', '')
     files_arr = files_str.split(',')
-    return files_arr
+    files_to_track = []
+    for file in files_arr:
+        if file.startswith(consts.DOCS_PATH):
+            files_to_track.append(file)
+    return files_to_track
 
 
 def get_files_to_ids():
