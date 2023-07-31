@@ -4,7 +4,7 @@ title: OneLogin
 overview: OneLogin is a cloud-based identity and access management (IAM) provider. This integration allows you to ship logs from your OneLogin account to your Logz.io account.
 product: ['logs']
 os: ['windows', 'linux']
-filters: ['Access management']
+filters: ['Access Management']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/onelogin.png
 logs_dashboards: []
 logs_alerts: []
