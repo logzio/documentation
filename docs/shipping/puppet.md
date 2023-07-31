@@ -4,7 +4,7 @@ title: Puppet
 overview: Puppet is a software configuration management tool which includes its own declarative language to describe system configuration. Deploy this integration to send logs from your Puppet applications to your Logz,io account.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['CI/CD']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/puppet.png
 logs_dashboards: []
 logs_alerts: []

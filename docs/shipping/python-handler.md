@@ -2,9 +2,9 @@
 id: Python-Handler
 title: Python Handler
 overview: Logz.io Python Handler sends logs in bulk over HTTPS to Logz.io.
-product: ['metrics']
+product: ['logs']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['Code']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/python.svg
 logs_dashboards: []
 logs_alerts: []

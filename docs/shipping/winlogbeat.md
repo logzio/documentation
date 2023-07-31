@@ -4,7 +4,7 @@ title: Winlogbeat
 overview: Winlogbeat metrics.
 product: ['metrics']
 os: ['windows']
-filters: ['Monitoring']
+filters: ['Other']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/windows.svg
 logs_dashboards: []
 logs_alerts: []

@@ -4,7 +4,7 @@ title: Heroku
 overview: Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud. This integration allows you to send logs from your Heroku applications to your Logz.io account. 
 product: ['logs','metrics']
 os: []
-filters: ['Cloud']
+filters: ['Other']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/heroku.svg
 logs_dashboards: []
 logs_alerts: []

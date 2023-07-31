@@ -4,7 +4,7 @@ title: Trivy
 overview: TThis integration utilizes the logzio-trivy Helm Chart to deploy the trivy-Operator Helm Chart that scans the cluster and creates Trivy reports and a  deployment that looks for the Trivy reports in the cluster, processes them, and sends them to Logz.io
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['Monitoring', 'Cloud']
+filters: ['Security']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/trivy-logo.png
 logs_dashboards: []
 logs_alerts: []

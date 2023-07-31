@@ -3,8 +3,8 @@ id: Solr
 title: Solr
 overview: Solr is an open-source enterprise-search platform, written in Java. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
-os: ['windows', 'linux']
-filters: ['database']
+os: ['Search Platform']
+filters: ['Data Store']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/solr-logo.png
 logs_dashboards: []
 logs_alerts: []
@@ -16,7 +16,7 @@ metrics_alerts: []
 
 ## Overview
 
-Solr is an open-source enterprise-search platform, written in Java. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+   is an open-source enterprise-search platform, written in Java. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format Apache Solr metrics to Logz.io, you need to add the **inputs.solr** and **outputs.http** plug-ins to your Telegraf configuration file.
 

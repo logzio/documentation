@@ -2,9 +2,9 @@
 id: Cisco-SecureX
 title: Cisco SecureX
 overview: Cisco SecureX connects the breadth of Cisco's integrated security portfolio and your infrastructure. This integration allows you to collect data from Cisco SecureX API and send it to your Logz.io account.
-product: ['metrics']
+product: ['logs']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['Security']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/securex-logo.png
 logs_dashboards: []
 logs_alerts: []

@@ -4,7 +4,7 @@ title: AWS EC2 Auto Scaling
 overview: This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon EC2 Auto Scaling metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['aws', 'cloud']
+filters: ['AWS', 'Compute']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-ec2-auto-scaling.svg
 logs_dashboards: []
 logs_alerts: []

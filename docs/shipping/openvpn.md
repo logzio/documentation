@@ -4,7 +4,7 @@ title: OpenVPN
 overview: OpenVPN  is a virtual private network system for secure point-to-point or site-to-site connections.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['Network']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/openvpn.png
 logs_dashboards: []
 logs_alerts: []

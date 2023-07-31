@@ -2,9 +2,9 @@
 id: Jenkins
 title: Jenkins
 overview: Jenkins is an automation server for building, testing, and deploying software. This integration allows you to send logs from your Jenkins servers to your Logz.io account.
-product: ['metrics']
+product: ['logs']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['CI/CD']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/jenkins.png
 logs_dashboards: []
 logs_alerts: []

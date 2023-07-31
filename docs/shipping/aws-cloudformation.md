@@ -4,7 +4,7 @@ title: AWS CloudFormation
 overview: This CloudFormation template allows shipping AWS Logs and Metrics to logz.io.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['aws', 'cloud']
+filters: ['AWS', 'Orchestration']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-cloudformation.svg
 logs_dashboards: []
 logs_alerts: []

@@ -2,9 +2,9 @@
 id: Apache-HTTP-Server
 title: Apache HTTP Server
 overview: The Apache HTTP Server, colloquially called Apache, is a free and open-source cross-platform web server. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
-product: ['logs']
+product: ['metrics']
 os: ['windows', 'linux']
-filters: ['Web Servers']
+filters: ['Compute']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/apache-http-logo.png
 logs_dashboards: []
 logs_alerts: []

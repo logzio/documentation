@@ -4,7 +4,7 @@ title: GCP Firebase
 overview: Google Firebase is a platform for creating mobile and web applications. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['GCP', 'Other']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/firebase.png
 logs_dashboards: []
 logs_alerts: []

@@ -2,9 +2,9 @@
 id: oracle-cloud-infrastructure-container-engine-for-kubernetes
 title: Oracle Cloud Infrastructure Container Engine for Kubernetes (OKE)
 overview: Oracle Cloud Infrastructure Container Engine for Kubernetes (OKE) is a fully-managed, scalable, and highly available service that you can use to deploy your containerized applications to the cloud.
-product: ['metrics']
+product: ['logs']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['Containers', 'Orchestration']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/oke.png
 logs_dashboards: []
 logs_alerts: []

@@ -4,7 +4,7 @@ title: Auth0
 overview: Auth0 is an easy to implement, adaptable authentication and authorization platform. Deploy this integration to ship Auth0 events from your Auth0 account to Logz.io using custom log stream via webhooks.
 product: ['logs','siem']
 os: ['windows', 'linux']
-filters: ['authentication','cloud']
+filters: ['Access Management']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/auth0.png
 logs_dashboards: []
 logs_alerts: []

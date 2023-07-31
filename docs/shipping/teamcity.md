@@ -4,7 +4,7 @@ title: TeamCity
 overview: TeamCity is a general-purpose CI/CD solution that allows the most flexibility for all sorts of workflows and development practices.  Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['CI/CD']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/TeamCity-logo.png
 logs_dashboards: []
 logs_alerts: []

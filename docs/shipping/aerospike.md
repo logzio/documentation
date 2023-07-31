@@ -4,7 +4,7 @@ title: Aerospike
 overview: Aerospike is a flash-optimized and in-memory open source distributed key value NoSQL database. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['Database']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aerospike-logo.png
 logs_dashboards: []
 logs_alerts: []

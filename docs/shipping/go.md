@@ -1,10 +1,10 @@
 ---
 id: GO
 title: GO
-overview: Send logs and metrics from you Go code
+overview: Send logs, metrics and traces from you Go code
 product: ['logs','metrics','traces']
 os: ['windows', 'linux']
-filters: []
+filters: ['Code']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/go.svg
 logs_dashboards: []
 logs_alerts: []

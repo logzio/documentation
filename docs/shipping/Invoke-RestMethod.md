@@ -2,9 +2,9 @@
 id: Invoke-RestMethod
 title: Invoke RestMethod
 overview: Invoke-RestMethod is a command to interact with REST APIs in PowerShell. Invoke-RestMethod is a quick and easy way to test your configuration or troubleshoot your connectivity to Logz.io.
-product: ['metrics']
+product: ['logs']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['Other']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/Invoke-RestMethod.png
 logs_dashboards: []
 logs_alerts: []

@@ -2,9 +2,9 @@
 id: Azure-Security-Center
 title: Azure Security Center
 overview: You can ship logs available from Azure Security Center via the Microsoft Graph APIs with Logzio-MSGraph. Logzio-MSGraph is a self-hosted application.
-product: ['siem']
+product: ['logs', 'siem']
 os: ['windows', 'linux']
-filters: []
+filters: ['Azure', 'Security']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/azure.svg
 logs_dashboards: []
 logs_alerts: []
