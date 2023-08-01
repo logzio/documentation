@@ -26,7 +26,7 @@ The latest version pulls the image from `logzio/logzio-fluentd`. Previous versio
 :::
  
 
-:::note
+:::caution Important
 Fluentd will fetch all existing logs, as it is not able to ignore older logs.
 :::
  
@@ -34,7 +34,7 @@ Fluentd will fetch all existing logs, as it is not able to ignore older logs.
 For troubleshooting this solution, see our [user guide](https://docs.logz.io/user-guide/kubernetes-troubleshooting/).
 
 
-###### Sending logs from nodes with taints
+### **Sending logs from nodes with taints**
 
 If you want to ship logs from any of the nodes that have a taint, make sure that the taint key values are listed in your in your daemonset/deployment configuration as follows:
   
@@ -52,7 +52,7 @@ To determine if a node uses taints as well as to display the taint keys, run:
 kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
 ```
 
-###### K8S version compatibility
+### K8S version compatibility
 
 Your Kubernetes version may affect your options, as follows:
 
@@ -68,18 +68,18 @@ Your Kubernetes version may affect your options, as follows:
 
  
 
-## Deploy logzio-k8s with default configuration
+## **Deploy logzio-k8s with default configuration**
 
 For most environments, we recommend using the default configuration.
 However, you can deploy a custom configuration if your environment needs it.
 
 
-#### Deploy Fluentd as a DaemonSet on Kubernetes
+### Deploy Fluentd as a DaemonSet on Kubernetes
 
  
 
 
-##### Create a monitoring namespace
+### Create a monitoring namespace
 
 Your DaemonSet will be deployed under the namespace `monitoring`.
 
@@ -89,7 +89,7 @@ kubectl create namespace monitoring
 ```
 
 
-##### Store your Logz.io credentials
+### Store your Logz.io credentials
 
 Save your Logz.io shipping credentials as a Kubernetes secret.
 
@@ -104,7 +104,7 @@ kubectl create secret generic logzio-logs-secret \
   -n monitoring
 ```
 
-##### Deploy the DaemonSet
+### Deploy the DaemonSet
 
 ###### For an RBAC cluster:
 
@@ -124,7 +124,7 @@ kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logz
 kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-containerd.yaml -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/configmap.yaml
 ```
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours,
 and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
@@ -135,7 +135,7 @@ see [Kubernetes log shipping troubleshooting]({{site.baseurl}}/user-guide/kubern
  
  
 
-## Deploy logzio-k8s with custom configuration
+## **Deploy logzio-k8s with custom configuration**
 
 You can customize the configuration of your Fluentd container by editing either your DaemonSet or your Configmap.
 
@@ -143,7 +143,7 @@ You can customize the configuration of your Fluentd container by editing either 
  
 
 
-##### Create a monitoring namespace
+### Create a monitoring namespace
 
 Your DaemonSet will be deployed under the namespace `monitoring`.
 
@@ -152,7 +152,7 @@ Your DaemonSet will be deployed under the namespace `monitoring`.
 kubectl create namespace monitoring
 ```
 
-##### Store your Logz.io credentials
+### Store your Logz.io credentials
 
 Save your Logz.io shipping credentials as a Kubernetes secret.
 
@@ -169,7 +169,7 @@ kubectl create secret generic logzio-logs-secret \
 {@include: ../_include/log-shipping/listener-var.html}
 
 
-##### Configure Fluentd
+### Configure Fluentd
 
 There are 3 DaemonSet options: [RBAC DaemonSet](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-rbac.yaml), [non-RBAC DaemonSet](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset.yaml), [Containerd](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-containerd.yaml). Download the relevant DaemonSet and open it in your text editor to edit it.
 
@@ -178,7 +178,7 @@ If you wish to make advanced changes in your Fluentd configuration, you can down
 
 {@include: ../_include/k8s-fluentd.md}
 
-###### Good to know
+#### Good to know
 
 * If `FLUENT_FILTER_KUBERNETES_URL` is not specified, the environment variables `KUBERNETES_SERVICE_HOST` and `KUBERNETES_SERVICE_PORT` will be used, as long as both of them are  present. Typically, they are present when running Fluentd in a pod.
 
@@ -186,7 +186,7 @@ If you wish to make advanced changes in your Fluentd configuration, you can down
 If you wish to use this variable, you'll have to add it manually to the DaemonSet's environment variables.
 
 
-##### Deploy the DaemonSet
+### Deploy the DaemonSet
 
 ###### For the RBAC DaemonSet:
 
@@ -207,7 +207,7 @@ kubectl apply -f /path/to/logzio-daemonset-containerd.yaml -f /path/to/configmap
 ```
 
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours,
 and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
@@ -242,17 +242,13 @@ If you need to specify multiple namespaces, add another `kubernetes.var.log.cont
 </match>
 ```
 
- 
+## **Multiline logs **
 
 
 {@include: ../_include//log-shipping/multiline-fluentd-plugin.md}
 
  
 
-
-
-
-####  Overview
 
 
 **logzio-k8s-telemetry** allows you to ship metrics from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
@@ -269,7 +265,7 @@ For applications that run on Kubernetes, enable the Prometheus scrape feature:
 prometheus.io/scrape: true
 ```
 
-###### Sending logs from nodes with taints
+### Sending logs from nodes with taints
 
 If you want to ship logs from any of the nodes that have a taint, make sure that the taint key values are listed in your in your daemonset/deployment configuration as follows:
   
@@ -310,18 +306,18 @@ affinity:
   
  
 
-#### Standard configuration for Linux nodes
+## **Standard configuration for Linux nodes**
 
  
   
-##### Add logzio-helm repo to your helm repo list
+### Add logzio-helm repo to your helm repo list
 
   ```shell
   helm repo add logzio-helm https://logzio.github.io/logzio-helm
   helm repo update
   ```
 
-##### Deploy the Helm chart
+### Deploy the Helm chart
 
 1. Configure the relevant parameters in the following code:
 
@@ -344,7 +340,7 @@ affinity:
 
 2. Run the code.
 
-##### Check Logz.io for your metrics
+### Check Logz.io for your metrics
 
 Give your metrics some time to get from your system to ours.
 
@@ -361,11 +357,11 @@ For troubleshooting this solution, see our [EKS troubleshooting guide](https://d
   
   
 
-####  Customizing Helm chart parameters
+##  **Customizing Helm chart parameters**
 
  
 
-##### Configure customization options
+### Configure customization options
 
 You can use the following options to update the Helm chart parameters: 
 
@@ -375,13 +371,13 @@ You can use the following options to update the Helm chart parameters:
 
 * Overide default values with your own `my_values.yaml` and apply it in the `helm install` command. 
 
-###### Example:
+#### Example:
 
 ```
 helm install logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry -f my_values.yaml 
 ```
 
-##### Customize the metrics collected by the Helm chart 
+### Customize the metrics collected by the Helm chart 
 
 The default configuration uses the Prometheus receiver with the following scrape jobs:
 
@@ -397,7 +393,7 @@ For troubleshooting this solution, see our [EKS troubleshooting guide](https://d
 
   
 
-#### Uninstalling the Chart
+## **Uninstalling the Chart**
 
 The `uninstall` command is used to remove all the Kubernetes components associated with the chart and to delete the release.  
 

@@ -1,6 +1,6 @@
 ---
 id: AWS-cross-account
-title: AWS cross account
+title: AWS Cross Account
 overview: Deploy this integration to simultaneously ship logs from multiple AWS accounts to Logz.io.
 product: ['logs']
 os: ['windows', 'linux']
@@ -23,16 +23,18 @@ Deploy this integration to simultaneously ship logs from multiple AWS accounts t
 
 The integration creates the following resources:
   
-##### In the landing account
+### In the landing account
 
 * Kinesis stream, which receives logs from multiple AWS accounts.
 * Destination, which encapsulates the stream and allows to send the logs to it.
 * Lambda function, which uses the Kinesis stream as a trigger, and sends the logs to Logz.io
 * Additional Destinations (if required) for each region you need to ship logs from.
   
-##### In the sending accounts
+### In the sending accounts
 
 * Subscription filters, which send the logs from Cloudwatch to the Destination of the landing account.
+
+## Configure the landing account
 
 
 **Before you begin, you'll need**:
@@ -41,11 +43,8 @@ The integration creates the following resources:
 * Your log group is in the format: `/<<AWS-PARTITION>>/<<SERVICE-NAME>>/<<NAME>>`, for example: `/aws/lambda/my_function`.
 * AWS CLI
 
- 
 
-#### Configure the landing account
-
-##### Create a main stack to deploy the landing account
+### Create a main stack to deploy the landing account
 
 Click the button that matches the region you'd like to deploy your main stack to:
 
@@ -70,11 +69,11 @@ Click the button that matches the region you'd like to deploy your main stack to
 | `sa-east-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=sa-east-1#/stacks/new?stackName=aws-cross-account-main&templateURL=https://logzio-aws-integrations-sa-east-1.s3.amazonaws.com/aws-cross-accounts/0.0.1/sam-template-main.yaml)           |
 
 
-##### Specify the stack template
+### Specify the stack template
 
 Keep the default settings in the **Create stack** screen and select **Next**.
 
-##### Specify the stack details
+### Specify the stack details
 
 Specify the stack details as per the table below and select **Next**.
 
@@ -89,16 +88,16 @@ Specify the stack details as per the table below and select **Next**.
 
 
 
-##### Configure stack options
+### Configure stack options
 
 If required, specify the **Key** and **Value** parameters for the **Tags** and select **Next**.
 
-##### Review the stack
+### Review the stack
 
 Confirm that you acknowledge that AWS CloudFormation might create IAM resources, IAM resources with custom names, may require `CAPABILITY_AUTO_EXPAND` and select **Create stack**.
 
 
-##### Create a stack to deploy destinations in the landing account on each region you need to send logs from
+### Create a stack to deploy destinations in the landing account on each region you need to send logs from
 
 
 This procedure is only required if you need to send logs from regions that are different to the region that the main stack is deployed in.
@@ -128,11 +127,11 @@ Click the button that matches the region you'd like to deploy your destination s
 | `sa-east-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=sa-east-1#/stacks/new?stackName=aws-cross-account-destination&templateURL=https://logzio-aws-integrations-sa-east-1.s3.amazonaws.com/aws-cross-accounts/0.0.1/sam-template-destination.yaml)           |
 
 
-##### Specify the stack template
+### Specify the stack template
 
 Keep the default settings in the **Create stack** screen and select **Next**.
 
-##### Specify the stack details
+### Specify the stack details
 
 Specify the stack details as per the table below and select **Next**.
 
@@ -142,22 +141,22 @@ Specify the stack details as per the table below and select **Next**.
 | `KinesisStreamArn` | The ARN of the **Kinesis Stream** created in the main stack. You can find it in the main stack's **Outputs** tab, under **LogzioCrossAccountKinesisStreamArn**. |
 | `SendingAccounts`        | Comma-delimited list (**no spaces**) of account numbers of the accounts you'd like to send logs from. **Each account number should be wrapped in double-quotes.**  The numbers should be specified as follows: `"1234","5678","9012"` | 
 
-##### Configure stack options
+### Configure stack options
 
 If required, specify the **Key** and **Value** parameters for the **Tags** and select **Next**.
 
-##### Review the stack
+### Review the stack
 
 Confirm that you acknowledge that AWS CloudFormation might create IAM resources, IAM resources with custom names, may require `CAPABILITY_AUTO_EXPAND` and select **Create stack**.
 
-#### Configure the sending accounts
+## Configure the sending accounts
 
-##### Create a subscription filter in your sending accounts
+### Create a subscription filter in your sending accounts
 
 You need to create a subscription filter in each sending account separately, for each service that you want to send logs from.
 
 
-###### Create with AWS CLI
+### Create with AWS CLI
 
 1. Make sure your AWS CLI is connected to the account you want to send logs from.
 2. Make sure you have set the CLI to the region of the account that you need to send logs from.
@@ -174,7 +173,7 @@ aws logs put-subscription-filter \
    * Replace `<<SUBSCRIPTION-FILTER-NAME>>` with the name of the subscription filter you create.
    * Replace `<<DESTINATION-ARN>>` with the ARN of the destination that matches the region of the sending account that you want to ship logs from. For example, if the log stream is in `us-west-2`, then they should use the arn of the Destination that's in `us-west-2`. You can find the ARN in the main stack's **Outputs** tab. 
 
-###### Create with Terraform
+### Create with Terraform
 
 
 In your Terraform configuration, add the following:
@@ -196,7 +195,7 @@ resource "aws_cloudwatch_log_subscription_filter" "subscription_filter" {
 If you create the log group and the subscription filter at the same time, add a `depends_on` field to the subscription filter and make it dependent on the log group, so that the log group will be created first.
 
 
-###### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
@@ -209,7 +208,7 @@ If your log group is not in the required format, the logs will arrive under the 
 
  
 
-#### Update the integration
+### Update the integration
   
 If you need to add more accounts to an existing integration, you can update the deployed stacks as follows. 
 
@@ -221,15 +220,15 @@ If you need to add more accounts to an existing integration, you can update the 
 
  
 
-##### Select the main stack of the landing account
+### Select the main stack of the landing account
 
 In your AWS Console, go to **Cloudformation**, choose your main stack and select **Update**.
 
-##### Specify the stack template
+### Specify the stack template
 
 Choose **Use current template** and select **Next**.
 
-##### Specify the stack details
+### Specify the stack details
 
 * Add new ARNs to `AccountsArns`. The ARNs should be specified as follows: `arn:aws:logs:*:<<ACCOUNT_NUMBER>>:*,arn:aws:logs:*:<<ACCOUNT_NUMBER>>:*,arn:aws:logs:*:<<ACCOUNT_NUMBER>>:*`.
 * Add new account numbers to `SendingAccounts`. The numbers should be specified as follows: `"1234","5678","9012"`.
@@ -239,23 +238,23 @@ Do not overwrite existing values.
 :::
  
 
-##### Configure stack options
+### Configure stack options
 
 If required, specify the **Key** and **Value** parameters for the **Tags** and select **Next**.
 
-##### Review the stack
+### Review the stack
 
 Confirm that you acknowledge that AWS CloudFormation might create IAM resources, IAM resources with custom names, may require `CAPABILITY_AUTO_EXPAND` and select **Create stack**.
 
-##### In each Destination Stack you deployed
+### In each Destination Stack you deployed
 
 In your AWS Console, go to **Cloudformation**, choose your destinations stack and select **Update**.
 
-##### Specify the stack template
+### Specify the stack template
 
 Choose **Use current template** and select **Next**.
 
-##### Specify the stack details
+### Specify the stack details
 
 * Add new account numbers to `SendingAccounts`. The numbers should be specified as follows: `"1234","5678","9012"`.
 
@@ -264,11 +263,11 @@ Do not overwrite existing values.
 :::
  
 
-##### Configure stack options
+### Configure stack options
 
 If required, specify the **Key** and **Value** parameters for the **Tags** and select **Next**.
 
-##### Review the stack
+### Review the stack
 
 Confirm that you acknowledge that AWS CloudFormation might create IAM resources, IAM resources with custom names, may require `CAPABILITY_AUTO_EXPAND` and select **Create stack**.
 
