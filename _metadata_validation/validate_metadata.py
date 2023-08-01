@@ -26,8 +26,8 @@ def validate_changed_files():
     for file in changed_files:
         file_metadata = get_file_metadata(file)
         if len(file_metadata) < len(consts.REQUIRED_FIELDS):
-            logger.error(f'File {file} is missing some required fields')
             logger.info(f'Current metadata for file {file}: {file_metadata}')
+            logger.error(f'File {file} is missing some required fields')
             error_counter += 1
             continue
         if not is_valid_id(file_metadata[consts.FIELD_ID], file, files_to_ids):
@@ -70,13 +70,13 @@ def validate_changed_files():
             logger.error(f'Invalid drop filter for file {file}')
             error_counter += 1
 
-        if error_counter == 0:
-            logger.info(f'Good job, scanned files are valid!')
-            exit(0)
-        else:
-            logger.error(f'Found {error_counter} validation violations in scanned files. See this run\'s previous '
-                         f'logs for more details')
-            exit(1)
+    if error_counter == 0:
+        logger.info(f'Good job, scanned files are valid!')
+        exit(0)
+    else:
+        logger.error(f'Found {error_counter} validation violations in scanned files. See this run\'s previous '
+                     f'logs for more details')
+        exit(1)
 
 
 def get_changed_files():
