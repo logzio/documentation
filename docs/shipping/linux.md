@@ -3,7 +3,7 @@ id: Linux
 title: Linux
 overview: This integration sends Linux logs to Logz.io
 product: ['logs']
-os: ['windows', 'linux']
+os: ['linux']
 filters: ['Other']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/linux.svg
 logs_dashboards: []
