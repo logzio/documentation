@@ -1,7 +1,7 @@
 ---
 id: AWS-Cost-and-Usage-Reports
 title: AWS Cost and Usage Reports
-overview: AWS Cost and Usage Reports function tracks your AWS usage and provides estimated charges associated with your account. This integration allows you to ship logs from your AWS Cost and Usage Reports to your Logz.io account.
+overview: AWS Cost and Usage Reports function tracks your AWS usage and provides estimated charges associated with your account. 
 product: ['logs']
 os: ['windows', 'linux']
 filters: ['AWS', 'Other']
@@ -15,13 +15,13 @@ metrics_alerts: []
 
 AWS Cost and Usage Reports function tracks your AWS usage and provides estimated charges associated with your account. This integration allows you to ship logs from your AWS Cost and Usage Reports to your Logz.io account.
 
-:::note
+:::caution Important 
 Your Lambda function needs to run within the AWS Lambda limits, such as memory allocation and timeout. Make sure you understand these limits. If you can't adjust your settings to stay within the Lambda limits, you can use the AWS [Support Center console](https://console.aws.amazon.com/support/v1#/case/create?issueType=service-limit-increase) to request an increase. [Learn more about AWS Lambda Limits](https://docs.aws.amazon.com/lambda/latest/dg/limits.html).
 :::
  
   
 
-#### Automated CloudFormation deployment
+## Automated CloudFormation deployment
 
 This deployment will automatically create the following resources:
 
@@ -29,11 +29,11 @@ This deployment will automatically create the following resources:
 
  
 
-##### Login to your account
+### Login to your account
 
 To begin, you need to login to your AWS account.
 
-##### Create a new stack
+### Create a new stack
 
 Select the button below to create a new stack dedicated to sending the AWS cost and usage reports to Logz.io.
 
@@ -43,7 +43,7 @@ Select the button below to create a new stack dedicated to sending the AWS cost 
 
 Keep the default setting in the **Create stack** screen and select **Next**.
 
-##### Specify the stack details
+### Specify the stack details
 
 ![Specify stack details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/specify_stack_details.png)
 
@@ -63,20 +63,20 @@ Specify the stack details as per the table below and select **Next**.
 | ReportTimeUnit | The granularity of the line items in the report. Can be Hourly, Daily or Monthly. (Enabling hourly reports does not mean that a new report is generated every hour. It means that data in the report is aggregated with a granularity of one hour.) |
 | S3BucketName | The name for the bucket which will contain the report files. |
 
-##### Configure the stack options
+### Configure the stack options
 
 ![Configure stack options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/specify_stack_details.png)
 
 Specify the **Key** and **Value** parameters for the **Tags** and select **Next**.
 
-##### Review the deployment
+### Review the deployment
 
 ![Review deployment](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/review_deployment.png)
 ![Confirm deployment](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/confirm_and_create_stack.png)
 
 Confirm that you acknowledge that AWS CloudFormation might create IAM resources and select **Create stack**.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs the time specified in `CloudWatchEventScheduleExpression` to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
@@ -90,7 +90,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
  
 
-#### Deployment using a module
+## Deployment using a module
   
 Deploy this integration to add a module for AWS cost and usage report to your existing stack. This integration uses CloudWatch Public Registry.
 
@@ -108,25 +108,25 @@ Logz.io Public Registry extensions are currently only available on the AWS regio
 
  
 
-##### Select the Logz.io AWS Cost and Usage extension
+### Select the Logz.io AWS Cost and Usage extension
 
 1. Navigate to **CloudFormation > Registry > Public extensions**.
 2. Set **Extension type > Modules** and **Publisher > Third party**.
 3. Select **Logzio::awsCostAndUsage::cur::MODULE**.
 
 
-##### Activate the Logz.io AWS Cost and Usage extension
+### Activate the Logz.io AWS Cost and Usage extension
 
 1. On the **Logzio::awsCostAndUsage::cur::MODULE** select **Activate**.
 2. In the **Extension details** section, select **Use default**.
 3. In the **Automatic updates** section, select **On**.
 4. Select **Activate extension**.
 
-##### Copy the configuration template
+### Copy the configuration template
 
 On the **Logzio::awsCostAndUsage::cur::MODULE** page, navigate to **Example template** and select **Copy template**.
 
-##### Add your stack values to the configuration template
+### Add your stack values to the configuration template
 
 ```yaml
 {
@@ -165,7 +165,7 @@ Save the template as a yaml file and add the values of your stack to the as per 
 | ReportTimeUnit | The granularity of the line items in the report. Can be Hourly, Daily or Monthly. (Enabling hourly reports does not mean that a new report is generated every hour. It means that data in the report is aggregated with a granularity of one hour.) |
 | S3BucketName | The name for the bucket which will contain the report files. |
 
-##### Add your stack values to the configuration template
+### Add your stack values to the configuration template
 
 If you are creating a new stack:
 

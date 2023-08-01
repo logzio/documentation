@@ -1,7 +1,7 @@
 ---
 id: AWS-Cloudwatch-Kafka
 title: AWS Cloudwatch Kafka
-overview: This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon Cloudwatch Kafka metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
+overview: Send your Amazon Cloudwatch Kafka metrics to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['AWS', 'Distributed Messaging']
@@ -20,7 +20,6 @@ For a much easier and more efficient way to collect and send metrics, consider u
 
 
 
-
 Deploy this integration to send your Amazon Cloudwatch Kafka metrics to Logz.io.
 
 This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon Cloudwatch Kafka metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
@@ -32,7 +31,6 @@ This integration creates a Kinesis Data Firehose delivery stream that links to y
 {@include: ../_include/metric-shipping/generic-dashboard.html}
 
 
-#### Setup
 
 **Before you begin, you'll need**:
 
@@ -40,7 +38,7 @@ This integration creates a Kinesis Data Firehose delivery stream that links to y
 
 
 
-##### Configure AWS to forward metrics to Logz.io
+## Configure AWS to forward metrics to Logz.io
 
 To deploy this project, click the button that matches the region you wish to deploy your Stack to:
 
@@ -64,7 +62,7 @@ To deploy this project, click the button that matches the region you wish to dep
 | `ap-southeast-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-southeast-2.s3.amazonaws.com/metric-stream-helpers/aws/1.2.4/sam-template.yaml&stackName=logzio-metric-stream&param_logzioToken=<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8053) |
 | `ca-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ca-central-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ca-central-1.s3.amazonaws.com/metric-stream-helpers/aws/1.2.4/sam-template.yaml&stackName=logzio-metric-stream&param_logzioToken=<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8053)     |
 
-##### Specify stack details
+### Specify stack details
 
 Specify the stack details as per the table below, check the checkboxes and select **Create stack**.
 
@@ -79,7 +77,7 @@ Specify the stack details as per the table below, check the checkboxes and selec
 
 
 
-##### Check Logz.io for your metrics
+### Check Logz.io for your metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 

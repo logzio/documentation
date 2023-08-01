@@ -1,7 +1,7 @@
 ---
 id: AWS-ECS-Fargate
 title: AWS ECS Fargate 
-overview: AWS Fargate is a serverless compute engine for building applications without managing servers. This integration will create a new container that will run your image to send your AWS ECS Fargate logs to Logz.io using AWS OTel Collector. The integration will automatically create the replica.
+overview: AWS Fargate is a serverless compute engine for building applications without managing servers.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['AWS', 'Compute', 'Containers']
@@ -20,7 +20,7 @@ AWS Fargate is a serverless compute engine for building applications without man
 Only `awsecscontainermetrics` receiver metrics are collected by default.
 :::
 
-## Before you begin
+### Before you begin
 
 These are the prerequisites you’ll need before you can begin:
 
@@ -34,7 +34,7 @@ Next, you'll need to configure your CloudFormation template and point the OTLP e
 
 Click on the **Launch Stack** button below to deploy the CloudFormation template. This template will create the required resources and configurations for the AWS OTel Collector.
 
-| [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/logzio-aws-ecs/ecs-fargate-collector.yaml) |  |
+[![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/logzio-aws-ecs/ecs-fargate-collector.yaml)
 
 
 

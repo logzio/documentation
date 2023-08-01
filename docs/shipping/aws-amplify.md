@@ -12,14 +12,13 @@ logs2metrics: []
 metrics_dashboards: []
 metrics_alerts: []
 ---
-## Amplify Access Logs Shipper - Lambda
 
 This is an AWS Lambda function that collects Amplify access logs and sends them to Logz.io in bulk over HTTP.
 
-### Configuration with a Lambda function
+## Configuration with a Lambda function
 
 
-##### Create a new Lambda function
+### Create a new Lambda function
 
 1. Open the AWS Lambda Console, and click **Create function**.
 2. Choose **Author from scratch**.
@@ -29,7 +28,7 @@ This is an AWS Lambda function that collects Amplify access logs and sends them 
 
 After a few moments, you'll see configuration options for your Lambda function. You'll need this page later on, so keep it open.
 
-##### Zip the source files
+### Zip the source files
 
 Clone the CloudWatch Logs Shipper - Lambda project from GitHub to your computer,
 and zip the Python files in the `src/` folder as follows:
@@ -43,7 +42,7 @@ git clone https://github.com/logzio/logzio_aws_serverless.git \
 && zip logzio-amplify lambda_function.py python3/shipper/*
 ```
 
-##### Upload the zip file and set environment variables
+### Upload the zip file and set environment variables
 
 1. In the **Code source** section, select **Upload from > .zip file**.
 2. Click **Upload**, and choose the zip file you created earlier (`logzio-amplify.zip`).
@@ -62,7 +61,7 @@ git clone https://github.com/logzio/logzio_aws_serverless.git \
 | AMPLIFY_APP_ID (Required)                      | You can find the app ID in your Amplify admin dashboard in **General** under the **App ARN** field arn:aws:amplify:`REGION`:`AWS_ID`:apps/`APP_ID`.                                                                                                                                                                                                         |
 | TIMEOUT                                        | Period in minutes, over which the Lambda function fetches Amplify logs.                                                                                                                                                                                                                                                 |
 
-##### Set the EventBridge (CloudWatch Events) trigger
+### Set the EventBridge (CloudWatch Events) trigger
 
 1. Find the **Add triggers** list (left side of the Designer panel) and choose **EventBridge (CloudWatch Events)** from this list.
 2. If you don't have a pre-defined schedule type (e.g., 1min), click **Create new rule** in **Rule**.
@@ -71,7 +70,7 @@ git clone https://github.com/logzio/logzio_aws_serverless.git \
 
 5. In **Rule type**, choose the schedule expression that is equal to the TIMEOUT of the environment variable (e.g., 5 minutes).
 
-##### Update Permissions for Lambda Function
+### Update Permissions for Lambda Function
 
 1. Go to **Configuration** in your Lambda function and select the **Permissions** tab.
 2. Click the role name shown in the example **lambda-basic**. It will redirect you to the **IAM> Roles> lambda-basic**.
@@ -98,7 +97,7 @@ git clone https://github.com/logzio/logzio_aws_serverless.git \
 * Replace `XXX66029XXXX` with your AWS Account ID.
 * Replace `XXXXdn0mprXXXX` with the AWS Amplify App ID.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

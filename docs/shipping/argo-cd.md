@@ -1,7 +1,7 @@
 ---
 id: Argo-CD
 title: Argo CD
-overview: Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+overview: Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. 
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['CI/CD']
@@ -14,28 +14,26 @@ metrics_alerts: []
 ---
 
 
-## Overview
-
 Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format Argo CD metrics to Logz.io, you need to add the **inputs.prometheus** and **outputs.http** plug-ins to your Telegraf configuration file.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["6Gx8npV306IL2WZ4SJRIN4"] -->
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+## Configuring Telegraf to send your metrics data to Logz.io
 
  
 
-##### Set up Telegraf v1.17 or higher
+### Set up Telegraf v1.17 or higher
 
 {@include: ../_include/metric-shipping/telegraf-setup.md}
  
-##### Expose Argo CD metrics
+### Expose Argo CD metrics
 
 First, you need to [expose Argo CD Prometheus-format metrics](https://argo-cd.readthedocs.io/en/stable/operator-manual/metrics/) on your server.
 
 
-##### Add the inputs.prometheus plug-in
+### Add the inputs.prometheus plug-in
 
 Now you need to configure the input plug-in to enable Telegraf to scrape the Argo CD data from your hosts. To do this, add the following code to the configuration file:
 
@@ -49,12 +47,12 @@ Now you need to configure the input plug-in to enable Telegraf to scrape the Arg
 * Replace `<ARGOCD_HOST_URL>>` with the URL of your Argo CD host.
 * Replace `<<PORT>>` with the port of your Argo CD host.
 
-##### Add the outputs.http plug-in
+### Add the outputs.http plug-in
 
 {@include: ../_include/metric-shipping/telegraf-outputs.md}
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
 
-##### Check Logz.io for your metrics
+### Check Logz.io for your metrics
 
 {@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboards to enhance the observability of your metrics.
 

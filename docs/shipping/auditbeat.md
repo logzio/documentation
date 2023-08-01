@@ -19,7 +19,7 @@ It's available for most major Linux distributions.
 This page gives instructions for replacing auditd with Auditbeat
 so you can easily ship your audit logs to Logz.io.
 
-#### Configuration
+## Configure Auditbeat to send metrics to Logz.io
 
 **Before you begin, you'll need**:
 auditd,
@@ -29,11 +29,11 @@ root access
 
 {@include: ../_include/log-shipping/certificate.md}
 
-##### Install Auditbeat
+### Install Auditbeat
 
 Download and install [Auditbeat 7.7](https://www.elastic.co/guide/en/beats/auditbeat/7.7/auditbeat-installation.html).
 
-##### Copy auditd rules
+### Copy auditd rules
 
 Go to the audit rules location in you auditbeat directory. The default location:
 
@@ -52,7 +52,7 @@ You need root privileges to interact with the auditd rules file.
 :::
  
 
-##### Add auditd as a source input and Logz.io as an output
+### Add auditd as a source input and Logz.io as an output
 
 Open the Auditbeat configuration file (`/etc/auditbeat/auditbeat.yml`). Here's how to do it using CLI.
 
@@ -159,11 +159,11 @@ output.logstash:
 
 
 
-##### Start Auditbeat
+### Start Auditbeat
 
 Stop auditd, and then start Auditbeat.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

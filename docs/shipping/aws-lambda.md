@@ -1,7 +1,7 @@
 ---
 id: AWS-Lambda
 title: AWS Lambda
-overview: Deploy this integration to auto-instrument your Node.js application running on AWS Lambda and send the traces to your Logz.io account. This is done by adding a dedicated layer for OpenTelemetry collector, a dedicated layer for Node.js auto-instrumentation and configuring environment variables of these layers. This integration will require no change to your application code.
+overview: Deploy this integration to auto-instrument your Node.js application running on AWS Lambda and send the traces to your Logz.io account.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['AWS', 'Compute']
@@ -26,7 +26,6 @@ This integration only works for the following AWS regions: `us-east-1`, `us-east
 :::
 <!-- info-box-end -->
 
-## Setup instructions
 
 **Before you begin, you'll need**:
   
@@ -41,7 +40,7 @@ Adding environmental variables using the AWS CLI commands below, will overwrite 
 <!-- info-box-end -->
 
 <!-- info-box-start:info -->
-:::note
+:::caution Important
 This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
 :::
 <!-- info-box-end -->

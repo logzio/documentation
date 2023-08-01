@@ -1,7 +1,7 @@
 ---
 id: Apache-HTTP-Server
 title: Apache HTTP Server
-overview: The Apache HTTP Server, colloquially called Apache, is a free and open-source cross-platform web server. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+overview: The Apache HTTP Server, colloquially called Apache, is a free and open-source cross-platform web server.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['Compute']
@@ -14,21 +14,19 @@ metrics_alerts: []
 ---
 
 
-## Overview
-
 The Apache HTTP Server, colloquially called Apache, is a free and open-source cross-platform web server. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format Apache HTTP Server metrics to Logz.io, you need to add the **inputs.apache** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+## Configuring Telegraf to send your metrics data to Logz.io
 
  
 
-##### Set up Telegraf v1.17 or higher
+### Set up Telegraf v1.17 or higher
 
 {@include: ../_include/metric-shipping/telegraf-setup.md}
 
-##### Add the inputs.apache plug-in
+### Add the inputs.apache plug-in
 
 First you need to configure the input plug-in to enable Telegraf to scrape the Apache HTTP Server data from your hosts. To do this, add the following code to the configuration file:
 
@@ -60,7 +58,7 @@ The full list of data scraping and configuring options can be found [here](https
  
   
 
-##### Enable the ExtendedStatus option on your server
+### Enable the ExtendedStatus option on your server
   
 The `ExtendedStatus` option must be enabled on your server in order to collect all available fields. To do this, add the following code to your `httpd.conf` configuration file:
   
@@ -72,16 +70,16 @@ The `ExtendedStatus` option must be enabled on your server in order to collect a
 ```
 
 
-##### Add the outputs.http plug-in
+### Add the outputs.http plug-in
   
 {@include: ../_include/metric-shipping/telegraf-outputs.md}
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
   
-##### Start Telegraf
+### Start Telegraf
 
 {@include: ../_include/metric-shipping/telegraf-run.md}
 
-##### Check Logz.io for your metrics
+### Check Logz.io for your metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
@@ -89,7 +87,7 @@ Give your data some time to get from your system to ours, then log in to your Lo
  
 The Apache HTTP Server, colloquially called Apache, is a free and open-source cross-platform web server. This integration allows you to send logs from your Apache server instances to your Logz.io account.
 
-#### Step by step
+### Step by step
 
 **Before you begin, you'll need**:
 
@@ -101,7 +99,7 @@ The Apache HTTP Server, colloquially called Apache, is a free and open-source cr
 
 {@include: ../_include/log-shipping/certificate.md}
 
-##### Add Apache as an input
+### Add Apache as an input
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Apache to the filebeat.inputs section.
 
@@ -202,7 +200,7 @@ filebeat.inputs:
 
 
 
-##### Set Logz.io as the output
+### Set Logz.io as the output
 
 If Logz.io is not an output, add it now.
 Remove all other outputs.
@@ -217,11 +215,11 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### Start Filebeat
+### Start Filebeat
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can search for `type:apache OR apache_access OR apache-access` to filter for your Apache logs. Your logs should be already parsed thanks to the Logz.io preconfigured parsing pipeline.
 

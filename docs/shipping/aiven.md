@@ -1,7 +1,7 @@
 ---
 id: Aiven
 title: Aiven
-overview: 'Aiven is a cloud service provider that specializes in managed open-source database, messaging, and event streaming solutions'
+overview: Aiven is a cloud service provider that specializes in managed open-source database, messaging, and event streaming solutions.
 product: ['logs']
 os: []
 filters: ['Other']
@@ -21,7 +21,7 @@ metrics_alerts: []
 * an Aiven project with the service enabled 
 
 
-##### Configure Aiven to send syslog notifications to Logz.io
+## Configure Aiven to send syslog notifications to Logz.io
 
 1. Log in to your Aiven account and navigate to **Projects**.
 2. Select the project that you need to send logs from.
@@ -85,7 +85,7 @@ metrics_alerts: []
    ![7](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven7.png)
 
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for data of type `Aiven` to see the incoming Aiven logs.
   

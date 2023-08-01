@@ -16,7 +16,7 @@ metrics_alerts: []
 
 
 :::note
-For a much easier and more efficient way to collect and send metrics, consider using the [Logz.io telemetry collector](https://app.logz.io/#/dashboard/send-your-data/agent/new)).
+For a much easier and more efficient way to collect and send metrics, consider using the [Logz.io telemetry collector](https://app.logz.io/#/dashboard/send-your-data/agent/new).
 :::
 
 
@@ -30,7 +30,7 @@ It will deploy the following projects:
 
 
 
-##### Instructions
+### Deploy your stack
 
 To deploy this integrion, click the button that matches the region you wish to deploy your Stack to:
 
@@ -89,6 +89,6 @@ If you've used the `services` field, you'll have to **wait 6 minutes** before cr
 
 
 
-##### Check Logz.io for your metrics
+### Check Logz.io for your metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).

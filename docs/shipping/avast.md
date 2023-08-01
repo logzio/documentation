@@ -22,14 +22,14 @@ metrics_alerts: []
 * [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) installed on your machine
 * Root priveleges on your machines 
 
-#### Default configuration
+## Default configuration
 
  
 
 {@include: ../_include/log-shipping/certificate.md}
 
 
-##### Configure Filebeat
+### Configure Filebeat
 
 1. Paste the following into the inputs section of the Filebeat configuration file:
 
@@ -211,7 +211,7 @@ metrics_alerts: []
 
 2. Run Filebeat with the new configuration.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for data of type `avast` to see the incoming Axonius logs.
   
@@ -219,12 +219,12 @@ If you still don't see your logs, see [Filebeat troubleshooting](https://docs.lo
   
  
 
-#### Optional configuration with report files
+## Optional configuration with report files
 
  
 
 
-##### Configure Avast Antivirus to generate report files for your scans
+### Configure Avast Antivirus to generate report files for your scans
   
 If you want to send data from virus scans together with the logs, you need to enable Avast Antivirus to generate report files for these scans. You do not need to change antything in the Filebeat configuration as it already includes paths to these report files.
   
