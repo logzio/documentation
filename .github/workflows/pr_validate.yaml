@@ -1,0 +1,130 @@
+name: PR processing
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  validate_docs_metadata:
+    name: validate docs metadata
+    runs-on: ubuntu-latest
+    env:
+      MANIFEST_PATH: '_manifest/validation_manifest.json'
+    steps:
+      - name: Checkout PR
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: install dependencies
+        run: pip install -r _metadata_validation/requirements.txt
+      - name: Get changed files
+        id: changed_files
+        run: |
+          PR_URL=$(jq -r .pull_request.url "$GITHUB_EVENT_PATH")
+          FILES=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" $PR_URL/files | jq -r '[.[] | .filename] | join(",")')
+          echo "CHANGED_FILES=$FILES" >> $GITHUB_ENV
+      - name: Run validation
+        id: run_validation
+        env:
+          FILES_TO_TRACK: ${{ env.CHANGED_FILES }}
+        run: |
+          echo "starting step..."
+          if git diff --name-only HEAD^..HEAD | grep -q "^docs/shipping/"; then
+            set +e
+            python _metadata_validation/validate_metadata.py
+            python_exit_code=$?
+            set -e
+            if [ "$python_exit_code" -ne 0 ]; then
+              echo "The validation script failed with exit code $python_exit_code."
+              response=$(curl --request POST \
+                --url https://api.github.com/repos/${{ github.repository }}/statuses/${{ github.event.pull_request.head.sha }} \
+                --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+                --header 'content-type: application/json' \
+                --data '{
+                    "context": "PR validation",
+                    "state": "failure",
+                    "description": "Validation failed",
+                    "target_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                  }')
+              echo "skip_next_step=true" >> "$GITHUB_OUTPUT"
+              exit $python_exit_code
+            fi
+          else
+            echo "No changes for doc files..."
+            response=$(curl --request POST \
+              --url https://api.github.com/repos/${{ github.repository }}/statuses/${{ github.event.pull_request.head.sha }} \
+              --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+              --header 'content-type: application/json' \
+              --data '{
+                  "context": "PR validation",
+                  "state": "success",
+                  "description": "No docs changed, does not required validation and manifest",
+                  "target_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                }')
+            echo "skip_next_step=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Create_manifest
+        id: create_manifest
+        run: |
+          skip_step=${{ steps.run_validation.outputs.skip_next_step }}
+          if [ "skip_step" == "true" ]; then
+            echo "skipping this step..."
+            echo "skip_next_step=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "Creating new manifest..."
+          python _manifest/manifest_generator.py
+          echo "Copying file into manifest path"
+          cp ${{env.MANIFEST_PATH}} static/manifest.json
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        id: auto_commit_manifest
+        if: steps.create_manifest.outputs.skip_next_step != true && steps.create_manifest.outcome == 'success'
+        with:
+          file_pattern: './static/manifest.json'
+          commit_message: 'auto generated manifest'
+          commit_options: "--no-gpg-sign"
+          push_options: '--force'
+      - name: Manifest update success
+        run: |
+          if [ ${{ steps.create_manifest.outcome }} == 'success' ]; then
+            echo "Sending success status on current commit..."
+            curl --request POST \
+            --url https://api.github.com/repos/${{ github.repository }}/statuses/${{ github.event.pull_request.head.sha }} \
+            --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+            --header 'content-type: application/json' \
+            --data '{
+              "context": "PR validation",
+              "state": "success",
+              "description": "Docs are valid, manifest was generated",
+              "target_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            }'
+            
+            echo "Sending success status on manifest commit..."
+            curl --request POST \
+            --url https://api.github.com/repos/${{ github.repository }}/statuses/${{ steps.auto_commit_manifest.outputs.commit_hash }} \
+            --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+            --header 'content-type: application/json' \
+            --data '{
+              "context": "PR validation",
+              "state": "success",
+              "description": "Docs are valid, manifest was generated",
+              "target_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            }'
+          else
+            echo "Sending failure status..."
+            curl --request POST \
+            --url https://api.github.com/repos/${{ github.repository }}/statuses/${{ github.event.pull_request.head.sha }} \
+            --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+            --header 'content-type: application/json' \
+            --data '{
+              "context": "PR validation",
+              "state": "failure",
+              "description": "Error occurred on manifest generation",
+              "target_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            }'
+          fi
