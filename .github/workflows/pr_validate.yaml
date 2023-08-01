@@ -40,7 +40,7 @@ jobs:
             python_exit_code=$?
             set -e
             if [ "$python_exit_code" -ne 0 ]; then
-              echo "The validation script failed with exit code $python_exit_code."
+              echo "The validation script failed with exit code $python_exit_code, sending failure status"
               response=$(curl --request POST \
                 --url https://api.github.com/repos/${{ github.repository }}/statuses/${{ github.event.pull_request.head.sha }} \
                 --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
