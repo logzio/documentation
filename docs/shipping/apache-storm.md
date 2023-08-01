@@ -1,7 +1,7 @@
 ---
 id: Apache-Storm
 title: Apache Storm
-overview: 'This integration allows you to send logs from your Apache Storm server instances to your Logz.io account'
+overview: This integration allows you to send logs from your Apache Storm server instances to your Logz.io account.
 product: ['logs']
 os: ['linux']
 filters: ['Distributed Messaging']
@@ -15,7 +15,7 @@ metrics_alerts: []
 
 Apache Storm is a free and open source distributed realtime computation system. This integration allows you to send logs from your Apache Storm server instances to your Logz.io account.
 
-#### Step by step
+## Configure Apache Storm to send metrics to Logz.io
 
 **Before you begin, you'll need**:
 
@@ -27,7 +27,7 @@ Apache Storm is a free and open source distributed realtime computation system. 
 
 {@include: ../_include/log-shipping/certificate.md}
 
-##### Find Apache Storm log location
+### Find Apache Storm log location
 
 Run the following command to find your Apache Storm logs directory:
 
@@ -37,7 +37,7 @@ ps -o args= -C java | grep -Po -- '-Dstorm.log.dir=\K[^\s]+'
 
 
 
-##### Add Apache Storm as an input
+### Add Apache Storm as an input
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Apache to the filebeat.inputs section.
 
@@ -96,7 +96,7 @@ filebeat.inputs:
 
 
 
-##### Set Logz.io as the output
+### Set Logz.io as the output
 
 If Logz.io is not an output, add it now.
 Remove all other outputs.
@@ -111,11 +111,11 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### Start Filebeat
+### Start Filebeat
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can search for `type:apache_storm` to filter for your Apache Storm logs. 
 

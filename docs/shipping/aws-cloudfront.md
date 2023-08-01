@@ -1,7 +1,7 @@
 ---
 id: AWS-CloudFront
 title: AWS CloudFront
-overview: This CloudFormation template allows shipping AWS Logs and Metrics to logz.io.
+overview: Send your Amazon CloudFront metrics to Logz.io.
 product: ['logs' , 'metrics']
 os: []
 filters: ['AWS', 'Network']
@@ -32,7 +32,6 @@ This integration creates a Kinesis Data Firehose delivery stream that links to y
 
 {@include: ../_include/metric-shipping/generic-dashboard.html}
 
-#### Setup
 
 **Before you begin, you'll need**:
 
@@ -40,7 +39,7 @@ This integration creates a Kinesis Data Firehose delivery stream that links to y
 
 
 
-##### Configure AWS to forward metrics to Logz.io
+## Configure AWS to forward metrics to Logz.io
 
 To deploy this project, click the button that matches the region you wish to deploy your Stack to:
 
@@ -64,7 +63,7 @@ To deploy this project, click the button that matches the region you wish to dep
 | `ap-southeast-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-southeast-2.s3.amazonaws.com/metric-stream-helpers/aws/1.2.4/sam-template.yaml&stackName=logzio-metric-stream&param_logzioToken=<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8053) |
 | `ca-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ca-central-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ca-central-1.s3.amazonaws.com/metric-stream-helpers/aws/1.2.4/sam-template.yaml&stackName=logzio-metric-stream&param_logzioToken=<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8053)     |
 
-##### Specify stack details
+### Specify stack details
 
 Specify the stack details as per the table below, check the checkboxes and select **Create stack**.
 
@@ -79,7 +78,7 @@ Specify the stack details as per the table below, check the checkboxes and selec
 
 
 
-##### Check Logz.io for your metrics
+### Check Logz.io for your metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
@@ -89,14 +88,13 @@ Give your data some time to get from your system to ours, then log in to your Lo
 
 {@include: ../_include/metric-shipping/generic-dashboard.html}
 
-
+## Ship CloudFront logs
 
 When you set Logz.io to fetch CloudFront logs, Logz.io will periodically read logs from the configured S3 bucket.
 CloudFront logs are useful for auditing/security monitoring and business intelligence.
 
-{@include: ../_include/log-shipping/s3-bucket.md service="CloudFront" %}
+{@include: ../_include/log-shipping/s3-bucket.md}
 
-#### Configuration
 
 **Before you begin, you'll need**:
 
@@ -106,14 +104,14 @@ CloudFront logs are useful for auditing/security monitoring and business intelli
 
  
 
-##### Send your logs to an S3 bucket
+### Send your logs to an S3 bucket
 
 Logz.io fetches your CloudFront logs from an S3 bucket.
 CloudFront access logs are not enabled by default, so you'll need to set this up.
 
 For help with this, see [Configuring and Using CloudFront Access Logs](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) from AWS.
 
-##### Add a new S3 bucket using the dedicated Logz.io configuration wizard
+### Add a new S3 bucket using the dedicated Logz.io configuration wizard
 
 Log into the app to use the dedicated Logz.io [configuration wizard](https://app.logz.io/#/dashboard/send-your-data/log-sources/cloudfront) and add a new S3 bucket.
 
@@ -121,7 +119,7 @@ Log into the app to use the dedicated Logz.io [configuration wizard](https://app
 
 {@include: ../_include/log-shipping/add-s3-bucket.md}
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

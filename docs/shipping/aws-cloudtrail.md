@@ -14,9 +14,8 @@ metrics_alerts: []
 ---
 
 
-{@include: ../_include/log-shipping/s3-bucket.md service="CloudTrail" %}
+{@include: ../_include/log-shipping/s3-bucket.md}
 
-#### Configuration
 
 **Before you begin**:
 
@@ -28,14 +27,14 @@ metrics_alerts: []
 
  
 
-##### Send your logs to an S3 bucket
+## Send your logs to an S3 bucket
 
 Logz.io fetches your CloudTrail logs from an S3 bucket.
 
 For help with setting up a new trail, see [Overview for Creating a Trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html) from AWS.
 
 
-##### Verify bucket definition on AWS
+### Verify bucket definition on AWS
 
 [Navigate to the location of your trail logs on AWS](https://console.aws.amazon.com/cloudtrail/):
 
@@ -60,7 +59,7 @@ You'll need these values when adding your S3 bucket information.
 ![prefix](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/prefix-trail.png)
 
 
-##### Add your S3 bucket information
+### Add your S3 bucket information
 
 <!-- logzio-inject:aws:cloudtrail -->
 
@@ -80,7 +79,7 @@ The configuration wizard will open.
 ![S3 bucket configuration wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/iam-role-configuration.png)
 
 
-###### Getting the information from your CloudTrail AWS path
+#### Getting the information from your CloudTrail AWS path
 
 You may need to fill in 2 parameters when creating the bucket - {BUCKET_NAME} and {PREFIX}. You can find them in your CloudTrail AWS path. The AWS path structure for CloudTrail looks like the examle below:
 
@@ -92,13 +91,13 @@ You may need to fill in 2 parameters when creating the bucket - {BUCKET_NAME} an
 
 * {PREFIX} is your CloudTrail path. The prefix is generate by default and represents the complete path inside the bucket up until the regions section. It should look like this: `AWSLogs/{AWS_ACCOUNT_ID}/CloudTrail/`.
 
-:::note
+:::caution Important
 Logz.io fetches logs that are generated after configuring an S3 bucket.
 Logz.io cannot fetch past logs retroactively.
 :::
  
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
@@ -106,9 +105,9 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
  
 
-#### Troubleshooting
+## Troubleshooting
 
-##### Problem: Failed to save bucket configuration 
+### Problem: Failed to save bucket configuration 
 
 The following error appears when you're trying to create a bucket:
 

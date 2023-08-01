@@ -1,7 +1,7 @@
 ---
 id: Apache-Cassandra
 title: Apache Cassandra
-overview: Apache Cassandra is an open source NoSQL distributed database management system designed to process large amounts of data across commodity servers.Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+overview: Apache Cassandra is an open source NoSQL distributed database management system designed to process large amounts of data across commodity servers.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['Database']
@@ -13,8 +13,6 @@ metrics_dashboards: ["5oCUt52hGJu6LmVGHPOktr", "6J2RujMalRK3oC4y0r88ax"]
 metrics_alerts: []
 ---
 
-## Overview
-
 [Apache Cassandra](https://cassandra.apache.org/) is an open source NoSQL distributed database management system designed to process large amounts of data across commodity servers.
 
 Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
@@ -23,11 +21,11 @@ To send your JMX-format Apache Cassandra metrics to Logz.io, you need to add the
 
 <!-- logzio-inject:install:grafana:dashboards ids=["5oCUt52hGJu6LmVGHPOktr", "6J2RujMalRK3oC4y0r88ax"] -->
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+## Configuring Telegraf to send your metrics data to Logz.io
 
 
 
-##### Install Jolokia agent on your Cassandra server
+### Install Jolokia agent on your Cassandra server
 
 :::note
 You need to install and enable Jolokia on every Cassandra server.
@@ -40,25 +38,25 @@ Download Jolokia agent to `/usr/share/java`:
 RUN curl -L http://search.maven.org/remotecontent?filepath=org/jolokia/jolokia-jvm/1.6.0/jolokia-jvm-1.6.0-agent.jar
 ```
 
-##### Enable Jolokia agent on your Cassandra server
+### Enable Jolokia agent on your Cassandra server
 
 ```shell
 JVM_OPTS="$JVM_OPTS -javaagent:/usr/share/java/jolokia-jvm-1.6.0-agent.jar=port=8778,host=localhost"
 ```
 
-##### Restart Cassandra
+### Restart Cassandra
 
 ```shell
 sudo service cassandra restart
 ```
 
-##### Verify Jolokia is accessible
+### Verify Jolokia is accessible
 
 ```shell
 curl http://localhost:8778/jolokia/
 ```
 
-##### Set up Telegraf v1.17 or higher on your Cassandra server
+### Set up Telegraf v1.17 or higher on your Cassandra server
 
 :::note
 You need to install Telegraf on every Cassandra server.
@@ -68,7 +66,7 @@ You need to install Telegraf on every Cassandra server.
 
 {@include: ../_include/metric-shipping/telegraf-setup.md}
 
-##### Add the inputs.jolokia2_agent plug-in
+### Add the inputs.jolokia2_agent plug-in
 
 First you need to configure the input plug-in to enable Telegraf to scrape the Apache Cassandra data from your hosts. To do this, add the following code to the configuration file:
 
@@ -160,16 +158,16 @@ The full list of data scraping and configuring options can be found [here](https
 :::
 
 
-##### Add the outputs.http plug-in
+### Add the outputs.http plug-in
 
 {@include: ../_include/metric-shipping/telegraf-outputs.md}
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
 
-##### Start Telegraf
+### Start Telegraf
 
 {@include: ../_include/metric-shipping/telegraf-run.md}
 
-##### Check Logz.io for your metrics
+### Check Logz.io for your metrics
 
 {@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 

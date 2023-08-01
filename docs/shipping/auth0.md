@@ -13,18 +13,15 @@ metrics_dashboards: []
 metrics_alerts: []
 ---
 
-
-### Ship events data from your Auth0 account to Logz.io
-
 Auth0 is an easy to implement, adaptable authentication and authorization platform. Deploy this integration to ship Auth0 events from your Auth0 account to Logz.io using custom log stream via webhooks.
 
-**Before you begin, you'll need**: an active account with Auth0
+**Before you begin, you'll need**: an active account with Auth0.
 
  
 
-#### Setup a custom log stream using webhooks
+## Setup a custom log stream using webhooks
 
-##### Create a custom log stream
+### Create a custom log stream
 
 1. Log in to your Auth0 account, navigate to **Auth0 Dashboard > Monitoring > Streams**, and select **Create Stream**.
   
@@ -36,7 +33,7 @@ Auth0 is an easy to implement, adaptable authentication and authorization platfo
 3. In the **Name** field, enter **Logz.io integration** and select **Create**.
 
 
-##### Configure the required parameters
+### Configure the required parameters
   
 The **Settings** tab of the created event stream is displayed after you create the stream.
 
@@ -45,15 +42,17 @@ Configure the required parameters as follows:
 ![Configure stream](https://dytvr9ot2sszz.cloudfront.net/logz-docs/auth0/webhook-auth0.png)
 
    * In the **Name** field, enter **Logz.io integration**.
-   * In the **Payload URL** field, enter `https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=auth0`. {@include: ../_include/log-shipping/listener-var.html}  {@include: ../_include/log-shipping/log-shipping-token.html}
+   * In the **Payload URL** field, enter `https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=auth0`. 
+      {@include: ../_include/log-shipping/listener-var.html} 
+      {@include: ../_include/log-shipping/log-shipping-token.html}
    * In the **Content Type** field, select **application/json**.
    * In the **Content Format** field, select **JSON lines**.
 
-##### Save the changes
+### Save the changes
 
 Select **Save** to save the changes and create the stream.
 
-#### Check Logz.io for your data
+### Check Logz.io for your data
 
 Give your data some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for data of type `auth0` to see the incoming Auth0 events. 
 
@@ -61,18 +60,13 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
  
 
-### Ship events data from your Auth0 account to Logz.io
+## Ship events data from your Auth0 account to Logz.io
 
 Auth0 is an easy to implement, adaptable authentication and authorization platform. Deploy this integration to ship Auth0 events from your Auth0 account to Logz.io using Logstash.
 
-**Before you begin, you'll need**: an active account with Auth0
+**Before you begin, you'll need**: an active account with Auth0.
 
-
- 
-
-#### Install and configure the "Auth0 Logs to Logstash" extension
-
-##### Select the "Auth0 Logs to Logstash" extension
+### Install and configure the "Auth0 Logs to Logstash" extension
 
 Login to your Auth0 account, navigate to **Auth0 Dashboard > Extensions**, and select **Auth0 Logs to Logstash** to display the **Install Extension** screen:
 ![Dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/auth0/Dashboard_Logstash.png)
@@ -85,7 +79,7 @@ Configure the required parameters as follows:
    * In the **LOGSTASH_TOKEN** field, enter your log shipping token (`<<LOG-SHIPPING-TOKEN>>`). {@include: ../_include/log-shipping/log-shipping-token.md}
    * In the **LOGSTASH_INDEX** field, enter `auth0`.
 
-##### Configure the optional parameters
+### Configure the optional parameters
 
 If required, configure the optional parameters as follows:
 
@@ -99,23 +93,23 @@ If required, configure the optional parameters as follows:
 
  For detailed information on these parameters, refer to the [Auth0 documentation](https://auth0.com/docs/extensions/export-logs-to-logstash).
 
-##### Install the extension
+### Install the extension
 
 After you select **Install**, you are redirected to the **Installed extensions** page.
 
 ![Installed extensions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/auth0/Auth0_installed_extensions.png)
 
-##### Authorize the extension
+### Authorize the extension
 
 Select the **Auth0 Logs to Logstash** extension and confirm that you authorize this extension.
 
-#####  View the exported logs
+###  View the exported logs
 
 After you authorize the extension, you are directed to the **Logs Export** page, where you can see the events that are exported to Logz.io.
 
 ![Logs export](https://dytvr9ot2sszz.cloudfront.net/logz-docs/auth0/Auth0_logs_export.png)
 
-#### Check Logz.io for your data
+### Check Logz.io for your data
 
 Give your data some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for data of type `auth0` to see the incoming Auth0 events.
 

@@ -1,7 +1,7 @@
 ---
 id: AWS-Control-Tower
 title: AWS Control Tower
-overview: AWS Control Tower is a tool to control a top-level summary of policies applied to the AWS environment. This integration sends logs from S3 buckets that the AWS Control Tower automatically creates in your AWS environment.
+overview: AWS Control Tower is a tool to control a top-level summary of policies applied to the AWS environment.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['AWS', 'Access Management']
@@ -24,12 +24,9 @@ This integration is currently released as a beta version.
 
 AWS Control Tower is a tool to control a top-level summary of policies applied to the AWS environment. This integration sends logs from S3 buckets that the AWS Control Tower automatically creates in your AWS environment.
 
-
-#### Configuration
-
  
 
-##### Deploy an S3 Hook Lambda function
+## Deploy an S3 Hook Lambda function
 
 :::note
 The stacks must be deployed in the same region as the S3 buckets.
@@ -58,7 +55,7 @@ To deploy this project, click the button that matches the region you wish to dep
 | `ap-southeast-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-southeast-2.s3.amazonaws.com/s3-hook/0.3.0/sam-template.yaml&stackName=logzio-s3-hook) | 
 | `ca-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ca-central-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ca-central-1.s3.amazonaws.com/s3-hook/0.3.0/sam-template.yaml&stackName=logzio-s3-hook)     | 
 
-##### Specify stack details
+### Specify stack details
 
 Specify the stack details as per the table below, check the checkboxes and select **Create stack**.
 
@@ -73,7 +70,7 @@ Specify the stack details as per the table below, check the checkboxes and selec
 | `pathToFields`   | Fields from the path to your logs directory that you want to add to the logs. For example, `org-id/aws-type/account-id` will add each of the fields `org-id`, `aws-type` and `account-id` to the logs that are fetched from the directory that this path refers to. | -                  |
 
 
-##### Add trigger
+### Add trigger
 
 Give the stack a few minutes to be deployed.
 
@@ -94,7 +91,7 @@ Confirm the checkbox, and click **Add*.
 ![Step 5 screenshot](https://dytvr9ot2sszz.cloudfront.net/logz-docs/control-tower/s3-hook-stack-06.png)
 
 
-##### Deploy the Control Tower stack
+### Deploy the Control Tower stack
 
 This stack creates a Lambda function, an EventBridge rule and IAM roles to automatically add triggers to the S3 Hook Lambda function as the Control Tower is creating new buckets. 
 
@@ -129,7 +126,7 @@ To deploy this project, click the button that matches the region you wish to dep
 | `ca-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ca-central-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ca-central-1.s3.amazonaws.com/s3-hook/control-tower/0.0.2/sam-template.yaml&stackName=logzio-control-tower&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071)     | 
 
 
-##### Specify stack details
+### Specify stack details
 
 Specify the stack details as per the table below, check the checkboxes, and select **Create stack**.
 
@@ -144,12 +141,12 @@ It can take a few minutes after the stack creation for EventBridge rule to be tr
 :::
  
 
-:::note
+:::caution Important
 If want to delete the S3 Hook Stack - you'll need to detach the policy "LambdaAccessBuckets" first.
 :::
  
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
@@ -159,21 +156,21 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
  
 
-#### Advanced settings
+## Advanced settings
 
-##### Automatic parsing
+### Automatic parsing
 
 S3 Hook will automatically parse logs in the following cases:
 
 - The object's path contains the phrase `cloudtrail` (case insensitive).
 
-##### Filtering files
+### Filtering files
 
 If you wish to extract logs from specific paths within the bucket, utilize the includePathsRegexes variable. Conversely, if there exist specific paths within the bucket from which you would prefer not to extract logs, the excludePathsRegexes variable should be employed. These variables are mutually exclusive.
 
 Both variables ought to contain a comma-separated list of regular expressions, corresponding either to the paths from which you aim to extract logs (includePathsRegexes), or to the paths you aim to exclude during log extraction (excludePathsRegexes).
 
-:::note
+:::caution Important
 Each time a new object is added to your bucket, this will trigger your Lambda function. Nonetheless, if the key fails to match the regexes, the function will terminate without sending the logs.
 :::
  
@@ -181,7 +178,7 @@ Each time a new object is added to your bucket, this will trigger your Lambda fu
 
 
 
-##### Adding object path as logs field
+### Adding object path as logs field
 
 In case you want to use your objects' path as extra fields in your logs, you can do so by using `pathToFields`.
 

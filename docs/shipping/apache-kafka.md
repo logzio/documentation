@@ -1,7 +1,7 @@
 ---
 id: Apache-Kafka
 title: Apache Kafka
-overview: Apache Kafka is a distributed event store and stream-processing platform. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+overview: Apache Kafka is a distributed event store and stream-processing platform.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['Distributed Messaging']
@@ -20,15 +20,15 @@ This integration lets you send metrics from your Apache Kafka HTTP server using 
 
 To send your Prometheus-format Apache Kafka metrics to Logz.io, you need to add the **inputs.prometheus** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Setup instructions
+## Configure Apache Kafka to send your metrics to Logz.io
 
 
 **Before you begin, you'll need**:
- Apache Kafka running on your server
+  Apache Kafka running on your server
 
  
 
-##### Download the JMX to Prometheus exporter
+### Download the JMX to Prometheus exporter
 
 :::note
 Run all commands for this integration from your Apache Kafka directory.
@@ -41,7 +41,7 @@ Navigate to the Kafka directory on your host and run the following command:
 wget https://repo1.maven.org/maven2/io/prometheus/jmx/jmx_prometheus_javaagent/0.16.1/jmx_prometheus_javaagent-0.16.1.jar
 ```
 
-##### Create a configuration file for the JMX to Prometheus exporter
+### Create a configuration file for the JMX to Prometheus exporter
 
 Navigate to the Kafka directory on your host, create a file named `kafka.yml` with the following content:
 
@@ -277,7 +277,7 @@ rules:
  type: GAUGE
 ```
 
-##### Start Zookeeper
+### Start Zookeeper
 
 Start the Zookeeper as follows:
 
@@ -285,7 +285,7 @@ Start the Zookeeper as follows:
 bin/zookeeper-server-start.sh config/zookeeper.properties
 ```
 
-##### Start Apache Kafka with the JMX to Prometheus exporter
+### Start Apache Kafka with the JMX to Prometheus exporter
 
 Open a new terminal and run the following command:
 
@@ -295,11 +295,11 @@ KAFKA_OPTS="`$KAFKA_OPTS` -javaagent:`PWD`/jmx_prometheus_javaagent-0.16.1.jar=9
 
 
 
-##### Set up Telegraf v1.17 on a dedicated machine
+### Set up Telegraf v1.17 on a dedicated machine
 
 {@include: ../_include/metric-shipping/telegraf-setup.md}
 
-##### Add the inputs.prometheus plug-in
+### Add the inputs.prometheus plug-in
 
 First you need to configure the input plug-in to enable Telegraf to scrape data from your hosts. To do this, add the below code to the configuration file. 
 
@@ -310,16 +310,16 @@ First you need to configure the input plug-in to enable Telegraf to scrape data 
 ```
 
 
-##### Add the outputs.http plug-in
+### Add the outputs.http plug-in
   
 {@include: ../_include/metric-shipping/telegraf-outputs.md}
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
 
-##### Start Telegraf
+### Start Telegraf
 
 {@include: ../_include/metric-shipping/telegraf-run.md}  
   
-##### Check Logz.io for your metrics
+### Check Logz.io for your metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
