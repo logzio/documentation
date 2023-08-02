@@ -22,7 +22,7 @@ To send your Prometheus-format Google Cloud Storage metrics to Logz.io, you need
 
 <!-- logzio-inject:install:grafana:dashboards ids=["4LAZ8Zep644MzbT1x089GG"] -->
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
 **Before you begin, you'll need**:
  GCP project

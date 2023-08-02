@@ -20,7 +20,7 @@ Beanstalkd is a simple, fast work queue. Telegraf is a plug-in driven server age
 
 To send your Prometheus-format Beanstalkd metrics to Logz.io, you need to add the **inputs.beanstalkd** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
  
 

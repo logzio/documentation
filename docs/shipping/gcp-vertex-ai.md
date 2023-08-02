@@ -20,7 +20,7 @@ Google Vertex AI is a unified MLOps platform to help data scientists/ML engineer
 
 To send your Prometheus-format Vertex AI metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
 **Before you begin, you'll need**:
  GCP project

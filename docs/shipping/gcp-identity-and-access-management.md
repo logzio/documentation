@@ -19,7 +19,7 @@ Google Identity and Access Management lets administrators authorize who can take
 
 To send your Prometheus-format Google Identity and Access Management metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
 **Before you begin, you'll need**:
  GCP project

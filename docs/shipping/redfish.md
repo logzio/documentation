@@ -21,7 +21,7 @@ DMTF's Redfish is a standard designed to deliver simple and secure management fo
 
 To send your Prometheus-format Redfish metrics to Logz.io, you need to add the **inputs.redfish** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
  
 

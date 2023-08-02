@@ -21,7 +21,7 @@ bCache is a cache in the Linux kernel's block layer, which is used for accessing
 
 To send your Prometheus-format bCache metrics to Logz.io, you need to add the **inputs.bcache** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
  
 

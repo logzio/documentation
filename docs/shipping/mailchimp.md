@@ -21,7 +21,7 @@ Mailchimp is the All-In-One integrated marketing platform for small businesses. 
 
 To send your Prometheus-format Mailchimp metrics to Logz.io, you need to add the **inputs.mailchimp** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
  
 

@@ -21,7 +21,7 @@ NSQ is a realtime distributed messaging platform designed to operate at scale, h
 
 To read metrics from an NSQ topic, you need to add the **inputs.nsq** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
  
 
@@ -72,7 +72,7 @@ NSQ is a realtime distributed messaging platform designed to operate at scale, h
 
 To send your Prometheus-format NSQ Consumer metrics to Logz.io, you need to add the **inputs.nsq_consumer** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
  
 

@@ -21,7 +21,7 @@ NVIDIA System Management Interface (nvidia-smi) is a command line utility, based
 
 To send your Prometheus-format NVIDIA SMI metrics to Logz.io, you need to add the **inputs.nvidia_smi** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
  
 

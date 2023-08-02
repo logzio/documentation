@@ -15,8 +15,6 @@ metrics_alerts: []
 
 Wazuh is a free, open source and enterprise-ready security monitoring solution for threat detection, integrity monitoring, incident response and compliance. This integration allows you to send Wazuh logs to your Logz.io SIEM account.
 
-#### Configuration
-
 **Before you begin, you'll need**:
 
 * [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
@@ -24,7 +22,7 @@ Wazuh is a free, open source and enterprise-ready security monitoring solution f
 
  
 
-##### Configure Wazuh for JSON logging
+### Configure Wazuh for JSON logging
 
 In the Wazuh configuration file (/var/ossec/etc/ossec.conf), find the `<logging>` tag, and set the `<log_format>` property to `json`.
 
@@ -42,7 +40,7 @@ sudo systemctl restart wazuh-manager
 
 {@include: ../_include/log-shipping/certificate.md}
 
-##### Add Wazuh as an input
+### Add Wazuh as an input
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Wazuh to the filebeat.inputs section.
 
@@ -96,7 +94,7 @@ filebeat.inputs:
 
 
 
-##### Set Logz.io as the output
+### Set Logz.io as the output
 
 If Logz.io is not an output, add it now.
 Remove all other outputs.
@@ -111,11 +109,11 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### Start Filebeat
+### Start Filebeat
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

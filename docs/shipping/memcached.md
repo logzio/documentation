@@ -21,7 +21,7 @@ Memcached is a general-purpose distributed memory-caching system. Telegraf is a 
 
 To send your Prometheus-format Memcached metrics to Logz.io, you need to add the **inputs.memcached** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
  
 

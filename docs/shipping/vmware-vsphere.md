@@ -13,26 +13,23 @@ metrics_dashboards: ["VpeHVDlhfo1mF22Lc0UKf", "6CpW1YzdonmTQ8uIXAN5OL", "3AvORCM
 metrics_alerts: []
 ---
 
-
-## Overview
-
 VMware vSphere is VMware's cloud computing virtualization platform. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format Vmware Vsphere metrics to Logz.io, you need to add the **inputs.vsphere** and **outputs.http** plug-ins to your Telegraf configuration file.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["VpeHVDlhfo1mF22Lc0UKf", "6CpW1YzdonmTQ8uIXAN5OL", "3AvORCMPVJd8948i9oKaBO"] -->
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+### Configure Telegraf to send your metrics data to Logz.io
 
  
 
-##### Set up Telegraf v1.17 or higher
+#### Set up Telegraf v1.17 or higher
 
 Set up Telegraf on a dedicated server as described below.
   
 {@include: ../_include/metric-shipping/telegraf-setup.md}
  
-##### Add the inputs.vsphere plug-in
+#### Add the inputs.vsphere plug-in
 
 First you need to configure the input plug-in to enable Telegraf to scrape the Vmware Vsphere data from your hosts. To do this, add the following code to the configuration file:
 
@@ -111,16 +108,16 @@ Here is an example of the configuration file that will enable Telegraf to scrape
   
 ```
 
-##### Add the outputs.http plug-in
+#### Add the outputs.http plug-in
 
 {@include: ../_include/metric-shipping/telegraf-outputs.md}
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
 
-##### Start Telegraf
+### Start Telegraf
 
 {@include: ../_include/metric-shipping/telegraf-run.md}
 
-##### Check Logz.io for your metrics
+### Check Logz.io for your metrics
 
 {@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboards to enhance the observability of your metrics.
 

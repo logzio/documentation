@@ -31,6 +31,7 @@ This integration is presently in its beta phase and may be subject to modificati
 :::
  
 
+## Deployment
 
 **Before you begin, you'll need**: 
 
@@ -40,14 +41,14 @@ This integration is presently in its beta phase and may be subject to modificati
  
 
 
-##### Add `logzio-helm` repo
+### Add `logzio-helm` repo
   
 ```shell
 helm repo add logzio-helm https://logzio.github.io/logzio-helm
 helm repo update
 ```
 
-###### Run the Helm deployment code
+### Run the Helm deployment code
 
 ```shell
 helm install -n monitoring --create-namespace \
@@ -70,17 +71,18 @@ With this command, we instruct Helm to create the monitoring namespace if it doe
 | `<<LISTENER-HOST>>` | Replace `<<LISTENER-HOST>>` with the host for your region, without the `http/https` prefix. For example, `listener.logz.io` if your account is hosted on AWS US East, or `listener-nl.logz.io` if hosted on Azure West Europe.  |
 
 
-##### Check Logz.io for your reports
+### Check Logz.io for your reports
 
 Give your reports some time to get from your system to ours,
 and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
  
+## Additional configuration
 
-####  Customizing Helm chart parameters
+###  Customizing Helm chart parameters
 
 
-##### Configure customization options
+#### Configure customization options
 
 You can use the following options to update the Helm chart parameters:
 
@@ -90,7 +92,7 @@ You can use the following options to update the Helm chart parameters:
 
 * Overide default values with your own `my_values.yaml` and apply it in the `helm install` command.
 
-###### Custom parameters
+#### Custom parameters
 
 | Parameter	| Description | Default |
 | --- | --- | --- |

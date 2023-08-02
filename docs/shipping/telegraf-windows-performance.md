@@ -14,20 +14,17 @@ metrics_alerts: []
 ---
 
 
-
-## Overview
-
 Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format Windows Performance metrics to Logz.io, you need to add the **inputs.win_perf_counters** and **outputs.http** plug-ins to your Telegraf configuration file.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["3AND5wMrjcMC9ngDTghmHx"] -->
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+### Configure Telegraf to send your metrics data to Logz.io
 
  
 
-##### Set up Telegraf v1.17 or higher
+#### Set up Telegraf v1.17 or higher
 
 ```shell
 wget https://dl.influxdata.com/telegraf/releases/telegraf-1.19.2_windows_amd64.zip
@@ -37,7 +34,7 @@ After downloading the archive, extract its content into `C:\Program Files\Logzio
 
 The configuration file is located at `C:\Program Files\Logzio\telegraf\`.
   
-##### Add the inputs.win_perf_counters plug-in
+#### Add the inputs.win_perf_counters plug-in
 
 First you need to configure the input plug-in to enable Telegraf to scrape the Windows Performance data from your hosts. To do this, add the following code to the configuration file:
 
@@ -154,18 +151,19 @@ First you need to configure the input plug-in to enable Telegraf to scrape the W
 ```
 
 
-##### Add the outputs.http plug-in
+#### Add the outputs.http plug-in
   
 {@include: ../_include/metric-shipping/telegraf-outputs.md}
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
   
-##### Start Telegraf
+### Start Telegraf
 
 ```shell
 telegraf.exe --service start
 ```
 
-##### Check Logz.io for your metrics
+### Check Logz.io for your metrics
+
 {@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboards to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["3AND5wMrjcMC9ngDTghmHx"] -->

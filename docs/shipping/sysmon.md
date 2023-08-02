@@ -17,8 +17,6 @@ metrics_alerts: []
 Sysmon (System Monitor) is a Windows system service that monitors and logs system activity of the Windows event log. It tracks process creations, network connections, and changes to file creation time.
 
 
-#### Configuration
-
 **Before you begin, you'll need**:
 
 * [Winlogbeat 7](https://www.elastic.co/downloads/past-releases/winlogbeat-7-0-0) installed.
@@ -27,14 +25,14 @@ Sysmon (System Monitor) is a Windows system service that monitors and logs syste
 
  
 
-##### Download the Logz.io public certificate
+### Download the Logz.io public certificate
 
 Download the
 [Logz.io public certificate]({@include: ../_include/log-shipping/certificate-path.md})
 to `C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt`
 on your machine.
 
-##### Configure Windows applications as an input
+### Configure Windows applications as an input
 
 If you're working with the default configuration file, clear the content and start with a fresh file. (The location may be `C:\ProgramData\Elastic\Beats\winlogbeat\winlogbeat.yml` or `C:\Program Files\Winlogbeat\winlogbeat.yml`, depending on where you installed it.)
 
@@ -85,7 +83,7 @@ If the file has other outputs, remove them.
  
 
 
-##### Restart Winlogbeat
+### Restart Winlogbeat
 
 Open PowerShell as an admin and run this command:
 
@@ -93,7 +91,7 @@ Open PowerShell as an admin and run this command:
 Restart-Service winlogbeat
 ```
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

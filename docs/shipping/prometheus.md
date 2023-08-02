@@ -25,7 +25,7 @@ To send your Prometheus-format metrics to Logz.io, you add the **outputs.http** 
 
 <!-- logzio-inject:install:grafana:dashboards ids=["32X5zm8qW7ByLlp1YPFkrJ"] -->
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
 
 

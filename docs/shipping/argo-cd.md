@@ -20,7 +20,7 @@ To send your Prometheus-format Argo CD metrics to Logz.io, you need to add the *
 
 <!-- logzio-inject:install:grafana:dashboards ids=["6Gx8npV306IL2WZ4SJRIN4"] -->
 
-## Configuring Telegraf to send your metrics data to Logz.io
+## Configure Telegraf to send your metrics data to Logz.io
 
  
 

@@ -21,7 +21,7 @@ Mcrouter is a memcached protocol router for scaling memcached deployments. Teleg
 
 To send your Prometheus-format Mcrouter metrics to Logz.io, you need to add the **inputs.mcrouter** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
  
 

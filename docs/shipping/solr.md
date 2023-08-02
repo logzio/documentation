@@ -20,7 +20,7 @@ metrics_alerts: []
 
 To send your Prometheus-format Apache Solr metrics to Logz.io, you need to add the **inputs.solr** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
  
 

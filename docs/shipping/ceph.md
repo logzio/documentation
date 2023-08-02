@@ -20,7 +20,7 @@ Ceph is an open-source software (software-defined storage) storage platform, imp
 
 To send your Prometheus-format Ceph Storage metrics to Logz.io, you need to add the **inputs.ceph** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
  
 

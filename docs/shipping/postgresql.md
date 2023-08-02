@@ -23,7 +23,7 @@ To send your Prometheus-format PostgreSQL metrics to Logz.io, you need to add th
 
 <!-- logzio-inject:install:grafana:dashboards ids=["3L7cjHptO2CFcrvpqGCNI0"] -->
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
 
 

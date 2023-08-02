@@ -14,17 +14,15 @@ metrics_alerts: []
 ---
 
 
-## Overview
-
 Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format Windows Services metrics to Logz.io, you need to add the **inputs.win_services** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+### Configure Telegraf to send your metrics data to Logz.io
 
  
 
-##### Set up Telegraf v1.17 or higher
+#### Set up Telegraf v1.17 or higher
 
 ```shell
 wget https://dl.influxdata.com/telegraf/releases/telegraf-1.19.2_windows_amd64.zip
@@ -34,7 +32,7 @@ After downloading the archive, extract its content into `C:\Program Files\Logzio
 
 The configuration file is located at `C:\Program Files\Logzio\telegraf\`.
   
-##### Add the inputs.win_services plug-in
+#### Add the inputs.win_services plug-in
 
 First you need to configure the input plug-in to enable Telegraf to scrape the Windows Services data from your hosts. To do this, add the following code to the configuration file:
 
@@ -53,18 +51,18 @@ The full list of data scraping and configuring options can be found [here](https
 :::
  
 
-##### Add the outputs.http plug-in
+#### Add the outputs.http plug-in
   
 {@include: ../_include/metric-shipping/telegraf-outputs.md}
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
   
-##### Start Telegraf
+### Start Telegraf
 
 ```shell
 telegraf.exe --service start
 ```
 
-##### Check Logz.io for your metrics
+### Check Logz.io for your metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 

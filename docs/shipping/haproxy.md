@@ -109,7 +109,7 @@ If you don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/
 
  o send your Prometheus-format HAProxy metrics to Logz.io, you need to add the **inputs.haproxy** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
  
 

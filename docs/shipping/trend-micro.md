@@ -27,7 +27,7 @@ You can review the Trend Micro resources in your security account, including pre
 
  
 
-##### Install the Trend Micro certificate on your Filebeat server {#key}
+### Install the Trend Micro certificate on your Filebeat server {#key}
 
 Trend Micro sends encrypted data, so you'll need to install the Trend Micro certificate on your Filebeat server.
 
@@ -41,7 +41,7 @@ sudo openssl req -newkey rsa:2048 -nodes \
 
 {@include: ../_include/log-shipping/certificate.md}
 
-##### Configure Filebeat
+### Configure Filebeat
 
 Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor.
 
@@ -81,7 +81,7 @@ processors:
 ```
 {@include: ../_include/log-shipping/log-shipping-token.html}
 
-##### Set Logz.io as the output
+### Set Logz.io as the output
 
 Still in the same configuration file, check if Logz.io is already an output. If not, add it now.
 
@@ -98,11 +98,11 @@ output.logstash:
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.
 
-##### Start Filebeat
+### Start Filebeat
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 
-##### Configure Trend Micro agents to forward logs to Filebeat
+### Configure Trend Micro agents to forward logs to Filebeat
 
 The process for configuring Trend Micro to send logs to your Syslog server involves several steps. All of them are performed in the Trend Micro Cloud One console. You can also reference the [official documentation published by Trend Micro](https://cloudone.trendmicro.com/docs/workload-security/event-syslog/).
 
@@ -140,7 +140,7 @@ First, log into your Trend Micro Cloud One console.
 
      ![Trend Micro Deep Security Cloud One screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-integrations/trendmicro-console2.png)
 
-##### Activate syslog forwarding
+### Activate syslog forwarding
 
 Configure Trend Micro agents to forward event logs to Logz.io.
 
@@ -151,7 +151,7 @@ Configure Trend Micro agents to forward event logs to Logz.io.
 
  ![Trend Micro Deep Security Cloud One screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-integrations/trendmicro-console4.png)
 
-###### Sample configuration
+### Sample configuration
 
 You can reference the sample configuration used by the Logz.io Security Team in development of this integration. [Exported configuration in XML format.](/user-guide/security/trend-micro-configuration-sample/)
 
@@ -163,7 +163,7 @@ The configuration file includes settings for the following services:
 * Firewall
 * Intrusion prevention
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

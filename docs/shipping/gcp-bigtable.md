@@ -22,7 +22,7 @@ To send your Prometheus-format Google Cloud Bigtable metrics to Logz.io, you nee
 
 <!-- logzio-inject:install:grafana:dashboards ids=["z2VVwfx5bq2xD5zhQUzk6"] -->
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
 **Before you begin, you'll need**:
  GCP project

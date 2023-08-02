@@ -22,7 +22,7 @@ To send your Prometheus-format Redis metrics to Logz.io, you need to add the **i
 
 <!-- logzio-inject:install:grafana:dashboards ids=["1sS7i6SyMz35RIay8NRYGp"] -->
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
 
 

@@ -20,7 +20,7 @@ Google Cloud DNS is a high-performance, resilient, global Domain Name System (DN
 
 To send your Prometheus-format Google Cloud DNS metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
 **Before you begin, you'll need**:
  GCP project

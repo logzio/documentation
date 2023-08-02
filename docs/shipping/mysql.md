@@ -280,7 +280,7 @@ To send your Prometheus-format MySQL metrics to Logz.io, you need to add the **i
 
 <!-- logzio-inject:install:grafana:dashboards ids=["2zMVEOdWnIMgOPATDLByX7"] -->
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
 
 

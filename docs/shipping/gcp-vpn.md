@@ -23,7 +23,7 @@ To send your Prometheus-format Google Cloud VPN metrics to Logz.io, you need to 
 
 <!-- logzio-inject:install:grafana:dashboards ids=["4gdYz2iIWFeIL3WDDcYRm"] -->
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
 **Before you begin, you'll need**:
  GCP project

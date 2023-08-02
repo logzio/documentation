@@ -20,7 +20,7 @@ This integration allows you to collects metrics from all bond interfaces in your
 
 To send your Prometheus-format Bond metrics to Logz.io, you need to add the **inputs.bond** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
  
 

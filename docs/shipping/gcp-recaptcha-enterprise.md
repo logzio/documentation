@@ -20,7 +20,7 @@ Google reCAPTCHA Enterprise service helps detect abusive traffic on websites. Te
 
 To send your Prometheus-format Google reCAPTCHA Enterprise metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
 **Before you begin, you'll need**:
  GCP project

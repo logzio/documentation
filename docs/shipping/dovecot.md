@@ -21,7 +21,7 @@ Dovecot is an open-source IMAP and POP3 server for Unix-like operating systems, 
 
 To send your Prometheus-format Dovecot metrics to Logz.io, you need to add the **inputs.dovecot** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
  
 

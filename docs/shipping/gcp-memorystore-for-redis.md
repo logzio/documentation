@@ -23,7 +23,7 @@ To send your Prometheus-format Google Memorystore for Redis metrics to Logz.io, 
 
 <!-- logzio-inject:install:grafana:dashboards ids=["771vgmjMzFBHHma1Jov3bG"] -->
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
 **Before you begin, you'll need**:
  GCP project

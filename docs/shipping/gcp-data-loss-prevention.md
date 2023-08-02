@@ -20,7 +20,7 @@ Google Cloud Data Loss Prevention provides tools to classify, mask, tokenize, an
 
 To send your Prometheus-format Google Cloud Data Loss Prevention metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
 **Before you begin, you'll need**:
  GCP project

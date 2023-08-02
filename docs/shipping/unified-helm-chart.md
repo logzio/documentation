@@ -13,7 +13,7 @@ metrics_dashboards: ["7nILXHYFZbThgTSMObUxkw", "5TGD77ZKuTiZUXtiM51m6V", "6pY6DK
 metrics_alerts: []
 ---
 
-
+## Deployment
 
 
 The `logzio-monitoring` Helm Chart ships your Kubernetes telemetry (logs, metrics, traces and security reports) to your Logz.io account.
@@ -37,7 +37,7 @@ To get the most out of Kubernetes 360, try out dedicated [dashboard](/user-guide
 
 
 
-##### Check if you have any taints on your nodes
+### Check if you have any taints on your nodes
 
 ```shell
 kubectl get nodes -o json | jq '"\(.items[].metadata.name) \(.items[].spec.taints)"'
@@ -53,14 +53,14 @@ tolerations:
   effect:
 ```
 
-##### Add the Helm Chart
+### Add the Helm Chart
 
 ```shell
 helm repo add logzio-helm https://logzio.github.io/logzio-helm
 helm repo update
 ```
 
-##### Deploy the Chart
+### Deploy the Chart
 
 ```shell
 helm install -n monitoring \
@@ -90,7 +90,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<TRACES-SHIPPING-TOKEN>>` | Replace `<<TRACING-SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=tracing) of the account you want to ship to. |
 | `<<LOGZIO-REGION>>` | Name of your Logz.io traces region e.g `us` or `eu`. You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
 
-##### Check Logz.io for your data
+### Check Logz.io for your data
 
 Give your data some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
@@ -99,6 +99,8 @@ Give your data some time to get from your system to ours, and then open [Open Se
 <!-- logzio-inject:install:grafana:dashboards ids=["7nILXHYFZbThgTSMObUxkw", "5TGD77ZKuTiZUXtiM51m6V", "6pY6DKD0oQJL4sO7bW728", "5kkUAuEwA0Ygvlgm9iXTHY", "53g5kSILqoj1T10U1jnvKV", "5e1xRaDdQnOvs5LCuwKCh5", "7Cy6DUN78jlKUtMCsbt6GC", "29HGYsE3kgFEdgJbalTqeY", "1Hij49FKdnAKVJTjOmpDbH" ] -->
 
 {@include: ../_include/metric-shipping/generic-dashboard.html}
+
+## Additional configuration
 
 
 
@@ -133,7 +135,7 @@ You can modify the default `logzio-monitoring` Helm Chart by using the `--set` f
 | `logs.enabled` | Enable to send k8s logs | `false` |
 | `metricsOrTraces` | Enable to send k8s metrics or traces | `false` |
 
-##### Modifying the configuration for logs
+### Modifying the configuration for logs
 
 You can see a full list of the possible configuration values in the [logzio-fluentd Chart folder](https://github.com/logzio/logzio-helm/tree/master/charts/fluentd#configuration).
 
@@ -147,7 +149,7 @@ For instance, if there is a parameter called `someField` in the `logzio-telemetr
 You can add `log_type` annotation with a custom value, which will be parsed into a `log_type` field with the same value.
 
 
-##### Modifying the configuration for metrics and traces
+### Modifying the configuration for metrics and traces
 
 You can see a full list of the possible configuration values in the [logzio-telemetry Chart folder](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-telemetry).
 
