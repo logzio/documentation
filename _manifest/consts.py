@@ -19,7 +19,7 @@ FIELD_PRODUCT_TAGS = 'productTags'
 FIELD_FILTER_TAGS = 'filterTags'
 FIELD_OS_TAGS = 'osTags'
 FIELD_DISPLAY_NAME = 'displayName'
-FIELD_BUNDLES = 'bundles'
+FIELD_BUNDLES = 'bundle'
 FIELD_BUNDLES_TYPE = 'type'
 FIELD_BUNDLES_ID = 'id'
 
