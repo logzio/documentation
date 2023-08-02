@@ -21,7 +21,7 @@ Riak is a distributed NoSQL key-value data store that offers high availability, 
 
 To send your Prometheus-format Riak metrics to Logz.io, you need to add the **inputs.riak** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
  
 

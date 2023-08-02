@@ -21,7 +21,7 @@ Phusion Passenger is a free web server and application server with support for R
 
 To send your Prometheus-format Phusion Passenger metrics to Logz.io, you need to add the **inputs.passenger** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
  
 

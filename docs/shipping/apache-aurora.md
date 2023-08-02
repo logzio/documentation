@@ -17,7 +17,7 @@ Apache Aurora is a Mesos framework for long-running services and cron jobs. Tele
 
 To send your Prometheus-format Apache Aurora metrics to Logz.io, you need to add the **inputs.aurora** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-## Configuring Telegraf to send your metrics data to Logz.io
+## Configure Telegraf to send your metrics data to Logz.io
 
 
 ### Set up Telegraf v1.17 or higher

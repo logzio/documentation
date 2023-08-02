@@ -153,7 +153,7 @@ To send your Prometheus-format Nginx metrics to Logz.io, you need to add the **i
 
 <!-- logzio-inject:install:grafana:dashboards ids=["3HKho6pQhCmEYmwMc4xCeY"] -->
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
  
 

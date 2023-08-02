@@ -18,7 +18,7 @@ Aerospike is a flash-optimized and in-memory open source distributed key value N
 
 To send your Prometheus-format Aerospike metrics to Logz.io, you need to add the **inputs.aerospike** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-## Configuring Telegraf to send your metrics data to Logz.io
+## Configure Telegraf to send your metrics data to Logz.io
 
  
 

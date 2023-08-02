@@ -18,7 +18,7 @@ The Apache HTTP Server, colloquially called Apache, is a free and open-source cr
 
 To send your Prometheus-format Apache HTTP Server metrics to Logz.io, you need to add the **inputs.apache** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-## Configuring Telegraf to send your metrics data to Logz.io
+## Configure Telegraf to send your metrics data to Logz.io
 
  
 

@@ -128,7 +128,7 @@ To send your Prometheus-format Jenkins metrics to Logz.io, you need to add the *
 
 <!-- logzio-inject:install:grafana:dashboards ids=["7bmikAb2xNPTy7PESlBqXY"] -->
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
  
 

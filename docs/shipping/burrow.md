@@ -22,7 +22,7 @@ Telegraf is a plug-in driven server agent for collecting and sending metrics and
 
 To send your Prometheus-format Burrow metrics to Logz.io, you need to add the **inputs.burrow** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
  
 

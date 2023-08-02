@@ -22,7 +22,7 @@ To send your Prometheus-format PgBouncer metrics to Logz.io, you need to add the
 
 **Before you begin, you'll need**: PgBouncer
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
  
 

@@ -22,7 +22,7 @@ To send your Prometheus-format RabbitMQ metrics to Logz.io, you need to add the 
 
 <!-- logzio-inject:install:grafana:dashboards ids=["77P29wgQwu1pqCaZFMcwnC"] -->
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
 
 

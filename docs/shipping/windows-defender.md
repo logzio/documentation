@@ -15,15 +15,13 @@ metrics_alerts: []
 
 Windows Defender is an anti-malware component of Microsoft Windows. This integration allows you to send Windows Defender logs to your Logz.io SIEM account.
 
-#### Configure Winlogbeat
-
 **Before you begin, you'll need**:
 [Winlogbeat 8](https://www.elastic.co/guide/en/beats/winlogbeat/8.7/winlogbeat-installation-configuration.html#installation), [Winlogbeat 7](https://www.elastic.co/downloads/beats/winlogbeat) or
 [Winlogbeat 6](https://www.elastic.co/guide/en/beats/winlogbeat/6.8/winlogbeat-installation.html).
 
  
 
-##### Configure Windows Defender audit permissions
+### Configure Windows Defender audit permissions
 
 In the Windows taskbar search box, type "gpedit"
 and click **Edit group policy**.
@@ -62,14 +60,14 @@ Type "Administrators" in the text box and click **Check Names**.
 
 Now click **OK** to exit all those dialogs you just opened. 😬
 
-##### Download the Logz.io public certificate
+### Download the Logz.io public certificate
 
 Download the
 [Logz.io public certificate]({@include: ../_include/log-shipping/certificate-path.md})
 to `C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt`
 on your machine.
 
-##### Configure Windows input
+### Configure Windows input
 
 If you're working with the default configuration file,
 (`C:\Program Files\Winlogbeat\winlogbeat.yml`)
@@ -118,7 +116,7 @@ processors:
       ignore_missing: true
 ```
 
-##### Add Logz.io as an output
+### Add Logz.io as an output
 
 If Logz.io isn't the output, set it now.
 
@@ -133,7 +131,7 @@ output.logstash:
     certificate_authorities: ['C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### Restart Winlogbeat
+### Restart Winlogbeat
 
 Open PowerShell as an admin and run this command:
 
@@ -141,7 +139,7 @@ Open PowerShell as an admin and run this command:
 Restart-Service winlogbeat
 ```
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

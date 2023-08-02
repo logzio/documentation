@@ -21,7 +21,7 @@ RavenDB is an open source document-oriented NoSQL designed especially for the .N
 
 To send your Prometheus-format RavenDB metrics to Logz.io, you need to add the **inputs.ravendb** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
  
 

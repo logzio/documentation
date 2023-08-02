@@ -14,22 +14,18 @@ metrics_alerts: []
 ---
 
 
-
-## Overview
-
 Youtube is an online video sharing and social media platform. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format Youtube metrics to Logz.io, you need to add the **inputs.youtube** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+### Configure Telegraf to send your metrics data to Logz.io
 
- 
 
-##### Set up Telegraf v1.17 or higher on a machine dedicated to collect your Youtube metrics
+#### Set up Telegraf v1.17 or higher on a machine dedicated to collect your Youtube metrics
 
 {@include: ../_include/metric-shipping/telegraf-setup.md}
 
-##### Add the inputs.youtube plug-in
+#### Add the inputs.youtube plug-in
 
 First you need to configure the input plug-in to enable Telegraf to scrape the Youtube data from your hosts. To do this, add the following code to the configuration file:
 
@@ -50,16 +46,16 @@ The full list of data scraping and configuring options can be found [here](https
 :::
  
 
-##### Add the outputs.http plug-in
+#### Add the outputs.http plug-in
   
 {@include: ../_include/metric-shipping/telegraf-outputs.md}
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
   
-##### Start Telegraf
+### Start Telegraf
 
 {@include: ../_include/metric-shipping/telegraf-run.md}
 
-##### Check Logz.io for your metrics
+### Check Logz.io for your metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 

@@ -20,7 +20,7 @@ BigBlueButton is a free software web conferencing system for Linux servers. Tele
 
 To send your Prometheus-format BigBlueButton metrics to Logz.io, you need to add the **inputs.bigbluebutton** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
  
 

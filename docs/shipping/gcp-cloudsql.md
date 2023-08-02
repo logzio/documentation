@@ -30,7 +30,7 @@ To send your Prometheus-format Google Cloud SQL metrics to Logz.io, you need to 
 
 
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
 **Before you begin, you'll need**:
 
@@ -116,7 +116,7 @@ Give your metrics some time to get from your system to ours.
 
 
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
 **Before you begin, you'll need**:
  GCP project

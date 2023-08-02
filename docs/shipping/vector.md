@@ -16,11 +16,7 @@ metrics_alerts: []
 
 Vector by Datadog is a lightweight, ultra-fast tool for building observability pipelines. Deploy this integration to send logs from your Vector tools to your Logz.io account.
 
-#### Configure Vector
-
-
-
-##### Install Vector
+### Install Vector
 
 If you haven't already, install Vector:
 
@@ -31,7 +27,7 @@ curl https://sh.vector.dev -sSf | sh
 For alternate installation instructions,
 see [Installation](https://vector.dev/docs/setup/) from Vector.
 
-##### Configure Vector with Logz.io sink
+### Configure Vector with Logz.io sink
 
 Add this code block to your Vector configuration file.
 We recommend the configuaration shown in the code block.
@@ -77,20 +73,20 @@ If your logs are sent in batches, change the `encoding.codec` setting from `json
 
 
 
-###### Parameters
+#### Parameters
 
 | Parameter | Description |
 |---|---|
 | uri (Required) | Your Logz.io region's listener URL account token, and log type. <br /> {@include: ../_include/log-shipping/listener-var.html}  <br /> {@include: ../_include/log-shipping/log-shipping-token.html} |
 {:.paramlist}
 
-##### Run Vector
+### Run Vector
 
 ```shell
 vector --config path/to/your/vector.toml
 ```
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

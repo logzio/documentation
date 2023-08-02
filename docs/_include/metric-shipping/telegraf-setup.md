@@ -1,4 +1,4 @@
-#### For Windows:
+**For Windows**:
 
 ```shell
 wget https://dl.influxdata.com/telegraf/releases/telegraf-1.19.2_windows_amd64.zip
@@ -8,7 +8,7 @@ After downloading the archive, extract its content into `C:\Program Files\Logzio
 
 The configuration file is located at `C:\Program Files\Logzio\telegraf\`.
 
-#### For MacOS:
+**For MacOS**:
 
 ```shell
 brew install telegraf
@@ -16,9 +16,9 @@ brew install telegraf
 
 The configuration file is located at `/usr/local/etc/telegraf.conf`.
 
-#### For Linux:
+**For Linux**:
 
-**Ubuntu & Debian**
+*Ubuntu & Debian*
 
 ```shell
 sudo apt-get update && sudo apt-get install telegraf
@@ -26,7 +26,7 @@ sudo apt-get update && sudo apt-get install telegraf
 
 The configuration file is located at `/etc/telegraf/telegraf.conf`.
 
-**RedHat and CentOS**
+*RedHat and CentOS*
 
 ```shell
 sudo yum install telegraf
@@ -34,7 +34,7 @@ sudo yum install telegraf
 
 The configuration file is located at `/etc/telegraf/telegraf.conf`.
 
-**SLES & openSUSE**
+*SLES & openSUSE*
 
 ```shell
 # add go repository
@@ -45,7 +45,7 @@ zypper in telegraf
 
 The configuration file is located at `/etc/telegraf/telegraf.conf`.
 
-**FreeBSD/PC-BSD**
+*FreeBSD/PC-BSD*
 
 ```shell
 sudo pkg install telegraf

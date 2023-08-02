@@ -23,7 +23,7 @@ To send your Prometheus-format etcd metrics to Logz.io, you need to add the **in
 
 <!-- logzio-inject:install:grafana:dashboards ids=["3Vr8IYt2XR2LEKP6PeVV0r"] -->
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
  
 

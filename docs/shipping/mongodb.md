@@ -182,7 +182,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 <!-- logzio-inject:install:grafana:dashboards ids=["13q1IECY8zfnnDXvUq7vvH"] -->
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
 
 

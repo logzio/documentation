@@ -21,7 +21,7 @@ To send your JMX-format Apache Cassandra metrics to Logz.io, you need to add the
 
 <!-- logzio-inject:install:grafana:dashboards ids=["5oCUt52hGJu6LmVGHPOktr", "6J2RujMalRK3oC4y0r88ax"] -->
 
-## Configuring Telegraf to send your metrics data to Logz.io
+## Configure Telegraf to send your metrics data to Logz.io
 
 
 

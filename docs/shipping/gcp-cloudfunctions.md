@@ -22,7 +22,7 @@ To send your Prometheus-format Google Cloud Functions metrics to Logz.io, you ne
 
 <!-- logzio-inject:install:grafana:dashboards ids=["78mU6GZUeRLhMtExlMvshT"] -->
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
 **Before you begin, you'll need**:
  GCP project

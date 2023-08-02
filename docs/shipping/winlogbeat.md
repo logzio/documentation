@@ -13,23 +13,21 @@ metrics_dashboards: ['1Pm3OYbu1MRGoELc2qhxQ1']
 metrics_alerts: []
 ---
 
-
-
-#### Configure Winlogbeat
+## Default configuration
 
 **Before you begin, you'll need**:
 [Winlogbeat 8](https://www.elastic.co/guide/en/beats/winlogbeat/8.7/winlogbeat-installation-configuration.html#installation), [Winlogbeat 7](https://www.elastic.co/guide/en/beats/winlogbeat/7.x/winlogbeat-installation-configuration.html#installation), or [Winlogbeat 6](https://www.elastic.co/guide/en/beats/winlogbeat/6.8/winlogbeat-installation.html).
 
  
 
-##### Download the Logz.io public certificate
+### Download the Logz.io public certificate
 
 Download the
 [Logz.io public certificate]({@include: ../_include/log-shipping/certificate-path.md})
 to `C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt`
 on your machine.
 
-##### Configure Windows input
+### Configure Windows input
 
 If you're working with the default configuration file,
 (`C:\Program Files\Winlogbeat\winlogbeat.yml`)
@@ -77,7 +75,7 @@ processors:
 ```
 
 
-##### Set Logz.io as the output
+### Set Logz.io as the output
 
 If Logz.io isn't the output, set it now.
 
@@ -92,7 +90,7 @@ output.logstash:
     certificate_authorities: ['C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### Restart Winlogbeat
+### Restart Winlogbeat
 
 Open PowerShell as an admin and run this command:
 
@@ -105,7 +103,7 @@ If you're starting Winlogbeat, and haven't configured it as a service yet, refer
 :::
  
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
@@ -114,14 +112,14 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
  
 
 
-#### Configure NXLog
+## Configure NXLog
 
 **Before you begin, you'll need**:
 [NXLog](https://nxlog.co/products/nxlog-community-edition/download)
 
  
 
-##### Configure NXLog basics
+### Configure NXLog basics
 
 Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\nxlog.conf` by default).
 
@@ -145,7 +143,7 @@ For information on parsing multi-line messages, see [this](https://nxlog.co/docu
 {:.info-box.read}
  
 
-##### Add Windows as an input
+### Add Windows as an input
 
 Add an `Input` block to append your account token to log records.
 
@@ -164,7 +162,7 @@ Add an `Input` block to append your account token to log records.
 </Input>
 ```
 
-##### Set Logz.io as the output
+### Set Logz.io as the output
 
 Add the Logz.io listener in the `Output` block.
 
@@ -181,7 +179,7 @@ Add the Logz.io listener in the `Output` block.
 </Route>
 ```
 
-##### Restart NXLog
+### Restart NXLog
 
 Open PowerShell as an admin and run this command:
 
@@ -189,7 +187,7 @@ Open PowerShell as an admin and run this command:
 Restart-Service nxlog
 ```
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

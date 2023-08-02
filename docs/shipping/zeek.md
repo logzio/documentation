@@ -15,7 +15,7 @@ metrics_alerts: []
 
 Zeek is a free and open-source software network analysis framework. This integration allows you to send Zeek logs to your Logz.io SIEM account.
 
-#### Guided configuration
+## Guided configuration
 
 **Before you begin, you'll need**:
 
@@ -25,7 +25,7 @@ Zeek is a free and open-source software network analysis framework. This integra
 
  
 
-##### Configure Zeek to output JSON logs
+### Configure Zeek to output JSON logs
 
 The configuration filepath changes
 depending on your version of Zeek or Bro.
@@ -46,7 +46,7 @@ const use_json = T &redef;
 
 {@include: ../_include/log-shipping/certificate.md}
 
-##### Add Zeek as an input
+### Add Zeek as an input
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Zeek to the filebeat.inputs section.
 
@@ -144,7 +144,7 @@ filebeat.inputs:
 ```
 
 
-##### Set Logz.io as the output
+### Set Logz.io as the output
 
 If Logz.io is not an output, add it now.
 Remove all other outputs.
@@ -159,11 +159,11 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### Start Filebeat
+### Start Filebeat
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

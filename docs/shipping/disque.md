@@ -21,7 +21,7 @@ Disque is a distributed message broker. Telegraf is a plug-in driven server agen
 
 To send your Prometheus-format Disque metrics to Logz.io, you need to add the **inputs.disque** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
  
 

@@ -21,7 +21,7 @@ MarkLogic is a NoSQL database platform that is used in publishing, government, f
 
 To send your Prometheus-format MarkLogic metrics to Logz.io, you need to add the **inputs.marklogic** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
  
 

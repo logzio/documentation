@@ -65,7 +65,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 ## Metrics
 
-#### Configuring Telegraf to send your Heroku app metrics to Logz.io
+#### Configure Telegraf to send your Heroku app metrics to Logz.io
 
 **Before you begin, you'll need**:
 

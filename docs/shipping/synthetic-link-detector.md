@@ -13,9 +13,6 @@ metrics_dashboards: ["4l4xVZhvqsrJWO7rZwOxgx", "1NiBMzN5DvQZ8BjePpUtvQ"]
 metrics_alerts: []
 ---
 
-
-### Overview
-
 Deploy this integration to collect data on broken links in a web page, and to get additional data about the links.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["4l4xVZhvqsrJWO7rZwOxgx", "1NiBMzN5DvQZ8BjePpUtvQ"] -->
@@ -24,7 +21,7 @@ Deploy this integration to collect data on broken links in a web page, and to ge
 
 
 
-##### Auto-deploy the stack
+### Auto-deploy the stack
 
 To deploy this integration, click the button that matches the region you wish to deploy your Stack to:
 
@@ -48,7 +45,7 @@ To deploy this integration, click the button that matches the region you wish to
 | `ap-southeast-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-southeast-2.s3.amazonaws.com/synthetic-link-detector/0.0.3/sam-template.yaml&stackName=logzio-synthetic-link-detector&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071) |
 | `ca-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ca-central-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ca-central-1.s3.amazonaws.com/synthetic-link-detector/0.0.3/sam-template.yaml&stackName=logzio-synthetic-link-detector&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071)     |
 
-##### Specify stack details
+### Specify stack details
 
 Specify the stack details as per the table below, check the checkboxes and select **Create stack**.
 
@@ -64,7 +61,7 @@ Specify the stack details as per the table below, check the checkboxes and selec
 | `logzioType`                 | The log type you'll use with this Lambda.                                                                                           | Default: `synthetic-links-detector` |
 
 
-##### Check Logz.io for your data
+### Check Logz.io for your data
 
 Give the stack a few minutes to be deployed and the data to get to our system, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
