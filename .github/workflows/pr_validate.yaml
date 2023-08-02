@@ -70,26 +70,22 @@ jobs:
           fi
       - name: Create_manifest
         id: create_manifest
+        if: steps.run_validation.outputs.skip_next_step != 'true'
         run: |
-          skip_step=${{ steps.run_validation.outputs.skip_next_step }}
-          if [ "skip_step" == "true" ]; then
-            echo "skipping this step..."
-            echo "skip_next_step=true" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
           echo "Creating new manifest..."
           python _manifest/manifest_generator.py
           echo "Copying file into manifest path"
           cp ${{env.MANIFEST_PATH}} static/manifest.json
       - uses: stefanzweifel/git-auto-commit-action@v4
         id: auto_commit_manifest
-        if: steps.create_manifest.outputs.skip_next_step != true && steps.create_manifest.outcome == 'success'
+        if: steps.create_manifest.outputs.skip_next_step != 'true' && steps.create_manifest.outcome == 'success'
         with:
           file_pattern: './static/manifest.json'
           commit_message: 'auto generated manifest'
           commit_options: "--no-gpg-sign"
           push_options: '--force'
       - name: Manifest update success
+        if: steps.create_manifest.outputs.skip_next_step != 'true' && steps.run_validation.outputs.skip_next_step != 'true'
         run: |
           if [ ${{ steps.create_manifest.outcome }} == 'success' ]; then
             echo "Sending success status on current commit..."
