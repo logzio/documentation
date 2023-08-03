@@ -171,19 +171,6 @@ def is_valid_product(product_str):
     try:
         product_arr = ast.literal_eval(product_str.strip())
         for product in product_arr:
-            if type(product) is not str:
-                logger.error('One of the values of product is not a string')
-                return False
-        return True
-    except Exception as e:
-        logger.error(f'Error with product field. {e}')
-        return False
-
-
-def is_valid_product(product_str):
-    try:
-        product_arr = ast.literal_eval(product_str.strip())
-        for product in product_arr:
             if product.strip() not in consts.PRODUCTS:
                 logger.error(f'Invalid value in product field: {product}')
                 return False
