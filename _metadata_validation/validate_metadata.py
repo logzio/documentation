@@ -95,7 +95,8 @@ def get_changed_files():
 
 def get_files_to_ids():
     file_to_id_arr = []
-    files_paths = get_file_paths(consts.DOCS_PATH)
+    docs_path = os.getenv(consts.ENV_DOCS_PREFIX, consts.DOCS_PATH)
+    files_paths = get_file_paths(docs_path)
     id_regex = r"^id: *.+$"
     for path in files_paths:
         with open(path) as current_file:
