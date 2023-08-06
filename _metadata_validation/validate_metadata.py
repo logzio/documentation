@@ -218,6 +218,9 @@ def is_valid_os(os_str):
 
 def is_valid_filters(filters_str):
     try:
+        if type(filters_str) is not str:
+            logger.error(f'Invalid filters type: {filters_str}')
+            return False
         filters_arr = ast.literal_eval(filters_str.strip())
         for filter_type in filters_arr:
             if type(filter_type) is not str:
