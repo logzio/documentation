@@ -51,22 +51,22 @@ def validate_changed_files():
         if not is_valid_logo(file_metadata[consts.FIELD_LOGO]):
             logger.error(f'Invalid logo for file {file}')
             error_counter += 1
-        if not is_valid_bundle(file_metadata[consts.FIELD_LOGS_DASHBOARD], 'logs dashboards'):
+        if not is_valid_bundle(file_metadata[consts.FIELD_LOGS_DASHBOARD], consts.FIELD_LOGS_DASHBOARD):
             logger.error(f'Invalid logs dashboard for file {file}')
             error_counter += 1
-        if not is_valid_bundle(file_metadata[consts.FIELD_LOGS_ALERTS], 'logs alerts'):
+        if not is_valid_bundle(file_metadata[consts.FIELD_LOGS_ALERTS], consts.FIELD_LOGS_ALERTS):
             logger.error(f'Invalid logs alerts for file {file}')
             error_counter += 1
-        if not is_valid_bundle(file_metadata[consts.FIELD_LOGS_2_METRICS], 'logs2metrics'):
+        if not is_valid_bundle(file_metadata[consts.FIELD_LOGS_2_METRICS], consts.FIELD_LOGS_2_METRICS):
             logger.error(f'Invalid logs2metrics for file: {file}')
             error_counter += 1
-        if not is_valid_bundle(file_metadata[consts.FIELD_METRICS_DASHBOARDS], 'metrics dashboards'):
+        if not is_valid_bundle(file_metadata[consts.FIELD_METRICS_DASHBOARDS], consts.FIELD_METRICS_DASHBOARDS):
             logger.error(f'Invalid metrics dashboard for file {file}')
             error_counter += 1
-        if not is_valid_bundle(file_metadata[consts.FIELD_METRICS_ALERTS], 'metrics alerts'):
+        if not is_valid_bundle(file_metadata[consts.FIELD_METRICS_ALERTS], consts.FIELD_METRICS_ALERTS):
             logger.error(f'Invalid metrics alerts for file {file}')
             error_counter += 1
-        if not is_valid_bundle(file_metadata[consts.FIELD_DROP_FILTER], 'drop filter'):
+        if not is_valid_bundle(file_metadata[consts.FIELD_DROP_FILTER], consts.FIELD_DROP_FILTER):
             logger.error(f'Invalid drop filter for file {file}')
             error_counter += 1
 
@@ -261,6 +261,9 @@ def is_valid_logo(logo):
 
 def is_valid_bundle(bundle_str, bundle_type):
     try:
+        if type(bundle_str) is not str:
+            logger.error('Invalid type for bundle field: {bundle_str}')
+            return False
         bundle_arr = ast.literal_eval(bundle_str.strip())
         for bundle in bundle_arr:
             if type(bundle) is not str:

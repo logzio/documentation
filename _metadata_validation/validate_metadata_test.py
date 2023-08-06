@@ -72,13 +72,67 @@ class TestValidateMetadata(unittest.TestCase):
         self.assertFalse(validate_metadata.is_valid_product(33))
 
     def test_is_valid_product_invalid_value(self):
-        self.assertFalse(validate_metadata.is_valid_product('[\'logs\', \'metrics\', 4]'))
+        self.assertFalse(validate_metadata.is_valid_product('[\'logs\', \'metrics\', \'invalid\']'))
 
+    def test_is_valid_product_invalid_value_type(self):
+        self.assertFalse(validate_metadata.is_valid_product('[\'logs\', 2, \'invalid\']'))
 
-    # def test_get_files_to_ids(self):
-    #     files_to_ids = validate_metadata.get_files_to_ids()
-    #     print(files_to_ids)
-    #     self.assertNotEqual(len(files_to_ids), 0)
+    def test_is_valid_filters(self):
+        self.assertTrue(validate_metadata.is_valid_filters(self.FILTERS_VALUE))
+
+    def test_is_valid_filters_empty_array(self):
+        self.assertTrue(validate_metadata.is_valid_filters('[]'))
+
+    def test_is_valid_filters_empty_field(self):
+        self.assertFalse(validate_metadata.is_valid_filters(''))
+
+    def test_is_valid_filters_invalid_type(self):
+        self.assertFalse(validate_metadata.is_valid_filters(42))
+
+    def test_is_valid_filters_invalid_value_type(self):
+        self.assertFalse(validate_metadata.is_valid_filters('[\'aws\', 1, \'cloud\']'))
+
+    def test_is_valid_logo(self):
+        self.assertTrue(validate_metadata.is_valid_logo(self.LOGO_VALUE))
+
+    def test_is_valid_logo_empty(self):
+        self.assertFalse(validate_metadata.is_valid_logo(''))
+
+    def test_is_valid_logo_invalid_type(self):
+        self.assertFalse(validate_metadata.is_valid_logo(37))
+
+    def test_is_valid_logo_invalid_url(self):
+        self.assertFalse(validate_metadata.is_valid_logo('htps://docs.logz.io/images/logo/logz-symbol.svg'))
+
+    def test_is_valid_logo_ping_error(self):
+        self.assertFalse(validate_metadata.is_valid_logo('http://httpstat.us/500'))
+
+    def test_is_valid_bundle(self):
+        self.assertTrue(validate_metadata.is_valid_bundle(self.LOGS_ALERTS_VALUE, validate_metadata.consts.FIELD_LOGS_ALERTS))
+
+    def test_is_valid_bundle_empty_array(self):
+        self.assertTrue(validate_metadata.is_valid_bundle('[]', validate_metadata.consts.FIELD_LOGS_ALERTS))
+
+    def test_is_valid_bundle_empty_field(self):
+        self.assertFalse(validate_metadata.is_valid_bundle('', validate_metadata.consts.FIELD_LOGS_ALERTS))
+
+    def test_is_valid_bundle_invalid_type(self):
+        self.assertFalse(validate_metadata.is_valid_bundle(33, validate_metadata.consts.FIELD_LOGS_ALERTS))
+
+    def test_is_valid_bundle_invalid_field(self):
+        self.assertFalse(validate_metadata.is_valid_bundle('invalid', validate_metadata.consts.FIELD_LOGS_ALERTS))
+
+    def test_is_valid_bundle_invalid_field_value(self):
+        self.assertFalse(validate_metadata.is_valid_bundle('[\'hello\', \'world\', 3]', validate_metadata.consts.FIELD_LOGS_ALERTS))
+
+    def test_get_files_to_ids(self):
+        files_to_ids = validate_metadata.get_files_to_ids()
+        print(files_to_ids)
+        self.assertTrue(len(files_to_ids), 2)
+        self.assertEqual(files_to_ids[0][validate_metadata.consts.OBJ_FILE], f'{self.PATH_PREFIX}valid-sample.md')
+        self.assertEqual(files_to_ids[0][validate_metadata.consts.OBJ_ID], f'sample')
+        self.assertEqual(files_to_ids[1][validate_metadata.consts.OBJ_FILE], f'{self.PATH_PREFIX}another-sample.md')
+        self.assertEqual(files_to_ids[1][validate_metadata.consts.OBJ_ID], f'another-sample')
 
 
 if __name__ == '__main__':
