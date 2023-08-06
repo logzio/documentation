@@ -13,6 +13,7 @@ metrics_dashboards: ['1Pm3OYbu1MRGoELc2qhxQ1', '1Pm3OYbu1MRGoELc2qhxQ1']
 metrics_alerts: []
 ---
 
+## Logs
  
 Fluentd is an open source data collector and a great option because of its flexibility. This implementation uses a Fluentd DaemonSet to collect Kubernetes logs and send them to Logz.io. The Kubernetes DaemonSet ensures that some or all nodes run a copy of a pod.
 
@@ -32,7 +33,7 @@ Fluentd will fetch all existing logs, as it is not able to ignore older logs.
 
 For troubleshooting this solution, see our [user guide](https://docs.logz.io/user-guide/kubernetes-troubleshooting/).
 
-###### Sending logs from nodes with taints
+### Sending logs from nodes with taints
 
 If you want to ship logs from any of the nodes that have a taint, make sure that the taint key values are listed in your in your daemonset/deployment configuration as follows:
   
@@ -51,7 +52,7 @@ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.tain
 ```
 
 
-###### K8S version compatibility
+### K8S version compatibility
 
 Your Kubernetes version may affect your options, as follows:
 
@@ -74,12 +75,10 @@ For most environments, we recommend using the default configuration.
 However, you can deploy a custom configuration if your environment needs it.
 
 
-#### Deploy Fluentd as a DaemonSet on Kubernetes
-
- 
+### Deploy Fluentd as a DaemonSet on Kubernetes
 
 
-##### Create a monitoring namespace
+#### Create a monitoring namespace
 
 Your DaemonSet will be deployed under the namespace `monitoring`.
 
@@ -89,7 +88,7 @@ kubectl create namespace monitoring
 ```
 
 
-##### Store your Logz.io credentials
+#### Store your Logz.io credentials
 
 Save your Logz.io shipping credentials as a Kubernetes secret.
 
@@ -104,27 +103,27 @@ kubectl create secret generic logzio-logs-secret \
   -n monitoring
 ```
 
-##### Deploy the DaemonSet
+#### Deploy the DaemonSet
 
-###### For an RBAC cluster:
+##### For an RBAC cluster:
 
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-rbac.yaml -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/configmap.yaml
 ```
 
-###### For a non-RBAC cluster:
+##### For a non-RBAC cluster:
 
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset.yaml -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/configmap.yaml
 ```
 
-###### For container runtime Containerd:
+##### For container runtime Containerd:
 
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-containerd.yaml -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/configmap.yaml
 ```
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours,
 and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
@@ -143,7 +142,7 @@ You can customize the configuration of your Fluentd container by editing either 
  
 
 
-##### Create a monitoring namespace
+### Create a monitoring namespace
 
 Your DaemonSet will be deployed under the namespace `monitoring`.
 
@@ -152,7 +151,7 @@ Your DaemonSet will be deployed under the namespace `monitoring`.
 kubectl create namespace monitoring
 ```
 
-##### Store your Logz.io credentials
+### Store your Logz.io credentials
 
 Save your Logz.io shipping credentials as a Kubernetes secret.
 
@@ -167,7 +166,7 @@ kubectl create secret generic logzio-logs-secret \
 {@include: ../_include//general-shipping/replace-placeholders.html}
 
 
-##### Configure Fluentd
+### Configure Fluentd
 
 There are 3 DaemonSet options: [RBAC DaemonSet](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-rbac.yaml), [non-RBAC DaemonSet](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset.yaml), [Containerd](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-containerd.yaml). Download the relevant DaemonSet and open it in your text editor to edit it.
 
@@ -176,7 +175,7 @@ If you wish to make advanced changes in your Fluentd configuration, you can down
 
 {@include: ../_include/k8s-fluentd.md}
 
-###### Good to know
+#### Good to know
 
 * If `FLUENT_FILTER_KUBERNETES_URL` is not specified, the environment variables `KUBERNETES_SERVICE_HOST` and `KUBERNETES_SERVICE_PORT` will be used, as long as both of them are  present. Typically, they are present when running Fluentd in a pod.
 
@@ -185,28 +184,28 @@ If you wish to use this variable, you'll have to add it manually to the DaemonSe
 
 * Verify that your node / k8s instance timezone is running in UTC timezone for your container logs to be parsed and shipped correctly. Otherwise replace `time_format` line in the config with `%Y-%m-%dT%H:%M:%S.%N%:z`. For more details about formatting see this [doc](https://docs.ruby-lang.org/en/2.4.0/Time.html#method-i-strftime).
 
-##### Deploy the DaemonSet
+### Deploy the DaemonSet
 
-###### For the RBAC DaemonSet:
+#### For the RBAC DaemonSet:
 
 ```shell
 kubectl apply -f /path/to/logzio-daemonset-rbac.yaml -f /path/to/configmap.yaml
 ```
 
-###### For the non-RBAC DaemonSet:
+#### For the non-RBAC DaemonSet:
 
 ```shell
 kubectl apply -f /path/to/logzio-daemonset.yaml -f /path/to/configmap.yaml
 ```
 
-###### For container runtime Containerd:
+#### For container runtime Containerd:
 
 ```shell
 kubectl apply -f /path/to/logzio-daemonset-containerd.yaml -f /path/to/configmap.yaml
 ```
 
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours,
 and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
@@ -217,11 +216,11 @@ see [Kubernetes log shipping troubleshooting]({{site.baseurl}}/user-guide/kubern
  
 
 
-### Disabling systemd input
+#### Disabling systemd input
 
 To suppress Fluentd system messages, set the `FLUENTD_SYSTEMD_CONF` environment variable to `disable` in your Kubernetes environment.
 
-### Exclude logs from certain namespaces
+##### Exclude logs from certain namespaces
 
 If you wish to exclude logs from certain namespaces, add the following to your Fluentd configuration:
 

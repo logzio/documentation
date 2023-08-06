@@ -13,16 +13,13 @@ metrics_dashboards: []
 metrics_alerts: []
 ---
 
-
 :::tip
-
-If your code is running inside kubernetes the best practice will be to use our kubernetes integration to collect the different telemetry types
-
+If your code runs within Kubernetes, it's best practice to use our Kubernetes integration to collect various telemetry types.
 :::
 
 ## Logs 
 
-#### Configure Log4j 2
+### Configure Log4j 2
 
 The Logz.io Log4j 2 appender sends logs using non-blocking threading, bulks, and HTTPS encryption to port 8071.
 
@@ -37,7 +34,7 @@ Java 8 or higher
 
  
 
-##### Add the dependency to your project
+### Add the dependency to your project
 
 Add a dependency to your project configuration file (for instance, `pom.xml` in a Maven project). 
 
@@ -57,7 +54,7 @@ Add a dependency to your project configuration file (for instance, `pom.xml` in 
 ```
 The logzio-log4j2-appender artifact can be found in the Maven central repo at https://search.maven.org/artifact/io.logz.log4j2/logzio-log4j2-appender.
 
-##### Configure the appender
+### Configure the appender
 
 Use the samples in the code block below as a starting point, and replace the sample with a configuration that matches your needs.
 
@@ -114,7 +111,7 @@ See the [Log4j documentation](https://logging.apache.org/log4j/2.x/manual/config
 {:.info-box.read}
  
 
-###### Parameters
+#### Parameters
 
 | Parameter | Description | Required/Default |
 |---|---|---|
@@ -132,7 +129,7 @@ See the [Log4j documentation](https://logging.apache.org/log4j/2.x/manual/config
 | socketTimeoutMs | Socket timeout during log shipment, in milliseconds. | `10 * 1000` |
 
 
-###### Code sample
+#### Code sample
 
 ```java
 import org.apache.logging.log4j.LogManager;
@@ -232,7 +229,7 @@ public class LogzioLog4j2Example {
 ```
 
   
-#### Configure Logback
+### Configure Logback
 
 Logback sends logs to your Logz.io account using non-blocking threading, bulks, and HTTPS encryption to port 8071.
 
@@ -247,11 +244,11 @@ Java 8 or higher
 
  
 
-##### Add the dependency to your project
+### Add the dependency to your project
 
 Add a dependency to your project configuration file
 
-###### Installation from Maven
+#### Installation from Maven
 
 In the `pom.xml` add the following dependencies:
 
@@ -267,7 +264,7 @@ In the `pom.xml` add the following dependencies:
 
 The logzio-log4j2-appender artifact can be found in the Maven central repo at https://search.maven.org/artifact/io.logz.log4j2/logzio-log4j2-appender.
 
-###### Installation from Gradle
+#### Installation from Gradle
 
 If you use Gradle, add the dependency to your project as follows:
 
@@ -275,7 +272,7 @@ If you use Gradle, add the dependency to your project as follows:
 implementation 'io.logz.sender:logzio-java-sender:V1.1.2'
 ```
 
-##### Configure the appender
+### Configure the appender
 
 Use the samples in the code block below as a starting point, and replace the sample with a configuration that matches your needs.
 
@@ -336,7 +333,7 @@ If you want to output `debug` messages, include the `debug` parameter into the c
 </configuration>
 ```
 
-###### Parameters
+#### Parameters
 
 | Parameter | Description | Required/Default |
 |---|---|---|
@@ -356,7 +353,7 @@ If you want to output `debug` messages, include the `debug` parameter into the c
 | socketTimeout | Socket timeout during log shipment, in milliseconds. | `10 * 1000` |
 
 
-###### Code sample
+#### Code sample
 
 ```java
 import org.slf4j.Logger;
@@ -379,7 +376,7 @@ public class LogzioLogbackExample {
 You can optionally add mapped diagnostic context (MDC)
 and markers to your logs.
 
-#### MDC
+##### MDC
 
 When you add MDC to your logs,
 each key-value pair you define is added log lines while the thread is alive.
@@ -411,7 +408,7 @@ public class LogzioLogbackExample {
 }
 ```
 
-#### Markers
+##### Markers
 
 Markers are values you can use to tag and enrich log statements.
 
@@ -443,7 +440,7 @@ public class LogzioLogbackExample {
 }
 ```
   
-#### Troubleshooting
+##### Troubleshooting
   
 If the log appender does not ship logs, add `<inMemoryQueue>true</inMemoryQueue>` and `<inMemoryQueueCapacityBytes>-1</inMemoryQueueCapacityBytes>` to the configuration file as follows:
   
@@ -765,7 +762,7 @@ Give your metrics some time to get from your system to ours, and then open [Metr
 
 Deploy this integration to enable automatic instrumentation of your Java application using OpenTelemetry.
 
-### Architecture overview
+### Manual configuration
 
 This integration includes:
 
@@ -775,7 +772,7 @@ This integration includes:
 
 On deployment, the Java agent automatically captures spans from your application and forwards them to the collector, which exports the data to your Logz.io account.
 
-### Setup auto-instrumentation for your locally hosted Java application and send traces to Logz.io
+#### Setup auto-instrumentation for your locally hosted Java application and send traces to Logz.io
 
 **Before you begin, you'll need**:
 
@@ -791,11 +788,11 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 <!-- info-box-end -->
 
 
-### 1. Download Java agent
+##### 1. Download Java agent
 
 Download the latest version of the [OpenTelemetry Java agent](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar) to the host of your Java application.
 
-### 2. Download and configure OpenTelemetry collector
+##### 2. Download and configure OpenTelemetry collector
 
 Create a dedicated directory on the host of your Java application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.70.0) that is relevant to the operating system of your host.
 
@@ -807,7 +804,7 @@ After downloading the collector, create a configuration file `config.yaml` with 
 {@include: ./tracing-shipping/replace-tracing-token.html}
 
 
-### 3. Start the collector
+##### 3. Start the collector
 
 Run the following command:
 
@@ -817,7 +814,7 @@ Run the following command:
 * Replace `<path/to>` with the path to the directory where you downloaded the collector.
 * Replace `<VERSION-NAME>` with the version name of the collector applicable to your system, e.g. `otelcontribcol_darwin_amd64`.
 
-### 4. Attach the agent to the collector and run it
+##### 4. Attach the agent to the collector and run it
 
 Run the following command from the directory of your Java application:
 
@@ -834,12 +831,12 @@ java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
 * Replace `<YOUR-SERVICE-NAME>` with the name of your tracing service defined earlier.
 
 
-### 5. Check Logz.io for your traces
+##### 5. Check Logz.io for your traces
 
 Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
 
 
-### Controlling the number of spans
+###### Controlling the number of spans
 
 To limit the number of outgoing spans, you can use the sampling option in the Java agent.
 

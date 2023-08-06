@@ -14,13 +14,13 @@ metrics_alerts: []
 ---
  
 
-#### Manual configuration with a Lambda function
+### Manual configuration with a Lambda function
 
 {@include: ../_include/log-shipping/note-lambda-test.md}
 
  
 
-##### Create a new Lambda function
+#### Create a new Lambda function
 
 This Lambda function will consume a Kinesis data stream and sends the logs to Logz.io in bulk over HTTP.
 
@@ -35,12 +35,12 @@ Click **Create Function** (bottom right corner of the page). After a few moments
 
 You'll need this page later on, so keep it open.
 
-##### Download the Kinesis stream shipper
+#### Download the Kinesis stream shipper
 
 Download the [latest Kinesis stream shipper](https://github.com/logzio/logzio_aws_serverless/releases). It is a zip file.
 
 
-##### Upload the zip file and set environment variables
+#### Upload the zip file and set environment variables
 
 In the _Function_ code section of Lambda, find the **Code entry type** list.
 Choose **Upload a .ZIP file** from this list.
@@ -49,7 +49,7 @@ Click **Upload**, and choose the zip file you created earlier (`logzio-kinesis.z
 
 In the _Environment variables_ section, set your Logz.io account token, URL, and log type, and any other variables that you need to use.
 
-###### Environment variables
+##### Environment variables
 
 | Parameter | Description | Required/Default |
 |---|---|---|
@@ -62,7 +62,7 @@ In the _Environment variables_ section, set your Logz.io account token, URL, and
 | MESSAGES_ARRAY (_Optional_) | Name the field containing a JSON array that will be used to split the log document. [Learn more]({{site.baseurl}}/user-guide/mapping-and-parsing/split-json-array.html). **Note**: This option only works if the `FORMAT` is set to `json`. | -- |
 
 
-##### Configure the function's basic settings
+#### Configure the function's basic settings
 
 In Basic settings, we recommend starting with these settings:
 
@@ -74,7 +74,7 @@ These default settings are just a starting point. Check your Lambda usage regula
 :::
  
 
-##### Set the Kinesis event trigger
+#### Set the Kinesis event trigger
 
 Find the **Add triggers** list (left side of the Designer panel). Choose **Kinesis** from this list.
 
@@ -82,7 +82,7 @@ Below the Designer, you'll see the Configure triggers panel. Choose the **Kinesi
 
 Click **Add**, and then click **Save** at the top of the page.
 
-##### Check Logz.io for your logs
+#### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
@@ -91,7 +91,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
  
  
 
-#### Automated CloudFormation deployment
+### Automated CloudFormation deployment
 
 {@include: ../_include/log-shipping/note-lambda-test.md}
 
@@ -102,11 +102,11 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
  
 
-##### Download the Kinesis stream shipper
+#### Download the Kinesis stream shipper
 
 Download the [latest Kinesis stream shipper](https://github.com/logzio/logzio_aws_serverless/releases). It is a zip file.
 
-##### Create the CloudFormation package and upload to S3
+#### Create the CloudFormation package and upload to S3
 
 Create the CloudFormation package using the AWS CLI.
 Replace `<<YOUR-S3-BUCKET>>` with the S3 bucket name where you'll be uploading this package.
@@ -119,7 +119,7 @@ aws cloudformation package \
   --s3-bucket <<YOUR-S3-BUCKET>>
 ```
 
-##### Deploy the CloudFormation package
+#### Deploy the CloudFormation package
 
 Deploy the CloudFormation package using AWS CLI.
 
@@ -135,7 +135,7 @@ aws cloudformation deploy \
 --capabilities "CAPABILITY_IAM"
 ```
 
-###### Parameters
+##### Parameters
 
 | Parameter | Description |  Required/Default |
 |---|---|---|
@@ -150,7 +150,7 @@ aws cloudformation deploy \
 | KinesisStreamStartingPosition | The position in the stream to start reading from. For more information, see [ShardIteratorType](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html) in the Amazon Kinesis API Reference. | `LATEST` |
 
 
-##### Check Logz.io for your logs
+#### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
@@ -158,7 +158,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
  
  
-#### Deployment using a module
+### Deployment using a module
   
 Deploy this integration to add a module for Kinesis to your existing stack. This integration uses Cloudwatch Public Registry.
 
@@ -176,25 +176,25 @@ Logz.io Public Registry extensions are currently only available on the AWS regio
 
  
 
-##### Select the Logz.io Kinesis extension
+#### Select the Logz.io Kinesis extension
 
 1. Navigate to **CloudFormation > Registry > Public extensions**.
 2. Set **Extension type > Modules** and **Publisher > Third party**.
 3. Select **Logzio::KinesisShipper::KinesisShipper::MODULE**.
 
 
-##### Activate the Logz.io Kinesis extension
+#### Activate the Logz.io Kinesis extension
 
 1. On the **Logzio::KinesisShipper::KinesisShipper::MODULE** select **Activate**.
 2. In the **Extension details** section, select **Use default**.
 3. In the **Automatic updates** section, select **On**.
 4. Select **Activate extension**.
 
-##### Copy the configuration template
+#### Copy the configuration template
 
 On the **Logzio::KinesisShipper::KinesisShipper::MODULE** page, navigate to **Example template** and select **Copy template**.
 
-##### Add your stack values to the configuration template
+#### Add your stack values to the configuration template
 
 ```yaml
 {
@@ -233,7 +233,7 @@ Save the template as a yaml file and add the values of your stack to the as per 
 | KinesisStreamStartingPosition | The position in the stream to start reading from. For more information, see [ShardIteratorType](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html) in the Amazon Kinesis API Reference. | `LATEST` |
 | LogzioMessagesArray | Set this variable to split the a record into multiple logs based on a field containing an array |  |
 
-##### Add your stack values to the configuration template
+#### Add your stack values to the configuration template
 
 If you are creating a new stack:
 

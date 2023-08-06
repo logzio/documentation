@@ -13,21 +13,10 @@ metrics_dashboards: ['']
 metrics_alerts: []
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-
-<Tabs>
-
-
-<!-- tab:start -->
-
-<TabItem value="overview" label="Overview" default>
-
 
 Deploy this integration to send traces from your OpenTelemetry installation to Logz.io.
 
-## Architecture overview
+## Manual configuration
 
 This integration includes:
 
@@ -35,18 +24,7 @@ This integration includes:
 
 On deployment, your OpenTelemetry instrumentation captures spans from your application and forwards them to the collector, which exports the data to your Logz.io account.
 
-</TabItem>
-
-<!-- tab:end -->
-
-
-<!-- tab:start -->
-
-<TabItem value="local-host" label="Local host">
-
-
-
-## Set up your locally hosted OpenTelemetry installation to send traces to Logz.io
+### Set up your locally hosted OpenTelemetry installation to send traces to Logz.io
 
 **Before you begin, you'll need**:
 
@@ -59,7 +37,7 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 <!-- info-box-end -->
 
 
-### Download and configure OpenTelemetry collector
+#### Download and configure OpenTelemetry collector
 
 Create a dedicated directory on the host of your application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.70.0) that is relevant to the operating system of your host.
 
@@ -99,12 +77,12 @@ An example configuration file looks as follows:
 
 {@include: ../_include/tracing-shipping/collector-config.md}
 
-### Instrument the application
+#### Instrument the application
 
 If your application is not yet instrumented, instrument the code as described in our [tracing documents](https://docs.logz.io/shipping/#tracing-sources).
 
 
-### Start the collector
+#### Start the collector
 
 Run the following command:
 
@@ -114,32 +92,23 @@ Run the following command:
 * Replace `<path/to>` with the path to the directory where you downloaded the collector.
 * Replace `<VERSION-NAME>` with the version name of the collector applicable to your system, e.g. `otelcontribcol_darwin_amd64`.
 
-### Run the application
+#### Run the application
 
 Run the application to generate traces.
 
 
-### Check Logz.io for your traces
+#### Check Logz.io for your traces
 
 Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
 
-</TabItem>
-
-<!-- tab:end -->
-
-<!-- tab:start -->
-
-<TabItem value="docker" label="Docker">
-
-
-## Set up your OpenTelemetry installation using containerized collector to send traces to Logz.io
+### Set up your OpenTelemetry installation using containerized collector to send traces to Logz.io
 
 **Before you begin, you'll need**:
 
 * An active account with Logz.io
 
 
-### Instrument the application
+#### Instrument the application
 
 If your application is not yet instrumented, instrument the code as described in our [tracing documents](https://docs.logz.io/shipping/#tracing-sources).
 
@@ -148,7 +117,7 @@ If your application is not yet instrumented, instrument the code as described in
 
 {@include: ../_include/tracing-shipping/replace-tracing-token.html}
 
-### Run the application
+#### Run the application
 
 {@include: ../_include/tracing-shipping/collector-run-note.md}
 
@@ -156,22 +125,14 @@ If your application is not yet instrumented, instrument the code as described in
 Run the application to generate traces.
 
 
-### Check Logz.io for your traces
+#### Check Logz.io for your traces
 
 Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
 
 
-</TabItem>
+## Configuration via Helm
 
-<!-- tab:end -->
-
-<!-- tab:start -->
-
-<TabItem value="kubernetes" label="Kubernetes">
-
-## Overview
-
-You can use a Helm chart to ship Traces to Logz.io via the OpenTelemetry collector. The Helm tool is used to manage packages of pre-configured Kubernetes resources that use charts.
+You can use a Helm chart to ship traces to Logz.io via the OpenTelemetry collector. The Helm tool is used to manage packages of pre-configured Kubernetes resources that use charts.
 
 **logzio-k8s-telemetry** allows you to ship traces from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
 
@@ -186,8 +147,6 @@ This chart is a fork of the [opentelemtry-collector](https://github.com/open-tel
 This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
 :::
 <!-- info-box-end -->
-
-## Standard configuration
 
 
 ### Deploy the Helm chart
@@ -217,9 +176,9 @@ logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 Give your traces some time to get from your system to ours, then open [Logz.io](https://app.logz.io/).
 
 
-##  Customizing Helm chart parameters
+###  Customizing Helm chart parameters
 
-### Configure customization options
+#### Configure customization options
 
 You can use the following options to update the Helm chart parameters: 
 
@@ -311,9 +270,7 @@ Replace `<PATH-TO>` with the path to your custom `values.yaml` file.
 
 
 
-
-
-## Uninstalling the Chart
+### Uninstalling the Chart
 
 The uninstall command is used to remove all the Kubernetes components associated with the chart and to delete the release.  
 
@@ -323,20 +280,7 @@ To uninstall the `logzio-k8s-telemetry` deployment, use the following command:
 helm uninstall logzio-k8s-telemetry
 ```
 
-</TabItem>
-
-<!-- tab:end -->
-
-<!-- tab:start -->
-
-<TabItem value="troubleshooting" label="Troubleshooting">
+### Troubleshooting
 
 {@include: ../_include/tracing-shipping/otel-troubleshooting.md}
 
-</TabItem>
-
-<!-- tab:end -->
-
-</Tabs>
-
-<!-- tabContainer:end -->

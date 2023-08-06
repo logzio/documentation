@@ -16,8 +16,6 @@ metrics_alerts: []
 
 This integration allows you to send logs from your network devices to your Logz.io account. 
 
-#### Guided configuration
-
 **Before you begin, you'll need**:
 
 * [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) installed
@@ -25,14 +23,14 @@ This integration allows you to send logs from your network devices to your Logz.
 
  
 
-##### Configure your device
+### Configure your device
 
 Configure your network device to send logs to your Filebeat server, TCP port 9000.
 See your device's documentation if you're not sure how to do this.
 
 {@include: ../_include/log-shipping/certificate.md}
 
-##### Add TCP traffic as an input
+### Add TCP traffic as an input
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add TCP to the filebeat.inputs section.
 
@@ -61,7 +59,7 @@ filebeat.inputs:
 ```
 
 
-##### Set Logz.io as the output
+### Set Logz.io as the output
 
 If Logz.io is not an output, add it now.
 Remove all other outputs.
@@ -76,12 +74,12 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### Start Filebeat
+### Start Filebeat
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

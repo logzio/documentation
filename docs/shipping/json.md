@@ -14,8 +14,6 @@ metrics_alerts: []
 ---
 
 
- 
-
 ## Bulk uploads over HTTP/HTTPS
 
 If you want to ship logs from your code but don't have a library in place,
@@ -54,21 +52,21 @@ For example:
 {"message": "Hello again", "counter": 2}
 ```
 
-###### Limitations
+#### Limitations
 
 * Max body size is 10 MB (10,485,760 bytes)
 * Each log line must be 500,000 bytes or less
 * If you include a `type` field in the log, it overrides `type` in the request header
 
 
-###### Code sample
+#### Code sample
 
 ```shell
 echo $'{"message":"hello there", "counter": 1}\n{"message":"hello again", "counter": 2}' \
   | curl -X POST "http://<<LISTENER-HOST>>:8070?token=<<LOG-SHIPPING-TOKEN>>&type=test_http_bulk" -v --data-binary @-
 ```
 
-### Possible responses
+#### Possible responses
 
 ##### 200 OK
 
@@ -116,7 +114,7 @@ The listeners accept bulk uploads over an HTTP/HTTPS connection
 or TLS/SSL streams over TCP.
 
 
-###### JSON log structure
+### JSON log structure
 
 
 Keep to these practices when shipping JSON logs over TCP:
@@ -126,21 +124,21 @@ Keep to these practices when shipping JSON logs over TCP:
 * Each log line must be followed by a `\n` (even the last log)
 * Include your account token as a top-level property: `{ ... "token": "<<LOG-SHIPPING-TOKEN>>" , ... }`
 
-#### Send TLS/SSL streams over TCP
+### Send TLS/SSL streams over TCP
 
  
 
 {@include: ../_include/log-shipping/certificate.md}
 
 
-##### Send the logs
+### Send the logs
 
   Using the certificate you just downloaded,
 
 send the logs to TCP port 5052 on your region’s listener host. For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
 
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

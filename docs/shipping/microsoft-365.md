@@ -32,7 +32,7 @@ Deploy this integration to send Unified Audit Logging logs from Microsoft 365 to
  
 
 
-##### Register a new application in Azure AD
+### Register a new application in Azure AD
 
 1. Navigate to portal.azure.com and sign-in with an administrative account.
 2. Open the pop-out menu from the top left corner of the web page and click on **Azure Active Directory**.
@@ -45,7 +45,7 @@ Take note of the Application (client) ID and the Directory (tenant) ID. These wi
 :::
  
 
-##### Create a client secret for your application
+### Create a client secret for your application
 
 1. From your application overview, navigate to **Certificates & secrets**. A client secret will be needed for your Filebeat configuration in order to pull data from the management API.
 2. Select **+ New client secret** and provide a description of your choosing.
@@ -54,7 +54,7 @@ Take note of the Application (client) ID and the Directory (tenant) ID. These wi
 ![Client secret](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/office365/client.png)
 
 
-##### Adjust app permissions to allow for interaction with the management API
+### Adjust app permissions to allow for interaction with the management API
 
 
 1. Navigate to **API Permissions** on the left hand side of the page, select **+ Add a permission** and scroll down to find  the “Office 365 Management APIs” widget.
@@ -62,7 +62,7 @@ Take note of the Application (client) ID and the Directory (tenant) ID. These wi
 ![App permissions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/office365/permissions.png)
 
 
-##### Download the Logz.io public certificate to your credentials server
+### Download the Logz.io public certificate to your credentials server
 
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
@@ -71,7 +71,7 @@ For HTTPS shipping, download the Logz.io public certificate to your certificate 
 curl https://raw.githubusercontent.com/logzio/public-certificates/master/AAACertificateServices.crt --create-dirs -o C:\ProgramData\filebeat\COMODORSADomainValidationSecureServerCA.crt
 ```
 
-##### Configure Filebeat
+### Configure Filebeat
 
 {@include: ../_include/log-shipping/filebeat-input-extension.md}
 
@@ -165,7 +165,7 @@ curl https://raw.githubusercontent.com/logzio/public-certificates/master/AAACert
 
 5. Run Filebeat with the new configuration.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for data of type `o365` to see the incoming Microsoft 365 logs.
   

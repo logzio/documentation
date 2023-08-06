@@ -13,9 +13,6 @@ metrics_dashboards: []
 metrics_alerts: []
 ---
 
- 
-
-#### Configuration
 
 **Before you begin, you'll need**:
 
@@ -24,7 +21,7 @@ metrics_alerts: []
 
  
 
-##### Run the rsyslog configuration script
+### Run the rsyslog configuration script
 
 {@include: ../_include/log-shipping/log-shipping-token.html}
 
@@ -42,7 +39,7 @@ The above assumes the following defaults:
 * Log location - `/var/log/`
 * Log type - `syslog`
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then [open Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can search for `type:syslog` to filter for your logs. 
 

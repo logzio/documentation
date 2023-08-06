@@ -1,7 +1,7 @@
 ---
 id: MongoDB
 title: MongoDB
-overview: MongoDB is a source-available cross-platform document-oriented database program. Fluentd is an open source data collector and a great option because of its flexibility. This integration lets you send logs from your MongoDB instances to your Logz.io account using Fluentd.
+overview: MongoDB is a source-available cross-platform document-oriented database program. This integration lets you send logs and metrics from your MongoDB instances to your Logz.io account.
 product: ['logs','metrics']
 os: ['windows', 'linux']
 filters: ['Data Store']
@@ -13,24 +13,16 @@ metrics_dashboards: ['']
 metrics_alerts: []
 ---
 
-
-MongoDB is a source-available cross-platform document-oriented database program. 
-
 ## Logs
 
 Fluentd is an open source data collector and a great option because of its flexibility. This integration lets you send logs from your MongoDB instances to your Logz.io account using Fluentd.
-
-
-#### Step by step
 
 **Before you begin, you'll need**:
 
 * MongoDB installed on your host
 * Ruby 2.4+ and Ruby-dev
  
-
-
-##### Configure MongoDB to write logs to a file
+### Configure MongoDB to write logs to a file
 
 In the configuration file of your MongoDB instance, set the database to write logs to a file. You can skip this step if this has already been configured on your MongoDB host.
 
@@ -49,7 +41,7 @@ systemLog:
 
 Make sure Fluend can read from the MongoDB log file. You can set this as follows:
 
-###### On macOS and Linux
+#### On macOS and Linux
 
 ```shell
 sudo chmod 604 <<MONGODB-FILE-PATH>>
@@ -57,12 +49,12 @@ sudo chmod 604 <<MONGODB-FILE-PATH>>
 
 * Replace `<<MONGODB-FILE-PATH>>` with the path to the MongoDB log file.
 
-###### On Windows
+#### On Windows
 
 Enable the read access in the file properties.
 
 
-##### Install Fluentd 
+### Install Fluentd 
 
 
 ```shell
@@ -77,7 +69,7 @@ This command creates a directory called `fluent` where we will create the config
 
   
   
-##### Create a Gemfile for Fluentd
+### Create a Gemfile for Fluentd
 
 In your preffered directory, create a Gemfile with the following content:
 
@@ -89,7 +81,7 @@ gem "fluent-plugin-logzio", "0.0.21"
 gem "fluent-plugin-record-modifier"
 ```
   
-##### Configure Fluentd with Logz.io output
+### Configure Fluentd with Logz.io output
 
 Add this code block to your Fluent configuration file (`fluent.conf` by default).
 
@@ -143,7 +135,7 @@ See the configuration parameters below the code block.👇
 </match>
 ```
 
-###### Parameters
+#### Parameters
 
 | Parameter | Description |
 |---|---|
@@ -161,7 +153,7 @@ See the configuration parameters below the code block.👇
 
 
 
-##### Run Fluentd
+### Run Fluentd
 
 ```shell
 fluentd -c ./fluent.conf --gemfile ./Gemfile
@@ -169,28 +161,28 @@ fluentd -c ./fluent.conf --gemfile ./Gemfile
 
 
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can search for `type:mongodb-fluentd` to filter for your MongoDB logs. Your logs should be already parsed thanks to the Logz.io preconfigured parsing pipeline.
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
- ## Metrics
+## Metrics
 
- To send your Prometheus-format MongoDB metrics to Logz.io, you need to add the **inputs.mongodb** and **outputs.http** plug-ins to your Telegraf configuration file.
+To send your Prometheus-format MongoDB metrics to Logz.io, you need to add the **inputs.mongodb** and **outputs.http** plug-ins to your Telegraf configuration file.
 
 
 <!-- logzio-inject:install:grafana:dashboards ids=["13q1IECY8zfnnDXvUq7vvH"] -->
 
-#### Configure Telegraf to send your metrics data to Logz.io
+### Configure Telegraf to send your metrics data to Logz.io
 
 
 
-##### Set up Telegraf v1.17 or higher
+#### Set up Telegraf v1.17 or higher
 
 {@include: ../_include/metric-shipping/telegraf-setup.md}
 
-##### Add the inputs.mongodb plug-in
+#### Add the inputs.mongodb plug-in
 
 First you need to configure the input plug-in to enable Telegraf to scrape the MongoDB data from your hosts. To do this, add the following code to the configuration file:
 
@@ -220,16 +212,16 @@ The full list of data scraping and configuring options can be found [here](https
 :::
 
 
-##### Add the outputs.http plug-in
+#### Add the outputs.http plug-in
 
 {@include: ../_include/metric-shipping/telegraf-outputs.md}
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
 
-##### Start Telegraf
+#### Start Telegraf
 
 {@include: ../_include/metric-shipping/telegraf-run.md}
 
-##### Check Logz.io for your metrics
+#### Check Logz.io for your metrics
 
 {@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 

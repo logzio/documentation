@@ -21,9 +21,6 @@ Here are just a few examples for security rules written specifically for Juniper
 You can review the Juniper SRX resources in your Logz.io Cloud SIEM account, under the pre-configured [Juniper SRX security rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC&search=juniper) and search for the provided Juniper SRX [dashboards](https://app.logz.io/#/dashboard/security/research/dashboards?) to get you started.
 
 
-#### Step by step
-
-
 **Before you begin, you'll need**:
 
 * Juniper SRX
@@ -32,7 +29,7 @@ You can review the Juniper SRX resources in your Logz.io Cloud SIEM account, und
 
  
 
-##### Configure Juniper SRX Server logging
+### Configure Juniper SRX Server logging
 
 Configure your Juniper firewall to send logs to your Filebeat server. Make sure you meet this configuration:
 
@@ -45,7 +42,7 @@ See [Juniper SRX docs](https://kb.juniper.net/InfoCenter/index?page=content&id=K
 
 {@include: ../_include/log-shipping/certificate.md}
 
-##### Configure Filebeat
+### Configure Filebeat
 
 Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor.
 Copy and paste the code block below, overwriting the previous content. (You want to replace the file's content with this code block.)
@@ -110,11 +107,11 @@ If the file has other outputs, remove them.
  
 
 
-##### Start Filebeat
+### Start Filebeat
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

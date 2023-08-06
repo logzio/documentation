@@ -23,13 +23,13 @@ OpenShift is a family of containerization software products developed by Red Hat
 
 
 
-##### Create monitoring namespace
+### Create monitoring namespace
 
 ```shell
 oc create namespace monitoring
 ```
 
-##### Store your Logz.io credentials
+### Store your Logz.io credentials
 
 ```shell
 oc create secret generic logzio-logs-secret \
@@ -40,7 +40,7 @@ oc create secret generic logzio-logs-secret \
 {@include: ../_include/log-shipping/log-shipping-token.md}
 {@include: ../_include/log-shipping/listener-var.html}
 
-##### Deploy the resources
+### Deploy the resources
 
 ```shell
 oc create -f https://raw.githubusercontent.com/logzio/logzio-openshift/main/resources.yaml \
@@ -53,7 +53,7 @@ Fluentd will fetch all existing logs, as it is not able to ignore older logs.
 :::
 
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
