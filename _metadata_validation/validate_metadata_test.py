@@ -10,7 +10,7 @@ class TestValidateMetadata(unittest.TestCase):
     VALID_FILE_PATH = '_metadata_validation/test/valid-sample.md'
     ID_VALUE = 'sample'
     TITLE_VALUE = 'Sample Document'
-    OVERVIEW_VALUE = 'This is a sample document of a test'
+    OVERVIEW_VALUE = 'this is the description of a test'
     PRODUCT_VALUE = '[\'logs\', \'metrics\']'
     OS_VALUE = '[\'windows\', \'linux\']'
     FILTERS_VALUE = '[\'aws\', \'cloud\']'
@@ -133,6 +133,34 @@ class TestValidateMetadata(unittest.TestCase):
         self.assertEqual(files_to_ids[0][validate_metadata.consts.OBJ_ID], f'sample')
         self.assertEqual(files_to_ids[1][validate_metadata.consts.OBJ_FILE], f'{self.PATH_PREFIX}another-sample.md')
         self.assertEqual(files_to_ids[1][validate_metadata.consts.OBJ_ID], f'another-sample')
+
+    def test_get_changed_files(self):
+        changed_set = f'{self.PATH_PREFIX}valid-sample.md'
+        os.environ[validate_metadata.consts.ENV_FILES_TO_TRACK] = changed_set
+        changed_files = validate_metadata.get_changed_files()
+        self.assertEqual(len(changed_files), 1)
+        self.assertEqual(changed_files[0], changed_set)
+
+    def test_get_changed_files_empty(self):
+        os.environ[validate_metadata.consts.ENV_FILES_TO_TRACK] = ''
+        changed_files = validate_metadata.get_changed_files()
+        self.assertEqual(len(changed_files), 0)
+
+    def test_get_file_metadata(self):
+        file_metadata = validate_metadata.get_file_metadata(f'{self.PATH_PREFIX}valid-sample.md')
+        self.assertEqual(file_metadata[validate_metadata.consts.FIELD_ID], self.ID_VALUE)
+        self.assertEqual(file_metadata[validate_metadata.consts.FIELD_TITLE], self.TITLE_VALUE)
+        self.assertEqual(file_metadata[validate_metadata.consts.FIELD_OVERVIEW], self.OVERVIEW_VALUE)
+        self.assertEqual(file_metadata[validate_metadata.consts.FIELD_PRODUCT], self.PRODUCT_VALUE)
+        self.assertEqual(file_metadata[validate_metadata.consts.FIELD_OS], self.OS_VALUE)
+        self.assertEqual(file_metadata[validate_metadata.consts.FIELD_FILTERS], self.FILTERS_VALUE)
+        self.assertEqual(file_metadata[validate_metadata.consts.FIELD_LOGO], self.LOGO_VALUE)
+        self.assertEqual(file_metadata[validate_metadata.consts.FIELD_LOGS_ALERTS], self.LOGS_ALERTS_VALUE)
+        self.assertEqual(file_metadata[validate_metadata.consts.FIELD_LOGS_DASHBOARD], self.LOGS_DASHBOARDS_VALUE)
+        self.assertEqual(file_metadata[validate_metadata.consts.FIELD_LOGS_2_METRICS], self.LOGS2METRICS_VALUE)
+        self.assertEqual(file_metadata[validate_metadata.consts.FIELD_METRICS_ALERTS], self.METRICS_ALERTS_VALUE)
+        self.assertEqual(file_metadata[validate_metadata.consts.FIELD_METRICS_DASHBOARDS], self.METRICS_DASHBOARDS_VALUE)
+        self.assertEqual(file_metadata[validate_metadata.consts.FIELD_DROP_FILTER], self.DROP_FILTERS_VALUE)
 
 
 if __name__ == '__main__':
