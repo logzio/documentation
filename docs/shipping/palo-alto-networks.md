@@ -15,17 +15,12 @@ metrics_alerts: []
 
 Palo Alto Networks provides advanced protection, security and consistency across locations and clouds. This integration allows you to send logs from your Palo Alto Networks applications to your Logz.io SIEM account.
 
-#### Guided configuration
-
 **Before you begin, you'll need**:
 
 * [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
 * Root access
 
-
- 
-
-##### Configure the firewall to forward logs to Filebeat
+### Configure the firewall to forward logs to Filebeat
 
 You'll need to configure your firewall
 to forward logs to your Filebeat server
@@ -52,7 +47,7 @@ Click **OK** to save the profile.
 For more information, see [Configure Syslog Monitoring](https://docs.paloaltonetworks.com/pan-os/7-1/pan-os-admin/monitoring/use-syslog-for-monitoring/configure-syslog-monitoring)
 from Palo Alto Networks.
 
-##### Configure syslog forwarding
+### Configure syslog forwarding
 
 Click the **Objects** tab, and then select **Log Forwarding** from the left menu.
 
@@ -70,7 +65,7 @@ Repeat this process for each log type you plan to send to Filebeat.
 
 Click **OK** to save the log forwarding profile.
 
-##### Configure the security policy rules
+### Configure the security policy rules
 
 Click the **Policies** tab, and then select **Security** from the left menu.
 
@@ -85,7 +80,7 @@ In the **Log Forwarding** list, choose the log forwarding profile you created in
 
 Fill in the required information in tabs with a red squiggly underline.
 
-##### Commit the changes to your firewall
+### Commit the changes to your firewall
 
 In the upper right corner of the page, click **Commit**.
 
@@ -94,7 +89,7 @@ and click the **Commit** button to save.
 
 {@include: ../_include/log-shipping/certificate.md}
 
-##### Add TCP traffic as an input
+### Add TCP traffic as an input
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add TCP to the filebeat.inputs section.
 
@@ -148,7 +143,7 @@ If you're running Filebeat 6, paste this code block.
 registry_file: /var/lib/filebeat/registry
 ```
 
-##### Set Logz.io as the output
+### Set Logz.io as the output
 
 If Logz.io is not an output, add it now.
 Remove all other outputs.
@@ -163,11 +158,11 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### Start Filebeat
+### Start Filebeat
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

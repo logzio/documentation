@@ -20,7 +20,7 @@ Google Managed Service for Microsoft Active Directory is a fully managed, real-t
 
 To send your Prometheus-format Google Managed Service for Microsoft Active Directory metrics to Logz.io, you need to add the **inputs.stackdriver** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
 **Before you begin, you'll need**:
  GCP project

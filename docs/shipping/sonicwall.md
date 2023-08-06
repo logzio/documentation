@@ -16,11 +16,11 @@ metrics_alerts: []
 SonicWall firewalls allow you to identify and control all of the applications in use on your network. This integration allows you to send logs from your SonicWall applications to your Logz.io SIEM account.
 
 
-#### Configuration
+### Configuration
 
  
 
-##### Before you begin
+### Before you begin
 
 These are the prerequisites you'll need before you can begin:
 
@@ -28,7 +28,7 @@ These are the prerequisites you'll need before you can begin:
 * [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
 * root access
 
-##### Configure SonicWall Server logging
+### Configure SonicWall Server logging
 
 Configure your SonicWall firewall to send logs to your Filebeat server.
 Make sure you meet this configuration:
@@ -42,7 +42,7 @@ on configuring your SonicWall firewall.
 
 {@include: ../_include/log-shipping/certificate.md}
 
-##### Configure Filebeat
+### Configure Filebeat
 
 Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor. Copy and paste the code block below, overwriting the previous content.
 
@@ -107,12 +107,12 @@ If the file has other outputs, remove them.
  
 
 
-##### Start Filebeat
+### Start Filebeat
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 Start or restart Filebeat for the changes to take effect.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

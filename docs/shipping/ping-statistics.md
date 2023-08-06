@@ -13,9 +13,6 @@ metrics_dashboards: ['1rNO8llFw8Cm9N8U3M3vCQ']
 metrics_alerts: []
 ---
 
-
-### Overview
-
 Deploy this integration to collect metrics of ping statistics collected from your preferred web addresses and send them to Logz.io.
 
 The integration is based on a Lambda function that will be auto-deployed together with the layer [LogzioLambdaExtensionLogs](https://github.com/logzio/logzio-lambda-extensions/tree/main/logzio-lambda-extensions-logs).
@@ -25,22 +22,21 @@ The integration is based on a Lambda function that will be auto-deployed togethe
 
 
 
-
-##### Auto-deploy the Lambda function
+### Auto-deploy the Lambda function
 
 👇 To begin, click this button to start the automated deployment. You will need to deploy it in your environment.
 
 [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/ping-statistics-auto-deployment/auto-deployment.yaml&stackName=logzio-ping-statistics-auto-deployment)
 
 
-##### Specify the template
+#### Specify the template
 
 ![Specify stack template](https://dytvr9ot2sszz.cloudfront.net/logz-docs/ping_statistics/Template.png)
 
 Keep the defaults and click **Next**.
 
 
-##### Specify the stack details
+#### Specify the stack details
 
 ![Specify stack details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/ping_statistics/Stack_details1.png)
 
@@ -59,23 +55,23 @@ Specify the stack details as per the table below and select **Next**.
 | SchedulingInterval | The scheduling expression that determines when and how often the Lambda function runs. | Required | `rate(30 minutes)` |
 
 
-##### Configure the stack options
+#### Configure the stack options
 
 ![Specify stack options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/ping_statistics/Stack_option.png)
 
 Keep the defaults and click **Next**.
 
-##### Review the deployment
+#### Review the deployment
 
 Confirm that you acknowledge that AWS CloudFormation might create IAM resources and select **Create stack**.
 
 
-##### Run the tests
+#### Run the tests
 
 Run the ping statistics tests to generate metrics.
 
 
-##### Check Logz.io for your metrics
+#### Check Logz.io for your metrics
 
 Give your metrics some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). All metrics that were sent from the Lambda function will have the prefix `ping_stats` in their name.
 

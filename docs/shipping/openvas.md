@@ -18,8 +18,6 @@ metrics_alerts: []
 
 Once you start sending OpenVAS reports to your Cloud SIEM, you'll be able to review events triggered by pre-configured [OpenVAS security rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC&search=openvas) and [dashboards](https://app.logz.io/#/dashboard/security/research/dashboards?).
 
-#### Step by step
-
 
 **Before you begin, you'll need**:
 
@@ -31,7 +29,7 @@ Once you start sending OpenVAS reports to your Cloud SIEM, you'll be able to rev
 
 {@include: ../_include/log-shipping/certificate.md}
 
-##### Configure Filebeat
+### Configure Filebeat
 
 Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor.
 Copy and paste the code block below, overwriting the previous content. (You want to replace the file's content with this code block.)
@@ -132,13 +130,13 @@ If the file has other outputs, remove them.
  
 
 
-##### Start Filebeat
+### Start Filebeat
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
   
 Filebeat is now configured to send OpenVAS CSV reports directly to Logz.io.
 
-##### Generate a CSV report in OpenVAS
+### Generate a CSV report in OpenVAS
 
 OpenVAS reports are typically generated manually, as needed.
 
@@ -152,7 +150,7 @@ After completing a scan in OpenVAS, perform the following steps to generate a CS
 
 4. The CSV file will be downloaded to the default Downloads path set for your Web browser.    If your Filebeat is configued to read reports from another folder, you can manually copy OpenVAS reports to another folder or change the browser's default Downloads path.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

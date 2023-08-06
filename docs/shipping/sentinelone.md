@@ -25,7 +25,7 @@ SentinelOne platform delivers the defenses to prevent, detect, and undo—known 
 
  
 
-##### Install the SentinelOne certificate on your Filebeat server
+### Install the SentinelOne certificate on your Filebeat server
 
 SentinelOne sends encrypted data,
 so you'll need to create a dedicated SentinelOne certificate to decrypt the logs by the Filebeat server.
@@ -41,7 +41,7 @@ sudo openssl req -newkey rsa:2048 -nodes \
 {@include: ../_include/log-shipping/certificate.md}
 
 
-##### Configure Filebeat
+### Configure Filebeat
 
 Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor.
 Copy and paste the code block below, overwriting the previous content.
@@ -98,11 +98,11 @@ If the file has other outputs, remove them.
 
 
 
-##### Start Filebeat
+### Start Filebeat
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 
-##### Configure SentinelOne to send logs to Logzio
+### Configure SentinelOne to send logs to Logzio
 
 Open the SentinelOne Admin Console. Configure SentinelOne to send logs to your Syslog server.
 
@@ -118,7 +118,7 @@ Open the SentinelOne Admin Console. Configure SentinelOne to send logs to your S
 ![SentinelOne Admin Console configuration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/sentinelone-admin5.png)
 
 
-##### Configure SentinelOne to send notifications
+### Configure SentinelOne to send notifications
 
 In the same screen, open the **NOTIFICATIONS** tab, and fill in the details:
 
@@ -131,7 +131,7 @@ We recommend enabling all notification options to send Syslog logs. Still, it is
 
 
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

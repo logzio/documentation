@@ -13,23 +13,17 @@ metrics_dashboards: ['']
 metrics_alerts: []
 ---
 
-
-
-
 Salesforce is a customer relationship management solution. The Account sObject is an abstraction of the account record and holds the account field information in memory as an object. This integration allows you to collect sObject data from Salesforce and send it to your Logz.io account.
 
 
- 
-
-
-##### Pull the Docker image of the Logz.io API fetcher
+### Pull the Docker image of the Logz.io API fetcher
 
 ```shell
 docker pull logzio/logzio-salesforce-collector
 ```
 
 
-##### Run the Docker container
+### Run the Docker container
 
 ```shell
  docker run --name logzio-salesforce-collector \
@@ -65,7 +59,7 @@ Replace the parameter values as per the table below.
 | LOGZIO_LISTENER_URL | Logz.io listener logs URL. {@include: ../_include/log-shipping/listener-var.md} | No | https://listener.logz.io:8071
 
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours,
 and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for data of the `salesforce` field type value or type `salesforce` to see the Salesforce logs.

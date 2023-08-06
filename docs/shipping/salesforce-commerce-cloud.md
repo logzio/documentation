@@ -23,13 +23,13 @@ The default configuration uses a Docker container with environment variables.
  
 
 
-##### Pull the Docker image of the Logz.io Salesforce Commerce Cloud data fetcher
+### Pull the Docker image of the Logz.io Salesforce Commerce Cloud data fetcher
 
 ```shell
 docker pull logzio/sfcc-logs-fetcher:latest
 ```
 
-##### Run the Docker container
+### Run the Docker container
 
 ```shell
 docker run -d -e LOGZIO_SHIPPING_TOKEN=<logzio_shipping_token>
@@ -50,7 +50,7 @@ logzio/sfcc-logs-fetcher:latest
 | SFCC_LOG_SOURCE    | Flag to represent which log types you would like to collect. `operational` for operational logs, `security` for security logs, `all` for both of them.                                                       |      Required |
 | SFCC_CLIENT_SECRET    | Client secret related to the account that you need to send logs from. [Learn more](https://documentation.b2c.commercecloud.salesforce.com/DOC3/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Faccount_manager%2Fb2c_account_manager_add_api_client_id.html)                                                       |      Required |
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
@@ -63,7 +63,7 @@ The default configuration uses a Docker container with environment variables def
  
 
 
-##### Create a local directory for this integration
+### Create a local directory for this integration
 
 You will need a dedicated directory to use it as mounted directory for the Docker container of the Logz.io Salesforce Commerce Cloud.
 
@@ -72,7 +72,7 @@ mkdir sfcc-logs-fetcher
 cd sfcc-logs-fetcher
 ```
 
-##### Create a configuration file
+### Create a configuration file
 
 In the directory created in the previous step, create a file `variables.env` as follows:
 
@@ -96,14 +96,14 @@ Replace the variable values as per the table below:
 | SFCC_CLIENT_ID        | Client id related to the account that you need to send logs from. [Learn more](https://documentation.b2c.commercecloud.salesforce.com/DOC3/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Faccount_manager%2Fb2c_account_manager_add_api_client_id.html)                                                           |      Required |
 | SFCC_CLIENT_SECRET    | Client secret related to the account that you need to send logs from. [Learn more](https://documentation.b2c.commercecloud.salesforce.com/DOC3/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Faccount_manager%2Fb2c_account_manager_add_api_client_id.html)                                                       |      Required |
 
-##### Run the Docker container with the configuration file 2
+### Run the Docker container with the configuration file 2
 
 ```shell
 docker run -d --env-file=variables.env logzio/webdav-fetcher:latest
 ```
 
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for data of type `cloud_commerce` to see the incoming Salesforce Commerce Cloud logs. 
 

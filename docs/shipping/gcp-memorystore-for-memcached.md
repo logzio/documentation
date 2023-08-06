@@ -22,7 +22,7 @@ To send your Prometheus-format Google Memorystore for Memcached metrics to Logz.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["6V6DBzsX8cRZXCSvuSkHiA"] -->
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
 **Before you begin, you'll need**:
  GCP project

@@ -18,7 +18,7 @@ Apache CouchDB is an open-source document-oriented NoSQL database, implemented i
 
 To send your Prometheus-format CouchDB metrics to Logz.io, you need to add the **inputs.couchdb** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-## Configuring Telegraf to send your metrics data to Logz.io
+## Configure Telegraf to send your metrics data to Logz.io
 
  
 

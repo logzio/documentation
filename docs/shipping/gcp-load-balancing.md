@@ -23,7 +23,7 @@ To send your Prometheus-format Google Cloud Load Balancing metrics to Logz.io, y
 
 <!-- logzio-inject:install:grafana:dashboards ids=["2qF8pBXlwH0Pw6noOMfzRk", "48vnzAEl0x6hh3DWKIWkpx", "7s5HblMf4IVimoRSwnCRJ6"] -->
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+#### Configure Telegraf to send your metrics data to Logz.io
 
 **Before you begin, you'll need**:
  GCP project

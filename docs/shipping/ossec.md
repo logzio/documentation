@@ -15,18 +15,13 @@ metrics_alerts: []
 
 OSSEC is a multiplatform, open source and free Host Intrusion Detection System (HIDS). This integration allows you to send OSSEC logs to your Logz.io SIEM account.
 
-#### Filebeat configuration
-
 **Before you begin, you'll need**:
 
 * [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
 * Root access
 * Port 5015 open
 
-
- 
-
-##### Configure OSSEC to output JSON alerts
+### Configure OSSEC to output JSON alerts
 
 In the OSSEC configuration file (/var/ossec/etc/ossec.conf), find the `<global>` tag.
 Add the `<jsonout_output>` property and set to `yes`.
@@ -45,7 +40,7 @@ sudo /var/ossec/bin/ossec-control restart
 
 {@include: ../_include/log-shipping/certificate.md}
 
-##### Add OSSEC as an input
+### Add OSSEC as an input
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add OSSEC to the filebeat.inputs section.
 
@@ -102,7 +97,7 @@ The above assumes the following defaults:
 * Log locations (JSON format) - `/var/ossec/logs/alerts/alerts.json`
 * Log locations (plain text format) - `/var/ossec/logs/alerts/alerts.log`
 
-##### Set Logz.io as the output
+### Set Logz.io as the output
 
 If Logz.io is not an output, add it now.
 Remove all other outputs.
@@ -117,11 +112,11 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### Start Filebeat
+### Start Filebeat
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

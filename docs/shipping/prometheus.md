@@ -1,7 +1,7 @@
 ---
 id: Prometheus
 title: Prometheus
-overview: This project lets you send Prometheus-format logs, metrics and traces to Logz.io.
+overview: This project lets you send Prometheus-format metrics to Logz.io.
 product: ['metrics', 'logs']
 os: ['windows', 'linux']
 filters: ['Other']
@@ -13,92 +13,7 @@ metrics_dashboards: ['32X5zm8qW7ByLlp1YPFkrJ']
 metrics_alerts: []
 ---
 
-
-
-This project lets you configure a Telegraf agent to send your collected Prometheus-format metrics to Logz.io.
-
-## Overview
-
-Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems, and IoT sensors.
-
-To send your Prometheus-format metrics to Logz.io, you add the **outputs.http** plug-in to your Telegraf configuration file.
-
-<!-- logzio-inject:install:grafana:dashboards ids=["32X5zm8qW7ByLlp1YPFkrJ"] -->
-
-#### Configure Telegraf to send your metrics data to Logz.io
-
-
-
-##### Set up Telegraf v1.17 or higher:
-
-**Ubuntu & Debian**
-
-```shell
-sudo apt-get update && sudo apt-get install telegraf
-```
-
-The configuration file is located at `/etc/telegraf/telegraf.conf`.
-
-**RedHat and CentOS**
-
-```shell
-sudo yum install telegraf
-```
-
-The configuration file is located at `/etc/telegraf/telegraf.conf`.
-
-**SLES & openSUSE**
-
-```shell
-# add go repository
-zypper ar -f obs://devel:languages:go/ go
-# install latest telegraf
-zypper in telegraf
-```
-
-The configuration file is located at `/etc/telegraf/telegraf.conf`.
-
-**FreeBSD/PC-BSD**
-
-```shell
-sudo pkg install telegraf
-```
-
-The configuration file is located at `/etc/telegraf/telegraf.conf`.
-##### Add the outputs.http plug-in
-
-After you create a config file for Telegraf, configure the output plug-in to enable your data to be sent to Logz.io in Prometheus-format and add the following code to the configuration file:
-
-
-``` yaml
-[[outputs.http]]
-  url = "https://<<LISTENER-HOST>>:8053"
-  data_format = "prometheusremotewrite"
-  [outputs.http.headers]
-     Content-Type = "application/x-protobuf"
-     Content-Encoding = "snappy"
-     X-Prometheus-Remote-Write-Version = "0.1.0"
-     Authorization = "Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>"
-```
-
-{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
-
-:::note
-The full list of data scraping and configuring options can be found [here](https://docs.influxdata.com/telegraf/v1.18/plugins/).
-:::
-
-
-
-##### Check Logz.io for your metrics
-
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
-
-<!-- logzio-inject:install:grafana:dashboards ids=["32X5zm8qW7ByLlp1YPFkrJ"] -->
-
-{@include: ../_include/metric-shipping/generic-dashboard.html}
-
-
-
+## Using OpenTelemetry via Helm
 
 
 To send your Prometheus application metrics to a Logz.io Infrastructure Monitoring account, use remote write to connect to Logz.io as the endpoint. Your data is formatted as JSON documents by the Logz.io listener.
@@ -110,18 +25,18 @@ To send your Prometheus application metrics to a Logz.io Infrastructure Monitori
 
 
 
-#### Configuring Remote Write to Logz.io
+### Configuring Remote Write to Logz.io
 
 
 
 {@include: ../_include/p8s-shipping/remotewrite-syd-userguide-tokens-lookup.html}
 
-##### Add a remote_write url
+#### Add a remote_write url
 
 
 Configure your Prometheus yaml file or use a Helm chart:
 
-###### To configure a Prometheus yaml file
+#### To configure a Prometheus yaml file
 
 Add the following parameters to your Prometheus yaml file:
 
@@ -148,7 +63,7 @@ remote_write:
 
 ```
 
-###### To configure a Helm chart
+#### To configure a Helm chart
 
 For [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) Helm chart users:
 
@@ -176,7 +91,7 @@ externalLabels:
 ```
 
 
-##### Verify the remote_write configuration
+#### Verify the remote_write configuration
 
 + **Run a query**: If you are scraping Prometheus metrics, you can check that the remote_write configuration is working properly by doing one of the following and verifying that the result is greater than zero (n > 0) for the url:
 
@@ -191,7 +106,7 @@ externalLabels:
     An empty list or the text _no metrics_ indicates that the remote write configuration is not working properly.
     ![Verify Prometheus metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/select-metric-query.png)
 
-##### Open Metrics Explore
+#### Open Metrics Explore
 
 Once you've verified that your data is available in Logz.io, [explore your Prometheus metrics.](https://docs.logz.io/user-guide/infrastructure-monitoring/metrics-explore-prometheus/)
 
@@ -199,8 +114,7 @@ Once you've verified that your data is available in Logz.io, [explore your Prome
 After your metrics are flowing, [import your existing Prometheus and Grafana dashboards](https://docs.logz.io/user-guide/infrastructure-monitoring/prometheus-importing-dashbds.html) to Logz.io Infrastructure Monitoring as JSON files.
 
 
-
-### Performance tips
+#### Performance tips
 
 
 * **Reduce tagging**: By default, all the metrics from your Prometheus server(s) are sent to Logz.io. To drop or send specific metrics, add Prometheus labeling _before_ enabling the remote write, or as part of the remote write configuration.  Learn more about Prometheus [relabeling tricks here.](https://medium.com/quiq-blog/prometheus-relabeling-tricks-6ae62c56cbda)
@@ -211,14 +125,19 @@ After your metrics are flowing, [import your existing Prometheus and Grafana das
 * **Tune the remote write process**: Learn more about Prometheus [remote write tuning here.](https://prometheus.io/docs/practices/remote_write/)
 
 
+
+## Using OpenTelemetry locally
+
+
+
 This project lets you configure the OpenTelemetry collector to send your collected Prometheus-format metrics to Logz.io.
 
 
-#### Configuring OpenTelemetry to send your metrics data to Logz.io
+### Configuring OpenTelemetry to send your metrics data to Logz.io
 
  
 
-##### Download OpenTelemetry collector
+#### Download OpenTelemetry collector
   
 :::note
 If you already have OpenTelemetry, proceed to the next step.
@@ -229,11 +148,11 @@ Create a dedicated directory on your host and download the [OpenTelemetry collec
 
 After downloading the collector, create a configuration file `config.yaml`.
 
-##### Configure the receivers
+#### Configure the receivers
   
 Open the configuration file and make sure that it states the receivers required for your source.
 
-##### Configure the exporters
+#### Configure the exporters
 
 In the same configuration file, add the following to the `exporters` section:
   
@@ -247,7 +166,7 @@ exporters:
   
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
 
-##### Configure the service pipeline
+#### Configure the service pipeline
   
 In the `service` section of the configuration file, add the following configuration
   
@@ -262,7 +181,7 @@ service:
 
 
 
-##### Start the collector
+#### Start the collector
 
 Run the following command:
 
@@ -272,13 +191,59 @@ Run the following command:
 
 * Replace `<path/to>` with the path to the directory where you downloaded the collector. If the name of your configuration file is different to `config`, adjust name in the command accordingly.
 
-##### Check Logz.io for your metrics
+#### Check Logz.io for your metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
 
- 
+## Using Telegraf
 
 
+This project lets you configure a Telegraf agent to send your collected Prometheus-format metrics to Logz.io.
+
+Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems, and IoT sensors.
+
+To send your Prometheus-format metrics to Logz.io, you add the **outputs.http** plug-in to your Telegraf configuration file.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["32X5zm8qW7ByLlp1YPFkrJ"] -->
+
+### Configure Telegraf to send your metrics data to Logz.io
+
+
+#### Set up Telegraf v1.17 or higher:
+
+{@include: ../_include/metric-shipping/telegraf-setup.md}
+
+#### Add the outputs.http plug-in
+
+After you create a config file for Telegraf, configure the output plug-in to enable your data to be sent to Logz.io in Prometheus-format and add the following code to the configuration file:
+
+
+``` yaml
+[[outputs.http]]
+  url = "https://<<LISTENER-HOST>>:8053"
+  data_format = "prometheusremotewrite"
+  [outputs.http.headers]
+     Content-Type = "application/x-protobuf"
+     Content-Encoding = "snappy"
+     X-Prometheus-Remote-Write-Version = "0.1.0"
+     Authorization = "Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>"
+```
+
+{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+
+:::note
+The full list of data scraping and configuring options can be found [here](https://docs.influxdata.com/telegraf/v1.18/plugins/).
+:::
+
+
+
+#### Check Logz.io for your metrics
+
+{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["32X5zm8qW7ByLlp1YPFkrJ"] -->
+
+{@include: ../_include/metric-shipping/generic-dashboard.html}
 
 

@@ -25,7 +25,7 @@ metrics_alerts: []
  
 
 
-##### Configure pfSense to send syslog notifications to a remote Syslog server running Filebeat
+### Configure pfSense to send syslog notifications to a remote Syslog server running Filebeat
 
 1. On your Pfsense firewall web interface, go to **Status > System logs > Setting**.
 ![Status options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/pfsense/Pfsense_Status_Options.png)
@@ -52,7 +52,7 @@ By default, syslog will be forwarded over port 514. Feel free to adjust this, ba
 {@include: ../_include/log-shipping/certificate.md}
 
 
-##### Configure Filebeat
+### Configure Filebeat
 
 {@include: ../_include/log-shipping/filebeat-input-extension.md}
 
@@ -97,7 +97,7 @@ By default, syslog will be forwarded over port 514. Feel free to adjust this, ba
 
 2. Run Filebeat with the new configuration.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for data of type `pfsense` to see the incoming pfSense logs.
   

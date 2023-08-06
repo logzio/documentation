@@ -13,9 +13,6 @@ metrics_dashboards: ['3L7cjHptO2CFcrvpqGCNI0']
 metrics_alerts: []
 ---
 
-
-## Overview
-
 PostgreSQL is a free and open-source relational database management system emphasizing extensibility and SQL compliance. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format PostgreSQL metrics to Logz.io, you need to add the **inputs.postgresql** and **outputs.http** plug-ins to your Telegraf configuration file.
@@ -23,15 +20,13 @@ To send your Prometheus-format PostgreSQL metrics to Logz.io, you need to add th
 
 <!-- logzio-inject:install:grafana:dashboards ids=["3L7cjHptO2CFcrvpqGCNI0"] -->
 
-#### Configure Telegraf to send your metrics data to Logz.io
+### Configure Telegraf to send your metrics data to Logz.io
 
-
-
-##### Set up Telegraf v1.17 or higher
+#### Set up Telegraf v1.17 or higher
 
 {@include: ../_include/metric-shipping/telegraf-setup.md}
 
-##### Add the inputs.postgresql plug-in
+#### Add the inputs.postgresql plug-in
 
 First you need to configure the input plug-in to enable Telegraf to scrape the PostgreSQL data from your hosts. To do this, add the following code to the configuration file:
 
@@ -50,16 +45,16 @@ The database name is only required for instantiating a connection with the serve
 :::
 
 
-##### Add the outputs.http plug-in
+#### Add the outputs.http plug-in
 
 {@include: ../_include/metric-shipping/telegraf-outputs.md}
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
 
-##### Start Telegraf
+### Start Telegraf
 
 {@include: ../_include/metric-shipping/telegraf-run.md}
 
-##### Check Logz.io for your metrics
+### Check Logz.io for your metrics
 
 Give your metrics some time to get from your system to ours.
 

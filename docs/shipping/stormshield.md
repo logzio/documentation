@@ -25,7 +25,7 @@ Stormshield provides cyber-security solutions. This integration allows you to se
 
 {@include: ../_include/log-shipping/certificate.md}
 
-##### Configure Filebeat
+### Configure Filebeat
 
 Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor.
 
@@ -67,7 +67,7 @@ processors:
 ```
 {@include: ../_include/log-shipping/log-shipping-token.html}
 
-##### Set Logz.io as the output
+### Set Logz.io as the output
 
 Still in the same configuration file, check if Logz.io is already an output. If not, add it now.
 
@@ -84,12 +84,12 @@ output.logstash:
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.
 
-##### Start Filebeat
+### Start Filebeat
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
