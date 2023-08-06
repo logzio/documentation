@@ -236,6 +236,12 @@ def is_valid_filters(filters_str):
 
 
 def is_valid_logo(logo):
+    if type(logo) is not str:
+        logger.error(f'Invalid type for logo field: {logo}')
+        return False
+    if logo.strip() == '':
+        logger.error('Empty value for logo')
+        return False
     link_regex = r"^https?:\/\/[^\s\/$.?#].[^\s]*$"
     match = re.match(link_regex, logo.strip())
     if match is None:
@@ -243,7 +249,11 @@ def is_valid_logo(logo):
         return False
     try:
         response = requests.get(logo.strip())
-        return response.status_code == requests.codes.ok
+        if response.status_code != requests.codes.ok:
+            logger.error(f'Got {response.status_code} while trying to ping logo url: {logo}')
+            return False
+        else:
+            return True
     except requests.exceptions.RequestException:
         logger.error(f'Error while trying to ping logo {logo}')
         return False
