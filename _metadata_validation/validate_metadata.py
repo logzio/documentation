@@ -171,7 +171,9 @@ def is_valid_overview(overview):
 
 
 def is_valid_title(title):
-    return not title.strip() == ''
+    if type(title) is not str or title == '':
+        return False
+    return True
 
 
 def is_valid_product(product_str):
