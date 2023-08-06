@@ -36,3 +36,5 @@ DOCS_PATH = 'docs/shipping/'
 
 OBJ_ID = 'id'
 OBJ_FILE = 'file'
+
+MAX_FIELDS_TO_COVER = 20

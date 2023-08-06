@@ -24,7 +24,12 @@ def validate_changed_files():
         logger.error('Cannot get files ids to compare id uniqueness, exiting')
         exit(1)
     for file in changed_files:
-        file_metadata = get_file_metadata(file)
+        try:
+            file_metadata = get_file_metadata(file)
+        except Exception as e:
+            logger.error(f'Could not get metadata for file {file}: {e}... Is your file structured properly with seperators? ')
+            error_counter += 1
+            continue
         if len(file_metadata) < len(consts.REQUIRED_FIELDS):
             logger.info(f'Current metadata for file {file}: {file_metadata}')
             logger.error(f'File {file} is missing some required fields')
@@ -128,8 +133,14 @@ def get_file_metadata(file_path):
     seperator = '---'
     seperator_counter = 0
     metadata = {}
+    iteration = 0
     with open(file_path) as f:
         for line in f:
+            iteration += 1
+            if iteration == consts.MAX_FIELDS_TO_COVER:
+                logger.error(f'Could not find closing seperator ({seperator}) in file {file_path}. Make sure file is '
+                             f'structured properly.')
+                break
             stripped_line = line.strip()
             if stripped_line == seperator:
                 seperator_counter += 1

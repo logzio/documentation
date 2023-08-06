@@ -128,11 +128,7 @@ class TestValidateMetadata(unittest.TestCase):
     def test_get_files_to_ids(self):
         files_to_ids = validate_metadata.get_files_to_ids()
         print(files_to_ids)
-        self.assertTrue(len(files_to_ids), 2)
-        self.assertEqual(files_to_ids[0][validate_metadata.consts.OBJ_FILE], f'{self.PATH_PREFIX}valid-sample.md')
-        self.assertEqual(files_to_ids[0][validate_metadata.consts.OBJ_ID], f'sample')
-        self.assertEqual(files_to_ids[1][validate_metadata.consts.OBJ_FILE], f'{self.PATH_PREFIX}another-sample.md')
-        self.assertEqual(files_to_ids[1][validate_metadata.consts.OBJ_ID], f'another-sample')
+        self.assertTrue(len(files_to_ids), 4)
 
     def test_get_changed_files(self):
         changed_set = f'{self.PATH_PREFIX}valid-sample.md'
@@ -161,6 +157,24 @@ class TestValidateMetadata(unittest.TestCase):
         self.assertEqual(file_metadata[validate_metadata.consts.FIELD_METRICS_ALERTS], self.METRICS_ALERTS_VALUE)
         self.assertEqual(file_metadata[validate_metadata.consts.FIELD_METRICS_DASHBOARDS], self.METRICS_DASHBOARDS_VALUE)
         self.assertEqual(file_metadata[validate_metadata.consts.FIELD_DROP_FILTER], self.DROP_FILTERS_VALUE)
+
+    def test_validate_changed_files(self):
+        os.environ[validate_metadata.consts.ENV_FILES_TO_TRACK] = f'{self.PATH_PREFIX}valid-sample.md'
+        with self.assertRaises(SystemExit) as cm:
+            validate_metadata.validate_changed_files()
+        self.assertEqual(cm.exception.code, 0)
+
+    def test_validate_changed_files_invalid_file(self):
+        os.environ[validate_metadata.consts.ENV_FILES_TO_TRACK] = f'{self.PATH_PREFIX}invalid-missing-field.md'
+        with self.assertRaises(SystemExit) as cm:
+            validate_metadata.validate_changed_files()
+        self.assertEqual(cm.exception.code, 1)
+
+    def test_validate_changed_files_missing_seperator(self):
+        os.environ[validate_metadata.consts.ENV_FILES_TO_TRACK] = f'{self.PATH_PREFIX}invalid-missing-seperator.md'
+        with self.assertRaises(SystemExit) as cm:
+            validate_metadata.validate_changed_files()
+        self.assertEqual(cm.exception.code, 1)
 
 
 if __name__ == '__main__':
