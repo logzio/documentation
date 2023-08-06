@@ -23,15 +23,15 @@ OneLogin is a cloud-based identity and access management (IAM) provider. This in
 
  
 
-##### Login to your OneLogin account
+### Login to your OneLogin account
 
 Log in to your OneLogin account as admin.
 
-##### Open the **New broadcaster** dialog
+### Open the **New broadcaster** dialog
 
 Navigate to **Developers > Webhooks > New broadcaster**.
 
-##### Fill out the **New broadcaster** dialog
+### Fill out the **New broadcaster** dialog
   
 ![New-broadcaster](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/New-broadcaster.png)
 
@@ -42,12 +42,12 @@ Navigate to **Developers > Webhooks > New broadcaster**.
 * In the **Listener URL** field, enter `https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=onelogin`. {@include: ../_include/log-shipping/listener-var.html} {@include: ../_include/log-shipping/log-shipping-token.md}
 
 
-##### Save changes
+### Save changes
 
 When everything is filled out, click **Save**.
 
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can search for `type:onelogin` to filter for your OneLogin logs.
   

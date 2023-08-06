@@ -1,7 +1,7 @@
 ---
 id: Jenkins
 title: Jenkins
-overview: Jenkins is an automation server for building, testing, and deploying software. This integration allows you to send logs from your Jenkins servers to your Logz.io account.
+overview: Jenkins is an automation server for building, testing, and deploying software. This integration allows you to send logs and metrics from your Jenkins servers to your Logz.io account.
 product: ['logs']
 os: ['windows', 'linux']
 filters: ['CI/CD']
@@ -13,12 +13,9 @@ metrics_dashboards: []
 metrics_alerts: []
 ---
 
-
-Jenkins is an automation server for building, testing, and deploying software. This integration allows you to send logs and metrics from your Jenkins servers to your Logz.io account.
-
 ## Logs
 
-#### Shipping Jenkins logs with Filebeat
+### Shipping Jenkins logs with Filebeat
 
 **Before you begin, you'll need**:
 
@@ -30,7 +27,7 @@ Jenkins is an automation server for building, testing, and deploying software. T
 
 {@include: ../_include/log-shipping/certificate.md}
 
-##### Add Jenkins as an input
+#### Add Jenkins as an input
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Jenkins to the filebeat.inputs section.
 
@@ -96,7 +93,7 @@ The above configuration assumes the following defaults:
 * Log location - `/var/log/jenkins/jenkins.log`
 * Log type - `jenkins`
 
-##### Set Logz.io as the output
+#### Set Logz.io as the output
 
 If Logz.io is not an output, add it now.
 Remove all other outputs.
@@ -111,11 +108,11 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### Start Filebeat
+#### Start Filebeat
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 
-##### Check Logz.io for your logs
+#### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can search for `type:jenkins` to filter for your Jenkins logs. Your logs should be already parsed thanks to the Logz.io preconfigured parsing pipeline.
 
@@ -161,7 +158,7 @@ Now you need to configure the input plug-in to enable Telegraf to scrape the Jen
 {@include: ../_include/metric-shipping/telegraf-outputs.md}
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
 
-##### Check Logz.io for your metrics
+#### Check Logz.io for your metrics
 
 {@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboards to enhance the observability of your metrics.
 

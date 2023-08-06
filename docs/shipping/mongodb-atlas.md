@@ -19,7 +19,6 @@ MongoDB Atlas is a fully-managed cloud database that handles deploying, managing
 Deploy this integration to send your MongoDB Atlas metric to your Logz.io account using OpenTelemetry collector.
 
 
-#### Deploying the integration
 
 **Before you begin, you'll need**:
 
@@ -29,7 +28,7 @@ Deploy this integration to send your MongoDB Atlas metric to your Logz.io accoun
 
  
 
-##### Download and configure OpenTelemetry collector
+### Download and configure OpenTelemetry collector
 
 Create a dedicated directory on your host and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.60.0) that is relevant to the operating system of your host.
 
@@ -71,7 +70,7 @@ service:
 * Replace `<<YOUR-MONGODB-ATLAS-PUBLIC-KEY>>` with the public key to your MongoDB Atlas organization or project.
 * Replace `<<YOUR-MONGODB-ATLAS-PRIVATE-KEY>>` with the private key to your MongoDB Atlas organization or project.
 
-##### Start the collector
+### Start the collector
 
 Run the following command:
 
@@ -81,7 +80,7 @@ Run the following command:
 
 * Replace `<path/to>` with the path to the directory where you downloaded the collector.
 
-##### Check Logz.io for your metrics
+### Check Logz.io for your metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 

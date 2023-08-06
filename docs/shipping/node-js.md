@@ -1,7 +1,7 @@
 ---
 id: Node-js
 title: Node.js
-overview: Node.js metrics
+overview: Send Node.js logs, metrics and traces to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['Code']
@@ -13,9 +13,9 @@ metrics_dashboards: ['']
 metrics_alerts: []
 ---
 
- 
+## Logs
 
-## logzio-nodejs setup
+### logzio-nodejs setup
 
 logzio-nodejs collects log messages in an array, which is sent asynchronously when it reaches its size limit or time limit (100 messages or 10 seconds), whichever comes first.
 It contains a simple retry mechanism which upon connection reset or client timeout, tries to send a waiting bulk (2 seconds default).
@@ -27,8 +27,6 @@ By default, any error is logged to the console.
 You can change this by using a callback function.
 
 #### Configure logzio-nodejs
-
- 
 
 ##### Add the dependency to your project
 
@@ -119,7 +117,7 @@ logger.log(obj);
 
  
  
-## winston-logzio setup
+### winston-logzio setup
 
 This winston plugin is a wrapper for the logzio-nodejs appender, which basically means it just wraps our nodejs logzio shipper.
 With winston-logzio, you can take advantage of the winston logger framework with your Node.js app.
@@ -272,7 +270,7 @@ logger.log(obj);
 
   
 
-## winston-logzio setup with Typescript
+### winston-logzio setup with Typescript
 
 This winston plugin is a wrapper for the logzio-nodejs appender that runs with Typescript, which basically means it just wraps our nodejs logzio shipper.
 With winston-logzio, you can take advantage of the winston logger framework with your Node.js app.
@@ -370,14 +368,154 @@ var obj = {
 logger.log(obj);
 ```
 
-# Traces
+
+## Metrics
+
+
+Deploy this integration to send custom metrics from your Node.js application to Logz.io.
+
+The provided example uses the [OpenTelemetry JS SDK](https://github.com/open-telemetry/opentelemetry-js) and is based on [OpenTelemetry exporter collector proto](https://github.com/open-telemetry/opentelemetry-js/tree/main/packages/opentelemetry-exporter-collector-proto).
+
+**Before you begin, you'll need**:
+
+Node 8 or higher
+
+:::note
+We advise to use this integration with [the Logz.io Metrics backend](https://app.logz.io/#/dashboard/metrics/). However, the integration is compatible with all backends that support metrics in `prometheuesrmotewrite` format.
+:::
+ 
+
+### Configuring your Node.js applicatin to send custom metrics to Logz.io
+
+ 
+
+#### Install the SDK package
+
+```shell
+npm install logzio-nodejs-metrics-sdk@0.2.1
+```
+
+#### Initialize the exporter and meter provider
+  
+Add the following code to your application:
+  
+```js
+const MeterProvider = require('@opentelemetry/sdk-metrics-base');
+const sdk =  require('logzio-nodejs-metrics-sdk');
+
+const collectorOptions = {
+    url: '<<LISTENER-HOST>>',
+    headers: {
+        "Authorization":"Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>"
+    }
+};
+// Initialize the exporter
+const metricExporter = new sdk.RemoteWriteExporter(collectorOptions);
+
+// Initialize the meter provider
+const meter = new MeterProvider.MeterProvider({
+    exporter: metricExporter,
+    interval: 15000, // Push interval in milliseconds
+}).getMeter('example-exporter');
+
+
+```
+{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+
+
+#### Add required metrics to the code
+  
+This integration allows you to use the following metrics:
+
+| Name | Behavior |
+| ---- | ---------- |
+| Counter           | Metric value can only go up or be reset to 0, calculated per `counter.Add(context,value,labels)` request. |
+| UpDownCounter     | Metric value can arbitrarily increment or decrement, calculated per `updowncounter.Add(context,value,labels)` request. |
+| Histogram         | Metric values captured by the `histogram.Record(context,value,labels)` function, calculated per request. |
+
+  
+For more information on each of these metrics, see the OpenTelemetry [documentation](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md).
+
+To add a required metric to your code, copy and paste the required metric code to your application, placing it after the initialization code:
+  
+#### Counter
+
+```js
+// Create your first counter metric
+const requestCounter = meter.createCounter('Counter', {
+    description: 'Example of a Counter', 
+});
+// Define some labels for your metrics
+const labels = { environment: 'prod' };
+// Record some value
+requestCounter.bind(labels).add(1);
+// In logzio Metrics you will see the following metric:
+// Counter_total{environment: 'prod'} 1.0
+```
+  
+#### UpDownCounter
+  
+```js
+// Create UpDownCounter metric
+const upDownCounter = meter.createUpDownCounter('UpDownCounter', {
+    description: 'Example of a UpDownCounter',
+});
+// Define some labels for your metrics
+const labels = { environment: 'prod' };
+// Record some values
+upDownCounter.bind(labels);
+upDownCounter.add(5);
+upDownCounter.add(-1);
+// In logzio you will see the following metric:
+// UpDownCounter{environment: 'prod'} 4.0
+```
+
+#### Histogram:
+
+```js
+// Create ValueRecorder metric
+const histogram = meter.createHistogram('test_histogram', {
+    description: 'Example of a histogram',
+});
+// Define some labels for your metrics
+const labels = { environment: 'prod' };
+// Record some values
+histogram.bind(labels);
+histogram.record(30);
+histogram.record(20);
+// In logzio you will see the following metrics:
+// test_histogram_sum{environment: 'prod'} 50.0
+// test_histogram_count{environment: 'prod'} 2.0
+// test_histogram_avg{environment: 'prod'} 25.0
+```
+
+#### Run your application
+
+Run your application to start sending metrics to Logz.io.
+
+
+#### Check Logz.io for your metrics
+
+Give your metrics some time to get from your system to ours, and then open [Metrics dashboard](https://app.logz.io/#/dashboard/metrics/discover?).
+
+
+
+
+
+
+
+
+
+
+
+## Traces
 
 
 
 
 Deploy this integration to enable automatic instrumentation of your Node.js application using OpenTelemetry. 
 
-## Architecture overview
+### Manual configuration
 
 This integration includes:
 
@@ -389,7 +527,7 @@ On deployment, the Node.js instrumentation automatically captures spans from you
 
 
 
-## Setup auto-instrumentation for your locally hosted Node.js application and send traces to Logz.io
+#### Setup auto-instrumentation for your locally hosted Node.js application and send traces to Logz.io
 
 **Before you begin, you'll need**:
 
@@ -408,7 +546,7 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 {@include: ../../_include/tracing-shipping/node-steps.md}
 
 
-### Download and configure OpenTelemetry collector
+##### Download and configure OpenTelemetry collector
 
 Create a dedicated directory on the host of your Node.js application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.70.0) that is relevant to the operating system of your host.
 
@@ -422,7 +560,7 @@ After downloading the collector, create a configuration file `config.yaml` with 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
 
-### Start the collector
+##### Start the collector
 
 Run the following command from the directory of your application file:
 
@@ -432,7 +570,7 @@ Run the following command from the directory of your application file:
 * Replace `<path/to>` with the path to the directory where you downloaded the collector.
 * Replace `<VERSION-NAME>` with the version name of the collector applicable to your system, e.g. `otelcontribcol_darwin_amd64`.
 
-### Run the application
+##### Run the application
 
 Run the application to generate traces:
 
@@ -441,14 +579,14 @@ node --require './tracer.js' <YOUR-APPLICATION-FILE-NAME>.js
 ```
 
 
-### Check Logz.io for your traces
+##### Check Logz.io for your traces
 
 Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
 
 
 
 
-## Setup auto-instrumentation for your Node.js application using Docker and send traces to Logz.io
+### Setup auto-instrumentation for your Node.js application using Docker and send traces to Logz.io
 
 This integration enables you to auto-instrument your Node.js application and run a containerized OpenTelemetry collector to send your traces to Logz.io. If your application also runs in a Docker container, make sure that both the application and collector containers are on the same network.
 
@@ -469,7 +607,7 @@ This integration enables you to auto-instrument your Node.js application and run
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
 
-### Run the application
+#### Run the application
 
 {@include: ../../_include/tracing-shipping/collector-run-note.md}
 
@@ -481,11 +619,11 @@ node --require './tracer.js' <YOUR-APPLICATION-FILE-NAME>.js
 ```
 
 
-### Check Logz.io for your traces
+#### Check Logz.io for your traces
 
 Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
 
-## Overview
+### Configuratiion using Helm
 
 You can use a Helm chart to ship Traces to Logz.io via the OpenTelemetry collector. The Helm tool is used to manage packages of pre-configured Kubernetes resources that use charts.
 
@@ -503,11 +641,11 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 :::
 <!-- info-box-end -->
 
-## Standard configuration
+#### Standard configuration
 
 
 
-### 1. Deploy the Helm chart
+##### 1. Deploy the Helm chart
  
 Add `logzio-helm` repo as follows:
  
@@ -516,7 +654,7 @@ helm repo add logzio-helm https://logzio.github.io/logzio-helm
 helm repo update
 ```
 
-### 2. Run the Helm deployment code
+##### 2. Run the Helm deployment code
 
 ```
 helm install  \
@@ -528,7 +666,7 @@ logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 `<<LOGZIO_ACCOUNT_REGION_CODE>>` - Your Logz.io account region code. [Available regions](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
 
-### 3. Define the logzio-k8s-telemetry dns name
+##### 3. Define the logzio-k8s-telemetry dns name
 
 In most cases, the service name will be `logzio-k8s-telemetry.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
   
@@ -544,15 +682,15 @@ It will deploy a small pod that extracts your cluster domain name from your Kube
 
 {@include: ../../_include/tracing-shipping/node-steps.md}
 
-### 4. Check Logz.io for your traces
+##### 4. Check Logz.io for your traces
 
 Give your traces some time to get from your system to ours, then open [Logz.io](https://app.logz.io/).
 
 
 
-## Customizing Helm chart parameters
+#### Customizing Helm chart parameters
 
-### Configure customization options
+##### Configure customization options
 
 You can use the following options to update the Helm chart parameters: 
 
@@ -569,7 +707,7 @@ If required, you can add the following optional parameters as environment variab
 | secrets.SamplingLatency | Threshold for the spand latency - all traces slower than the threshold value will be filtered in. Default 500. | 
 | secrets.SamplingProbability | Sampling percentage for the probabilistic policy. Default 10. | 
 
-#### Example
+##### Example
 
 You can run the logzio-k8s-telemetry chart with your custom configuration file that takes precedence over the `values.yaml` of the chart.
 
@@ -646,7 +784,7 @@ Replace `<PATH-TO>` with the path to your custom `values.yaml` file.
 
 
 
-## Uninstalling the Chart
+#### Uninstalling the Chart
 
 The uninstall command is used to remove all the Kubernetes components associated with the chart and to delete the release.  
 
@@ -663,128 +801,3 @@ helm uninstall logzio-k8s-telemetry
 
 
 
-
-
-Deploy this integration to send custom metrics from your Node.js application to Logz.io.
-
-The provided example uses the [OpenTelemetry JS SDK](https://github.com/open-telemetry/opentelemetry-js) and is based on [OpenTelemetry exporter collector proto](https://github.com/open-telemetry/opentelemetry-js/tree/main/packages/opentelemetry-exporter-collector-proto).
-
-**Before you begin, you'll need**:
-Node 8 or higher
-
-:::note
-We advise to use this integration with [the Logz.io Metrics backend](https://app.logz.io/#/dashboard/metrics/). However, the integration is compatible with all backends that support metrics in `prometheuesrmotewrite` format.
-:::
- 
-
-#### Configuring your Node.js applicatin to send custom metrics to Logz.io
-
- 
-
-##### Install the SDK package
-
-```shell
-npm install logzio-nodejs-metrics-sdk@0.2.1
-```
-
-##### Initialize the exporter and meter provider
-  
-Add the following code to your application:
-  
-```js
-const MeterProvider = require('@opentelemetry/sdk-metrics-base');
-const sdk =  require('logzio-nodejs-metrics-sdk');
-
-const collectorOptions = {
-    url: '<<LISTENER-HOST>>',
-    headers: {
-        "Authorization":"Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>"
-    }
-};
-// Initialize the exporter
-const metricExporter = new sdk.RemoteWriteExporter(collectorOptions);
-
-// Initialize the meter provider
-const meter = new MeterProvider.MeterProvider({
-    exporter: metricExporter,
-    interval: 15000, // Push interval in milliseconds
-}).getMeter('example-exporter');
-
-
-```
-{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
-
-
-##### Add required metrics to the code
-  
-This integration allows you to use the following metrics:
-
-| Name | Behavior |
-| ---- | ---------- |
-| Counter           | Metric value can only go up or be reset to 0, calculated per `counter.Add(context,value,labels)` request. |
-| UpDownCounter     | Metric value can arbitrarily increment or decrement, calculated per `updowncounter.Add(context,value,labels)` request. |
-| Histogram         | Metric values captured by the `histogram.Record(context,value,labels)` function, calculated per request. |
-
-  
-For more information on each of these metrics, see the OpenTelemetry [documentation](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md).
-
-To add a required metric to your code, copy and paste the required metric code to your application, placing it after the initialization code:
-  
-###### Counter
-
-```js
-// Create your first counter metric
-const requestCounter = meter.createCounter('Counter', {
-    description: 'Example of a Counter', 
-});
-// Define some labels for your metrics
-const labels = { environment: 'prod' };
-// Record some value
-requestCounter.bind(labels).add(1);
-// In logzio Metrics you will see the following metric:
-// Counter_total{environment: 'prod'} 1.0
-```
-  
-###### UpDownCounter
-  
-```js
-// Create UpDownCounter metric
-const upDownCounter = meter.createUpDownCounter('UpDownCounter', {
-    description: 'Example of a UpDownCounter',
-});
-// Define some labels for your metrics
-const labels = { environment: 'prod' };
-// Record some values
-upDownCounter.bind(labels);
-upDownCounter.add(5);
-upDownCounter.add(-1);
-// In logzio you will see the following metric:
-// UpDownCounter{environment: 'prod'} 4.0
-```
-
-###### Histogram:
-```js
-// Create ValueRecorder metric
-const histogram = meter.createHistogram('test_histogram', {
-    description: 'Example of a histogram',
-});
-// Define some labels for your metrics
-const labels = { environment: 'prod' };
-// Record some values
-histogram.bind(labels);
-histogram.record(30);
-histogram.record(20);
-// In logzio you will see the following metrics:
-// test_histogram_sum{environment: 'prod'} 50.0
-// test_histogram_count{environment: 'prod'} 2.0
-// test_histogram_avg{environment: 'prod'} 25.0
-```
-
-##### Run your application
-
-Run your application to start sending metrics to Logz.io.
-
-
-##### Check Logz.io for your metrics
-
-Give your metrics some time to get from your system to ours, and then open [Metrics dashboard](https://app.logz.io/#/dashboard/metrics/discover?).

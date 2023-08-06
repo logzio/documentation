@@ -14,52 +14,17 @@ metrics_alerts: []
 ---
 
 
-## Overview
-
 NLnet Labs Name Server Daemon (NSD) is an authoritative DNS name server. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format NLnet Labs Name Server Daemon metrics to Logz.io, you need to add the **inputs.nsd** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+### Configuring Telegraf to send your metrics data to Logz.io
 
- 
 
-##### Set up Telegraf v1.17 or higher on the same machine as NLnet Labs Name Server Daemon
+#### Set up Telegraf v1.17 or higher on the same machine as NLnet Labs Name Server Daemon
 
-**Ubuntu & Debian**
+{@include: ../_include/metric-shipping/telegraf-setup.md}
 
-```shell
-sudo apt-get update && sudo apt-get install telegraf
-```
-
-The configuration file is located at `/etc/telegraf/telegraf.conf`.
-
-**RedHat and CentOS**
-
-```shell
-sudo yum install telegraf
-```
-
-The configuration file is located at `/etc/telegraf/telegraf.conf`.
-
-**SLES & openSUSE**
-
-```shell
-# add go repository
-zypper ar -f obs://devel:languages:go/ go
-# install latest telegraf
-zypper in telegraf
-```
-
-The configuration file is located at `/etc/telegraf/telegraf.conf`.
-
-**FreeBSD/PC-BSD**
-
-```shell
-sudo pkg install telegraf
-```
-
-The configuration file is located at `/etc/telegraf/telegraf.conf`.
   
 ##### Add the inputs.nsd plug-in
 
@@ -96,7 +61,7 @@ The database name is only required for instantiating a connection with the serve
 {@include: ../_include/metric-shipping/telegraf-outputs.md}
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
 
-##### Check Logz.io for your metrics
+#### Check Logz.io for your metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 

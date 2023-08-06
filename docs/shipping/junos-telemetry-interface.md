@@ -15,21 +15,19 @@ metrics_alerts: []
 
 
 
-## Overview
-
 Junos Telemetry Interface (JTI) is a push mechanism to collect operational metrics for monitoring the health of a network that has no scaling limitations. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format JTI OpenConfig Telemetry metrics to Logz.io, you need to add the **inputs.jti_openconfig_telemetry** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configuring Telegraf to send your metrics data to Logz.io
+### Configuring Telegraf to send your metrics data to Logz.io
 
  
 
-##### Set up Telegraf v1.17 or higher
+#### Set up Telegraf v1.17 or higher
 
 {@include: ../_include/metric-shipping/telegraf-setup.md}
  
-##### Add the inputs.jti_openconfig_telemetry plug-in
+#### Add the inputs.jti_openconfig_telemetry plug-in
 
 First you need to configure the input plug-in to enable Telegraf to scrape the JTI OpenConfig Telemetry data from your hosts. To do this, add the following code to the configuration file:
 
@@ -63,12 +61,12 @@ The database name is only required for instantiating a connection with the serve
 :::
  
 
-##### Add the outputs.http plug-in
+#### Add the outputs.http plug-in
 
 {@include: ../_include/metric-shipping/telegraf-outputs.md}
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
 
-##### Check Logz.io for your metrics
+### Check Logz.io for your metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 

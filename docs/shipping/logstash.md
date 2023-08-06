@@ -13,7 +13,6 @@ metrics_dashboards: []
 metrics_alerts: []
 ---
 
- 
 
 Logstash is a server app that ingests and parses log data.
 We recommend using it for shipping to Logz.io only when you have an existing Logstash configuration.
@@ -22,16 +21,15 @@ For most other cases, we recommend using [Filebeat]({{site.baseurl}}/shipping/lo
 
 These instructions apply to Logstash running on MacOS, Linux and Windows.
 
-  
 
-#### Shipping with Logstash over TCP - Encrypted
+## Shipping with Logstash over TCP - Encrypted
 
 **Before you begin, you'll need**: JDK, [Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html)
 
  
 
 
-##### Download the Logz.io public certificate to your Logstash server
+### Download the Logz.io public certificate to your Logstash server
 
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
@@ -45,7 +43,7 @@ sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/AA
 
 Download the [Logz.io public certificate]({@include: ../_include/log-shipping/certificate-path.md}) to `C:\ProgramData\ElkStack\logstash-<<YOUR-LOGSTASH-VERSION-NUMBER>>\AAACertificateServices.crt` on your machine.
 
-##### Add Logz.io to your configuration file
+### Add Logz.io to your configuration file
 
 Add these code blocks to the end of your existing Logstash configuration file.
 
@@ -97,11 +95,11 @@ output {
 }
 ```
 
-##### Start Logstash
+### Start Logstash
 
 Start or restart Logstash for the changes to take effect.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
@@ -109,13 +107,13 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
  
  
-#### Ship with Logstash over TCP - Unencrypted
+## Ship with Logstash over TCP - Unencrypted
 
 **Before you begin, you'll need**: JDK, [Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html)
 
  
 
-##### Add Logz.io to your configuration file
+### Add Logz.io to your configuration file
 
 Add these code blocks to the end of your existing Logstash configuration file.
 
@@ -143,11 +141,11 @@ output {
 }
 ```
 
-##### Start Logstash
+### Start Logstash
 
 Start or restart Logstash for the changes to take effect.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

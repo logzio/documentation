@@ -24,9 +24,6 @@ You can send logs from multiple Okta tenants and any Okta domain.
 :::note
 If you want to ship from multiple Okta tenants over the same docker, you'll need to use the latest configuration using a tenants-credentials.yml file. Otherwise, you can continue using the previous configuration without a tenants-credentials.yml.
 :::
- 
-
-#### Configuration
 
 **Before you begin, you'll need**:
 
@@ -35,7 +32,7 @@ If you want to ship from multiple Okta tenants over the same docker, you'll need
 
  
 
-##### Get the API token and Okta domain from Okta
+### Get the API token and Okta domain from Okta
 
 In the Okta developer console,
 navigate to **API > Tokens**.
@@ -50,7 +47,7 @@ and paste it in your text editor. In the following example, you'd have copied "d
 ![Okta URL](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/okta-issuer-uri.png)
 
 
-##### Create your tenants-credentials YAML
+### Create your tenants-credentials YAML
 
 Build your tenants-credentials.yml:  
 To create the file run the following command as root and then open the file in your text editor:
@@ -79,7 +76,7 @@ tenants_credentials:
       okta_domain: logzio-dev-123.oktapreview.com
 ```
 
-###### Parameters
+### Parameters
 
 | Parameter | Description |
 |---|---|
@@ -96,7 +93,7 @@ YAML files are sensitive to spaces and tabs. It's a good idea to run your code t
 Save the file in your working directory. That's the same one you're running the docker from.
 
 
-##### Pull the Docker image
+### Pull the Docker image
 
 Download the logzio/logzio-okta image:
 
@@ -104,7 +101,7 @@ Download the logzio/logzio-okta image:
 docker pull logzio/logzio-okta
 ```
 
-##### Run the Docker image
+### Run the Docker image
 
 Replace the placeholders in the code sample below before running it. Then run:
 
@@ -122,16 +119,13 @@ For Mac users: To fix issues with mounting files from root directory please add 
 Click [here](https://medium.com/effy-tech/fixing-the-var-folders-error-in-docker-for-mac-v2-2-3-2a40e776132d) for a guide on how to fix this issue - using docker desktop or manually edit your Docker configuration file.  
 For more information about mounting files from root directory click [here](https://docs.docker.com/docker-for-mac/osxfs/#namespaces).
 
-
-###### Parameters
-
 | Parameter | Description |
 |---|---|
 | LOGZIO_TOKEN (Required) | {@include: ../_include/log-shipping/log-shipping-token.html} |
 | LOGZIO_LISTENER_HOST (Required) | {@include: ../_include/log-shipping/listener-var.html}  |
 
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

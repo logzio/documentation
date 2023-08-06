@@ -16,7 +16,7 @@ metrics_alerts: []
  
 ## Logs
 
-#### Configuration
+### Default configuration
 
 **Before you begin, you'll need**:
 
@@ -25,7 +25,7 @@ metrics_alerts: []
 
  
 
-##### Configure MySQL to write general query logs
+#### Configure MySQL to write general query logs
 
 In the MySQL configuration file (/etc/mysql/my.cnf),
 paste these lines:
@@ -47,7 +47,7 @@ sudo /etc/init.d/mysql restart
 
 {@include: ../_include/log-shipping/certificate.md}
 
-##### Add MySQL as an input in your Filebeat configuration
+#### Add MySQL as an input in your Filebeat configuration
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add MySQL to the filebeat.inputs section.
 
@@ -166,7 +166,7 @@ filebeat.inputs:
 
 
 
-###### Preconfigured log types
+##### Preconfigured log types
 
 | Parameter | Log Type | Default log location |
 |---|---|---|
@@ -176,7 +176,7 @@ filebeat.inputs:
 
 The log type is used to apply the appropriate Logz.io preconfigured parsing pipeline so that your logs will be automatically parsed.
 
-##### Set Logz.io as the output
+#### Set Logz.io as the output
 
 If Logz.io is not an output, add it now.
 Remove all other outputs.
@@ -191,11 +191,11 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### Start Filebeat
+#### Start Filebeat
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 
-##### Check Logz.io for your logs
+#### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
@@ -204,14 +204,14 @@ If you still don't see your logs, see [Filebeat troubleshooting](https://docs.lo
  
  
 
-## Set up a Docker sidecar for MySQL
+### Set up a Docker sidecar for MySQL
 
 MySQL is an open-source relational database management system. Docker sidecar is a container that runs on the same Pod as the application container. This integration allows you to send your MySQL logs to your Logz.io account using a Docker sidecar. 
 
 
  
 
-##### Pull the Docker image
+#### Pull the Docker image
 
 Download the logzio/mysql-logs image:
 
@@ -219,7 +219,7 @@ Download the logzio/mysql-logs image:
 docker pull logzio/mysql-logs
 ```
 
-##### Run the Docker image
+#### Run the Docker image
 
 For a complete list of options, see the parameters below the code block.👇
 
@@ -244,7 +244,7 @@ docker run -d --name logzio-mysql-logs \
 logzio/mysql-logs:latest
 ```
 
-###### Parameters
+##### Parameters
 
 | Parameter | Description | Required/Default |
 |---|---|---|
@@ -268,7 +268,7 @@ docker run -d \
 ```
 
 
-##### Check Logz.io for your logs
+#### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
@@ -280,15 +280,15 @@ To send your Prometheus-format MySQL metrics to Logz.io, you need to add the **i
 
 <!-- logzio-inject:install:grafana:dashboards ids=["2zMVEOdWnIMgOPATDLByX7"] -->
 
-#### Configure Telegraf to send your metrics data to Logz.io
+### Configure Telegraf to send your metrics data to Logz.io
 
 
 
-##### Set up Telegraf v1.17 or higher
+#### Set up Telegraf v1.17 or higher
 
 {@include: ../_include/metric-shipping/telegraf-setup.md}
 
-##### Add the inputs.mysql plug-in
+#### Add the inputs.mysql plug-in
 
 First you need to configure the input plug-in to enable Telegraf to scrape the MySQL data from your hosts. To do this, add the following code to the configuration file:
 
@@ -355,16 +355,16 @@ The full list of data scraping and configuring options can be found [here](https
 :::
 
 
-##### Add the outputs.http plug-in
+#### Add the outputs.http plug-in
 
 {@include: ../_include/metric-shipping/telegraf-outputs.md}
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
 
-##### Start Telegraf
+### Start Telegraf
 
 {@include: ../_include/metric-shipping/telegraf-run.md}
 
-##### Check Logz.io for your metrics
+### Check Logz.io for your metrics
 
 {@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 

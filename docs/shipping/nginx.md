@@ -1,7 +1,7 @@
 ---
 id: Nginx
 title: Nginx
-overview: TNginx is a web server that can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache. Deploy this integration to ship Nginx metrics, including Plus API, Plus, Stream STS, VTS. This integration allows you to send nginx logs to your Logz.io SIEM account.
+overview: Nginx is a web server that can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache. Deploy this integration to ship Nginx logs to your Logz.io SIEM account and metrics, including Plus API, Plus, Stream STS, VTS.
 product: ['logs']
 os: ['windows', 'linux']
 filters: ['Load Balancer']
@@ -13,11 +13,9 @@ metrics_dashboards: ['']
 metrics_alerts: []
 ---
 
-Nginx is a web server that can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache. Deploy this integration to ship Nginx metrics, including Plus API, Plus, Stream STS, VTS. This integration allows you to send nginx logs, metrics to your Logz.io SIEM account.
-
 ## Logs
 
-#### Filebeat configuration
+### Filebeat configuration
 
 **Before you begin, you'll need**:
 
@@ -29,7 +27,7 @@ Nginx is a web server that can also be used as a reverse proxy, load balancer, m
 
 {@include: ../_include/log-shipping/certificate.md}
 
-##### Add nginx as an input
+#### Add nginx as an input
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add nginx to the filebeat.inputs section.
 
@@ -118,7 +116,7 @@ Defaults for Error logs:
 * Log location - `/var/log/nginx/error.log`
 * Log type - `nginx-error`
 
-##### Set Logz.io as the output
+#### Set Logz.io as the output
 
 If Logz.io is not an output, add it now.
 Remove all other outputs.
@@ -133,11 +131,11 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### Start Filebeat
+#### Start Filebeat
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 
-##### Check Logz.io for your logs
+#### Check Logz.io for your logs
 
 Confirm you're shipping logs by opening an nginx-hosted webpage in your browser. Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
@@ -153,11 +151,11 @@ To send your Prometheus-format Nginx metrics to Logz.io, you need to add the **i
 
 <!-- logzio-inject:install:grafana:dashboards ids=["3HKho6pQhCmEYmwMc4xCeY"] -->
 
-#### Configure Telegraf to send your metrics data to Logz.io
+### Configure Telegraf to send your metrics data to Logz.io
 
  
 
-##### Configure Nginx server
+#### Configure Nginx server
 
 1. Enable `stub_status` module in the NGINX configuration file - nginx.conf:
 
@@ -185,11 +183,11 @@ To send your Prometheus-format Nginx metrics to Logz.io, you need to add the **i
 2. Replace `<<YOUR-LOCALHOST-ADDRESS>>` with your localhost address.
 3. Restart Nginx. 
 
-##### Set up Telegraf v1.17 or higher
+#### Set up Telegraf v1.17 or higher
 
 {@include: ../_include/metric-shipping/telegraf-setup.md}
  
-##### Add the inputs.nginx plug-in
+#### Add the inputs.nginx plug-in
 
 First you need to configure the input plug-in to enable Telegraf to scrape the Nginx data from your hosts. To do this, add the following code to the configuration file:
 
@@ -227,12 +225,12 @@ First you need to configure the input plug-in to enable Telegraf to scrape the N
 
 
 
-##### Add the outputs.http plug-in
+#### Add the outputs.http plug-in
 
 {@include: ../_include/metric-shipping/telegraf-outputs.md}
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
 
-##### Check Logz.io for your metrics
+#### Check Logz.io for your metrics
   
 {@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboards to enhance the observability of your metrics.
 

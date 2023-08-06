@@ -13,7 +13,7 @@ metrics_dashboards: []
 metrics_alerts: []
 ---
 
-
+## Default configuration
 
 Lambda extensions enable tools to integrate deeply into the Lambda execution environment to control and participate in Lambda’s lifecycle.
 To read more about Lambda Extensions, [click here](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-extensions-api.html).
@@ -23,6 +23,7 @@ This repo is based on the [AWS lambda extensions sample](https://github.com/aws-
 This extension is written in Go, but can be run with runtimes that support [extensions](https://docs.aws.amazon.com/lambda/latest/dg/using-extensions.html).
 
 ### Prerequisites
+
 * Lambda function with [supported runtime](https://docs.aws.amazon.com/lambda/latest/dg/using-extensions.html) for extensions.
 * AWS Lambda limitations: A function can use up to five layers at a time. The total unzipped size of the function and all layers cannot exceed the unzipped deployment package size limit of 250 MB.
 
@@ -116,11 +117,9 @@ If you have Lambda extension v0.0.1 and you want to upgrade to v0.1.0+, to ensur
 
 
 
-#### Deploying Logz.io logs extension via the AWS CLI
+## Deploying Logz.io logs extension via the AWS CLI
 
-
-
-##### Deploy the extension and configuration
+### Deploy the extension and configuration
 
 If you haven't done it already, [install](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html) and [configure](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) the AWS CLI.
 
@@ -144,7 +143,7 @@ This command overwrites the existing function configuration. If you already have
 | `<<LAYERS>>` | A space-separated list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.  For the ARN, see the [**ARNs** table]{@include: ../_include/log-shipping/lambda-xtension-tablink.md} {@include: ../_include/log-shipping/lambda-xtension-tablink-indox.html}.|  |
 | `<<ENV-VARS>>`  | Key-value pairs containing environment variables that are accessible from function code during execution. Should appear in the following format: `KeyName1=string,KeyName2=string`.  For a list of all the environment variables for the extension, see the [**Lambda environment variables** table]{@include: ../_include/log-shipping/lambda-xtension-tablink.md} {@include: ../_include/log-shipping/lambda-xtension-tablink-indox.html}.|  |
 
-##### Run the function
+### Run the function
 
 Use the following command. It may take more than one run of the function for the logs to start shipping to your Logz.io account.
 
@@ -163,7 +162,7 @@ This command overwrites the existing function configuration. If you already have
 :::
 
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours.
 
@@ -193,13 +192,13 @@ This command overwrites the existing function configuration. If you already have
 
 
 
-#### Deploying Logz.io log extensions via the AWS Management Console
+## Deploying Logz.io log extensions via the AWS Management Console
 
-You'll have to add the extension
+You'll have to add the extension.
 
 
 
-##### Add the extension to your Lambda Function
+### Add the extension to your Lambda Function
 
 1. In the Lambda Functions screen, choose the function you want to monitor.
 ![Pick lambda function](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lambda_extensions/lambda-x_1-1.jpg)
@@ -210,7 +209,7 @@ You'll have to add the extension
 3. Select the `Specify an ARN` option, then choose the ARN of the extension with the region code that matches your Lambda Function region from the [**ARNs** table]{@include: ../_include/log-shipping/lambda-xtension-tablink.md} {@include: ../_include/log-shipping/lambda-xtension-tablink-indox.html}, and click the `Add` button.
 ![Add ARN extension](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lambda_extensions/lambda-x_1-3.jpg)
 
-##### Configure the extension parameters
+### Configure the extension parameters
 
 Add the environment variables to the function, according to the [**Environment variables** table]{@include: ../_include/log-shipping/lambda-xtension-tablink.md} {@include: ../_include/log-shipping/lambda-xtension-tablink-indox.html}.
 
@@ -219,7 +218,7 @@ Add the environment variables to the function, according to the [**Environment v
 Run the function. It may take more than one run of the function for the logs to start shipping to your Logz.io account.
 Your lambda logs will appear under the type `lambda-extension-logs`.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours.
 
@@ -237,8 +236,6 @@ Give your logs some time to get from your system to ours.
 
 - To delete the **extension layer**: In your function page, go to the **layers** panel. Click `edit`, select the extension layer, and click `save`.
 - To delete the extension's **environment variables**: In your function page, select the `Configuration` tab, select `Environment variables`, click `edit`, and remove the variables that you added for the extension.
-
-
 
 
 
