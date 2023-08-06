@@ -180,8 +180,14 @@ def is_valid_title(title):
 
 def is_valid_product(product_str):
     try:
+        if type(product_str) is not str:
+            logger.error(f'Invalid product type: {product_str}')
+            return False
         product_arr = ast.literal_eval(product_str.strip())
         for product in product_arr:
+            if type(product) is not str:
+                logger.error(f'Invalid value type in product field: {product}')
+                return False
             if product.strip() not in consts.PRODUCTS:
                 logger.error(f'Invalid value in product field: {product}')
                 return False
@@ -193,8 +199,14 @@ def is_valid_product(product_str):
 
 def is_valid_os(os_str):
     try:
+        if type(os_str) is not str:
+            logger.error(f'Invalid os type: {os_str}')
+            return False
         os_arr = ast.literal_eval(os_str.strip())
         for os_type in os_arr:
+            if type(os_type) is not str:
+                logger.error(f'Invalid value type in os field: {os_type}')
+                return False
             if os_type.strip() not in consts.OS:
                 logger.error(f'Invalid value in os field: {os_type}')
                 return False
