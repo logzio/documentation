@@ -1,6 +1,6 @@
 ---
 sidebar_position: 8
-title: Update Your Logz.io Billing Info
+title: Update Your Billing Info
 
 ---
 

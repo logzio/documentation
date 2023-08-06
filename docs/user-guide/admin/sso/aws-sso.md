@@ -6,9 +6,6 @@ title: Single Sign-On with AWS
 Logz.io offers a quick integration for SSO with AWS.
 
 
-## To set up single sign-on for AWS
-
-
 ### Request SSO access from Logz.io
 
 

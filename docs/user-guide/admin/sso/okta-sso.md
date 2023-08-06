@@ -3,8 +3,6 @@ sidebar_position: 4
 title: Single Sign-On with Okta
 ---
 
-## To set up single sign-on for Okta
-
 
 ### Request SSO access from Logz.io
 

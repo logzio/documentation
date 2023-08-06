@@ -4,10 +4,11 @@ title: Topology Diagrams
 ---
 
 
-## View Topology Diagrams   
-The available diagrams are based either on the traces you search for (deep dependency graph) or are a compilation of all the current trace data available in your system (system architecture graphs).
+<!-- ## View Topology Diagrams   -->
 
-### Viewing a deep dependency graph
+The available diagram is based on the traces you search for deep dependency graph.
+
+## Viewing a deep dependency graph
 The deep dependency graph describes how the services in traces are connected based on the results of the trace search query you run. The graph lets you focus on the up and downstream hops of a service call and define the aggregation and graph density for the layout.
 
 From the <a href="https://www.jaegertracing.io/docs/latest/features/#deep-dependency-graph" target="_blank">Jaeger deep dependency documentation <i class="fas fa-external-link-alt"></i> </a>, the deep dependency graph is...

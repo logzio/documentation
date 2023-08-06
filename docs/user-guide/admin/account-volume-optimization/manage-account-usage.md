@@ -19,7 +19,7 @@ Account utilization metrics capture a snapshot
 of your account usage in regular increments
 Logz.io starts logging your usage after your account reaches 10 MB in size.
 
-### Enabling account utilization metrics and log size
+## Enabling account utilization metrics and log size
 
 ![Sub account settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/utilization--save-account-utilization-metrics.png)
 
@@ -37,7 +37,7 @@ can see the resulting logs.
 :::
 
 
-### Log utilization
+## Log utilization
 
 Once you enable log utilization, you can choose the increment that suits your needs - every 10, 30, or 60 minutes.
 
@@ -57,7 +57,7 @@ You can find these logs in OpenSearch Dashboards when you filter for the `logzio
 | utilization | Current utilization, in percent |
 | volume_in_GB | Current utilization, in GB |
 
-#### Account utilization metrics for flexible accounts
+## Account utilization metrics for flexible accounts
 
 The following fields are used for flexible volume accounts. 
 
@@ -72,10 +72,12 @@ The following fields are used for flexible volume accounts.
 For flexible accounts, the amount of data you used from the shareable volume is derived from the difference between your current utilization and your reserved account volume: `used_from_shareable = volume_in_GB - reserved_volume`
 Obviously, the value can't be negative: If you haven't used any of the shared volume, `used_from_shareable` will be normalized to 0.  
 
-In your logs, you might see something like this: ![Flexible volume metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/flex_utilizn_metrix2.png) 
+In your logs, you might see something like this: 
+
+![Flexible volume metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/flex_utilizn_metrix2.png) 
 
 
-### Tracing utilization
+## Tracing utilization
 
 Every Tracing account has the utilization option enabled by default, working in increments of 10 minutes. This lets you view and analyze your tracing data usage in real-time.
 
@@ -103,7 +105,7 @@ Trace utilization logs include the following fields:
 |type|The log type, `logzio_tracing_account_utilization`.|
 
 
-### Saving log size {#what-happens-when-i-save-log-size}
+## Saving log size {#what-happens-when-i-save-log-size}
 
 When you enable saving log size,
 a new field is added to incoming logs.
@@ -115,7 +117,8 @@ You can fix this by clicking <i class="fas fa-sync-alt"></i> (refresh mapping) f
 You'll need to do this for each account where you enabled `LogSize`.
 
 
-### Visualizing utilization with an ELK app
+<!--    
+## Visualizing utilization with an ELK app
 
 We offer a preconfigured dashboard
 for account utilization metrics.
@@ -128,6 +131,8 @@ by searching for "data volume dashboard".
 If you recently enabled account utilization metrics,
 you may need to wait up to 60 minutes
 before this data shows up in OpenSearch Dashboards.
+
+-->
 
 ## Managing ingestion with drop filters
 

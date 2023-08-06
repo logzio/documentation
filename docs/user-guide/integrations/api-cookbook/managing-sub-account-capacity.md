@@ -10,9 +10,15 @@ If you manage teams of Logz.io users in a large organization, you can use the Lo
 
 One important thing to know: When you're managing sub account settings, you'll need an API token from your main account.
 
-{@include: ../../../_include/api-cookbook/replace-vars.html}
-Nico
 
+  ### Variables in this article
+
+  In the code blocks in this article, you'll see `<<API-TOKEN>>` and `<<API-URL>>` variables.
+  These need to be replaced with information specific to your account:
+
+* Replace `<<API-TOKEN>>` with an [API token](https://app.logz.io/#/dashboard/settings/manage-tokens/api) from the account you want to use
+* Replace `<<API-URL>>` with your region's base API URL.
+  For more information on finding your account's region, see [Account region](/user-guide/accounts/account-region.html).
  
 ## Making a new sub account {#making-a-new-sub-account}
 
@@ -22,7 +28,7 @@ If you don't have sub accounts that you're ready to experiment with, go ahead an
 ### Sample request
 
 
-:::tip
+:::tip Pro Tip
 maxDailyGB default is `0`, meaning this account can accommodate 0 GB of logs per day.
 We recommend maxDailyGB ≥ `1` so the account can receive logs.
 :::
@@ -46,7 +52,7 @@ The email address has to belong to an existing Logz.io user, and that user has t
 This API endpoint is documented in [Create a sub account](https://docs.logz.io/api#operation/createTimeBasedAccount) in the API docs.
 :::
  
-#### ...and the response
+### ...and the response
 
 In the response, you'll receive an account ID and the account token.
 You'll use the account token when shipping logs.
@@ -78,7 +84,7 @@ curl -X GET \
 This API endpoint is documented in [Retrieve all sub accounts](https://docs.logz.io/api#operation/getAll) in the API docs.
 :::
  
-#### ...and the response
+### ...and the response
 
 This request receives an array of objects, with each account's properties contained in a single object.
 
@@ -127,7 +133,7 @@ So in the response above, we have two sub accounts: Jean Valjean (account ID 246
 You'll use an HTTP PUT request when you update a sub account with the API.
 This means you'll replace all account parameters with each request.
 
-:::tip
+:::tip Pro Tip
 Include all parameters with each PUT request.
 This way, you won't unintentionally overwrite parameters with their default values.
 :::
@@ -165,7 +171,7 @@ curl -X PUT \
 }'
 ```
 
-#### ...and the response
+### ...and the response
 
 If the request was successfully received, you'll see a 200 response from Logz.io.
 
@@ -195,7 +201,7 @@ curl -X PUT \
 }'
 ```
 
-#### ...and the response
+### ...and the response
 
 If the request was successfully received, you'll see a 200 response from Logz.io.
 
@@ -212,7 +218,7 @@ curl -X GET \
   -H 'X-API-TOKEN: <<API-TOKEN>>' \
 ```
 
-#### ...and the response
+### ...and the response
 
 In this example, we'll know we everything went according to plan when:
 
