@@ -1,8 +1,8 @@
 ---
 id: Winlogbeat
 title: Winlogbeat
-overview: Winlogbeat metrics.
-product: ['metrics']
+overview: Windows logs.
+product: ['logs']
 os: ['windows']
 filters: ['Other']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/windows.svg
