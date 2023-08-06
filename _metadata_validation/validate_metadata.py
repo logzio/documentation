@@ -153,6 +153,12 @@ def get_file_metadata(file_path):
 
 
 def is_valid_id(current_file_id, current_file_path, files_to_ids):
+    if current_file_id == '':
+        logger.error(f'File {current_file_path} has an empty ID')
+        return False
+    if type(current_file_id) is not str:
+        logger.error(f'File {current_file_path} has an invalid ID type')
+        return False
     for doc in files_to_ids:
         if doc[consts.OBJ_ID].lower() == current_file_id.lower() and doc[consts.OBJ_FILE] != current_file_path:
             logger.info(f'Files {doc[consts.OBJ_FILE]} and {current_file_path} have the same ID - {current_file_id}')
