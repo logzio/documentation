@@ -29,6 +29,7 @@ OpenSearch Dashboards will always make sure that all of your required fields are
 
 ## Field mapping types
 
+{@include: ../../../_include/rules-alerts/field-mapping-types.md}
 
 ## Managing field mappings
 
@@ -71,7 +72,7 @@ But they will not appear in filters and do not support 1-click visualizations.
 
 
 
-
+{@include: ../../../_include/arrays_in_kibana/array_note.md}
 
 ## Manage your mapping
 

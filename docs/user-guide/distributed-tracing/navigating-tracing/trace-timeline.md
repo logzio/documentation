@@ -29,7 +29,7 @@ Click a log marker to see the log details for a specific time.
 Expand and Collapse the spans in the **Service & Operation** list and change the size of the span area. 
     ![expand & collapse](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/expand_collapse_list.png)
 
-### Troubleshooting with the trace timeline
+## Troubleshooting with the Trace Timeline
 
 The trace timeline can help you find patterns that might indicate potential issues with the system flow.
 

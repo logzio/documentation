@@ -20,10 +20,7 @@ including the most stringent PCI level 1 requirements.
 For more information on PCI compliance and DDS (Data Security Standard), see the PCI Security Standards Council's [resources](https://www.pcisecuritystandards.org/).
 :::
 
-## To enable PCI compliance
-
-
-### Prerequisites
+## Enable PCI compliance
 
 To ensure that we redact the necessary details, your organization is responsible for providing Logz.io with the required cardholder information guidelines in writing, including but not limited to:
 
@@ -36,7 +33,7 @@ To ensure that we redact the necessary details, your organization is responsible
 In addition, you must notify Logz.io of any relevant changes in relation to the cardholder information guidelines that your organization transmits to Logz.io.
 
 
-### Select an account
+### 1. Select an account
 
 You can control PCI compliance from [**<i class="li li-gear"></i> > Settings > General**](https://app.logz.io/#/dashboard/settings/general) in the navigation menu.
 
@@ -45,13 +42,13 @@ You can control PCI compliance from [**<i class="li li-gear"></i> > Settings > G
 
 If you have more than one account or a combination of sub accounts, you'll need to repeat this process for each of them.
 
-### Request activation and accept the terms
+### 2. Request activation and accept the terms
 
 Once you accept the legal terms and click `activate`, Logz.io Support will be automatically notified and your ticket will be created.
 
 ![Account settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/pci_aug2021.png)
 
-### Vetting the regex pattern
+### 3. Vetting the regex pattern
 
 Support will get in touch to process your request. You'll be asked to submit an appropriate regex pattern and specify which fields to apply it to.
 
@@ -61,7 +58,7 @@ Logz.io Support will test the regex expression to verify that it doesn't interfe
 Logz.io Support cannot intervene with the creation of the appropriate regex pattern for reasons of liability.
 :::
 
-### Activate/Deactivate PCI compliance
+### 4. Activate/Deactivate PCI compliance
 
 Once the regex pattern is approved, the changes will be applied to your data parsing patterns and take effect on your account.
 

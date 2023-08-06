@@ -5,8 +5,6 @@ title: Single Sign-On With Azure
 
 Logz.io offers a quick integration for SSO with Azure.
 
-## To set up single sign-on for Azure
-
 
 ### Request SSO access from Logz.io
 

@@ -3,8 +3,6 @@ sidebar_position: 5
 title: Single Sign-On with OneLogin
 ---
 
-## To set up single sign-on for OneLogin
-
 
 ### Request SSO access from Logz.io
 

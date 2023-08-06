@@ -8,14 +8,14 @@ Logz.io uses tokens to manage data shipping for logs, metrics, and traces; permi
 
 You will need to be an account admin to create, delete, or access your tokens.
 
-## Which token should I use?
+### Which token should I use?
 
 The type of token you use depends on what you're trying to do.
 Read on to see your options.
 
-### Send data to your account
+## Tokens to send data to your account
 
-The short answer: **Log shipping token**,  **Metrics shipping token**, or **Tracing shipping token**
+To send data into your account you should use: **Log shipping token**,  **Metrics shipping token**, or **Tracing shipping token**.
 
 The shipping token tells Logz.io which account to send your data to.
 Every account has its own tokens.
@@ -26,9 +26,9 @@ You can click any **Token** to copy it with one-click.
 * Learn more about your [Metrics shipping token](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/)
 * Learn more about your [Distributed Tracing shipping token](https://docs.logz.io/user-guide/accounts/finding-your-tracing-account-token/)
 
-### Share dashboards and more
+## Tokens to share dashboards and more
 
-The short answer: **Shared token**
+To share dashboards and other elements with others, use: **Shared token**.
 
 Shared tokens allow you to share visualizations and dashboards with anyone, even if they don't have a login to your account.
 
@@ -39,14 +39,14 @@ To manage your shared tokens, select [**<i class="li li-gear"></i> > Tools > Man
 
 * For more information on [managing shared tokens](https://docs.logz.io/user-guide/tokens/shared-tokens.html)
 
-### Develop an integration
+## Tokens to develop an integration
 
-The short answer: **API token**
+If you're interested in developing an integration, you should use **API token**.
 
 Use API tokens to authenticate integrations with your Logz.io account.
 API tokens are available to Enterprise and Pro plan subscribers, as well as during an account's trial period.
 
-To manage your API tokens, select [**<i class="li li-gear"></i> > Tools > Manage tokens**](https://app.logz.io/#/dashboard/settings/manage-tokens/api) in the top menu and select the **API tokens** tab.
+To manage your API tokens, select [**<i class="li li-gear"></i>Settings > Tools > Manage tokens**](https://app.logz.io/#/dashboard/settings/manage-tokens/api) in the top menu and select the **API tokens** tab.
 
 * For more information on [managing API tokens](https://docs.logz.io/user-guide/tokens/api-tokens.html)
 * If you want to build your own integration, visit the [Logz.io API Developer Guide](https://docs.logz.io/api/)

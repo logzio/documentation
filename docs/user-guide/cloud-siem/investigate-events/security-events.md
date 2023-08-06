@@ -21,7 +21,6 @@ The event log includes details about the security incident and the rule that cau
 | logzio-alert-triggered-severity | Severity of the event, as defined in the rule's trigger settings. It is customizable. |
 | logzio-hits | The number of logs involved in the security event. This is the number of logs that triggered the security rule before applying any aggregations, if applicable. |
 | logzio-investigate | Click the **Investigate** button to pull up the logs responsible for triggering the rule. The appropriate filters and search query are already applied to ensure it returns only the relevant logs. |
-{:.paramlist}
 
 
 ### Other paths of investigation

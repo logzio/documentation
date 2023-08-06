@@ -6,9 +6,6 @@ title: Single Sign-On with Google Workspace
 Logz.io offers a quick integration for SSO with Google Workspace.
 
 
-## To set up single sign-on for Google Workspace
-
-
 ### Request SSO access from Logz.io
 
 :::note
