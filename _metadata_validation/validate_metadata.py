@@ -167,7 +167,9 @@ def is_valid_id(current_file_id, current_file_path, files_to_ids):
 
 
 def is_valid_overview(overview):
-    return not overview.strip() == ''
+    if type(overview) is not str or overview == '':
+        return False
+    return True
 
 
 def is_valid_title(title):
