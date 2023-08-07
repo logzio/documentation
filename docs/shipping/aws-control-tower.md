@@ -26,7 +26,7 @@ AWS Control Tower is a tool to control a top-level summary of policies applied t
 
  
 
-## Deploy an S3 Hook Lambda function
+### Deploy an S3 Hook Lambda function
 
 :::note
 The stacks must be deployed in the same region as the S3 buckets.

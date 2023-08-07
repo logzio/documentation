@@ -34,7 +34,7 @@ Logz.io fetches your CloudTrail logs from an S3 bucket.
 For help with setting up a new trail, see [Overview for Creating a Trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html) from AWS.
 
 
-### Verify bucket definition on AWS
+#### Verify bucket definition on AWS
 
 [Navigate to the location of your trail logs on AWS](https://console.aws.amazon.com/cloudtrail/):
 
@@ -59,7 +59,7 @@ You'll need these values when adding your S3 bucket information.
 ![prefix](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/prefix-trail.png)
 
 
-### Add your S3 bucket information
+#### Add your S3 bucket information
 
 <!-- logzio-inject:aws:cloudtrail -->
 
@@ -97,7 +97,7 @@ Logz.io cannot fetch past logs retroactively.
 :::
  
 
-### Check Logz.io for your logs
+#### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
@@ -105,9 +105,9 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
  
 
-## Troubleshooting
+### Troubleshooting
 
-### Problem: Failed to save bucket configuration 
+#### Problem: Failed to save bucket configuration 
 
 The following error appears when you're trying to create a bucket:
 

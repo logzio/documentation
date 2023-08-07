@@ -14,23 +14,16 @@ metrics_alerts: []
 ---
 
 
-## Overview
 
 Deploy this integration to ship metrics from your Docker Swarm network using containerized Telegraf agent.
 
-
-#### Setup
-
- 
-  
-
-##### Pull the Docker image
+### Pull the Docker image
 
 ```
 docker pull logzio/docker-metrics-collector:latest
 ```
 
-##### Start the collector
+### Start the collector
 
 Run the following command:
 
@@ -49,7 +42,7 @@ If you prefer to keep these environment variables in an `.env` file, run the fol
 
 `docker run -d --env-file=docker.env -v /var/run/docker.sock:/var/run/docker.sock logzio/docker-metrics-collector:latest`
 
-###### Parameters
+### Parameters
 
 Below is a list of all environment variables available with this integration. If required, add a variable to the `docker run` command using the `--env` flag.
 
@@ -61,7 +54,7 @@ Below is a list of all environment variables available with this integration. If
 |TIMEOUT|The request timeout for any Docker Daemon query.|Default: `5s`.|
 |EXCLUDED_IMAGES|A list of strings, regexes, or globs, the container image names of which, will not be among the queried containers. !-prefixed negations are possible for all item types to signify that only unmatched container image names should be monitored. For example: `imageNameToExclude1,imageNameToExclude2)`|Default: `nil`.|
 
-##### Check Logz.io metrics
+### Check Logz.io metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 

@@ -15,21 +15,19 @@ metrics_alerts: []
 
 
 
-## Overview
-
 IPMI is a standardized computer system interface used by system administrators to manage a computer system and monitor its operation. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format IPMI Sensor metrics to Logz.io, you need to add the **inputs.ipmi_sensor** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configure Telegraf to send your metrics data to Logz.io
+### Configure Telegraf to send your metrics data to Logz.io
 
  
 
-##### Set up Telegraf v1.17 or higher on your local host
+#### Set up Telegraf v1.17 or higher on your local host
 
 {@include: ../_include/metric-shipping/telegraf-setup.md}
  
-##### Add the inputs.ipmi_sensor plug-in
+#### Add the inputs.ipmi_sensor plug-in
 
 First you need to configure the input plug-in to enable Telegraf to scrape the IPMI Sensor data from your hosts. To do this, add the following code to the configuration file:
 
@@ -84,12 +82,12 @@ The database name is only required for instantiating a connection with the serve
 :::
  
 
-##### Add the outputs.http plug-in
+#### Add the outputs.http plug-in
 
 {@include: ../_include/metric-shipping/telegraf-outputs.md}
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
 
-##### Check Logz.io for your metrics
+### Check Logz.io for your metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 

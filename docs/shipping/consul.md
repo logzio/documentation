@@ -16,9 +16,6 @@ metrics_alerts: []
 
 This project lets you configure the OpenTelemetry collector to send your Prometheus-format metrics from Hashicorp Consul to Logz.io.
 
-
-#### Configuring OpenTelemetry to send your metrics data to Logz.io
-
 **Before you begin, you'll need**:
 
 * Consul installed on your host
@@ -26,7 +23,7 @@ This project lets you configure the OpenTelemetry collector to send your Prometh
 
 
 
-##### Update Consul configuration
+### Update Consul configuration
 
 1. Navigate to the Consul server and create a new file called `prometheus.json` under the Consul config library at `/etc/consul.d.`
 
@@ -42,7 +39,7 @@ This project lets you configure the OpenTelemetry collector to send your Prometh
    }
    ```
 
-##### Check the Consul server’s metrics format
+### Check the Consul server’s metrics format
 
 Check that the Consul server’s metrics are in Prometheus format at this endpoint:
 
@@ -51,7 +48,7 @@ http://127.0.0.1:8500/v1/agent/metrics?format=prometheus
 ```
 
 
-##### Download OpenTelemetry collector
+### Download OpenTelemetry collector
 
 :::note
 If you already have OpenTelemetry, proceed to the next step.
@@ -62,7 +59,7 @@ Create a dedicated directory on your host and download the [OpenTelemetry collec
 
 After downloading the collector, create a configuration file `config.yaml`.
 
-##### Configure the receivers
+### Configure the receivers
 
 Open the configuration file and make sure that it states the receivers required for your source:
 
@@ -88,7 +85,7 @@ receivers:
       process: ##Linux & Windows
 ```
 
-##### Configure the processors
+### Configure the processors
 
 
 In the same configuration file, add the following to the `processors` section:
@@ -102,7 +99,7 @@ processors:
 ```
 
 
-##### Configure the exporters
+### Configure the exporters
 
 In the same configuration file, add the following to the `exporters` section:
 
@@ -116,7 +113,7 @@ exporters:
 
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
 
-##### Configure the service pipeline
+### Configure the service pipeline
 
 In the `service` section of the configuration file, add the following configuration
 
@@ -135,7 +132,7 @@ service:
 
 
 
-##### Start the collector
+### Start the collector
 
 Run the following command:
 
@@ -145,7 +142,7 @@ Run the following command:
 
 * Replace `<path/to>` with the path to the directory where you downloaded the collector. If the name of your configuration file is different to `config`, adjust name in the command accordingly.
 
-##### Check Logz.io for your metrics
+### Check Logz.io for your metrics
 
 {@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 

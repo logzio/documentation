@@ -18,7 +18,6 @@ metrics_alerts: []
 Google Cloud Platform (GCP) Stackdriver collects logs from your cloud services.
 You can use Google Cloud Pub/Sub to forward your logs from Stackdriver to Logz.io using a continuously runnung Docker container .
 
-#### Configuration
 
 **Before you begin, you'll need**:
 
@@ -28,7 +27,7 @@ You can use Google Cloud Pub/Sub to forward your logs from Stackdriver to Logz.i
 
 
 
-##### Export your logs to Stackdriver
+### Export your logs to Stackdriver
 
 Set up a sink to export your logs to Stackdriver.
 
@@ -36,7 +35,7 @@ For more information, see
 [Exporting with the Logs Viewer](https://cloud.google.com/logging/docs/export/configure_export_v2)
 from Google Cloud.
 
-##### Build your credentials file
+### Build your credentials file
 
 Create a working directory for this step and `cd` into it.
 You'll need to run this command as root:
@@ -52,7 +51,7 @@ and get the right permissions.
 
 
 
-###### Option 1: Build the credentials file from the command line
+### Option 1: Build the credentials file from the command line
 
 In this step, you'll build your credentials file using your Google Cloud project ID.
 
@@ -73,7 +72,7 @@ wget https://raw.githubusercontent.com/logzio/logzio-pubsub/master/create-creden
 
 
 
-###### Option 2: Build the credentials file in the Cloud Console
+### Option 2: Build the credentials file in the Cloud Console
 
 * In the [GCP Console](https://console.cloud.google.com), go to your project's page.
 In the left menu, select **IAM & admin > Service accounts**.
@@ -94,14 +93,14 @@ Select **JSON** and click **CREATE** to save the private key to your machine.
 * Rename it in the following format: `<project-id>-credentials.json` - replace to your project id.
 Move it to the `/etc/logzio-pubsub` folder you've created at the beginning of this step.
 
-###### Variation
+### Variation
 
 * If your credentials file name isn't of the default format `<<project_id>>-credentials.json`, follow [the steps below](#cred-info) as well.
 
 
 
 
-##### Build your Pub/Sub input YAML file
+### Build your Pub/Sub input YAML file
 
 Create a file 'pubsub-input.yml' to hold your Pub/Sub input configuration.
 To create the file run the following command as root. Then open the file in your text editor:
@@ -142,7 +141,7 @@ pubsubs:
 
 Click here for more information about [filebeat for Google Cloud Pub/Sub](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-input-gcp-pubsub.html#filebeat-input-gcp-pubsub).
 
-###### Configuration instructions
+### Configuration instructions
 
 | Parameter | Description |
 |---|---|
@@ -152,7 +151,7 @@ Click here for more information about [filebeat for Google Cloud Pub/Sub](https:
 | credentials_file (Not required, Default value: `'<project_id>-credentials.json'`) | This field is only required if your credentials file is named differently than the default value. For an example of adding this field go to [input example file](https://github.com/logzio/logzio-pubsub/blob/master/pubsub-input-example.yml). |
 {:.paramlist}
 
-##### Pull the Docker image
+### Pull the Docker image
 
 Download the logzio/logzio-pubsub image:
 
@@ -160,7 +159,7 @@ Download the logzio/logzio-pubsub image:
 docker pull logzio/logzio-pubsub
 ```
 
-##### Run the container
+### Run the container
 
 Run the following command after you replace `<<PROJECT_ID>>`  with your details.
 
@@ -171,7 +170,7 @@ docker run --name logzio-pubsub \
 logzio/logzio-pubsub
 ```
 
-###### Variations
+### Variations
 
 * If you're working with multiple topics, add this line for every credentials file you've created. Insert your project id instead of the parameters:
 
@@ -187,14 +186,14 @@ Add the path '/etc/logzio-pubsub' to your Docker File Sharing. Click [here](http
 For more information about mounting files from the root directory click [here](https://docs.docker.com/docker-for-mac/osxfs/#namespaces).
 
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Spin up your Docker containers if you haven’t done so already.
 Give your logs some time to get from your system to ours,
 and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
 
-####  If you've renamed the credentials file
+###  If you've renamed the credentials file
 
 The default naming convention for the credentials file is: `<<project_id>>-credentials.json`.
 

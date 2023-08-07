@@ -16,7 +16,7 @@ metrics_alerts: []
 
 Deploy this integration to enable automatic instrumentation of your Java application with Kafka using OpenTelemetry.
 
-## Architecture overview
+## Manual configuratuib
 
 This integration includes:
 
@@ -28,7 +28,7 @@ On deployment, the Java agent automatically captures spans from your application
 
 
 
-## Setup auto-instrumentation for your Java application using Docker and send traces to Logz.io
+### Setup auto-instrumentation for your Java application using Docker and send traces to Logz.io
 
 This integration enables you to auto-instrument your Java application and run a containerized OpenTelemetry collector to send your traces to Logz.io. If your application also runs in a Docker container, make sure that both the application and collector containers are on the same network.
 
@@ -41,7 +41,7 @@ This integration enables you to auto-instrument your Java application and run a 
 
 
 
-### 1, Download Java agent
+### 1. Download Java agent
 
 Download the latest version of the [OpenTelemetry Java agent](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar) to the host of your Java application.
 
@@ -84,7 +84,7 @@ java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
 Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
 
 
-## Controlling the number of spans
+### Controlling the number of spans
 
 To limit the number of outgoing spans, you can use the sampling option in the Java agent.
 
@@ -106,7 +106,7 @@ Supported values for `otel.traces.sampler` are
 
 
 
-## Overview
+## Configuration via Helm
 
 You can use a Helm chart to ship Traces to Logz.io via the OpenTelemetry collector. The Helm tool is used to manage packages of pre-configured Kubernetes resources that use charts.
 
@@ -124,10 +124,10 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 :::
 <!-- info-box-end -->
 
-## Standard configuration
+### Default
 
 
-### 1. Deploy the Helm chart
+#### 1. Deploy the Helm chart
  
 Add `logzio-helm` repo as follows:
  
@@ -136,7 +136,7 @@ helm repo add logzio-helm https://logzio.github.io/logzio-helm
 helm repo update
 ```
 
-### 2. Run the Helm deployment code
+#### 2. Run the Helm deployment code
 
 ```
 helm install  \
@@ -149,7 +149,7 @@ logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 `<<LOGZIO_ACCOUNT_REGION_CODE>>` - (Optional): Your logz.io account region code. Defaults to "us". Required only if your logz.io region is [different than US East](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
 
 
-### 3. Define the logzio-k8s-telemetry dns name
+#### 3. Define the logzio-k8s-telemetry dns name
 
 In most cases, the dns name will be `logzio-k8s-telemetry.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
   
@@ -162,11 +162,11 @@ sh -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.defaul
   
 It will deploy a small pod that extracts your cluster domain name from your Kubernetes environment. You can remove this pod after it has returned the cluster domain name.
 
-### 4. Download Java agent
+#### 4. Download Java agent
 
 Download the latest version of the [OpenTelemetry Java agent](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar) to the host of your Java application.
 
-### 5. Attach the agent to your java application 
+#### 5. Attach the agent to your java application 
 
 <!-- info-box-start:info -->
 :::note
@@ -190,14 +190,14 @@ java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
 * Replace `<<YOUR-SERVICE-NAME>>` with a name for your service under which it will appear in Logz.io Jaeger UI.
 * Replace `<<logzio-k8s-telemetry-service-dns>>` with the OpenTelemetry collector service dns obtained previously (service IP is also allowed here).
 
-##### Check Logz.io for your traces
+#### Check Logz.io for your traces
 
 Give your traces some time to get from your system to ours, then open [Logz.io](https://app.logz.io/).
 
 
-##  Customizing Helm chart parameters
+###  Customizing Helm chart parameters
 
-### Configure customization options
+#### Configure customization options
 
 You can use the following options to update the Helm chart parameters: 
 
@@ -291,7 +291,7 @@ Replace `<PATH-TO>` with the path to your custom `values.yaml` file.
 
 
 
-## Uninstalling the Chart
+### Uninstalling the Chart
 
 The uninstall command is used to remove all the Kubernetes components associated with the chart and to delete the release.  
 

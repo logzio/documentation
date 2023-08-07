@@ -15,14 +15,13 @@ metrics_alerts: []
 
 Cisco ASA is a security device that combines firewall, antivirus, intrusion prevention, and virtual private network (VPN) capabilities.
 
-#### Configuration
 
 **Before you begin, you'll need**:
 Root access to a server running [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) with port 6514 open for incoming traffic and 5015 open for outgoing traffic
 
  
 
-##### Configure Cisco ASA Server logging
+### Configure Cisco ASA Server logging
 
 Configure your Cisco ASA firewall to send logs to your Filebeat server.
 Make sure you meet this configuration:
@@ -37,7 +36,7 @@ on configuring your Cisco ASA firewall.
 
 {@include: ../_include/log-shipping/certificate.md}
 
-##### Add TCP traffic as an input
+### Add TCP traffic as an input
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add TCP to the filebeat.inputs section.
 
@@ -91,7 +90,7 @@ If you're running Filebeat 6, paste this code block.
 registry_file: /var/lib/filebeat/registry
 ```
 
-##### Set Logz.io as the output
+### Set Logz.io as the output
 
 If Logz.io is not an output, add it now.
 (Remove all other outputs - there should only be 1 output in the configuration file.) 
@@ -106,11 +105,11 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### Start Filebeat
+### Start Filebeat
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

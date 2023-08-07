@@ -25,7 +25,7 @@ metrics_alerts: []
  
 
 
-##### Configure Axonius to send syslog notifications to a remote Syslog server running Filebeat
+### Configure Axonius to send syslog notifications to a remote Syslog server running Filebeat
 
 1. On your Axonius web interface, go to **System Settings > Global Settings > Syslog Settings**.
 ![Axonius](https://dytvr9ot2sszz.cloudfront.net/logz-docs/axonius/axonius514.png)
@@ -43,7 +43,7 @@ By default, syslog will be forwarded over port 514. Feel free to adjust this, ba
 {@include: ../_include/log-shipping/certificate.md}
 
 
-##### Configure Filebeat
+### Configure Filebeat
 
 1. Paste the following into the inputs section of the Filebeat configuration file:
 
@@ -88,7 +88,7 @@ By default, syslog will be forwarded over port 514. Feel free to adjust this, ba
 
 2. Run Filebeat with the new configuration.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for data of type `axonius` to see the incoming Axonius logs.
   

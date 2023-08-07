@@ -15,7 +15,6 @@ metrics_alerts: []
 
 HashiCorp Vault secures, stores, and tightly controls access to tokens, passwords, certificates, API keys, and other secrets in modern computing. This integration allows you to send HashiCorp Vault logs to your Logz.io SIEM account.
 
-#### Configuration
 
 **Before you begin, you'll need**:
 
@@ -24,7 +23,7 @@ HashiCorp Vault secures, stores, and tightly controls access to tokens, password
 
  
 
-##### Configure Vault to output raw logs
+### Configure Vault to output raw logs
 
 Configure Vault to enable raw log output to the default location.
 After making the change, start or restart Vault for the changes to take effect.
@@ -41,7 +40,7 @@ see [File Audit Device](https://www.vaultproject.io/docs/audit/file.html) from H
 
 {@include: ../_include/log-shipping/certificate.md}
 
-##### Create your configuration file for Vault
+### Create your configuration file for Vault
 
 The Filebeat configuration file is at `/etc/filebeat/filebeat.yml` by default.
 
@@ -156,11 +155,11 @@ output.logstash:
 
 
 
-##### Start Filebeat
+### Start Filebeat
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

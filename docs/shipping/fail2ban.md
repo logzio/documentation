@@ -15,7 +15,6 @@ metrics_alerts: []
 
 Fail2Ban is an intrusion prevention software framework that protects computer servers from brute-force attacks. This integration allows you to send Fail2ban logs to your Logz.io SIEM account.
 
-#### Guided configuration
 
 **Before you begin, you'll need**:
 [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html)
@@ -26,7 +25,7 @@ root access
 
 {@include: ../_include/log-shipping/certificate.md}
 
-##### Add Fail2ban as an input
+### Add Fail2ban as an input
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Fail2ban to the filebeat.inputs section.
 
@@ -79,7 +78,7 @@ filebeat.inputs:
 
 
 
-##### Set Logz.io as the output
+### Set Logz.io as the output
 
 If Logz.io is not an output, add it now.
 Remove all other outputs.
@@ -94,11 +93,11 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### Start Filebeat
+### Start Filebeat
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

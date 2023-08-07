@@ -12,9 +12,6 @@ logs2metrics: []
 metrics_dashboards: []
 metrics_alerts: []
 ---
-
-# .NET
-
 ## Logs
 
 ### log4net
@@ -301,7 +298,6 @@ namespace dotnet_log4net
 }
 ```
 
-ß
 
 ### NLog
 

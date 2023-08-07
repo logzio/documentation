@@ -2,7 +2,7 @@
 id: ESET
 title: ESET
 overview: ESET provides anti-virus and firewall solutions. This integration allows you to send ESET logs to your Logz.io SIEM account.
-product: ['logs']
+product: ['siem']
 os: ['windows', 'linux']
 filters: ['Security']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/eset.png
@@ -23,9 +23,7 @@ ESET provides anti-virus and firewall solutions. This integration allows you to 
 * Root access
 
 
- 
-
-##### Install the ESET certificate on your Filebeat server
+### Install the ESET certificate on your Filebeat server
 
 ESET sends encrypted data,
 so you'll need to create a dedicated ESET certificate to decrypt the logs by the Filebeat server.
@@ -40,7 +38,7 @@ sudo openssl req -newkey rsa:2048 -nodes \
 
 {@include: ../_include/log-shipping/certificate.md}
 
-##### Configure Filebeat
+### Configure Filebeat
 
 Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor.
 Copy and paste the code block below, overwriting the previous content. (You want to replace the file's content with this code block.)
@@ -100,11 +98,11 @@ If the file has other outputs, remove them.
 :::
  
 
-##### Start Filebeat
+### Start Filebeat
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 
-##### Configure ESET to send logs to Logzio
+### Configure ESET to send logs to Logzio
 
 Open the ESET Admin Console on the **Security Management Center**.
 
@@ -129,7 +127,7 @@ In the **LOGGING** section, enable the option to **Export logs to Syslog**. Fill
 ![ESET Admin Console configuration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/eset-admin-console-2.png)
 
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

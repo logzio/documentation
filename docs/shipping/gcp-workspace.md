@@ -25,14 +25,13 @@ The GSuite module was [deprecated as of Filebeat 7.12](https://www.elastic.co/gu
 
  
 
-#### Google Workspace setup
 
-##### Set up a Service Account
+### Set up a Service Account
 
 
 Follow the official Google Workspace [tutorial](https://support.google.com/workspacemigrate/answer/10839762?sjid=10874551070185788155-EU#zippy=%2Cstep-use-google-cloud-to-turn-on-apis) for setting up a service account through IAM.
 
-##### Grant access to the Admin SDK API
+### Grant access to the Admin SDK API
 
 Enable access to the following APIs and services. If you can't find the API, specify the API name in **APIs & Services > Library** search box.
 
@@ -47,7 +46,7 @@ Enable access to the following APIs and services. If you can't find the API, spe
 * Google Sheets API
 * Tasks API
 
-##### Delegate domain-wide authority to your service account
+### Delegate domain-wide authority to your service account
 
 Open your Google Workspace domain’s [Admin console](http://admin.google.com/). Next, navigate to **Main menu** > **Security** > **API controls**.
 
@@ -67,7 +66,7 @@ Once you access the **Manage Domain Wide Delegation**, click **Add new**, and fi
 
 {@include: ../_include/log-shipping/certificate.md}
 
-##### Configure Filebeat
+### Configure Filebeat
 
 Open the Filebeat configuration file (the default path `/etc/filebeat/filebeat.yml`) with your preferred text editor.
 Copy and paste the code block below, overwriting the previous contents.
@@ -174,11 +173,11 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 * Replace `<<DELEGATED_ACCOUNT_EMAIL>>` with the email address of the Admin (in most cases **superadmin**) that authorized the domain wide delegation function to the service account (GCP) on the **Google Workspace account**.
 
-##### Start Filebeat
+### Start Filebeat
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

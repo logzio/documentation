@@ -26,7 +26,7 @@ metrics_alerts: []
  
 
 
-##### Configure bunny.net to send syslog notifications to a remote Syslog server running Filebeat
+### Configure bunny.net to send syslog notifications to a remote Syslog server running Filebeat
 
 1. Log in to your bunny.net account and navigate to the details page of the Pull Zone that you need to select logs from.
 2. On the left side panel, select **Security > Logging**.
@@ -43,7 +43,7 @@ By default, syslog will be forwarded over port 6514. Feel free to adjust this, b
 :::
  
 
-##### Install the bunny.net certificate on your Filebeat server
+### Install the bunny.net certificate on your Filebeat server
 
 Bunny.net sends encrypted data,
 so you'll need to create a dedicated bunny.net certificate to decrypt the logs by the Filebeat server.
@@ -59,7 +59,7 @@ sudo openssl req -newkey rsa:2048 -nodes \
 {@include: ../_include/log-shipping/certificate.md}
 
 
-##### Configure Filebeat
+### Configure Filebeat
 
 {@include: ../_include/log-shipping/filebeat-input-extension.md}
 
@@ -111,7 +111,7 @@ sudo openssl req -newkey rsa:2048 -nodes \
 
 2. Run Filebeat with the new configuration.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for data of type `bunny-net` to see the incoming Axonius logs.
   

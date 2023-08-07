@@ -21,7 +21,6 @@ Shipping your Falco logs to your Cloud SIEM can help you monitor your Kubernetes
 
 Once your Falco logs are coming into your account, you can review the pre-configured [Falco security rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC&search=falco) and [dashboards](https://app.logz.io/#/dashboard/security/research/dashboards?) in your Cloud SIEM account.
 
-#### Configuration
 
 **Before you begin, you'll need**:
 
@@ -31,7 +30,7 @@ Once your Falco logs are coming into your account, you can review the pre-config
 
  
 
-##### Configure Falco rules to enrich observability
+### Configure Falco rules to enrich observability
 
 Open Falco’s configuration file with your preferred text editor. See Falco's [documentation](https://falco.org/docs/)
 if you need help finding the file.
@@ -51,7 +50,7 @@ Copy the following directly below it:
   items: [fierce, dnsenum, amass, dnsrecon, sublist3r, theharvester, recon-ng, netdiscover, amap, enum4linux, onesixtyone]
 ```
 
-###### Rule: Netcat Remote Code Execution in Container
+### Rule: Netcat Remote Code Execution in Container
 
 In the configuration file, find the line that begins `- rule: Netcat Remote Code Execution in Container`.
 Replace the entire content of the rule with the following:
@@ -73,7 +72,7 @@ Replace the entire content of the rule with the following:
 ```
 
 
-###### Rule: Delete or rename shell history
+### Rule: Delete or rename shell history
 
 In the configuration file, find the line that begins `- rule: Delete or rename shell history`.
 Replace the entire content of the rule with the following:
@@ -107,7 +106,7 @@ Replace the entire content of the rule with the following:
   tags: [process, mitre_defense_evation]
 ```
 
-###### Rule: Delete Bash History
+### Rule: Delete Bash History
 
 
 In the configuration file, find the line that begins `- rule: Delete Bash History`.
@@ -132,7 +131,7 @@ Replace the entire content of the rule with the following:
   items: [hyperkube, kubelet]
 ```
 
-###### Rule: Clear Log Activities
+### Rule: Clear Log Activities
 
 
 In the configuration file, find the line that begins `- rule: Clear Log Activities`.
@@ -154,7 +153,7 @@ Replace the entire content of the rule with the following:
   tags: [file, mitre_defense_evasion]
 ```
 
-##### Configure Falco to output JSON logs
+### Configure Falco to output JSON logs
 
 Open Falco’s configuration file with your preferred text editor. The default location is `/etc/falco/falco.yaml` but it depends on your installation.
 
@@ -191,7 +190,7 @@ Save and exit the falco.yaml file.
 {@include: ../_include/log-shipping/certificate.md}
 
 
-##### Configure Filebeat
+### Configure Filebeat
 
 Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor. Copy and paste the code block below, overwriting the previous content. (You want to replace the file's content with this code block.)
 
@@ -275,11 +274,11 @@ If the file has other outputs, remove them.
  
 
 
-##### Start Filebeat
+### Start Filebeat
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

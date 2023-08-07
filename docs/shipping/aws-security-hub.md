@@ -14,7 +14,6 @@ metrics_alerts: []
 ---
 
  
-#### Overview
 
 This integration ships events from AWS Security Hub to Logz.io. It will automatically deploy [resources](#resources) to your AWS Account.
 
@@ -27,15 +26,15 @@ Your Lambda function needs to run within the AWS Lambda limits, such as memory a
 
   
 
-#### Automated CloudFormation deployment
+## Automated CloudFormation deployment
 
  
 
-##### Login to your account
+### Login to your account
 
 To begin, you need to login to your AWS account.
 
-##### Create a new stack
+### Create a new stack
 
 Select the button below to create a new stack dedicated to sending events from AWS Security Hub to Logz.io.
 
@@ -63,7 +62,7 @@ Select the button below to create a new stack dedicated to sending events from A
 
 Keep the default setting in the **Create stack** screen and select **Next**.
 
-##### Specify the stack details
+### Specify the stack details
 
 ![Specify stack details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/security-hub-step2.png)
 
@@ -76,27 +75,27 @@ Specify the stack details as per the table below and select **Next**.
 | `logzioLogLevel` | Log level for the Lambda function. Defaults to `info`. Valid options are: `debug`, `info`, `warn`, `error`, `fatal`, `panic`. |
 | `logzioOperationsToken` | Your Logz.io [operations token](https://app.logz.io/#/dashboard/settings/general). |
 
-##### Configure the stack options
+### Configure the stack options
 
 ![Configure stack options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/security-hub-step3.png)
 
 Specify the **Key** and **Value** parameters for the **Tags** and select **Next**.
 
-##### Review the deployment
+### Review the deployment
 
 ![Confirm deployment](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/security-hub-step4b.png)
 
 Confirm that you acknowledge that AWS CloudFormation might create IAM resources and select **Create stack**.
 
  
-##### Deployed resources
+### Deployed resources
 
 This deployment will automatically create the following resources:
 
 ![Resources](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/resources-security-hub.png)
 
 
-##### Check Logz.io for your events
+### Check Logz.io for your events
 
 Give the stack some time to deploy and the resources to get created. Once this is finished, the stack sends a security event to Logz.io as soon as the event is created on the security hub. You can then see the data in [OpenSearch Dashboards](https://app.logz.io/#/dashboard/osd).
 
@@ -106,7 +105,7 @@ If you still don't see your events, see [log shipping troubleshooting]({{site.ba
 
   
 
-#### Deployment using a module
+## Deployment using a module
   
 Deploy this integration to add a module for AWS security hub to your existing stack. This integration uses Cloudwatch Public Registry.
 
@@ -123,25 +122,25 @@ Logz.io Public Registry extensions are currently only available on the AWS regio
 
  
 
-##### Select the Logz.io AWS Security Hub extension
+### Select the Logz.io AWS Security Hub extension
 
 1. Navigate to **CloudFormation > Registry > Public extensions**.
 2. Set **Extension type > Modules** and **Publisher > Third party**.
 3. Select **logzio::awsSecurityHub::collector::MODULE**.
 
 
-##### Activate the Logz.io AWS Security Hub extension
+### Activate the Logz.io AWS Security Hub extension
 
 1. On the **logzio::awsSecurityHub::collector::MODULE** select **Activate**.
 2. In the **Extension details** section, select **Use default**.
 3. In the **Automatic updates** section, select **On**.
 4. Select **Activate extension**.
 
-##### Copy the configuration template
+### Copy the configuration template
 
 On the **logzio::awsSecurityHub::collector::MODULE** page, navigate to **Example template** and select **Copy template**.
 
-##### Add your stack values to the configuration template
+### Add your stack values to the configuration template
 
 ```yaml
 {
@@ -166,7 +165,7 @@ Save the template as a yaml file and add the values of your stack to the as per 
 | `<<LOGZIO-LOG-LEVEL>>` | Log level for the Lambda function. Defaults to `info`. Valid options are: `debug`, `info`, `warn`, `error`, `fatal`, `panic`. |
 | `<<LOG-SHIPPING-TOKEN>>` | Your Logz.io [operations token](https://app.logz.io/#/dashboard/settings/general). |
 
-##### Add your stack values to the configuration template
+### Add your stack values to the configuration template
 
 If you are creating a new stack:
 

@@ -14,54 +14,19 @@ metrics_alerts: []
 ---
 
 
-## Overview
-
 Ceph is an open-source software (software-defined storage) storage platform, implements object storage on a single distributed computer cluster, and provides 3-in-1 interfaces for object-, block- and file-level storage. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format Ceph Storage metrics to Logz.io, you need to add the **inputs.ceph** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configure Telegraf to send your metrics data to Logz.io
+### Configure Telegraf to send your metrics data to Logz.io
 
  
 
-##### Set up Telegraf v1.17 or higher on each Ceph server
+#### Set up Telegraf v1.17 or higher on each Ceph server
 
-**Ubuntu & Debian**
+{@include: ../_include/metric-shipping/telegraf-setup.md}
 
-```shell
-sudo apt-get update && sudo apt-get install telegraf
-```
-
-The configuration file is located at `/etc/telegraf/telegraf.conf`.
-
-**RedHat and CentOS**
-
-```shell
-sudo yum install telegraf
-```
-
-The configuration file is located at `/etc/telegraf/telegraf.conf`.
-
-**SLES & openSUSE**
-
-```shell
-# add go repository
-zypper ar -f obs://devel:languages:go/ go
-# install latest telegraf
-zypper in telegraf
-```
-
-The configuration file is located at `/etc/telegraf/telegraf.conf`.
-
-**FreeBSD/PC-BSD**
-
-```shell
-sudo pkg install telegraf
-```
-
-The configuration file is located at `/etc/telegraf/telegraf.conf`.
-  
-##### Add the inputs.ceph plug-in
+#### Add the inputs.ceph plug-in
 
 First you need to configure the input plug-in to enable Telegraf to scrape the Ceph data from your hosts. To do this, add the following code to the configuration file:
 
@@ -114,16 +79,16 @@ The full list of data scraping and configuring options can be found [here](https
 :::
  
 
-##### Add the outputs.http plug-in
+#### Add the outputs.http plug-in
   
 {@include: ../_include/metric-shipping/telegraf-outputs.md}
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
 
-##### Start Telegraf
+### Start Telegraf
 
 {@include: ../_include/metric-shipping/telegraf-run.md}
 
-##### Check Logz.io for your metrics
+### Check Logz.io for your metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 

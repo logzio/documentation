@@ -36,7 +36,7 @@ This integration allows you to run a Cloudwatch exporter as a Docker container w
   
  
 
-##### Set up your IAM user
+### Set up your IAM user
 
 You'll need an [IAM user](https://console.aws.amazon.com/iam/home)
 with the following permissions:
@@ -50,7 +50,7 @@ If you don't have one, set that up now.
 Create an **Access key ID** and **Secret access key** for the IAM user,
 and paste them in your text editor.
 
-##### Get your metrics region
+### Get your metrics region
 
 You'll need to specify the AWS region you're collecting metrics from.
 
@@ -63,7 +63,7 @@ For example:
 The slug for US East (N. Virginia)
 is "us-east-1", and the slug for Canada (Central) is "ca-central-1".
 
-##### Run the container with environment variables
+### Run the container with environment variables
   
 ```shell
 docker run --name cloudwatch-metrics \
@@ -98,7 +98,7 @@ logzio/cloudwatch-metrics
 | RANGE_SECONDS | how far back to request data for. Useful for cases such as Billing metrics that are only set every few hours. Default = `300` |
 | DELAY_SECONDS | The newest data to request. Used to avoid collecting data that has not fully converged. Default = `300` |
 
-##### Publish extension ports
+### Publish extension ports
   
 You can monitor the container using opentelemetry extensions in the following ports:
   
@@ -125,7 +125,7 @@ This integration allows you to run a Cloudwatch exporter as a Docker container w
 
  
 
-##### Set up your IAM user
+### Set up your IAM user
 
 You'll need an [IAM user](https://console.aws.amazon.com/iam/home)
 with the following permissions:
@@ -139,7 +139,7 @@ If you don't have one, set that up now.
 Create an **Access key ID** and **Secret access key** for the IAM user,
 and paste them in your text editor.
 
-##### Get your metrics region
+### Get your metrics region
 
 You'll need to specify the AWS region you're collecting metrics from.
 
@@ -153,7 +153,7 @@ The slug for US East (N. Virginia)
 is "us-east-1", and the slug for Canada (Central) is "ca-central-1".
   
 
-##### Run with configuration file
+### Run with configuration file
   
 Create `config.yml` file:
   
@@ -201,7 +201,7 @@ cloudwatch:
 
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
 
-##### Mount the configuration file to your container
+### Mount the configuration file to your container
   
 ```shell
 docker run --name cloudwatch-metrics \
@@ -209,7 +209,7 @@ docker run --name cloudwatch-metrics \
 logzio/cloudwatch-metrics
 ```
   
-##### Publish extension ports
+### Publish extension ports
   
 You can monitor the container using opentelemetry extensions in the following ports:
   
@@ -236,7 +236,7 @@ This integration allows you to run a Cloudwatch exporter as a Docker container w
   
  
 
-##### Set up your IAM user
+### Set up your IAM user
 
 You'll need an [IAM user](https://console.aws.amazon.com/iam/home)
 with the following permissions:
@@ -250,7 +250,7 @@ If you don't have one, set that up now.
 Create an **Access key ID** and **Secret access key** for the IAM user,
 and paste them in your text editor.
 
-##### Get your metrics region
+### Get your metrics region
 
 You'll need to specify the AWS region you're collecting metrics from.
 
@@ -264,7 +264,7 @@ The slug for US East (N. Virginia)
 is "us-east-1", and the slug for Canada (Central) is "ca-central-1".
 
   
-##### Run with custom Cloudwatch exporter configuration
+### Run with custom Cloudwatch exporter configuration
   
 Create `cloudwatch.yml` file (for details refer to [prom/cloudwatch_exporter](https://github.com/prometheus/cloudwatch_exporter#configuration) project),
 and mount the configuration file to your container and set `CUSTOM_CONFIG` variable to `true`:
@@ -282,7 +282,7 @@ logzio/cloudwatch-metrics
 
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
   
-##### Publish extension ports
+### Publish extension ports
   
 You can monitor the container using opentelemetry extensions in the following ports:
 * 8888 - `opentelemetry metrics`
@@ -309,7 +309,7 @@ This integration deploys the `logzio/cloudwatch-metrics` container directly to E
   
  
   
-##### Auto-deploy the Container
+### Auto-deploy the Container
   
 👇 To begin, click the start button corresponding to your region to start the automated deployment in your environment.
 
@@ -327,11 +327,11 @@ This integration deploys the `logzio/cloudwatch-metrics` container directly to E
 | ap-southeast-3 | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-3#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/cloudwatch-metrics-ecs-auto-deployment/cloudwatch-metrics-ecs-deployment.yml&stackName=logzio-cloudwatch-shipper) |
 | ap-south-1 | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-south-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/cloudwatch-metrics-ecs-auto-deployment/cloudwatch-metrics-ecs-deployment.yml&stackName=logzio-cloudwatch-shipper) |
 
-##### Specify the template
+### Specify the template
   
 Keep the defaults and click **Next**.
 
-##### Specify the stack details
+### Specify the stack details
   
 ![Specify stack details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/ecs/stack_details_ecs.png)
 
@@ -357,11 +357,11 @@ Specify the stack details as per the table below and select **Next**.
 | ServiceName | Select name for the new ECS service. |
 | Subnet | Subnet to deploy the ECS resources. |
   
-##### Configure the stack options
+### Configure the stack options
 
 Keep the defaults and click **Next**.
 
-##### Review the deployment
+### Review the deployment
 
 Confirm that you acknowledge that AWS CloudFormation might create IAM resources and select **Create stack**.
    

@@ -24,15 +24,15 @@ Bitbucket is a Git-based source code repository hosting service. This integratio
 
  
 
-##### Open the Bitbucket repository
+### Open the Bitbucket repository
 
 Log in to your Bitbucket account and navigate to the repository that you need to send logs from.
 
-##### Open the **Add new webhook** page
+### Open the **Add new webhook** page
 
 Navigate to **Repository Settings > Webhooks > Add webhook**.
 
-##### Fill out the **Add new webhook** page
+### Fill out the **Add new webhook** page
 
 * In the **Title** field, enter **logzio**.
 
@@ -44,12 +44,12 @@ Navigate to **Repository Settings > Webhooks > Add webhook**.
 
 * In the **Triggers** section, select triggers that you would like to enable.
 
-##### Save changes
+### Save changes
 
 When everything is filled out, click **Save**.
 
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can search for `type:bitbucket` to filter for your BitBucket logs.
   

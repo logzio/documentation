@@ -15,20 +15,20 @@ metrics_alerts: []
 
  
 
-#### Run Fluent Bit as a standalone app
+## Run Fluent Bit as a standalone app
 
 Fluent Bit is an open source Log Processor and Forwarder which allows you to collect any data like metrics and logs from different sources. This integration allows you to send logs from Fluent Bit running as a standalone app and forward them to your Logz.io account.
 
 
  
 
-##### Install Fluent Bit
+### Install Fluent Bit
 
 If you haven't installed Fluent Bit yet,
 you can build it from source
 according to the [instructions from Fluent Bit](https://docs.fluentbit.io/manual/installation/getting-started-with-fluent-bit).
 
-##### Install and configure the Logz.io plugin
+### Install and configure the Logz.io plugin
 
 For Linux:
 
@@ -69,7 +69,7 @@ For a list of options, see the configuration parameters below the code block. ðŸ
     logzio_url   https://<<LISTENER-HOST>>:8071
 ```
 
-###### Parameters
+### Parameters
 
 | Parameter | Description | Required/Default |
 |---|---|---|
@@ -80,7 +80,7 @@ For a list of options, see the configuration parameters below the code block. ðŸ
 | workers | Enables dedicated thread(s) for this output. | Default value is 1. To support more traffic, adjust this value accordingly. |
 
 
-##### Run Fluent Bit with the Logz.io plugin
+### Run Fluent Bit with the Logz.io plugin
 
 Linux and MacOS:
 
@@ -95,7 +95,7 @@ Windows:
 C:\PROGRA~1\td-agent-bit\bin\fluent-bit.exe -c C:\PROGRA~1\td-agent-bit\conf\fluent-bit.conf -e <<PATH_TO_PLUGIN>>\out_logzio-windows.so
 ```
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
@@ -103,14 +103,14 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
   
 
-#### Run Fluent Bit in a Docker container
+## Run Fluent Bit in a Docker container
 
 Fluent Bit is an open source Log Processor and Forwarder which allows you to collect any data like metrics and logs from different sources. This integration allows you to send logs from Fluent Bit running in a Docker container and forward them to your Logz.io account.
 
 
  
 
-##### Make the configuration file
+### Make the configuration file
 
 To run in a container,
 create a configuration file named `fluent-bit.conf`. 
@@ -134,7 +134,7 @@ For a list of options, see the configuration parameters below the code block. ðŸ
     logzio_url   https://<<LISTENER-HOST>>:8071
 ```
 
-######  Parameters
+###  Parameters
 
 | Parameter | Description |Required/Default |
 |---|---|---|
@@ -145,7 +145,7 @@ For a list of options, see the configuration parameters below the code block. ðŸ
 
 
 
-##### Run the Docker image
+### Run the Docker image
 
 Run the Docker image
 using the `fluent-bit.conf` file you made in step 1.
@@ -156,13 +156,14 @@ docker run -it --rm \
 logzio/fluent-bit-output
 ```
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 
+## Run Fluent Bit in Kubernetes
 
 
 Fluent Bit is an open source Log Processor and Forwarder which allows you to collect any data like metrics and logs from different sources. Helm is a tool for managing packages of pre-configured Kubernetes resources using Charts. You can use this Helm chart to ship Kubernetes logs to Logz.io with Fluent Bit. 
@@ -173,7 +174,7 @@ This chart is based on the [fluent-bit](https://github.com/fluent/helm-charts/tr
 :::
  
 
-###### Sending logs from nodes with taints
+### Sending logs from nodes with taints
 
 If you want to ship logs from any of the nodes that have a taint, make sure that the taint key values are listed in your in your daemonset/deployment configuration as follows:
   
@@ -191,7 +192,7 @@ To determine if a node uses taints as well as to display the taint keys, run:
 kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
 ```
 
-###### Enabling multiline logs parser
+### Enabling multiline logs parser
 
 If you want to enable parsing for multiline logs, add the following code to `values.yaml` under the `customParsers` parameter:
   
@@ -204,11 +205,11 @@ customParsers:
 ```
 
 
-#### Standard configuration
+### Standard configuration
 
  
 
-##### Add `logzio-helm` repo
+### Add `logzio-helm` repo
   
 ```shell
 helm repo add logzio-helm https://logzio.github.io/logzio-helm
@@ -216,7 +217,7 @@ helm repo update
 ```
 
 
-###### Run the Helm deployment code
+### Run the Helm deployment code
 
 ```shell
 helm install  \
@@ -229,17 +230,17 @@ logzio-fluent-bit logzio-helm/logzio-fluent-bit
 {@include: ../_include/log-shipping/listener-var.html} {@include: ../_include/log-shipping/log-shipping-token.html} If required, replace `<<LOG_TYPE>>` with the desired name for the log type, the default value is `fluentbit`.
 
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, then open [Logz.io](https://app.logz.io/).
 
  
 
 
-####  Customizing Helm chart parameters
+###  Customizing Helm chart parameters
 
 
-##### Configure customization options
+#### Configure customization options
 
 You can use the following options to update the Helm chart parameters: 
 
@@ -249,7 +250,7 @@ You can use the following options to update the Helm chart parameters:
 
 * Overide default values with your own `my_values.yaml` and apply it in the `helm install` command. 
 
-###### Example
+#### Example
 
 ```
 helm install logzio-fluent-bit logzio-helm/logzio-fluent-bit -f my_values.yaml 

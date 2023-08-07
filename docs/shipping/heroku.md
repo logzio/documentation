@@ -18,14 +18,14 @@ Heroku is a platform as a service (PaaS) that enables developers to build, run, 
 
 ## Logs
 
-#### Set up a Heroku log drain
+### Set up a Heroku log drain
 
 **Before you begin, you'll need**:
 [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
 
  
   
-##### Enable the runtime metrics 
+### Enable the runtime metrics 
 
 Optional - run the following command to include application run time metrics in your logs (for example, http status code, customer's IP, and more):
 
@@ -33,7 +33,7 @@ Optional - run the following command to include application run time metrics in 
 heroku labs:enable log-runtime-metrics -a <<HEROKU-APP-NAME>>
 ```
 
-##### Set up the log drain in Heroku CLI
+### Set up the log drain in Heroku CLI
 
 Run this command in the command line.
 
@@ -57,7 +57,7 @@ heroku drains:add "https://<<LISTENER-HOST>>:8081?token=<<LOG-SHIPPING-TOKEN>>&<
 ```
 
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd) to confirm you're shipping logs.
 
@@ -65,7 +65,6 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 ## Metrics
 
-#### Configure Telegraf to send your Heroku app metrics to Logz.io
 
 **Before you begin, you'll need**:
 
@@ -78,7 +77,8 @@ All commands in these instructions should be run from your Heroku app directory.
 :::
  
 
-##### Download the Telegraf configuration file
+
+### Download the Telegraf configuration file
 
 ``` shell
 
@@ -86,7 +86,7 @@ wget -O telegraf.conf https://raw.githubusercontent.com/logzio/heroku-buildpack-
 
 ```
 
-##### Enable environment variable
+### Enable environment variable
 
 ``` shell
 
@@ -107,7 +107,7 @@ git push heroku main
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
 * Replace `<<HEROKU_APP_NAME>>` with the name of your Heroku app
 
-##### Add the buildpack to the list of your Heroku buildpacks
+### Add the buildpack to the list of your Heroku buildpacks
 
 ``` shell
 
@@ -119,7 +119,7 @@ git push heroku main
 
 ```
 
-##### Check Logz.io for your metrics
+### Check Logz.io for your metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
