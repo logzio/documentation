@@ -8,21 +8,16 @@ Metrics alerts help you monitor your services and operations and notify team mem
 
 Metrics alert manager is fully compatible with the Prometheus Alert Manager, making it fast and easy to migrate existing Prometheus alerts to Logz.io - offering you an enhanced Prometheus-based monitoring experience.
 
-
-
-
-## Create an alert
-
 There are 2 main ways for you to create a metric alert:
 
-### Create an alert from an existing panel
+## Create an alert from an existing panel
 
 
 Navigate to your **[Metrics account](https://app.logz.io/#/dashboard/metrics/)**, open your dashboard and choose the panel you'd like to use for your alert.
 
 
 :::note
-You can't create an alert from a Gauge type visualization.
+You can't create an alert from a **Gauge** type visualization.
 :::
 
 
@@ -37,7 +32,7 @@ Then, navigate to the **Alert** tab and click on the **Create alert rule from th
 
 
 
-#### Rule type
+### 1. Choose rule type
 
 
 Name your alert and choose the folder you’d like to associate it with. By entering a group name, you can also choose whether to add the alert to a group inside the folder.
@@ -45,7 +40,7 @@ Name your alert and choose the folder you’d like to associate it with. By ente
 ![Name your alert](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metrics-rule-type.png)
 
 
-#### Create a query to be alerted on
+### 2. Create a query to be alerted on
 
 Next, review and edit the queries pulled from the panel you chose:
 
@@ -63,7 +58,7 @@ Then, choose **Last** to get the most relevant data point. Since the threshold i
 You can also use the **Math** operation to create time series or number data formulas. Math operations take numbers and time series as input and change them to different numbers and time series. For example, `$D > X`, $D being the Reduce expression, and X the series you want to compare it to.
 
 
-#### Define alert conditions
+### 3. Define alert conditions
 
 
 Next, define the alert's condition. In the **Condition** dropdown, select the query or expression to trigger the alert rule.
@@ -76,7 +71,7 @@ At this point, you can preview the alert and verify it's successfully monitoring
 
 ![Preview alerts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metric-define-alert-condition.png)
 
-#### Add details for your alert
+### 4. Add details for your alert
 
 
 You can add additional details to the alert to provide context when and if it triggers. For example, adding `{{$labels.path}}` and `{{$values.D}}` to the summary will automatically populate information from the relevant services. 
@@ -88,7 +83,7 @@ Click **Save** or **Save and exit**, located at the top right corner of the scre
 
 
 
-### Create an alert manually 
+## Create an alert manually 
 
 
 This process is similar to creating an alert from an existing panel, but it requires you to build your own query.
@@ -104,7 +99,7 @@ In the second step, you'll need to build the query for this alert. You can use t
 Complete the alert by following the steps to [define your alert condition](/user-guide/infrastructure-monitoring/alerts.html#define-alert-conditions), and [add details to your alert](/user-guide/infrastructure-monitoring/alerts.html#add-details-for-your-alert). 
 
 
-### Contact points – define your notification endpoint
+### 1. Define your notification endpoint
 
 Once the alert is running, it's time to define your notifications endpoint. You can choose between common alerting endpoints, including Slack, PagerDuty, Gmail, OpsGenie, and more. 
 
@@ -123,7 +118,7 @@ You can test your endpoint to make sure it's working correctly.
 Once you're done, click **Save contact point**. 
 
 
-## Notification policies – configure your alerting notifications
+### 2. Configure your notification policy
 
 Your alert and contact points are ready, and now it's time to determine how alerts are routed to contact points. Notification policies are built in a tree structure, where there can only be one root policy that can't be deleted, but each policy can have one or more child policies.
 
@@ -164,7 +159,7 @@ Click on **Save policy** to create the new policy.
 ![Alert notification policy](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metric-alert-notification-policy.png)
 
 
-## Silences – temporarily mute notifications
+### 3. Temporarily mute notifications with Silences
 
 Your system can trigger many alerts, creating noise that might distract team members from focusing on critical issues. To prevent this, you can use Silences to mute alerts during a certain time frame.
 

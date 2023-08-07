@@ -8,7 +8,7 @@ The process of getting logs from your system to Logz.io can be tricky,
 and it can be difficult to pinpoint the exact issue.
 In this doc, we'll walk through troubleshooting some common problems.
 
-## First steps to troubleshooting your log shipping
+## Wait for Logz.io to index data
 
 Before doing anything,
 make sure you give Logz.io some time to parse and index your logs.
@@ -17,25 +17,25 @@ Sometimes, this can take longer.
 
 
 
-### Check the Logz.io status page
+## Check the Logz.io status page
 
 Visit our [status page](http://status.logz.io/)
 to confirm everything is working normally.
 (If you're not already signed up for status updates,
 go ahead and subscribe while you're there.)
 
-###### If the status is "All systems Operational"
+### If the status is "All systems Operational"
 
 If you see "All Systems Operational", Logz.io is operating normally.
 You can move on to the next step.
 
-###### If the status is something else
+### If the status is something else
 
 On rare occasions, there may be an issue with our production environment.
 If this happens,
 you'll need to wait until we fix the problem before you can ship your logs.
 
-### Check your shipper's connectivity
+## Check your shipper's connectivity
 
 For macOS and Linux, use telnet to make sure your log shipper can connect to Logz.io listeners.
 
@@ -82,7 +82,7 @@ You can find the correct port for your shipping method in the table below.
 | rsyslog over TLS                        | 5001 |
 | TLS/SSL over TCP                        | 5052 |
 
-###### If you see "Connected to listener-group.logz-data.com"
+### If you see "Connected to listener-group.logz-data.com"
 
 If you see "Connected to listener-group.logz-data.com",
 your shipper can connect to the Logz.io listener.
@@ -90,7 +90,7 @@ your shipper can connect to the Logz.io listener.
 To exit telnet, type Ctrl+], and then type `quit`.
 You can move on to the next troubleshooting step.
 
-###### If the status remains "Trying xxx.xxx.xxx.xxx..."
+### If the status remains "Trying xxx.xxx.xxx.xxx..."
 
 If you see "Trying xxx.xxx.xxx.xxx..." for more than 10 seconds,
 your machine is having trouble connecting to the Logz.io listener.
@@ -100,7 +100,7 @@ allow communication with the right outbound port
 and the Logz.io [listener IP addresses](/user-guide/log-shipping/listener-ip-addresses.html)
 for your region.
 
-### Check that log shipping configuration is set to the right account token
+## Check that log shipping configuration is set to the right account token
 
 Logz.io uses your account token to send incoming logs to the correct account.
 If you're not using the right account token,
@@ -120,12 +120,12 @@ or as a query parameter in the URL you're shipping logs to.
 You can usually find it by searching for "token".
 :::
 
-###### If the tokens match
+### If the tokens match
 
 If the tokens match, your logs will be sent to your account.
 Move on to the next troubleshooting step.
 
-###### If the tokens don't match
+### If the tokens don't match
 
 If the tokens don't match, your logs won't be sent to your account.
 Copy your acount token to your shipper configuration,
@@ -134,7 +134,7 @@ and restart your shipper if you need to.
 If your logs still don't appear in OpenSearch Dashboards after a few minutes,
 move on to the next troubleshooting step.
 
-### Check your log shipper's logs
+## Check your log shipper's logs
 
 Next, you'll need to check your log shipper's logs.
 If you're not sure where to find the logs,
@@ -147,7 +147,7 @@ Also confirm that the log shipper is running.
 If it's not running, you'll need to troubleshoot the shipper.
 
 
-#### Common log shipper issues and fixes
+### Common log shipper issues and fixes
 
 * _Multiple configurations_: Make sure your shipper has one configuration. If it has more than one configuration, remove or comment out extra configurations.
 * _Incorrect paths_: Make sure all the paths in the configuration are correct.

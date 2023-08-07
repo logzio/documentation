@@ -57,7 +57,7 @@ In the image below, the metric `kube_deployment_status_replicas_available` inclu
 
 ![P8s metric metadata labels](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana-exp8s-metadata-labels1.png)
 
-### Split and sync Explore screens
+## Split and sync Explore screens
 
 You can split your Explore mode screen to work faster and make quick comparisons. You can split the screen to work with two views side-by-side, whether Metrics-Metrics, Logs-Logs, or Logs-Metrics.
 
@@ -73,7 +73,7 @@ If you want to sync both views so they both cover the same time range, click the
     </video>
 </div>
 
-### Calculating Infrastructure Monitoring usage
+## Calculating Infrastructure Monitoring usage
 
 Logz.io's Infrastructure Monitoring (Metrics) accounts usage is calculated based on the Unique Time Series (UTS).
 
@@ -95,3 +95,12 @@ You can view your usage metrics in your Infrastructure Monitoring dashboard. Nav
 To easily find relevant metrics, type Logz in the metrics bar, and select the metric you want to view.
 
 ![Data Volume Dashboard ELK app](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/explore-cpu-usage.png)
+
+
+## Using Data Hub to manage Metrics usage
+
+Logz.io offers an easy and efficient way to manage and enhance your Logs and Metrics plans through [Data Hub](https://app.logz.io/#/dashboard/cost).
+
+Data Hub offers tailored recommendations that help you improve usage and reduce costs, and you can compact and discard some of your metrics as it ages to focus on the data that matters with a few clicks.
+
+[Learn more about managing Metrics with Data Hub](https://docs.logz.io/user-guide/infrastructure-monitoring/data-rollups.html). 
