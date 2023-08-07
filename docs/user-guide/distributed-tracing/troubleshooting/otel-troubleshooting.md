@@ -3,7 +3,7 @@ sidebar_position: 2
 ---
 
 
-# OpenTelemetry Troubleshooting
+# OpenTelemetry Traces Troubleshooting
 
 
 This section contains some guidelines for handling errors that you may encounter when trying to collect traces with OpenTelemetry.

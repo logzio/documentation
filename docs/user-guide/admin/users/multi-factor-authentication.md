@@ -14,8 +14,6 @@ Logz.io emails users to tell them when multi-factor authentication is enabled.
 :::
 
 
-## To set up multi-factor authentication for your account
-
 
 ### Request multi-factor authentication from Logz.io
 
@@ -27,7 +25,7 @@ Include the last six digits of your [account token](https://app.logz.io/#/dashbo
 
 The Support team will tell you when multi-factor authentication is enabled.
 
-### Log out of Logz.io
+### Enable MFA with QR code
 
 Once Support enables MFA, log out of Logz.io.
 The next time you log in, you'll see a QR code.
@@ -35,7 +33,7 @@ The next time you log in, you'll see a QR code.
 <!-- Do yourself a favor and scan the QR code in this image. You won't be disappointed. -->
 ![QR code](https://dytvr9ot2sszz.cloudfront.net/logz-docs/access-and-authentication/mfa--qr-code.png)
 
-### Scan the QR code
+### Activate multi-factor authentication
 
 Scan the QR code using Google Authenticator, type your verification code, and click **Verify**.
 

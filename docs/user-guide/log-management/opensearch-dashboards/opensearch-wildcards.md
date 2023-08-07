@@ -21,7 +21,7 @@ Wildcard searches can be very resource heavy and slow to run.
 
 For example, you can run a free text search for `string` but not for `*string`. Similarly, you can run a search for a `field:value` pair, such as `key:string` but not `key:*string`.
 
-## Workarounds and alternatives to using Wildcards
+## Wildcards' alternatives
 
 
 
