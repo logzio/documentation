@@ -14,22 +14,19 @@ metrics_alerts: []
 ---
 
 
-
-## Overview
-
 FPM (FastCGI Process Manager) is an alternative PHP FastCGI implementation with some additional features (mostly) useful for heavy-loaded sites. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format PHP-FPM metrics to Logz.io, you need to add the **inputs.phpfpm** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configure Telegraf to send your metrics data to Logz.io
+### Configure Telegraf to send your metrics data to Logz.io
 
  
 
-##### Set up Telegraf v1.17 or higher
+#### Set up Telegraf v1.17 or higher
 
 {@include: ../_include/metric-shipping/telegraf-setup.md}
 
-##### Add the inputs.PHP-FPM plug-in
+#### Add the inputs.PHP-FPM plug-in
 
 First you need to configure the input plug-in to enable Telegraf to scrape the PHP-FPM data from your hosts. To do this, add the following code to the configuration file:
 
@@ -74,16 +71,16 @@ The full list of data scraping and configuring options can be found [here](https
 :::
  
 
-##### Add the outputs.http plug-in
+#### Add the outputs.http plug-in
   
 {@include: ../_include/metric-shipping/telegraf-outputs.md}
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
   
-##### Start Telegraf
+### Start Telegraf
 
 {@include: ../_include/metric-shipping/telegraf-run.md}
 
-##### Check Logz.io for your metrics
+### Check Logz.io for your metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 

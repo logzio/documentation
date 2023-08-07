@@ -14,25 +14,12 @@ metrics_alerts: []
 ---
 
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
-
-<Tabs>
-
-
-
-
-<!-- tab:start -->
-
-<TabItem value="overview" label="Overview" default>
-
 
 Deploy this integration to send traces from your Jaeger installation to Logz.io.
 
 Logz.io recommends that you use OpenTelemetry to gather trace transaction data from your system. Because of its versatility, OpenTelemetry has been widely adopted as the industry standard: OpenTelemetry can be equipped with many additional functionalities, one of which is collecting aggregated trace data. Beyond that, [OpenTelemetry](https://github.com/open-telemetry) is set to be the best production-ready solution going forward.
 
-## Architecture overview
+## Manual configuration
 
 This integration includes:
 
@@ -41,17 +28,8 @@ This integration includes:
 
 On deployment, your Jaeger instrumentation captures spans from your application and forwards them to the collector, which exports the data to your Logz.io account.
 
-</TabItem>
 
-<!-- tab:end -->
-
-
-<!-- tab:start -->
-
-<TabItem value="local-host" label="Local host">
-
-
-## Set up your locally hosted Jaeger installation to send traces to Logz.io
+### Set up your locally hosted Jaeger installation to send traces to Logz.io
 
 **Before you begin, you'll need**:
 
@@ -59,7 +37,7 @@ On deployment, your Jaeger instrumentation captures spans from your application 
 * An active account with Logz.io
 
 
-### Download and configure OpenTelemetry collector
+#### Download and configure OpenTelemetry collector
 
 Create a dedicated directory on the host of your application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.70.0) that is relevant to the operating system of your host.
 
@@ -133,7 +111,7 @@ service:
 {@include: ../_include/tracing-shipping/replace-tracing-token.html}
 {@include: ../_include/tracing-shipping/tail-sampling.md}
 
-### Start the collector
+#### Start the collector
 
 Run the following command:
 
@@ -143,30 +121,15 @@ Run the following command:
 * Replace `<path/to>` with the path to the directory where you downloaded the collector.
 * Replace `<VERSION-NAME>` with the version name of the collector applicable to your system, e.g. `otelcontribcol_darwin_amd64`.
 
-### Run the application
+#### Run the application
 
 Run the application to generate traces.
 
 
-### Check Logz.io for your traces
+#### Check Logz.io for your traces
 
 Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
 
-
-</TabItem>
-
-<!-- tab:end -->
-
-<!-- tab:start -->
-
-<TabItem value="troubleshooting" label="Troubleshooting">
+## Troubleshooting
 
 {@include: ../_include/tracing-shipping/otel-troubleshooting.md}
-
-</TabItem>
-
-<!-- tab:end -->
-
-</Tabs>
-
-<!-- tabContainer:end -->

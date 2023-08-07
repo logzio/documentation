@@ -22,14 +22,14 @@ Cisco SecureX connects the breadth of Cisco's integrated security portfolio and 
 
 
 
-##### Pull the Docker image of the Logz.io API fetcher
+### Pull the Docker image of the Logz.io API fetcher
 
 ```shell
 docker pull logzio/logzio-api-fetcher
 ```
 
 
-##### Create a local directory for this integration
+### Create a local directory for this integration
 
 You will need a dedicated directory to use it as mounted directory for the Docker container of the Logz.io API fetcher.
 
@@ -38,7 +38,7 @@ mkdir logzio-api-fetcher
 cd logzio-api-fetcher
 ```
 
-##### Create a configuration file
+### Create a configuration file
 
 In the directory created in the previous step, create a file `config.yaml` using the example configuration below:
 
@@ -78,7 +78,7 @@ auth_apis:
 | custom_fields | Pairs of key and value that will be added to each data and be sent to Logz.io. | Optional | 
 
 
-##### Create a Last Start Dates text file
+### Create a Last Start Dates text file
 
 Create an empty text file named last_start_dates.txt in the same directory as the config file:
 
@@ -90,7 +90,7 @@ After every successful iteration of an API, the last start date of the next iter
 
 If you stopped the container, you can continue from the exact place you stopped, by adding the date to the API filters in the configuration.
 
-##### Run the Docker container
+### Run the Docker container
 
 ```shell
 docker run --name logzio-api-fetcher \
@@ -98,7 +98,7 @@ docker run --name logzio-api-fetcher \
 logzio/logzio-api-fetcher
 ```
 
-##### Stop the Docker container
+### Stop the Docker container
 
 When you stop the container, the code will run until the iteration is completed. To make sure it will finish the iteration on time, please give it a grace period of 30 seconds when you run the `docker stop` command.
 
@@ -106,7 +106,7 @@ When you stop the container, the code will run until the iteration is completed.
 docker stop -t 30 logzio-api-fetcher
 ```
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours,
 and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for data of your custom field type value or type `api_fetcher` to see the incoming Cisco SecureX logs.

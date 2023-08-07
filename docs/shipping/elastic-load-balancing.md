@@ -19,14 +19,13 @@ When you set Logz.io to fetch Elastic Load Balancing (ELB) logs, Logz.io will pe
 
 {@include: ../_include/log-shipping/s3-bucket.md service="ELB" %}
 
-#### Configuration
 
 **Before you begin, you'll need**:
 `s3:ListBucket` and `s3:GetObject` [permissions](https://docs.logz.io/user-guide/give-aws-access-with-iam-roles/) for the required S3 bucket (one bucket per region)
 
  
 
-##### Send your logs to an S3 bucket
+### Send your logs to an S3 bucket
 
 Logz.io fetches your Elastic Load Balancing logs from an S3 bucket.
 
@@ -41,7 +40,7 @@ For help with setting this up, see these docs from AWS:
 
 
 
-##### Add a new S3 bucket using the dedicated Logz.io configuration wizard
+### Add a new S3 bucket using the dedicated Logz.io configuration wizard
 
 Log into the app to use the dedicated Logz.io [configuration wizard](https://app.logz.io/#/dashboard/send-your-data/log-sources/elastic-load-balancing) and add a new S3 bucket.
 
@@ -51,7 +50,7 @@ Log into the app to use the dedicated Logz.io [configuration wizard](https://app
 {@include: ../_include/log-shipping/add-s3-bucket.md}
 
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

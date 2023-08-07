@@ -2,7 +2,7 @@
 id: Crowdstrike
 title: Crowdstrike
 overview: Crowdstrike is a SaaS (software as a service) system security solution. Deploy this integration to ship Crowdstrike events from your Crowdstrike account to Logz.io using FluentD.
-product: ['logs', 'metrics']
+product: ['siem']
 os: ['windows', 'linux']
 filters: ['Security']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/crowdstrike-logo.svg
@@ -22,9 +22,6 @@ Fluentd will fetch all existing logs, as it is not able to ignore older logs.
 :::
  
 
-
-### Architecture overview
-
 This integration includes:
 
 
@@ -37,10 +34,6 @@ This integration includes:
 Upon deployment, the Crowdstrike connector connects to your Crowdstrike account to collect events. This data is written into a file on your device. The FluentD agent collects the data from this file, connects to your Logz.io account and sends the events to Logz.io.
  
 
-
-
-#### Connect your Crowdstrike account to Logz.io
-
 **Before you begin, you'll need**: 
 
 * an active account with Crowdstrike
@@ -52,7 +45,7 @@ Upon deployment, the Crowdstrike connector connects to your Crowdstrike account 
  
 
 
-##### Configure Crowdstrike connector
+### Configure Crowdstrike connector
 
 
 1. Open the configuration file located at `/opt/crowdstrike/etc/cs.falconhoseclient.cfg`.
@@ -62,13 +55,13 @@ Upon deployment, the Crowdstrike connector connects to your Crowdstrike account 
 5. Save the changes.
 
 
-##### Install Ruby gems for FluentD
+### Install Ruby gems for FluentD
 
 1. Install the **fluent-plugin-concat** gem. This gem concatenates multiline logs.
 2. Install the **fluent-plugin-logzio** gem. This gem enables communication between your FluentD agent and Logz.io.
 
 
-##### Configure FluentD
+### Configure FluentD
 
 1. Write down your Logz.io listener URL and logs shipping token by navigating to your Logz.io account and selecting **Settings > Tools > Manage Tokens**. The Listener URL for your account is displayed above the token table.
 2. Create a new configuration file for your FluentD. For example, `fluentdconfig.conf`.
@@ -142,7 +135,7 @@ Upon deployment, the Crowdstrike connector connects to your Crowdstrike account 
 4. Save the changes.
 
 
-##### Start the Crowdstrike connector
+### Start the Crowdstrike connector
 
 Run the following command:
 
@@ -165,14 +158,14 @@ sudo service cs.falconhoseclientd start
 ```
 
 
-##### Start FluentD
+### Start FluentD
 
 Start your FluentD agent with the configuration file created for this integration.
 
 For example, run `fluentd -c <<PATH-TO-YOUR-FLUENTD-CONFIG-FILE>>`. 
 
 
-##### Check Logz.io for your events
+### Check Logz.io for your events
 
 Give your events some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for data of type `crowdstrike` to see the incoming Crowdstrike events.
   

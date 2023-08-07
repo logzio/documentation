@@ -28,7 +28,6 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 :::
 <!-- info-box-end -->
 
-## Configuration instructions
 
 ### 1. Deploy the Helm chart in the same Kubernetes cluster as your application
  

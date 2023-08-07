@@ -14,24 +14,21 @@ metrics_alerts: []
 ---
 
 
-
-## Overview
-
 etcd is an open source, distributed, consistent key-value store for shared configuration, service discovery, and scheduler coordination of distributed systems or clusters of machines. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format etcd metrics to Logz.io, you need to add the **inputs.prometheus** and **outputs.http** plug-ins to your Telegraf configuration file.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["3Vr8IYt2XR2LEKP6PeVV0r"] -->
 
-#### Configure Telegraf to send your metrics data to Logz.io
+### Configure Telegraf to send your metrics data to Logz.io
 
  
 
-##### Set up Telegraf v1.17 or higher on the same machine as etcd
+#### Set up Telegraf v1.17 or higher on the same machine as etcd
 
 {@include: ../_include/metric-shipping/telegraf-setup.md}
  
-##### Add the inputs.prometheus plug-in
+#### Add the inputs.prometheus plug-in
 
 First you need to configure the input plug-in to enable Telegraf to scrape the etcd data from your hosts. To do this, add the following code to the configuration file:
 
@@ -135,12 +132,13 @@ The full list of data scraping and configuring options can be found [here](https
 :::
  
 
-##### Add the outputs.http plug-in
+#### Add the outputs.http plug-in
 
 {@include: ../_include/metric-shipping/telegraf-outputs.md}
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
 
-##### Check Logz.io for your metrics
+### Check Logz.io for your metrics
+
 {@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboards to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["3Vr8IYt2XR2LEKP6PeVV0r"] -->

@@ -13,9 +13,9 @@ metrics_dashboards: ['']
 metrics_alerts: []
 ---
 
- 
+## Logs
 
-#### Deploying logzio-mysql-logs directly via Docker
+### Deploying logzio-mysql-logs directly via Docker
 
 **Before you begin, you'll need**:
 
@@ -25,13 +25,13 @@ metrics_alerts: []
 
  
 
-##### Pull Docker image
+#### Pull Docker image
 
 ```shell
 docker pull logzio/mysql-logs
 ```
 
-##### Run the container
+#### Run the container
 
 
 ```
@@ -51,7 +51,7 @@ docker run -d --name logzio-mysql-logs \
 logzio/mysql-logs:latest
 ```
 
-###### Parameters
+##### Parameters
 
 | Parameter | Description | Required/Default |
 |---|---|---|
@@ -83,7 +83,7 @@ docker run -d \
   logzio/mysql-logs:latest
 ```
 
-##### Check Logz.io for your logs
+#### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
@@ -92,7 +92,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
  
 
  
-#### Deploying logzio-mysql-logs directly via Kubernetes
+### Deploying logzio-mysql-logs directly via Kubernetes
 
 **Before you begin, you'll need**:
 
@@ -108,7 +108,7 @@ This is a basic deployment. If you need to apply advanced configurations, adjust
  
 
 
-##### Create monitoring namespace:
+#### Create monitoring namespace
 
 If you don't already have a **monitoring** namespace in your cluster, create one using the following command:
 
@@ -118,7 +118,7 @@ kubectl create namespace monitoring
 
 The `logzio-mysql-logs` will be deployed under this namespace.
 
-##### Store your credentials:
+#### Store your credentials
 
 Save your Logz.io shipping credentials as a Kubernetes secret using the following command:
 
@@ -160,7 +160,7 @@ Replace the placeholders to match your specifics. (They are indicated by the dou
 
 
 
-##### Deploy
+#### Deploy
 
 Run the following command:
 
@@ -173,7 +173,7 @@ If you chose to use one of the optional parameters in the previous step, you'll 
 :::
  
 
-##### Check Logz.io for your logs
+#### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
@@ -188,7 +188,7 @@ For a much easier and more efficient way to collect and send metrics, consider u
 :::
 
 
-
+## Metrics
 
 Deploy this integration to send your Amazon RDS metrics to Logz.io.
 
@@ -200,7 +200,6 @@ This integration creates a Kinesis Data Firehose delivery stream that links to y
 
 {@include: ../_include/metric-shipping/generic-dashboard.html}
 
-#### Setup
 
 **Before you begin, you'll need**:
 
@@ -208,7 +207,7 @@ This integration creates a Kinesis Data Firehose delivery stream that links to y
 
 
 
-##### Configure AWS to forward metrics to Logz.io
+### Configure AWS to forward metrics to Logz.io
 
 To deploy this project, click the button that matches the region you wish to deploy your Stack to:
 
@@ -232,7 +231,7 @@ To deploy this project, click the button that matches the region you wish to dep
 | `ap-southeast-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-southeast-2.s3.amazonaws.com/metric-stream-helpers/aws/1.2.4/sam-template.yaml&stackName=logzio-metric-stream&param_logzioToken=<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8053) |
 | `ca-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ca-central-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ca-central-1.s3.amazonaws.com/metric-stream-helpers/aws/1.2.4/sam-template.yaml&stackName=logzio-metric-stream&param_logzioToken=<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8053)     |
 
-##### Specify stack details
+#### Specify stack details
 
 Specify the stack details as per the table below, check the checkboxes and select **Create stack**.
 
@@ -247,7 +246,7 @@ Specify the stack details as per the table below, check the checkboxes and selec
 
 
 
-##### Check Logz.io for your metrics
+#### Check Logz.io for your metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 

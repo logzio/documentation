@@ -20,7 +20,7 @@ At the end of this process, your Azure function will forward logs from an Azure 
 
 ![Overview of Azure Diagnostic Logz.io integration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/azure-diagnostic-logs-overview.png)
 
-###### Overview of the services you'll be setting up in your Azure account
+### Overview of the services you'll be setting up in your Azure account
 
 The automated deployment sets up a new Event Hub namespace and all the components you'll need to collect logs in one Azure region.
 
@@ -34,7 +34,7 @@ The automated deployment will create the following services:
 * Application Insights
 
 
-###### You'll need an event hub in the same region as your services
+### You'll need an event hub in the same region as your services
 
 How many automated deployments you will need, depends on the number of regions involved.
 You'll need at least 1 automated deployment for each region where you want to collect logs.
@@ -43,18 +43,18 @@ You'll need at least 1 automated deployment for each region where you want to co
 This is because Azure requires an event hub in the same region as your services. The good news is you can stream data from multiple services to the same event hub, just as long as they are in the same region.
 
 
-###### Backing up your logs
+### Backing up your logs
 
 This deployment will automatically back up your data in case of connection or shipping errors.
 
 If this happens, the logs that weren't shipped to Logz.io will be uploaded to the blob storage `logziologsbackupstorage` under the container `logziologsbackupcontainer`.
 
 
-#### Configuration
+## Configuration
 
  
 
-##### Configure an automated deployment
+### Configure an automated deployment
 
 You can skip this step if you have already set up an automated deployment in this region before.
 
@@ -66,7 +66,7 @@ You can skip this step if you have already set up an automated deployment in thi
 
 You'll be taken to Azure, where you'll configure the resources to be deployed.
 
-###### Recommended settings
+### Recommended settings
 
 
 
@@ -83,7 +83,7 @@ For all other parameters: To use your existing services, change the parameter to
 At the bottom of the form, select **Review + Create**. Next, click **Create** to deploy.
 Deployment can take a few minutes.
 
-##### Stream data to the new event hub
+### Stream data to the new event hub
 
 So far in this process, you've deployed an event hub and a function app.
 
@@ -111,7 +111,7 @@ Select your event hub:
 
 The selected data will now begin streaming to the event hub.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your data some time to get from your system to ours, and then open your [Logz.io Open Search Dashboards account](https://app.logz.io/#/dashboard/osd/discover?).
 If everything went according to plan, you should see logs of the `type:eventHub` in Open Search Dashboards.
@@ -119,7 +119,7 @@ If everything went according to plan, you should see logs of the `type:eventHub`
 If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 
-##### Updating your parameters after deployment
+## Updating your parameters after deployment
 
 You may find that you want to make changes to the parameter values after you've deployed. Here's what you can do:
 

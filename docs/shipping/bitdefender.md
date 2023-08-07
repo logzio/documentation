@@ -24,7 +24,7 @@ Bitdefender is an antivirus software. This integration allows you to send Bitdef
 
  
 
-##### Generate Bitdefender GravityZone API key
+### Generate Bitdefender GravityZone API key
 
 * Log in to your Bitdefender GravityZone Control Center.
 * Click the username in the upper-right corner and select **My Account**.
@@ -32,7 +32,7 @@ Bitdefender is an antivirus software. This integration allows you to send Bitdef
 * Enable **Event Push Service API** and **REST API**.
 * Click **Save**.
 
-##### Copy the Bitdefender GravityZone API Access URL
+### Copy the Bitdefender GravityZone API Access URL
 
 Open **Control Center API** and copy the **Access URL**. Keep it handy for the following steps.
 
@@ -41,7 +41,7 @@ It is needed to replace the placeholder `<<ACCESS_URL>>` below.
 ![Copy Bitdefender API ACCESS URL](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-integrations/bitdefender.png)
 
 
-##### Encode the API Key in Base64
+### Encode the API Key in Base64
 
 Open a MAC or linux terminal. Run the echo command with the new API Key created in the previous section.
 
@@ -52,7 +52,7 @@ Sample response (shortened for simplicity): `AeFgjU5N0Eg4rRMwFGG=AeFgjU5N0Eg4rRM
 
 Copy the encoded API Kay. Keep it handy for the next step. It is needed to replace the placeholder `<<ENCODED_API_KEY_BASE_64>>` below.
 
-##### Configure event push settings
+### Configure event push settings
 
 Use a CURL command to configure Bitdefender event push settings.
 
@@ -75,7 +75,7 @@ curl -k -X POST
 * `<<ENCODED_API_KEY_BASE_64>>`: Replace with the encoded key returned in the previous step. (Do NOT delete the term `basic`. It belongs there.)
 
 
-###### Expected returned value
+### Expected returned value
 
 The returned value should look like this:
 
@@ -83,7 +83,7 @@ The returned value should look like this:
 {"id":"1","jsonrpc":"2.0","result":true}
 ```
 
-##### Contact support to request custom parsing assistance
+### Contact support to request custom parsing assistance
 
 The logs will require customized parsing so they can be effectively mapped in Open Search Dashboards.
 

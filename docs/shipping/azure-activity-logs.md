@@ -20,7 +20,7 @@ At the end of this process, you'll have configured an event hub namespace, an ev
 The resources set up by the automated deployment can collect data for a single Azure region.
 
 
-###### Overview of the services you'll be setting up in your Azure account
+### Overview of the services you'll be setting up in your Azure account
 
 The automated deployment sets up a new Event Hub namespace and all the components you'll need to collect logs in one Azure region.
 
@@ -31,7 +31,7 @@ Each automated deployment sets up these resources in your Azure environment:
 * 1 event hub
 * 2 blobs (1 to store logs from the Azure functions, 1 for failover storage)
 
-###### Determining how many automated deployments to deploy
+### Determining how many automated deployments to deploy
 
 You'll need an event hub in the same region as your services.
 
@@ -39,11 +39,11 @@ How many automated deployments you will need, depends on the number of regions i
 
 You'll need at least 1 automated deployment for each region where you want to collect logs.This is because Azure requires an event hub in the same region as your services. The good news is you can stream data from multiple services to the same event hub, just as long as they are in the same region.
 
-#### Configuration
+### Configuration
 
  
 
-##### If needed, configure an automated deployment
+#### If needed, configure an automated deployment
 
 If you already set up an automated deployment in this region, you can skip to step 2.
 
@@ -57,7 +57,7 @@ Make sure to use the settings shown below.
 
 ![Customized template](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure-event-hubs/customized-template.png)
 
-###### In the BASICS section
+#### In the BASICS section
 
 | Parameter | Description |
 |---|---|
@@ -65,7 +65,7 @@ Make sure to use the settings shown below.
 | Location | Choose the same region as the Azure services that will stream data to this Event Hub. |
 {:.paramlist}
 
-###### In the SETTINGS section
+#### In the SETTINGS section
 
 | Parameter | Description |
 |---|---|
@@ -77,7 +77,7 @@ At the bottom of the page, select **I agree to the terms and conditions stated a
 
 Deployment can take a few minutes.
 
-##### _(Optional)_ Add failsafes for shipping timeouts
+#### _(Optional)_ Add failsafes for shipping timeouts
 
 You can configure Azure to back up your logs to Azure Blob Storage.
 So if the connection to Logz.io times out or an error occurs, you'll still have a backup of any dropped data.
@@ -98,7 +98,7 @@ For more information on Azure Blob output binding, see [Azure Blob storage bindi
 {:.info-box.read}
  
 
-##### Stream data to the new event hubs
+#### Stream data to the new event hubs
 
 So far in this process, you've deployed an event hub and a function app.
 
@@ -124,7 +124,7 @@ Choose your event hub:
 In the _log_ section, select the logs you want to stream, and then click **Save**.
 The selected logs will now stream to the event hub.
 
-##### Check Logz.io for your logs
+#### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open Open Search Dashboards.
 If everything went according to plan, you should see logs with the type `eventHub` in Open Search Dashboards.

@@ -44,11 +44,11 @@ Please keep these notes in mind when configuring logging.
 
 You can add your buckets directly from Logz.io by providing your S3 credentials and configuration.
 
-#### Configure Logz.io to fetch logs from an S3 bucket
+## Configure Logz.io to fetch logs from an S3 bucket
 
  
 
-##### Add a new S3 bucket using the dedicated Logz.io configuration wizard
+### Add a new S3 bucket using the dedicated Logz.io configuration wizard
 
 {@include: ../_include/log-shipping/s3-bucket-snippet.html}
 
@@ -75,7 +75,7 @@ Logz.io cannot fetch old logs retroactively.
 :::
  
 
-##### Enable Logz.io to access your S3 bucket
+### Enable Logz.io to access your S3 bucket
 
 Logz.io will need the following permissions to your S3 bucket:
 
@@ -116,7 +116,7 @@ Note that the ListBucket permission is set to the entire bucket and the GetObjec
  
 
 
-##### Create a Logz.io-AWS connector
+### Create a Logz.io-AWS connector
 
 In your Logz.io app, go to **Send your data**.
 Select the relevant AWS resource from the left menu.
@@ -140,7 +140,7 @@ Keep this information available so you can use it in AWS.
 
 Choose whether you want to include the **source file path**. This saves the path of the file as a field in your log.
 
-##### Create the IAM Role in AWS
+### Create the IAM Role in AWS
 
 Go to your [IAM roles](https://console.aws.amazon.com/iam/home#/roles) page in your AWS admin console.
 
@@ -158,7 +158,7 @@ and then paste the **External ID** from step 1.
 
 Click **Next: Permissions** to continue.
 
-##### Create the policy
+### Create the policy
 
 In the  _Create role_ screen, click **Create policy**.
 The _Create policy_ page loads in a new tab.
@@ -175,7 +175,7 @@ Remember the policy's name—you'll need this in the next step.
 
 Close the tab to return to the _Create role_ page.
 
-##### Attach the policy to the role
+### Attach the policy to the role
 
 Refresh the page,
 and then type your new policy's name in the search box.
@@ -185,7 +185,7 @@ Find your policy in the filtered list and select its check box.
 Click **Next: Tags**,
 and then click **Next: Review** to continue to the _Review_ screen.
 
-##### Finalize the role
+### Finalize the role
 
 Give the role a **Name** and optional **Description**.
 We recommend beginning the name with "logzio-"
@@ -193,7 +193,7 @@ so that it's clear you're using this role with Logz.io.
 
 Click **Create role** when you're done.
 
-##### Copy the ARN to Logz.io
+### Copy the ARN to Logz.io
 
 In the _IAM roles_ screen, type your new role's name in the search box.
 
@@ -203,21 +203,23 @@ Copy the role ARN (top of the page).
 In Logz.io, paste the ARN in the **Role ARN** field, and then click **Save**.
 
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
- 
+
+
+## Add buckets directly from Logz.io
 
 You can add your buckets directly from Logz.io by providing your S3 credentials and configuration.
 
-#### Configure Logz.io to fetch logs from an S3 bucket
+### Configure Logz.io to fetch logs from an S3 bucket
 
  
 
-##### Add a new S3 bucket using the dedicated Logz.io configuration wizard
+### Add a new S3 bucket using the dedicated Logz.io configuration wizard
 
 {@include: ../_include/log-shipping/s3-bucket-snippet.html}
 
@@ -244,7 +246,7 @@ Logz.io cannot fetch old logs retroactively.
 :::
  
 
-##### Enable Logz.io to access your S3 bucket
+### Enable Logz.io to access your S3 bucket
 
 Logz.io will need the following permissions to your S3 bucket:
 
@@ -287,7 +289,7 @@ Note that the ListBucket permission is set to the entire bucket and the GetObjec
 :::
  
 
-##### Create the user
+### Create the user
 
 Browse to the [IAM users](https://console.aws.amazon.com/iam/home#/users)
 and click **Add user**.
@@ -301,7 +303,7 @@ Under _Select AWS access type_, select **Programmatic access**.
 
 Click **Next: Permissions** to continue.
 
-##### Create the policy
+### Create the policy
 
 In the  _Set permissions_ section, click **Attach existing policies directly > Create policy**.
 The _Create policy_ page loads in a new tab.
@@ -331,7 +333,7 @@ Remember the policy's name—you'll need this in the next step.
 
 Close the tab to return to the _Add user_ page.
 
-##### Attach the policy to the user
+### Attach the policy to the user
 
 Refresh the page,
 and then type your new policy's name in the search box.
@@ -341,14 +343,14 @@ Find your policy in the filtered list and select its check box.
 Click **Next: Tags**,
 and then click **Next: Review** to continue to the _Review_ screen.
 
-##### Finalize the user
+### Finalize the user
 
 Give the user a **Name** and optional **Description**,
 and then click **Create user**.
 
 You're taken to a success page.
 
-##### Add the bucket to Logz.io
+### Add the bucket to Logz.io
 
 Add the **S3 bucket name** and **Prefix**
 
@@ -358,7 +360,7 @@ In Logz.io, paste the **Access key** and **Secret key**,
 and then click **Save**.
 
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
@@ -398,7 +400,7 @@ configurations that use the existing role.
   [_Migrate to new IAM roles_](#migrate-to-new-roles)
   (below).
 
-#### Migrate to the Logz.io external ID in the same role {#migrate-with-same-role}
+### Migrate to the Logz.io external ID in the same role {#migrate-with-same-role}
 
 In this procedure, you'll:
 
@@ -416,7 +418,7 @@ make sure you know everywhere your existing IAM role is used in Logz.io.
 
  
 
-##### Delete an S3 configuration from Logz.io
+#### Delete an S3 configuration from Logz.io
 
 Choose an
 [S3 fetcher](https://app.logz.io/#/dashboard/send-your-data/log-sources/s3-bucket)
@@ -431,7 +433,7 @@ and make a note of the **Log type**.
 
 Delete the configuration.
 
-##### Replace the configuration
+#### Replace the configuration
 
 If this is for an S3 fetcher, click **Add a bucket**,
 and click **Authenticate with a role**.
@@ -441,7 +443,7 @@ and click **Authenticate with a role**.
 Recreate your configuration with the values you copied in step 1,
 and copy the **External ID** (you'll paste it in AWS in the next step).
 
-##### Replace the external ID in your IAM role
+#### Replace the external ID in your IAM role
 
 Browse to the [IAM roles](https://console.aws.amazon.com/iam/home#/roles) page.
 Open the role used by the configuration you deleted in step 1.
@@ -471,7 +473,7 @@ will stop working until you update them.
 
 Click **Update Trust Policy** to use the Logz.io external ID for this role.
 
-##### Save the new S3 configuration in Logz.io
+#### Save the new S3 configuration in Logz.io
 
 Save the configuration in Logz.io:
 
@@ -483,7 +485,7 @@ You'll see a success message if Logz.io authenticated and connected to your S3 b
 If the connection failed,
 double-check your credentials in Logz.io and AWS.
 
-##### _(If needed)_ Replace other configurations that use this role
+#### _(If needed)_ Replace other configurations that use this role
 
 If there are other S3 fetcher or Archive & restore configurations
 in this account that use the same role,
@@ -494,7 +496,7 @@ so you won't need to change the role again.
 
  
 
-#### Migrate to new IAM roles {#migrate-to-new-roles}
+### Migrate to new IAM roles {#migrate-to-new-roles}
 
 In this procedure, you'll:
 
@@ -506,7 +508,7 @@ where you need to fetch or archive logs in an S3 bucket.
 
  
 
-##### Delete an S3 configuration from Logz.io
+#### Delete an S3 configuration from Logz.io
 
 Choose an
 [S3 fetcher](https://app.logz.io/#/dashboard/send-your-data/log-sources/s3-bucket)
@@ -521,7 +523,7 @@ and make a note of the **Log type**.
 
 Delete the configuration.
 
-##### Replace the configuration
+#### Replace the configuration
 
 If this is for an S3 fetcher, click **Add a bucket**,
 and click **Authenticate with a role**.
@@ -531,7 +533,7 @@ and click **Authenticate with a role**.
 Recreate your configuration with the values you copied in step 1,
 and copy the **External ID** (you'll paste it in AWS later).
 
-##### Set up your new IAM role
+#### Set up your new IAM role
 
 Using the information you copied in step 1,
 follow the steps in
@@ -540,7 +542,7 @@ follow the steps in
 
 Continue with this procedure when you're done.
 
-##### _(If needed)_ Replace other configurations that use this role
+#### _(If needed)_ Replace other configurations that use this role
 
 If there are other S3 fetcher or Archive & restore configurations
 in this account that use the same role,
@@ -558,27 +560,27 @@ After setting up `s3:ListBucket` and `s3:GetObject` permissions, you can test th
   
  
 
-##### Install s3cmd
+### Install s3cmd
   
-###### For Linux and Mac:
+#### For Linux and Mac:
   
 Download the .zip file from the [master branch](https://github.com/s3tools/s3cmd/archive/master.zip) of the s3cmd GitHub repository.
   
-###### For Windows:
+#### For Windows:
   
 Download [s3cmd express](https://www.s3express.com/download.htm).
   
 Note that s3cmd will usually prefer your locally-configured s3 credentials over the ones that you provide as parameters. So, either backup your current s3 access settings, or use a new instance or Docker container.
 
-##### Configure s3cmd
+### Configure s3cmd
   
 Run `s3cmd --configure` and enter your Logz.io IAM user access and secret keys.
   
-##### List a required bucket
+### List a required bucket
   
 Run `s3cmd ls s3://<BUCKET_NAME>/<BUCKET_PREFIX>/`. Replace `<BUCKET_NAME>` with the name of your s3 bucket and `<BUCKET_PREFIX>` with the bucket prefix, if the prefix is required.
   
-##### Get a file from the bucket
+### Get a file from the bucket
   
 Run `s3cmd get s3://<BUCKET_NAME>/<BUCKET_PREFIX>/<OBJECT_NAME>`. Replace `<BUCKET_NAME>` with the name of your s3 bucket, `<BUCKET_PREFIX>` with the bucket prefix and `<OBJECT_NAME>` with the name of the file you want to retrieve.
   

@@ -15,20 +15,20 @@ metrics_alerts: []
 
  
 
-#### Manual Lambda configuration
+## Manual Lambda configuration
 
 {@include: ../_include/log-shipping/note-lambda-test.md}
 
 
  
 
-##### Create a new Kinesis data stream
+### Create a new Kinesis data stream
 
 If you're not already sending your GuardDuty logs through a Kinesis data stream, create one using the [Kinesis console](https://console.aws.amazon.com/kinesis).
 
 Save the name of the data stream—you'll need this in the next step.
 
-##### Configure CloudWatch Events
+### Configure CloudWatch Events
 
 In the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/) left menu, click **Events > Rules**, and then click **Create rule**.
 
@@ -43,11 +43,11 @@ Choose the Kinesis data stream from step 1 from the **Stream** list.
 
 Click **Configure details** (lower right corner).
 
-##### Create a new IAM role
+### Create a new IAM role
 
 Create a new IAM role and attach the **AWSLambdaKinesisExecutionRole** policy to the new role.
 
-##### Create a new Lambda function
+### Create a new Lambda function
 
 This Lambda function will collect CloudWatch logs and sends them to Logz.io in bulk over HTTP.
 
@@ -67,23 +67,23 @@ After a few moments, you'll see configuration options for your Lambda function.
 
 You'll need this page later on, so keep it open.
 
-##### Download the Kinesis stream shipper
+### Download the Kinesis stream shipper
 
 Download the latest Kinesis stream shipper zip file from the [Logz.io GitHub page](https://github.com/logzio/logzio_aws_serverless/releases).
 
 By default, the zip file will be named `logzio-kinesis-0.0.2.zip`.
 
-##### Upload the zip file
+### Upload the zip file
 
 In the _Function_ code section of Lambda, open the **Code entry type** list and select **Upload a .ZIP file**.
 
 Click **Upload** and select the zip file you created in the previous step (`logzio-kinesis-0.0.2.zip`).
 
-##### Set environment variables
+### Set environment variables
 
 In the _Environment variables_ section, set your Logz.io account token, URL, and log type, and any other variables that you need to use.
 
-###### Environment variables
+### Environment variables
 
 | Parameter | Description | Required/Default |
 |---|---|---|
@@ -95,7 +95,7 @@ In the _Environment variables_ section, set your Logz.io account token, URL, and
 | COMPRESS | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. | `false` |
 
 
-##### Configure the function's basic settings
+### Configure the function's basic settings
 
 In Basic settings, we recommend starting with these settings:
 
@@ -107,7 +107,7 @@ These default settings are just a starting point. Check your Lambda usage regula
 :::
  
 
-##### Set the Kinesis event trigger
+### Set the Kinesis event trigger
 
 Find the **Add triggers** list (left side of the Designer panel).
 Choose **Kinesis** from this list.
@@ -117,7 +117,7 @@ Choose the **Kinesis stream** that the Lambda function will watch.
 
 Click **Add**, and then click **Save** at the top of the page.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
@@ -126,7 +126,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
  
  
 
-#### Automated CloudFormation deployment
+## Automated CloudFormation deployment
 
 {@include: ../_include/log-shipping/note-lambda-test.md}
 
@@ -137,7 +137,7 @@ an S3 bucket to store the CloudFormation package
 
  
 
-##### Create a new Kinesis data stream
+### Create a new Kinesis data stream
 
 If you're not already sending your GuardDuty logs through a Kinesis data stream, create one using the [Kinesis console](https://console.aws.amazon.com/kinesis).
 
@@ -167,7 +167,7 @@ Select the button below according to the region where you need to deploy the sta
 
 Keep the default setting in the **Create stack** screen and select **Next**.
 
-##### Specify the stack details
+### Specify the stack details
 
 ![Specify stack details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/guardduty/second.png)
 
@@ -187,20 +187,20 @@ Specify the stack details as per the table below and select **Next**.
 | KinesisStreamBatchSize        | The largest number of records to read from your stream at one time.                                                                                                                                                                                                                                | `100`                      |
 | KinesisStreamStartingPosition | The position in the stream to start reading from. For more information, see [ShardIteratorType](https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html) in the Amazon Kinesis API Reference.                                                                            | `"LATEST"`                 |
 
-##### Configure the stack options
+### Configure the stack options
 
 ![Configure stack options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/guardduty/third.png)
 
 Specify the **Key** and **Value** parameters for the **Tags** and select **Next**.
 
-##### Review the deployment
+### Review the deployment
 
 ![Review deployment](https://dytvr9ot2sszz.cloudfront.net/logz-docs/guardduty/fourth.png)
 
 Confirm that you acknowledge that AWS CloudFormation might create IAM resources and select **Create stack**.
 
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

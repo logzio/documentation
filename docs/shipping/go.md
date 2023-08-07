@@ -24,14 +24,14 @@ This shipper uses goleveldb and goqueue as a persistent storage implementation o
 Logs are queued in the buffer and 100% non-blocking.
 A background Go routine ships the logs every 5 seconds.
 
-#### Set up the Logz.io Golang API client
+### Set up the Logz.io Golang API client
 
 **Before you begin, you'll need**:
 Go 1.x or higher
 
  
 
-##### Add the dependency to your project
+### Add the dependency to your project
 
 Navigate to your project's folder in the command line, and run this command to install the dependency.
 
@@ -39,7 +39,7 @@ Navigate to your project's folder in the command line, and run this command to i
 go get -u github.com/logzio/logzio-go
 ```
 
-##### Configure the client
+### Configure the client
 
 Use the sample in the code block below as a starting point, and replace the sample with a configuration that matches your needs.
 
@@ -76,7 +76,7 @@ func main() {
 }
 ```
 
-###### Parameters
+#### Parameters
 
 | Parameter | Description | Required/Default |
 |---|---|---|
@@ -89,7 +89,7 @@ func main() {
 | SetDrainDiskThreshold  | Maximum file system usage, in percent. Used only if `SetCheckDiskSpace` is set to `true`. If the file system storage exceeds this threshold, buffering stops and new logs are dropped. Buffering resumes if used space drops below the threshold. | `70.0` |
 
 
-###### Code sample
+#### Code sample
 
 ```go
 msg := fmt.Sprintf("{\"%s\": \"%d\"}", "message", time.Now().UnixNano())
@@ -101,14 +101,14 @@ if err != nil {
 l.Stop() // Drains the log buffer
 ```
 
-# Metrics
-##### Install the SDK
+## Metrics
+### Install the SDK
 
 Run the following command:
 
 `go get github.com/logzio/go-metrics-sdk`
 
-##### Configure the exporter
+### Configure the exporter
 
 Add the exporter definition to your application code:
 
@@ -140,7 +140,7 @@ Replace the placeholders in the code to match your specifics.
 | Quantiles | The quantiles of the histograms. | Optional | [0.5, 0.9, 0.95, 0.99] |
 | HistogramBoundaries | The histogram boundaries. | Optional | - |
 
-##### Add the exporter setup
+### Add the exporter setup
 
 Add the exporter setup definition to your application code:
 
@@ -172,7 +172,7 @@ Replace the placeholders in the code to match your specifics.
 | `<<LABEL_VALUE>>` | The label value. | 
 	
 
-##### Set up the Metric Instruments Creator
+### Set up the Metric Instruments Creator
 	
 Create `Meter` to create metric instruments:
 	
@@ -207,7 +207,7 @@ func handleErr(err error) {
 
 
 
-##### Add metric instruments
+### Add metric instruments
 
 Add a required metric intrument to your code. Below are the available metric instruments and their code definition.
 
@@ -223,7 +223,7 @@ The exporter uses the `simple` selector's `NewWithHistogramDistribution()`. This
 | UpDownCounter | A synchronous Instrument which supports increments and decrements. | Sum |
 | Asynchronous UpDownCounter | An asynchronous Instrument which reports additive value(s) when the instrument is being observed. | Sum |
 
-###### Counter
+### Counter
 
 ```go
 // Use `ctx` and `meter` from last steps.
@@ -243,7 +243,7 @@ intCounter.Add(ctx, int64(10), attribute.String("<<LABEL_KEY>>", "<<LABEL_VALUE>
 floatCounter.Add(ctx, float64(2.5), attribute.String("<<LABEL_KEY>>", "<<LABEL_VALUE>>"))
 ```
 
-###### Asynchronous Counter
+### Asynchronous Counter
 
 ```go
 // Use `meter` from last steps.
@@ -269,7 +269,7 @@ _ = metric.Must(meter).NewFloat64CounterObserver(
 )
 ```
 
-###### Histogram
+### Histogram
 
 ```go
 // Use `ctx` and `meter` from last steps.
@@ -289,7 +289,7 @@ intHistogram.Record(ctx, int(10), attribute.String("<<LABEL_KEY>>", "<<LABEL_VAL
 floatHistogram.Record(ctx, float64(2.5), attribute.String("<<LABEL_KEY>>", "<<LABEL_VALUE>"))
 ```
 
-###### Asynchronous Gauge
+### Asynchronous Gauge
 
 ```go
 // Use `meter` from last steps.
@@ -315,7 +315,7 @@ _ = metric.Must(meter).NewFloat64GaugeObserver(
 )
 ```
 
-###### UpDownCounter
+### UpDownCounter
 
 ```go
 // Use `ctx` and `meter` from last steps.
@@ -335,7 +335,7 @@ intUpDownCounter.Add(ctx, int64(-10), attribute.String("<<LABEL_KEY>>", "<<LABEL
 floatUpDownCounter.Add(ctx, float64(2.5), attribute.String("<<LABEL_KEY>>", "<<LABEL_VALUE>"))
 ```
 
-###### Asynchronous UpDownCounter
+### Asynchronous UpDownCounter
 
 ```go
 // Use `meter` from last steps.
@@ -361,15 +361,16 @@ _ = metric.Must(meter).NewFloat64UpDownCounterObserver(
 )
 ```
 
-##### Check Logz.io for your metrics
+### Check Logz.io for your metrics
+
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
 
-# Traces
+## Traces
 
 Deploy this integration to enable instrumentation of your Go application using OpenTelemetry. 
 
-## Architecture overview
+### Manual configuration
 
 This integration includes:
 
@@ -382,7 +383,7 @@ On deployment, the Go instrumentation automatically captures spans from your app
 
 
 
-## Setup instrumentation for your locally hosted Go application and send traces to Logz.io
+#### Setup instrumentation for your locally hosted Go application and send traces to Logz.io
 
 **Before you begin, you'll need**:
 
@@ -399,7 +400,7 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 
 
 
-### Download the general instrumentation packages
+##### Download the general instrumentation packages
 
 These packages are required to enable instrumentation for your code regardless of the type of application that you need to instrument. 
 
@@ -425,7 +426,7 @@ We recommend sending OTLP traces using HTTP. This is why we import the `otlptrac
 :::
 <!-- info-box-end -->
 
-### Download the application specific instrumentation packages
+##### Download the application specific instrumentation packages
 
 Depending on the type of your application, you need to download instrumentation packages specific to your application. For example, if your application is a HTTP server, you will need the `opentelemetry.io/contrib/instrumentation/net/http/otelhttp` package. The full list of all available packages can be found in the [OpenTelemetry contrib directory](https://github.com/open-telemetry/opentelemetry-go-contrib/tree/v0.22.0/instrumentation).
 
@@ -435,7 +436,7 @@ The example below is given for a HTTP server application:
 go get -u go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp
 ```
 
-### Add the instrumentation to the `import` function
+##### Add the instrumentation to the `import` function
 
 Add all the packages downloaded in the previous steps to the `import` function of your application.
 
@@ -462,7 +463,7 @@ import (
 )
 ```
 
-### Add the `initProvider` function
+##### Add the `initProvider` function
 
 
 Add the `initProvider` function to the application code as follows:
@@ -498,7 +499,7 @@ func initProvider() func() {
 }
 ```
 
-### Instrument the code in the `main` function
+##### Instrument the code in the `main` function
 
 In the `main` function of your application, add the following code:
 
@@ -536,7 +537,7 @@ func handleErr(err error, message string) {
 ```
 
 
-### Download and configure OpenTelemetry collector
+##### Download and configure OpenTelemetry collector
 
 Create a dedicated directory on the host of your Go application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.70.0) that is relevant to the operating system of your host.
 
@@ -549,7 +550,7 @@ After downloading the collector, create a configuration file `config.yaml` with 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
 
-### Start the collector
+##### Start the collector
 
 Run the following command from the directory of your application file:
 
@@ -559,7 +560,7 @@ Run the following command from the directory of your application file:
 * Replace `<path/to>` with the path to the directory where you downloaded the collector.
 * Replace `<VERSION-NAME>` with the version name of the collector applicable to your system, e.g. `otelcontribcol_darwin_amd64`.
 
-### Run the application
+##### Run the application
 
 Run the application to generate traces:
 
@@ -568,7 +569,7 @@ go run <YOUR-APPLICATION-FILE-NAME>.go
 ```
 
 
-### Check Logz.io for your traces
+##### Check Logz.io for your traces
 
 Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
 

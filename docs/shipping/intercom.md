@@ -16,15 +16,13 @@ metrics_alerts: []
 
 Intercom is a messaging platform with bots, apps, product tours and oher features. Deploy this integration to ship Intercom events from your Intercom account to Logz.io using webhooks. 
 
-#### Ship events data from your Intercom account to Logz.io
-
 Deploy this integration to ship Intercom events from your Intercom account to Logz.io using webhooks.
 
 **Before you begin, you'll need**: an active account with Intercom.
 
  
 
-##### Create an Intercom developer app
+### Create an Intercom developer app
 
 1. Log in to your Intercom account.
 
@@ -54,7 +52,7 @@ Deploy this integration to ship Intercom events from your Intercom account to Lo
 11. Select **Save**.
 
 
-##### Check Logz.io for your data
+### Check Logz.io for your data
 
 Give your data some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

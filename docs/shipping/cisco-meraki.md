@@ -15,7 +15,6 @@ metrics_alerts: []
 
 Cisco Meraki is a centralized management service that allows users to manage all of their Meraki network devices via a single simple and secure platform. 
 
-#### Configuration
 
 **Before you begin, you'll need**:
 
@@ -24,7 +23,7 @@ Cisco Meraki is a centralized management service that allows users to manage all
 
  
 
-##### Configure Cisco Meraki logging
+### Configure Cisco Meraki logging
 
 Configure your Cisco Meraki server to write all logs to a single file and to send logs to your Filebeat server.
 Make sure you meet this configuration:
@@ -40,7 +39,7 @@ on configuring your Syslog Server.
 
 {@include: ../_include/log-shipping/certificate.md}
 
-##### Configure Filebeat
+### Configure Filebeat
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml) add UDP traffic as an input
 and Logz.io as an output.
@@ -97,13 +96,13 @@ If the file has other outputs, remove them.
  
 
 
-##### Start Filebeat
+### Start Filebeat
 
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

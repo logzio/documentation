@@ -26,18 +26,16 @@ There are many other APIs available through Microsoft Graph.
 If you don't see your API in the list,
 please [open an issue](https://github.com/logzio/microsoft-graph/issues/new) at GitHub to request it.
 
-#### To integrate Microsoft Graph and Logz.io
-
  
 
-##### Register a new app in Azure Active Directory
+### Register a new app in Azure Active Directory
 
 In the Azure portal, go to [App registration](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
 and select **New registration** from the top menu.
 
 Name your app and click **Register**.
 
-##### Create a client secret
+### Create a client secret
 
 Choose **Certificates & secrets** from the side menu,
 and click on **New client secret**.
@@ -57,7 +55,7 @@ You won't be able to retrieve the secret's value after you leave this page.
 :::
  
 
-##### Set the app's permissions
+### Set the app's permissions
 
 Choose **API permissions** from the side menu,
 and click **Add a permission**.
@@ -78,7 +76,7 @@ Only Azure administrators can grant consent for Default Directory. If the _Grant
 :::
  
 
-##### Create a configuration file
+### Create a configuration file
 
 Create a configuration yaml file (`logzio-msgraph-config.yaml`) for Logzio-MSGraph.
 
@@ -98,7 +96,7 @@ azureADClient:
 logLevel: INFO
 ```
 
-###### Parameters
+#### Parameters
 
 | Parameter | Description | Required/Default |
 |---|---|---|
@@ -113,7 +111,7 @@ logLevel: INFO
 | logLevel | Log level for Logizo-MSGraph to omit. Can be one of: `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`. | `INFO` |
 | targetApi	 | Specifies types of api lists to run, each API provider has its own list. Must contain at least 1 list with 1 api in the list. Current supported providers: ADApis, ASCApis. | Required |
 
-###### If fromDisk=true
+#### If fromDisk=true
 
 | Parameter | Description | Required/Default |
 |---|---|---|
@@ -121,14 +119,14 @@ senderParams.fileSystemFullPercentThreshold  | Threshold percentage of disk spac
 | senderParams.gcPersistedQueueFilesIntervalSeconds | Time interval, in seconds, to clean sent logs from the disk. | `30` |
 | senderParams.diskSpaceCheckInterval | Time interval, in milliseconds, to check for disk space.| `1000` |
 
-###### If fromDisk=false 
+#### If fromDisk=false 
 
 | Parameter | Description | Required/Default |
 |---|---|---|
 | senderParams.inMemoryQueueCapacityInBytes  | The amount of memory, in bytes, Logzio-MSGraph can use for the memory queue. Set to `-1` for unlimited bytes. | `1024 * 1024 * 100` |
 | senderParams.logsCountLimit | The number of logs in the memory queue before dropping new logs. Set to `-1` to configure the sender to not limit the queue by logs count. | `-1` |
 
-##### Download and run Logzio-MSGraph
+### Download and run Logzio-MSGraph
 
 You can launch Logzio-MSGraph in a Docker container or as a standalone Java app.
 
@@ -148,7 +146,7 @@ java -jar logzio-msgraph.jar logzio-msgraph-config.yaml
 
 Logs collected by this integration will have the type `Microsoft-Graph`
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

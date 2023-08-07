@@ -16,7 +16,6 @@ metrics_alerts: []
 
 Internet Information Services (IIS) for Windows® Server is a flexible, secure and manageable Web server for hosting on the Web. This integration allows you to send logs from your IIS services to your Logz.io account. 
 
-#### Configuration
 
 **Before you begin, you'll need**:
 
@@ -25,7 +24,7 @@ Internet Information Services (IIS) for Windows® Server is a flexible, secure a
 
  
 
-##### Configure NXLog
+### Configure NXLog
 
 Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\nxlog.conf` by default).
 
@@ -67,13 +66,13 @@ LogFile %ROOT%\\data\\nxlog.log
 </Route>
 ```
 
-##### Restart NXLog
+### Restart NXLog
 
 ```powershell
 PS C:\Program Files (x86)\nxlog> Restart-Service nxlog
 ```
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Confirm you're shipping logs by opening an IIS-hosted webpage in your browser. Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

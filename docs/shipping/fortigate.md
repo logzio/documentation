@@ -15,7 +15,6 @@ metrics_alerts: []
 
 FortiGate units are installed as a gateway or router between two networks. This integration allows you to send FortiGate logs to your Logz.io SIEM account.
 
-#### Configuration
 
 **Before you begin, you'll need**:
 
@@ -24,7 +23,7 @@ FortiGate units are installed as a gateway or router between two networks. This 
 
  
 
-##### Configure FortiGate logging
+### Configure FortiGate logging
 
 Configure your FortiGate firewall to send logs to your Filebeat server.
 Make sure you meet this configuration:
@@ -37,7 +36,7 @@ Make sure you meet this configuration:
 See the [FortiGate docs](https://docs.fortinet.com/product/fortigate/) for more information
 on configuring your FortiGate firewall.
 
-###### Sample commands for FortiOS 6.2
+### Sample commands for FortiOS 6.2
 
 ```
 config log syslogd setting
@@ -50,7 +49,7 @@ end
 
 {@include: ../_include/log-shipping/certificate.md}
 
-##### Add UDP traffic as an input
+### Add UDP traffic as an input
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add UDP to the filebeat.inputs section.
 
@@ -104,7 +103,7 @@ If you're running Filebeat 6, paste this code block.
 registry_file: /var/lib/filebeat/registry
 ```
 
-##### Set Logz.io as the output
+### Set Logz.io as the output
 
 If Logz.io is not an output, add it now.
 Remove all other outputs.
@@ -119,11 +118,11 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### Start Filebeat
+### Start Filebeat
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

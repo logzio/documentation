@@ -16,12 +16,10 @@ metrics_alerts: []
 
 If you're using AWS WAF as a web application firewall, you can ship its alerts to your Logz.io Cloud SIEM.
 
-#### Configuration
-
 
  
 
-##### Configure AWS WAF to enrich observability
+### Configure AWS WAF to enrich observability
 
 Add an ACL rule to your AWS WAF to log all HTTP requests. In your **AWS WAF admin console**:
 
@@ -42,14 +40,14 @@ Add an ACL rule to your AWS WAF to log all HTTP requests. In your **AWS WAF admi
     If there are several ACL rules, we recommend that the rule created for Logz.io be as high in the hierarchy as possible.
 
 
-##### Configure AWS WAF to send logs to an S3 Bucket
+### Configure AWS WAF to send logs to an S3 Bucket
 
 You'll first need to make sure all your logs are being written to an S3 bucket.
 
 1. In your AWS WAF console, go to your web ACL screen. Select the web ACL you would like to send logs from.
 2. Set the web ACL to forward the logs to an S3 bucket.
 
-##### Configure Logz.io to read AWS WAF logs from an S3 Bucket
+### Configure Logz.io to read AWS WAF logs from an S3 Bucket
 
 **Before you begin, you'll need**:
 
@@ -65,7 +63,7 @@ If you run into issues, you can reference the [guide for troubleshooting user pe
 {:.info-box.tip}
  
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd) and search for `type: awswaf`.
 

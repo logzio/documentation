@@ -2,7 +2,7 @@
 id: Cynet
 title: Cynet
 overview: Cynet is a cybersecurity asset management platform. This topic describes how to send system logs from your Cynet platform to Logz.io.
-product: ['logs']
+product: ['siem']
 os: ['windows', 'linux']
 filters: ['Security']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/cynet.png
@@ -26,7 +26,7 @@ metrics_alerts: []
  
 
 
-##### Configure Cynet to send syslog notifications to a remote Syslog server running Filebeat
+### Configure Cynet to send syslog notifications to a remote Syslog server running Filebeat
 
 1. On your Cynet web interface, go to **Setting > Advanced**.
 ![Advanced options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Cynet/cynet1.png)
@@ -47,7 +47,7 @@ These instructions are based on UDP. If you want to use TCP, make sure your sysl
 {@include: ../_include/log-shipping/certificate.md}
 
 
-##### Configure Filebeat
+### Configure Filebeat
 
 1. Paste the following into the inputs section of the Filebeat configuration file:
 
@@ -92,7 +92,7 @@ These instructions are based on UDP. If you want to use TCP, make sure your sysl
 
 2. Run Filebeat with the new configuration.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for data of type `cynet` to see the incoming logs.
   

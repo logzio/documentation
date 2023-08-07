@@ -21,7 +21,7 @@ metrics_alerts: []
 * an Aiven project with the service enabled 
 
 
-## Configure Aiven to send syslog notifications to Logz.io
+### Configure Aiven to send syslog notifications to Logz.io
 
 1. Log in to your Aiven account and navigate to **Projects**.
 2. Select the project that you need to send logs from.

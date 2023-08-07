@@ -15,7 +15,6 @@ metrics_alerts: []
 
 GitLab is a DevOps platform that combines the ability to develop, secure, and operate software in a single application. This integration allows you to send logs from your GitLan platform to your Logz.io account. 
 
-#### Configuration
 
 **Before you begin, you'll need**:
 
@@ -27,7 +26,7 @@ GitLab is a DevOps platform that combines the ability to develop, secure, and op
 
 {@include: ../_include/log-shipping/certificate.md}
 
-##### Add GitLab as an input
+### Add GitLab as an input
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add GitLab to the filebeat.inputs section.
 
@@ -165,7 +164,7 @@ filebeat.inputs:
 
 
 
-###### Preconfigured log types
+### Preconfigured log types
 
 * Production logs in JSON format: `gitlab-production-json`
 * Production logs in plain text: `gitlab-production`
@@ -181,7 +180,7 @@ The default path to the logs differs, depending on how you've installed GitLab:
 
 Refer to GitLab Docs to learn more about the [Log system](https://docs.gitlab.com/ee/administration/logs.html).
 
-##### Set Logz.io as the output
+### Set Logz.io as the output
 
 If Logz.io is not an output, add it now.
 Remove all other outputs.
@@ -196,11 +195,11 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-##### Start Filebeat
+### Start Filebeat
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

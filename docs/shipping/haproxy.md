@@ -21,7 +21,6 @@ To ship HAProxy logs to an ELK stack, you'll first need to configure HAProxy log
 From there, you can ship the logs from rsyslog to Logz.io.
 
 
-#### Guided configuration
 
 **Before you begin, you'll need**:
 root access,
@@ -29,7 +28,7 @@ rsyslog 5.8.0 or later
 
  
 
-##### Configure HAProxy
+### Configure HAProxy
 
 Copy this text to your HAProxy configuration (`/etc/haproxy/haproxy.cfg` by default).
 
@@ -60,7 +59,7 @@ listen INPUT_NAME_TCP
   server SERVER_NAME SERVER_ADDRESS:PORT
 ```
 
-##### Configure rsyslog
+### Configure rsyslog
 
 Copy this text to your rsyslog configuration (`/etc/rsyslog.conf` by default).
 
@@ -93,13 +92,13 @@ $template HAProxyLogzioFormat,"[<<LOG-SHIPPING-TOKEN>>] <%pri%>%protocol-version
 *.* @@<<LISTENER-HOST>>:5000;HAProxyLogzioFormat
 ```
 
-##### Restart rsyslog
+### Restart rsyslog
 
 ```shell
 sudo service rsyslog restart
 ```
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
@@ -107,17 +106,17 @@ If you don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/
 
  ## Metrics
 
- o send your Prometheus-format HAProxy metrics to Logz.io, you need to add the **inputs.haproxy** and **outputs.http** plug-ins to your Telegraf configuration file.
+ To send your Prometheus-format HAProxy metrics to Logz.io, you need to add the **inputs.haproxy** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configure Telegraf to send your metrics data to Logz.io
+### Configure Telegraf to send your metrics data to Logz.io
 
  
 
-##### Set up Telegraf v1.17 or higher
+#### Set up Telegraf v1.17 or higher
 
 {@include: ../_include/metric-shipping/telegraf-setup.md}
  
-##### Add the inputs.haproxy plug-in
+#### Add the inputs.haproxy plug-in
 
 First you need to configure the input plug-in to enable Telegraf to scrape the HAProxy data from your hosts. To do this, add the following code to the configuration file:
 
@@ -159,12 +158,12 @@ The database name is only required for instantiating a connection with the serve
 :::
  
 
-##### Add the outputs.http plug-in
+#### Add the outputs.http plug-in
 
 {@include: ../_include/metric-shipping/telegraf-outputs.md}
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
 
-##### Check Logz.io for your metrics
+### Check Logz.io for your metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 

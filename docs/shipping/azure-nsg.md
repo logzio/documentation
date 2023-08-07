@@ -25,9 +25,9 @@ Enable an Azure function to forward NSG logs from your Azure Blob Storage accoun
 
  
 
-##### Configure the NSG flow to your Azure Blob Storage account
+### Configure the NSG flow to your Azure Blob Storage account
 
-###### Register Insights provider
+#### Register Insights provider
 
 1. Log in to the Azure Portal.
 2. Navigate to **All services > Subscriptions**.
@@ -36,7 +36,7 @@ Enable an Azure function to forward NSG logs from your Azure Blob Storage accoun
 5. Make sure that **Status** for the **microsoft.insights** provider is set to **Registered**. If not, set it to **Registered**.
   
 
-###### Enable NSG flow log
+#### Enable NSG flow log
    
 1. For your VM, navigate to **Networking > NSG > NSG flow**.
 2. From the list of NSGs, select the NSG with the name of your VM.
@@ -47,7 +47,7 @@ Enable an Azure function to forward NSG logs from your Azure Blob Storage accoun
 7. If required, enable the **Traffic Analytics**.
 8. Save the configuration.
   
-##### Connect your Azure Blob Storage account to Logz.io
+### Connect your Azure Blob Storage account to Logz.io
 
 Open the link below and fill in the form according to the table.
 
@@ -72,7 +72,7 @@ Only new logs that are created from the moment the integration process is comple
 :::
  
 
-###### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for logs of `type` `blobStorage` to see the incoming logs.
   

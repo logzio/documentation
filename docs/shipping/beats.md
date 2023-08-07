@@ -14,11 +14,11 @@ metrics_alerts: []
 ---
 
 
- 
+## MacOS or Linux
 
 This document describes the way to get logs from your system to Logz.io using any of the Beats shippers.
 
-#### Configure your Beats shipper on macOS or Linux
+### Configure your Beats shipper on macOS or Linux
 
 **Before you begin, you'll need**:
 
@@ -30,7 +30,7 @@ This document describes the way to get logs from your system to Logz.io using an
 
 {@include: ../_include/log-shipping/certificate.md}
 
-##### Configure your Beats shipper using the configuration file.
+### Configure your Beats shipper using the configuration file.
 
 {@include: ../_include/log-shipping/filebeat-input-extension.md}
 
@@ -65,25 +65,25 @@ This document describes the way to get logs from your system to Logz.io using an
 7. {@include: ../_include/log-shipping/listener-var.html}
 8. Save the changes.
 
-##### Validate the configuration file
+### Validate the configuration file
 
 It's a good idea to run the configuration file through a YAML validator to rule out indentation errors, clean up extra characters, and check if your YAML file is valid. [Yamllint.com](http://www.yamllint.com) is a great choice.
 
-##### Start your Beats shipper
+### Start your Beats shipper
 
 Start or restart your Beats shipper for the changes to take effect.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
-  
+## Windows
 
 This document describes the way to get logs from your system to Logz.io using any of the Beats shippers.
 
-#### Configure your Beats shipper on Windows
+### Configure your Beats shipper on Windows
 
 **Before you begin, you'll need**: 
 
@@ -92,7 +92,7 @@ This document describes the way to get logs from your system to Logz.io using an
 
  
 
-##### Download the Logz.io public certificate
+### Download the Logz.io public certificate
 
 {@include: ../_include/log-shipping/filebeat-input-extension.md}
 
@@ -105,12 +105,12 @@ to `C:\ProgramData\<YOUR SHIPPER NAME>\Logzio.crt`
 on your machine.
 
 
-##### Configure your Beats shipper using the dedicated Logz.io configuration wizard
+### Configure your Beats shipper using the dedicated Logz.io configuration wizard
 
 {@include: ../_include/log-shipping/filebeat-wizard.html}
 
 
-##### Configure your Beats shipper using the configuration file.
+### Configure your Beats shipper using the configuration file.
 
 1. Open the configuration file for your Beats shipper.
 2. Add the following to the inputs section:
@@ -144,17 +144,17 @@ on your machine.
 7. {@include: ../_include/log-shipping/listener-var.html}
 8. Save the changes.
 
-##### Validate the configuration file
+### Validate the configuration file
 
 It's a good idea to run the configuration file through a YAML validator to rule out indentation errors, clean up extra characters, and check if your YAML file is valid. [Yamllint.com](http://www.yamllint.com) is a great choice.
 
 
-##### Start your Beats shipper
+### Start your Beats shipper
 
 Start or restart your Beats shipper for the changes to take effect.
 
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

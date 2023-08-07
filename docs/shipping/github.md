@@ -14,7 +14,7 @@ metrics_alerts: []
 ---
 
 
-# Logs
+## Logs
 
 Capture GitHub events to:
 
@@ -22,30 +22,28 @@ Capture GitHub events to:
 * Track new features from code changes
 * Identify when new code changes lead to system alerts or build failures
 
-#### Ship Github Events to Logz.io
-
 **Before you begin, you'll need**: Admin permissions to the GitHub project
 
  
 
-##### Add a webhook to your GitHub project
+### Add a webhook to your GitHub project
 
 Open your GitHub project. On your project page, go to **Setting** > **Webhooks** and select **Add webhook**.
 
 ![How to add a GitHub webhook](https://dytvr9ot2sszz.cloudfront.net/logz-docs/integrations/github-webhooks.png)
 
-##### Add your payload url
+### Add your payload url
 
 
 For the **Payload url**, use either of the following formats. You can send your data encrypted via HTTPS, or unencrypted, via HTTP:
 
-###### For HTTPS shipping
+#### For HTTPS shipping
 
 ```
 https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=github
 ```
 
-###### For HTTP shipping
+#### For HTTP shipping
 
 ```
 http://<<LISTENER-HOST>>:8070/?token=<<LOG-SHIPPING-TOKEN>>&type=github
@@ -55,7 +53,7 @@ http://<<LISTENER-HOST>>:8070/?token=<<LOG-SHIPPING-TOKEN>>&type=github
 
 {@include: ../_include/log-shipping/listener-var.html}
 
-##### Configure your webhook
+### Configure your webhook
 
 Complete filling in the form:
 
@@ -69,29 +67,28 @@ Complete filling in the form:
 6. **Active**. Make sure this checkbox is enabled.
 7. Click **Add webhook** to save your webhook.
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). Search for `type:github` in Open Search Dashboards Discover to filter for your GitHub events. Your logs should be already parsed thanks to the Logz.io preconfigured parsing pipeline.
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
 
-# Metrics
-## Overview
+## Metrics
 
 GitHub is a Git repository hosting service. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format Github metrics to Logz.io, you need to add the **inputs.github** and **outputs.http** plug-ins to your Telegraf configuration file.
 
-#### Configure Telegraf to send your metrics data to Logz.io
+### Configure Telegraf to send your metrics data to Logz.io
 
  
 
-##### Set up Telegraf v1.17 or higher
+#### Set up Telegraf v1.17 or higher
 
 {@include: ../_include/metric-shipping/telegraf-setup.md}
  
-##### Add the inputs.github plug-in
+#### Add the inputs.github plug-in
 
 First you need to configure the input plug-in to enable Telegraf to scrape the Github data from your hosts. To do this, add the following code to the configuration file:
 
@@ -127,12 +124,12 @@ The database name is only required for instantiating a connection with the serve
 :::
  
 
-##### Add the outputs.http plug-in
+#### Add the outputs.http plug-in
 
 {@include: ../_include/metric-shipping/telegraf-outputs.md}
 {@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
 
-##### Check Logz.io for your metrics
+### Check Logz.io for your metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
