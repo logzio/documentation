@@ -33,12 +33,12 @@ class ManifestGeneratorTest(unittest.TestCase):
         self.assertCountEqual(collector_item[consts.FIELD_OS_TAGS], ['windows', 'linux'])
         self.assertCountEqual(collector_item[consts.FIELD_FILTER_TAGS], ['aws', 'cloud'])
         self.assertEqual(collector_item[consts.FIELD_LOGO], 'https://docs.logz.io/images/logo/logz-symbol.svg')
-        bundles = [{"type": "OSD_DASHBOARD", "id": "dfsdfgsdgfds"}, {"type": "OSD_DASHBOARD", "id": "sdfgsdfg"},
+        bundle = [{"type": "OSD_DASHBOARD", "id": "dfsdfgsdgfds"}, {"type": "OSD_DASHBOARD", "id": "sdfgsdfg"},
                    {"type": "OSD_DASHBOARD", "id": "hrtgwgs"}, {"type": "LOG_ALERT", "id": "sdfgs"},
                    {"type": "LOG_ALERT", "id": "xcvdb"}, {"type": "LOGS_TO_METRICS", "id": "ersefg"},
                    {"type": "GRAFANA_DASHBOARD", "id": "sdfgfsdg"}, {"type": "GRAFANA_DASHBOARD", "id": "sdfgsdyuiuyifg"},
                    {"type": "GRAFANA_ALERT", "id": "azxsvb"}]
-        self.assertCountEqual(collector_item[consts.FIELD_BUNDLES], bundles)
+        self.assertCountEqual(collector_item[consts.FIELD_BUNDLES], bundle)
         self.assertEqual(collector_item[consts.FIELD_LINK], 'https://raw.githubusercontent.com/logzio/documentation/master/_manifest/test/sample.md')
 
     def test_normalize_key_val_strings(self):
@@ -62,7 +62,7 @@ class ManifestGeneratorTest(unittest.TestCase):
             except Exception as e:
                 self.fail(f'Exception was raised for supposed valid key {key}: {e}')
 
-    def test_normalize_key_val_bundles(self):
+    def test_normalize_key_val_bundle(self):
         valid_keys_bundles = [consts.META_LOGS_DASHBOARDS, consts.META_LOGS_ALERTS, consts.META_LOGS_TO_METRICS,
                               consts.META_METRICS_DASHBOARDS, consts.META_METRICS_ALERTS, consts.META_DROP_FILTER]
         for key in valid_keys_bundles:
