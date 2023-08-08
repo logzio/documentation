@@ -12,7 +12,7 @@ logs2metrics: []
 metrics_dashboards: []
 metrics_alerts: []
 ---
-
+ 
 [Aiven](https://aiven.io/) provides managed open source data technologies on all major clouds. This topic describes how to configure Aiven to send system logs to Logz.io. 
 
 **Before you begin, you'll need**: 
