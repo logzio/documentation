@@ -33,6 +33,7 @@ def validate_changed_files():
         if len(file_metadata) < len(consts.REQUIRED_FIELDS):
             logger.info(f'Current metadata for file {file}: {file_metadata}')
             logger.error(f'File {file} is missing some required fields')
+            print_missing_fields(file_metadata)
             error_counter += 1
             continue
         if not is_valid_id(file_metadata[consts.FIELD_ID], file, files_to_ids):
@@ -82,6 +83,14 @@ def validate_changed_files():
         logger.error(f'Found {error_counter} validation violations in scanned files. See this run\'s previous '
                      f'logs for more details')
         exit(1)
+
+
+def print_missing_fields(file_metadata):
+    missing_fields = []
+    for required_field in consts.REQUIRED_FIELDS:
+        if required_field not in file_metadata:
+            missing_fields.append(required_field)
+    logger.error(f'Missing required fields: {missing_fields}')
 
 
 def get_changed_files():
