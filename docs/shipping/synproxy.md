@@ -5,12 +5,13 @@ overview: Synproxy is a TCP SYN packets proxy. Telegraf is a plug-in driven serv
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['Network']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/linux.svgme
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/linux.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['']
+metrics_dashboards: []
 metrics_alerts: []
+drop_filter: []
 ---
 
 

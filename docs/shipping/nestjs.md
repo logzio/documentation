@@ -2,15 +2,16 @@
 id: Nestjs
 title: NestJS OpenTelemetry
 overview: Deploy this integration to enable automatic instrumentation of your NestJS application using OpenTelemetry. 
-product: ['traces']
+product: ['tracing']
 os: ['windows', 'linux']
 filters: ['Code']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/nest-logo.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['']
+metrics_dashboards: []
 metrics_alerts: []
+drop_filter: []
 ---
 
 

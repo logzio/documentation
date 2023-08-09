@@ -2,15 +2,16 @@
 id: Jaeger
 title: Jaeger
 overview: Deploy this integration to send traces from your Jaeger installation to Logz.io.
-product: ['traces']
+product: ['tracing']
 os: ['windows', 'linux']
 filters: ['Other']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aeger.svg
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/jaeger.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
 metrics_dashboards: []
 metrics_alerts: []
+drop_filter: []
 ---
 
 

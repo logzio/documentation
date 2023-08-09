@@ -2,7 +2,7 @@
 id: Ruby
 title: Ruby
 overview: Deploy this integration to enable automatic instrumentation of your Ruby application using OpenTelemetry.
-product: ['traces']
+product: ['tracing']
 os: ['windows', 'linux']
 filters: ['Code']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/ruby.svg
@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: []
 metrics_alerts: []
+drop_filter: []
 ---
 
 
