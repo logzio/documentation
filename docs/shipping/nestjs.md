@@ -46,7 +46,7 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 
 
 
-#### 1. Download instrumentation packages
+#### Download instrumentation packages
 
 Run the following command from the application directory:
 
@@ -61,7 +61,7 @@ npm install --save @opentelemetry/auto-instrumentations-node
 npm install --save @opentelemetry/sdk-node
 ```
 
-#### 2. Create a tracer file
+#### Create a tracer file
 
 In the directory of your application file, create a file named `tracer.ts` with the following configuration:
 
@@ -123,7 +123,7 @@ process.on("SIGTERM", () => {
 	
 ```
 
-#### 3. Refer your application to the tracer file
+#### Refer your application to the tracer file
 
 Add the following to the function of your application code:
 
@@ -134,7 +134,7 @@ require('<<PATH-TO-YOUR-FILE>>/tracer.ts');
 Replace `<<PATH-TO-YOUR-FILE>>` with the path to your tracer file.
 
 
-#### 4. Download and configure OpenTelemetry collector
+#### Download and configure OpenTelemetry collector
 
 Create a dedicated directory on the host of your NestJS application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.70.0) that is relevant to the operating system of your host.
 
@@ -146,7 +146,7 @@ After downloading the collector, create a configuration file `config.yaml` with 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
 
-#### 5. Start the collector
+#### Start the collector
 
 Run the following command from the directory of your application file:
 
@@ -156,7 +156,7 @@ Run the following command from the directory of your application file:
 * Replace `<path/to>` with the path to the directory where you downloaded the collector.
 * Replace `<VERSION-NAME>` with the version name of the collector applicable to your system, e.g. `otelcontribcol_darwin_amd64`.
 
-#### 6. Run the application
+#### Run the application
 
 Run the following command from the application directory to generate traces:
 
@@ -165,7 +165,7 @@ npm run start
 ```
 
 
-#### 7. Check Logz.io for your traces
+#### Check Logz.io for your traces
 
 Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
 
@@ -185,7 +185,7 @@ This integration enables you to auto-instrument your NestJS application and run 
 
 
 
-### 1. Download instrumentation packages
+### Download instrumentation packages
 
 Run the following command from the application directory:
 
@@ -200,7 +200,7 @@ npm install --save @opentelemetry/auto-instrumentations-node
 npm install --save @opentelemetry/sdk-node
 ```
 
-### 2. Create a tracer file
+### Create a tracer file
 
 In the directory of your application file, create a file named `tracer.ts` with the following configuration:
 
@@ -255,7 +255,7 @@ process.on("SIGTERM", () => {
 
 ```
 
-### 3. Refer your application to the tracer file
+### Refer your application to the tracer file
 
 Add the following to the function of your application code:
 
@@ -270,7 +270,7 @@ Replace `<<PATH-TO-YOUR-FILE>>` with the path to your tracer file.
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
 
-### 4. Run the application
+### Run the application
 
 {@include: ../../_include/tracing-shipping/collector-run-note.md}
 
@@ -283,7 +283,7 @@ npm run start
 
 
 
-### 5. Check Logz.io for your traces
+### Check Logz.io for your traces
 
 Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
 
@@ -310,7 +310,7 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 
 
 
-#### 1. Deploy the Helm chart
+#### Deploy the Helm chart
  
 Add `logzio-helm` repo as follows:
  
@@ -319,7 +319,7 @@ helm repo add logzio-helm https://logzio.github.io/logzio-helm
 helm repo update
 ```
 	
-#### 2. Run the Helm deployment code
+#### Run the Helm deployment code
 
 ```
 helm install  \
@@ -331,7 +331,7 @@ logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 `<<LOGZIO_ACCOUNT_REGION_CODE>>` - Your Logz.io account region code. [Available regions](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
 
-#### 3. Define the logzio-k8s-telemetry service dns
+#### Define the logzio-k8s-telemetry service dns
 
 In most cases, the service dns will be `logzio-k8s-telemetry.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
   
@@ -345,7 +345,7 @@ sh -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.defaul
 It will deploy a small pod that extracts your cluster domain name from your Kubernetes environment. You can remove this pod after it has returned the cluster domain name.
   
 
-#### 4. Download instrumentation packages
+#### Download instrumentation packages
 
 Run the following command from the application directory:
 
@@ -360,7 +360,7 @@ npm install --save @opentelemetry/auto-instrumentations-node
 npm install --save @opentelemetry/sdk-node
 ```
 
-#### 5. Create a tracer file
+#### Create a tracer file
 
 In the directory of your application file, create a file named `tracer.ts` with the following configuration:
 
@@ -415,7 +415,7 @@ process.on("SIGTERM", () => {
 
 ```
 
-#### 6. Refer your application to the tracer file
+#### Refer your application to the tracer file
 
 Add the following to the function of your application code:
 
@@ -427,7 +427,7 @@ Replace `<<PATH-TO-YOUR-FILE>>` with the path to your tracer file.
 
 
 
-#### 7. Check Logz.io for your traces
+#### Check Logz.io for your traces
 
 Give your traces some time to get from your system to ours, then open [Logz.io](https://app.logz.io/).
 

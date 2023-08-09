@@ -82,7 +82,7 @@ Specify the stack details as per the table below and select **Next**.
 | `AccountsArns`           | Comma-delimited list (**no spaces**) of **all ARNs involved in this integration**. This includes ARNs of the **landing account** and the **accounts you'd like to send logs from**. The ARNs should be specified as follows: `arn:aws:logs:*:<<ACCOUNT_NUMBER>>:*`. For example, if our landing account is 123, and we also want to send logs from account 456, we'll insert: `arn:aws:logs:*:123:*,arn:aws:logs:*:456:*`    | Required            |
 | `KinesisStreamBatchSize` | The largest number of records that will be read from your stream at once.                                                                                                                                                                                                                               | Default: `100`      |
 | `LogzioCOMPRESS`         | If true, the Lambda will send compressed logs. If false, the Lambda will send uncompressed logs.                                                                                                                                                                                                        | Default: `true`     |
-| `LogzioREGION`           | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL. You can find your region code in the Regions and URLs [here](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls table). | Default: `us`       |
+| `LogzioREGION`           | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL. You can find your region code in the Regions and URLs [here](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls-table). | Default: `us`       |
 | `LogzioTOKEN`            | The token of the account you want to ship to. Can be found [here](https://app.logz.io/#/dashboard/settings/general).                                                                                                                                                                                    | Required            |
 | `SendingAccounts`        | Comma-delimited list (**no spaces**) of account numbers of the accounts you'd like to send logs from. **Each account number should be wrapped in double-quotes.** The numbers should be specified as follows: `"1234","5678","9012"`                                                                                                                                                                  | Required           |
 
@@ -199,7 +199,7 @@ If you create the log group and the subscription filter at the same time, add a 
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see log shipping troubleshooting).
   
 
 If your log group is not in the required format, the logs will arrive under the default type `aws-cross-account`. Otherwise, the type will be the service you sent the logs from.
@@ -208,7 +208,7 @@ If your log group is not in the required format, the logs will arrive under the 
 
  
 
-### Update the integration
+## Update the integration
   
 If you need to add more accounts to an existing integration, you can update the deployed stacks as follows. 
 

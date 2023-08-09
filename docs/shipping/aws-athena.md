@@ -32,7 +32,7 @@ This integration creates a Kinesis Data Firehose delivery stream that links to y
 
  
 
-### Configure AWS to forward metrics to Logz.io
+## Configure AWS to forward metrics to Logz.io
 
 To deploy this project, click the button that matches the region you wish to deploy your Stack to:
 
