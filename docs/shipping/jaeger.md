@@ -5,7 +5,7 @@ overview: Deploy this integration to send traces from your Jaeger installation t
 product: ['traces']
 os: ['windows', 'linux']
 filters: ['Other']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aeger.svg
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/jaeger.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

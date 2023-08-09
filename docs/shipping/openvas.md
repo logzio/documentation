@@ -5,7 +5,7 @@ overview: These instructions show you how to configure Filebeat to send OpenVAS 
 product: ['logs']
 os: ['windows', 'linux']
 filters: ['Security']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/openvas.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/greenbone_icon.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []

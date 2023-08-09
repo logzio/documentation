@@ -5,7 +5,7 @@ overview: This integration creates a Kinesis Data Firehose delivery stream that 
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['AWS', 'Distributed Messaging']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-sns.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-sns.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
