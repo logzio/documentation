@@ -2,7 +2,7 @@
 id: GO
 title: GO
 overview: Send logs, metrics and traces from you Go code
-product: ['logs','metrics','traces']
+product: ['logs','metrics','tracing']
 os: ['windows', 'linux']
 filters: ['Code']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/go.svg
@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: ['1Pm3OYbu1MRGoELc2qhxQ1']
 metrics_alerts: []
+drop_filter: []
 ---
 
 :::tip

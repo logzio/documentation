@@ -2,7 +2,7 @@
 id: Java
 title: Java 
 overview: Send logs, metrics and traces from your Java code
-product: ['logs','metrics','traces']
+product: ['logs','metrics','tracing']
 os: ['windows', 'linux']
 filters: ['Code']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/java.svg
@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: []
 metrics_alerts: []
+drop_filter: []
 ---
 
 :::tip

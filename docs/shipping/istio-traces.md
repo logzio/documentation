@@ -2,7 +2,7 @@
 id: Istio
 title: Istio
 overview: Deploy this integration to send traces from your Istio service mesh layers to Logz.io via the OpenTelemetry collector.
-product: ['traces']
+product: ['tracing']
 os: ['windows', 'linux']
 filters: ['Orchestration']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/istio.png
@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: []
 metrics_alerts: []
+drop_filter: []
 ---
 
 

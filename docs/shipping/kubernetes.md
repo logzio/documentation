@@ -2,7 +2,7 @@
 id: Kubernetes
 title: Kubernetes
 overview: Send Kubernetes logs, metrics and traces to Logz.io.
-product: ['logs', 'metrics', 'traces']
+product: ['logs', 'metrics', 'tracing']
 os: ['windows', 'linux']
 filters: ['GCP', 'Cloud']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/kubernetes.svg
@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: ['1Pm3OYbu1MRGoELc2qhxQ1', '1Pm3OYbu1MRGoELc2qhxQ1']
 metrics_alerts: []
+drop_filter: []
 ---
 
 ## Logs
