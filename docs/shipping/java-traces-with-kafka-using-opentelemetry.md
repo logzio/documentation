@@ -16,7 +16,7 @@ metrics_alerts: []
 
 Deploy this integration to enable automatic instrumentation of your Java application with Kafka using OpenTelemetry.
 
-## Manual configuratuib
+## Manual configuration
 
 This integration includes:
 
@@ -41,20 +41,21 @@ This integration enables you to auto-instrument your Java application and run a 
 
 
 
-### 1. Download Java agent
+### Download Java agent
 
 Download the latest version of the [OpenTelemetry Java agent](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar) to the host of your Java application.
 
 
-{@include: ../../_include/tracing-shipping/docker.md}
-
-{@include: ../../tracing-shipping/replace-tracing-token.html}
+{@include: ../_include/tracing-shipping/docker.md}
 
 
+{@include: ../_include/tracing-shipping/replace-tracing-token.html}
 
-### 2. Attach the agent to the collector and run it
 
-{@include: ../../_include/tracing-shipping/collector-run-note.md}
+
+### Attach the agent to the collector and run it
+
+{@include: ../_include/tracing-shipping/collector-run-note.md}
 
 
 Run the following command from the directory of your Java application:
@@ -79,7 +80,7 @@ java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
 * Replace `<YOUR-SERVICE-NAME>` with the name of your tracing service defined earlier.
 
 
-### 3. Check Logz.io for your traces
+### Check Logz.io for your traces
 
 Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
 
@@ -127,7 +128,7 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 ### Default
 
 
-#### 1. Deploy the Helm chart
+#### Deploy the Helm chart
  
 Add `logzio-helm` repo as follows:
  
@@ -136,7 +137,7 @@ helm repo add logzio-helm https://logzio.github.io/logzio-helm
 helm repo update
 ```
 
-#### 2. Run the Helm deployment code
+#### Run the Helm deployment code
 
 ```
 helm install  \
@@ -145,11 +146,12 @@ helm install  \
 logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 ```
 
-{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
+{@include: ../_include/tracing-shipping/replace-tracing-token.html}
+
 `<<LOGZIO_ACCOUNT_REGION_CODE>>` - (Optional): Your logz.io account region code. Defaults to "us". Required only if your logz.io region is [different than US East](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
 
 
-#### 3. Define the logzio-k8s-telemetry dns name
+#### Define the logzio-k8s-telemetry dns name
 
 In most cases, the dns name will be `logzio-k8s-telemetry.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
   
@@ -162,11 +164,11 @@ sh -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.defaul
   
 It will deploy a small pod that extracts your cluster domain name from your Kubernetes environment. You can remove this pod after it has returned the cluster domain name.
 
-#### 4. Download Java agent
+#### Download Java agent
 
 Download the latest version of the [OpenTelemetry Java agent](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar) to the host of your Java application.
 
-#### 5. Attach the agent to your java application 
+#### Attach the agent to your java application 
 
 <!-- info-box-start:info -->
 :::note
@@ -285,7 +287,7 @@ logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 
 Replace `<PATH-TO>` with the path to your custom `values.yaml` file.
 
-{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
+{@include: ../_include/tracing-shipping/replace-tracing-token.html}
 
 
 
@@ -302,5 +304,5 @@ helm uninstall logzio-k8s-telemetry
 ```
 
 
-{@include: ../../_include/tracing-shipping/otel-troubleshooting.md}
+{@include: ../_include/tracing-shipping/otel-troubleshooting.md}
 

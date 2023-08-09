@@ -34,7 +34,7 @@ Fluentd will fetch all existing logs, as it is not able to ignore older logs.
 For troubleshooting this solution, see our [user guide](https://docs.logz.io/user-guide/kubernetes-troubleshooting/).
 
 
-### **Sending logs from nodes with taints**
+### Sending logs from nodes with taints
 
 If you want to ship logs from any of the nodes that have a taint, make sure that the taint key values are listed in your in your daemonset/deployment configuration as follows:
   
@@ -68,7 +68,7 @@ Your Kubernetes version may affect your options, as follows:
 
  
 
-## **Deploy logzio-k8s with default configuration**
+## Deploy logzio-k8s with default configuration
 
 For most environments, we recommend using the default configuration.
 However, you can deploy a custom configuration if your environment needs it.
@@ -135,7 +135,7 @@ see [Kubernetes log shipping troubleshooting]({{site.baseurl}}/user-guide/kubern
  
  
 
-## **Deploy logzio-k8s with custom configuration**
+## Deploy logzio-k8s with custom configuration
 
 You can customize the configuration of your Fluentd container by editing either your DaemonSet or your Configmap.
 
@@ -242,7 +242,7 @@ If you need to specify multiple namespaces, add another `kubernetes.var.log.cont
 </match>
 ```
 
-## **Multiline logs **
+## Multiline logs
 
 
 {@include: ../_include//log-shipping/multiline-fluentd-plugin.md}
@@ -306,7 +306,7 @@ affinity:
   
  
 
-## **Standard configuration for Linux nodes**
+## Standard configuration for Linux nodes
 
  
   
@@ -357,7 +357,7 @@ For troubleshooting this solution, see our [EKS troubleshooting guide](https://d
   
   
 
-##  **Customizing Helm chart parameters**
+##  Customizing Helm chart parameters
 
  
 

@@ -17,7 +17,8 @@ metrics_alerts: []
 
 When you set Logz.io to fetch Elastic Load Balancing (ELB) logs, Logz.io will periodically read logs from the configured S3 bucket. Elastic Load Balancing logs are useful for application usage intelligence and monitoring.
 
-{@include: ../_include/log-shipping/s3-bucket.md service="ELB" %}
+{@include: ../_include/log-shipping/s3-bucket.md}
+
 
 
 **Before you begin, you'll need**:

@@ -18,11 +18,10 @@ The Cloudflare web application firewall (WAF) protects your internet property ag
 
 For an overview of Cloudflare logs, and the related S3 and Logpush configuration procedures, click [here](https://developers.cloudflare.com/logs/).
 
-#### Setup
 
 To send firewall event logs to Logz.io Cloud SIEM, you'll first configure a Logpush job to send your Cloudflare data to a dedicated S3 bucket, then configure Logz.io to collect and ingest that data from the S3 bucket. 
 
-##### Prerequisites
+### Prerequisites
 
 Before you begin, ensure that you have: 
 

@@ -25,8 +25,8 @@ This CloudFormation template allows shipping AWS Logs and Metrics to logz.io.
 
 It will deploy the following projects:
 
-- AWS metrics to Logzio (See here the function's repo)[https://github.com/logzio/cloudwatch-metrics-helpers].
-- AWS logs to Logz.io (See here the function's repo)[https://github.com/logzio/cloudwatch-shipper-trigger].
+- AWS metrics to Logzio [See here the function's repo](https://github.com/logzio/cloudwatch-metrics-helpers).
+- AWS logs to Logz.io [See here the function's repo](https://github.com/logzio/cloudwatch-shipper-trigger).
 
 
 
@@ -60,7 +60,7 @@ To deploy this integrion, click the button that matches the region you wish to d
 | `logzioLogsToken`          | Replace `<<SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.                                                                                                     | **Required**                      |
 | `logzioListener`       | The Logz.io listener URL for your region. (For more details, see the [regions page](https://docs.logz.io/user-guide/accounts/account-region.html). For example - `https://listener.logz.io:8053`                                                                                                                                                               | **Required**                      |
 | `logzioMetricsToken`                              | Your Logz.io metrics shipping token.                                                                                                                                                                                                                                              | **Required**     |
-| `awsNamespaces`                            | Comma-separated list of the AWS namespaces you want to monitor. See [this list]((https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) of namespaces. If you want to automatically add all namespaces, use value `all-namespaces`. | **Required**     |
+| `awsNamespaces`                            | Comma-separated list of the AWS namespaces you want to monitor. See [this list](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) of namespaces. If you want to automatically add all namespaces, use value `all-namespaces`. | **Required**     |
 | `logzioMetricsDestination`                        | Your Logz.io destination URL.                                                                                                                                                                                                                                                     | **Required**     |
 | `logzioLogsType`           | The log type you'll use with this Lambda. This can be a [built-in log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), or a custom log type. <br /> You should create a new Lambda for each log type you use. | Default: `logzio_cloudwatch_logs` |
 | `logzioLogsFormat`         | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields.                                                                                    | Default: `text`                   |
