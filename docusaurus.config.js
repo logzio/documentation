@@ -94,6 +94,12 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      docs: {
+      sidebar: {
+        hideable: true,
+        autoCollapseCategories: true,
+       },
+      },
       // Replace with your project's social card
       image: 'https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg',
       navbar: {
