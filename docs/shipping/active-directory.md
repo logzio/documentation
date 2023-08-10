@@ -11,10 +11,9 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: []
 metrics_alerts: []
+drop_filter: []
 ---
 
-![Static Badge](https://img.shields.io/badge/Supported_OS-windows,linux-blue)
-![Static Badge](https://img.shields.io/badge/Product-Logs,SIEM-green)
 
 Active Directory is a directory service developed by Microsoft for Windows domain networks. This integration allows you to send Active Directory logs to your Logz.io SIEM account.
 

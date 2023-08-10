@@ -76,7 +76,7 @@ tenants_credentials:
       okta_domain: logzio-dev-123.oktapreview.com
 ```
 
-### Parameters
+#### Parameters
 
 | Parameter | Description |
 |---|---|

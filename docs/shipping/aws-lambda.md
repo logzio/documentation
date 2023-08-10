@@ -119,7 +119,7 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 <!-- info-box-end -->
 
 
-### 1. Add the OpenTelemetry collector layer to your Lambda function 
+### Add the OpenTelemetry collector layer to your Lambda function 
 
 This layer contains the OpenTelemetry collector that will capture data from your application.
 
@@ -153,7 +153,7 @@ Replace `<<LAYER_VERSION>>` with the latest stable version for your region.
 |sa-east-1|2|
 
 
-### 2. Create a configuration file for the OpenTelemetry collector
+### Create a configuration file for the OpenTelemetry collector
   
 By default, the OpenTelemetry collector layer exports data to the Lambda console. To customize the collector configuration, you need to add a `collector.yaml` to your function and specifiy its location via the `OPENTELEMETRY_COLLECTOR_CONFIG_FILE` environment variable.
 
@@ -187,7 +187,7 @@ service:
 
 
 
-### 3. Direct the OpenTelemetry collector to the configuration file
+### Direct the OpenTelemetry collector to the configuration file
 
 
 Add `OPENTELEMETRY_COLLECTOR_CONFIG_FILE` variable to direct the OpenTelemetry collector to the configuration file:
@@ -199,7 +199,7 @@ aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_
 Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Node.js application.
 
 
-### 4. Activate tracing for your Lambda function
+### Activate tracing for your Lambda function
 
 ```shell
 aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --tracing-config Mode=Active
@@ -207,7 +207,7 @@ aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_
 
 Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Node.js application.
 
-### 5. Add the OpenTelemetry Node.js wrapper layer to your Lambda function
+### Add the OpenTelemetry Node.js wrapper layer to your Lambda function
 
 The OpenTelemetry Node.js wrapper layer automatically instruments the Node.js application in your Lambda function.
 
@@ -241,7 +241,7 @@ Replace `<<LAYER_VERSION>>` with the latest stable version for your region.
 |sa-east-1|2|
 
   
-### 6. Add environment variable for the wrapper
+###   Add environment variable for the wrapper
   
 Add the `AWS_LAMBDA_EXEC_WRAPPER` environment variable to point to the `otel-handler` executable:
 

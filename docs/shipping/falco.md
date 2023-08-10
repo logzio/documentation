@@ -5,12 +5,13 @@ overview: Falco is a CNCF-approved container security and Kubernetes threat dete
 product: ['logs', 'siem']
 os: ['windows', 'linux']
 filters: ['Security']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/alco-logo.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/falco-logo.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
 metrics_dashboards: []
 metrics_alerts: []
+drop_filter: []
 ---
 
 

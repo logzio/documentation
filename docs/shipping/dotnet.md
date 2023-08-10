@@ -1568,7 +1568,7 @@ For troubleshooting this solution, see our [.NET core troubleshooting guide](/us
   
 
 
-## Overview
+## Traces
 
 This integration enables you to send traces from your instrumented applications running in Docker. This is achieved by using a dedicated Logz.io OpenTelemetry collector deployed in the same Docker network as your application. This collector configuration can collect traces from:
 
@@ -1585,16 +1585,16 @@ This integration enables you to send traces from your instrumented applications 
 * A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 
 
-## In the same Docker network as your application:
+In the same Docker network as your application:
 
-{@include: ../../_include/tracing-shipping/docker.md}
+{@include: ../_include/tracing-shipping/docker.md}
 
-{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
+{@include: ../_include/tracing-shipping/replace-tracing-token.html}
 
 
 ### Run the application
 
-{@include: ../../_include/tracing-shipping/collector-run-note.md}
+{@include: ../_include/tracing-shipping/collector-run-note.md}
 
 Run the application to generate traces.
 
@@ -1605,4 +1605,4 @@ Give your traces some time to get from your system to ours, and then open [Traci
 
 
 
-{@include: ../../_include/tracing-shipping/otel-troubleshooting.md}
+{@include: ../_include/tracing-shipping/otel-troubleshooting.md}

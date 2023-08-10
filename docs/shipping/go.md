@@ -2,7 +2,7 @@
 id: GO
 title: GO
 overview: Send logs, metrics and traces from you Go code
-product: ['logs','metrics','traces']
+product: ['logs','metrics','tracing']
 os: ['windows', 'linux']
 filters: ['Code']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/go.svg
@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: ['1Pm3OYbu1MRGoELc2qhxQ1']
 metrics_alerts: []
+drop_filter: []
 ---
 
 :::tip
@@ -80,7 +81,7 @@ func main() {
 
 | Parameter | Description | Required/Default |
 |---|---|---|
-| token | {@include: ../_include/log-shipping/log-shipping-token.md}  {@include: ../_include/log-shipping/log-shipping-token.html} | Required |
+| token | {@include: ../_include/log-shipping/log-shipping-token.md}   | Required |
 | SetUrl | Listener URL and port.    {@include: ../_include/log-shipping/listener-var.html}  |Required (default:  `https://listener.logz.io:8071`) |
 | SetDebug | Debug flag. | `false` |
 | SetDrainDuration  | Time to wait between log draining attempts. | `5 * time.Second` |

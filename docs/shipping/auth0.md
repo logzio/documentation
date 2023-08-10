@@ -13,16 +13,13 @@ metrics_dashboards: []
 metrics_alerts: []
 ---
 
-## Deafult configuration
+## Deafult configuration - a custom log stream using webhooks
 
 Auth0 is an easy to implement, adaptable authentication and authorization platform. Deploy this integration to ship Auth0 events from your Auth0 account to Logz.io using custom log stream via webhooks.
 
 **Before you begin, you'll need**: an active account with Auth0.
  
-
-### Setup a custom log stream using webhooks
-
-#### Create a custom log stream
+### Create a custom log stream
 
 1. Log in to your Auth0 account, navigate to **Auth0 Dashboard > Monitoring > Streams**, and select **Create Stream**.
   
@@ -34,7 +31,7 @@ Auth0 is an easy to implement, adaptable authentication and authorization platfo
 3. In the **Name** field, enter **Logz.io integration** and select **Create**.
 
 
-#### Configure the required parameters
+### Configure the required parameters
   
 The **Settings** tab of the created event stream is displayed after you create the stream.
 
@@ -49,11 +46,11 @@ Configure the required parameters as follows:
    * In the **Content Type** field, select **application/json**.
    * In the **Content Format** field, select **JSON lines**.
 
-#### Save the changes
+### Save the changes
 
 Select **Save** to save the changes and create the stream.
 
-#### Check Logz.io for your data
+### Check Logz.io for your data
 
 Give your data some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for data of type `auth0` to see the incoming Auth0 events. 
 

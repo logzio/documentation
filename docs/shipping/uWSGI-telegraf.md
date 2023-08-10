@@ -5,12 +5,13 @@ overview: uWSGI is a software application that aims at developing a full stack f
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['Other']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/uwsgi-logo1.pngvsphe
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/uwsgi-logo1.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['']
+metrics_dashboards: []
 metrics_alerts: []
+drop_filter: []
 ---
 
 

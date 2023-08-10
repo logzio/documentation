@@ -2,7 +2,7 @@
 id: Java
 title: Java 
 overview: Send logs, metrics and traces from your Java code
-product: ['logs','metrics','traces']
+product: ['logs','metrics','tracing']
 os: ['windows', 'linux']
 filters: ['Code']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/java.svg
@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: []
 metrics_alerts: []
+drop_filter: []
 ---
 
 :::tip
@@ -788,23 +789,23 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 <!-- info-box-end -->
 
 
-##### 1. Download Java agent
+##### Download Java agent
 
 Download the latest version of the [OpenTelemetry Java agent](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar) to the host of your Java application.
 
-##### 2. Download and configure OpenTelemetry collector
+##### Download and configure OpenTelemetry collector
 
 Create a dedicated directory on the host of your Java application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.70.0) that is relevant to the operating system of your host.
 
 
 After downloading the collector, create a configuration file `config.yaml` with the following parameters:
 
-{@include: ./tracing-shipping/collector-config.md}
+{@include: ../tracing-shipping/collector-config.md}
 
-{@include: ./tracing-shipping/replace-tracing-token.html}
+{@include: ../tracing-shipping/replace-tracing-token.html}
 
 
-##### 3. Start the collector
+##### Start the collector
 
 Run the following command:
 

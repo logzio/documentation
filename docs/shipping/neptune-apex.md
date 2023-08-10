@@ -5,12 +5,13 @@ overview: Neptune Apex is an aquarium control system. Telegraf is a plug-in driv
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['IoT']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/neptune.p.png
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/neptune.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['']
+metrics_dashboards: []
 metrics_alerts: []
+drop_filter: []
 ---
 
 

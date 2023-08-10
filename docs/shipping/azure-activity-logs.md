@@ -95,7 +95,7 @@ Enter the **Path** for the Azure blob you're sending dropped logs to, and then c
 
 :::note
 For more information on Azure Blob output binding, see [Azure Blob storage bindings for Azure Functions > Output](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob#output) from Microsoft.
-{:.info-box.read}
+:::
  
 
 #### Stream data to the new event hubs
