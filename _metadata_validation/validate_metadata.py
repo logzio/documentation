@@ -19,8 +19,8 @@ def validate_changed_files():
         logger.error('Could not find changed files, exiting')
         exit(1)
     logger.info(f'Files to scan: {changed_files}')
-    files_to_ids = get_files_to_ids()
-    if len(files_to_ids) == 0:
+    files_to_unique_fields = get_files_to_unique_fields()
+    if len(files_to_unique_fields) == 0:
         logger.error('Cannot get files ids to compare id uniqueness, exiting')
         exit(1)
     for file in changed_files:
@@ -36,12 +36,8 @@ def validate_changed_files():
             print_missing_fields(file_metadata)
             error_counter += 1
             continue
-        if not is_valid_id(file_metadata[consts.FIELD_ID], file, files_to_ids):
-            logger.error(f'Invalid id for file: {file}')
-            error_counter += 1
-        if not is_valid_title(file_metadata[consts.FIELD_TITLE]):
-            logger.error(f'Invalid title for file {file}')
-            error_counter += 1
+        errors = check_valid_unique_fields(file, file_metadata, files_to_unique_fields)
+        error_counter += errors
         if not is_valid_overview(file_metadata[consts.FIELD_OVERVIEW]):
             logger.error(f'Invalid overview for file {file}')
             error_counter += 1
@@ -107,22 +103,42 @@ def get_changed_files():
     return files_to_track
 
 
-def get_files_to_ids():
+def get_files_to_unique_fields():
     file_to_id_arr = []
     docs_path = os.getenv(consts.ENV_DOCS_PREFIX, consts.DOCS_PATH)
     files_paths = get_file_paths(docs_path)
     id_regex = r"^id: *.+$"
+    title_regex = r"^title: *.+$"
     for path in files_paths:
+        id = ''
+        title = ''
         with open(path) as current_file:
             for line in current_file:
                 stripped_line = line.strip()
-                if bool(re.match(id_regex, stripped_line)):
-                    line_key_val = stripped_line.split(':')
-                    id = line_key_val[1].strip()
-                    file_to_id = {consts.OBJ_ID: id, consts.OBJ_FILE: path}
-                    file_to_id_arr.append(file_to_id)
+                if id != '' and title != '':
                     break
+                tmp_id = is_field_match_regex(stripped_line, id_regex)
+                if tmp_id != '':
+                    id = tmp_id
+                    continue
+                tmp_title = is_field_match_regex(stripped_line, title_regex)
+                if tmp_title != '':
+                    title = tmp_title
+                    continue
+            file_to_id_arr.append({consts.OBJ_ID: id, consts.OBJ_FILE: path, consts.OBJ_TITLE: title})
     return file_to_id_arr
+
+
+def is_field_match_regex(stripped_line, regex):
+    try:
+        if bool(re.match(regex, stripped_line)):
+            line_key_val = stripped_line.split(':')
+            val = line_key_val[1].strip()
+            return val
+        return ''
+    except Exception as e:
+        logger.error(f'Error while trying to match regex {regex} to line {stripped_line}')
+        return ''
 
 
 def get_file_paths(path_prefix):
@@ -172,28 +188,52 @@ def get_file_metadata(file_path):
     return metadata
 
 
-def is_valid_id(current_file_id, current_file_path, files_to_ids):
-    if current_file_id == '':
-        logger.error(f'File {current_file_path} has an empty ID')
-        return False
-    if type(current_file_id) is not str:
-        logger.error(f'File {current_file_path} has an invalid ID type')
-        return False
-    for doc in files_to_ids:
-        if doc[consts.OBJ_ID].lower() == current_file_id.lower() and doc[consts.OBJ_FILE] != current_file_path:
-            logger.info(f'Files {doc[consts.OBJ_FILE]} and {current_file_path} have the same ID - {current_file_id}')
-            return False
-    return True
+def check_valid_unique_fields(file_path, file_metadata, files_to_unique_fields):
+    errors_counter = 0
+    check_title = True
+    check_id = True
+    if not is_type_str(file_metadata[consts.FIELD_ID], consts.FIELD_ID, file_path):
+        errors_counter += 1
+        check_id = False
+    else:
+        if file_metadata[consts.FIELD_ID] == '':
+            logger.error(f'File {file_path} has an empty ID')
+            errors_counter += 1
+            check_id = False
 
+    if not is_type_str(file_metadata[consts.FIELD_TITLE], consts.FIELD_TITLE, file_path):
+        errors_counter += 1
+        check_title = False
+    else:
+        if file_metadata[consts.FIELD_TITLE] == '':
+            logger.error(f'File {file_path} has an empty title')
+            errors_counter += 1
+            check_title = False
+
+    for compare_file in files_to_unique_fields:
+        if check_id:
+            logger.info(f'File: {compare_file[consts.OBJ_FILE]}')
+            logger.info(f'ID: {compare_file[consts.OBJ_ID]}')
+            if compare_file[consts.OBJ_ID].lower() == file_metadata[consts.FIELD_ID].lower() and \
+                    compare_file[consts.OBJ_FILE] != file_path:
+                logger.error(f'Files {compare_file[consts.OBJ_FILE]} and {file_path} have the same ID - {file_metadata[consts.FIELD_ID]}')
+                errors_counter += 1
+        if check_title:
+            if compare_file[consts.OBJ_TITLE].lower() == file_metadata[consts.FIELD_TITLE].lower() and \
+                    compare_file[consts.OBJ_FILE] != file_path:
+                logger.error(f'Files {compare_file[consts.OBJ_FILE]} and {file_path} have the same title - {file_metadata[consts.FIELD_TITLE]}')
+                errors_counter += 1
+    return errors_counter
+
+
+def is_type_str(field, field_type_msg, file_path):
+    if type(field) is not str:
+        logger.error(f'File {file_path}\'s  field {field_type_msg} is not string')
+        return False
+    return True
 
 def is_valid_overview(overview):
     if type(overview) is not str or overview == '':
-        return False
-    return True
-
-
-def is_valid_title(title):
-    if type(title) is not str or title == '':
         return False
     return True
 

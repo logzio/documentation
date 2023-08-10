@@ -1,6 +1,6 @@
 ---
 id: missing-field
-title: Sample Document
+title: Missing field
 sidebar_position: 1
 overview: this is the description of a test
 product: ['logs', 'metrics']
