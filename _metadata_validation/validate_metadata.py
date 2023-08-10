@@ -212,8 +212,6 @@ def check_valid_unique_fields(file_path, file_metadata, files_to_unique_fields):
 
     for compare_file in files_to_unique_fields:
         if check_id:
-            logger.info(f'File: {compare_file[consts.OBJ_FILE]}')
-            logger.info(f'ID: {compare_file[consts.OBJ_ID]}')
             if compare_file[consts.OBJ_ID].lower() == file_metadata[consts.FIELD_ID].lower() and \
                     compare_file[consts.OBJ_FILE] != file_path:
                 logger.error(f'Files {compare_file[consts.OBJ_FILE]} and {file_path} have the same ID - {file_metadata[consts.FIELD_ID]}')
@@ -249,7 +247,7 @@ def is_valid_product(product_str):
                 logger.error(f'Invalid value type in product field: {product}')
                 return False
             if product.strip() not in consts.PRODUCTS:
-                logger.error(f'Invalid value in product field: {product}')
+                logger.error(f'Invalid value in product field: {product}, valid types are: {consts.PRODUCTS}')
                 return False
         return True
     except Exception as e:
@@ -268,7 +266,7 @@ def is_valid_os(os_str):
                 logger.error(f'Invalid value type in os field: {os_type}')
                 return False
             if os_type.strip() not in consts.OS:
-                logger.error(f'Invalid value in os field: {os_type}')
+                logger.error(f'Invalid value in os field: {os_type}, valid types are: {consts.OS}')
                 return False
         return True
     except Exception as e:
