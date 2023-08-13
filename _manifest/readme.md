@@ -25,6 +25,9 @@ python3 _manifest/manifest_generator_test.py
 
 ### Changelog:
 
+- **0.0.4**:
+  - Adjust manifest to handle new docs structure (sub-folders).
+  - Add url encode to file path, to work as a link. 
 - **0.0.3**:
   - Set default path for manifest under folder `static`.
 - **0.0.2**:
