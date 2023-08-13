@@ -142,16 +142,16 @@ def is_field_match_regex(stripped_line, regex):
 
 
 def get_file_paths(path_prefix):
-    file_names = os.listdir(path_prefix)
-    full_paths = []
-    index_suffix = 1
-    for name in file_names:
-        full_path = os.path.join(path_prefix, name)
-        if os.path.splitext(full_path)[index_suffix] != '.md':
-            logger.info(f'Ignoring file {name}')
-            continue
-        full_paths.append(full_path)
-    return full_paths
+    md_files = []
+
+    for root, _, files in os.walk(path_prefix):
+        for file in files:
+            if file.endswith('.md'):
+                md_files.append(os.path.join(root, file))
+            else:
+                logger.info(f'Ignoring file {file}')
+
+    return md_files
 
 
 def get_file_metadata(file_path):

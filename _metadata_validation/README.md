@@ -50,4 +50,7 @@ Any file under path `docs/shipping` that is a **markdown** (`.md`) file, should 
 
 ## Changelog:
 
+- **0.0.2**:
+  - More details error logs.
+  - Match validation to new sub-folder structure.
 - **0.0.1**: Initial release.
