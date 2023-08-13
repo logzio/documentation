@@ -3,6 +3,7 @@ import json
 import logging
 import os
 import sys
+import urllib.parse
 
 import consts
 
@@ -37,16 +38,16 @@ def get_manifest():
 
 
 def get_file_paths(path_prefix):
-    file_names = os.listdir(path_prefix)
-    full_paths = []
-    index_suffix = 1
-    for name in file_names:
-        full_path = os.path.join(path_prefix, name)
-        if os.path.splitext(full_path)[index_suffix] != '.md':
-            logger.info(f'Ignoring file {name}')
-            continue
-        full_paths.append(full_path)
-    return full_paths
+    md_files = []
+
+    for root, _, files in os.walk(path_prefix):
+        for file in files:
+            if file.endswith('.md'):
+                md_files.append(os.path.join(root, file))
+            else:
+                logger.info(f'Ignoring file {file}')
+
+    return md_files
 
 
 def get_collector_item_from_file(file_path):
@@ -82,7 +83,8 @@ def get_collector_item_from_file(file_path):
                 logger.warning(ke)
             except Exception as e:
                 logger.error(e)
-        collector_item[consts.FIELD_LINK] = f'{link_prefix}{file_path}'
+        file_encode = urllib.parse.quote(file_path)
+        collector_item[consts.FIELD_LINK] = f'{link_prefix}{file_encode}'
         return collector_item
 
 
@@ -117,7 +119,7 @@ def normalize_product_types(key, tags_arr):
     norm_tags = []
     for tag in tags_arr:
         try:
-            norm_tags.append(consts.DOCS_TO_OBJ_PRODUCT_TYPE[tag])
+            norm_tags.append(consts.DOCS_TO_OBJ_PRODUCT_TYPE[tag.strip()])
         except KeyError:
             logger.error(f'Specified product type {tag} is not supported. Skipping.')
     return key, norm_tags
