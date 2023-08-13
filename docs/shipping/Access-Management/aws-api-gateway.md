@@ -12,7 +12,7 @@ logs2metrics: []
 metrics_dashboards: ['7234Vgs9rITAlaHJH5iqOw']
 metrics_alerts: []
 ---
-
+ 
 
 :::note
 For a much easier and more efficient way to collect and send metrics, consider using the [Logz.io telemetry collector](https://app.logz.io/#/dashboard/send-your-data/agent/new).
