@@ -1,6 +1,7 @@
 {
   "label": "Telemetry Shipping",
   "position": 2,
+  "className": "releaseSidebarHeading",
   "link": {
     "type": "generated-index",
     "description": "Telemetry Shipping"
