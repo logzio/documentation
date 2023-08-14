@@ -52,7 +52,7 @@ Enable an Azure function to forward NSG logs from your Azure Blob Storage accoun
 Open the link below and fill in the form according to the table.
 
 [![Deploy to Azure](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_blob/deploybutton-az.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flogzio%2Flogzio-azure-blob%2Fmaster%2Fdeployments%2FdeploymentTemplate.json)
-{:.override.btn-img}
+
 
 | Parameter | Description | Required/Default |
 |---|---|---|

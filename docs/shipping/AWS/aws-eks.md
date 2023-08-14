@@ -164,9 +164,9 @@ kubectl create secret generic logzio-logs-secret \
   -n monitoring
 ```
 
-{@include: ../_include/log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../_include/log-shipping/listener-var.html}
+{@include: ../../_include/log-shipping/listener-var.html}
 
 
 ### Configure Fluentd
@@ -176,7 +176,7 @@ There are 3 DaemonSet options: [RBAC DaemonSet](https://raw.githubusercontent.co
 If you wish to make advanced changes in your Fluentd configuration, you can download and edit the [configmap yaml file](https://raw.githubusercontent.com/logzio/logzio-k8s/master/configmap.yaml).
 
 
-{@include: ../_include/k8s-fluentd.md}
+{@include: ../../_include/k8s-fluentd.md}
 
 #### Good to know
 
@@ -245,7 +245,7 @@ If you need to specify multiple namespaces, add another `kubernetes.var.log.cont
 ## Multiline logs
 
 
-{@include: ../_include//log-shipping/multiline-fluentd-plugin.md}
+{@include: ../../_include//log-shipping/multiline-fluentd-plugin.md}
 
  
 
@@ -297,11 +297,11 @@ affinity:
 
 
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["1aO3NWtPAtVwO5Ipmc3Deh", "6KQUyksnNT2E40PifmCHR5", "X6YYCFajD56zayxcQOG2H", "M06b1BjTSGsSNZBWeiLnR"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html} 
+{@include: ../../_include/metric-shipping/generic-dashboard.html} 
 
   
  
@@ -345,11 +345,11 @@ affinity:
 Give your metrics some time to get from your system to ours.
 
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["1aO3NWtPAtVwO5Ipmc3Deh", "6KQUyksnNT2E40PifmCHR5", "X6YYCFajD56zayxcQOG2H", "M06b1BjTSGsSNZBWeiLnR"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html} 
+{@include: ../../_include/metric-shipping/generic-dashboard.html} 
   
  
 

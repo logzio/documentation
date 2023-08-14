@@ -25,7 +25,7 @@ Apache Storm is a free and open source distributed realtime computation system. 
 
  
 
-{@include: ../_include/log-shipping/certificate.md}
+{@include: ../../_include/log-shipping/certificate.md}
 
 ### Find Apache Storm log location
 
@@ -42,9 +42,9 @@ ps -o args= -C java | grep -Po -- '-Dstorm.log.dir=\K[^\s]+'
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Apache to the filebeat.inputs section.
 
 
-{@include: ../_include/log-shipping/log-shipping-token.html} Replace `<<LOGS_DIRECTORY>>` with the path to your Apache Storm logs directory mentioned in the step above. 
+{@include: ../../_include/log-shipping/log-shipping-token.html} Replace `<<LOGS_DIRECTORY>>` with the path to your Apache Storm logs directory mentioned in the step above. 
 
-{@include: ../_include/log-shipping/filebeat-input-extension.md}
+{@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
 ```yaml
 # ...
@@ -101,7 +101,7 @@ filebeat.inputs:
 If Logz.io is not an output, add it now.
 Remove all other outputs.
 
-{@include: ../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-var.html} 
 
 ```yaml
 # ...

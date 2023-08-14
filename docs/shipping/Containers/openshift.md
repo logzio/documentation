@@ -37,8 +37,8 @@ oc create secret generic logzio-logs-secret \
   --from-literal=logzio-log-listener='https://<<LISTENER-HOST>>:8071' \
   -n monitoring
 ```
-{@include: ../_include/log-shipping/log-shipping-token.md}
-{@include: ../_include/log-shipping/listener-var.html}
+{@include: ../../_include/log-shipping/log-shipping-token.md}
+{@include: ../../_include/log-shipping/listener-var.html}
 
 ### Deploy the resources
 
@@ -86,8 +86,8 @@ oc create secret generic logzio-logs-secret \
   --from-literal=logzio-log-listener='https://<<LISTENER-HOST>>:8071' \
   -n monitoring
 ```
-{@include: ../_include/log-shipping/log-shipping-token.md}
-{@include: ../_include/log-shipping/listener-var.html}
+{@include: ../../_include/log-shipping/log-shipping-token.md}
+{@include: ../../_include/log-shipping/listener-var.html}
 
 ##### Download the resources file
 

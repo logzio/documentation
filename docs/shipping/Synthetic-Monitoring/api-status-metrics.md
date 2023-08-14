@@ -85,11 +85,11 @@ Run the ping statistics tests to generate metrics.
 
 Give your metrics some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). All metrics that were sent from the Lambda function will have the prefix `api_status` in their name.
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["1RCzCjjByhyz0bJ4Hmau0y"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html}
+{@include: ../../_include/metric-shipping/generic-dashboard.html}
 
 
 

@@ -24,7 +24,7 @@ GitLab is a DevOps platform that combines the ability to develop, secure, and op
 
  
 
-{@include: ../_include/log-shipping/certificate.md}
+{@include: ../../_include/log-shipping/certificate.md}
 
 ### Add GitLab as an input
 
@@ -33,9 +33,9 @@ In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add GitLab to t
 GitLab has an advanced logging framework that ships a variety of different system logs.
 We recommend reading [Log system](https://docs.gitlab.com/ee/administration/logs.html) from GitLab and modifying the Filebeat sample configuration according to your needs.
 
-{@include: ../_include/log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../_include/log-shipping/filebeat-input-extension.md}
+{@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
 
 ```yaml
@@ -185,7 +185,7 @@ Refer to GitLab Docs to learn more about the [Log system](https://docs.gitlab.co
 If Logz.io is not an output, add it now.
 Remove all other outputs.
 
-{@include: ../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-var.html} 
 
 ```yaml
 # ...

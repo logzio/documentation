@@ -35,7 +35,7 @@ docker service create --name telegraf-docker-collector-metrics \
  --mode global logzio/docker-metrics-collector:latest```
 ```
 
-{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+{@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
 
 
 If you prefer to keep these environment variables in an `.env` file, run the following command:

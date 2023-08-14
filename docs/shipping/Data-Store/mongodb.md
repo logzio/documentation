@@ -139,10 +139,10 @@ See the configuration parameters below the code block.👇
 
 | Parameter | Description |
 |---|---|
-| `<<LOGZIO-SHIPPING-TOKEN>>` | {@include: ../_include/log-shipping/log-shipping-token.md} |
-| `<<LISTENER-HOST>>` | {@include: ../_include/log-shipping/listener-var.html}  |
+| `<<LOGZIO-SHIPPING-TOKEN>>` | {@include: ../../_include/log-shipping/log-shipping-token.md} |
+| `<<LISTENER-HOST>>` | {@include: ../../_include/log-shipping/listener-var.html}  |
 | `<<MONGODB-FILE-PATH>>` | Path to the log file of your MongoDB. |
-| endpoint_url | A url composed of your Logz.io region's listener URL, account token, and log type. {@include: ../_include/log-shipping/listener-var.html} {@include: ../_include/log-shipping/log-shipping-token.html} |
+| endpoint_url | A url composed of your Logz.io region's listener URL, account token, and log type. {@include: ../../_include/log-shipping/listener-var.html}  |
 | output_include_time | To add a timestamp to your logs when they're processed, `true` (recommended). Otherwise, `false`. |
 | output_include_tags | To add the `fluentd` tag to logs, `true`. Otherwise, `false`. If `true`, use in combination with `output_tags_fieldname`. |
 | output_tags_fieldname | If `output_include_tags` is `true`, sets output tag's field name. The default is `fluentd_tag` |
@@ -180,7 +180,7 @@ To send your Prometheus-format MongoDB metrics to Logz.io, you need to add the *
 
 #### Set up Telegraf v1.17 or higher
 
-{@include: ../_include/metric-shipping/telegraf-setup.md}
+{@include: ../../_include/metric-shipping/telegraf-setup.md}
 
 #### Add the inputs.mongodb plug-in
 
@@ -214,20 +214,20 @@ The full list of data scraping and configuring options can be found [here](https
 
 #### Add the outputs.http plug-in
 
-{@include: ../_include/metric-shipping/telegraf-outputs.md}
-{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+{@include: ../../_include/metric-shipping/telegraf-outputs.md}
+{@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
 
 #### Start Telegraf
 
-{@include: ../_include/metric-shipping/telegraf-run.md}
+{@include: ../../_include/metric-shipping/telegraf-run.md}
 
 #### Check Logz.io for your metrics
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["13q1IECY8zfnnDXvUq7vvH"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html}
+{@include: ../../_include/metric-shipping/generic-dashboard.html}
 
 
 

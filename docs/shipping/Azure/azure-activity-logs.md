@@ -69,7 +69,7 @@ Make sure to use the settings shown below.
 
 | Parameter | Description |
 |---|---|
-| Logs listener host | Use the listener host for your logs account region. For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html). |
+| Logs listener host | Use the listener host for your logs account region. For more information on finding your account's region, see Account region. |
 | Logs account token | Use the [token](https://app.logz.io/#/dashboard/settings/general) of the logs account you want to ship to. |
 {:.paramlist}
 

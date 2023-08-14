@@ -99,7 +99,7 @@ Logz.io Public Registry extensions are currently only available on the AWS regio
 :::
  
 
-{@include: ../_include/log-shipping/note-lambda-test.md}
+{@include: ../../_include/log-shipping/note-lambda-test.md}
 
 **Before you begin, you'll need**:
 

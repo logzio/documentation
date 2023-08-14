@@ -65,11 +65,11 @@ Specify the stack details as per the table below, check the checkboxes and selec
 
 Give the stack a few minutes to be deployed and the data to get to our system, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your data.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your data.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["4l4xVZhvqsrJWO7rZwOxgx", "1NiBMzN5DvQZ8BjePpUtvQ"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html}
+{@include: ../../_include/metric-shipping/generic-dashboard.html}
 
 
 

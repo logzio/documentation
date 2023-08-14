@@ -63,9 +63,9 @@ listen INPUT_NAME_TCP
 
 Copy this text to your rsyslog configuration (`/etc/rsyslog.conf` by default).
 
-{@include: ../_include/log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-var.html} 
 
 ```conf
 $ModLoad imuxsock # provides support for local system logging
@@ -114,7 +114,7 @@ If you don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/
 
 #### Set up Telegraf v1.17 or higher
 
-{@include: ../_include/metric-shipping/telegraf-setup.md}
+{@include: ../../_include/metric-shipping/telegraf-setup.md}
  
 #### Add the inputs.haproxy plug-in
 
@@ -160,8 +160,8 @@ The database name is only required for instantiating a connection with the serve
 
 #### Add the outputs.http plug-in
 
-{@include: ../_include/metric-shipping/telegraf-outputs.md}
-{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+{@include: ../../_include/metric-shipping/telegraf-outputs.md}
+{@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
 
 ### Check Logz.io for your metrics
 

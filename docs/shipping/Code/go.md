@@ -81,8 +81,8 @@ func main() {
 
 | Parameter | Description | Required/Default |
 |---|---|---|
-| token | {@include: ../_include/log-shipping/log-shipping-token.md}   | Required |
-| SetUrl | Listener URL and port.    {@include: ../_include/log-shipping/listener-var.html}  |Required (default:  `https://listener.logz.io:8071`) |
+| token | {@include: ../../_include/log-shipping/log-shipping-token.md}   | Required |
+| SetUrl | Listener URL and port.    {@include: ../../_include/log-shipping/listener-var.html}  |Required (default:  `https://listener.logz.io:8071`) |
 | SetDebug | Debug flag. | `false` |
 | SetDrainDuration  | Time to wait between log draining attempts. | `5 * time.Second` |
 | SetTempDirectory | Filepath where the logs are buffered. | -- |
@@ -546,9 +546,9 @@ Create a dedicated directory on the host of your Go application and download the
 
 After downloading the collector, create a configuration file `config.yaml` with the following parameters:
 
-{@include: ../../_include/tracing-shipping/collector-config.md}
+{@include: ../../../_include/tracing-shipping/collector-config.md}
 
-{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
+{@include: ../../../_include/tracing-shipping/replace-tracing-token.html}
 
 
 ##### Start the collector

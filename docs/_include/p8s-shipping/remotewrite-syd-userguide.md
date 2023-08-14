@@ -10,8 +10,13 @@ To send your Prometheus application metrics to a Logz.io Infrastructure Monitori
 #### Configuring Remote Write to Logz.io
 
 
-{@include: ./remotewrite-syd-userguide-tokens-lookup.html}
+##### Get your Logz.io Infrastructure Monitoring account information
 
+Within Logz.io, look up the Listener host for your region (URL) and the Logz.io Metrics Account token.
+
++ You'll find the correct Region and Listener URL for your region in the [*Regions and Listener Hosts*](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions) table. 
+
++ Look up your Prometheus Metrics account token in the [Settings > Manage tokens > Data shipping tokens > Metrics](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping) tab of your Operations workspace. For more information, see [Metrics shipping token. ](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/) 
 
 
 
@@ -29,9 +34,11 @@ Add the following parameters to your Prometheus yaml file:
 
 
 
-{@include: ./p8s_logzio_name.md} ||
-
-{@include: ./emotewrite-syd-userguide-values-not-to-show-in-app.html}
+| external_labels | Parameters to tag the metrics from this specific Prometheus server. | |
+| p8s_logzio_name |Use the value of the parameter `p8s_logzio_name` to identify from which Prometheus environment the metrics are arriving to Logz.io. Replace the `<labelvalue>` placeholder with a label that will be added to all the metrics that are sent from this specific Prometheus server. |  |
+| remote_write | The remote write section configuration sets Logz.io as the endpoint for your Prometheus metrics data. Place this section at the same indentation level as the `global` section. ||
+|url|  The Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. For more details, see the [Prometheus configuration file remote write reference. ](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) | Required|
+|bearer_token|The Logz.io Prometheus Metrics account token.  | Required|
 
 
 ```yaml

@@ -45,15 +45,15 @@ sudo /etc/init.d/mysql restart
 ```
 
 
-{@include: ../_include/log-shipping/certificate.md}
+{@include: ../../_include/log-shipping/certificate.md}
 
 #### Add MySQL as an input in your Filebeat configuration
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add MySQL to the filebeat.inputs section.
 
-{@include: ../_include/log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../_include/log-shipping/filebeat-input-extension.md}
+{@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
 
 ```yaml
@@ -181,7 +181,7 @@ The log type is used to apply the appropriate Logz.io preconfigured parsing pipe
 If Logz.io is not an output, add it now.
 Remove all other outputs.
 
-{@include: ../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-var.html} 
 
 ```yaml
 # ...
@@ -248,8 +248,8 @@ logzio/mysql-logs:latest
 
 | Parameter | Description | Required/Default |
 |---|---|---|
-| LOGZIO_TOKEN |{@include: ../_include/log-shipping/log-shipping-token.md}  {@include: ../_include/log-shipping/log-shipping-token.html} | Required |
-| LOGZIO_LISTENER | Listener URL.    {@include: ../_include/log-shipping/listener-var.html}  | `listener.logz.io` |
+| LOGZIO_TOKEN |{@include: ../../_include/log-shipping/log-shipping-token.md}   | Required |
+| LOGZIO_LISTENER | Listener URL.    {@include: ../../_include/log-shipping/listener-var.html}  | `listener.logz.io` |
 | MYSQL_ERROR_LOG_FILE | The path to MySQL error log. | Optional. `/var/log/mysql/error.log` |
 | MYSQL_SLOW_LOG_FILE | The path to MySQL slow query log. | Optional. `/var/log/mysql/mysql-slow.log` |
 | MYSQL_LOG_FILE | The path to MySQL general log. | Optional. `/var/log/mysql/mysql.log` |
@@ -286,7 +286,7 @@ To send your Prometheus-format MySQL metrics to Logz.io, you need to add the **i
 
 #### Set up Telegraf v1.17 or higher
 
-{@include: ../_include/metric-shipping/telegraf-setup.md}
+{@include: ../../_include/metric-shipping/telegraf-setup.md}
 
 #### Add the inputs.mysql plug-in
 
@@ -357,20 +357,20 @@ The full list of data scraping and configuring options can be found [here](https
 
 #### Add the outputs.http plug-in
 
-{@include: ../_include/metric-shipping/telegraf-outputs.md}
-{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+{@include: ../../_include/metric-shipping/telegraf-outputs.md}
+{@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
 
 ### Start Telegraf
 
-{@include: ../_include/metric-shipping/telegraf-run.md}
+{@include: ../../_include/metric-shipping/telegraf-run.md}
 
 ### Check Logz.io for your metrics
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["2zMVEOdWnIMgOPATDLByX7"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html}
+{@include: ../../_include/metric-shipping/generic-dashboard.html}
 
 
 

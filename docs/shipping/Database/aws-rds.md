@@ -55,8 +55,8 @@ logzio/mysql-logs:latest
 
 | Parameter | Description | Required/Default |
 |---|---|---|
-| `<<LOG-SHIPPING-TOKEN>>` | Your Logz.io account token. {@include: ../_include/log-shipping/log-shipping-token.html}   | Required |
-| `<<LISTENER-HOST>>` | Your Logz.io account listener URL. {@include: ../_include/log-shipping/listener-var.html} | Required. Default: `listener.logz.io` |
+| `<<LOG-SHIPPING-TOKEN>>` | Your Logz.io account token. {@include: ../../_include/log-shipping/log-shipping-token.html}   | Required |
+| `<<LISTENER-HOST>>` | Your Logz.io account listener URL. {@include: ../../_include/log-shipping/listener-var.html} | Required. Default: `listener.logz.io` |
 | `<<YOUR_DB_IDENTIFIER>>` | The RDS identifier of the host from which you want to read logs from. | Required |
 | `<<YOUR_ACCESS_KEY>>` | A proper AMI credentials for RDS logs access (permissions for `download-db-log-file-portion` and `describe-db-log-files` are needed). | Optional |
 | `<<YOUR_SECRET_KEY>>` | A proper AMI credentials for RDS logs access (permissions for `download-db-log-file-portion` and `describe-db-log-files` are needed). | Optional |
@@ -87,7 +87,7 @@ docker run -d \
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see log shipping troubleshooting.
 
  
 
@@ -194,11 +194,11 @@ Deploy this integration to send your Amazon RDS metrics to Logz.io.
 
 This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon RDS metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["3IBMDDcDOYQjEHj6gmalvO"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html}
+{@include: ../../_include/metric-shipping/generic-dashboard.html}
 
 
 **Before you begin, you'll need**:
@@ -251,8 +251,8 @@ Specify the stack details as per the table below, check the checkboxes and selec
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["3IBMDDcDOYQjEHj6gmalvO"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html}
+{@include: ../../_include/metric-shipping/generic-dashboard.html}

@@ -107,11 +107,11 @@ If you have Lambda extension v0.0.1 and you want to upgrade to v0.1.0+, to ensur
 2. Deploy the new extension, its dependencies, and configuration as described below in this topic.
 
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your logs.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your logs.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["4yDXMhmHwfDYvOO8o0SGon"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html}
+{@include: ../../_include/metric-shipping/generic-dashboard.html}
 
 
 
@@ -140,8 +140,8 @@ This command overwrites the existing function configuration. If you already have
 | Placeholder | Description | Required/Default|
 |---|---|---|
 | `<<FUNCTION-NAME>>` |  Name of the Lambda Function you want to monitor. |Required|
-| `<<LAYERS>>` | A space-separated list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.  For the ARN, see the [**ARNs** table]{@include: ../_include/log-shipping/lambda-xtension-tablink.md} {@include: ../_include/log-shipping/lambda-xtension-tablink-indox.html}.|  |
-| `<<ENV-VARS>>`  | Key-value pairs containing environment variables that are accessible from function code during execution. Should appear in the following format: `KeyName1=string,KeyName2=string`.  For a list of all the environment variables for the extension, see the [**Lambda environment variables** table]{@include: ../_include/log-shipping/lambda-xtension-tablink.md} {@include: ../_include/log-shipping/lambda-xtension-tablink-indox.html}.|  |
+| `<<LAYERS>>` | A space-separated list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.  For the ARN, see the [**ARNs** table] {@include: ../../_include/log-shipping/lambda-xtension-tablink.md} |  |
+| `<<ENV-VARS>>`  | Key-value pairs containing environment variables that are accessible from function code during execution. Should appear in the following format: `KeyName1=string,KeyName2=string`.  For a list of all the environment variables for the extension, see the [**Lambda environment variables** table]{@include: ../../_include/log-shipping/lambda-xtension-tablink.md} |  |
 
 ### Run the function
 
@@ -167,11 +167,11 @@ This command overwrites the existing function configuration. If you already have
 Give your logs some time to get from your system to ours.
 
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your logs.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your logs.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["4yDXMhmHwfDYvOO8o0SGon"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html}
+{@include: ../../_include/metric-shipping/generic-dashboard.html}
 
 #### Deleting the extension
 
@@ -206,12 +206,12 @@ You'll have to add the extension.
 2. In the page for the function, scroll down to the `Layers` section and choose `Add Layer`.
 ![Add layer](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lambda_extensions/lambda-x_1-2.jpg)
 
-3. Select the `Specify an ARN` option, then choose the ARN of the extension with the region code that matches your Lambda Function region from the [**ARNs** table]{@include: ../_include/log-shipping/lambda-xtension-tablink.md} {@include: ../_include/log-shipping/lambda-xtension-tablink-indox.html}, and click the `Add` button.
+3. Select the `Specify an ARN` option, then choose the ARN of the extension with the region code that matches your Lambda Function region from the [**ARNs** table]{@include: ../../_include/log-shipping/lambda-xtension-tablink.md} {@include: ../_include/log-shipping/lambda-xtension-tablink-indox.html}, and click the `Add` button.
 ![Add ARN extension](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lambda_extensions/lambda-x_1-3.jpg)
 
 ### Configure the extension parameters
 
-Add the environment variables to the function, according to the [**Environment variables** table]{@include: ../_include/log-shipping/lambda-xtension-tablink.md} {@include: ../_include/log-shipping/lambda-xtension-tablink-indox.html}.
+Add the environment variables to the function, according to the [**Environment variables** table]{@include: ../_include/log-shipping/lambda-xtension-tablink.md} {@include: ../../_include/log-shipping/lambda-xtension-tablink-indox.html}.
 
 ##### Run the function
 
@@ -223,11 +223,11 @@ Your lambda logs will appear under the type `lambda-extension-logs`.
 Give your logs some time to get from your system to ours.
 
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your logs.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your logs.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["4yDXMhmHwfDYvOO8o0SGon"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html}
+{@include: ../../_include/metric-shipping/generic-dashboard.html}
 
 
 
@@ -245,7 +245,7 @@ Give your logs some time to get from your system to ours.
 | Name | Description |Required/Default|
 | --- | --- | --- |
 | `LOGZIO_LOGS_TOKEN` | Your Logz.io log shipping [token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). | Required |
-| `LOGZIO_LISTENER` |  Your  Logz.io listener address, with port 8070 (http) or 8071 (https). For example: `https://listener.logz.io:8071`. {@include: ../_include/log-shipping/listener-var.md} | Required |
+| `LOGZIO_LISTENER` |  Your  Logz.io listener address, with port 8070 (http) or 8071 (https). For example: `https://listener.logz.io:8071`. {@include: ../../_include/log-shipping/listener-var.md} | Required |
 | `LOGS_EXT_LOG_LEVEL` |  Log level of the extension. Can be set to one of the following: `debug`, `info`, `warn`, `error`, `fatal`, `panic`. |Default: `info` |
 | `ENABLE_PLATFORM_LOGS` | The platform log captures runtime or execution environment errors. Set to `true` if you wish the platform logs will be shipped to your Logz.io account. | Default: `false` |
 | `GROK_PATTERNS` | Must be set with `LOGS_FORMAT`. Use this if you want to parse your logs into fields. A minified JSON list that contains the field name and the regex that will match the field. To understand more see the [parsing logs](https://docs.logz.io/shipping/log-sources/lambda-extensions.html#parsing-logs) section. | - |

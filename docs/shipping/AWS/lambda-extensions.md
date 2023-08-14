@@ -107,11 +107,11 @@ If you have Lambda extension v0.0.1 and you want to upgrade to v0.1.0+, to ensur
 2. Deploy the new extension, its dependencies, and configuration as described below in this topic.
 
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your logs.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your logs.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["4yDXMhmHwfDYvOO8o0SGon"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html}
+{@include: ../../_include/metric-shipping/generic-dashboard.html}
 
 
 
@@ -167,11 +167,11 @@ This command overwrites the existing function configuration. If you already have
 Give your logs some time to get from your system to ours.
 
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your logs.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your logs.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["4yDXMhmHwfDYvOO8o0SGon"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html}
+{@include: ../../_include/metric-shipping/generic-dashboard.html}
 
 #### Deleting the extension
 
@@ -211,7 +211,7 @@ You'll have to add the extension.
 
 ### Configure the extension parameters
 
-Add the environment variables to the function, according to the [**Environment variables** table]{@include: ../_include/log-shipping/lambda-xtension-tablink.md} {@include: ../_include/log-shipping/lambda-xtension-tablink-indox.html}.
+Add the environment variables to the function, according to the [**Environment variables** table]{@include: ../_include/log-shipping/lambda-xtension-tablink.md} {@include: ../../_include/log-shipping/lambda-xtension-tablink-indox.html}.
 
 ##### Run the function
 
@@ -223,11 +223,11 @@ Your lambda logs will appear under the type `lambda-extension-logs`.
 Give your logs some time to get from your system to ours.
 
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your logs.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your logs.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["4yDXMhmHwfDYvOO8o0SGon"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html}
+{@include: ../../_include/metric-shipping/generic-dashboard.html}
 
 
 

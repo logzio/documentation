@@ -61,7 +61,6 @@ You can skip this step if you have already set up an automated deployment in thi
 👇 Otherwise, click this button to start the automated deployment.
 
 [![Deploy to Azure](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_blob/deploybutton-az.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flogzio%2Flogzio-azure-serverless%2Fmaster%2Fdeployments%2Fazuredeploylogs.json)
-{:.override.btn-img}
 
 
 You'll be taken to Azure, where you'll configure the resources to be deployed.

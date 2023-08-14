@@ -50,7 +50,7 @@ kubectl create secret generic logzio-logs-secret \
   -n kube-system
 ```
 
-{@include: ../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include//general-shipping/replace-placeholders.html}
 * Replace `<<CLUSTER-NAME>>` with your cluster's name.
 
 
@@ -142,6 +142,6 @@ see [Kubernetes log shipping troubleshooting]({{site.baseurl}}/user-guide/kubern
 
   
 
-{@include: ../_include//log-shipping/multiline-logs-filebeat.md}
+{@include: ../../_include//log-shipping/multiline-logs-filebeat.md}
 
   

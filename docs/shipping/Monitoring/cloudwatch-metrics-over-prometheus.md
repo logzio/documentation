@@ -199,7 +199,7 @@ cloudwatch:
   set_timestamp: "false"
 ```
 
-{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+{@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
 
 ### Mount the configuration file to your container
   
@@ -280,7 +280,7 @@ docker run --name cloudwatch-metrics \
 logzio/cloudwatch-metrics
 ```
 
-{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+{@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
   
 ### Publish extension ports
   

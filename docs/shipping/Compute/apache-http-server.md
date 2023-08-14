@@ -27,7 +27,7 @@ The Apache HTTP Server, colloquially called Apache, is a free and open-source cr
 
  
 
-{@include: ../_include/log-shipping/certificate.md}
+{@include: ../../_include/log-shipping/certificate.md}
 
 ### Add Apache as an input
 
@@ -40,9 +40,9 @@ The default log locations for:
 * RHEL, CentOS, Fedora - `/var/log/httpd/access_log`
 
 
-{@include: ../_include/log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../_include/log-shipping/filebeat-input-extension.md}
+{@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
 
 ```yaml
@@ -135,7 +135,7 @@ filebeat.inputs:
 If Logz.io is not an output, add it now.
 Remove all other outputs.
 
-{@include: ../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-var.html} 
 
 ```yaml
 # ...
@@ -170,7 +170,7 @@ To send your Prometheus-format Apache HTTP Server metrics to Logz.io, you need t
 
 #### Set up Telegraf v1.17 or higher
 
-{@include: ../_include/metric-shipping/telegraf-setup.md}
+{@include: ../../_include/metric-shipping/telegraf-setup.md}
 
 #### Add the inputs.apache plug-in
 
@@ -218,12 +218,12 @@ The `ExtendedStatus` option must be enabled on your server in order to collect a
 
 #### Add the outputs.http plug-in
   
-{@include: ../_include/metric-shipping/telegraf-outputs.md}
-{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+{@include: ../../_include/metric-shipping/telegraf-outputs.md}
+{@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
   
 #### Start Telegraf
 
-{@include: ../_include/metric-shipping/telegraf-run.md}
+{@include: ../../_include/metric-shipping/telegraf-run.md}
 
 #### Check Logz.io for your metrics
 

@@ -16,7 +16,7 @@ metrics_alerts: []
 
 ### Manual configuration with a Lambda function
 
-{@include: ../_include/log-shipping/note-lambda-test.md}
+{@include: ../../_include/log-shipping/note-lambda-test.md}
 
  
 
@@ -93,7 +93,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 ### Automated CloudFormation deployment
 
-{@include: ../_include/log-shipping/note-lambda-test.md}
+{@include: ../../_include/log-shipping/note-lambda-test.md}
 
 **Before you begin, you'll need**:
 
@@ -167,7 +167,7 @@ Logz.io Public Registry extensions are currently only available on the AWS regio
 :::
  
 
-{@include: ../_include/log-shipping/note-lambda-test.md}
+{@include: ../../_include/log-shipping/note-lambda-test.md}
 
 **Before you begin, you'll need**:
 

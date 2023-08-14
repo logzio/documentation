@@ -26,7 +26,7 @@ To send your Prometheus-format bCache metrics to Logz.io, you need to add the **
   
 Install Telegraf on the Linux server that you need to collect the bCache metrics from.
 
-{@include: ../_include/metric-shipping/telegraf-setup.md}
+{@include: ../../_include/metric-shipping/telegraf-setup.md}
 
 
 #### Add the inputs.bcache plug-in
@@ -52,12 +52,12 @@ The full list of data scraping and configuring options can be found [here](https
 
 #### Add the outputs.http plug-in
 
-{@include: ../_include/metric-shipping/telegraf-outputs.md}
-{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+{@include: ../../_include/metric-shipping/telegraf-outputs.md}
+{@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
   
 ### Start Telegraf
 
-{@include: ../_include/metric-shipping/telegraf-run.md}
+{@include: ../../_include/metric-shipping/telegraf-run.md}
 
 ### Check Logz.io for your metrics
 

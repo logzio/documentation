@@ -17,7 +17,7 @@ metrics_alerts: []
 
 When you set Logz.io to fetch Elastic Load Balancing (ELB) logs, Logz.io will periodically read logs from the configured S3 bucket. Elastic Load Balancing logs are useful for application usage intelligence and monitoring.
 
-{@include: ../_include/log-shipping/s3-bucket.md}
+{@include: ../../_include/log-shipping/s3-bucket.md}
 
 
 
@@ -48,7 +48,7 @@ Log into the app to use the dedicated Logz.io [configuration wizard](https://app
 
 <!-- logzio-inject:aws:elb -->
 
-{@include: ../_include/log-shipping/add-s3-bucket.md}
+{@include: ../../_include/log-shipping/add-s3-bucket.md}
 
 
 ### Check Logz.io for your logs

@@ -22,7 +22,7 @@ Amazon S3 Access Logs provide detailed records about requests that are made to y
 
 * `s3:ListBucket` and `s3:GetObject` [permissions](https://docs.logz.io/user-guide/give-aws-access-with-iam-roles/) for the required S3 bucket
 
-* {@include: ../_include/log-shipping/s3-bucket-file-order.md}
+* {@include: ../../_include/log-shipping/s3-bucket-file-order.md}
 
  
 
@@ -36,13 +36,13 @@ For help with this, see [Amazon S3 Server Access Logging](https://docs.aws.amazo
 
 ##### Add a new S3 bucket using the dedicated Logz.io configuration wizard
 
-{@include: ../_include/log-shipping/app_login.html}
+{@include: ../../_include/log-shipping/app_login.html}
 
 
 <!-- logzio-inject:aws:s3-access -->
 
 
-{@include: ../_include/log-shipping/add-s3-bucket.md}
+{@include: ../../_include/log-shipping/add-s3-bucket.md}
 
 
 ##### Check Logz.io for your logs

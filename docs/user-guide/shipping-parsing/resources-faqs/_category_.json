@@ -1,8 +1,0 @@
-{
-  "label": "Resources & FAQs",
-  "position": 2,
-  "link": {
-    "type": "generated-index",
-    "description": "FAQs and resources that can help troubleshoot integrating logs with a specific service or application."
-  }
-}

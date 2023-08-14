@@ -24,7 +24,7 @@ To use docker-collector-logs, you'll set environment variables when you run the 
 The Docker logs directory and docker.sock are mounted to the container, allowing Filebeat to collect the logs and metadata.
 
 
-{@include: ../_include/log-shipping/docker-collector-logs.md}
+{@include: ../../_include/log-shipping/docker-collector-logs.md}
 
 
 
@@ -67,9 +67,9 @@ docker service create --name docker-collector-logs \
 
 | Parameter | Description | Required/Default |
 |---|---|---|
-| LOGZIO_TOKEN | Your Logz.io account token. {@include: ../_include/log-shipping/log-shipping-token.html}   | Required |
+| LOGZIO_TOKEN | Your Logz.io account token. {@include: ../../_include/log-shipping/log-shipping-token.html}   | Required |
 | LOGZIO_REGION | Logz.io region code to ship the logs to. This region code changes depending on the region your account is hosted in. For example, accounts in the EU region have region code `eu`. If you don't specify this parameter, the default value will be used. For more information, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html) on the Logz.io Docs. | (US region) |
-| LOGZIO_TYPE | The log type you'll use with this Docker. {@include: ../_include/log-shipping/type.md} | Docker image name |
+| LOGZIO_TYPE | The log type you'll use with this Docker. {@include: ../../_include/log-shipping/type.md} | Docker image name |
 | LOGZIO_CODEC | Set to `json` if shipping JSON logs. Otherwise, set to `plain` for plain text format. | `plain` |
 | ignoreOlder |  Set a time limit on back shipping logs. Upgrading to a newer version of docker-collector-logs while it is already running will cause it to resend logs that are within the `ignoreOlder` timeframe. You can minimize log duplicates by setting the `ignoreOlder` parameter of the new docker to a lower value (for example, `20m`). | `3h` |
 | LOGZIO_URL  |  URL for your account listener host. The URL changes depending on the region your account is hosted in. You can skip this parameter if you specify `LOGZIO_REGION`. If neither `LOGZIO_URL` nor `LOGZIO_REGION` is specified, the default value will be used. For more information, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html) on the Logz.io Docs. | `listener.logz.io:5015` |
@@ -152,8 +152,8 @@ For a complete list of options, see the configuration parameters below the code 
 
 | Parameter | Description | Required/Default |
 |---|---|---|
-| logzio-token | Your Logz.io account token. {@include: ../_include/log-shipping/log-shipping-token.html}   | Required |
-| logzio-url | Listener URL and port. {@include: ../_include/log-shipping/listener-var.html}  | Required |
+| logzio-token | Your Logz.io account token. {@include: ../../_include/log-shipping/log-shipping-token.html}   | Required |
+| logzio-url | Listener URL and port. {@include: ../../_include/log-shipping/listener-var.html}  | Required |
 | logzio-dir-path | Unsent logs are saved to this location on the disk. | Required |
 | logzio-source | Event source. | -- |
 | logzio-format | Log message format, either `json` or `text`. | `text` |
@@ -242,7 +242,7 @@ docker run --name telegraf-docker-collector-metrics \
  logzio/docker-metrics-collector:latest
 ```
 
-{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+{@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
 
 
 If you prefer to keep these environment variables in an `.env` file, run the following command:
@@ -264,11 +264,11 @@ Below is a list of all environment variables available with this integration. If
 
 ### Check Logz.io metrics
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboards to enhance the observability of your metrics.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboards to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["5Wbud46hwzhpFeokC69j0Z"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html} 
+{@include: ../../_include/metric-shipping/generic-dashboard.html} 
 
  
 

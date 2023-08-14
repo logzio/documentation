@@ -26,7 +26,7 @@ To send your Prometheus-format etcd metrics to Logz.io, you need to add the **in
 
 #### Set up Telegraf v1.17 or higher on the same machine as etcd
 
-{@include: ../_include/metric-shipping/telegraf-setup.md}
+{@include: ../../_include/metric-shipping/telegraf-setup.md}
  
 #### Add the inputs.prometheus plug-in
 
@@ -134,16 +134,16 @@ The full list of data scraping and configuring options can be found [here](https
 
 #### Add the outputs.http plug-in
 
-{@include: ../_include/metric-shipping/telegraf-outputs.md}
-{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+{@include: ../../_include/metric-shipping/telegraf-outputs.md}
+{@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
 
 ### Check Logz.io for your metrics
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboards to enhance the observability of your metrics.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboards to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["3Vr8IYt2XR2LEKP6PeVV0r"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html} 
+{@include: ../../_include/metric-shipping/generic-dashboard.html} 
 
 
  

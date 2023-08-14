@@ -67,7 +67,7 @@ Your Kubernetes version may affect your options, as follows:
 
 * **ARM architecture** is supported as of logzio/logzio-fluentd:1.0.2.
 
-{@include: ../_include//log-shipping/multiline-logs-fluentd.md}
+{@include: ../../_include//log-shipping/multiline-logs-fluentd.md}
  
 
 ## Deploy logzio-k8s with default configuration
@@ -93,9 +93,9 @@ kubectl create namespace monitoring
 
 Save your Logz.io shipping credentials as a Kubernetes secret.
 
-{@include: ../_include/log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-var.html} 
 
 ```shell
 kubectl create secret generic logzio-logs-secret \
@@ -164,7 +164,7 @@ kubectl create secret generic logzio-logs-secret \
   -n monitoring
 ```
 
-{@include: ../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include//general-shipping/replace-placeholders.html}
 
 
 ### Configure Fluentd
@@ -174,7 +174,7 @@ There are 3 DaemonSet options: [RBAC DaemonSet](https://raw.githubusercontent.co
 If you wish to make advanced changes in your Fluentd configuration, you can download and edit the [configmap yaml file](https://raw.githubusercontent.com/logzio/logzio-k8s/master/configmap.yaml).
 
 
-{@include: ../_include/k8s-fluentd.md}
+{@include: ../../_include/k8s-fluentd.md}
 
 #### Good to know
 
@@ -243,7 +243,7 @@ If you need to specify multiple namespaces, add another `kubernetes.var.log.cont
 
  
 
-{@include: ../_include//log-shipping/multiline-fluentd-plugin.md}
+{@include: ../../_include//log-shipping/multiline-fluentd-plugin.md}
 
   
 
@@ -284,11 +284,11 @@ To determine if a node uses taints as well as to display the taint keys, run:
 kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
 ```
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["7BMEKdVrHKPQtt5IgaQ7Bw", "4knWrgcTsEj5kqNXJTES87", "NwO3pdosDJVRWo6i9QJEy", "6RFNnTgcwAmmFnuRropnGu", "5lqRpL1ADesghZbNCEPaZ9"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html} 
+{@include: ../../_include/metric-shipping/generic-dashboard.html} 
   
 
   
@@ -319,9 +319,9 @@ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.tain
 
    * Replace `<<YOUR_NAMESPACE>>` with the required namespace.
 
-   * {@include: ../_include//metric-shipping/replace-metrics-token.html}
+   * {@include: ../../_include//metric-shipping/replace-metrics-token.html}
 
-   * {@include: ../_include//log-shipping/listener-var.html}
+   * {@include: ../../_include//log-shipping/listener-var.html}
 
    * Replace `<<ENV-TAG>>` with the name for the environment's metrics, to easily identify the metrics for each environment.
 
@@ -332,11 +332,11 @@ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.tain
 Give your metrics some time to get from your system to ours.
 
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["7BMEKdVrHKPQtt5IgaQ7Bw", "4knWrgcTsEj5kqNXJTES87", "NwO3pdosDJVRWo6i9QJEy", "6RFNnTgcwAmmFnuRropnGu", "5lqRpL1ADesghZbNCEPaZ9"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html} 
+{@include: ../../_include/metric-shipping/generic-dashboard.html} 
   
  
 
@@ -427,11 +427,11 @@ To determine if a node uses taints as well as to display the taint keys, run:
 kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
 ```
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["5jMvBtrxQwMo0GuDO13kpb", "5BjRR3NuNQb3XHVPhn3HQ0", "2TRgFib4ICfKsrzS5oJwgC", "1EcVjdr5c6heqbxpd6Zs8X"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html} 
+{@include: ../../_include/metric-shipping/generic-dashboard.html} 
 
 
   
@@ -462,9 +462,9 @@ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.tain
 
    * Replace `<<YOUR_NAMESPACE>>` with the required namespace.
 
-   * {@include: ../_include//metric-shipping/replace-metrics-token.html}
+   * {@include: ../../_include//metric-shipping/replace-metrics-token.html}
 
-   * {@include: ../_include//log-shipping/listener-var.html}
+   * {@include: ../../_include//log-shipping/listener-var.html}
 
    * Replace `<<ENV-TAG>>` with the name for the environment's metrics, to easily identify the metrics for each environment.
 
@@ -475,11 +475,11 @@ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.tain
 Give your metrics some time to get from your system to ours.
 
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["5jMvBtrxQwMo0GuDO13kpb", "5BjRR3NuNQb3XHVPhn3HQ0", "2TRgFib4ICfKsrzS5oJwgC", "1EcVjdr5c6heqbxpd6Zs8X"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html} 
+{@include: ../../_include/metric-shipping/generic-dashboard.html} 
   
  
 
@@ -533,9 +533,9 @@ If your Windows node pool does not share the same username and password across t
 
    * Replace `<<YOUR_NAMESPACE>>` with the required namespace.
 
-   * {@include: ../_include//metric-shipping/replace-metrics-token.html}
+   * {@include: ../../_include//metric-shipping/replace-metrics-token.html}
 
-   * {@include: ../_include//log-shipping/listener-var.html}
+   * {@include: ../../_include//log-shipping/listener-var.html}
 
    * Replace `<<ENV-TAG>>` with the name for the environment's metrics, to easily identify the metrics for each environment.
 
@@ -550,11 +550,11 @@ If your Windows node pool does not share the same username and password across t
 Give your metrics some time to get from your system to ours.
 
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["5jMvBtrxQwMo0GuDO13kpb", "5BjRR3NuNQb3XHVPhn3HQ0", "2TRgFib4ICfKsrzS5oJwgC", "1EcVjdr5c6heqbxpd6Zs8X" ] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html} 
+{@include: ../../_include/metric-shipping/generic-dashboard.html} 
   
  
 
@@ -740,7 +740,7 @@ logzio-k8s-logs logzio-helm/logzio-k8s-logs
 
 If you're using a custom config, please make sure that you're using a `.yaml` file with the following structure:
 
-{@include: ../_include/log-shipping/filebeat-input-extension.md}
+{@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
 
 ```
@@ -771,7 +771,7 @@ Give your logs some time to get from your system to ours,
 and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
 If you still don't see your logs,
-see [Kubernetes log shipping troubleshooting]({{site.baseurl}}/user-guide/kubernetes-troubleshooting/).
+see Kubernetes log shipping troubleshooting.
 
  
 
@@ -867,7 +867,7 @@ Give your logs some time to get from your system to ours,
 and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
 If you still don't see your logs,
-see [Kubernetes log shipping troubleshooting]({{site.baseurl}}/user-guide/kubernetes-troubleshooting/).
+see Kubernetes log shipping troubleshooting.
 
  
 
@@ -973,7 +973,7 @@ Some values, such as `daemonset.tolerations`, should be set as follows:
 ```
  
 
-{@include: ../_include//log-shipping/multiline-logs-filebeat.md}
+{@include: ../../_include//log-shipping/multiline-logs-filebeat.md}
 
   
 
@@ -1023,7 +1023,7 @@ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.tain
   
   If you are running K8S 1.17 or later, the DaemonSet is set to use `apiVersion: rbac.authorization.k8s.io/v1` by default. No change is needed.
 
-{@include: ../_include//log-shipping/multiline-logs-fluentd.md}
+{@include: ../../_include//log-shipping/multiline-logs-fluentd.md}
 
 
  
@@ -1060,7 +1060,7 @@ kubectl create secret generic logzio-logs-secret \
 -n monitoring
 ```
 
-{@include: ../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include//general-shipping/replace-placeholders.html}
 
 
 ##### Deploy the DaemonSet
@@ -1077,7 +1077,7 @@ Give your logs some time to get from your system to ours,
 and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
 If you still don't see your logs,
-see [Kubernetes log shipping troubleshooting]({{site.baseurl}}/user-guide/kubernetes-troubleshooting/).
+see Kubernetes log shipping troubleshooting.
 
 
 
@@ -1113,7 +1113,7 @@ kubectl create secret generic logzio-logs-secret \
 -n monitoring
 ```
 
-{@include: ../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include//general-shipping/replace-placeholders.html}
 
 ##### Configure Fluentd
 
@@ -1142,7 +1142,7 @@ Give your logs some time to get from your system to ours,
 and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
 If you still don't see your logs,
-see [Kubernetes log shipping troubleshooting]({{site.baseurl}}/user-guide/kubernetes-troubleshooting/).
+see Kubernetes log shipping troubleshooting.
 
  
 
@@ -1177,7 +1177,7 @@ If you need to specify multiple namespaces, add another `kubernetes.var.log.cont
 
   
 
-{@include: ../_include//log-shipping/multiline-fluentd-plugin.md}
+{@include: ../../_include//log-shipping/multiline-fluentd-plugin.md}
  
 
 ####  Overview
@@ -1215,11 +1215,11 @@ To determine if a node uses taints as well as to display the taint keys, run:
 kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
 ```
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["6QjEUDKisk0OUW8KXsUizG", "4sSvbeAMUASACnq3icEm9I", "3zijX333NMPTtoWbZlyW8O", "4v4CNkbUxCsYu4MvMYqVod"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html} 
+{@include: ../../_include/metric-shipping/generic-dashboard.html} 
 
   
  
@@ -1250,9 +1250,9 @@ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.tain
 
    * Replace `<<YOUR_NAMESPACE>>` with the required namespace.
 
-   * {@include: ../_include//metric-shipping/replace-metrics-token.html}
+   * {@include: ../../_include//metric-shipping/replace-metrics-token.html}
 
-   * {@include: ../_include//log-shipping/listener-var.html}
+   * {@include: ../../_include//log-shipping/listener-var.html}
 
    * Replace `<<ENV-TAG>>` with the name for the environment's metrics, to easily identify the metrics for each environment.
 
@@ -1263,11 +1263,11 @@ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.tain
 Give your metrics some time to get from your system to ours.
 
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["6QjEUDKisk0OUW8KXsUizG", "4sSvbeAMUASACnq3icEm9I", "3zijX333NMPTtoWbZlyW8O", "4v4CNkbUxCsYu4MvMYqVod"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html} 
+{@include: ../../_include/metric-shipping/generic-dashboard.html} 
   
  
 

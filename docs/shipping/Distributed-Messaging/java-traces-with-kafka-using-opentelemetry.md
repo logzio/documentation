@@ -47,16 +47,16 @@ This integration enables you to auto-instrument your Java application and run a 
 Download the latest version of the [OpenTelemetry Java agent](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar) to the host of your Java application.
 
 
-{@include: ../_include/tracing-shipping/docker.md}
+{@include: ../../_include/tracing-shipping/docker.md}
 
 
-{@include: ../_include/tracing-shipping/replace-tracing-token.html}
+{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
 
 
 ### Attach the agent to the collector and run it
 
-{@include: ../_include/tracing-shipping/collector-run-note.md}
+{@include: ../../_include/tracing-shipping/collector-run-note.md}
 
 
 Run the following command from the directory of your Java application:
@@ -147,7 +147,7 @@ helm install  \
 logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 ```
 
-{@include: ../_include/tracing-shipping/replace-tracing-token.html}
+{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
 `<<LOGZIO_ACCOUNT_REGION_CODE>>` - (Optional): Your logz.io account region code. Defaults to "us". Required only if your logz.io region is [different than US East](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
 
@@ -288,7 +288,7 @@ logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 
 Replace `<PATH-TO>` with the path to your custom `values.yaml` file.
 
-{@include: ../_include/tracing-shipping/replace-tracing-token.html}
+{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
 
 
@@ -305,5 +305,5 @@ helm uninstall logzio-k8s-telemetry
 ```
 
 
-{@include: ../_include/tracing-shipping/otel-troubleshooting.md}
+{@include: ../../_include/tracing-shipping/otel-troubleshooting.md}
 

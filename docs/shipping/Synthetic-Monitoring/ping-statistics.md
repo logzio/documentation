@@ -50,8 +50,8 @@ Specify the stack details as per the table below and select **Next**.
 | Parameter | Description | Required/Optional | Default |
 | --- | --- | --- | --- |
 | Addresses | The addresses to ping. You can add port for each address (default port for the address is 80). Addresses must be separated by comma. (Example addresses: `www.google.com`, `tcp://www.google.com`, `https://www.google.com`, `http://www.google.com`). | Required | - |
-| LogzioListener | The Logz.io listener URL: `https://<<LISTENER-HOST>>:8071` {@include: ../_include/log-shipping/listener-var.html} | Required | `https://listener.logz.io` |
-| LogzioLogsToken | Your Logz.io log shipping token:`<<LOG-SHIPPING-TOKEN>>` {@include: ../_include/log-shipping/log-shipping-token.html} | Required | - |
+| LogzioListener | The Logz.io listener URL: `https://<<LISTENER-HOST>>:8071` {@include: ../../_include/log-shipping/listener-var.html} | Required | `https://listener.logz.io` |
+| LogzioLogsToken | Your Logz.io log shipping token:`<<LOG-SHIPPING-TOKEN>>` {@include: ../../_include/log-shipping/log-shipping-token.html} | Required | - |
 | LogzioMetricsToken | Your Logz.io metrics shipping token:`<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>` | Required | - |
 | PingCount | The number of pings for each address. | Required | `3` |
 | PingInterval | The time to wait (in seconds) between each ping. | Required | `1 (second)` |
@@ -79,11 +79,11 @@ Run the ping statistics tests to generate metrics.
 
 Give your metrics some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). All metrics that were sent from the Lambda function will have the prefix `ping_stats` in their name.
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["1rNO8llFw8Cm9N8U3M3vCQ"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html}
+{@include: ../../_include/metric-shipping/generic-dashboard.html}
 
 
 

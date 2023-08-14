@@ -64,14 +64,14 @@ Once you access the **Manage Domain Wide Delegation**, click **Add new**, and fi
 
 #### Filebeat monitoring setup
 
-{@include: ../_include/log-shipping/certificate.md}
+{@include: ../../_include/log-shipping/certificate.md}
 
 ### Configure Filebeat
 
 Open the Filebeat configuration file (the default path `/etc/filebeat/filebeat.yml`) with your preferred text editor.
 Copy and paste the code block below, overwriting the previous contents.
 
-{@include: ../_include/log-shipping/filebeat-input-extension.md}
+{@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
 
 ```yaml
@@ -165,9 +165,9 @@ For a full list of available Filebeat configuration options for the Google Works
 
 Still in the same configuration file, replace the placeholders to match your specifics.
 
-{@include: ../_include/log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-var.html} 
 
 * Replace `<<PATH_TO_CREDENTIALS_FILE>>` with the path to the file (for example `./credentials_file.json` with credentials of the service account path that was created on the GCP. It is preferable to use the full path for the file.
 

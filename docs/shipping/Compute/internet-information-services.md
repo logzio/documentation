@@ -28,9 +28,9 @@ Internet Information Services (IIS) for Windows® Server is a flexible, secure a
 
 Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\nxlog.conf` by default).
 
-{@include: ../_include/log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-var.html} 
 
 ```conf
 define ROOT C:\\Program Files (x86)\\nxlog

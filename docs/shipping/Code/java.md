@@ -116,8 +116,8 @@ See the [Log4j documentation](https://logging.apache.org/log4j/2.x/manual/config
 
 | Parameter | Description | Required/Default |
 |---|---|---|
-| logzioToken | {@include: ../_include/log-shipping/log-shipping-token.md}  {@include: ../_include/log-shipping/log-shipping-token.html} Begin with `$` to use an environment variable or system property with the specified name. For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable. | Required |
-| logzioUrl | Listener URL and port. {@include: ../_include/log-shipping/listener-var.html} | `https://listener.logz.io:8071` |
+| logzioToken | {@include: ../../_include/log-shipping/log-shipping-token.md}  {@include: ../../_include/log-shipping/log-shipping-token.html} Begin with `$` to use an environment variable or system property with the specified name. For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable. | Required |
+| logzioUrl | Listener URL and port. {@include: ../../_include/log-shipping/listener-var.html} | `https://listener.logz.io:8071` |
 | logzioType | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `java` |
 | addHostname | Boolean. Indicates whether to add `hostname` field to logs. This field holds the machine's host name.    Set to `true` to include hostname. Set to `false` to leave it off. If a host name can't be found, this field is not added. | False |
 | additionalFields | Adds fields to the JSON message output, formatted as `field1=value1;field2=value2`. Use `$` to inject an environment variable value, such as `field2=$VAR_NAME`. The environment variable should be the only value in the key-value pair. If the environment variable can't be resolved, the field is omitted. | -- |
@@ -338,8 +338,8 @@ If you want to output `debug` messages, include the `debug` parameter into the c
 
 | Parameter | Description | Required/Default |
 |---|---|---|
-| token | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). {@include: ../_include/log-shipping/log-shipping-token.html} Begin with `$` to use an environment variable or system property with the specified name. For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable. | Required |
-| logzioUrl | Listener URL and port.    {@include: ../_include/log-shipping/listener-var.html}  | `https://listener.logz.io:8071` |
+| token | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). {@include: ../../_include/log-shipping/log-shipping-token.html} Begin with `$` to use an environment variable or system property with the specified name. For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable. | Required |
+| logzioUrl | Listener URL and port.    {@include: ../../_include/log-shipping/listener-var.html}  | `https://listener.logz.io:8071` |
 | logzioType | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `java` |
 | addHostname | Indicates whether to add `hostname` field to logs. This field holds the machine's host name.    Set to `true` to include hostname. Set to `false` to leave it off. If a host name can't be found, this field is not added. | `false` |
 | additionalFields | Adds fields to the JSON message output, formatted as `field1=value1;field2=value2`.    Use `$` to inject an environment variable value, such as `field2=$VAR_NAME`. The environment variable should be the only value in the key-value pair. If the environment variable can't be resolved, the field is omitted. | N/A |
@@ -800,9 +800,9 @@ Create a dedicated directory on the host of your Java application and download t
 
 After downloading the collector, create a configuration file `config.yaml` with the following parameters:
 
-{@include: ../tracing-shipping/collector-config.md}
+{@include: ../../tracing-shipping/collector-config.md}
 
-{@include: ../tracing-shipping/replace-tracing-token.html}
+{@include: ../../tracing-shipping/replace-tracing-token.html}
 
 
 ##### Start the collector

@@ -26,7 +26,7 @@ To send your Prometheus-format Neptune Apex metrics to Logz.io, you need to add 
 
 #### Set up Telegraf v1.17 or higher on the same machine as the Apex System
 
-{@include: ../_include/metric-shipping/telegraf-setup.md}
+{@include: ../../_include/metric-shipping/telegraf-setup.md}
  
 #### Add the inputs.neptune_apex plug-in
 
@@ -56,8 +56,8 @@ The database name is only required for instantiating a connection with the serve
 
 #### Add the outputs.http plug-in
 
-{@include: ../_include/metric-shipping/telegraf-outputs.md}
-{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+{@include: ../../_include/metric-shipping/telegraf-outputs.md}
+{@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
 
 ### Check Logz.io for your metrics
 

@@ -26,14 +26,14 @@ For a much easier and more efficient way to collect and send metrics, consider u
 When you set Logz.io to fetch CloudFront logs, Logz.io will periodically read logs from the configured S3 bucket.
 CloudFront logs are useful for auditing/security monitoring and business intelligence.
 
-{@include: ../_include/log-shipping/s3-bucket.md}
+{@include: ../../_include/log-shipping/s3-bucket.md}
 
 
 **Before you begin, you'll need**:
 
 * `s3:ListBucket` and `s3:GetObject` [permissions](https://docs.logz.io/user-guide/give-aws-access-with-iam-roles/) for the required S3 bucket
 
-* {@include: ../_include/log-shipping/s3-bucket-file-order.md}
+* {@include: ../../_include/log-shipping/s3-bucket-file-order.md}
 
  
 
@@ -50,7 +50,7 @@ Log into the app to use the dedicated Logz.io [configuration wizard](https://app
 
 <!-- logzio-inject:aws:cloudfront -->
 
-{@include: ../_include/log-shipping/add-s3-bucket.md}
+{@include: ../../_include/log-shipping/add-s3-bucket.md}
 
 ### Check Logz.io for your logs
 
@@ -66,11 +66,11 @@ Deploy this integration to send your Amazon CloudFront metrics to Logz.io.
 
 This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon CloudFront metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["3MJWDTivgQCNz3DQIj3Kry"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html}
+{@include: ../../_include/metric-shipping/generic-dashboard.html}
 
 
 **Before you begin, you'll need**:
@@ -122,9 +122,9 @@ Specify the stack details as per the table below, check the checkboxes and selec
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["3MJWDTivgQCNz3DQIj3Kry"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html}
+{@include: ../../_include/metric-shipping/generic-dashboard.html}
 

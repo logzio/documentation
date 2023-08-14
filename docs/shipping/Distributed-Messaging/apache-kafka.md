@@ -297,7 +297,7 @@ KAFKA_OPTS="`$KAFKA_OPTS` -javaagent:`PWD`/jmx_prometheus_javaagent-0.16.1.jar=9
 
 ### Set up Telegraf v1.17 on a dedicated machine
 
-{@include: ../_include/metric-shipping/telegraf-setup.md}
+{@include: ../../_include/metric-shipping/telegraf-setup.md}
 
 ### Add the inputs.prometheus plug-in
 
@@ -312,12 +312,12 @@ First you need to configure the input plug-in to enable Telegraf to scrape data 
 
 ### Add the outputs.http plug-in
   
-{@include: ../_include/metric-shipping/telegraf-outputs.md}
-{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+{@include: ../../_include/metric-shipping/telegraf-outputs.md}
+{@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
 
 ### Start Telegraf
 
-{@include: ../_include/metric-shipping/telegraf-run.md}  
+{@include: ../../_include/metric-shipping/telegraf-run.md}  
   
 ### Check Logz.io for your metrics
 
