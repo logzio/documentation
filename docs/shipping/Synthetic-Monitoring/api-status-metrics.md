@@ -65,9 +65,9 @@ Specify the stack details as per the table below, check the checkboxes and selec
 | ApiResponseTimeout | Your API response timeout (seconds). | Required | `10 (seconds)` |
 | ExpectedStatusCode | The expected HTTP response status code your API should return. | Required | `200` |
 | ExpectedBody | The expected HTTP response body your API should return (leave empty if your API HTTP response body is empty). | Required | ` ` |
-| LogzioListener | The Logz.io listener URL: `https://<<LISTENER-HOST>>:8071` {@include: ../_include/log-shipping/listener-var.html} | Required | `https://listener.logz.io` |
+| LogzioListener | The Logz.io listener URL: `https://<<LISTENER-HOST>>:8071` {@include: ../../_include/log-shipping/listener-var.html} | Required | `https://listener.logz.io` |
 | LogzioMetricsToken | Your Logz.io metrics shipping token:`<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>`. | Required | - |
-| LogzioLogsToken | Your Logz.io log shipping token:`<<LOG-SHIPPING-TOKEN>>` {@include: ../_include/log-shipping/log-shipping-token.html} | Required | - |
+| LogzioLogsToken | Your Logz.io log shipping token:`<<LOG-SHIPPING-TOKEN>>` {@include: ../../_include/log-shipping/log-shipping-token.html} | Required | - |
 | SchedulingInterval | The scheduling expression that determines when and how often the Lambda function runs. | Required | `rate(30 minutes)` |
 | Headers | Your API headers separated by comma and each header's key and value are separated by `=` (`header_key_1=header_value_1,header_key_2=header_value_2`). | Optional | - |
 | Body | Your API HTTP request body. | Optional | - |

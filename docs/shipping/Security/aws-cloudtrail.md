@@ -14,7 +14,7 @@ metrics_alerts: []
 ---
 
 
-{@include: ../_include/log-shipping/s3-bucket.md}
+{@include: ../../_include/log-shipping/s3-bucket.md}
 
 
 **Before you begin**:
@@ -23,7 +23,7 @@ metrics_alerts: []
 
 * If you plan on using an IAM role to authenticate your connection, you can get the role policy by filling out the bucket information and clicking the "Get the role policy" button.
 
-* {@include: ../_include/log-shipping/s3-bucket-file-order.md}
+* {@include: ../../_include/log-shipping/s3-bucket-file-order.md}
 
  
 
@@ -63,7 +63,7 @@ You'll need these values when adding your S3 bucket information.
 
 <!-- logzio-inject:aws:cloudtrail -->
 
-{@include: ../_include/log-shipping/S3-fetcher.html}
+{@include: ../../_include/log-shipping/S3-fetcher.html}
 
 1. Click **+ Add a bucket**
 2. Select your preferred method of authentication - an IAM role or access keys.

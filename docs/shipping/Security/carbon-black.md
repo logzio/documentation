@@ -24,7 +24,7 @@ With this integration, you can collect Logs from Carbon Black and forward them t
   
 Follow [Carbon Black instructions](https://developer.carbonblack.com/reference/enterprise-response/event-forwarder/event-forwarder-s3-bucket-configuration/) for forwarding events to S3 bucket
 
-{@include: ../_include/log-shipping/stack.md}
+{@include: ../../_include/log-shipping/stack.md}
 
 
  

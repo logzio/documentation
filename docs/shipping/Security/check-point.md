@@ -34,7 +34,7 @@ Configure your Check Point Log Exporter to send logs to your Filebeat server.
 
 :::note
 For complete details on configuring Log Exporter, see [Check Point Log Export](https://support.checkpoint.com/results/sk/sk122323) from Check Point.
-{:.info-box.read}
+:::
  
 
 
@@ -67,15 +67,15 @@ to restart the exporter.
 :::
  
 
-{@include: ../_include/log-shipping/certificate.md}
+{@include: ../../_include/log-shipping/certificate.md}
 
 ### Add UDP traffic as an input
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add UDP to the filebeat.inputs section.
 
-{@include: ../_include/log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../_include/log-shipping/filebeat-input-extension.md}
+{@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
 
 ```yaml
@@ -128,7 +128,7 @@ registry_file: /var/lib/filebeat/registry
 If Logz.io is not an output, add it now.
 Remove all other outputs.
 
-{@include: ../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-var.html} 
 
 ```yaml
 # ...
@@ -158,7 +158,10 @@ If you still don't see your logs, see [Filebeat troubleshooting](https://docs.lo
 **Before you begin, you'll need**: 
 
 * [Check Point Log Exporter](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk122323)
-{@include: ../_include//log-shipping/filebeat-installed-port5015-begin.md} installed as a Windows service{@include: ../_include//log-shipping/filebeat-installed-port5015-end.md}
+
+{@include: ../../_include/log-shipping/filebeat-installed-port5015-begin.md} installed as a Windows service
+
+{@include: ../../_include/log-shipping/filebeat-installed-port5015-end.md}
 
 
 
@@ -171,7 +174,7 @@ Configure your Check Point Log Exporter to send logs to your Filebeat server.
 
 :::note
 For complete details on configuring Log Exporter, see [Check Point Log Export](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk122323) from Check Point.
-{:.info-box.read}
+:::
  
 
 
@@ -204,7 +207,7 @@ to restart the exporter.
 :::
  
 
-{@include: ../_include/log-shipping/certificate.md}
+{@include: ../../_include/log-shipping/certificate.md}
 
 
 ### Download the Logz.io public certificate
@@ -212,26 +215,26 @@ to restart the exporter.
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 Download the
-[Logz.io public certificate]({@include: ../_include/log-shipping/certificate-path.md})
+[Logz.io public certificate]({@include: ../../_include/log-shipping/certificate-path.md})
 to `C:\ProgramData\Filebeat\Logzio.crt`
 on your machine.
 
 
 ### Configure Filebeat using the dedicated Logz.io configuration wizard
 
-{@include: ../_include/log-shipping/filebeat-input-extension.md}
+{@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
 
-{@include: ../_include/log-shipping/filebeat-wizard.html}
+{@include: ../../_include/log-shipping/filebeat-wizard.html}
 
 
 <!-- logzio-inject:filebeat-wizard:os-windows -->
 
 
-{@include: ../_include/log-shipping/filebeat-wizard.md}
+{@include: ../../_include/log-shipping/filebeat-wizard.md}
 
 
-{@include: ../_include/log-shipping/validate-yaml.md}
+{@include: ../../_include/log-shipping/validate-yaml.md}
 
 ### Move the configuration file to the Filebeat folder
 
@@ -242,9 +245,9 @@ Move the configuration file to `C:\Program Files\Filebeat\filebeat.yml`.
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add UDP to the filebeat.inputs section.
 
-{@include: ../_include/log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../_include/log-shipping/filebeat-input-extension.md}
+{@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
 
 ```yaml
@@ -297,7 +300,7 @@ registry_file: C:\ProgramData\filebeat\registry
 If Logz.io is not an output, add it now.
 Remove all other outputs.
 
-{@include: ../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-var.html} 
 
 ```yaml
 # ...

@@ -66,8 +66,8 @@ auth_apis:
 
 | Parameter | Description | Required/Default |
 |---|---|---|
-| URL | {@include: ../_include/log-shipping/listener-var.md} | Required |
-| TOKEN | Your Logz.io account token. {@include: ../_include/log-shipping/log-shipping-token.html}  | Required  |
+| URL | {@include: ../../_include/log-shipping/listener-var.md} | Required |
+| TOKEN | Your Logz.io account token. {@include: ../../_include/log-shipping/log-shipping-token.html}  | Required  |
 | type | The type of the Auth API. Currently we support the following types: cisco_secure_x, general. | Required |
 | name | The name of the Auth API. Please make names unique. | Required | 
 | credentials.id | The Auth API credentials id. | Required |
@@ -112,7 +112,7 @@ Give your logs some time to get from your system to ours,
 and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for data of your custom field type value or type `api_fetcher` to see the incoming Cisco SecureX logs.
 
 If you still don't see your logs,
-see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+see log shipping troubleshooting.
 
  
 
