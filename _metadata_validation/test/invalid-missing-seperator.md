@@ -1,6 +1,6 @@
 ---
 id: no-seperator
-title: Sample Document
+title: Missing seperator
 sidebar_position: 1
 overview: this is the description of a test
 product: ['logs', 'metrics']
