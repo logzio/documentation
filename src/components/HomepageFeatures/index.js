@@ -6,13 +6,13 @@ import styles from './styles.module.css';
 const FeatureList = [
   {
     title: 'Logz.io quick start guide',
-    link: "/docs/user-guide/logzio/quick-start",
+    link: "/docs/user-guide/quick-start",
     Svg: require('@site/static/img/quick-start.svg').default,
     description: <>Learn how to make the most out of the Logz.io platform.</>,
   },
   {
     title: 'Telemetry Collector',
-    link: "/docs/user-guide/shipping-parsing/telemetry-collector/",
+    link: "/docs/user-guide/telemetry-collector/",
     Svg: require('@site/static/img/telemetry-collector.svg').default,
     description: <>Send logs, metrics, and traces data quickly and easily.</>,
   },
@@ -30,7 +30,7 @@ const FeatureList = [
   },
   {
     title: 'Logz.io integrations',
-    link: "/docs/category/telemetry-shipping/",
+    link: "/docs/category/send-your-data",
     Svg: require('@site/static/img/integrations.svg').default,
     description: <>All the different ways to send your data to Logz.io.</>,
   },
