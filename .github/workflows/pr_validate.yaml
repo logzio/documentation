@@ -28,13 +28,15 @@ jobs:
           PR_URL=$(jq -r .pull_request.url "$GITHUB_EVENT_PATH")
           FILES=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" $PR_URL/files | jq -r '[.[] | .filename] | join(",")')
           echo "CHANGED_FILES=$FILES" >> $GITHUB_ENV
+          echo "Changed files: $FILES"
       - name: Run validation
         id: run_validation
         env:
           FILES_TO_TRACK: ${{ env.CHANGED_FILES }}
         run: |
           echo "starting step..."
-          if git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep -q "^docs/shipping/" && [ -n "${{ env.CHANGED_FILES }}" ]; then
+          echo "Git diff: $(git diff --name-only HEAD^..HEAD)"
+          if git diff --name-only HEAD^..HEAD | grep -q "^docs/shipping/" && [ -n "${{ env.CHANGED_FILES }}" ]; then
             set +e
             python _metadata_validation/validate_metadata.py
             python_exit_code=$?
