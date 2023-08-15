@@ -26,29 +26,45 @@ class TestValidateMetadata(unittest.TestCase):
         os.environ[validate_metadata.consts.ENV_DOCS_PREFIX] = self.PATH_PREFIX
 
     def test_is_valid_id(self):
-        files_to_ids = validate_metadata.get_files_to_ids()
-        self.assertTrue(validate_metadata.is_valid_id(self.ID_VALUE, self.VALID_FILE_PATH, files_to_ids))
+        files_to_unique_identifiers = validate_metadata.get_files_to_unique_fields()
+        file_metadata = validate_metadata.get_file_metadata(self.VALID_FILE_PATH)
+        self.assertEqual(0, validate_metadata.check_valid_unique_fields(self.VALID_FILE_PATH, file_metadata, files_to_unique_identifiers))
 
     def test_is_valid_id_id_not_exists(self):
-        files_to_ids = validate_metadata.get_files_to_ids()
-        self.assertFalse(validate_metadata.is_valid_id('', f'{self.PATH_PREFIX}id-empty.md', files_to_ids))
+        files_to_unique_identifiers = validate_metadata.get_files_to_unique_fields()
+        file_metadata = {validate_metadata.consts.OBJ_TITLE: 'foo', validate_metadata.consts.OBJ_ID: ''}
+        self.assertEqual(1, validate_metadata.check_valid_unique_fields(f'{self.PATH_PREFIX}id-empty.md', file_metadata, files_to_unique_identifiers))
 
     def test_is_valid_id_invalid_type(self):
-        files_to_ids = validate_metadata.get_files_to_ids()
-        self.assertFalse(validate_metadata.is_valid_id(33, f'{self.PATH_PREFIX}id-invalid-type.md', files_to_ids))
+        files_to_unique_identifiers = validate_metadata.get_files_to_unique_fields()
+        file_metadata = {validate_metadata.consts.OBJ_TITLE: 'foo', validate_metadata.consts.OBJ_ID: 4}
+        self.assertEqual(1, validate_metadata.check_valid_unique_fields(f'{self.PATH_PREFIX}id-invalid-type.md', file_metadata,
+                                                                        files_to_unique_identifiers))
 
     def test_is_valid_id_duplicate_id(self):
-        files_to_ids = validate_metadata.get_files_to_ids()
-        self.assertFalse(validate_metadata.is_valid_id('sample', f'{self.PATH_PREFIX}id-duplicate.md', files_to_ids))
+        file = f'{self.PATH_PREFIX}id-duplicate.md'
+        files_to_unique_identifiers = validate_metadata.get_files_to_unique_fields()
+        file_metadata = {validate_metadata.consts.OBJ_TITLE: 'foo', validate_metadata.consts.OBJ_ID: 'sample', validate_metadata.consts.OBJ_FILE: file}
+        self.assertEqual(1, validate_metadata.check_valid_unique_fields(file, file_metadata,
+                                                                        files_to_unique_identifiers))
 
     def test_is_valid_title(self):
-        self.assertTrue(validate_metadata.is_valid_title(self.TITLE_VALUE))
+        files_to_unique_identifiers = validate_metadata.get_files_to_unique_fields()
+        file_metadata = validate_metadata.get_file_metadata(self.VALID_FILE_PATH)
+        self.assertEqual(0, validate_metadata.check_valid_unique_fields(self.VALID_FILE_PATH, file_metadata, files_to_unique_identifiers))
 
     def test_is_valid_title_empty(self):
-        self.assertFalse(validate_metadata.is_valid_title(''))
+        files_to_unique_identifiers = validate_metadata.get_files_to_unique_fields()
+        file_metadata = {validate_metadata.consts.OBJ_TITLE: 'foo', validate_metadata.consts.OBJ_TITLE: '', validate_metadata.consts.OBJ_ID: 'hello'}
+        self.assertEqual(1, validate_metadata.check_valid_unique_fields(f'{self.PATH_PREFIX}title-empty.md', file_metadata,
+                                                                        files_to_unique_identifiers))
 
     def test_is_valid_title_invalid_type(self):
-        self.assertFalse(validate_metadata.is_valid_title(33))
+        files_to_unique_identifiers = validate_metadata.get_files_to_unique_fields()
+        file_metadata = {validate_metadata.consts.OBJ_TITLE: 'foo', validate_metadata.consts.OBJ_ID: 'id', validate_metadata.consts.OBJ_TITLE: 10}
+        self.assertEqual(1, validate_metadata.check_valid_unique_fields(f'{self.PATH_PREFIX}title-invalid-type.md',
+                                                                        file_metadata,
+                                                                        files_to_unique_identifiers))
 
     def test_is_valid_overview(self):
         self.assertTrue(validate_metadata.is_valid_overview(self.OVERVIEW_VALUE))
@@ -126,9 +142,8 @@ class TestValidateMetadata(unittest.TestCase):
         self.assertFalse(validate_metadata.is_valid_bundle('[\'hello\', \'world\', 3]', validate_metadata.consts.FIELD_LOGS_ALERTS))
 
     def test_get_files_to_ids(self):
-        files_to_ids = validate_metadata.get_files_to_ids()
-        print(files_to_ids)
-        self.assertTrue(len(files_to_ids), 4)
+        files_to_unique_identifiers = validate_metadata.get_files_to_unique_fields()
+        self.assertTrue(len(files_to_unique_identifiers), 4)
 
     def test_get_changed_files(self):
         changed_set = f'{self.PATH_PREFIX}valid-sample.md'
