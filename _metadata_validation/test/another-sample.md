@@ -13,7 +13,6 @@ logs2metrics: ['ersefg']
 metrics_dashboards: []
 metrics_alerts: []
 drop_filter: []
-drop_filter: []
 ---
 
 test

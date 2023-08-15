@@ -12,7 +12,6 @@ logs2metrics: []
 metrics_dashboards: []
 metrics_alerts: []
 drop_filter: []
-drop_filter: []
 ---
 
 ZFS combines a file system with a volume manager. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
