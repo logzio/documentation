@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: ['']
 metrics_alerts: []
+drop_filter: []
 ---
 
 Okta is an enterprise-grade, identity management service, built for the cloud, but compatible with many on-premises applications.

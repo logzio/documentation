@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: ['']
 metrics_alerts: []
+drop_filter: []
 ---
 
 Zeek is a free and open-source software network analysis framework. This integration allows you to send Zeek logs to your Logz.io SIEM account.

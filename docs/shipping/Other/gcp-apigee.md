@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: []
 metrics_alerts: []
+drop_filter: []
 ---
 
 Apigee, part of Google Cloud, helps design, secure, and scale application programming interfaces (APIs). Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.

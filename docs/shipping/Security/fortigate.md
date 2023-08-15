@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: []
 metrics_alerts: []
+drop_filter: []
 ---
 
 FortiGate units are installed as a gateway or router between two networks. This integration allows you to send FortiGate logs to your Logz.io SIEM account.

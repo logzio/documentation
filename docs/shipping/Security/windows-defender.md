@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: ['']
 metrics_alerts: []
+drop_filter: []
 ---
 
 Windows Defender is an anti-malware component of Microsoft Windows. This integration allows you to send Windows Defender logs to your Logz.io SIEM account.

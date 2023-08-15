@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: ['2qF8pBXlwH0Pw6noOMfzRk', '48vnzAEl0x6hh3DWKIWkpx', '7s5HblMf4IVimoRSwnCRJ6']
 metrics_alerts: []
+drop_filter: []
 ---
 
 Google Cloud Load Balancing is a fully distributed, software-defined, managed service for all Google Cloud traffic. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.

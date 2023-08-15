@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: ["4l4xVZhvqsrJWO7rZwOxgx", "1NiBMzN5DvQZ8BjePpUtvQ"]
 metrics_alerts: []
+drop_filter: []
 ---
 
 Deploy this integration to collect data on broken links in a web page, and to get additional data about the links.

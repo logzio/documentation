@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: []
 metrics_alerts: []
+drop_filter: []
 ---
 
 [Axonius](https://www.axonius.com/) is a cybersecurity asset management platform. This topic describes how to send system logs from your Axonius platform to Logz.io. 

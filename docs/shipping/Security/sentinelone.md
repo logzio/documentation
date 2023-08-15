@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: ['']
 metrics_alerts: []
+drop_filter: []
 ---
 
 SentinelOne platform delivers the defenses to prevent, detect, and undo—known and unknown—threats. This integration allows you to send logs from your SentinelOne applications to your Logz.io SIEM account.

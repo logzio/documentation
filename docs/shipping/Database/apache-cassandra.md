@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: ["5oCUt52hGJu6LmVGHPOktr", "6J2RujMalRK3oC4y0r88ax"]
 metrics_alerts: []
+drop_filter: []
 ---
 
 [Apache Cassandra](https://cassandra.apache.org/) is an open source NoSQL distributed database management system designed to process large amounts of data across commodity servers.

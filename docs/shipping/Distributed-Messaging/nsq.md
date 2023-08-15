@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: ['']
 metrics_alerts: []
+drop_filter: []
 ---
 
 NSQ is a realtime distributed messaging platform designed to operate at scale, handling billions of messages per day. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.

@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: []
 metrics_alerts: []
+drop_filter: []
 ---
 
 ESET provides anti-virus and firewall solutions. This integration allows you to send ESET logs to your Logz.io SIEM account.

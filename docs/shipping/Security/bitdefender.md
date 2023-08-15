@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: []
 metrics_alerts: []
+drop_filter: []
 ---
 
 Bitdefender is an antivirus software. This integration allows you to send Bitdefender logs to your Logz.io SIEM account.

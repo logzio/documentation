@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: ['1Pm3OYbu1MRGoELc2qhxQ1']
 metrics_alerts: []
+drop_filter: []
 ---
 
 Cisco ASA is a security device that combines firewall, antivirus, intrusion prevention, and virtual private network (VPN) capabilities.

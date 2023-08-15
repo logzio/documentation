@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: ['']
 metrics_alerts: []
+drop_filter: []
 ---
 
 Unbound is a crowdfunding publisher that gives people the tools, support and freedom to bring their ideas to life. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.

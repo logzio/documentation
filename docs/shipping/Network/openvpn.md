@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: ['']
 metrics_alerts: []
+drop_filter: []
 ---
 
 [OpenVPN](https://openvpn.net) is a virtual private network system for secure point-to-point or site-to-site connections.

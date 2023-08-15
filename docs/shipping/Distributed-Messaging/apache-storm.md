@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: []
 metrics_alerts: []
+drop_filter: []
 ---
 
 Apache Storm is a free and open source distributed realtime computation system. This integration allows you to send logs from your Apache Storm server instances to your Logz.io account.

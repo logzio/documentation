@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: []
 metrics_alerts: []
+drop_filter: []
 ---
 
 [Avast Antivirus](https://www.avast.com/) is a family of cross-platform internet security applications. This topic describes how to send system logs from your Avast Antivirus platform to Logz.io. 

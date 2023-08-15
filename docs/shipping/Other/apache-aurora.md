@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: []
 metrics_alerts: []
+drop_filter: []
 ---
 
 Apache Aurora is a Mesos framework for long-running services and cron jobs. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.

@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: ['']
 metrics_alerts: []
+drop_filter: []
 ---
 
 ModSecurity, sometimes called Modsec, is an open-source web application firewall. This integration allows you to send ModSecurity logs to your Logz.io SIEM account.

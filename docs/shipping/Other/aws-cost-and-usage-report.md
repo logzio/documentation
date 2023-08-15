@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: []
 metrics_alerts: []
+drop_filter: []
 ---
 
 AWS Cost and Usage Reports function tracks your AWS usage and provides estimated charges associated with your account. This integration allows you to ship logs from your AWS Cost and Usage Reports to your Logz.io account.

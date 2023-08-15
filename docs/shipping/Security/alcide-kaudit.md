@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: []
 metrics_alerts: []
+drop_filter: []
 ---
 
 Alcide kAudit is a security service for monitoring Kubernetes audit logs, and easily identifying abnormal administrative activity and compromised Kubernetes resources.

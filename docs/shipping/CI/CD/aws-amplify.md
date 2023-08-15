@@ -11,6 +11,7 @@ logs_alerts: []
 logs2metrics: []
 metrics_dashboards: []
 metrics_alerts: []
+drop_filter: []
 ---
 
 This is an AWS Lambda function that collects Amplify access logs and sends them to Logz.io in bulk over HTTP.

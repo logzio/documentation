@@ -12,6 +12,7 @@ logs2metrics: []
 metrics_dashboards: ['1Pm3OYbu1MRGoELc2qhxQ1']
 metrics_alerts: []
 drop_filter: []
+drop_filter: []
 ---
 
 :::tip
