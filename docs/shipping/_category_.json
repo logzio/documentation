@@ -1,6 +1,7 @@
 {
   "label": "Send your data",
   "position": 2,
+  "className": "releaseSidebarHeading",
   "link": {
     "type": "generated-index",
     "description": "Telemetry Shipping"
