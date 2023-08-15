@@ -657,3 +657,11 @@ h1 .avatar.avatar-small {
 .fpo.fpo-4::after {
   content: "[ Picture this: A rustic hunting lodge, my latest kill roasting over the fire, and this placeholder isn't just a placeholder. ]"
 }
+
+/* ===== Split line ===== */
+
+.releaseSidebarHeading {
+  @apply !mt-2 border-t-secondary-700 pt-1;
+  border-top-style: solid;
+  border-top-width: 1px;
+}
