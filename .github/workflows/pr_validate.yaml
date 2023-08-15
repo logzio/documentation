@@ -26,11 +26,20 @@ jobs:
         id: changed_files
         run: |
           PR_NUMBER="${{ github.event.number }}"        
-          FILES_CHANGED=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-           "https://api.github.com/repos/${{ github.repository }}/pulls/${PR_NUMBER}/files" \
-           | jq -r '.[].filename')
-          FILES_CSV=$(echo "$FILES_CHANGED" | paste -sd "," -)
-          echo "Changed files: $FILES_CSV"
+          # Iterate through multiple API pages if needed
+          NEXT_PAGE_URL=$(curl -s -I -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+              "https://api.github.com/repos/${{ github.repository }}/pulls/${PR_NUMBER}/files?per_page=100" \
+              | awk '/^Link:/ {print $2}')
+          while [ -n "$NEXT_PAGE_URL" ]; do
+            PAGE_FILES=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" "$NEXT_PAGE_URL" \
+                | jq -r '.[].filename')
+            FILES_CHANGED="$FILES_CHANGED\n$PAGE_FILES"
+            NEXT_PAGE_URL=$(curl -s -I -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" "$NEXT_PAGE_URL" \
+                | awk '/^Link:/ {print $2}')
+          done
+
+          # Convert the list of files to a comma-separated string
+          FILES_CSV=$(echo -e "$FILES_CHANGED" | paste -sd "," -)
           echo "CHANGED_FILES=$FILES_CSV" >> $GITHUB_ENV
 
       - name: Run validation
@@ -48,7 +57,7 @@ jobs:
               break
             fi
           done
-          if [ "$MATCH_FOUND" = true ] && [ -n "${{ env.CHANGED_FILES }}" ]; then
+          if [ "$MATCH_FOUND" = true ]; then
             set +e
             python _metadata_validation/validate_metadata.py
             python_exit_code=$?
