@@ -34,13 +34,13 @@ Follow the official instructions provided by Sophos for [collecting Sophos Centr
 
 The procedure involves using the Sophos API. Make sure that the `config.ini` used in the Sophos siem.py script is under `format = json` (this is the default setting).
 
-{@include: ../_include/log-shipping/certificate.md}
+{@include: ../../_include/log-shipping/certificate.md}
 
 ##### Configure Filebeat
 
 Open the Filebeat configuration file (`/etc/filebeat/filebeat.yml`) with your preferred text editor.
 
-{@include: ../_include/log-shipping/filebeat-input-extension.md}
+{@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
 
 Copy and paste the code block below, overwriting the previous content, to replace the general configuration with the following settings:
@@ -114,9 +114,9 @@ output:
 
 
 
-{@include: ../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-var.html} 
 
-{@include: ../_include/log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/log-shipping-token.html}
 
 Change `<<FILE_PATH>>` to the output TXT file retrieved from the Sophos siem.py script.
 
@@ -168,7 +168,7 @@ The procedure involves using the Sophos API. Make sure that the `config.ini` use
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 Download the
-[Logz.io public certificate]({@include: ../_include/log-shipping/certificate-path.md})
+[Logz.io public certificate]({@include: ../../_include/log-shipping/certificate-path.md})
 to `C:\ProgramData\Filebeat\Logzio.crt`
 on your machine.
 
@@ -177,7 +177,7 @@ on your machine.
 
 Open the Filebeat configuration file (`C:\Program Files\Filebeat\filebeat.yml`) with your preferred text editor.
 
-{@include: ../_include/log-shipping/filebeat-input-extension.md}
+{@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
 
 Copy and paste the code block below, overwriting the previous content, to replace the general configuration with the following settings:
@@ -225,9 +225,9 @@ output:
       certificate_authorities: ['C:\ProgramData\Filebeat\COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-{@include: ../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-var.html} 
 
-{@include: ../_include/log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/log-shipping-token.html}
 
 Change `<<FILE_PATH>>` to the output TXT file retrieved from the Sophos siem.py script.
 

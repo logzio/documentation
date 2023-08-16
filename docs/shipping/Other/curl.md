@@ -44,9 +44,9 @@ you can send them directly to the Logz.io listener as a minified JSON file.
 cat /path/to/log/file | curl -X POST "https://<<LISTENER-HOST>>:8071?token=<<LOG-SHIPPING-TOKEN>>&type=<LOG-TYPE>" -v --data-binary @-
 ```
 
-{@include: ../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include//general-shipping/replace-placeholders.html}
 
-* {@include: ../_include/log-shipping/type.md} Otherwise, the default `type` is `http-bulk`.
+* {@include: ../../_include/log-shipping/type.md} Otherwise, the default `type` is `http-bulk`.
 
 ### Check Logz.io for your logs
 
@@ -86,7 +86,7 @@ Replace the placeholders to match your specifics. (They are indicated by the dou
 
 * Replace `<<LOG-SHIPPING-TOKEN>>` with the token of the account you want to ship to.
 
-* {@include: ../_include/log-shipping/type.md} Otherwise, the default `type` is `http-bulk`.
+* {@include: ../../_include/log-shipping/type.md} Otherwise, the default `type` is `http-bulk`.
 
 ### Check Logz.io for your logs
 

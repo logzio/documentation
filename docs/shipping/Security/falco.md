@@ -188,7 +188,7 @@ file_output:
 ```
 Save and exit the falco.yaml file.
 
-{@include: ../_include/log-shipping/certificate.md}
+{@include: ../../_include/log-shipping/certificate.md}
 
 
 ### Configure Filebeat
@@ -197,7 +197,7 @@ Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your pref
 
 This code block adds Falco as an input and sets Logz.io as the output.
 
-{@include: ../_include/log-shipping/filebeat-input-extension.md}
+{@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
 
 ```yaml
@@ -262,7 +262,7 @@ output.logstash:
 
 
 
-{@include: ../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include//general-shipping/replace-placeholders.html}
 
 * Replace the placeholder `<<filepath-to-falco-events.txt>>` with the filepath from the previous step.
 

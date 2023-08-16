@@ -45,14 +45,14 @@ These instructions are based on UDP. If you want to use TCP, make sure your sysl
 :::
  
 
-{@include: ../_include/log-shipping/certificate.md}
+{@include: ../../_include/log-shipping/certificate.md}
 
 
 ### Configure Filebeat
 
 1. Paste the following into the inputs section of the Filebeat configuration file:
 
-{@include: ../_include/log-shipping/filebeat-input-extension.md}
+{@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
 
    ```yaml
@@ -88,8 +88,8 @@ These instructions are based on UDP. If you want to use TCP, make sure your sysl
    ```
  
    * 9000 is the port we suggest. If you use a different port, replace the default values with your parameters.
-   * {@include: ../_include/log-shipping/log-shipping-token.md}
-   * {@include: ../_include/log-shipping/listener-var.md}
+   * {@include: ../../_include/log-shipping/log-shipping-token.md}
+   * {@include: ../../_include/log-shipping/listener-var.md}
 
 2. Run Filebeat with the new configuration.
 

@@ -29,11 +29,11 @@ This document describes the way to get logs from your system to Logz.io using an
 
  
 
-{@include: ../_include/log-shipping/certificate.md}
+{@include: ../../_include/log-shipping/certificate.md}
 
 ### Configure your Beats shipper using the configuration file.
 
-{@include: ../_include/log-shipping/filebeat-input-extension.md}
+{@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
 
 1. Open the configuration file for your Beats shipper.
@@ -63,7 +63,7 @@ This document describes the way to get logs from your system to Logz.io using an
        ssl:
          certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
    ```
-7. {@include: ../_include/log-shipping/listener-var.html}
+7. {@include: ../../_include/log-shipping/listener-var.html}
 8. Save the changes.
 
 ### Validate the configuration file
@@ -95,20 +95,20 @@ This document describes the way to get logs from your system to Logz.io using an
 
 ### Download the Logz.io public certificate
 
-{@include: ../_include/log-shipping/filebeat-input-extension.md}
+{@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
 
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 Download the
-[Logz.io public certificate]({@include: ../_include/log-shipping/certificate-path.md})
+[Logz.io public certificate]({@include: ../../_include/log-shipping/certificate-path.md})
 to `C:\ProgramData\<YOUR SHIPPER NAME>\Logzio.crt`
 on your machine.
 
 
 ### Configure your Beats shipper using the dedicated Logz.io configuration wizard
 
-{@include: ../_include/log-shipping/filebeat-wizard.html}
+{@include: ../../_include/log-shipping/filebeat-wizard.html}
 
 
 ### Configure your Beats shipper using the configuration file.
@@ -142,7 +142,7 @@ on your machine.
    ```
 
 
-7. {@include: ../_include/log-shipping/listener-var.html}
+7. {@include: ../../_include/log-shipping/listener-var.html}
 8. Save the changes.
 
 ### Validate the configuration file
