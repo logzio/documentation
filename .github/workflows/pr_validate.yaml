@@ -25,13 +25,31 @@ jobs:
       - name: Get changed files
         id: changed_files
         run: |
-          PR_NUMBER="${{ github.event.number }}"        
-          FILES_CHANGED=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-           "https://api.github.com/repos/${{ github.repository }}/pulls/${PR_NUMBER}/files" \
-           | jq -r '.[].filename')
-          FILES_CSV=$(echo "$FILES_CHANGED" | paste -sd "," -)
-          echo "Changed files: $FILES_CSV"
-          echo "CHANGED_FILES=$FILES_CSV" >> $GITHUB_ENV
+          PR_NUMBER="${{ github.event.pull_request.number }}"
+          REPO="${{ github.repository }}"
+
+          # Get the total number of changed files in the PR
+          TOTAL_FILES=$(curl -s "https://api.github.com/repos/$REPO/pulls/$PR_NUMBER" | jq '.changed_files')
+
+          # Pagination variables
+          PER_PAGE=100
+          TOTAL_PAGES=$((TOTAL_FILES / PER_PAGE + 1))
+
+          # Initialize the file paths array
+          FILE_PATHS=()
+
+          # Loop through each page and retrieve file paths
+          for ((PAGE=1; PAGE <= TOTAL_PAGES; PAGE++)); do
+              FILES=$(curl -s "https://api.github.com/repos/$REPO/pulls/$PR_NUMBER/files?per_page=$PER_PAGE&page=$PAGE" | jq -r '.[].filename')
+              FILE_PATHS+=($FILES)
+          done
+
+          # Join array elements with comma separator
+          IFS=',' FILE_PATHS_STRING="${FILE_PATHS[*]}"
+          
+          # Print the comma-separated file paths
+          echo "$FILE_PATHS_STRING"
+          echo "CHANGED_FILES=$FILE_PATHS_STRING" >> $GITHUB_ENV
 
       - name: Run validation
         id: run_validation
@@ -39,34 +57,29 @@ jobs:
           FILES_TO_TRACK: ${{ env.CHANGED_FILES }}
         run: |
           echo "starting step..."
-          # Check if at least one file has the prefix "docs/shipping"
-          MATCH_FOUND=false
-          IFS=',' read -ra FILES_ARRAY <<< "$FILES_CSV"
-          for FILE in "${FILES_ARRAY[@]}"; do
-            if [[ "$FILE" == docs/shipping/* ]]; then
-              MATCH_FOUND=true
-              break
-            fi
-          done
-          if [ "$MATCH_FOUND" = true ] && [ -n "${{ env.CHANGED_FILES }}" ]; then
-            set +e
-            python _metadata_validation/validate_metadata.py
-            python_exit_code=$?
-            set -e
-            if [ "$python_exit_code" -ne 0 ]; then
-              echo "The validation script failed with exit code $python_exit_code, sending failure status"
-              response=$(curl --request POST \
-                --url https://api.github.com/repos/${{ github.repository }}/statuses/${{ github.event.pull_request.head.sha }} \
-                --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
-                --header 'content-type: application/json' \
-                --data '{
-                    "context": "PR validation",
-                    "state": "failure",
-                    "description": "Validation failed",
-                    "target_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-                  }')
-              echo "skip_next_step=true" >> "$GITHUB_OUTPUT"
-              exit $python_exit_code
+          if [ -n "${{ env.CHANGED_FILES }}" ]; then
+            echo "changed files not empty"
+            if [[ ${{ env.CHANGED_FILES }} == *"docs/shipping/"* ]]; then
+              echo "changed files has files under docs/shipping"
+              set +e
+              python _metadata_validation/validate_metadata.py
+              python_exit_code=$?
+              set -e
+              if [ "$python_exit_code" -ne 0 ]; then
+                echo "The validation script failed with exit code $python_exit_code, sending failure status"
+                response=$(curl --request POST \
+                  --url https://api.github.com/repos/${{ github.repository }}/statuses/${{ github.event.pull_request.head.sha }} \
+                  --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+                  --header 'content-type: application/json' \
+                  --data '{
+                      "context": "PR validation",
+                      "state": "failure",
+                      "description": "Validation failed",
+                      "target_url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                    }')
+                echo "skip_next_step=true" >> "$GITHUB_OUTPUT"
+                exit $python_exit_code
+              fi
             fi
           else
             echo "No changes for doc files..."
