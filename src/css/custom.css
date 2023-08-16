@@ -665,3 +665,8 @@ h1 .avatar.avatar-small {
   border-top-style: solid;
   border-top-width: 1px;
 }
+
+/* ===== try new sidebar headers ==== */
+.section-title.tutorial > div >a::before {
+  background-image: url(../../static/img/alert.svg);
+}
