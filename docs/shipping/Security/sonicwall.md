@@ -41,13 +41,13 @@ Make sure you meet this configuration:
 SonicWall firewall sends logs over UDP by default. See [SonicWall docs](https://www.sonicwall.com/support/technical-documentation/?language=English) for more information
 on configuring your SonicWall firewall.
 
-{@include: ../_include/log-shipping/certificate.md}
+{@include: ../../_include/log-shipping/certificate.md}
 
 ##### Configure Filebeat
 
 Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor. Copy and paste the code block below, overwriting the previous content.
 
-{@include: ../_include/log-shipping/filebeat-input-extension.md}
+{@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
 
 This code block adds SonicWall as an input sent over UDP traffic.
@@ -98,7 +98,7 @@ output.logstash:
 ```
 
 
-{@include: ../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include//general-shipping/replace-placeholders.html}
 
 
 :::note

@@ -90,7 +90,7 @@ See the configuration parameters below the code block.👇
 
 | Parameter | Description |
 |---|---|
-| endpoint_url | A url composed of your Logz.io region's listener URL, account token, and log type. {@include: ../_include/log-shipping/listener-var.html} |
+| endpoint_url | A url composed of your Logz.io region's listener URL, account token, and log type. {@include: ../../_include/log-shipping/listener-var.html} |
 | output_include_time | To add a timestamp to your logs when they're processed, `true` (recommended). Otherwise, `false`. |
 | output_include_tags | To add the `fluentd` tag to logs, `true`. Otherwise, `false`. If `true`, use in combination with `output_tags_fieldname`. |
 | output_tags_fieldname | If `output_include_tags` is `true`, sets output tag's field name. The default is `fluentd_tag` |
@@ -221,7 +221,7 @@ Open C:/opt/td-agent/etc/td-agent/td-agent.conf and replace its content with the
 
 | Parameter | Description |
 |---|---|
-| endpoint_url | A url composed of your Logz.io region's listener URL, account token, and log type. {@include: ../_include/log-shipping/listener-var.html} {@include: ../_include/log-shipping/log-shipping-token.html} |
+| endpoint_url | A url composed of your Logz.io region's listener URL, account token, and log type. {@include: ../../_include/log-shipping/listener-var.html} {@include: ../../_include/log-shipping/log-shipping-token.html} |
 | type | Log type. If required, replace `<<LOG_TYPE>>` with the desired name for the log type, the default value is `fluentbit` |
 | output_include_time | To add a timestamp to your logs when they're processed, `true` (recommended). Otherwise, `false`. |
 | output_include_tags | To add the `fluentd` tag to logs, `true`. Otherwise, `false`. If `true`, use in combination with `output_tags_fieldname`. |
@@ -480,7 +480,7 @@ helm uninstall -n monitoring logzio-fluentd
 
   
 
-{@include: ../_include//log-shipping/multiline-fluentd-plugin.md}
+{@include: ../../_include//log-shipping/multiline-fluentd-plugin.md}
 
 
 
@@ -535,8 +535,8 @@ Run the following command:
    logzio/fluentd-docker-logs
    ```
 
-{@include: ../_include/log-shipping/listener-var.html}
-{@include: ../_include/log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/listener-var.html}
+{@include: ../../_include/log-shipping/log-shipping-token.html}
 
 If you need to send the logs via a proxy server:
 

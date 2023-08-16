@@ -30,7 +30,7 @@ Once you start sending OpenVAS reports to your Cloud SIEM, you'll be able to rev
 
  
 
-{@include: ../_include/log-shipping/certificate.md}
+{@include: ../../_include/log-shipping/certificate.md}
 
 ##### Configure Filebeat
 
@@ -39,7 +39,7 @@ Copy and paste the code block below, overwriting the previous content. (You want
 
 This code block adds OpenVAS as an input and sets Logz.io as the output.
 
-{@include: ../_include/log-shipping/filebeat-input-extension.md}
+{@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
 
 ```yaml
@@ -120,7 +120,7 @@ output:
 
 
 
-{@include: ../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include//general-shipping/replace-placeholders.html}
 
 * Replace the filepath placeholder `<<FILEPATH-TO-OPENVAS-REPORTS>>` with the file path to the folder where you’ll be keeping your OpenVAS reports. For example, `/home/kali/Downloads/Filebeat_read/*.csv` will look for any file with a csv extension under that path.
 

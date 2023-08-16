@@ -19,6 +19,6 @@ With this integration, you can collect logs from an S3 bucket and forward them t
 
  
 
-{@include: ../_include/log-shipping/stack.md}
+{@include: ../../_include/log-shipping/stack.md}
 
 

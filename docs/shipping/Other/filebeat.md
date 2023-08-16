@@ -23,31 +23,31 @@ Filebeat is often the easiest way to get logs from your system to Logz.io. Logz.
 **Before you begin, you'll need**:
 
 
-{@include: ../_include/log-shipping/filebeat-installed-port5015-begin.md} 
+{@include: ../../_include/log-shipping/filebeat-installed-port5015-begin.md} 
 
-{@include: ../_include//log-shipping/filebeat-installed-port5015-end.md}
+{@include: ../../_include//log-shipping/filebeat-installed-port5015-end.md}
 
 
  
 
-{@include: ../_include/log-shipping/certificate.md}
+{@include: ../../_include/log-shipping/certificate.md}
 
-{@include: ../_include/log-shipping/filebeat-ssl.md}
+{@include: ../../_include/log-shipping/filebeat-ssl.md}
 
 ### Configure Filebeat using the dedicated Logz.io configuration wizard
 
-{@include: ../_include/log-shipping/filebeat-input-extension.md}
+{@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
 
-{@include: ../_include/log-shipping/filebeat-wizard.html}
+{@include: ../../_include/log-shipping/filebeat-wizard.html}
 
 <!-- logzio-inject:filebeat-wizard:os-linux -->
 
 
-{@include: ../_include/log-shipping/filebeat-wizard.md}
+{@include: ../../_include/log-shipping/filebeat-wizard.md}
 
 
-{@include: ../_include/log-shipping/validate-yaml.md}
+{@include: ../../_include/log-shipping/validate-yaml.md}
 
 
 ### Move the configuration file to the Filebeat folder
@@ -75,7 +75,7 @@ Filebeat is often the easiest way to get logs from your system to Logz.io. Logz.
 **Before you begin, you'll need**: 
 
 
-{@include: ../_include//log-shipping/filebeat-installed-port5015-begin.md} installed as a Windows service{@include: ../_include//log-shipping/filebeat-installed-port5015-end.md}
+{@include: ../../_include//log-shipping/filebeat-installed-port5015-begin.md} installed as a Windows service{@include: ../_include//log-shipping/filebeat-installed-port5015-end.md}
 
 
 
@@ -87,28 +87,28 @@ Filebeat is often the easiest way to get logs from your system to Logz.io. Logz.
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 
 Download the
-[Logz.io public certificate]({@include: ../_include/log-shipping/certificate-path.md})
+[Logz.io public certificate]({@include: ../../_include/log-shipping/certificate-path.md})
 to `C:\ProgramData\Filebeat\Logzio.crt`
 on your machine.
 
-{@include: ../_include/log-shipping/filebeat-ssl.md}
+{@include: ../../_include/log-shipping/filebeat-ssl.md}
 
 
 ### Configure Filebeat using the dedicated Logz.io configuration wizard
 
-{@include: ../_include/log-shipping/filebeat-input-extension.md}
+{@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
 
-{@include: ../_include/log-shipping/filebeat-wizard.html}
+{@include: ../../_include/log-shipping/filebeat-wizard.html}
 
 
 <!-- logzio-inject:filebeat-wizard:os-windows -->
 
 
-{@include: ../_include/log-shipping/filebeat-wizard.md}
+{@include: ../../_include/log-shipping/filebeat-wizard.md}
 
 
-{@include: ../_include/log-shipping/validate-yaml.md}
+{@include: ../../_include/log-shipping/validate-yaml.md}
 
 ### Move the configuration file to the Filebeat folder
 

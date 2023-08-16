@@ -112,7 +112,7 @@ exporters:
       Authorization: Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
 ```
 
-{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+{@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
 
 ### Configure the service pipeline
 
@@ -145,11 +145,11 @@ Run the following command:
 
 ### Check Logz.io for your metrics
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["4E7r0H6dqvzzCDsbhO4Yi4", "4iO9XKgTZZhzy2tU9Z84Pj", "7pbQAcavNuZXhT3ab9DxIs"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html}
+{@include: ../../_include/metric-shipping/generic-dashboard.html}
 
 
 

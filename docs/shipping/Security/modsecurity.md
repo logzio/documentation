@@ -26,13 +26,13 @@ ModSecurity, sometimes called Modsec, is an open-source web application firewall
 
  
 
- {@include: ../_include/log-shipping/certificate.md}
+ {@include: ../../_include/log-shipping/certificate.md}
 
 ### Configure Filebeat
 
 Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor. Copy and paste the code block below, overwriting the previous content. (You want to replace the file's content with this code block.)
 
-{@include: ../_include/log-shipping/filebeat-input-extension.md}
+{@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
 
 ```yml
@@ -104,7 +104,7 @@ output:
 ```
 
 
-{@include: ../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include//general-shipping/replace-placeholders.html}
 
 
 :::note
