@@ -37,7 +37,7 @@ sudo openssl req -newkey rsa:2048 -nodes \
 -out /etc/filebeat/certificates/ESET.crt
 ```
 
-{@include: ../_include/log-shipping/certificate.md}
+{@include: ../../_include/log-shipping/certificate.md}
 
 ### Configure Filebeat
 
@@ -46,7 +46,7 @@ Copy and paste the code block below, overwriting the previous content. (You want
 
 This code block adds ESET as an input and sets Logz.io as the output.
 
-{@include: ../_include/log-shipping/filebeat-input-extension.md}
+{@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
 
 ```yaml
@@ -91,7 +91,7 @@ output.logstash:
 ```
 
 
-{@include: ../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include//general-shipping/replace-placeholders.html}
 
 :::note
 One last validation - make sure Logz.io is the only output and appears only once.

@@ -39,7 +39,7 @@ sudo openssl req -newkey rsa:2048 -nodes \
 -out /etc/filebeat/certificates/SentinelOne.crt
 ```
 
-{@include: ../_include/log-shipping/certificate.md}
+{@include: ../../_include/log-shipping/certificate.md}
 
 
 ##### Configure Filebeat
@@ -47,7 +47,7 @@ sudo openssl req -newkey rsa:2048 -nodes \
 Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor.
 Copy and paste the code block below, overwriting the previous content.
 
-{@include: ../_include/log-shipping/filebeat-input-extension.md}
+{@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
 
 This code block adds SentinelOne as an input and sets Logz.io as the output.
@@ -87,7 +87,7 @@ output:
 
 
 
-{@include: ../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include//general-shipping/replace-placeholders.html}
 
 * Replace the host port with your syslog port details. The above example has `host: "0.0.0.0:9000"` but you should change it to your specifics.
 

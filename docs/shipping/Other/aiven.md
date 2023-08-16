@@ -41,7 +41,7 @@ drop_filter: []
    [<<LOG-SHIPPING-TOKEN>>] <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [type=Aiven] %msg%\n
    ```
    
-   {@include: ../_include/log-shipping/log-shipping-token.html} Make sure to insert the log shipping token into squared brackets `[]`.  |
+   {@include: ../../_include/log-shipping/log-shipping-token.html} Make sure to insert the log shipping token into squared brackets `[]`.  |
 
    * PEM encoded CA certificate: 
 

@@ -18,7 +18,7 @@ drop_filter: []
 
 ## Manual Lambda configuration
 
-{@include: ../_include/log-shipping/note-lambda-test.md}
+{@include: ../../_include/log-shipping/note-lambda-test.md}
 
 
  
@@ -88,10 +88,10 @@ In the _Environment variables_ section, set your Logz.io account token, URL, and
 
 | Parameter | Description | Required/Default |
 |---|---|---|
-| TOKEN (Required) | Your Logz.io account token. {@include: ../_include/log-shipping/log-shipping-token.html} | Required  |
+| TOKEN (Required) | Your Logz.io account token. {@include: ../../_include/log-shipping/log-shipping-token.html} | Required  |
 | REGION | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL.    You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. | Default: *blank* (US East)|
-| URL  (Deprecated)| Use REGION instead. Protocol, listener host, and port (for example, `https://<<LISTENER-HOST>>:8071`). {@include: ../_include/log-shipping/listener-var.html}  | Required |
-| TYPE | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type.    You should create a new Lambda for each log type you use. | `"guardduty"` |
+| URL  (Deprecated)| Use REGION instead. Protocol, listener host, and port (for example, `https://<<LISTENER-HOST>>:8071`). {@include: ../../_include/log-shipping/listener-var.html}  | Required |
+| TYPE | The log type you'll use with this Lambda. This can be a built-in log type, or a custom log type.    You should create a new Lambda for each log type you use. | `"guardduty"` |
 | FORMAT | `"json"` or `"text"`. If `"json"`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. | `"text"` |
 | COMPRESS | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. | `false` |
 
@@ -122,14 +122,14 @@ Click **Add**, and then click **Save** at the top of the page.
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see log shipping troubleshooting.
 
  
  
 
 ## Automated CloudFormation deployment
 
-{@include: ../_include/log-shipping/note-lambda-test.md}
+{@include: ../../_include/log-shipping/note-lambda-test.md}
 
 
 **Before you begin, you'll need**:
@@ -178,11 +178,11 @@ Specify the stack details as per the table below and select **Next**.
 
 | Parameter                     | Description                                                                                                                                                                                                                                                                                        | Required/Default           |
 | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| LogzioTOKEN                   | Your Logz.io account token. {@include: ../_include/log-shipping/log-shipping-token.html}                                                                                                                                                                                                                     | Required                   |
+| LogzioTOKEN                   | Your Logz.io account token. {@include: ../../_include/log-shipping/log-shipping-token.html}                                                                                                                                                                                                                     | Required                   |
 | KinesisStream                 | The name of the Kinesis stream where this function will listen for updates.                                                                                                                                                                                                                        | Required                   |
 | LogzioREGION                  | Two-letter region code, or blank for US East (Northern Virginia). This determines your listener URL (where you're shipping the logs to) and API URL. You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. | Default: _blank_ (US East) |
-| LogzioURL (Deprecated)        | Use LogzioREGION instead. Protocol, listener host, and port (for example, `https://<<LISTENER-HOST>>:8071`). {@include: ../_include/log-shipping/listener-var.html}                                                                                                                                          | Required                   |
-| LogzioTYPE                    | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. You should create a new Lambda for each log type you use.                                                                     | `guardduty`                |
+| LogzioURL (Deprecated)        | Use LogzioREGION instead. Protocol, listener host, and port (for example, `https://<<LISTENER-HOST>>:8071`). {@include: ../../_include/log-shipping/listener-var.html}                                                                                                                                          | Required                   |
+| LogzioTYPE                    | The log type you'll use with this Lambda. This can be a built-in log type, or a custom log type. You should create a new Lambda for each log type you use.                                                                     | `guardduty`                |
 | LogzioFORMAT                  | `"json"` or `"text"`. If `"json"`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields.                                                                                                                                         | `"text"`                   |
 | LogzioCOMPRESS                | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs.                                                                                                                                                                                                      | `false`                    |
 | KinesisStreamBatchSize        | The largest number of records to read from your stream at one time.                                                                                                                                                                                                                                | `100`                      |
@@ -205,7 +205,7 @@ Confirm that you acknowledge that AWS CloudFormation might create IAM resources 
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see log shipping troubleshooting.
 
  
   
