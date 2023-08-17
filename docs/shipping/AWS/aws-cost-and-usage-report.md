@@ -56,8 +56,8 @@ Specify the stack details as per the table below and select **Next**.
 | CloudWatchEventScheduleExpression | `Default: rate(10 hours)` The scheduling expression that determines when and how often the Lambda function runs. Logz.io recommends to start with 10 hours rate. |
 | LambdaMemorySize | `Default: 1024 (MB)` The amount of memory available to the function at runtime. Logz.io recommends to start with 1024 MB. |
 | LambdaTimeout | `Default: 300 (seconds)` The amount of time that Lambda allows a function to run before stopping it. Logz.io recommends to start with 300 seconds (5 minutes). |
-| LogzioToken | Your Logz.io log shipping token:`<<LOG-SHIPPING-TOKEN>>` {@include: ../_include/log-shipping/log-shipping-token.html} |
-| LogzioURL | The Logz.io listener URL: `https://<<LISTENER-HOST>>:8071` {@include: ../_include/log-shipping/listener-var.html} |
+| LogzioToken | Your Logz.io log shipping token:`<<LOG-SHIPPING-TOKEN>>` {@include: ../../_include/log-shipping/log-shipping-token.html} |
+| LogzioURL | The Logz.io listener URL: `https://<<LISTENER-HOST>>:8071` {@include: ../../_include/log-shipping/listener-var.html} |
 | ReportAdditionalSchemaElements | Choose INCLUDE if you want AWS to include additional details about individual resources IDs in the report (This might significantly increase the report size and might affect performance. AWS Lambda can run for up to 15 minutes with up to 10240 MB, and the process time for the whole file must end within this timeframe.) This is an optional parameter. |
 | ReportName | The name of report that you want to create. |
 | ReportPrefix | The prefix that AWS adds to the report name when AWS delivers the report. |

@@ -4,7 +4,7 @@ title: Kubernetes
 overview: Send Kubernetes logs, metrics and traces to Logz.io.
 product: ['logs', 'metrics', 'tracing']
 os: ['windows', 'linux']
-filters: ['GCP', 'Cloud']
+filters: ['Containers']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/kubernetes.svg
 logs_dashboards: []
 logs_alerts: []
@@ -17,7 +17,7 @@ drop_filter: []
 
 The logzio-monitoring Helm Chart ships your Kubernetes telemetry (logs, metrics, traces and security reports) to your Logz.io account.
 
-## Prerequisites
+## Prerequisites 
 
 1. [Helm](https://helm.sh/)
 
