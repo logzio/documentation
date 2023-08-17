@@ -125,7 +125,7 @@ Order matters. The arguments _must_ be configured in the order shown here. For e
 | token | Your Logz.io account token. {@include: ../../_include/log-shipping/log-shipping-token.html} | Required |
 | logzio_type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `python` |
 | timeout | Time to wait between log draining attempts, in seconds. | `3` |
-| url | Listener URL and port. {@include: ../_include/log-shipping/listener-var.html}  | `https://listener.logz.io:8071` |
+| url | Listener URL and port. {@include: ../../_include/log-shipping/listener-var.html}  | `https://listener.logz.io:8071` |
 | debug | Debug flag. To print debug messages to stdout, `True`. Otherwise, `False`. | `False` |
 | backup-logs | If set to False, disables the local backup of logs in case of failure. | `True` |
 | network-timeout | Timeout in seconds, int or float, for connecting to Logz.io. | `10` |
@@ -288,7 +288,7 @@ LOGGING = {
 }
 ```
 
-{@include: ../../../_include/general-shipping/replace-placeholders.html}
+{@include: ../../_include/general-shipping/replace-placeholders.html}
 
 
 Note that this feature is only available from version 4.0.0.
@@ -311,7 +311,7 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 <!-- info-box-end -->
 
 
-{@include: ../../../_include/tracing-shipping/python-steps.md}
+{@include: ../../_include/tracing-shipping/python-steps.md}
 
 
 ### Download and configure OpenTelemetry collector
@@ -321,11 +321,11 @@ Create a dedicated directory on the host of your Python application and download
 
 After downloading the collector, create a configuration file `config.yaml` with the parameters below.
 
-* {@include: ../../../_include/tracing-shipping/replace-tracing-token.md}
+* {@include: ../../_include/tracing-shipping/replace-tracing-token.md}
 
-{@include: ../../../_include/tracing-shipping/collector-config.md}
+{@include: ../../_include/tracing-shipping/collector-config.md}
 
-{@include: ../../../_include/tracing-shipping/tail-sampling.md}
+{@include: ../../_include/tracing-shipping/tail-sampling.md}
 
 
 ### Start the collector
@@ -367,16 +367,16 @@ This integration enables you to auto-instrument your Python application and run 
 * A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 
 
-{@include: ../../../_include/tracing-shipping/python-steps.md}
+{@include: ../../_include/tracing-shipping/python-steps.md}
 
 
-{@include: ../../../_include/tracing-shipping/docker.md}
+{@include: ../../_include/tracing-shipping/docker.md}
 
-{@include: ../../../_include/tracing-shipping/replace-tracing-token.html}
+{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
 ### Run the OpenTelemetry instrumentation in conjunction with your Python application
 
-{@include: ../../../_include/tracing-shipping/collector-run-note.md}
+{@include: ../../_include/tracing-shipping/collector-run-note.md}
 
 
 Run the following command from the directory of your Python application script:
@@ -432,7 +432,7 @@ helm install  \
 logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 ```
 
-{@include: ../../../_include/tracing-shipping/replace-tracing-token.html}
+{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 `<<LOGZIO_ACCOUNT_REGION_CODE>>` - Your Logz.io account region code. [Available regions](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
 
 ### Define the logzio-k8s-telemetry service dns
@@ -449,7 +449,7 @@ sh -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.defaul
 It will deploy a small pod that extracts your cluster domain name from your Kubernetes environment. You can remove this pod after it has returned the cluster domain name.
   
 
-{@include: ../../../_include/tracing-shipping/python-steps.md}
+{@include: ../../_include/tracing-shipping/python-steps.md}
 
 ### Check Logz.io for your traces
 
@@ -545,7 +545,7 @@ logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 
 Replace `<PATH-TO>` with the path to your custom `values.yaml` file.
 
-{@include: ../../../_include/tracing-shipping/replace-tracing-token.html}
+{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
 
 
@@ -563,5 +563,5 @@ helm uninstall logzio-k8s-telemetry
 ```
 
 
-{@include: ../../../_include/tracing-shipping/otel-troubleshooting.md}
+{@include: ../../_include/tracing-shipping/otel-troubleshooting.md}
 

@@ -122,8 +122,8 @@ For more information about mounting files from root directory click [here](https
 
 | Parameter | Description |
 |---|---|
-| LOGZIO_TOKEN (Required) | {@include: ../_include/log-shipping/log-shipping-token.html} |
-| LOGZIO_LISTENER_HOST (Required) | {@include: ../_include/log-shipping/listener-var.html}  |
+| LOGZIO_TOKEN (Required) | {@include: ../../_include/log-shipping/log-shipping-token.html} |
+| LOGZIO_LISTENER_HOST (Required) | {@include: ../../_include/log-shipping/listener-var.html}  |
 
 
 ### Check Logz.io for your logs

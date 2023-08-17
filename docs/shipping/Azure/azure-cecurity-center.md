@@ -109,8 +109,8 @@ additionalFields:
 
 | Parameter | Description | Required/Default |
 |---|---|---|
-| senderParams.accountToken | Your Logz.io account token. {@include: ../_include/log-shipping/log-shipping-token.html} | Required |
-| senderParams.listenerUrl  | Listener URL.    {@include: ../_include/log-shipping/listener-var.html}  | `listener.logz.io` |
+| senderParams.accountToken | Your Logz.io account token. {@include: ../../_include/log-shipping/log-shipping-token.html} | Required |
+| senderParams.listenerUrl  | Listener URL.    {@include: ../../_include/log-shipping/listener-var.html}  | `listener.logz.io` |
 | senderParams.fromDisk  | If `true`, logs are stored on disk until they're shipped. (See **If from-disk=true** below). If `false`, logs persist in memory until they're shipped. (See **If from-disk=false** below. | Optional. Set to `true` by default. |
 | senderParams.senderDrainIntervals | How often the sender should drain the queue, in seconds. | Optional, set to `30` by default. |
 | azureADClient.tenantId  | Azure Active Directory tenant ID. You can find this in the _Overview_ section of the app you registered in step 1. | Required |

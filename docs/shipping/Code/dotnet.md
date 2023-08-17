@@ -395,8 +395,8 @@ LogManager.Configuration = config;
 
 | Parameter | Description | Default/Required |
 |---|---|---|
-| token | Y[Logz.io log shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs) securely directs the data to your Logz.io account. {@include: ../_include/log-shipping/log-shipping-token.html} | Required |
-| listenerUrl  | Listener URL and port. {@include: ../_include/log-shipping/listener-var.html}  | `https://listener.logz.io:8071` |
+| token | Your [Logz.io log shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs) securely directs the data to your Logz.io account. {@include: ../../_include/log-shipping/log-shipping-token.html} | Required |
+| listenerUrl  | Listener URL and port. {@include: ../../_include/log-shipping/listener-var.html}  | `https://listener.logz.io:8071` |
 | type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `nlog` |
 | bufferSize | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
 | bufferTimeout | Maximum time to wait for more log lines, as _hh:mm:ss.fff_. | `00:00:05` |
@@ -618,8 +618,8 @@ hierarchy.Configured = true;
 
 | Parameter | Description | Default/Required |
 |---|---|---|
-| token | [Logz.io log shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs) securely directs the data to your Logz.io account. {@include: ../_include/log-shipping/log-shipping-token.html} | Required |
-| listenerUrl  | Listener URL and port. {@include: ../_include/log-shipping/listener-var.html}  | `https://listener.logz.io:8071` |
+| token | [Logz.io log shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs) securely directs the data to your Logz.io account. {@include: ../../_include/log-shipping/log-shipping-token.html} | Required |
+| listenerUrl  | Listener URL and port. {@include: ../../_include/log-shipping/listener-var.html}  | `https://listener.logz.io:8071` |
 | type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `log4net` |
 | bufferSize | Maximum number of messages the logger will accumulate before sending them all in bulk. | `100` |
 | bufferTimeout | Maximum time to wait for more log lines, as _hh:mm:ss.fff_. | `00:00:05` |
@@ -828,9 +828,9 @@ Create `appsettings.json` file and copy the following configuration:
 }
 ```
 
-{@include: ../_include/log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../_include/log-shipping/listener-var.html}
+{@include: ../../_include/log-shipping/listener-var.html}
 
 Replace `<<TYPE>` with the type that you want to assign to your logs. You will use this value to identify these logs in Logz.io.
 
@@ -902,9 +902,9 @@ namespace Example
 }
 ```
 
-{@include: ../_include/log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../_include/log-shipping/listener-var.html}
+{@include: ../../_include/log-shipping/listener-var.html}
 
 Replace `<<TYPE>` with the type that you want to assign to your logs. You will use this value to identify these logs in Logz.io.
 
@@ -969,7 +969,7 @@ logzio-dotnet-monitor logzio-helm/logzio-dotnet-monitor
 ```
 
 * Replace `<<NAMESPACE>>` with the namespace you selected for this integration. The default value is `default`.
-{@include: ../_include/log-shipping/listener-var.html} {@include: ../_include/log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/listener-var.html} {@include: ../../_include/log-shipping/log-shipping-token.html}
 * Replace `<<DOTNET_APP_CONTAINERS_FILE>>` with your .NET application containers file. Make sure your main .NET application container has the following volumeMount:
 
 ```yaml
@@ -1090,9 +1090,9 @@ var metrics = new MetricsBuilder()
                 .Build();
 ```
 
-{@include: ../_include/log-shipping/listener-var.html} For HTTPS communication, use port 8053. For HTTP communication, use port 8052.
+{@include: ../../_include/log-shipping/listener-var.html} For HTTPS communication, use port 8053. For HTTP communication, use port 8052.
 
-{@include: ../_include/metric-shipping/replace-metrics-token.html}
+{@include: ../../_include/metric-shipping/replace-metrics-token.html}
 
 
 ##### Create Scheduler
@@ -1311,9 +1311,9 @@ Add the following code to the configuration file:
 </Configuration>
 ```
 
-{@include: ../_include/log-shipping/listener-var.html} For HTTPS communication, use port 8053. For HTTP communication, use port 8052.
+{@include: ../../_include/log-shipping/listener-var.html} For HTTPS communication, use port 8053. For HTTP communication, use port 8052.
 
-{@include: ../_include/metric-shipping/replace-metrics-token.html}
+{@include: ../../_include/metric-shipping/replace-metrics-token.html}
 
 
 ##### Create Scheduler
@@ -1505,8 +1505,8 @@ var metrics = new MetricsBuilder()
                 .Build();
 ```
 
-* {@include: ../_include/log-shipping/listener-var.html} For HTTPS communication use port 8053. For HTTP communication use port 8052.
-* {@include: ../_include/metric-shipping/replace-metrics-token.html}
+* {@include: ../../_include/log-shipping/listener-var.html} For HTTPS communication use port 8053. For HTTP communication use port 8052.
+* {@include: ../../_include/metric-shipping/replace-metrics-token.html}
 * `FlushInterval` is the value in seconds defining delay between reporting metrics.
 * `Filter`is used to filter metrics for this reporter.
 * `HttpPolicy.BackoffPeriod	` is the value in seconds defining the `TimeSpan` to back-off when metrics are failing to report to the metrics ingress endpoint.
@@ -1588,14 +1588,14 @@ This integration enables you to send traces from your instrumented applications 
 
 In the same Docker network as your application:
 
-{@include: ../_include/tracing-shipping/docker.md}
+{@include: ../../_include/tracing-shipping/docker.md}
 
-{@include: ../_include/tracing-shipping/replace-tracing-token.html}
+{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
 
 ### Run the application
 
-{@include: ../_include/tracing-shipping/collector-run-note.md}
+{@include: ../../_include/tracing-shipping/collector-run-note.md}
 
 Run the application to generate traces.
 
@@ -1606,4 +1606,4 @@ Give your traces some time to get from your system to ours, and then open [Traci
 
 
 
-{@include: ../_include/tracing-shipping/otel-troubleshooting.md}
+{@include: ../../_include/tracing-shipping/otel-troubleshooting.md}

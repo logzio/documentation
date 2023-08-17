@@ -40,7 +40,8 @@ Navigate to **Developers > Webhooks > New broadcaster**.
 
 * In the **Format** field, select **SIEM (NDJSON)**.
 
-* In the **Listener URL** field, enter `https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=onelogin`. {@include: ../_include/log-shipping/listener-var.html} {@include: ../_include/log-shipping/log-shipping-token.md}
+* In the **Listener URL** field, enter `https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=onelogin`. {@include: ../../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/log-shipping-token.md}
 
 
 ### Save changes

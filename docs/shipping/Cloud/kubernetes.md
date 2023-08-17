@@ -1122,7 +1122,7 @@ Download Logz.io's [Containerd DaemonSet](https://raw.githubusercontent.com/logz
 If you wish to make advanced changes in your Fluentd configuration, you can download and edit the [configmap yaml file](https://raw.githubusercontent.com/logzio/logzio-k8s/master/configmap.yaml).
 
 
-{@include: ../_include/k8s-fluentd.md}
+{@include: ../../_include/k8s-fluentd.md}
 
 
 ##### Deploy the DaemonSet

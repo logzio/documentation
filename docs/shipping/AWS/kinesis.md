@@ -54,8 +54,8 @@ In the _Environment variables_ section, set your Logz.io account token, URL, and
 
 | Parameter | Description | Required/Default |
 |---|---|---|
-| TOKEN | Your Logz.io account token. {@include: ../_include/log-shipping/log-shipping-token.html}  | Required |
-| REGION | Logz.io 2-letter region code. {@include: ../_include/log-shipping/listener-var.html} | Required |
+| TOKEN | Your Logz.io account token. {@include: ../../_include/log-shipping/log-shipping-token.html}  | Required |
+| REGION | Logz.io 2-letter region code. {@include: ../../_include/log-shipping/listener-var.html} | Required |
 | URL (_Deprecated_) | Use REGION instead.  | -- |
 | TYPE | The log type you'll use with this Lambda. You should create a new Lambda for each log type you use. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type. | `kinesis_lambda` |
 | FORMAT | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. | `text` |
@@ -140,9 +140,9 @@ aws cloudformation deploy \
 
 | Parameter | Description |  Required/Default |
 |---|---|---|
-| LogzioTOKEN | Your Logz.io account token. {@include: ../_include/log-shipping/log-shipping-token.html} | Required  |
+| LogzioTOKEN | Your Logz.io account token. {@include: ../../_include/log-shipping/log-shipping-token.html} | Required  |
 | KinesisStream | The name of the Kinesis stream where this function will listen for updates. | Required  |
-| LogzioREGION | Two-letter region code, or blank for US East (Northern Virginia). Logz.io 2-letter region code. {@include: ../_include/log-shipping/listener-var.html} | Required | 
+| LogzioREGION | Two-letter region code, or blank for US East (Northern Virginia). Logz.io 2-letter region code. {@include: ../../_include/log-shipping/listener-var.html} | Required | 
 | LogzioURL (Deprecated) | Use LogzioREGION instead. | -- |
 | LogzioTYPE | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type.    You should create a new Lambda for each log type you use. | `kinesis_lambda` |
 | LogzioFORMAT  | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. | `text` |
@@ -223,10 +223,10 @@ Save the template as a yaml file and add the values of your stack to the as per 
 
 | Parameter | Description |  Required/Default |
 |---|---|---|
-| LogzioTOKEN | Your Logz.io account token. {@include: ../_include/log-shipping/log-shipping-token.html} | Required  |
+| LogzioTOKEN | Your Logz.io account token. {@include: ../../_include/log-shipping/log-shipping-token.html} | Required  |
 | KinesisStream | The name of the Kinesis stream where this function will listen for updates. | Required  |
 | LogzioREGION | Two-letter region code, or blank for US East (Northern Virginia). Logz.io 2-letter region code. | Required | 
-| LogzioURL | {@include: ../_include/log-shipping/listener-var.html} | -- |
+| LogzioURL | {@include: ../../_include/log-shipping/listener-var.html} | -- |
 | LogzioTYPE | The log type you'll use with this Lambda. This can be a [built-in log type]({{site.baseurl}}/user-guide/log-shipping/built-in-log-types.html), or a custom log type.    You should create a new Lambda for each log type you use. | `logzio_kinesis_stream` |
 | LogzioFORMAT  | `json` or `text`. If `json`, the Lambda function will attempt to parse the message field as JSON and populate the event data with the parsed fields. | `text` |
 | LogzioCOMPRESS | Set to `true` to compress logs before sending them. Set to `false` to send uncompressed logs. | `true` |

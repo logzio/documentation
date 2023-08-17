@@ -546,9 +546,9 @@ Create a dedicated directory on the host of your Go application and download the
 
 After downloading the collector, create a configuration file `config.yaml` with the following parameters:
 
-{@include: ../../../_include/tracing-shipping/collector-config.md}
+{@include: ../../_include/tracing-shipping/collector-config.md}
 
-{@include: ../../../_include/tracing-shipping/replace-tracing-token.html}
+{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
 
 ##### Start the collector
