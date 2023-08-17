@@ -29,15 +29,15 @@ This integration allows you to send logs from your network devices to your Logz.
 Configure your network device to send logs to your Filebeat server, TCP port 9000.
 See your device's documentation if you're not sure how to do this.
 
-{@include: ../_include/log-shipping/certificate.md}
+{@include: ../../_include/log-shipping/certificate.md}
 
 ### Add TCP traffic as an input
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add TCP to the filebeat.inputs section.
 
-{@include: ../_include/log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../_include/log-shipping/filebeat-input-extension.md}
+{@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
 
 ```yaml
@@ -65,7 +65,7 @@ filebeat.inputs:
 If Logz.io is not an output, add it now.
 Remove all other outputs.
 
-{@include: ../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-var.html} 
 
 ```yaml
 # ...

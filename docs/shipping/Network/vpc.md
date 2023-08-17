@@ -21,7 +21,7 @@ VPC Flow Logs is a feature that enables you to capture information about the IP 
 
 * `s3:ListBucket` and `s3:GetObject` [permissions](https://docs.logz.io/user-guide/give-aws-access-with-iam-roles/) for the required S3 bucket
 
-* {@include: ../_include/log-shipping/s3-bucket-file-order.md}
+* {@include: ../../_include/log-shipping/s3-bucket-file-order.md}
 
  
 
@@ -40,7 +40,7 @@ Log into the app to use the dedicated Logz.io [configuration wizard](https://app
 <!-- logzio-inject:aws:vpc-flow -->
 
 
-{@include: ../_include/log-shipping/add-s3-bucket.md}
+{@include: ../../_include/log-shipping/add-s3-bucket.md}
 
 
 

@@ -29,12 +29,12 @@ These instructions only apply to Linux and MacOS systems.
  
   
 
-{@include: ../_include/log-shipping/certificate.md}
+{@include: ../../_include/log-shipping/certificate.md}
 
 
 ##### Configure Filebeat
 
-{@include: ../_include/log-shipping/filebeat-input-extension.md}
+{@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
 
 Paste the following into the inputs section of the Filebeat configuration file:
@@ -118,7 +118,7 @@ If you're running Filebeat 7 to 8.1, paste the code block below instead:
 
   
    * Your Logz.io log shipping token directs the data securely to your Logz.io Log Management account. [Manage your tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/shared).
-   * {@include: ../_include/log-shipping/listener-var.md}
+   * {@include: ../../_include/log-shipping/listener-var.md}
 
 ##### Restart Filebeat to run it with the new configuration.
   

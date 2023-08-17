@@ -41,7 +41,7 @@ Configure your Juniper firewall to send logs to your Filebeat server. Make sure 
 
 See [Juniper SRX docs](https://kb.juniper.net/InfoCenter/index?page=content&id=KB16502&actp=METADATA) for more information on configuring your Juniper SRX firewall.
 
-{@include: ../_include/log-shipping/certificate.md}
+{@include: ../../_include/log-shipping/certificate.md}
 
 ### Configure Filebeat
 
@@ -50,7 +50,7 @@ Copy and paste the code block below, overwriting the previous content. (You want
 
 This code block adds Juniper SRX as an input sent over UDP traffic.
 
-{@include: ../_include/log-shipping/filebeat-input-extension.md}
+{@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
 
 ```yaml
@@ -98,7 +98,7 @@ output.logstash:
 
 
 
-{@include: ../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include//general-shipping/replace-placeholders.html}
 
 
 :::note
