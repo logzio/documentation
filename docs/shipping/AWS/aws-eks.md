@@ -65,7 +65,7 @@ Your Kubernetes version may affect your options, as follows:
   
   If you are running K8S 1.17 or later, the DaemonSet is set to use `apiVersion: rbac.authorization.k8s.io/v1` by default. No change is needed.
 
-{@include: ../_include//log-shipping/multiline-logs-fluentd.md}
+{@include: ../../_include//log-shipping/multiline-logs-fluentd.md}
 
  
 
@@ -94,9 +94,9 @@ kubectl create namespace monitoring
 
 Save your Logz.io shipping credentials as a Kubernetes secret.
 
-{@include: ../_include/log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-var.html} 
 
 ```shell
 kubectl create secret generic logzio-logs-secret \

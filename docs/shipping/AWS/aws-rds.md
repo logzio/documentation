@@ -56,8 +56,8 @@ logzio/mysql-logs:latest
 
 | Parameter | Description | Required/Default |
 |---|---|---|
-| `<<LOG-SHIPPING-TOKEN>>` | Your Logz.io account token. {@include: ../_include/log-shipping/log-shipping-token.html}   | Required |
-| `<<LISTENER-HOST>>` | Your Logz.io account listener URL. {@include: ../_include/log-shipping/listener-var.html} | Required. Default: `listener.logz.io` |
+| `<<LOG-SHIPPING-TOKEN>>` | Your Logz.io account token. {@include: ../../_include/log-shipping/log-shipping-token.html}   | Required |
+| `<<LISTENER-HOST>>` | Your Logz.io account listener URL. {@include: ../../_include/log-shipping/listener-var.html} | Required. Default: `listener.logz.io` |
 | `<<YOUR_DB_IDENTIFIER>>` | The RDS identifier of the host from which you want to read logs from. | Required |
 | `<<YOUR_ACCESS_KEY>>` | A proper AMI credentials for RDS logs access (permissions for `download-db-log-file-portion` and `describe-db-log-files` are needed). | Optional |
 | `<<YOUR_SECRET_KEY>>` | A proper AMI credentials for RDS logs access (permissions for `download-db-log-file-portion` and `describe-db-log-files` are needed). | Optional |
