@@ -24,7 +24,7 @@ To send your Prometheus-format NLnet Labs Name Server Daemon metrics to Logz.io,
 
 #### Set up Telegraf v1.17 or higher on the same machine as NLnet Labs Name Server Daemon
 
-{@include: ../_include/metric-shipping/telegraf-setup.md}
+{@include: ../../_include/metric-shipping/telegraf-setup.md}
 
   
 ##### Add the inputs.nsd plug-in
@@ -59,8 +59,8 @@ The database name is only required for instantiating a connection with the serve
 
 ##### Add the outputs.http plug-in
 
-{@include: ../_include/metric-shipping/telegraf-outputs.md}
-{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+{@include: ../../_include/metric-shipping/telegraf-outputs.md}
+{@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
 
 #### Check Logz.io for your metrics
 

@@ -89,4 +89,4 @@ Give your data some time to get from your system to ours, then log in to your Lo
 
 <!-- logzio-inject:install:grafana:dashboards ids=["5khBmTfRFuYcZCygBNjEM8"] -->
 
-{@include: ../../include/metric-shipping/generic-dashboard.html}
+{@include: ../../_include/metric-shipping/generic-dashboard.html}

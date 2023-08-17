@@ -38,14 +38,14 @@ Make sure you meet this configuration:
 See [Cisco Meraki docs](https://documentation.meraki.com/zGeneral_Administration/Monitoring_and_Reporting/Syslog_Server_Overview_and_Configuration) for more information
 on configuring your Syslog Server.
 
-{@include: ../_include/log-shipping/certificate.md}
+{@include: ../../_include/log-shipping/certificate.md}
 
 ### Configure Filebeat
 
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml) add UDP traffic as an input
 and Logz.io as an output.
 
-{@include: ../_include/log-shipping/filebeat-input-extension.md}
+{@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
 
 ```yaml
@@ -87,7 +87,7 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-{@include: ../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include//general-shipping/replace-placeholders.html}
 
 
 :::note

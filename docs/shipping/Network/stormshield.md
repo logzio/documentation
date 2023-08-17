@@ -24,13 +24,13 @@ Stormshield provides cyber-security solutions. This integration allows you to se
 
  
 
-{@include: ../_include/log-shipping/certificate.md}
+{@include: ../../_include/log-shipping/certificate.md}
 
 ##### Configure Filebeat
 
 Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor.
 
-{@include: ../_include/log-shipping/filebeat-input-extension.md}
+{@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
 
 Copy and paste the code block below, overwriting the previous content, to replace the general configuration with the following settings:
@@ -66,7 +66,7 @@ processors:
       to: "source"
     ignore_missing: true
 ```
-{@include: ../_include/log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/log-shipping-token.html}
 
 ##### Set Logz.io as the output
 
@@ -80,7 +80,7 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-{@include: ../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-var.html} 
 
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.
