@@ -554,7 +554,7 @@ Give your metrics some time to get from your system to ours.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["5jMvBtrxQwMo0GuDO13kpb", "5BjRR3NuNQb3XHVPhn3HQ0", "2TRgFib4ICfKsrzS5oJwgC", "1EcVjdr5c6heqbxpd6Zs8X" ] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html} 
+{@include: ../../_include/metric-shipping/generic-dashboard.html} 
   
  
 

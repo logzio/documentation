@@ -88,7 +88,7 @@ The full list of data scraping and configuring options can be found [here](https
 
 ### Start Telegraf
 
-{@include: ../_include/metric-shipping/telegraf-run.md}  
+{@include: ../../_include/metric-shipping/telegraf-run.md}  
   
 ### Check Logz.io for your metrics
 

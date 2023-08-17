@@ -202,9 +202,9 @@ docker run --log-driver=logzio/logzio-logging-plugin \
 ```
 
 
-{@include: ../_include/log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-var.html} 
 
 For a complete list of options, see the configuration parameters above. 👆
 
