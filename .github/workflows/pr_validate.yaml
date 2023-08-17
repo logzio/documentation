@@ -25,31 +25,11 @@ jobs:
       - name: Get changed files
         id: changed_files
         run: |
-          PR_NUMBER="${{ github.event.pull_request.number }}"
-          REPO="${{ github.repository }}"
-
-          # Get the total number of changed files in the PR
-          TOTAL_FILES=$(curl -s "https://api.github.com/repos/$REPO/pulls/$PR_NUMBER" | jq '.changed_files')
-
-          # Pagination variables
-          PER_PAGE=100
-          TOTAL_PAGES=$((TOTAL_FILES / PER_PAGE + 1))
-
-          # Initialize the file paths array
-          FILE_PATHS=()
-
-          # Loop through each page and retrieve file paths
-          for ((PAGE=1; PAGE <= TOTAL_PAGES; PAGE++)); do
-              FILES=$(curl -s "https://api.github.com/repos/$REPO/pulls/$PR_NUMBER/files?per_page=$PER_PAGE&page=$PAGE" | jq -r '.[].filename')
-              FILE_PATHS+=($FILES)
-          done
-
-          # Join array elements with comma separator
-          IFS=',' FILE_PATHS_STRING="${FILE_PATHS[*]}"
-          
-          # Print the comma-separated file paths
-          echo "$FILE_PATHS_STRING"
-          echo "CHANGED_FILES=$FILE_PATHS_STRING" >> $GITHUB_ENV
+          export PR_NUMBER="${{ github.event.pull_request.number }}"
+          export REPO="${{ github.repository }}"
+          FILES_CHANGED=$(python _metadata_validation/get_pr_files.py)
+          echo "Changed files: $FILES_CHANGED"
+          echo "CHANGED_FILES=$FILES_CHANGED" >> $GITHUB_ENV
 
       - name: Run validation
         id: run_validation
