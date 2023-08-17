@@ -25,7 +25,7 @@ Active Directory is a directory service developed by Microsoft for Windows domai
 ### Download the Logz.io public certificate
 
 Download the
-[Logz.io public certificate]({@include: ../_include/log-shipping/certificate-path.md})
+[Logz.io public certificate]({@include: ../../_include/log-shipping/certificate-path.md})
 to `C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt`
 on your machine.
 
@@ -37,7 +37,7 @@ clear the content and start with a fresh file.
 
 Paste this code block.
 
-{@include: ../_include/log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/log-shipping-token.html}
 
 ```yaml
 # ...
@@ -86,7 +86,7 @@ If Logz.io isn't the output, set it now.
 
 Winlogbeat can have one output only, so remove any other `output` entries.
 
-{@include: ../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-var.html} 
 
 ```yaml
 # ...

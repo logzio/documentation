@@ -42,8 +42,8 @@ Configure the required parameters as follows:
 
    * In the **Name** field, enter **Logz.io integration**.
    * In the **Payload URL** field, enter `https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=auth0`. 
-      {@include: ../_include/log-shipping/listener-var.html} 
-      {@include: ../_include/log-shipping/log-shipping-token.html}
+      {@include: ../../_include/log-shipping/listener-var.html} 
+      {@include: ../../_include/log-shipping/log-shipping-token.html}
    * In the **Content Type** field, select **application/json**.
    * In the **Content Format** field, select **JSON lines**.
 
@@ -74,8 +74,8 @@ Login to your Auth0 account, navigate to **Auth0 Dashboard > Extensions**, and s
 
 Configure the required parameters as follows:
 
-   * In the  **LOGSTASH_URL** field, enter your Listener host URL and port. {@include: ../_include/log-shipping/listener-var.md}
-   * In the **LOGSTASH_TOKEN** field, enter your log shipping token (`<<LOG-SHIPPING-TOKEN>>`). {@include: ../_include/log-shipping/log-shipping-token.md}
+   * In the  **LOGSTASH_URL** field, enter your Listener host URL and port. {@include: ../../_include/log-shipping/listener-var.md}
+   * In the **LOGSTASH_TOKEN** field, enter your log shipping token (`<<LOG-SHIPPING-TOKEN>>`). {@include: ../../_include/log-shipping/log-shipping-token.md}
    * In the **LOGSTASH_INDEX** field, enter `auth0`.
 
 ### Configure the optional parameters

@@ -59,8 +59,8 @@ Open the link below and fill in the form according to the table.
 |---|---|---|
 | Resource group | Select your existing resource group. | Required |
 | Location | Select the same region as the Azure services that will stream data to this Blob Storage.  |  Required |
-| Logzio host | {@include: ../_include/log-shipping/listener-var.md} |  Required |
-| Log shipping token  | {@include: ../_include/log-shipping/log-shipping-token.md} | Required |
+| Logzio host | {@include: ../../_include/log-shipping/listener-var.md} |  Required |
+| Log shipping token  | {@include: ../../_include/log-shipping/log-shipping-token.md} | Required |
 | Blob Storage Account Name | Logzio_NSG_BLOB |  Required |
 | Format | Select the supported parsing format: json | Required |
 | Buffersize | The maximum number of messages the logger will accumulate before sending them all as a bulk  | `100` |

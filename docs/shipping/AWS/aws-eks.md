@@ -333,9 +333,9 @@ affinity:
 
    * Replace `<<YOUR_NAMESPACE>>` with the required namespace.
 
-   * {@include: ../_include//metric-shipping/replace-metrics-token.html}
+   * {@include: ../../_include//metric-shipping/replace-metrics-token.html}
 
-   * {@include: ../_include//log-shipping/listener-var.html}
+   * {@include: ../../_include//log-shipping/listener-var.html}
 
    * Replace `<<ENV-TAG>>` with the name for the environment's metrics, to easily identify the metrics for each environment.
 

@@ -1,9 +1,9 @@
 {
-  "label": "Send your data",
+  "label": "Send Your Data",
   "position": 2,
   "className": "releaseSidebarHeading",
   "link": {
     "type": "generated-index",
-    "description": "Telemetry Shipping"
+    "description": "Send your data to Logz.io"
   }
 }

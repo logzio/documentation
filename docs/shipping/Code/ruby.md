@@ -46,7 +46,7 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 
 
 
-{@include: ../../../_include/tracing-shipping/ruby-steps.md}
+{@include: ../../_include/tracing-shipping/ruby-steps.md}
 
 
 
@@ -57,9 +57,9 @@ Create a dedicated directory on the host of your Ruby application and download t
 
 After downloading the collector, create a configuration file `config.yaml` with the following parameters:
 
-{@include: ../../../_include/tracing-shipping/collector-config.md}
+{@include: ../../_include/tracing-shipping/collector-config.md}
 
-{@include: ../../../_include/tracing-shipping/replace-tracing-token.html}
+{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
 
 ### Start the collector
@@ -108,15 +108,15 @@ This integration enables you to auto-instrument your Ruby application and run a 
 * A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 
 
-{@include: ../../../_include/tracing-shipping/ruby-steps.md}
+{@include: ../../_include/tracing-shipping/ruby-steps.md}
 
-{@include: ../../../_include/tracing-shipping/docker.md}
+{@include: ../../_include/tracing-shipping/docker.md}
 
-{@include: ../../../_include/tracing-shipping/replace-tracing-token.html}
+{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
 ### Run the application
 
-{@include: ../../../_include/tracing-shipping/collector-run-note.md}
+{@include: ../../_include/tracing-shipping/collector-run-note.md}
 
 
 Run the application:
@@ -350,7 +350,7 @@ logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 
 Replace `<PATH-TO>` with the path to your custom `values.yaml` file.
 
-{@include: ../../../_include/tracing-shipping/replace-tracing-token.html}
+{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
 
 
@@ -367,4 +367,4 @@ helm uninstall logzio-k8s-telemetry
 ```
 
 
-{@include: ../../../_include/tracing-shipping/otel-troubleshooting.md}
+{@include: ../../_include/tracing-shipping/otel-troubleshooting.md}
