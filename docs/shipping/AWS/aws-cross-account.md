@@ -20,7 +20,7 @@ Deploy this integration to simultaneously ship logs from multiple AWS accounts t
 * Landing account, which receives logs from your multiple AWS accounts and sends them to Logz.io.
 * Sending accounts, which send logs from your AWS services to the landing account.
   
-![Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws-cross-account/overview-aws.png)  
+![Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws-cross-account/overview-aws-s.png)  
 
 The integration creates the following resources:
   
