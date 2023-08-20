@@ -53,7 +53,9 @@ Replace `<<PATH-TO-YOUR-GCP-KEY>>` with the path to the JSON file created in the
 
 ### Configure Telegraf to send your metrics data to Logz.io
 
-#### Set up Telegraf v1.17 on a dedicated machine
+#### Set up Telegraf on a dedicated machine
+
+{@include: ../../_include/metric-shipping/telegraf-version.md}
 
 {@include: ../../_include/metric-shipping/telegraf-setup.md}
 

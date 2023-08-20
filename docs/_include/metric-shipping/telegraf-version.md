@@ -1,0 +1,1 @@
+Telegraf supported version: 1.27.3
