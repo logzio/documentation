@@ -186,8 +186,8 @@ logzio-monitoring logzio-helm/logzio-monitoring
 
 | Parameter | Description |
 | --- | --- |
-| `<<LOG-SHIPPING-TOKEN>>` | {% include /log-shipping/log-shipping-token.html %} |
-| `<<LISTENER-HOST>>` | {% include log-shipping/listener-var.html %}. |
+| `<<LOG-SHIPPING-TOKEN>>` | {@include: ../../_include/log-shipping/log-shipping-token.html} |
+| `<<LISTENER-HOST>>` | {@include: ../../_include/log-shipping/listener-var.html}. |
 | `<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>` | Your [metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
 | `<<P8S-LOGZIO-NAME>>` | The name for the environment's metrics, to easily identify the metrics for each environment. |
 | `<<ENV-ID>>` | The name for your environment's identifier, to easily identify the telemetry data for each environment. |
