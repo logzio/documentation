@@ -24,9 +24,9 @@ drop_filter: []
 
 ### Run the rsyslog configuration script
 
-{@include: ../_include/log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-var.html} 
 
 ```shell
 curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslog.tar.gz \
@@ -49,6 +49,6 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
  
  
 
-{@include: ../_include/log-shipping/rsyslog-troubleshooting.md} 
+{@include: ../../_include/log-shipping/rsyslog-troubleshooting.md} 
 
   

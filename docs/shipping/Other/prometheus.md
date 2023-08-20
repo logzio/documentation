@@ -82,7 +82,7 @@ After you create a config file for Telegraf, configure the output plug-in to ena
      Authorization = "Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>"
 ```
 
-{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+{@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
 
 :::note
 The full list of data scraping and configuring options can be found [here](https://docs.influxdata.com/telegraf/v1.18/plugins/).
@@ -92,11 +92,11 @@ The full list of data scraping and configuring options can be found [here](https
 
 ##### Check Logz.io for your metrics
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["32X5zm8qW7ByLlp1YPFkrJ"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html}
+{@include: ../../_include/metric-shipping/generic-dashboard.html}
 
 
 
@@ -115,7 +115,7 @@ To send your Prometheus application metrics to a Logz.io Infrastructure Monitori
 
 
 
-{@include: ../_include/p8s-shipping/remotewrite-syd-userguide-tokens-lookup.html}
+{@include: ../../_include/p8s-shipping/remotewrite-syd-userguide-tokens-lookup.html}
 
 ##### Add a remote_write url
 
@@ -128,8 +128,8 @@ Add the following parameters to your Prometheus yaml file:
 
 | Environment variable | Description |Required/Default|
 |---|---|---|
-{@include: ../_include/p8s-shipping/p8s_logzio_name.md}||
-{@include: ../_include/p8s-shipping/remotewrite-syd-userguide-values-not-to-show-in-app.html}
+{@include: ../../_include/p8s-shipping/p8s_logzio_name.md}||
+{@include: ../../_include/p8s-shipping/remotewrite-syd-userguide-values-not-to-show-in-app.html}
 
 
 ```yaml
@@ -246,7 +246,7 @@ exporters:
       Authorization: Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
 ```
   
-{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+{@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
 
 ##### Configure the service pipeline
   

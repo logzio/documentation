@@ -76,7 +76,7 @@ For a list of options, see the configuration parameters below the code block. ðŸ
 |---|---|---|
 | logzio_token | {@include: ../../_include/log-shipping/log-shipping-token.md}| Required |
 | logzio_url  | Listener URL and port. {@include: ../../_include/log-shipping/listener-var.html}  | `https://listener.logz.io:8071` |
-| logzio_type   | {@include: ../_include/log-shipping/type.md} | `logzio-fluent-bit` |
+| logzio_type   | {@include: ../../_include/log-shipping/type.md} | `logzio-fluent-bit` |
 | logzio_debug    | Set to `true` to print debug messages to stdout. | `false` |
 | workers | Enables dedicated thread(s) for this output. | Default value is 1. To support more traffic, adjust this value accordingly. |
 
@@ -139,7 +139,7 @@ For a list of options, see the configuration parameters below the code block. ðŸ
 
 | Parameter | Description |Required/Default |
 |---|---|---|
-| logzio_token | {@include: ../../_include/log-shipping/log-shipping-token.md}  {@include: ../_include/log-shipping/log-shipping-token.html} | Required |
+| logzio_token | {@include: ../../_include/log-shipping/log-shipping-token.md}  {@include: ../../_include/log-shipping/log-shipping-token.html} | Required |
 | logzio_url  | Listener URL and port. {@include: ../../_include/log-shipping/listener-var.html}  | `https://listener.logz.io:8071` |
 | logzio_type   | {@include: ../../_include/log-shipping/type.md} | `logzio-fluent-bit` |
 | logzio_debug    | Set to `true` to print debug messages to stdout. | `false` |
@@ -228,7 +228,7 @@ helm install  \
 logzio-fluent-bit logzio-helm/logzio-fluent-bit
 ```
   
-{@include: ../_include/log-shipping/listener-var.html} {@include: ../../_include/log-shipping/log-shipping-token.html} If required, replace `<<LOG_TYPE>>` with the desired name for the log type, the default value is `fluentbit`.
+{@include: ../../_include/log-shipping/listener-var.html} {@include: ../../_include/log-shipping/log-shipping-token.html} If required, replace `<<LOG_TYPE>>` with the desired name for the log type, the default value is `fluentbit`.
 
 
 ### Check Logz.io for your logs

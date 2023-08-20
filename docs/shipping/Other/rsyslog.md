@@ -43,7 +43,7 @@ sudo apt-get install rsyslog-gnutls
 
 For distributions based on Red Hat, use `rpm` or `yum` in place of `apt-get`.
 
-{@include: ../_include/log-shipping/certificate.md}
+{@include: ../../_include/log-shipping/certificate.md}
 
 ##### Configure rsyslog file spooling
 
@@ -93,9 +93,9 @@ if $programname == 'TYPE' then @@<<LISTENER-HOST>>:5001;logzFormatFileTagName
 if $programname == 'TYPE' then ~
 ```
 
-{@include: ../_include//general-shipping/replace-placeholders-rsyslog.html}
+{@include: ../../_include//general-shipping/replace-placeholders-rsyslog.html}
 * `<<PATH_TO_FILE>>`: Path to your file or directory.
-* `<<TYPE>>`: {@include: ../_include/log-shipping/type.md}
+* `<<TYPE>>`: {@include: ../../_include/log-shipping/type.md}
 
 
 ##### Restart rsyslog
@@ -153,9 +153,9 @@ curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslo
   && sudo rsyslog/install.sh -t linux -a "<<LOG-SHIPPING-TOKEN>>" -l "<<LISTENER-HOST>>"
 ```
 
-{@include: ../_include/log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-var.html} 
 
 If you do not see logs on [your Open Search Dashboards](https://app.logz.io/#/dashboard/osd), proceed to the next step.
 
@@ -251,9 +251,9 @@ Run the following command to configure your rsyslog daemon to monitor JSON log f
 curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t file -a "<<LOG-SHIPPING-TOKEN>>" -l "<<LISTENER-HOST>>" --filepath "<<PATH_TO_FILE>>" -tag "<<TYPE>>" -c json
 ```
 
-{@include: ../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include/general-shipping/replace-placeholders.html}
 * `<<PATH_TO_FILE>>`: Path to your file or directory.
-* `<<TYPE>>`: {@include: ../_include/log-shipping/type.md}
+* `<<TYPE>>`: {@include: ../../_include/log-shipping/type.md}
 
 
  
@@ -320,9 +320,9 @@ if $programname == 'TYPE' then ~
 ```
 
 
-{@include: ../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include/general-shipping/replace-placeholders.html}
 * `<<PATH_TO_FILE>>`: Path to your file or directory.
-* `<<TYPE>>`: {@include: ../_include/log-shipping/type.md}
+* `<<TYPE>>`: {@include: ../../_include/log-shipping/type.md}
 
 
 ##### Restart rsyslog

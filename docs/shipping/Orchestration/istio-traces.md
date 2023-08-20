@@ -48,7 +48,7 @@ helm install  \
 logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 ```
 
-{@include: ../_include/tracing-shipping/replace-tracing-token.html}
+{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
 
 ### 3. Define the logzio-k8s-telemetry service name
