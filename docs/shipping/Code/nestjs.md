@@ -108,10 +108,7 @@ const sdk = new opentelemetry.NodeSDK({
 
 sdk
     .start()
-    .then(() => {
-        console.log("Tracing initialized");
-    })
-    .catch((error) => console.log("Error initializing tracing", error));
+console.log("Tracing initialized");
 
 process.on("SIGTERM", () => {
     sdk
@@ -240,10 +237,7 @@ const sdk = new opentelemetry.NodeSDK({
 
 sdk
 	.start()
-	.then(() => {
-		console.log("Tracing initialized");
-	})
-	.catch((error) => console.log("Error initializing tracing", error));
+console.log("Tracing initialized");
 
 process.on("SIGTERM", () => {
 	sdk
@@ -323,8 +317,10 @@ helm repo update
 
 ```
 helm install  \
---set config.exporters.logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
---set config.exporters.logzio.account_token=<<TRACING-SHIPPING-TOKEN>> \
+--set secrets.LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>> \
+--set secrets.TracesToken=<<TRACING-SHIPPING-TOKEN>> \
+--set traces.enabled=true \
+--set secrets.env_id=<<ENV_ID>> \
 logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 ```
 
@@ -400,10 +396,7 @@ const sdk = new opentelemetry.NodeSDK({
 
 sdk
 	.start()
-	.then(() => {
-		console.log("Tracing initialized");
-	})
-	.catch((error) => console.log("Error initializing tracing", error));
+console.log("Tracing initialized");
 
 process.on("SIGTERM", () => {
 	sdk
@@ -513,9 +506,10 @@ baseCollectorConfig:
 
 ```
 helm install -f <PATH-TO>/my_values.yaml \
---set logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
---set logzio.tracing_token=<<TRACING-SHIPPING-TOKEN>> \
+--set secrets.LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>> \
+--set secrets.TracesToken=<<TRACING-SHIPPING-TOKEN>> \
 --set traces.enabled=true \
+--set secrets.env_id=<<ENV_ID>> \
 logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 ```
 
