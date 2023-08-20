@@ -2,7 +2,7 @@
 id: AWS-CloudTrail
 title: AWS CloudTrail
 overview: This integration sends CloudTrail logs.
-product: ['metrics']
+product: ['logs']
 os: ['windows', 'linux']
 filters: ['AWS', 'Security']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-cloudtrail.svg
