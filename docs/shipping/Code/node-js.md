@@ -2,14 +2,14 @@
 id: Node-js
 title: Node.js
 overview: Send Node.js logs, metrics and traces to Logz.io.
-product: ['metrics']
+product: ['logs','metrics','tracing']
 os: ['windows', 'linux']
 filters: ['Code']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/nodejs.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['']
+metrics_dashboards: []
 metrics_alerts: []
 drop_filter: []
 ---
@@ -393,7 +393,7 @@ We advise to use this integration with [the Logz.io Metrics backend](https://app
 #### Install the SDK package
 
 ```shell
-npm install logzio-nodejs-metrics-sdk@0.2.1
+npm install logzio-nodejs-metrics-sdk@0.4.0
 ```
 
 #### Initialize the exporter and meter provider
@@ -449,7 +449,7 @@ const requestCounter = meter.createCounter('Counter', {
 // Define some labels for your metrics
 const labels = { environment: 'prod' };
 // Record some value
-requestCounter.bind(labels).add(1);
+requestCounter.add(1,labels);
 // In logzio Metrics you will see the following metric:
 // Counter_total{environment: 'prod'} 1.0
 ```
@@ -464,9 +464,8 @@ const upDownCounter = meter.createUpDownCounter('UpDownCounter', {
 // Define some labels for your metrics
 const labels = { environment: 'prod' };
 // Record some values
-upDownCounter.bind(labels);
-upDownCounter.add(5);
-upDownCounter.add(-1);
+upDownCounter.add(5,labels);
+upDownCounter.add(-1,labels);
 // In logzio you will see the following metric:
 // UpDownCounter{environment: 'prod'} 4.0
 ```
@@ -481,9 +480,8 @@ const histogram = meter.createHistogram('test_histogram', {
 // Define some labels for your metrics
 const labels = { environment: 'prod' };
 // Record some values
-histogram.bind(labels);
-histogram.record(30);
-histogram.record(20);
+histogram.record(30,labels);
+histogram.record(20,labels);
 // In logzio you will see the following metrics:
 // test_histogram_sum{environment: 'prod'} 50.0
 // test_histogram_count{environment: 'prod'} 2.0
@@ -549,7 +547,7 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 
 ##### Download and configure OpenTelemetry collector
 
-Create a dedicated directory on the host of your Node.js application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.70.0) that is relevant to the operating system of your host.
+Create a dedicated directory on the host of your Node.js application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.82.0) that is relevant to the operating system of your host.
 
 
 After downloading the collector, create a configuration file `config.yaml` with the following parameters:
@@ -659,8 +657,10 @@ helm repo update
 
 ```
 helm install  \
---set config.exporters.logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
---set config.exporters.logzio.account_token=<<TRACING-SHIPPING-TOKEN>> \
+--set secrets.LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>> \
+--set secrets.TracesToken=<<TRACING-SHIPPING-TOKEN>> \
+--set traces.enabled=true \
+--set secrets.env_id=<<ENV_ID>> \
 logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 ```
 
@@ -770,9 +770,10 @@ baseCollectorConfig:
 
 ```
 helm install -f <PATH-TO>/my_values.yaml \
---set logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
---set logzio.tracing_token=<<TRACING-SHIPPING-TOKEN>> \
+--set secrets.LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>> \
+--set secrets.TracesToken=<<TRACING-SHIPPING-TOKEN>> \
 --set traces.enabled=true \
+--set secrets.env_id=<<ENV_ID>> \
 logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 ```
 
