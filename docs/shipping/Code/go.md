@@ -15,13 +15,12 @@ drop_filter: []
 ---
 
 :::tip
-If your code is running inside kubernetes the best practice will be to use our kuberenets integration 
-link heree
+If your code is running inside Kubernetes the best practice will be to use our [Kuberenets integrations](https://docs.logz.io/shipping/Containers/Kubernetes).
 :::
 
 ## Logs
 
-This shipper uses goleveldb and goqueue as a persistent storage implementation of a persistent queue, so the shipper backs up your logs to the local file system before sending them.
+This shipper uses *goleveldb* and *goqueue* as a persistent storage implementation of a persistent queue, so the shipper backs up your logs to the local file system before sending them.
 Logs are queued in the buffer and 100% non-blocking.
 A background Go routine ships the logs every 5 seconds.
 
@@ -81,7 +80,7 @@ func main() {
 
 | Parameter | Description | Required/Default |
 |---|---|---|
-| token | {@include: ../../_include/log-shipping/log-shipping-token.md}   | Required |
+| `<<LOG-SHIPPING-TOKEN>>` | {@include: ../../_include/log-shipping/log-shipping-token.md}   | Required |
 | SetUrl | Listener URL and port.    {@include: ../../_include/log-shipping/listener-var.html}  |Required (default:  `https://listener.logz.io:8071`) |
 | SetDebug | Debug flag. | `false` |
 | SetDrainDuration  | Time to wait between log draining attempts. | `5 * time.Second` |
@@ -107,7 +106,9 @@ l.Stop() // Drains the log buffer
 
 Run the following command:
 
-`go get github.com/logzio/go-metrics-sdk`
+```shell
+go get github.com/logzio/go-metrics-sdk
+```
 
 ### Configure the exporter
 
