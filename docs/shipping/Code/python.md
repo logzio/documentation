@@ -827,7 +827,7 @@ It will deploy a small pod that extracts your cluster domain name from your Kube
 
 {@include: ../../_include/tracing-shipping/python-steps.md}
 
-##### Check Logz.io for your traces
+#### Check Logz.io for your traces
 
 Give your traces some time to get from your system to ours, then open [Logz.io](https://app.logz.io/).
 
@@ -939,8 +939,11 @@ helm uninstall logzio-monitoring
 ### Troubleshooting
 
 
-#### For troubleshooting the Logz.io Python handler, see our [Python logging troubleshooting guide](https://docs.logz.io/user-guide/log-troubleshooting/python-troubleshooting.html).
+#### Logz.io Python handler 
+For troubleshooting the Logz.io Python handler, see our [Python logging troubleshooting guide](https://docs.logz.io/user-guide/log-troubleshooting/python-troubleshooting.html).
  
-#### For troubleshooting the OpenTelemetry instrumentation, see our [OpenTelemetry troubleshooting guide](https://docs.logz.io/user-guide/distributed-tracing/otel-troubleshooting.html).
+#### OpenTelemetry instrumentation 
+For troubleshooting the OpenTelemetry instrumentation, see our [OpenTelemetry troubleshooting guide](https://docs.logz.io/user-guide/distributed-tracing/otel-troubleshooting.html).
 
-#### For troubleshooting the Distributed Tracing account, see our [Distributed Tracing troubleshooting guide](https://docs.logz.io/user-guide/distributed-tracing/tracing-troubleshooting.html)
+#### Distributed Tracing account
+For troubleshooting your Distributed Tracing account, see our [Distributed Tracing troubleshooting guide](https://docs.logz.io/user-guide/distributed-tracing/tracing-troubleshooting.html)
