@@ -150,7 +150,6 @@ Click here for more information about [filebeat for Google Cloud Pub/Sub](https:
 | pubsubs | This is an array of one or more GCP subscriptions. For each subscription, provide topic and subscription IDs, as given from Pub/Sub. |
 | token | Your Logz.io shipping token. For each project under `pubsubs`. Replace `<<LOG-SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to. You can send your logs to different accounts that are in the same region, you can do that by inserting a different token per project.  |
 | credentials_file (Not required, Default value: `'<project_id>-credentials.json'`) | This field is only required if your credentials file is named differently than the default value. For an example of adding this field go to [input example file](https://github.com/logzio/logzio-pubsub/blob/master/pubsub-input-example.yml). |
-{:.paramlist}
 
 #### Pull the Docker image
 
