@@ -126,8 +126,8 @@ oauth_apis:
 
 | Parameter | Description | Required/Default |
 |---|---|---|
-| URL | {% include log-shipping/listener-var.md %} | Required |
-| TOKEN | Your Logz.io account token. {% include log-shipping/log-shipping-token.html %}  | Required  |
+| URL | {@include: ../../_include/log-shipping/listener-var.md} | Required |
+| TOKEN | Your Logz.io account token. {@include: ../../_include/log-shipping/log-shipping-token.html}  | Required  |
 | type | The type of the OAuth API. Currently we support the following types: azure_graph, general. | Required | 
 | name | The name of the OAuth API. Please make names unique. | Required | 
 | credentials.id | The OAuth API credentials id. | Required | 
