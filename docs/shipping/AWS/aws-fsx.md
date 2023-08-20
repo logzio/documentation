@@ -5,7 +5,7 @@ overview: Send your Amazon FSx - metrics to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['AWS', 'Data Store']
-logo: https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-fsx.jpeg
+logo: https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-fsx.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
