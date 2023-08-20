@@ -1,10 +1,10 @@
-### Pull the Docker image for the OpenTelemetry collector
+#### Pull the Docker image for the OpenTelemetry collector
 
 ```shell
 docker pull otel/opentelemetry-collector-contrib:0.78.0
 ```
 
-### Create a configuration file
+#### Create a configuration file
 
 Create a file `config.yaml` with the following content:
 
