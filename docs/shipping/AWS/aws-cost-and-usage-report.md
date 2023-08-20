@@ -26,9 +26,9 @@ Your Lambda function needs to run within the AWS Lambda limits, such as memory a
 
 This deployment will automatically create the following resources:
 
-![Resources](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/Resources.png)
+![Resources](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/Resources-s.png)
 
- 
+
 
 ### Login to your account
 
