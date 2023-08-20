@@ -37,10 +37,10 @@ and zip the Python files in the `src/` folder as follows:
 ```shell
 git clone https://github.com/logzio/logzio_aws_serverless.git \
 && cd logzio_aws_serverless/python3/amplify/ \
-&& mkdir -p dist/python3/shipper; cp -r ../shipper/shipper.py dist/python3/shipper \
+&& mkdir -p dist/python3/shipper; cp -r ../shipper/shipper.py dist/python3/shipper; mkdir -p dist/python3/custom_logger; cp -r ../custom_logger/custom_logger.py dist/python3/custom_logger \
 && cp src/lambda_function.py dist \
 && cd dist/ \
-&& zip logzio-amplify lambda_function.py python3/shipper/*
+&& zip logzio-amplify lambda_function.py python3/shipper/* python3/custom_logger/*
 ```
 
 ### Upload the zip file and set environment variables
