@@ -5,7 +5,7 @@ overview: Send your Amazon Managed Streaming for Apache Kafka (MSK) metrics to L
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['AWS', 'Distributed Messaging']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-cloudwatch.svg
+logo: https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-msk.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
