@@ -1,8 +1,8 @@
 ---
 id: AWS-App-ELB
 title: AWS App ELB
-overview: This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon App ELB metrics stream and then sends the metrics to your Logz.io account.
-product: ['metrics']
+overview: Send your AWS Application ELB logs and metrics to Logz.io.
+product: ['logs', 'metrics']
 os: []
 filters: ['AWS', 'Load Balancer']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-app-elb.svg
@@ -14,8 +14,45 @@ metrics_alerts: []
 drop_filter: []
 ---
 
+## Configure AWS to forward logs to Logz.io
+
+When you set Logz.io to fetch Elastic Load Balancing (ELB) logs, Logz.io will periodically read logs from the configured S3 bucket. Elastic Load Balancing logs are useful for application usage intelligence and monitoring.
+
+{@include: ../../_include/log-shipping/s3-bucket.md}
 
 
+
+**Before you begin, you'll need**:
+`s3:ListBucket` and `s3:GetObject` [permissions](https://docs.logz.io/user-guide/give-aws-access-with-iam-roles/) for the required S3 bucket (one bucket per region)
+
+ 
+
+### Send your logs to an S3 bucket
+
+Logz.io fetches your Elastic Load Balancing logs from an S3 bucket.
+
+For help with setting this up, see [these AWS doce](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html)
+
+
+
+### Add a new S3 bucket using the dedicated Logz.io configuration wizard
+
+Log into the app to use the dedicated Logz.io [configuration wizard](https://app.logz.io/#/dashboard/send-your-data/log-sources/elastic-load-balancing) and add a new S3 bucket.
+
+
+<!-- logzio-inject:aws:elb -->
+
+{@include: ../../_include/log-shipping/add-s3-bucket.md}
+
+
+### Check Logz.io for your logs
+
+Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
+
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+
+## Configure AWS to forward metrics to Logz.io
 
 Deploy this integration to send your Amazon App ELB metrics to Logz.io.
 
@@ -31,9 +68,6 @@ This integration creates a Kinesis Data Firehose delivery stream that links to y
 
 * An active account with Logz.io
 
-
-
-## Configure AWS to forward metrics to Logz.io
 
 ### Create Stack in relevant region
 
