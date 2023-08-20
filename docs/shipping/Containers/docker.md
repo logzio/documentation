@@ -225,23 +225,34 @@ Deploy this integration to ship metrics from your Docker network using container
 
   
 
-### Pull the Docker image
+#### Pull the Docker image
 
-```
+```shell
 docker pull logzio/docker-metrics-collector:latest
 ```
+#### Run the Docker image
+  
 
-### Start the collector
+For a complete list of options, see the parameters below the code block.👇
 
-Run the following command:
+#### Docker
 
-```
+```shell
 docker run --name telegraf-docker-collector-metrics \
  --env METRICS_TOKEN="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>" \
  --env LOGZIO_LISTENER="https://<<LISTENER-HOST>>:8053" \
  -v /var/run/docker.sock:/var/run/docker.sock \
  logzio/docker-metrics-collector:latest
 ```
+#### Docker Swarm
+
+```shell
+docker service create --name telegraf-docker-collector-metrics \
+ --env METRICS_TOKEN="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>" \
+ --env LOGZIO_LISTENER="https://<<LISTENER-HOST>>:8053" \
+ --mount type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock \
+ --mode global logzio/docker-metrics-collector:latest
+ ```
 
 {@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
 
@@ -250,7 +261,7 @@ If you prefer to keep these environment variables in an `.env` file, run the fol
 
 `docker run -d --env-file=docker.env -v /var/run/docker.sock:/var/run/docker.sock logzio/docker-metrics-collector:latest`
 
-### Parameters
+#### Parameters
 
 Below is a list of all environment variables available with this integration. If required, add a variable to the `docker run` command using the `--env` flag.
 
@@ -263,7 +274,7 @@ Below is a list of all environment variables available with this integration. If
 |EXCLUDED_IMAGES|A list of strings, regexes, or globs, the container image names of which, will not be among the queried containers. !-prefixed negations are possible for all item types to signify that only unmatched container image names should be monitored. For example: `imageNameToExclude1,imageNameToExclude2)`|Default: `nil`.|
 |GLOBAL_TAGS| A comma separated list of key-value pairs that will be added to every metric. For example - `key1=value1,key2=value2`| Default: `nil`. |
 
-### Check Logz.io metrics
+#### Check Logz.io metrics
 
 {@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboards to enhance the observability of your metrics.
 
