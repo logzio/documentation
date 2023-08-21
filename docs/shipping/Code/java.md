@@ -20,7 +20,7 @@ If your code runs within Kubernetes, it's best practice to use our Kubernetes in
 
 ## Logs 
 
-### Configure Log4j 2
+### Logs option 1: Configure Logzio-Log4j2-Appender
 
 The Logz.io Log4j 2 appender sends logs using non-blocking threading, bulks, and HTTPS encryption to port 8071.
 
@@ -35,27 +35,40 @@ Java 8 or higher
 
  
 
-### Add the dependency to your project
+#### Add the dependency to your project
 
 Add a dependency to your project configuration file (for instance, `pom.xml` in a Maven project). 
 
+JDK 8:
 ```xml
-<dependencies>
-  <dependency>
-    <groupId>io.logz.log4j2</groupId>
-    <artifactId>logzio-log4j2-appender</artifactId>
-    <version>1.0.15</version>
-  </dependency>
-  <dependency>
-    <groupId>org.apache.logging.log4j</groupId>
-    <artifactId>log4j-slf4j-impl</artifactId>
-    <version>2.17.0</version>
-  </dependency>
-</dependencies>
+    <dependency>
+        <groupId>io.logz.log4j2</groupId>
+        <artifactId>logzio-log4j2-appender</artifactId>
+        <version>1.0.19</version>
+    </dependency>
 ```
+
+JDK 11 and above:
+```xml
+    <dependency>
+        <groupId>io.logz.log4j2</groupId>
+        <artifactId>logzio-log4j2-appender</artifactId>
+        <version>2.0.0</version>
+    </dependency>
+```
+
+The appender also requires a logger implementation, for example:
+```xml
+    <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-slf4j-impl</artifactId>
+        <version>2.15.0</version>
+    </dependency>
+```
+
 The logzio-log4j2-appender artifact can be found in the Maven central repo at https://search.maven.org/artifact/io.logz.log4j2/logzio-log4j2-appender.
 
-### Configure the appender
+#### Configure the appender
 
 Use the samples in the code block below as a starting point, and replace the sample with a configuration that matches your needs.
 
@@ -110,27 +123,42 @@ rootLogger.appenderRef.logzioAppender.ref = logzioAppender
 :::note
 See the [Log4j documentation](https://logging.apache.org/log4j/2.x/manual/configuration.html) for more information on the Log4j 2 configuration file.
 {:.info-box.read}
+:::
  
 
 #### Parameters
+| Parameter          | Default                              | Explained  |
+| ------------------ | ------------------------------------ | ----- |
+| **logzioToken**              | *None*                                 | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). {@include: ../../_include/log-shipping/log-shipping-token.html} Begin with `$` to use an environment variable or system property with the specified name. For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable. | Required |
+| **logzioType**               | *java*                                 | The [log type](https://support.logz.io/hc/en-us/articles/209486049-What-is-Type-) for that appender, it must not contain any spaces |
+| **logzioUrl**               | *https://listener.logz.io:8071*                                 | Listener URL and port.    {@include: ../../_include/log-shipping/listener-var.html}  | `https://listener.logz.io:8071` |
+| **drainTimeoutSec**       | *5*                                    | How often the appender should drain the queue (in seconds) |
+| **socketTimeoutMs**       | *10 * 1000*                                    | The socket timeout during log shipment |
+| **connectTimeoutMs**       | *10 * 1000*                                    | The connection timeout during log shipment |
+| **addHostname**       | *false*                                    | Optional. If true, then a field named 'hostname' will be added holding the host name of the machine. If from some reason there's no defined hostname, this field won't be added |
+| **additionalFields**       | *None*                                    | Optional. Allows to add additional fields to the JSON message sent. The format is "fieldName1=fieldValue1;fieldName2=fieldValue2". You can optionally inject an environment variable value using the following format: "fieldName1=fieldValue1;fieldName2=$ENV_VAR_NAME". In that case, the environment variable should be the only value. In case the environment variable can't be resolved, the field will be omitted. |
+| **debug**       | *false*                                    | Print some debug messages to stdout to help to diagnose issues |
+| **compressRequests**       | *false*                                    | Boolean. `true` if logs are compressed in gzip format before sending. `false` if logs are sent uncompressed. |
+| **exceedMaxSizeAction**       | *"cut"*                                    | String. cut to truncate the message field or drop to drop log that exceed the allowed maximum size for logzio. If the log size exceeding the maximum size allowed after truncating the message field, the log will be dropped. |
 
-| Parameter | Description | Required/Default |
-|---|---|---|
-| logzioToken | {@include: ../../_include/log-shipping/log-shipping-token.md} Replace `<<LOG-SHIPPING-TOKEN>>` with the token of the account you want to ship to. Begin with `$` to use an environment variable or system property with the specified name. For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable. | Required |
-| logzioUrl | Listener URL and port. {@include: ../../_include/log-shipping/listener-var.html} | `https://listener.logz.io:8071` |
-| logzioType | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `java` |
-| addHostname | Boolean. Indicates whether to add `hostname` field to logs. This field holds the machine's host name.    Set to `true` to include hostname. Set to `false` to leave it off. If a host name can't be found, this field is not added. | False |
-| additionalFields | Adds fields to the JSON message output, formatted as `field1=value1;field2=value2`. Use `$` to inject an environment variable value, such as `field2=$VAR_NAME`. The environment variable should be the only value in the key-value pair. If the environment variable can't be resolved, the field is omitted. | -- |
-| bufferDir | Filepath where the appender stores the buffer. | `System.getProperty("java.io.tmpdir")` |
-| compressRequests | Boolean. Set to `true` if you're sending gzip-compressed logs. Set to `false` if sending uncompressed logs. | False |
-| connectTimeoutMs | Connection timeout during log shipment, in milliseconds. | `10 * 1000` |
-| debug | Set to `true` to print debug messages to stdout. | false |
-| drainTimeoutSec | How often the appender drains the buffer, in seconds. | `5` |
-| fileSystemFullPercentThreshold | Identifies a maximum file system usage, in percent. Set to `-1` to disable. If the file system storage exceeds this threshold, the appender stops buffering and drops all new logs. Buffering resumes if used space drops below the threshold. | `98` |
-| socketTimeoutMs | Socket timeout during log shipment, in milliseconds. | `10 * 1000` |
+#### Parameters for in-memory queue
+| Parameter          | Default                              | Explained  |
+| ------------------ | ------------------------------------ | ----- |
+| **inMemoryQueueCapacityBytes**       | *1024 * 1024 * 100*                                | The amount of memory(bytes) we are allowed to use for the memory queue. If the value is -1 the sender will not limit the queue size.|
+| **inMemoryLogsCountCapacity**       | *-1*                                | Number of logs we are allowed to have in the queue before dropping logs. If the value is -1 the sender will not limit the number of logs allowed.|
+| **inMemoryQueue**       | *false*                                | Set to true if the appender uses in memory queue. By default the appender uses disk queue|
 
 
-#### Code sample
+#### Parameters for disk queue
+| Parameter          | Default                              | Explained  |
+| ------------------ | ------------------------------------ | ----- |
+| **fileSystemFullPercentThreshold** | *98*                                   | The percent of used file system space at which the sender will stop queueing. When we will reach that percentage, the file system in which the queue is stored will drop all new logs until the percentage of used space drops below that threshold. Set to -1 to never stop processing new logs |
+| **gcPersistedQueueFilesIntervalSeconds**       | *30*                                    | How often the disk queue should clean sent logs from disk |
+| **bufferDir**(deprecated, use queueDir)          | *System.getProperty("java.io.tmpdir")* | Where the appender should store the queue |
+| **queueDir**          | *System.getProperty("java.io.tmpdir")* | Where the appender should store the queue |
+
+
+#### Code Example
 
 ```java
 import org.apache.logging.log4j.LogManager;
@@ -162,14 +190,9 @@ If you receive an error message regarding a missing appender, try adding the fol
 
 ```
 
-#### More options
+#### MDC
 
-You can optionally add mapped diagnostic context (MDC)
-and markers to your logs.
-
-##### MDC
-
-When you add MDC to your logs,
+When you add mapped diagnostic context (MDC) to your logs,
 each key-value pair you define is added log lines while the thread is alive.
 
 So this code sample...
@@ -198,7 +221,7 @@ public class LogzioLog4j2Example {
 }
 ```
 
-##### Markers
+#### Markers
 
 Markers are values you can use to tag and enrich log statements.
 
@@ -230,7 +253,7 @@ public class LogzioLog4j2Example {
 ```
 
   
-### Configure Logback
+### Logs option 2: Configure Logzio-Logback-Appender
 
 Logback sends logs to your Logz.io account using non-blocking threading, bulks, and HTTPS encryption to port 8071.
 
@@ -245,7 +268,7 @@ Java 8 or higher
 
  
 
-### Add the dependency to your project
+#### Add the dependency to your project
 
 Add a dependency to your project configuration file
 
@@ -253,27 +276,38 @@ Add a dependency to your project configuration file
 
 In the `pom.xml` add the following dependencies:
 
-```xml
-<dependencies>
-  <dependency>
+JDK 11 and above:
+```
+<dependency>
     <groupId>io.logz.logback</groupId>
     <artifactId>logzio-logback-appender</artifactId>
-    <version>v1.0.25</version>
-  </dependency>
-</dependencies>
+    <version>2.0.0</version>
+</dependency>
+```
+
+
+JDK 8 and above:
+```
+<dependency>
+    <groupId>io.logz.logback</groupId>
+    <artifactId>logzio-logback-appender</artifactId>
+    <version>1.0.29</version>
+</dependency>
+```
+
+Logback appender also requires logback classic:
+```
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>1.2.7</version>
+</dependency>
 ```
 
 The logzio-log4j2-appender artifact can be found in the Maven central repo at https://search.maven.org/artifact/io.logz.log4j2/logzio-log4j2-appender.
 
-#### Installation from Gradle
 
-If you use Gradle, add the dependency to your project as follows:
-
-```java
-implementation 'io.logz.sender:logzio-java-sender:V1.1.2'
-```
-
-### Configure the appender
+#### Configure the appender
 
 Use the samples in the code block below as a starting point, and replace the sample with a configuration that matches your needs.
 
@@ -282,28 +316,27 @@ For a complete list of options, see the configuration parameters below the code 
 :::note
 See the [Logback documentation](https://logback.qos.ch/manual/configuration.html) for more information on the Logback configuration file.
 {:.info-box.read}
+:::
  
 
 ```xml
+<!-- Use debug=true here if you want to see output from the appender itself -->
+<!-- Use line=true here if you want to see the line of code that generated this log -->
 <configuration>
-  <!-- Closes gracefully and finishes the log drain -->
-  <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>
-
-  <appender name="LogzioLogbackAppender" class="io.logz.logback.LogzioLogbackAppender">
-    <!-- Replace these parameters with your configuration -->
-    <token><<LOG-SHIPPING-TOKEN>></token>
-    <logzioUrl>https://<<LISTENER-HOST>>:8071</logzioUrl>
-    <logzioType>myType</logzioType>
-
-    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-      <level>INFO</level>
-    </filter>
-  </appender>
-
-  <root level="debug">
-    <!-- IMPORTANT: This line is required -->
-    <appender-ref ref="LogzioLogbackAppender"/>
-  </root>
+    <!-- Use shutdownHook so that we can close gracefully and finish the log drain -->
+    <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>
+    <appender name="LogzioLogbackAppender" class="io.logz.logback.LogzioLogbackAppender">
+        <token>yourlogziopersonaltokenfromsettings</token>
+        <logzioType>myAwesomeType</logzioType>
+        <logzioUrl>https://listener.logz.io:8071</logzioUrl>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+    </appender>
+    <root level="debug">
+        <!-- IMPORTANT: This line is required -->
+        <appender-ref ref="LogzioLogbackAppender"/>
+    </root>
 </configuration>
 ```
 
@@ -377,10 +410,10 @@ public class LogzioLogbackExample {
 You can optionally add mapped diagnostic context (MDC)
 and markers to your logs.
 
-##### MDC
+#### MDC
 
-When you add MDC to your logs,
-each key-value pair you define is added log lines while the thread is alive.
+You  can add Mapped Diagnostic Context (MDC) to your logs.
+Each key-value pair you define is added log lines while the thread is alive.
 
 So this code sample...
 
@@ -409,7 +442,7 @@ public class LogzioLogbackExample {
 }
 ```
 
-##### Markers
+#### Markers
 
 Markers are values you can use to tag and enrich log statements.
 
@@ -441,7 +474,7 @@ public class LogzioLogbackExample {
 }
 ```
   
-##### Troubleshooting
+#### Troubleshooting
   
 If the log appender does not ship logs, add `<inMemoryQueue>true</inMemoryQueue>` and `<inMemoryQueueCapacityBytes>-1</inMemoryQueueCapacityBytes>` to the configuration file as follows:
   
@@ -502,7 +535,7 @@ import io.micrometer.logzio.LogzioConfig;
 import io.micrometer.logzio.LogzioMeterRegistry;
 ```
 
-## Quick start
+#### Quick start
 
 Replace the placeholders in the code (indicated by the double angle brackets `<< >>`) to match your specifics.
 
@@ -575,7 +608,7 @@ class MicrometerLogzio {
 }
 ```
 
-## Common tags
+#### Common tags
 
 You can attach common tags to your registry that will be added to all metrics reported, for example:
 
@@ -586,7 +619,7 @@ LogzioMeterRegistry registry = new LogzioMeterRegistry(logzioConfig, Clock.SYSTE
 registry.config().commonTags("key", "value");
 ```
 
-## Filter labels
+#### Filter labels
 
 You can the `includeLabels` or `excludeLabels` functions to filter your metrics by labels.
 
@@ -622,7 +655,7 @@ public Hashtable<String, String> excludeLabels() {
 The registry will drop all metrics with the label `__name__` matching the regex `my_counter_abc_total|my_second_counter_abc_total`, and with the label `k1` matching the regex `v1`.
 
 
-## Meter binders
+#### Meter binders
 
 Micrometer provides a set of binders for monitoring JVM metrics out of the box, for example:
 
@@ -653,7 +686,7 @@ new Log4j2Metrics().bindTo(registry);
 
 For more information about other binders check out [Micrometer-core](https://github.com/micrometer-metrics/micrometer/tree/main/micrometer-core/src/main/java/io/micrometer/core/instrument/binder) Github repo.
 
-## Types of metrics 
+#### Types of metrics 
 
 Refer to the Micrometer [documentation](https://micrometer.io/docs/concepts) for more details.
 
@@ -665,7 +698,7 @@ Refer to the Micrometer [documentation](https://micrometer.io/docs/concepts) for
 | DistributionSummary | Metric values captured by the `summary.record(value)` function, the output is a distribution of `count`,`sum` and `max` for the recorded values during the push interval. |
 | Timer       | Mesures timing, metric values can be recorded by `timer.record()` call. |
 
-### [Counter](https://micrometer.io/docs/concepts#_counters)
+##### [Counter](https://micrometer.io/docs/concepts#_counters)
 
 ```java
 Counter counter = Counter
@@ -679,7 +712,7 @@ counter.increment(2);
 // The following metric will be created and sent to Logz.io: counter_example_total{env="dev"} 3
 ```
 
-### [Gauge](https://micrometer.io/docs/concepts#_gauges)
+##### [Gauge](https://micrometer.io/docs/concepts#_gauges)
 
 ```java
 // Create Gauge
@@ -703,7 +736,7 @@ manual_gauge.set(83);
 // The following metric will be created and sent to Logz.io:: manual_gauge_example{env="dev"} 83
 ```
 
-### [DistributionSummary](https://micrometer.io/docs/concepts#_distribution_summaries)
+##### [DistributionSummary](https://micrometer.io/docs/concepts#_distribution_summaries)
 
 ```java
 // Create DistributionSummary
@@ -722,7 +755,7 @@ summary.record(30);
 // summary_example_sum{env="dev"} 60
 ```
 
-### [Timer](https://micrometer.io/docs/concepts#_timers)
+##### [Timer](https://micrometer.io/docs/concepts#_timers)
 
 ```java
 // Create Timer
@@ -749,12 +782,12 @@ timer.record(()-> {
 
 
 
-##### Run your application
+### Run your application
 
 Run your application to start sending metrics to Logz.io.
 
 
-##### Check Logz.io for your metrics
+### Check Logz.io for your metrics
 
 Give your metrics some time to get from your system to ours, and then open [Metrics dashboard](https://app.logz.io/#/dashboard/metrics/discover?).
 
@@ -773,7 +806,7 @@ This integration includes:
 
 On deployment, the Java agent automatically captures spans from your application and forwards them to the collector, which exports the data to your Logz.io account.
 
-#### Setup auto-instrumentation for your locally hosted Java application and send traces to Logz.io
+### Setup auto-instrumentation for your locally hosted Java application and send traces to Logz.io
 
 **Before you begin, you'll need**:
 
@@ -789,11 +822,11 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 <!-- info-box-end -->
 
 
-##### Download Java agent
+### Download Java agent
 
 Download the latest version of the [OpenTelemetry Java agent](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar) to the host of your Java application.
 
-##### Download and configure OpenTelemetry collector
+### Download and configure OpenTelemetry collector
 
 Create a dedicated directory on the host of your Java application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.70.0) that is relevant to the operating system of your host.
 
@@ -805,7 +838,7 @@ After downloading the collector, create a configuration file `config.yaml` with 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
 
-##### Start the collector
+### Start the collector
 
 Run the following command:
 
@@ -815,7 +848,7 @@ Run the following command:
 * Replace `<path/to>` with the path to the directory where you downloaded the collector.
 * Replace `<VERSION-NAME>` with the version name of the collector applicable to your system, e.g. `otelcontribcol_darwin_amd64`.
 
-##### 4. Attach the agent to the collector and run it
+### Attach the agent to the collector and run it
 
 Run the following command from the directory of your Java application:
 
@@ -832,12 +865,7 @@ java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
 * Replace `<YOUR-SERVICE-NAME>` with the name of your tracing service defined earlier.
 
 
-##### 5. Check Logz.io for your traces
-
-Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
-
-
-###### Controlling the number of spans
+### Controlling the number of spans
 
 To limit the number of outgoing spans, you can use the sampling option in the Java agent.
 
@@ -857,3 +885,6 @@ Supported values for `otel.traces.sampler` are
 - "parentbased_always_off": ParentBased(root=AlwaysOffSampler)
 - "parentbased_traceidratio": ParentBased(root=TraceIdRatioBased). `otel.traces.sampler.arg` sets the ratio.
 
+### Check Logz.io for your traces
+
+Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).

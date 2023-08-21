@@ -27,7 +27,9 @@ AWS Control Tower is a tool to control a top-level summary of policies applied t
 
  
 
-### Deploy an S3 Hook Lambda function
+## Deploy an S3 Hook Lambda function
+
+### Create Stack in the relevant region
 
 :::note
 The stacks must be deployed in the same region as the S3 buckets.
@@ -175,8 +177,6 @@ Both variables ought to contain a comma-separated list of regular expressions, c
 Each time a new object is added to your bucket, this will trigger your Lambda function. Nonetheless, if the key fails to match the regexes, the function will terminate without sending the logs.
 :::
  
-
-
 
 
 ### Adding object path as logs field
