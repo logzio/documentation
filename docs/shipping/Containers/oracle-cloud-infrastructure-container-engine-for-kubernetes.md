@@ -51,7 +51,7 @@ kubectl create secret generic logzio-logs-secret \
   -n kube-system
 ```
 
-{@include: ../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include/general-shipping/replace-placeholders.html}
 * Replace `<<CLUSTER-NAME>>` with your cluster's name.
 
 
@@ -87,8 +87,7 @@ Apply your custom configuration to the parameters under `filebeat.yml` and only 
 
 Note that the parameter `token: ${LOGZIO_LOGS_SHIPPING_TOKEN}` under `fields` determines the token used to verify your Logz.io account. It is required.
 
-{@include: ../_include/log-shipping/filebeat-input-extension.md}
-
+{@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
 ```
 filebeat.yml: |-
@@ -140,7 +139,7 @@ If you still don't see your logs, see [Kubernetes log shipping troubleshooting](
  
 
   
-
+  
 {@include: ../../_include//log-shipping/multiline-logs-filebeat.md}
 
   
