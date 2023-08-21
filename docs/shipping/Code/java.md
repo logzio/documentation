@@ -410,10 +410,10 @@ public class LogzioLogbackExample {
 You can optionally add mapped diagnostic context (MDC)
 and markers to your logs.
 
-##### MDC
+#### MDC
 
-When you add Mapped Diagnostic Context (MDC) to your logs,
-each key-value pair you define is added log lines while the thread is alive.
+You  can add Mapped Diagnostic Context (MDC) to your logs.
+Each key-value pair you define is added log lines while the thread is alive.
 
 So this code sample...
 
