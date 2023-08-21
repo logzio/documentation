@@ -1,5 +1,5 @@
 ---
-id: Logstash
+id: Logstash-data
 title: Logstash
 overview: This integration ships Logstash metrics to Logz.io.
 product: ['metrics']
@@ -42,7 +42,7 @@ sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/AA
 
 * For Windows:
 
-Download the [Logz.io public certificate]({@include: ../_include/log-shipping/certificate-path.md}) to `C:\ProgramData\ElkStack\logstash-<<YOUR-LOGSTASH-VERSION-NUMBER>>\AAACertificateServices.crt` on your machine.
+Download the [Logz.io public certificate]({@include: ../../_include/log-shipping/certificate-path.md}) to `C:\ProgramData\ElkStack\logstash-<<YOUR-LOGSTASH-VERSION-NUMBER>>\AAACertificateServices.crt` on your machine.
 
 ### Add Logz.io to your configuration file
 
@@ -50,9 +50,9 @@ Add these code blocks to the end of your existing Logstash configuration file.
 
 Make sure the `mutate` block is the last item in the `filters` block.
 
-{@include: ../_include/log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../_include/log-shipping/listener-var.html}
+{@include: ../../_include/log-shipping/listener-var.html}
 
 * For MacOS and Linux:
 
@@ -120,9 +120,9 @@ Add these code blocks to the end of your existing Logstash configuration file.
 
 Make sure the `mutate` block is the last item in the `filters` block.
 
-{@include: ../_include/log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../_include/log-shipping/listener-var.html}
+{@include: ../../_include/log-shipping/listener-var.html}
 
 ```conf
 filter {

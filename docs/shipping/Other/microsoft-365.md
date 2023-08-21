@@ -1,5 +1,5 @@
 ---
-id: Microsoft-365
+id: Microsoft-365-data
 title: Microsoft 365
 overview: Deploy this integration to send Unified Audit Logging logs from Microsoft 365 to Logz.io.
 product: ['logs']
@@ -9,7 +9,7 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/offi
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['']
+metrics_dashboards: []
 metrics_alerts: []
 drop_filter: []
 ---
@@ -74,7 +74,7 @@ curl https://raw.githubusercontent.com/logzio/public-certificates/master/AAACert
 
 ### Configure Filebeat
 
-{@include: ../_include/log-shipping/filebeat-input-extension.md}
+{@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
 
 1. Navigate to the `modules.d` directory and open the `o365.yml.disabled` file.
@@ -161,7 +161,7 @@ curl https://raw.githubusercontent.com/logzio/public-certificates/master/AAACert
          certificate_authorities: ['C:\ProgramData\filebeat\COMODORSADomainValidationSecureServerCA.crt']
    ```
   
-   * {@include: ../_include/log-shipping/log-shipping-token.md}
+   * {@include: ../../_include/log-shipping/log-shipping-token.md}
    * Use the listener URL specific to the region where your Logz.io account is hosted. [Click to look up your listener URL](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
 
 5. Run Filebeat with the new configuration.

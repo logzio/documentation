@@ -15,13 +15,12 @@ drop_filter: []
 ---
 
 :::tip
-If your code is running inside kubernetes the best practice will be to use our kuberenets integration 
-link heree
+If your code is running inside Kubernetes the best practice will be to use our [Kuberenets integrations](https://docs.logz.io/shipping/Containers/Kubernetes).
 :::
 
 ## Logs
 
-This shipper uses goleveldb and goqueue as a persistent storage implementation of a persistent queue, so the shipper backs up your logs to the local file system before sending them.
+This shipper uses **goleveldb** and **goqueue** as a persistent storage implementation of a persistent queue, so the shipper backs up your logs to the local file system before sending them.
 Logs are queued in the buffer and 100% non-blocking.
 A background Go routine ships the logs every 5 seconds.
 
@@ -81,7 +80,7 @@ func main() {
 
 | Parameter | Description | Required/Default |
 |---|---|---|
-| token | {@include: ../../_include/log-shipping/log-shipping-token.md}   | Required |
+| `<<LOG-SHIPPING-TOKEN>>` | {@include: ../../_include/log-shipping/log-shipping-token.md}   | Required |
 | SetUrl | Listener URL and port.    {@include: ../../_include/log-shipping/listener-var.html}  |Required (default:  `https://listener.logz.io:8071`) |
 | SetDebug | Debug flag. | `false` |
 | SetDrainDuration  | Time to wait between log draining attempts. | `5 * time.Second` |
@@ -107,7 +106,9 @@ l.Stop() // Drains the log buffer
 
 Run the following command:
 
-`go get github.com/logzio/go-metrics-sdk`
+```shell
+go get github.com/logzio/go-metrics-sdk
+```
 
 ### Configure the exporter
 
@@ -224,7 +225,7 @@ The exporter uses the `simple` selector's `NewWithHistogramDistribution()`. This
 | UpDownCounter | A synchronous Instrument which supports increments and decrements. | Sum |
 | Asynchronous UpDownCounter | An asynchronous Instrument which reports additive value(s) when the instrument is being observed. | Sum |
 
-### Counter
+#### Counter
 
 ```go
 // Use `ctx` and `meter` from last steps.
@@ -244,7 +245,7 @@ intCounter.Add(ctx, int64(10), attribute.String("<<LABEL_KEY>>", "<<LABEL_VALUE>
 floatCounter.Add(ctx, float64(2.5), attribute.String("<<LABEL_KEY>>", "<<LABEL_VALUE>>"))
 ```
 
-### Asynchronous Counter
+#### Asynchronous Counter
 
 ```go
 // Use `meter` from last steps.
@@ -270,7 +271,7 @@ _ = metric.Must(meter).NewFloat64CounterObserver(
 )
 ```
 
-### Histogram
+#### Histogram
 
 ```go
 // Use `ctx` and `meter` from last steps.
@@ -290,7 +291,7 @@ intHistogram.Record(ctx, int(10), attribute.String("<<LABEL_KEY>>", "<<LABEL_VAL
 floatHistogram.Record(ctx, float64(2.5), attribute.String("<<LABEL_KEY>>", "<<LABEL_VALUE>"))
 ```
 
-### Asynchronous Gauge
+#### Asynchronous Gauge
 
 ```go
 // Use `meter` from last steps.
@@ -316,7 +317,7 @@ _ = metric.Must(meter).NewFloat64GaugeObserver(
 )
 ```
 
-### UpDownCounter
+#### UpDownCounter
 
 ```go
 // Use `ctx` and `meter` from last steps.
@@ -336,7 +337,7 @@ intUpDownCounter.Add(ctx, int64(-10), attribute.String("<<LABEL_KEY>>", "<<LABEL
 floatUpDownCounter.Add(ctx, float64(2.5), attribute.String("<<LABEL_KEY>>", "<<LABEL_VALUE>"))
 ```
 
-### Asynchronous UpDownCounter
+#### Asynchronous UpDownCounter
 
 ```go
 // Use `meter` from last steps.

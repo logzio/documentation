@@ -1,5 +1,5 @@
 ---
-id: Apache-Aurora
+id: Apache-Aurora-data
 title: Apache Aurora
 overview: Collect Aurora metrics using Telegraf
 product: ['metrics']
