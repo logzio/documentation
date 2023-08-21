@@ -9,7 +9,7 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/clou
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['']
+metrics_dashboards: []
 metrics_alerts: []
 drop_filter: []
 ---
@@ -54,7 +54,7 @@ Replace `<<PATH-TO-YOUR-GCP-KEY>>` with the path to the JSON file created in the
 
 ### Configure Telegraf to send your metrics data to Logz.io
 
-#### Set up Telegraf v1.17 on a dedicated machine
+**Telegraf version: {@include: ../../_include/metric-shipping/gcp-telegraf-version.md}**
 
 {@include: ../../_include/metric-shipping/telegraf-setup.md}
 
