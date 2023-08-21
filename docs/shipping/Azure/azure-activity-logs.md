@@ -1,6 +1,6 @@
 ---
 id: Azure-Activity-logs
-title: Azure activity logs
+title: Azure Activity Logs
 overview: Ship your Azure activity logs using an automated deployment process.
 product: ['logs']
 os: ['windows', 'linux']
@@ -51,7 +51,7 @@ If you already set up an automated deployment in this region, you can skip to st
 👇 Otherwise, click this button to start the automated deployment.
 
 [![Deploy to Azure](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_blob/deploybutton-az.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flogzio%2Flogzio-azure-serverless%2Fmaster%2Fdeployments%2Fazuredeploylogs.json)
-{:.override.btn-img}
+
 
 You'll be taken to Azure, where you'll configure the resources to be deployed.
 Make sure to use the settings shown below.
@@ -130,6 +130,6 @@ The selected logs will now stream to the event hub.
 Give your logs some time to get from your system to ours, and then open Open Search Dashboards.
 If everything went according to plan, you should see logs with the type `eventHub` in Open Search Dashboards.
 
-If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-management/troubleshooting/log-shipping-troubleshooting.html).
 
  
