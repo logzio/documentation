@@ -275,6 +275,3 @@ If you have Lambda extension v0.0.1 and you want to upgrade to v0.1.0+, to ensur
 
 1. Delete the existing extension layer, its dependencies, and environment variables as decribed below in this topic.
 2. Deploy the new extension, its dependencies, and configuration as described below in this topic.
-
-
-

@@ -1,5 +1,5 @@
 ---
-id: Jaeger
+id: Jaeger-data
 title: Jaeger
 overview: Deploy this integration to send traces from your Jaeger installation to Logz.io.
 product: ['tracing']
@@ -109,8 +109,8 @@ service:
       exporters: [logzio/traces]
 ```
 
-{@include: ../_include/tracing-shipping/replace-tracing-token.html}
-{@include: ../_include/tracing-shipping/tail-sampling.md}
+{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
+{@include: ../../_include/tracing-shipping/tail-sampling.md}
 
 #### Start the collector
 
@@ -133,4 +133,4 @@ Give your traces some time to get from your system to ours, and then open [Traci
 
 ## Troubleshooting
 
-{@include: ../_include/tracing-shipping/otel-troubleshooting.md}
+{@include: ../../_include/tracing-shipping/otel-troubleshooting.md}
