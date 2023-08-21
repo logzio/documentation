@@ -207,20 +207,14 @@ You'll have to add the extension.
 2. In the page for the function, scroll down to the `Layers` section and choose `Add Layer`.
 ![Add layer](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lambda_extensions/lambda-x_1-2.jpg)
 
-<<<<<<< HEAD:docs/shipping/Compute/lambda-extensions.md
 3. Select the `Specify an ARN` option, then choose the ARN of the extension with the region code that matches your Lambda Function region from the [**ARNs** table]{@include: ../../_include/log-shipping/lambda-xtension-tablink.md} {@include: ../../_include/log-shipping/lambda-xtension-tablink-indox.html}, and click the `Add` button.
-=======
-3. Select the `Specify an ARN` option, then choose the ARN of the extension with the region code that matches your Lambda Function region from the [**ARNs** table]{@include: ../_include/log-shipping/lambda-xtension-tablink.md} {@include: ../_include/log-shipping/lambda-xtension-tablink-indox.html}, and click the `Add` button.
->>>>>>> b9de3b249fa2d633da394805e146e8f2ab22f961:docs/shipping/AWS/aws-lambda-extensions.md
+
 ![Add ARN extension](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lambda_extensions/lambda-x_1-3.jpg)
 
 ### Configure the extension parameters
 
-<<<<<<< HEAD:docs/shipping/Compute/lambda-extensions.md
 Add the environment variables to the function, according to the [**Environment variables** table]{@include: ../../_include/log-shipping/lambda-xtension-tablink.md} {@include: ../../_include/log-shipping/lambda-xtension-tablink-indox.html}.
-=======
-Add the environment variables to the function, according to the [**Environment variables** table]{@include: ../_include/log-shipping/lambda-xtension-tablink.md}.
->>>>>>> b9de3b249fa2d633da394805e146e8f2ab22f961:docs/shipping/AWS/aws-lambda-extensions.md
+
 
 ##### Run the function
 
