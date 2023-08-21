@@ -591,7 +591,7 @@ Run `s3cmd get s3://<BUCKET_NAME>/<BUCKET_PREFIX>/<OBJECT_NAME>`. Replace `<BUCK
 {@include: ../../_include/log-shipping/stack.md}
 
 
-## ## Shipping Metrics
+## Shipping Metrics
 
 Deploy this integration to send your Amazon S3 metrics to Logz.io.
 
