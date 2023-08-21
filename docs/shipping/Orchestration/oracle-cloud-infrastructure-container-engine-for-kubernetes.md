@@ -17,7 +17,7 @@ drop_filter: []
  
 ### Overview
 
-ADAaSOracle Cloud Infrastructure Container Engine for Kubernetes (OKE) is a fully-managed, scalable, and highly available service that you can use to deploy your containerized applications to the cloud.
+Oracle Cloud Infrastructure Container Engine for Kubernetes (OKE) is a fully-managed, scalable, and highly available service that you can use to deploy your containerized applications to the cloud.
 
 This implementation uses a Filebeat DaemonSet to collect Kubernetes logs from your OKE cluster and ship them to Logz.io.
 
@@ -141,6 +141,6 @@ If you still don't see your logs, see [Kubernetes log shipping troubleshooting](
 
   
 
-{@include: ../_include//log-shipping/multiline-logs-filebeat.md}
+{@include: ../../_include//log-shipping/multiline-logs-filebeat.md}
 
   

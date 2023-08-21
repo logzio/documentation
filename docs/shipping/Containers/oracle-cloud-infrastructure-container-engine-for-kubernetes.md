@@ -141,6 +141,6 @@ If you still don't see your logs, see [Kubernetes log shipping troubleshooting](
 
   
 
-{@include: ../_include//log-shipping/multiline-logs-filebeat.md}
+{@include: ../../_include//log-shipping/multiline-logs-filebeat.md}
 
   
