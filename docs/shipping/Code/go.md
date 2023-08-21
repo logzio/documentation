@@ -15,7 +15,7 @@ drop_filter: []
 ---
 
 :::tip
-If your code is running inside Kubernetes the best practice will be to use our [Kuberenets integrations](https://docs.logz.io/shipping/Containers/Kubernetes).
+If your code is running inside Kubernetes the best practice will be to use our [Kubernetes integrations](https://docs.logz.io/shipping/Containers/Kubernetes).
 :::
 
 ## Logs
@@ -135,7 +135,7 @@ Replace the placeholders in the code to match your specifics.
 
 | Parameter | Description | Required | Default|
 |---|---|---|---|
-|`<<LISTENER-HOST>>`|  The full Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic (example: https://listener.logz.io:8053). For more details, see the [regions page](https://docs.logz.io/user-guide/accounts/account-region.html) in logz.io docs | Required | https://listener.logz.io:8053 |
+|`<<LISTENER-HOST>>`|  The full Logz.io Listener URL for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic (example: https://listener.logz.io:8053). For more details, see the [regions page](https://docs.logz.io/user-guide/accounts/account-region.html) in logz.io docs | Required | https://listener.logz.io:8053 |
 |`<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>`| The Logz.io Prometheus Metrics account token. Find it under **Settings > Manage accounts**. [Look up your Metrics account token.](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/)  | Required | - |
 | RemoteTimeout | The timeout for requests to the remote write Logz.io metrics listener endpoint. | Required | 30 (seconds) |
 | PushInterval | The time interval for sending the metrics to Logz.io. | Required | 10 (seconds) |
@@ -211,7 +211,7 @@ func handleErr(err error) {
 
 ### Add metric instruments
 
-Add a required metric intrument to your code. Below are the available metric instruments and their code definition.
+Add a required metric instrument to your code. Below are the available metric instruments and their code definition.
 
 
 The exporter uses the `simple` selector's `NewWithHistogramDistribution()`. This means that the instruments are mapped to aggregations as shown in the table below.
