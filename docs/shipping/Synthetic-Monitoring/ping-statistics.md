@@ -1,6 +1,6 @@
 ---
 id: Ping-statistics-synthetic
-title: Ping statistics
+title: Ping Statistics
 overview: Deploy this integration to collect metrics of ping statistics collected from your preferred web addresses and send them to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']

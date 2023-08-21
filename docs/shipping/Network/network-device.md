@@ -1,6 +1,6 @@
 ---
 id: Network-devices-network
-title: Network devices
+title: Network Devices
 overview: This integration allows you to send logs from your network devices to your Logz.io account. 
 product: ['logs']
 os: ['windows', 'linux']

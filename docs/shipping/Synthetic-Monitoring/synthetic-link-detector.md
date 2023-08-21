@@ -1,6 +1,6 @@
 ---
 id: synthetic-link-detector-synthetic
-title: Synthetic link detector
+title: Synthetic Link Detector
 overview: Deploy this integration to collect data on broken links in a web page, and to get additional data about the links.
 product: ['metrics']
 os: ['windows', 'linux']

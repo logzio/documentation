@@ -1607,6 +1607,9 @@ Run the application to generate traces.
 
 Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
 
+### Troubleshooting
+
+#### OpenTelemetry instrumentation 
+For troubleshooting the OpenTelemetry instrumentation, see our [OpenTelemetry troubleshooting guide](/docs/user-guide/distributed-tracing/troubleshooting/otel-troubleshooting).
 
 
-{@include: ../../_include/tracing-shipping/otel-troubleshooting.md}
