@@ -1,7 +1,7 @@
 ---
 id: AWS-WAF
 title: AWS WAF
-overview: This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon S3 metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
+overview: Ship your AWS WAF logs to Logz.io.
 product: ['logs']
 os: ['windows', 'linux']
 filters: ['AWS', 'Security']
