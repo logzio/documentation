@@ -14,8 +14,6 @@ metrics_alerts: []
 drop_filter: []
 ---
 
-## Default configuration
-
 Lambda extensions enable tools to integrate deeply into the Lambda execution environment to control and participate in Lambda’s lifecycle.
 To read more about Lambda Extensions, [click here](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-extensions-api.html).
 The Logz.io Lambda extension for logs, uses the AWS Extensions API and [AWS Logs API](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-logs-api.html), and sends your Lambda Function Logs directly to your Logz.io account.
@@ -23,13 +21,13 @@ The Logz.io Lambda extension for logs, uses the AWS Extensions API and [AWS Logs
 This repo is based on the [AWS lambda extensions sample](https://github.com/aws-samples/aws-lambda-extensions).
 This extension is written in Go, but can be run with runtimes that support [extensions](https://docs.aws.amazon.com/lambda/latest/dg/using-extensions.html).
 
-### Prerequisites
+## Prerequisites
 
 * Lambda function with [supported runtime](https://docs.aws.amazon.com/lambda/latest/dg/using-extensions.html) for extensions.
 * AWS Lambda limitations: A function can use up to five layers at a time. The total unzipped size of the function and all layers cannot exceed the unzipped deployment package size limit of 250 MB.
 
 
-### Important notes
+## Important notes
 
 * If an extension does not have enough time to receive logs from AWS Logs API, it may send the logs at the next invocation of the Lambda function.
 If you want to send all the logs by the time your Lambda function stops running, you will need to add a sleep interval at the end of your Lambda function code. This will give the extension enough time to do the job.
@@ -37,86 +35,9 @@ If you want to send all the logs by the time your Lambda function stops running,
 This means that if your Lambda function goes into the `SHUTDOWN` phase, the extension will start running and send all logs that are in the queue.
 
 
-### Extension deployment options
+## Extension deployment options
 
 You can deploy the extension via the AWS CLI or via the AWS Management Console.
-
-### Parsing logs
-
-By default, the extension sends the logs as strings.
-If your logs are formatted, and you wish to parse them to separate fields, the extension will use the [grok library](https://github.com/vjeantet/grok) to parse grok patterns.
-You can see all the pre-built grok patterns (for example `COMMONAPACHELOG` is already a known pattern in the library) [here](https://github.com/vjeantet/grok/tree/master/patterns).
-If you need to use a custom pattern, you can use the environment variables `GROK_PATTERNS` and `LOGS_FORMAT`.
-
-#### Example
-
-For logs that are formatted like this:
-
-```python
-%(app_name)s : %(message)s
-```
-
-we will use `cool app` as the `app_name` and the `message` will have strings containing whitespaces, letters and numbers.
-
-In Logz.io we wish to have `app_name`, `message` in their own fields, named `my_app` and `my_message`, respectively.
-To do so, we'll set the environment variables as follows:
-
-##### GROK_PATTERNS
-
-The `GROK_PATTERNS` variable should be in a JSON format.
-The key is used as the pattern name, and the value should be the regex that captures the pattern.
-In our case, while `app_name` always stays `cool app`, we don't know what `message` will be, so we need to set `GROK_PATTERNS` as: `{"app_name":"cool app","message":".*"}`
-
-##### LOGS_FORMAT
-
-The `LOGS_FORMAT` variable will contain the same format as the logs, according to the pattern names that we used in `GROK_PATTERNS`.
-The variable should be in a grok format for each pattern name: `${PATTERN_NAME:FIELD_NAME}` where `PATTERN_NAME` is the pattern name from `GROK_PATTERNS`, and `FIELD_NAME` is the name of the field you want the pattern to be parsed to.
-**Note** that the `FIELD_NAME` cannot contain a dot (`.`) in it.
-In our case, we want `app_name` to appear under the field `my_app`, and `message` to appear under the field `my_message`. Since we know that the logs format is as mentioned above, we will set `LOGS_FORMAT` as: `%{app_name:my_app} : %{message:my_message}`.
-
-The logs that match the configuration above will appear in Logz.io with the fields `lambda.record.my_app`, `lambda.record.my_message`.
-The log: `"cool app : The sky is so blue"`, will be parsed to look like this:
-```
-my_app: cool app
-my_message: The sky is so blue
-```
-
-This project uses an external module for its grok parsing. To learn more about it, see the [grok library repo](https://github.com/vjeantet/grok).
-
-### Nested fields
-
-As of v0.2.0 the extension can detect if a log is in a JSON format, and to parse the fields to appear as nested fields in the Logz.io app.
-For example, the following log:
-
-```
-{ "foo": "bar", "field2": "val2" }
-```
-
-Will appear under the fields:
-```
-message_nested.foo: bar
-message_nested.field2: val2
-```
-
-**Note:** The user must insert a valid JSON. Sending a dictionary or any key-value data structure that is not in a JSON format will cause the log to be sent as a string.
-
-### Upgrading from v0.0.1 to v0.1.0
-
-If you have Lambda extension v0.0.1 and you want to upgrade to v0.1.0+, to ensure that your logs are correctly sent to Logz.io:
-
-1. Delete the existing extension layer, its dependencies, and environment variables as decribed below in this topic.
-2. Deploy the new extension, its dependencies, and configuration as described below in this topic.
-
-
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your logs.
-
-<!-- logzio-inject:install:grafana:dashboards ids=["4yDXMhmHwfDYvOO8o0SGon"] -->
-
-{@include: ../../_include/metric-shipping/generic-dashboard.html}
-
-
-
-
 
 ## Deploying Logz.io logs extension via the AWS CLI
 
@@ -188,8 +109,6 @@ aws lambda update-function-configuration \
 :::note
 This command overwrites the existing function configuration. If you already have your own layers and environment variables for your function, include them in the list.
 :::
-
-
 
 
 
@@ -290,5 +209,72 @@ Give your logs some time to get from your system to ours.
 :::note
 If your AWS region is not in the list, please reach out to Logz.io's support or open an issue in the [project's Github repo](https://github.com/logzio/logzio-lambda-extensions).
 :::
+
+### Parsing logs
+
+By default, the extension sends the logs as strings.
+If your logs are formatted, and you wish to parse them to separate fields, the extension will use the [grok library](https://github.com/vjeantet/grok) to parse grok patterns.
+You can see all the pre-built grok patterns (for example `COMMONAPACHELOG` is already a known pattern in the library) [here](https://github.com/vjeantet/grok/tree/master/patterns).
+If you need to use a custom pattern, you can use the environment variables `GROK_PATTERNS` and `LOGS_FORMAT`.
+
+#### Example
+
+For logs that are formatted like this:
+
+```python
+%(app_name)s : %(message)s
+```
+
+we will use `cool app` as the `app_name` and the `message` will have strings containing whitespaces, letters and numbers.
+
+In Logz.io we wish to have `app_name`, `message` in their own fields, named `my_app` and `my_message`, respectively.
+To do so, we'll set the environment variables as follows:
+
+##### GROK_PATTERNS
+
+The `GROK_PATTERNS` variable should be in a JSON format.
+The key is used as the pattern name, and the value should be the regex that captures the pattern.
+In our case, while `app_name` always stays `cool app`, we don't know what `message` will be, so we need to set `GROK_PATTERNS` as: `{"app_name":"cool app","message":".*"}`
+
+##### LOGS_FORMAT
+
+The `LOGS_FORMAT` variable will contain the same format as the logs, according to the pattern names that we used in `GROK_PATTERNS`.
+The variable should be in a grok format for each pattern name: `${PATTERN_NAME:FIELD_NAME}` where `PATTERN_NAME` is the pattern name from `GROK_PATTERNS`, and `FIELD_NAME` is the name of the field you want the pattern to be parsed to.
+**Note** that the `FIELD_NAME` cannot contain a dot (`.`) in it.
+In our case, we want `app_name` to appear under the field `my_app`, and `message` to appear under the field `my_message`. Since we know that the logs format is as mentioned above, we will set `LOGS_FORMAT` as: `%{app_name:my_app} : %{message:my_message}`.
+
+The logs that match the configuration above will appear in Logz.io with the fields `lambda.record.my_app`, `lambda.record.my_message`.
+The log: `"cool app : The sky is so blue"`, will be parsed to look like this:
+```
+my_app: cool app
+my_message: The sky is so blue
+```
+
+This project uses an external module for its grok parsing. To learn more about it, see the [grok library repo](https://github.com/vjeantet/grok).
+
+### Nested fields
+
+As of v0.2.0 the extension can detect if a log is in a JSON format, and to parse the fields to appear as nested fields in the Logz.io app.
+For example, the following log:
+
+```
+{ "foo": "bar", "field2": "val2" }
+```
+
+Will appear under the fields:
+```
+message_nested.foo: bar
+message_nested.field2: val2
+```
+
+**Note:** The user must insert a valid JSON. Sending a dictionary or any key-value data structure that is not in a JSON format will cause the log to be sent as a string.
+
+### Upgrading from v0.0.1 to v0.1.0
+
+If you have Lambda extension v0.0.1 and you want to upgrade to v0.1.0+, to ensure that your logs are correctly sent to Logz.io:
+
+1. Delete the existing extension layer, its dependencies, and environment variables as decribed below in this topic.
+2. Deploy the new extension, its dependencies, and configuration as described below in this topic.
+
 
 
