@@ -162,7 +162,7 @@ Give your logs some time to get from your system to ours.
 
 
 
-### Environment Variables
+## Environment Variables
 
 | Name | Description |Required/Default|
 | --- | --- | --- |
@@ -174,7 +174,7 @@ Give your logs some time to get from your system to ours.
 | `LOGS_FORMAT` | Must be set with `GROK_PATTERNS`. Use this if you want to parse your logs into fields. The format in which the logs will appear, in accordance to grok conventions. To understand more see the [parsing logs](https://docs.logz.io/shipping/log-sources/lambda-extensions.html#parsing-logs) section. | - |
 | `CUSTOM_FIELDS` | Include additional fields with every message sent, formatted as `fieldName1=fieldValue1,fieldName2=fieldValue2` (**NO SPACES**). A custom key that clashes with a key from the log itself will be ignored. | - |
 
-### ARNs
+## ARNs
 
 | Region Name               | Region Code      | AWS ARN                                                                        |
 |---------------------------|------------------|--------------------------------------------------------------------------------|
@@ -196,7 +196,7 @@ Give your logs some time to get from your system to ours.
 | Europe (London)           | `eu-west-2`      | `arn:aws:lambda:eu-west-2:486140753397:layer:LogzioLambdaExtensionLogs:2`      |
 | Europe (Paris)            | `eu-west-3`      | `arn:aws:lambda:eu-west-3:486140753397:layer:LogzioLambdaExtensionLogs:1`      |
 
-### Lambda extension versions
+## Lambda extension versions
 
 | Version | Supported Runtimes                                                                                                                                         |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -210,14 +210,14 @@ Give your logs some time to get from your system to ours.
 If your AWS region is not in the list, please reach out to Logz.io's support or open an issue in the [project's Github repo](https://github.com/logzio/logzio-lambda-extensions).
 :::
 
-### Parsing logs
+## Parsing logs
 
 By default, the extension sends the logs as strings.
 If your logs are formatted, and you wish to parse them to separate fields, the extension will use the [grok library](https://github.com/vjeantet/grok) to parse grok patterns.
 You can see all the pre-built grok patterns (for example `COMMONAPACHELOG` is already a known pattern in the library) [here](https://github.com/vjeantet/grok/tree/master/patterns).
 If you need to use a custom pattern, you can use the environment variables `GROK_PATTERNS` and `LOGS_FORMAT`.
 
-#### Example
+### Example
 
 For logs that are formatted like this:
 
@@ -230,13 +230,13 @@ we will use `cool app` as the `app_name` and the `message` will have strings con
 In Logz.io we wish to have `app_name`, `message` in their own fields, named `my_app` and `my_message`, respectively.
 To do so, we'll set the environment variables as follows:
 
-##### GROK_PATTERNS
+## GROK_PATTERNS
 
 The `GROK_PATTERNS` variable should be in a JSON format.
 The key is used as the pattern name, and the value should be the regex that captures the pattern.
 In our case, while `app_name` always stays `cool app`, we don't know what `message` will be, so we need to set `GROK_PATTERNS` as: `{"app_name":"cool app","message":".*"}`
 
-##### LOGS_FORMAT
+## LOGS_FORMAT
 
 The `LOGS_FORMAT` variable will contain the same format as the logs, according to the pattern names that we used in `GROK_PATTERNS`.
 The variable should be in a grok format for each pattern name: `${PATTERN_NAME:FIELD_NAME}` where `PATTERN_NAME` is the pattern name from `GROK_PATTERNS`, and `FIELD_NAME` is the name of the field you want the pattern to be parsed to.
@@ -252,7 +252,7 @@ my_message: The sky is so blue
 
 This project uses an external module for its grok parsing. To learn more about it, see the [grok library repo](https://github.com/vjeantet/grok).
 
-### Nested fields
+## Nested fields
 
 As of v0.2.0 the extension can detect if a log is in a JSON format, and to parse the fields to appear as nested fields in the Logz.io app.
 For example, the following log:
@@ -269,7 +269,7 @@ message_nested.field2: val2
 
 **Note:** The user must insert a valid JSON. Sending a dictionary or any key-value data structure that is not in a JSON format will cause the log to be sent as a string.
 
-### Upgrading from v0.0.1 to v0.1.0
+## Upgrading from v0.0.1 to v0.1.0
 
 If you have Lambda extension v0.0.1 and you want to upgrade to v0.1.0+, to ensure that your logs are correctly sent to Logz.io:
 
