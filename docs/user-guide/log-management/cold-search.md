@@ -27,8 +27,9 @@ To get started with Cold search, contact your account manager or [Logz.io's supp
 
 ## Using Cold search
 
+:::caution Important
 All users can fetch raw logs from Cold search. However, only **account admins** can re-ingest logs into the account.
-{:.info-box.important}
+:::
 
 To use Cold search, navigate to [Log analytics](https://app.logz.io/#/dashboard/osd/discover/), choose Cold search from the navigation menu, or click the **Cold Search** button.
 
@@ -83,8 +84,9 @@ Click **Confirm** to approve and continue with the process.
 
 This process might take a few minutes, during which you can continue using Logz.io. You'll get a notification via email once the process is complete, with a link to the relevant account in OpenSearch Dashboards.
 
+:::note
 Your re-ingested logs will be available to search and analyze from OpenSearch Dashboards for a period of **5 days**.
-{:.info-box.note}
+:::
 
 
 ## Troubleshooting Cold search

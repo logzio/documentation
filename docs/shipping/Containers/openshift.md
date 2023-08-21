@@ -114,7 +114,7 @@ In the resources file, go to the Daemonset section and edit the following enviro
 
 :::note
 The above variables can be edited directly in the DaemonSet without the Configmap.
-{:.info-box.read}
+:::
 
 
 ##### Add additional configuration in the Configmap
