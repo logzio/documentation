@@ -698,7 +698,7 @@ Refer to the Micrometer [documentation](https://micrometer.io/docs/concepts) for
 | DistributionSummary | Metric values captured by the `summary.record(value)` function, the output is a distribution of `count`,`sum` and `max` for the recorded values during the push interval. |
 | Timer       | Mesures timing, metric values can be recorded by `timer.record()` call. |
 
-### [Counter](https://micrometer.io/docs/concepts#_counters)
+##### [Counter](https://micrometer.io/docs/concepts#_counters)
 
 ```java
 Counter counter = Counter
@@ -712,7 +712,7 @@ counter.increment(2);
 // The following metric will be created and sent to Logz.io: counter_example_total{env="dev"} 3
 ```
 
-### [Gauge](https://micrometer.io/docs/concepts#_gauges)
+##### [Gauge](https://micrometer.io/docs/concepts#_gauges)
 
 ```java
 // Create Gauge
@@ -736,7 +736,7 @@ manual_gauge.set(83);
 // The following metric will be created and sent to Logz.io:: manual_gauge_example{env="dev"} 83
 ```
 
-### [DistributionSummary](https://micrometer.io/docs/concepts#_distribution_summaries)
+##### [DistributionSummary](https://micrometer.io/docs/concepts#_distribution_summaries)
 
 ```java
 // Create DistributionSummary
@@ -755,7 +755,7 @@ summary.record(30);
 // summary_example_sum{env="dev"} 60
 ```
 
-### [Timer](https://micrometer.io/docs/concepts#_timers)
+##### [Timer](https://micrometer.io/docs/concepts#_timers)
 
 ```java
 // Create Timer
