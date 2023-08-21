@@ -2,7 +2,7 @@
 id: aws-eks
 title: AWS EKS
 overview: Send Kubernetes logs, metrics and traces to Logz.io.
-product: ['logs','metrics','traces']
+product: ['logs','metrics','tracing']
 os: ['windows', 'linux']
 filters: ['AWS', 'Orchestration']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-eks.svg
