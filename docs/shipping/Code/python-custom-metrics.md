@@ -9,7 +9,7 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/pyth
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['']
+metrics_dashboards: []
 metrics_alerts: []
 drop_filter: []
 ---
@@ -45,8 +45,8 @@ Replace the placeholders in the `exporter` section code (indicated by the double
 
 |Environment variable|Description|
 |---|---|
-|endpoint|  The Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. {@include: ../../_include//log-shipping/listener-var.html} and add http/https protocol (https://listener.logz.io:8053) |
-|Bearer| Your Logz.io Prometheus Metrics account token.  {@include: ../../_include//p8s-shipping/replace-prometheus-token.html}  |
+|endpoint|  The Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. {@include: ../../_include/log-shipping/listener-var.html} and add http/https protocol (https://listener.logz.io:8053) |
+|Bearer| Your Logz.io Prometheus Metrics account token.  {@include: ../../_include/p8s-shipping/replace-prometheus-token.html}  |
 
 
 

@@ -1,5 +1,5 @@
 ---
-id: Synproxy
+id: Synproxy-network
 title: Synproxy
 overview: Synproxy is a TCP SYN packets proxy. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']

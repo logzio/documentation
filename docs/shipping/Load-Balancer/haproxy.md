@@ -1,5 +1,5 @@
 ---
-id: HAProxy
+id: HAProxy-load
 title: HAProxy
 overview: HAProxy is a network device, so it needs to transfer logs using the syslog protocol.
 product: ['logs', 'metrics']

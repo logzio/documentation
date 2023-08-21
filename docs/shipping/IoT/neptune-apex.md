@@ -1,5 +1,5 @@
 ---
-id: Neptune-apex
+id: Neptune-apex-iot
 title: Neptune Apex
 overview: Neptune Apex is an aquarium control system. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']

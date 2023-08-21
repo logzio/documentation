@@ -9,7 +9,7 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['']
+metrics_dashboards: []
 metrics_alerts: []
 drop_filter: []
 ---
@@ -410,12 +410,14 @@ In this procedure, you'll:
 
 Follow this process only if the IAM role is used in a single Logz.io account.
 
+
+:::danger Warning
 When you update your IAM role to the Logz.io external ID,
 all Logz.io configurations that rely on that role
 will stop working.
 Before you begin,
 make sure you know everywhere your existing IAM role is used in Logz.io.
-{:.info-box.warning}
+:::
 
  
 

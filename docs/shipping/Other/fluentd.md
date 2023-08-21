@@ -1,5 +1,5 @@
 ---
-id: Fluentd
+id: Fluentd-data
 title: Fluentd
 overview: Fluentd is a data collector, which unifies the data collection and consumption. This integration allows you to use Fluentd to send logs to your Logz.io account.
 product: ['logs']
@@ -480,7 +480,7 @@ helm uninstall -n monitoring logzio-fluentd
 
   
 
-{@include: ../../_include//log-shipping/multiline-fluentd-plugin.md}
+{@include: ../../_include/log-shipping/multiline-fluentd-plugin.md}
 
 
 
