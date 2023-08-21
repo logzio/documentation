@@ -124,7 +124,7 @@ helm repo add logzio-helm https://logzio.github.io/logzio-helm
 helm repo update
 ```
 
-#### Run the Helm deployment code
+### Run the Helm deployment code
 
 ```sh
 helm install -n monitoring \
@@ -145,7 +145,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 
 
 
-#### Define the logzio-monitoring dns name
+### Define the logzio-monitoring dns name
 
 In most cases, the dns name will be `logzio-k8s-telemetry.<<namespace>>.svc.cluster.local`, where `<<namespace>>` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
   
@@ -158,11 +158,11 @@ sh -c 'nslookup kubernetes.<<namespace>> | grep Name | sed "s/Name:\skubernetes.
   
 It will deploy a small pod that extracts your cluster domain name from your Kubernetes environment. You can remove this pod after it has returned the cluster domain name.
 
-#### Download Java agent
+### Download Java agent
 
 Download the latest version of the [OpenTelemetry Java agent](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar) to the host of your Java application.
 
-#### Attach the agent to your java application 
+### Attach the agent to your java application 
 
 <!-- info-box-start:info -->
 :::note
@@ -186,7 +186,7 @@ java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
 * Replace `<<YOUR-SERVICE-NAME>>` with a name for your service under which it will appear in Logz.io Jaeger UI.
 * Replace `<<logzio-monitoring-service-dns>>` with the OpenTelemetry collector service dns obtained previously (service IP is also allowed here).
 
-#### Check Logz.io for your traces
+### Check Logz.io for your traces
 
 Give your traces some time to get from your system to ours, then open [Logz.io](https://app.logz.io/).
 

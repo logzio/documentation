@@ -254,6 +254,20 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<SPM-SHIPPING-TOKEN>>` | Your [span metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=metrics). |
 
 
+## Modifying the configuration for metrics and traces
+
+You can see a full list of the possible configuration values in the [logzio-telemetry Chart folder](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-telemetry).
+
+If you would like to modify any of the values found in the `logzio-telemetry` folder, use the `--set` flag with the `logzio-k8s-telemetry` prefix.
+
+For instance, if there is a parameter called `someField` in the `logzio-telemetry`'s `values.yaml` file, you can set it by adding the following to the `helm install` command:
+
+
+```sh
+--set logzio-k8s-telemetry.someField="my new value"
+```
+
+
 ## Scan your cluster for security vulnerabilities
 
 ```sh
@@ -271,20 +285,7 @@ helm install -n monitoring \
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
 
 
-## Modifying the configuration for metrics and traces
-
-You can see a full list of the possible configuration values in the [logzio-telemetry Chart folder](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-telemetry).
-
-If you would like to modify any of the values found in the `logzio-telemetry` folder, use the `--set` flag with the `logzio-k8s-telemetry` prefix.
-
-For instance, if there is a parameter called `someField` in the `logzio-telemetry`'s `values.yaml` file, you can set it by adding the following to the `helm install` command:
-
-
-```sh
---set logzio-k8s-telemetry.someField="my new value"
-```
-
-## **Uninstalling the Chart**
+## Uninstalling the Chart
 
 The `uninstall` command is used to remove all the Kubernetes components associated with the chart and to delete the release.  
 
@@ -293,5 +294,3 @@ To uninstall the `logzio-k8s-telemetry` deployment, use the following command:
 ```shell
 helm uninstall logzio-k8s-telemetry
 ```
-
-  
