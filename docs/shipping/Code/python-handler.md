@@ -9,7 +9,7 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/pyth
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['']
+metrics_dashboards: []
 metrics_alerts: []
 drop_filter: []
 ---
@@ -110,7 +110,7 @@ LOGGING = {
 }
 ```
 
-{@include: ../../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include/general-shipping/replace-placeholders.html}
 
 
 ##### Parameters
@@ -224,7 +224,7 @@ LOGGING = {
 }
 ```
 
-{@include: ../../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include/general-shipping/replace-placeholders.html}
 
 
 Note that this feature is only available from version 4.0.0.
@@ -405,7 +405,7 @@ This chart is a fork of the [opentelemtry-collector](https://github.com/open-tel
 <!-- info-box-end -->
 
 <!-- info-box-start:info -->
-:::caution 
+:::caution Important
 This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
 :::
 <!-- info-box-end -->
