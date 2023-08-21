@@ -106,7 +106,7 @@ For the above example, we could use the following regex expressions to demarcate
 ### Monitoring fluentd with prometheus
 In order to monitor fluentd and collect input & output metrics. You can 
 enable prometheus configuration with the `logzio-fluentd.daemonset.fluentdPrometheusConf` and `logzio-fluentd.windowsDaemonset.fluentdPrometheusConf` parameter (default to false).
-When enabling promehteus configuration, the pod collects and exposes fluentd metrics on port `24231`, `/metrics` endpoint.
+When enabling Prometheus configuration, the pod collects and exposes fluentd metrics on port `24231`, `/metrics` endpoint.
 
 ### Modifying the configuration
 
