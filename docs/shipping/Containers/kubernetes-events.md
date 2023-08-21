@@ -1,6 +1,6 @@
 ---
 id: Kubernetes-events
-title: Kubernetes events
+title: Kubernetes Events
 overview: This guide uses the kubernetes-event-exporter tool to ship kubernetes events to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']
@@ -15,9 +15,9 @@ drop_filter: []
 ---
 
 
-### Shipping Kubernetes events
+### Shipping Kubernetes Events
 
-Kubernetes events are a resource type that Kubernetes automatically creates when other resources get state changes, errors, or other messages that should be shared across the system.
+Kubernetes Events are a resource type that Kubernetes automatically creates when other resources get state changes, errors, or other messages that should be shared across the system.
 
 This guide uses the [kubernetes-event-exporter](https://github.com/opsgenie/kubernetes-event-exporter) tool to ship kubernetes events to Logz.io.
 
