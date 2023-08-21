@@ -1,4 +1,4 @@
-#### Upgrading to a newer version
+### Upgrading to a newer version
 
 * Upgrading to a newer version of docker-collector-logs while it is already running
 will cause it to resend logs that are within the `ignoreOlder` timeframe.
