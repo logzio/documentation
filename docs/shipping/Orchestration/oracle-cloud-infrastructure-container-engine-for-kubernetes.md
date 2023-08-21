@@ -9,15 +9,15 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/oke.
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['']
+metrics_dashboards: []
 metrics_alerts: []
 drop_filter: []
 ---
 
  
+### Overview
 
-
-Oracle Cloud Infrastructure Container Engine for Kubernetes (OKE) is a fully-managed, scalable, and highly available service that you can use to deploy your containerized applications to the cloud.
+ADAaSOracle Cloud Infrastructure Container Engine for Kubernetes (OKE) is a fully-managed, scalable, and highly available service that you can use to deploy your containerized applications to the cloud.
 
 This implementation uses a Filebeat DaemonSet to collect Kubernetes logs from your OKE cluster and ship them to Logz.io.
 
@@ -30,7 +30,7 @@ You have 3 options for deploying this Daemonset:
 
   
 
-#### Deploy Filebeat as a DaemonSet on Kubernetes
+### Deploy Filebeat as a DaemonSet on Kubernetes
 
 
 **Before you begin, you'll need**: destination port 5015 open on your firewall for outgoing traffic.
@@ -38,7 +38,7 @@ You have 3 options for deploying this Daemonset:
 
  
 
-##### Store your Logz.io credentials
+#### Store your Logz.io credentials
 
 Save your Logz.io shipping credentials as a Kubernetes secret. Customize the sample command below to your specifics before running it.
 
@@ -55,17 +55,17 @@ kubectl create secret generic logzio-logs-secret \
 * Replace `<<CLUSTER-NAME>>` with your cluster's name.
 
 
-##### Deploy
+#### Deploy
 
 Run the relevant command for your type of deployment.
 
-###### Deploy the standard configuration
+##### Deploy the standard configuration
 
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-filebeat-oke.yaml -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/filebeat-standard-configuration.yaml
 ```
 
-###### Deploy the standard configuration with Filebeat autodiscover enabled
+##### Deploy the standard configuration with Filebeat autodiscover enabled
 
 Autodiscover allows you to adapt settings as changes happen. By defining configuration templates, the autodiscover subsystem can monitor services as they start running.  See Elastic documentation to [learn more about Filebeat Autodiscover](https://www.elastic.co/guide/en/beats/filebeat/current/configuration-autodiscover.html). 
 
@@ -73,7 +73,7 @@ Autodiscover allows you to adapt settings as changes happen. By defining configu
 kubectl apply -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-filebeat-oke.yaml -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/filebeat-autodiscovery-configuration.yaml
 ```
 
-###### Deploy a custom configuration
+##### Deploy a custom configuration
 
 If you want to apply your own custom configuration, download the standard `configmap.yaml` file from the [Logz.io GitHub repo](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/filebeat-standard-configuration.yaml) and apply your changes. Make sure to keep the file structure unchanged.
 
@@ -131,13 +131,11 @@ Run the following to deploy your custom Filebeat configuration:
 kubectl apply -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-filebeat-oke.yaml -f <<Your-custom-configuration-file.yaml>>
 ```
 
-##### Check Logz.io for your logs
+#### Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours,
-and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
+Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs,
-see [Kubernetes log shipping troubleshooting]({{site.baseurl}}/user-guide/kubernetes-troubleshooting/).
+If you still don't see your logs, see [Kubernetes log shipping troubleshooting]({{site.baseurl}}/user-guide/kubernetes-troubleshooting/).
 
  
 
