@@ -62,7 +62,7 @@ var logger = require('logzio-nodejs').createLogger({
 | protocol | `http` or `https`. The value of this parameter affects the default of the `port` parameter. | `http` |
 | host  |  {@include: ../../_include/log-shipping/listener-var.md} Replace `<<LISTENER-HOST>>` with the host [for your region](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions). For example, `listener.logz.io` if your account is hosted on AWS US East, or `listener-nl.logz.io` if hosted on Azure West Europe. The required port depends whether HTTP or HTTPS is used: HTTP = 8070, HTTPS = 8071. | `listener.logz.io` |
 | port | Destination port. The default port depends on the `protocol` parameter: `8070` (for HTTP) or `8071` (for HTTPS) | `8070` / `8071` |
-| type | {@include: ../../_include//log-shipping/type.md} | `nodejs` |
+| type | {@include: ../../_include/log-shipping/type.md} | `nodejs` |
 | sendIntervalMs  | Time to wait between retry attempts, in milliseconds. | `2000` (2 seconds) |
 | bufferSize  | Maximum number of messages the logger accumulates before sending them all as a bulk. | `100` |
 | numberOfRetries | Maximum number of retry attempts. | `3` |
@@ -165,7 +165,7 @@ logger.log('warn', 'Just a test message');
 
 If winston-logzio is used as part of a serverless service (AWS Lambda, Azure Functions, Google Cloud Functions, etc.), add `await logger.info(“API Called”)` and `logger.close()` at the end of the run, every time you are using the logger.
 
-{@include: ../../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include/general-shipping/replace-placeholders.html}
 
 
 
@@ -182,7 +182,7 @@ For a complete list of your options, see the configuration parameters below.👇
 | protocol | `http` or `https`. The value here affects the default of the `port` parameter. | `http` |
 | host  |  {@include: ../../_include/log-shipping/listener-var.md} {@include: ../../_include/log-shipping/listener-var.html} | `listener.logz.io` |
 | port | Destination port. The default port depends on the `protocol` parameter: `8070` (for HTTP) or `8071` (for HTTPS) | `8070` / `8071` |
-| type | {@include: ../../_include//log-shipping/type.md} | `nodejs` |
+| type | {@include: ../../_include/log-shipping/type.md} | `nodejs` |
 | sendIntervalMs  | Time to wait between retry attempts, in milliseconds. | `2000` (2 seconds) |
 | bufferSize  | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
 | numberOfRetries | Maximum number of retry attempts. | `3` |
@@ -335,7 +335,7 @@ await logger.info(“API Called”)
 logger.close()
 ```
 
-{@include: ../../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include/general-shipping/replace-placeholders.html}
 
 ### Troubleshooting
 
@@ -635,7 +635,7 @@ This chart is a fork of the [opentelemtry-collector](https://github.com/open-tel
 <!-- info-box-end -->
 
 <!-- info-box-start:info -->
-:::caution 
+:::caution Important
 This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
 :::
 <!-- info-box-end -->

@@ -1,5 +1,5 @@
 ---
-id: Microsoft-Graph
+id: Microsoft-Graph-data
 title: Microsoft Graph
 overview: Microsoft Graph is a RESTful web API that enables you to access Microsoft Cloud service resources. This integration allows you to collect data from Microsoft Graph API and send it to your Logz.io account.
 product: ['logs']

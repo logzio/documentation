@@ -1,5 +1,5 @@
 ---
-id: Burrow
+id: Burrow-data
 title: Burrow
 overview: Burrow is a monitoring application for Apache Kafka that monitors committed offsets for all consumers and calculates the status of those consumers on demand. It automatically monitors all consumers and their consumed partitions.
 product: ['metrics']

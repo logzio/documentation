@@ -122,7 +122,6 @@ rootLogger.appenderRef.logzioAppender.ref = logzioAppender
 
 :::note
 See the [Log4j documentation](https://logging.apache.org/log4j/2.x/manual/configuration.html) for more information on the Log4j 2 configuration file.
-{:.info-box.read}
 :::
  
 
@@ -315,7 +314,6 @@ For a complete list of options, see the configuration parameters below the code 
 
 :::note
 See the [Logback documentation](https://logback.qos.ch/manual/configuration.html) for more information on the Logback configuration file.
-{:.info-box.read}
 :::
  
 

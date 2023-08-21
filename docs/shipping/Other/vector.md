@@ -1,5 +1,5 @@
 ---
-id: Vector
+id: Vector-data
 title: Vector
 overview: Vector by Datadog is a lightweight, ultra-fast tool for building observability pipelines. Deploy this integration to send logs from your Vector tools to your Logz.io account.
 product: ['logs']
@@ -9,7 +9,7 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/vect
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['']
+metrics_dashboards: []
 metrics_alerts: []
 drop_filter: []
 ---
@@ -35,7 +35,7 @@ We recommend the configuaration shown in the code block.
 
 :::note
 Find the complete configuration docs at [http sink](https://vector.dev/docs/reference/configuration/sinks/http/) from Vector.
-{:.info-box.read}
+:::
 
 
 ```toml
@@ -78,8 +78,7 @@ If your logs are sent in batches, change the `encoding.codec` setting from `json
 
 | Parameter | Description |
 |---|---|
-| uri (Required) | Your Logz.io region's listener URL account token, and log type. <br /> {@include: ../_include/log-shipping/listener-var.html}  <br /> {@include: ../_include/log-shipping/log-shipping-token.html} |
-{:.paramlist}
+| uri (Required) | Your Logz.io region's listener URL account token, and log type. {@include: ../../_include/log-shipping/listener-var.html} Replace `<<LOG-SHIPPING-TOKEN>>` with the token of the account you want to ship to.|
 
 ### Run Vector
 
