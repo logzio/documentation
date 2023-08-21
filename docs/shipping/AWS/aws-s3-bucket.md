@@ -591,7 +591,7 @@ Run `s3cmd get s3://<BUCKET_NAME>/<BUCKET_PREFIX>/<OBJECT_NAME>`. Replace `<BUCK
 {@include: ../../_include/log-shipping/stack.md}
 
 
-## Shipping S3 Metrics
+## Configure AWS to forward metrics to Logz.io
 
 Deploy this integration to send your Amazon S3 metrics to Logz.io.
 
@@ -609,9 +609,6 @@ This integration creates a Kinesis Data Firehose delivery stream that links to y
 
 * An active account with Logz.io
 
-
-
-## Configure AWS to forward metrics to Logz.io
 
 ### Create Stack in relevant region
 
