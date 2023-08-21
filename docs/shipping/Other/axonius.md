@@ -1,5 +1,5 @@
 ---
-id: Axonius
+id: Axonius-data
 title: Axonius
 overview: This integration sends system logs from your Axonius platform to Logz.io. 
 product: ['logs', 'siem']
