@@ -31,8 +31,8 @@ Send your logs
 ```sh
 helm install -n monitoring \
 --set logs.enabled=true \
---set logzio-fluentd.secrets.logzioShippingToken="<<LOG-SHIPPING-TOKEN>>" \
---set logzio-fluentd.secrets.logzioListener="<<LISTENER-HOST>>" \
+--set logzio-fluentd.secrets.logzioShippingToken="{@include: ../../_include/log-shipping/log-shipping-token.html}" \
+--set logzio-fluentd.secrets.logzioListener="{@include: ../../_include/log-shipping/listener-var.html}" \
 --set logzio-fluentd.env_id="<<CLUSTER-NAME>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
@@ -69,7 +69,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
 
 
-For troubleshooting metrics shipping, see our [user guide]([https://docs.logz.io/user-guide/kubernetes-troubleshooting/](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/k8-helm-opentelemetry-troubleshooting.html).
+For troubleshooting metrics shipping, see our [user guide](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/k8-helm-opentelemetry-troubleshooting.html).
 
 
 
