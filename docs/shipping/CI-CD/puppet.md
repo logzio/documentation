@@ -34,9 +34,9 @@ Puppet is a software configuration management tool which includes its own declar
 In the Filebeat configuration file (/etc/filebeat/filebeat.yml), add Puppet to the filebeat.inputs section.
 
 
-:::note
+:::tip
 We recommend configuring Puppet to output JSON logs. See [Advanced Logging Configuration](https://puppet.com/docs/puppetserver/5.1/config_logging_advanced.html) from Puppet for more information.
-{:.info-box.tip}
+:::
  
 
 {@include: ../../_include/log-shipping/log-shipping-token.html}

@@ -1,5 +1,5 @@
 ---
-id: Memcached
+id: Memcached-memory
 title: Memcached
 overview: Memcached is a general-purpose distributed memory-caching system. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
@@ -9,7 +9,7 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/memc
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['']
+metrics_dashboards: []
 metrics_alerts: []
 drop_filter: []
 ---

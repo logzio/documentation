@@ -1,5 +1,5 @@
 ---
-id: API-status-metrics
+id: API-status-metrics-synthetic
 title: API Status Metrics
 overview: Deploy this integration to collect API status metrics of user API and send them to Logz.io.
 product: ['metrics']
