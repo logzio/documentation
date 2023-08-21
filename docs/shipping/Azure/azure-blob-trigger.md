@@ -72,7 +72,6 @@ If you don't have a general purpose v2 storage account with a container for logs
 👇 Click this button:
 
 [![Deploy to Azure](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_blob/deploybutton-az.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flogzio%2Flogzio-azure-blob-trigger%2Fmain%2Fazure%2Ffull-auto-deployment.json)
-{:.override.btn-img}
   
 ### Fill in the deployment parameters
 
@@ -138,7 +137,6 @@ Double-check your [_Storage accounts_](https://portal.azure.com/#blade/HubsExten
 👇 Click this button:
 
 [![Deploy to Azure](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_blob/deploybutton-az.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flogzio%2Flogzio-azure-blob-trigger%2Fmain%2Fazure%2Ffunction-auto-deployment.json)
-{:.override.btn-img}
   
 
 ### Fill in the deployment parameters
@@ -155,7 +153,7 @@ In the **Custom deployment** screen, fill in all the parameters as per table bel
 | Format | The log files format | Required | - |
 | Logzio URL | The Logz.io listener URL for your region. For more details, see the [Regions page.](https://docs.logz.io/user-guide/accounts/account-region.html) | Required | - |
 | Logzio Token | Your Logz.io logs token. You can retrieve the token from the [**Manage tokens** page](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). | Required | - |
-| Logs Path | The path from where blob files will trigger the Logz.io function (including subdirectories in that path). Leave empty if you want every blob file in the container to trigger the Logz.io function. | Not Required | \<\<ContainerLogsPath\>\>/{name} |
+| Logs Path | The path from where blob files will trigger the Logz.io function (including subdirectories in that path). Leave empty if you want every blob file in the container to trigger the Logz.io function. | Not Required | <<ContainerLogsPath>>/{name} |
 | Multiline Regex | The regex that matches the multiline logs in text blob files. Leave empty if you do not use multiline logs in your text blob files. | Not Required | NO_REGEX |
 | Datetime Filter | Every log with datetime greater than or equal to the specified datetime will be shipped to Logz.io (for example: 2021-11-05T10:10:10). For this to take effect, DatetimeFinder and DatetimeFormat must not be empty. Leave empty if you want all logs to be shipped to Logz.io. | Not Required | NO_DATETIME_FILTER |
 | Datetime Finder | If file is CSV/JSON: write the JSON path of the datetime field inside each log. The CSV JSON path will always be the name of the datetime field.  The JSON's JSON path can be the name of the datetime field if it's in the root, or a path contains fields separated by '.' (for example: metadata.datetime, metadata\[:1].datetime). For a text file, write a regex that will get the datetime from each log. If the log has many occurrences of datetime, make sure the regex will return the right one (for example: '(?:.\*?\[0-9]){2}.*?(\[0-9])' will give the third digit). If this value cannot be found inside a log, the log will be shipped to Logz.io. Leave empty if you are not using DatetimeFilter. | Required if using DatetimeFilter | NO_DATETIME_FINDER |
