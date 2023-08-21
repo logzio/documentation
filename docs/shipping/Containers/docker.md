@@ -25,11 +25,16 @@ To use docker-collector-logs, you'll set environment variables when you run the 
 The Docker logs directory and docker.sock are mounted to the container, allowing Filebeat to collect the logs and metadata.
 
 
-{@include: ../../_include/log-shipping/docker-collector-logs.md}
+##### Upgrading to a newer version
 
+* Upgrading to a newer version of docker-collector-logs while it is already running
+will cause it to resend logs that are within the `ignoreOlder` timeframe.
+You can minimize log duplicates
+by setting the `ignoreOlder` parameter of the new docker
+to a lower value (for example, `20m`).
 
+* Version 0.1.0 of docker-collector-logs includes breaking changes. Please see the project's [change log](https://github.com/logzio/docker-collector-logs#change-log) for further information.
 
- 
 
 #### Pull the Docker image
 
@@ -44,7 +49,7 @@ docker pull logzio/docker-collector-logs
 
 For a complete list of options, see the parameters below the code block.👇
   
-#### Docker
+##### Docker
 
 ```shell
 docker run --name docker-collector-logs \
@@ -54,7 +59,7 @@ docker run --name docker-collector-logs \
 logzio/docker-collector-logs
 ```
   
-#### Docker Swarm
+##### Docker Swarm
 
 ```shell
 docker service create --name docker-collector-logs \
@@ -136,7 +141,7 @@ You can configure all containers with the same options using daemon.json.
 
 For a complete list of options, see the configuration parameters below the code sample.👇
 
-#### Code sample
+##### Code sample
 
 ```json
 {
@@ -149,7 +154,7 @@ For a complete list of options, see the configuration parameters below the code 
 }
 ```
 
-#### Parameters
+##### Parameters
 
 | Parameter | Description | Required/Default |
 |---|---|---|
@@ -170,7 +175,7 @@ For a complete list of options, see the configuration parameters below the code 
 Some logzio-logging-plugin options are controlled using environment variables.
 Each of these variables has a default value, so you can skip this step if you're comfortable with the defaults.
 
-#### Environment variables
+##### Environment variables
 
 | Parameter | Description | Required/Default |
 |---|---|---|
@@ -185,7 +190,7 @@ Each of these variables has a default value, so you can skip this step if you're
 
 You can configure the plugin separately for each container when using the `docker run` command.
 
-#### Code sample
+##### Code sample
 
 
 ```shell
@@ -225,23 +230,34 @@ Deploy this integration to ship metrics from your Docker network using container
 
   
 
-### Pull the Docker image
+#### Pull the Docker image
 
-```
+```shell
 docker pull logzio/docker-metrics-collector:latest
 ```
+#### Run the Docker image
+  
 
-### Start the collector
+For a complete list of options, see the parameters below the code block.👇
 
-Run the following command:
+##### Docker
 
-```
+```shell
 docker run --name telegraf-docker-collector-metrics \
  --env METRICS_TOKEN="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>" \
  --env LOGZIO_LISTENER="https://<<LISTENER-HOST>>:8053" \
  -v /var/run/docker.sock:/var/run/docker.sock \
  logzio/docker-metrics-collector:latest
 ```
+##### Docker Swarm
+
+```shell
+docker service create --name telegraf-docker-collector-metrics \
+ --env METRICS_TOKEN="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>" \
+ --env LOGZIO_LISTENER="https://<<LISTENER-HOST>>:8053" \
+ --mount type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock \
+ --mode global logzio/docker-metrics-collector:latest
+ ```
 
 {@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
 
@@ -250,7 +266,7 @@ If you prefer to keep these environment variables in an `.env` file, run the fol
 
 `docker run -d --env-file=docker.env -v /var/run/docker.sock:/var/run/docker.sock logzio/docker-metrics-collector:latest`
 
-### Parameters
+#### Parameters
 
 Below is a list of all environment variables available with this integration. If required, add a variable to the `docker run` command using the `--env` flag.
 
@@ -263,7 +279,7 @@ Below is a list of all environment variables available with this integration. If
 |EXCLUDED_IMAGES|A list of strings, regexes, or globs, the container image names of which, will not be among the queried containers. !-prefixed negations are possible for all item types to signify that only unmatched container image names should be monitored. For example: `imageNameToExclude1,imageNameToExclude2)`|Default: `nil`.|
 |GLOBAL_TAGS| A comma separated list of key-value pairs that will be added to every metric. For example - `key1=value1,key2=value2`| Default: `nil`. |
 
-### Check Logz.io metrics
+#### Check Logz.io metrics
 
 {@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboards to enhance the observability of your metrics.
 
