@@ -154,8 +154,8 @@ First you need to configure the input plug-in to enable Telegraf to scrape the W
 
 #### Add the outputs.http plug-in
   
-{@include: ../_include/metric-shipping/telegraf-outputs.md}
-{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+{@include: ../../_include/metric-shipping/telegraf-outputs.md}
+{@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
   
 ### Start Telegraf
 
@@ -165,11 +165,11 @@ telegraf.exe --service start
 
 ### Check Logz.io for your metrics
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboards to enhance the observability of your metrics.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboards to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["3AND5wMrjcMC9ngDTghmHx"] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html} 
+{@include: ../../_include/metric-shipping/generic-dashboard.html} 
 
 
  

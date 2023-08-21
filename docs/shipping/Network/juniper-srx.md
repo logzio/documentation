@@ -98,7 +98,7 @@ output.logstash:
 
 
 
-{@include: ../../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include/general-shipping/replace-placeholders.html}
 
 
 :::note

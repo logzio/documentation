@@ -29,7 +29,8 @@ To get the most out of Kubernetes 360, try out dedicated [dashboard](/user-guide
 :::
 
 
- {@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics. <!-- logzio-inject:install:grafana:dashboards ids=["7nILXHYFZbThgTSMObUxkw", "5TGD77ZKuTiZUXtiM51m6V", "6pY6DKD0oQJL4sO7bW728", "5kkUAuEwA0Ygvlgm9iXTHY", "53g5kSILqoj1T10U1jnvKV", "5e1xRaDdQnOvs5LCuwKCh5", "7Cy6DUN78jlKUtMCsbt6GC", "29HGYsE3kgFEdgJbalTqeY", "1Hij49FKdnAKVJTjOmpDbH" ] --> {@include: ../_include/metric-shipping/generic-dashboard.html}
+ {@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics. <!-- logzio-inject:install:grafana:dashboards ids=["7nILXHYFZbThgTSMObUxkw", "5TGD77ZKuTiZUXtiM51m6V", "6pY6DKD0oQJL4sO7bW728", "5kkUAuEwA0Ygvlgm9iXTHY", "53g5kSILqoj1T10U1jnvKV", "5e1xRaDdQnOvs5LCuwKCh5", "7Cy6DUN78jlKUtMCsbt6GC", "29HGYsE3kgFEdgJbalTqeY", "1Hij49FKdnAKVJTjOmpDbH" ] --> 
+ {@include: ../../_include/metric-shipping/generic-dashboard.html}
 
 
 
@@ -82,8 +83,8 @@ logzio-monitoring logzio-helm/logzio-monitoring
 
 | Parameter | Description |
 | --- | --- |
-| `<<LOG-SHIPPING-TOKEN>>` | {@include: ../_include//log-shipping/log-shipping-token.html} |
-| `<<LISTENER-HOST>>` | {@include: ../_include/log-shipping/listener-var.html}. |
+| `<<LOG-SHIPPING-TOKEN>>` | {@include: ../../_include/log-shipping/log-shipping-token.html} |
+| `<<LISTENER-HOST>>` | {@include: ../../_include/log-shipping/listener-var.html}. |
 | `<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>` | Your [metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
 | `<<P8S-LOGZIO-NAME>>` | The name for the environment's metrics, to easily identify the metrics for each environment. |
 | `<<ENV-ID>>` | The name for your environment's identifier, to easily identify the telemetry data for each environment. |
@@ -95,11 +96,11 @@ logzio-monitoring logzio-helm/logzio-monitoring
 
 Give your data some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-{@include: ../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["7nILXHYFZbThgTSMObUxkw", "5TGD77ZKuTiZUXtiM51m6V", "6pY6DKD0oQJL4sO7bW728", "5kkUAuEwA0Ygvlgm9iXTHY", "53g5kSILqoj1T10U1jnvKV", "5e1xRaDdQnOvs5LCuwKCh5", "7Cy6DUN78jlKUtMCsbt6GC", "29HGYsE3kgFEdgJbalTqeY", "1Hij49FKdnAKVJTjOmpDbH" ] -->
 
-{@include: ../_include/metric-shipping/generic-dashboard.html}
+{@include: ../../_include/metric-shipping/generic-dashboard.html}
 
 ## Additional configuration
 
@@ -123,8 +124,8 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | --- | --- |
 | `<<SPM-SHIPPING-TOKEN>>` | Your [span metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
 | `<<ENV-ID>>` | The name for your environment's identifier, to easily identify the telemetry data for each environment. |
-| `<<LOG-SHIPPING-TOKEN>>` | {@include: ../_include//log-shipping/log-shipping-token.html} |
-| `<<LISTENER-HOST>>` | {@include: ../_include/log-shipping/listener-var.html}. |
+| `<<LOG-SHIPPING-TOKEN>>` | {@include: ../../_include/log-shipping/log-shipping-token.html} |
+| `<<LISTENER-HOST>>` | {@include: ../../_include/log-shipping/listener-var.html}. |
 
 
 ### Further configuration
@@ -186,8 +187,8 @@ logzio-monitoring logzio-helm/logzio-monitoring
 
 | Parameter | Description |
 | --- | --- |
-| `<<LOG-SHIPPING-TOKEN>>` | {@include: ../_include//log-shipping/log-shipping-token.html} |
-| `<<LISTENER-HOST>>` | {@include: ../_include/log-shipping/listener-var.html}. |
+| `<<LOG-SHIPPING-TOKEN>>` | {@include: ../../_include/log-shipping/log-shipping-token.html} |
+| `<<LISTENER-HOST>>` | {@include: ../../_include/log-shipping/listener-var.html}. |
 | `<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>` | Your [metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
 | `<<P8S-LOGZIO-NAME>>` | The name for the environment's metrics, to easily identify the metrics for each environment. |
 | `<<ENV-ID>>` | The name for your environment's identifier, to easily identify the telemetry data for each environment. |

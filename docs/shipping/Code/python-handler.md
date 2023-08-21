@@ -110,7 +110,7 @@ LOGGING = {
 }
 ```
 
-{@include: ../../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include/general-shipping/replace-placeholders.html}
 
 
 ##### Parameters
@@ -224,7 +224,7 @@ LOGGING = {
 }
 ```
 
-{@include: ../../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include/general-shipping/replace-placeholders.html}
 
 
 Note that this feature is only available from version 4.0.0.

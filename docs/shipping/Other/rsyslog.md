@@ -251,7 +251,7 @@ Run the following command to configure your rsyslog daemon to monitor JSON log f
 curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t file -a "<<LOG-SHIPPING-TOKEN>>" -l "<<LISTENER-HOST>>" --filepath "<<PATH_TO_FILE>>" -tag "<<TYPE>>" -c json
 ```
 
-{@include: ../../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include/general-shipping/replace-placeholders.html}
 * `<<PATH_TO_FILE>>`: Path to your file or directory.
 * `<<TYPE>>`: {@include: ../../_include/log-shipping/type.md}
 

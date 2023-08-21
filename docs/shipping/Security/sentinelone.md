@@ -87,7 +87,7 @@ output:
 
 
 
-{@include: ../../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include/general-shipping/replace-placeholders.html}
 
 * Replace the host port with your syslog port details. The above example has `host: "0.0.0.0:9000"` but you should change it to your specifics.
 

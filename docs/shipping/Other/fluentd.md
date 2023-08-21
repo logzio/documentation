@@ -480,7 +480,7 @@ helm uninstall -n monitoring logzio-fluentd
 
   
 
-{@include: ../../_include//log-shipping/multiline-fluentd-plugin.md}
+{@include: ../../_include/log-shipping/multiline-fluentd-plugin.md}
 
 
 
