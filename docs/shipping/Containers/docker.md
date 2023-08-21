@@ -29,8 +29,6 @@ The Docker logs directory and docker.sock are mounted to the container, allowing
 
 
 
- 
-
 #### Pull the Docker image
 
 Download the logzio/docker-collector-logs image.
@@ -44,7 +42,7 @@ docker pull logzio/docker-collector-logs
 
 For a complete list of options, see the parameters below the code block.👇
   
-#### Docker
+##### Docker
 
 ```shell
 docker run --name docker-collector-logs \
@@ -54,7 +52,7 @@ docker run --name docker-collector-logs \
 logzio/docker-collector-logs
 ```
   
-#### Docker Swarm
+##### Docker Swarm
 
 ```shell
 docker service create --name docker-collector-logs \
@@ -136,7 +134,7 @@ You can configure all containers with the same options using daemon.json.
 
 For a complete list of options, see the configuration parameters below the code sample.👇
 
-#### Code sample
+##### Code sample
 
 ```json
 {
@@ -149,7 +147,7 @@ For a complete list of options, see the configuration parameters below the code 
 }
 ```
 
-#### Parameters
+##### Parameters
 
 | Parameter | Description | Required/Default |
 |---|---|---|
@@ -170,7 +168,7 @@ For a complete list of options, see the configuration parameters below the code 
 Some logzio-logging-plugin options are controlled using environment variables.
 Each of these variables has a default value, so you can skip this step if you're comfortable with the defaults.
 
-#### Environment variables
+##### Environment variables
 
 | Parameter | Description | Required/Default |
 |---|---|---|
@@ -185,7 +183,7 @@ Each of these variables has a default value, so you can skip this step if you're
 
 You can configure the plugin separately for each container when using the `docker run` command.
 
-#### Code sample
+##### Code sample
 
 
 ```shell
@@ -235,7 +233,7 @@ docker pull logzio/docker-metrics-collector:latest
 
 For a complete list of options, see the parameters below the code block.👇
 
-#### Docker
+##### Docker
 
 ```shell
 docker run --name telegraf-docker-collector-metrics \
@@ -244,7 +242,7 @@ docker run --name telegraf-docker-collector-metrics \
  -v /var/run/docker.sock:/var/run/docker.sock \
  logzio/docker-metrics-collector:latest
 ```
-#### Docker Swarm
+##### Docker Swarm
 
 ```shell
 docker service create --name telegraf-docker-collector-metrics \
