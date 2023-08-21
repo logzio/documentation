@@ -121,7 +121,7 @@ This chart is a fork of the [opentelemtry-collector](https://github.com/open-tel
 <!-- info-box-end -->
 
 <!-- info-box-start:info -->
-:::caution 
+:::caution Important
 This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
 :::
 <!-- info-box-end -->
