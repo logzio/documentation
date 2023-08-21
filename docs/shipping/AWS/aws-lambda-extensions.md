@@ -141,11 +141,7 @@ This command overwrites the existing function configuration. If you already have
 | Placeholder | Description | Required/Default|
 |---|---|---|
 | `<<FUNCTION-NAME>>` |  Name of the Lambda Function you want to monitor. |Required|
-<<<<<<< HEAD:docs/shipping/Compute/lambda-extensions.md
 | `<<LAYERS>>` | A space-separated list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.  For the ARN, see the [**ARNs** table]({@include: ../../_include/log-shipping/lambda-xtension-tablink.md}) |  |
-=======
-| `<<LAYERS>>` | A space-separated list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.  For the ARN, see the [**ARNs** table]{@include: ../../_include/log-shipping/lambda-xtension-tablink.md} |  |
->>>>>>> b9de3b249fa2d633da394805e146e8f2ab22f961:docs/shipping/AWS/aws-lambda-extensions.md
 | `<<ENV-VARS>>`  | Key-value pairs containing environment variables that are accessible from function code during execution. Should appear in the following format: `KeyName1=string,KeyName2=string`.  For a list of all the environment variables for the extension, see the [**Lambda environment variables** table]{@include: ../../_include/log-shipping/lambda-xtension-tablink.md} |  |
 
 ### Run the function
