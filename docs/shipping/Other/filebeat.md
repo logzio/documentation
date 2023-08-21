@@ -25,7 +25,7 @@ Filebeat is often the easiest way to get logs from your system to Logz.io. Logz.
 
 {@include: ../../_include/log-shipping/filebeat-installed-port5015-begin.md} 
 
-{@include: ../../_include//log-shipping/filebeat-installed-port5015-end.md}
+{@include: ../../_include/log-shipping/filebeat-installed-port5015-end.md}
 
 
  
