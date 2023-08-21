@@ -3,9 +3,9 @@
 Run the following command from the application directory:
 
 ```shell
-gem install opentelemetry-sdk
-gem install opentelemetry-exporter-otlp
-gem install opentelemetry-instrumentation-all
+gem install opentelemetry-sdk -v 1.3.0
+gem install opentelemetry-exporter-otlp -v 0.26.1
+gem install opentelemetry-instrumentation-all -v 0.40.0
 ```
 
 ##### Enable instrumentation in the code
@@ -17,6 +17,7 @@ require 'opentelemetry/sdk'
 require 'opentelemetry/exporter/otlp'
 require 'rubygems'
 require 'bundler/setup'
+require 'opentelemetry/instrumentation/all'
 ```
 
 Add the following configuration to the application file:
