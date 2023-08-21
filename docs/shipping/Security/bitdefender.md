@@ -69,7 +69,7 @@ curl -k -X POST
 ```
 
 
-{@include: ../../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include/general-shipping/replace-placeholders.html}
 
 
 * `<<ACCESS_URL>>`: Replace with the Access URL copied in a previous step.

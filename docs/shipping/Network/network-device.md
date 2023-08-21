@@ -1,5 +1,5 @@
 ---
-id: Network-devices
+id: Network-devices-network
 title: Network devices
 overview: This integration allows you to send logs from your network devices to your Logz.io account. 
 product: ['logs']
@@ -9,7 +9,7 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/netw
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['']
+metrics_dashboards: []
 metrics_alerts: []
 drop_filter: []
 ---

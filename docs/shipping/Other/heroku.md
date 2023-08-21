@@ -1,5 +1,5 @@
 ---
-id: Heroku
+id: Heroku-data
 title: Heroku
 overview: Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud. This integration allows you to send logs from your Heroku applications to your Logz.io account. 
 product: ['logs','metrics']
@@ -42,9 +42,9 @@ Run this command in the command line.
 heroku drains:add "https://<<LISTENER-HOST>>:8081?token=<<LOG-SHIPPING-TOKEN>>" -a <<HEROKU-APP-NAME>>
 ```
 
-{@include: ../_include/log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../_include/log-shipping/listener-var.html}
+{@include: ../../_include/log-shipping/listener-var.html}
 
 Replace `<<HEROKU-APP-NAME>>` with the name of the app in Heroku.
 
@@ -105,7 +105,7 @@ git push heroku main
 
 ```
 
-{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+{@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
 * Replace `<<HEROKU_APP_NAME>>` with the name of your Heroku app
 
 ### Add the buildpack to the list of your Heroku buildpacks
