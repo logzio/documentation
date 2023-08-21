@@ -1603,10 +1603,10 @@ In the same Docker network as your application:
 Run the application to generate traces.
 
 
-### Check Logz.io for your traces
+## Check Logz.io for your traces
 
 Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
 
-
+### Troubleshooting
 
 {@include: ../../_include/tracing-shipping/otel-troubleshooting.md}
