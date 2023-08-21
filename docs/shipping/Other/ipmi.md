@@ -26,7 +26,7 @@ To send your Prometheus-format IPMI Sensor metrics to Logz.io, you need to add t
 
 #### Set up Telegraf v1.17 or higher on your local host
 
-{@include: ../_include/metric-shipping/telegraf-setup.md}
+{@include: ../../_include/metric-shipping/telegraf-setup.md}
  
 #### Add the inputs.ipmi_sensor plug-in
 
@@ -85,8 +85,8 @@ The database name is only required for instantiating a connection with the serve
 
 #### Add the outputs.http plug-in
 
-{@include: ../_include/metric-shipping/telegraf-outputs.md}
-{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+{@include: ../../_include/metric-shipping/telegraf-outputs.md}
+{@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
 
 ### Check Logz.io for your metrics
 

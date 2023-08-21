@@ -60,10 +60,10 @@ Replace the parameter values as per the table below.
 | SECURITY_TOKEN | Salesforce account security token | Yes | - |
 | SOBJECT_TYPES | List of sObject types to collect. Each type must be separated by comma, for example: "TYPE1,TYPE2,TYPE3". | Yes | - |
 | FROM_TIMESTAMP | Timestamp from when to collect data. Must be in the following format: 2006-01-02T15:04:05.000Z .	| No	| Current time minus 1 hour |
-| LOGZIO_TOKEN | Logz.io logs token. {@include: ../_include/log-shipping/log-shipping-token.html}  | Yes | - |
+| LOGZIO_TOKEN | Logz.io logs token. {@include: ../../_include/log-shipping/log-shipping-token.html}  | Yes | - |
 | SALESFORCE_URL | Salesforce URL. | No | https://login.salesforce.com |
 | INTERVAL | The time interval to collect Salesforce data (in seconds). | No | 5 (seconds) |
-| LOGZIO_LISTENER_URL | Logz.io listener logs URL. {@include: ../_include/log-shipping/listener-var.md} | No | https://listener.logz.io:8071
+| LOGZIO_LISTENER_URL | Logz.io listener logs URL. {@include: ../../_include/log-shipping/listener-var.md} | No | https://listener.logz.io:8071
 
 
 ##### Check Logz.io for your logs

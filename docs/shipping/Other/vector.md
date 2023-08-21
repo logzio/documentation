@@ -78,8 +78,7 @@ If your logs are sent in batches, change the `encoding.codec` setting from `json
 
 | Parameter | Description |
 |---|---|
-| uri (Required) | Your Logz.io region's listener URL account token, and log type. <br /> {@include: ../_include/log-shipping/listener-var.html}  <br /> {@include: ../_include/log-shipping/log-shipping-token.html} |
-{:.paramlist}
+| uri (Required) | Your Logz.io region's listener URL account token, and log type. {@include: ../../_include/log-shipping/listener-var.html} Replace `<<LOG-SHIPPING-TOKEN>>` with the token of the account you want to ship to.|
 
 ### Run Vector
 

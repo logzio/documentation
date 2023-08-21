@@ -1,5 +1,5 @@
 ---
-id: Lambda-extensions
+id: Lambda-extensions-1
 title: Lambda extensions
 overview: The Logz.io Lambda extension for logs, uses the AWS Extensions API and AWS Logs API and sends your Lambda Function Logs directly to your Logz.io account.
 product: ['logs']

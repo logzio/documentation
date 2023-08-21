@@ -26,7 +26,7 @@ To send your Prometheus-format uWSGI metrics to Logz.io, you need to add the **i
 
 #### Set up Telegraf v1.17 or higher on the same maching as uWSGI
 
-{@include: ../_include/metric-shipping/telegraf-setup.md}
+{@include: ../../_include/metric-shipping/telegraf-setup.md}
 
 #### Add the inputs.uwsgi plug-in
 
@@ -52,12 +52,12 @@ The full list of data scraping and configuring options can be found [here](https
 
 #### Add the outputs.http plug-in
   
-{@include: ../_include/metric-shipping/telegraf-outputs.md}
-{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+{@include: ../../_include/metric-shipping/telegraf-outputs.md}
+{@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
   
 ### Start Telegraf
 
-{@include: ../_include/metric-shipping/telegraf-run.md}
+{@include: ../../_include/metric-shipping/telegraf-run.md}
 
 
 ### Check Logz.io for your metrics
