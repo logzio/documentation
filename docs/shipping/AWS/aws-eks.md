@@ -1,8 +1,8 @@
 ---
 id: aws-eks
 title: AWS EKS
-overview: logzio-k8s-telemetry allows you to ship metrics from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
-product: ['metrics']
+overview: Send Kubernetes logs, metrics and traces to Logz.io.
+product: ['logs','metrics','tracing']
 os: ['windows', 'linux']
 filters: ['AWS', 'Orchestration']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-eks.svg
@@ -14,25 +14,132 @@ metrics_alerts: []
 drop_filter: []
 ---
 
+The logzio-monitoring Helm Chart ships your EKS Fargate telemetry (logs, metrics, traces and security reports) to your Logz.io account.
  
 
-Fluentd is an open source data collector and a great option because of its flexibility. This implementation uses a Fluentd DaemonSet to collect Kubernetes logs and send them to Logz.io. The Kubernetes DaemonSet ensures that some or all nodes run a copy of a pod.
+## Prerequisites 
+
+1. [Helm](https://helm.sh/)
 
 
-The image used in this integration comes pre-configured for Fluentd to gather all logs from the Kubernetes node environment and append the proper metadata to the logs. If you prefer to customize your Fluentd configuration, you can edit it before it's deployed.
+Add Logzio-helm repository
+`helm repo add logzio-helm https://logzio.github.io/logzio-helm && helm repo update`
 
 
-:::note
-The latest version pulls the image from `logzio/logzio-fluentd`. Previous versions pulled the image from `logzio/logzio-k8s`.
-:::
+## Send your logs
  
 
-:::caution Important
-Fluentd will fetch all existing logs, as it is not able to ignore older logs.
-:::
- 
+Send your logs
 
-For troubleshooting this solution, see our [user guide](https://docs.logz.io/user-guide/kubernetes-troubleshooting/).
+```sh
+helm install -n monitoring \
+--set logs.enabled=true \
+--set logzio-fluentd.secrets.logzioShippingToken="{@include: ../../_include/log-shipping/log-shipping-token.html}" \
+--set logzio-fluentd.secrets.logzioListener="{@include: ../../_include/log-shipping/listener-var.html}" \
+--set logzio-fluentd.env_id="<<CLUSTER-NAME>>" \
+--set logzio-fluentd.fargateLogRouter.enabled=true \
+logzio-monitoring logzio-helm/logzio-monitoring
+```
+
+
+| Parameter | Description |
+| --- | --- |
+| `<<LOG-SHIPPING-TOKEN>>` | Your [logs shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
+| `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
+| `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
+
+
+### Adding a custom log_type field from attribute
+To add a `log_type` field with a custom value to each log, you can use the annotation key `log_type` with a custom value. The annotation will be automatically parsed into a `log_type` field with the provided value.
+e.g:
+```
+...
+  metadata:
+    annotations:
+      log_type: "my_type"
+```
+Will result with the following log (json):
+```
+{
+...
+,"log_type": "my_type"
+...
+}
+```
+
+
+### Configuring Fluentd to concatenate multiline logs using a plugin
+
+Fluentd splits multiline logs by default. If your original logs span multiple lines, you may find that they arrive in your Logz.io account split into several partial logs.
+
+The Logz.io Docker image comes with a pre-built Fluentd filter plug-in that can be used to concatenate multiline logs. The plug-in is named `fluent-plugin-concat` and you can view the full list of configuration options in the [GitHub project](https://github.com/fluent-plugins-nursery/fluent-plugin-concat).
+
+### Example
+
+The following is an example of a multiline log sent from a deployment on a k8s cluster:
+
+```shell
+2021-02-08 09:37:51,031 - errorLogger - ERROR - Traceback (most recent call last):
+File "./code.py", line 25, in my_func
+1/0
+ZeroDivisionError: division by zero
+```
+
+Fluentd's default configuration will split the above log into 4 logs, 1 for each line of the original log. In other words, each line break (`\n`) causes a split.
+
+To avoid this, you can use the `fluent-plugin-concat` and customize the configuration to meet your needs. The additional configuration is added to:
+
+* `kubernetes.conf` for RBAC/non-RBAC DaemonSet
+* `kubernetes-containerd.conf` for Containerd DaemonSet
+
+For the above example, we could use the following regex expressions to demarcate the start and end of our example log:
+
+
+```shell
+<filter **>
+  @type concat
+  key message # The key for part of multiline log
+  multiline_start_regexp /^[0-9]{4}-[0-9]{2}-[0-9]{2}/ # This regex expression identifies line starts.
+</filter>
+```
+
+### Monitoring fluentd with prometheus
+In order to monitor fluentd and collect input & output metrics. You can 
+enable prometheus configuration with the `logzio-fluentd.daemonset.fluentdPrometheusConf` and `logzio-fluentd.windowsDaemonset.fluentdPrometheusConf` parameter (default to false).
+When enabling Prometheus configuration, the pod collects and exposes fluentd metrics on port `24231`, `/metrics` endpoint.
+
+### Modifying the configuration
+
+You can see a full list of the possible configuration values in the [logzio-fluentd Chart folder](https://github.com/logzio/logzio-helm/tree/master/charts/fluentd#configuration).
+
+If you would like to modify any of the values found in the `logzio-fluentd` folder, use the `--set` flag with the `logzio-fluentd` prefix.
+
+For instance, if there is a parameter called `someField` in the `logzio-telemetry`'s `values.yaml` file, you can set it by adding the following to the `helm install` command:
+
+```sh
+--set logzio-fluentd.someField="my new value"
+```
+You can add `log_type` annotation with a custom value, which will be parsed into a `log_type` field with the same value.
+
+### Sending logs from nodes with taints
+
+If you want to ship logs from any of the nodes that have a taint, make sure that the taint key values are listed in your in your daemonset/deployment configuration as follows:
+  
+```yaml
+tolerations:
+- key: 
+  operator: 
+  value: 
+  effect: 
+```
+  
+To determine if a node uses taints as well as to display the taint keys, run:
+  
+```
+kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
+```
+
+For troubleshooting log shipping, see our [user guide](https://docs.logz.io/user-guide/kubernetes-troubleshooting/).
 
 
 ### Sending logs from nodes with taints
@@ -53,330 +160,31 @@ To determine if a node uses taints as well as to display the taint keys, run:
 kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
 ```
 
-### K8S version compatibility
 
-Your Kubernetes version may affect your options, as follows:
+## Send your Metrics
 
-* **K8S 1.19.3+** - If you're running on K8S 1.19.3+ or later, be sure to use the DaemonSet that supports a containerd at runtime. It can be downloaded and customized from[`logzio-daemonset-containerd.yaml`](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-containerd.yaml).
+```sh
+helm install -n monitoring \
+--set metricsOrTraces.enabled=true \
+--set logzio-k8s-telemetry.metrics.enabled=true \
+--set logzio-k8s-telemetry.secrets.MetricsToken="{@include: ../../_include/p8s-shipping/replace-prometheus-token.html}" \
+--set logzio-k8s-telemetry.secrets.ListenerHost="{@include: ../../_include/p8s-shipping/replace-prometheus-listener.html}" \
+--set logzio-k8s-telemetry.secrets.p8s_logzio_name="<<CLUSTER-NAME>>" \
+--set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
+--set logzio-k8s-telemetry.collector.mode=standalone \
+logzio-monitoring logzio-helm/logzio-monitoring
+```
 
-* **K8S 1.16 or earlier** - If you're running K8S 1.16 or earlier, you may need to manually change the API version in your DaemonSet to `apiVersion: rbac.authorization.k8s.io/v1beta1`.
+| Parameter | Description |
+| --- | --- |
+| `<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>` | Your [metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=metrics). |
+| `<<P8S-LOGZIO-NAME>>` | The name for the environment's metrics, to easily identify the metrics for each environment. |
+| `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
+| `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
 
-  The API versions of `ClusterRole` and `ClusterRoleBinding` are found in `logzio-daemonset-rbac.yaml` and `logzio-daemonset-containerd.yaml`.
-  
-  If you are running K8S 1.17 or later, the DaemonSet is set to use `apiVersion: rbac.authorization.k8s.io/v1` by default. No change is needed.
 
-{@include: ../../_include//log-shipping/multiline-logs-fluentd.md}
-
+For troubleshooting metrics shipping, see our [user guide](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/k8-helm-opentelemetry-troubleshooting.html).
  
-
-## Deploy logzio-k8s with default configuration
-
-For most environments, we recommend using the default configuration.
-However, you can deploy a custom configuration if your environment needs it.
-
-
-### Deploy Fluentd as a DaemonSet on Kubernetes
-
- 
-
-
-### Create a monitoring namespace
-
-Your DaemonSet will be deployed under the namespace `monitoring`.
-
-
-```shell
-kubectl create namespace monitoring
-```
-
-
-### Store your Logz.io credentials
-
-Save your Logz.io shipping credentials as a Kubernetes secret.
-
-{@include: ../../_include/log-shipping/log-shipping-token.html}
-
-{@include: ../../_include/log-shipping/listener-var.html} 
-
-```shell
-kubectl create secret generic logzio-logs-secret \
-  --from-literal=logzio-log-shipping-token='<<LOG-SHIPPING-TOKEN>>' \
-  --from-literal=logzio-log-listener='https://<<LISTENER-HOST>>:8071' \
-  -n monitoring
-```
-
-### Deploy the DaemonSet
-
-###### For an RBAC cluster:
-
-```shell
-kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-rbac.yaml -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/configmap.yaml
-```
-
-###### For a non-RBAC cluster:
-
-```shell
-kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset.yaml -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/configmap.yaml
-```
-
-###### For container runtime Containerd:
-
-```shell
-kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-containerd.yaml -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/configmap.yaml
-```
-
-### Check Logz.io for your logs
-
-Give your logs some time to get from your system to ours,
-and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
-
-If you still don't see your logs,
-see [Kubernetes log shipping troubleshooting]({{site.baseurl}}/user-guide/kubernetes-troubleshooting/).
-
- 
- 
-
-## Deploy logzio-k8s with custom configuration
-
-You can customize the configuration of your Fluentd container by editing either your DaemonSet or your Configmap.
-
-
- 
-
-
-### Create a monitoring namespace
-
-Your DaemonSet will be deployed under the namespace `monitoring`.
-
-
-```shell
-kubectl create namespace monitoring
-```
-
-### Store your Logz.io credentials
-
-Save your Logz.io shipping credentials as a Kubernetes secret.
-
-
-```shell
-kubectl create secret generic logzio-logs-secret \
-  --from-literal=logzio-log-shipping-token='<<LOG-SHIPPING-TOKEN>>' \
-  --from-literal=logzio-log-listener='https://<<LISTENER-HOST>>:8071' \
-  -n monitoring
-```
-
-{@include: ../../_include/log-shipping/log-shipping-token.html}
-
-{@include: ../../_include/log-shipping/listener-var.html}
-
-
-### Configure Fluentd
-
-There are 3 DaemonSet options: [RBAC DaemonSet](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-rbac.yaml), [non-RBAC DaemonSet](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset.yaml), [Containerd](https://raw.githubusercontent.com/logzio/logzio-k8s/master/logzio-daemonset-containerd.yaml). Download the relevant DaemonSet and open it in your text editor to edit it.
-
-If you wish to make advanced changes in your Fluentd configuration, you can download and edit the [configmap yaml file](https://raw.githubusercontent.com/logzio/logzio-k8s/master/configmap.yaml).
-
-
-{@include: ../../_include/k8s-fluentd.md}
-
-#### Good to know
-
-* If `FLUENT_FILTER_KUBERNETES_URL` is not specified, the environment variables `KUBERNETES_SERVICE_HOST` and `KUBERNETES_SERVICE_PORT` will be used, as long as both of them are  present. Typically, they are present when running Fluentd in a pod.
-
-* Note that `FLUENT_FILTER_KUBERNETES_URL` does not appear in the default environment variable list in the DaemonSet.
-If you wish to use this variable, you'll have to add it manually to the DaemonSet's environment variables.
-
-
-### Deploy the DaemonSet
-
-###### For the RBAC DaemonSet:
-
-```shell
-kubectl apply -f /path/to/logzio-daemonset-rbac.yaml -f /path/to/configmap.yaml
-```
-
-###### For the non-RBAC DaemonSet:
-
-```shell
-kubectl apply -f /path/to/logzio-daemonset.yaml -f /path/to/configmap.yaml
-```
-
-###### For container runtime Containerd:
-
-```shell
-kubectl apply -f /path/to/logzio-daemonset-containerd.yaml -f /path/to/configmap.yaml
-```
-
-
-### Check Logz.io for your logs
-
-Give your logs some time to get from your system to ours,
-and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
-
-If you still don't see your logs,
-see [Kubernetes log shipping troubleshooting]({{site.baseurl}}/user-guide/kubernetes-troubleshooting/).
-
- 
-
-
-### Disabling systemd input
-
-To suppress Fluentd system messages, set the `FLUENTD_SYSTEMD_CONF` environment variable to `disable` in your Kubernetes environment.
-
-### Exclude logs from certain namespaces
-  
-If you wish to exclude logs from certain namespaces, add the following to your Fluentd configuration:
-
-```shell
-<match kubernetes.var.log.containers.**_NAMESPACE_**>
-  @type null
-</match>
-```
-
-Replace `NAMESPACE` with the name of the namespace you need to exclude logs from. 
-  
-If you need to specify multiple namespaces, add another `kubernetes.var.log.containers.**_NAMESPACE_**` line to the above function as follows:
-
-```shell
-<match kubernetes.var.log.containers.**_NAMESPACE1_** kubernetes.var.log.containers.**_NAMESPACE2_**>
-  @type null
-</match>
-```
-
-## Multiline logs
-
-
-{@include: ../../_include//log-shipping/multiline-fluentd-plugin.md}
-
- 
-
-
-
-**logzio-k8s-telemetry** allows you to ship metrics from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
-
-This chart is a fork of the [opentelemetry-collector](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-collector) Helm chart. The main repository for Logz.io helm charts are [logzio-helm](https://github.com/logzio/logzio-helm).
-  
-It is also dependent on the [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics/tree/master/charts/kube-state-metrics), [prometheus-node-exporter](https://github.com/helm/charts/tree/master/stable/prometheus-node-exporter) and [prometheus-pushgateway](https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-pushgateway) charts, which are installed by default. 
-  
-To disable the dependency during installation, set `kubeStateMetrics.enabled`, `nodeExporter.enabled` or `pushGateway.enabled` to `false`.
-  
-For applications that run on Kubernetes, enable the Prometheus scrape feature:
-
-```yaml
-prometheus.io/scrape: true
-```
-
-### Sending logs from nodes with taints
-
-If you want to ship logs from any of the nodes that have a taint, make sure that the taint key values are listed in your in your daemonset/deployment configuration as follows:
-  
-```yaml
-tolerations:
-- key: 
-  operator: 
-  value: 
-  effect: 
-```
-  
-To determine if a node uses taints as well as to display the taint keys, run:
-  
-```
-kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
-```
-
-If you are using Fargate, you need to disable the node exporter deployment. To do this, add the following settings to the values.yaml, under the `prometheus-node-exporter` field:
-
-```yaml
-affinity:
-    nodeAffinity:
-      requiredDuringSchedulingIgnoredDuringExecution:
-        nodeSelectorTerms:
-          - matchExpressions:
-              - key: eks.amazonaws.com/compute-type
-                operator: DoesNotExist
-```
-
-
-
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
-
-<!-- logzio-inject:install:grafana:dashboards ids=["1aO3NWtPAtVwO5Ipmc3Deh", "6KQUyksnNT2E40PifmCHR5", "X6YYCFajD56zayxcQOG2H", "M06b1BjTSGsSNZBWeiLnR"] -->
-
-{@include: ../../_include/metric-shipping/generic-dashboard.html} 
-
-  
- 
-
-## Standard configuration for Linux nodes
-
- 
-  
-### Add logzio-helm repo to your helm repo list
-
-  ```shell
-  helm repo add logzio-helm https://logzio.github.io/logzio-helm
-  helm repo update
-  ```
-
-### Deploy the Helm chart
-
-1. Configure the relevant parameters in the following code:
-
-   ```
-   helm install --namespace <<YOUR-NAMESPACE>>  \
-   --set metrics.enabled=true \
-   --set secrets.MetricsToken=<<METRICS-SHIPPING-TOKEN>> \
-   --set secrets.ListenerHost="https://<<LISTENER-HOST>>:8053" \
-   --set secrets.p8s_logzio_name=<<ENV-TAG>> \
-   logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
-   ```
-
-   * Replace `<<YOUR_NAMESPACE>>` with the required namespace.
-
-   * {@include: ../../_include//metric-shipping/replace-metrics-token.html}
-
-   * {@include: ../../_include//log-shipping/listener-var.html}
-
-   * Replace `<<ENV-TAG>>` with the name for the environment's metrics, to easily identify the metrics for each environment.
-
-2. Run the code.
-
-### Check Logz.io for your metrics
-
-Give your metrics some time to get from your system to ours.
-
-
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
-
-<!-- logzio-inject:install:grafana:dashboards ids=["1aO3NWtPAtVwO5Ipmc3Deh", "6KQUyksnNT2E40PifmCHR5", "X6YYCFajD56zayxcQOG2H", "M06b1BjTSGsSNZBWeiLnR"] -->
-
-{@include: ../../_include/metric-shipping/generic-dashboard.html} 
-  
- 
-
-For troubleshooting this solution, see our [EKS troubleshooting guide](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/eks-helm-opentelemetry-troubleshooting.html).
-  
-  
-
-##  Customizing Helm chart parameters
-
- 
-
-### Configure customization options
-
-You can use the following options to update the Helm chart parameters: 
-
-* Specify parameters using the `--set key=value[,key=value]` argument to `helm install`
-
-* Edit the `values.yaml`
-
-* Overide default values with your own `my_values.yaml` and apply it in the `helm install` command. 
-
-#### Example:
-
-```
-helm install logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry -f my_values.yaml 
-```
 
 ### Customize the metrics collected by the Helm chart 
 
@@ -388,13 +196,96 @@ The default configuration uses the Prometheus receiver with the following scrape
 To customize your configuration, edit the `config` section in the `values.yaml` file.
 
  
+### Check Logz.io for your metrics
+Give your metrics some time to get from your system to ours.
 
-For troubleshooting this solution, see our [EKS troubleshooting guide](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/eks-helm-opentelemetry-troubleshooting.html).
 
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
+<!-- logzio-inject:install:grafana:dashboards ids=["1aO3NWtPAtVwO5Ipmc3Deh", "6KQUyksnNT2E40PifmCHR5", "X6YYCFajD56zayxcQOG2H", "M06b1BjTSGsSNZBWeiLnR"] -->
+
+{@include: ../../_include/metric-shipping/generic-dashboard.html} 
   
+ 
+For troubleshooting this solution, see our [EKS troubleshooting guide](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/eks-helm-opentelemetry-troubleshooting.html).
+ 
+## Send your traces
 
-## **Uninstalling the Chart**
+```sh
+helm install -n monitoring \
+--set metricsOrTraces.enabled=true \
+--set logzio-k8s-telemetry.traces.enabled=true \
+--set logzio-k8s-telemetry.secrets.TracesToken="{@include: ../../_include/tracing-shipping/replace-tracing-token.html}" \
+--set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO-REGION>>" \
+--set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
+logzio-monitoring logzio-helm/logzio-monitoring
+```
+
+| Parameter | Description |
+| --- | --- |
+| `<<TRACES-SHIPPING-TOKEN>>` | Your [traces shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=traces). |
+| `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
+| `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=traces). |
+| `<<LOGZIO-REGION>>` | Name of your Logz.io traces region e.g `us`, `eu`... |
+
+
+For troubleshooting traces shipping, see our [user guide]([https://docs.logz.io/user-guide/kubernetes-troubleshooting/](https://docs.logz.io/user-guide/distributed-tracing/tracing-troubleshooting.html)).
+
+
+## Send traces with SPM
+
+```sh
+helm install -n monitoring \
+--set metricsOrTraces.enabled=true \
+--set logzio-k8s-telemetry.traces.enabled=true \
+--set logzio-k8s-telemetry.secrets.TracesToken="{@include: ../../_include/tracing-shipping/replace-tracing-token.html}" \
+--set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO-REGION>>" \
+--set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
+--set logzio-k8s-telemetry.spm.enabled=true \
+--set logzio-k8s-telemetry.secrets.SpmToken={@include: ../../_include/tracing-shipping/replace-spm-token.html} \
+logzio-monitoring logzio-helm/logzio-monitoring
+```
+
+| Parameter | Description |
+| --- | --- |
+| `<<TRACES-SHIPPING-TOKEN>>` | Your [traces shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=traces). |
+| `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
+| `<<LOGZIO-REGION>>` | Name of your Logz.io traces region e.g `us`, `eu`... |
+| `<<SPM-SHIPPING-TOKEN>>` | Your [span metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=metrics). |
+
+
+## Modifying the configuration for metrics and traces
+
+You can see a full list of the possible configuration values in the [logzio-telemetry Chart folder](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-telemetry).
+
+If you would like to modify any of the values found in the `logzio-telemetry` folder, use the `--set` flag with the `logzio-k8s-telemetry` prefix.
+
+For instance, if there is a parameter called `someField` in the `logzio-telemetry`'s `values.yaml` file, you can set it by adding the following to the `helm install` command:
+
+
+```sh
+--set logzio-k8s-telemetry.someField="my new value"
+```
+
+
+## Scan your cluster for security vulnerabilities
+
+```sh
+helm install -n monitoring \
+--set securityReport.enabled=true \
+--set logzio-trivy.env_id="<<CLUSTER-NAME>>" \
+--set logzio-trivy.secrets.logzioShippingToken="<<LOG-SHIPPING-TOKEN>>" \
+--set logzio-trivy.secrets.logzioListener="<<LISTENER-HOST>>" \
+```
+
+| Parameter | Description |
+| --- | --- |
+| `<<LOG-SHIPPING-TOKEN>>` | Your [logs shipping token](https://app.logz.io/#/dashboard/settings/general). |
+| `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
+| `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
+
+
+## Uninstalling the Chart
 
 The `uninstall` command is used to remove all the Kubernetes components associated with the chart and to delete the release.  
 
@@ -403,5 +294,3 @@ To uninstall the `logzio-k8s-telemetry` deployment, use the following command:
 ```shell
 helm uninstall logzio-k8s-telemetry
 ```
-
-  

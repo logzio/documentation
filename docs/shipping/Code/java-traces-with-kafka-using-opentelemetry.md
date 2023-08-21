@@ -112,24 +112,10 @@ Supported values for `otel.traces.sampler` are
 
 You can use a Helm chart to ship Traces to Logz.io via the OpenTelemetry collector. The Helm tool is used to manage packages of pre-configured Kubernetes resources that use charts.
 
-**logzio-k8s-telemetry** allows you to ship traces from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
-
-<!-- info-box-start:info -->
-:::note
-This chart is a fork of the [opentelemtry-collector](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-collector) Helm chart. The main repository for Logz.io helm charts are [logzio-helm](https://github.com/logzio/logzio-helm).
-:::
-<!-- info-box-end -->
-
-<!-- info-box-start:info -->
-:::caution 
-This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
-:::
-<!-- info-box-end -->
-
-### Default
+**logzio-monitoring** allows you to ship traces from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
 
 
-#### Deploy the Helm chart
+### Deploy the Helm chart
  
 Add `logzio-helm` repo as follows:
  
@@ -138,38 +124,45 @@ helm repo add logzio-helm https://logzio.github.io/logzio-helm
 helm repo update
 ```
 
-#### Run the Helm deployment code
+### Run the Helm deployment code
 
+```sh
+helm install -n monitoring \
+--set metricsOrTraces.enabled=true \
+--set logzio-k8s-telemetry.traces.enabled=true \
+--set logzio-k8s-telemetry.secrets.TracesToken="{@include: ../../_include/tracing-shipping/replace-tracing-token.html}" \
+--set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO-REGION>>" \
+--set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
+logzio-monitoring logzio-helm/logzio-monitoring
 ```
-helm install  \
---set config.exporters.logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
---set config.exporters.logzio.account_token=<<TRACING-SHIPPING-TOKEN>> \
-logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
-```
 
-{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
-
-`<<LOGZIO_ACCOUNT_REGION_CODE>>` - (Optional): Your logz.io account region code. Defaults to "us". Required only if your logz.io region is [different than US East](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
+| Parameter | Description |
+| --- | --- |
+| `<<TRACES-SHIPPING-TOKEN>>` | Your [traces shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=tracing). |
+| `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
+| `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
+| `<<LOGZIO-REGION>>` | Name of your Logz.io traces region e.g `us`, `eu`... |
 
 
-#### Define the logzio-k8s-telemetry dns name
 
-In most cases, the dns name will be `logzio-k8s-telemetry.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
+### Define the logzio-monitoring dns name
+
+In most cases, the dns name will be `logzio-k8s-telemetry.<<namespace>>.svc.cluster.local`, where `<<namespace>>` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
   
 If you are not sure what your cluster domain name is, you can run the following command to look it up: 
   
 ```shell
 kubectl run -it --image=k8s.gcr.io/e2e-test-images/jessie-dnsutils:1.3 --restart=Never shell -- \
-sh -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.default//"'
+sh -c 'nslookup kubernetes.<<namespace>> | grep Name | sed "s/Name:\skubernetes.<<namespace>>//"'
 ```
   
 It will deploy a small pod that extracts your cluster domain name from your Kubernetes environment. You can remove this pod after it has returned the cluster domain name.
 
-#### Download Java agent
+### Download Java agent
 
 Download the latest version of the [OpenTelemetry Java agent](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar) to the host of your Java application.
 
-#### Attach the agent to your java application 
+### Attach the agent to your java application 
 
 <!-- info-box-start:info -->
 :::note
@@ -184,16 +177,16 @@ java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
      -Dotel.traces.exporter=otlp \
      -Dotel.metrics.exporter=none \
      -Dotel.resource.attributes=service.name=<<YOUR-SERVICE-NAME>> \
-     -Dotel.exporter.otlp.endpoint=http://<<logzio-k8s-telemetry-service-dns>>:4317 \
+     -Dotel.exporter.otlp.endpoint=http://<<logzio-monitoring-service-dns>>:4317 \
      -Dotel.instrumentation.messaging.experimental.receive-telemetry.enabled=true
      -jar target/*.jar
 ```
 
 * Replace `<<path/to>>` with the path to the directory where you downloaded the agent.
 * Replace `<<YOUR-SERVICE-NAME>>` with a name for your service under which it will appear in Logz.io Jaeger UI.
-* Replace `<<logzio-k8s-telemetry-service-dns>>` with the OpenTelemetry collector service dns obtained previously (service IP is also allowed here).
+* Replace `<<logzio-monitoring-service-dns>>` with the OpenTelemetry collector service dns obtained previously (service IP is also allowed here).
 
-#### Check Logz.io for your traces
+### Check Logz.io for your traces
 
 Give your traces some time to get from your system to ours, then open [Logz.io](https://app.logz.io/).
 
@@ -220,7 +213,7 @@ If required, you can add the following optional parameters as environment variab
 
 #### Example
 
-You can run the logzio-k8s-telemetry chart with your custom configuration file that takes precedence over the `values.yaml` of the chart.
+You can run the logzio-monitoring chart with your custom configuration file that takes precedence over the `values.yaml` of the chart.
 
 For example:
 
@@ -231,66 +224,63 @@ The collector will sample **ALL traces** where is some span with error with this
 <!-- info-box-end -->
 
 ```yaml
-baseCollectorConfig:
-  processors:
-    tail_sampling:
-      policies:
-        [
-          {
-            name: error-in-policy,
-            type: status_code,
-            status_code: {status_codes: [ERROR]}
-          },
-          {
-            name: slow-traces-policy,
-            type: latency,
-            latency: {threshold_ms: 400}
-          },
-          {
-            name: health-traces,
-            type: and,
-            and: {
-              and_sub_policy:
-              [
-                {
-                  name: ping-operation,
-                  type: string_attribute,
-                  string_attribute: { key: http.url, values: [ /health ] }
-                },
-                {
-                  name: main-service,
-                  type: string_attribute,
-                  string_attribute: { key: service.name, values: [ main-service ] }
-                },
-                {
-                  name: probability-policy-1,
-                  type: probabilistic,
-                  probabilistic: {sampling_percentage: 1}
-                }
-              ]
+logzio-k8s-telemetry:
+  tracesConfig:
+    processors:
+      tail_sampling:
+        policies:
+          [
+            {
+              name: error-in-policy,
+              type: status_code,
+              status_code: {status_codes: [ERROR]}
+            },
+            {
+              name: slow-traces-policy,
+              type: latency,
+              latency: {threshold_ms: 400}
+            },
+            {
+              name: health-traces,
+              type: and,
+              and: {
+                and_sub_policy:
+                [
+                  {
+                    name: ping-operation,
+                    type: string_attribute,
+                    string_attribute: { key: http.url, values: [ /health ] }
+                  },
+                  {
+                    name: main-service,
+                    type: string_attribute,
+                    string_attribute: { key: service.name, values: [ main-service ] }
+                  },
+                  {
+                    name: probability-policy-1,
+                    type: probabilistic,
+                    probabilistic: {sampling_percentage: 1}
+                  }
+                ]
+              }
+            },
+            {
+              name: probability-policy,
+              type: probabilistic,
+              probabilistic: {sampling_percentage: 20}
             }
-          },
-          {
-            name: probability-policy,
-            type: probabilistic,
-            probabilistic: {sampling_percentage: 20}
-          }
-        ] 
+          ] 
 ```
 
 ```
-helm install -f <PATH-TO>/my_values.yaml \
+helm install -f <PATH-TO>/my_values.yaml -n monitoring \
 --set logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
---set logzio.tracing_token=<<TRACING-SHIPPING-TOKEN>> \
+--set logzio.tracing_token={@include: ../../_include/tracing-shipping/replace-tracing-token.html} \
 --set traces.enabled=true \
-logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
+logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
 Replace `<PATH-TO>` with the path to your custom `values.yaml` file.
-
-{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
-
-
 
 
 
@@ -298,10 +288,10 @@ Replace `<PATH-TO>` with the path to your custom `values.yaml` file.
 
 The uninstall command is used to remove all the Kubernetes components associated with the chart and to delete the release.  
 
-To uninstall the `logzio-k8s-telemetry` deployment, use the following command:
+To uninstall the `logzio-monitoring` deployment, use the following command:
 
 ```shell
-helm uninstall logzio-k8s-telemetry
+helm uninstall logzio-monitoring
 ```
 
 

@@ -9,7 +9,7 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/okta
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['']
+metrics_dashboards: []
 metrics_alerts: []
 drop_filter: []
 ---
@@ -85,9 +85,9 @@ tenants_credentials:
 | OKTA_DOMAIN (Required) | The Okta domain copied in step 1. It is found under the **Issuer URI column** in your Okta developer console.    Supports these [Okta domains](https://developer.okta.com/docs/guides/find-your-domain/findorg/):    example.oktapreview.com, example.okta.com, example.okta-emea.com |
 
 
-:::note
+:::tip
 YAML files are sensitive to spaces and tabs. It's a good idea to run your code through a YAML validator to make sure that its structure is correct. It's a good idea to run it through a YAML validator to rule out indentation errors, clean up extra characters, and check that it is valid. ([Yamllint.com](http://www.yamllint.com/) is a great choice.)
-{:.info-box.tip}
+:::
  
 
 
