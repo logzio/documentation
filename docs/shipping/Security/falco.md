@@ -262,7 +262,7 @@ output.logstash:
 
 
 
-{@include: ../../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include/general-shipping/replace-placeholders.html}
 
 * Replace the placeholder `<<filepath-to-falco-events.txt>>` with the filepath from the previous step.
 

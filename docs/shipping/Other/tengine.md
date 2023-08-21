@@ -1,5 +1,5 @@
 ---
-id: Tengine
+id: Tengine-data
 title: Tengine
 overview: Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
@@ -24,7 +24,7 @@ To send your Prometheus-format Tengine Web Server metrics to Logz.io, you need t
 
 #### Set up Telegraf v1.17 or higher
 
-{@include: ../_include/metric-shipping/telegraf-setup.md}
+{@include: ../../_include/metric-shipping/telegraf-setup.md}
 
   
   
@@ -55,8 +55,8 @@ The full list of data scraping and configuring options can be found [here](https
 
 #### Add the outputs.http plug-in
   
-{@include: ../_include/metric-shipping/telegraf-outputs.md}
-{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+{@include: ../../_include/metric-shipping/telegraf-outputs.md}
+{@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
   
 ### Start Telegraf
 

@@ -1,5 +1,5 @@
 ---
-id: DC-OS
+id: DC-OS-orchestration
 title: DC/OS
 overview: DC/OS (the Distributed Cloud Operating System) is an open-source, distributed operating system based on the Apache Mesos distributed systems kernel. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
@@ -9,7 +9,7 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/dcos
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['']
+metrics_dashboards: []
 metrics_alerts: []
 drop_filter: []
 ---
@@ -26,7 +26,7 @@ To send your Prometheus-format Mesosphere DC/OS metrics to Logz.io, you need to 
 
 #### Set up Telegraf v1.17 or higher on a dedicated server
 
-{@include: ../_include/metric-shipping/telegraf-setup.md}
+{@include: ../../_include/metric-shipping/telegraf-setup.md}
  
 #### Add the inputs.dcos plug-in
 
@@ -84,8 +84,8 @@ The database name is only required for instantiating a connection with the serve
 
 #### Add the outputs.http plug-in
 
-{@include: ../_include/metric-shipping/telegraf-outputs.md}
-{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+{@include: ../../_include/metric-shipping/telegraf-outputs.md}
+{@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
 
 ### Check Logz.io for your metrics
 

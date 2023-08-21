@@ -1,5 +1,5 @@
 ---
-id: Phusion-Passenger
+id: Phusion-Passenger-data
 title: Phusion Passenger
 overview: Phusion Passenger is a free web server and application server with support for Ruby, Python and Node.js. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
@@ -9,7 +9,7 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/phfu
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['']
+metrics_dashboards: []
 metrics_alerts: []
 drop_filter: []
 ---
@@ -28,7 +28,7 @@ To send your Prometheus-format Phusion Passenger metrics to Logz.io, you need to
 
 ##### Set up Telegraf v1.17 or higher on the Passanger server
 
-{@include: ../_include/metric-shipping/telegraf-setup.md}
+{@include: ../../_include/metric-shipping/telegraf-setup.md}
 
 ##### Add the inputs.Phusion Passenger plug-in
 
@@ -54,12 +54,12 @@ The full list of data scraping and configuring options can be found [here](https
 
 ##### Add the outputs.http plug-in
   
-{@include: ../_include/metric-shipping/telegraf-outputs.md}
-{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+{@include: ../../_include/metric-shipping/telegraf-outputs.md}
+{@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
   
 ##### Start Telegraf
 
-{@include: ../_include/metric-shipping/telegraf-run.md}
+{@include: ../../_include/metric-shipping/telegraf-run.md}
 
 ##### Check Logz.io for your metrics
 

@@ -24,7 +24,7 @@ drop_filter: []
 ### Download the Logz.io public certificate
 
 Download the
-[Logz.io public certificate]({@include: ../_include/log-shipping/certificate-path.md})
+[Logz.io public certificate]({@include: ../../_include/log-shipping/certificate-path.md})
 to `C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt`
 on your machine.
 
@@ -36,7 +36,7 @@ clear the content and start with a fresh file.
 
 Paste this code block.
 
-{@include: ../_include/log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/log-shipping-token.html}
 
 ```yaml
 winlogbeat.event_logs:
@@ -82,7 +82,7 @@ If Logz.io isn't the output, set it now.
 
 Winlogbeat can have one output only, so remove any other `output` entries.
 
-{@include: ../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-var.html} 
 
 ```yaml
 output.logstash:
@@ -141,14 +141,14 @@ LogFile %ROOT%\\data\\nxlog.log
 
 :::note
 For information on parsing multi-line messages, see [this](https://nxlog.co/documentation/nxlog-user-guide/parsing-multiline.html#parsing-multiline) from NXLog.
-{:.info-box.read}
+:::
  
 
 ### Add Windows as an input
 
 Add an `Input` block to append your account token to log records.
 
-{@include: ../_include/log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/log-shipping-token.html}
 
 ```conf
 <Input eventlog>
@@ -167,7 +167,7 @@ Add an `Input` block to append your account token to log records.
 
 Add the Logz.io listener in the `Output` block.
 
-{@include: ../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-var.html} 
 
 ```conf
 <Output out>
