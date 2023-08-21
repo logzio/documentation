@@ -155,8 +155,8 @@ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.tain
 helm install -n monitoring \
 --set metricsOrTraces.enabled=true \
 --set logzio-k8s-telemetry.metrics.enabled=true \
---set logzio-k8s-telemetry.secrets.MetricsToken="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>" \
---set logzio-k8s-telemetry.secrets.ListenerHost="https://<<LISTENER-HOST>>:8053" \
+--set logzio-k8s-telemetry.secrets.MetricsToken="{@include: ../../_include/p8s-shipping/replace-prometheus-token.html}" \
+--set logzio-k8s-telemetry.secrets.ListenerHost="{@include: ../../_include/p8s-shipping/replace-prometheus-listener.html}" \
 --set logzio-k8s-telemetry.secrets.p8s_logzio_name="<<CLUSTER-NAME>>" \
 --set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
 --set logzio-k8s-telemetry.collector.mode=standalone \
@@ -172,16 +172,6 @@ logzio-monitoring logzio-helm/logzio-monitoring
 
 
 For troubleshooting metrics shipping, see our [user guide](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/k8-helm-opentelemetry-troubleshooting.html).
-
-
-
-
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
-
-<!-- logzio-inject:install:grafana:dashboards ids=["1aO3NWtPAtVwO5Ipmc3Deh", "6KQUyksnNT2E40PifmCHR5", "X6YYCFajD56zayxcQOG2H", "M06b1BjTSGsSNZBWeiLnR"] -->
-
-{@include: ../../_include/metric-shipping/generic-dashboard.html} 
-
  
   
 
@@ -226,7 +216,7 @@ For troubleshooting this solution, see our [EKS troubleshooting guide](https://d
 helm install -n monitoring \
 --set metricsOrTraces.enabled=true \
 --set logzio-k8s-telemetry.traces.enabled=true \
---set logzio-k8s-telemetry.secrets.TracesToken="<<TRACES-SHIPPING-TOKEN>>" \
+--set logzio-k8s-telemetry.secrets.TracesToken="{@include: ../../_include/tracing-shipping/replace-tracing-token.html}" \
 --set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO-REGION>>" \
 --set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
@@ -249,7 +239,7 @@ For troubleshooting traces shipping, see our [user guide]([https://docs.logz.io/
 helm install -n monitoring \
 --set metricsOrTraces.enabled=true \
 --set logzio-k8s-telemetry.traces.enabled=true \
---set logzio-k8s-telemetry.secrets.TracesToken="<<TRACES-SHIPPING-TOKEN>>" \
+--set logzio-k8s-telemetry.secrets.TracesToken="{@include: ../../_include/tracing-shipping/replace-tracing-token.html}" \
 --set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO-REGION>>" \
 --set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
 --set logzio-k8s-telemetry.spm.enabled=true \
