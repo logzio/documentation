@@ -35,7 +35,7 @@ Java 8 or higher
 
  
 
-### Add the dependency to your project
+#### Add the dependency to your project
 
 Add a dependency to your project configuration file (for instance, `pom.xml` in a Maven project). 
 
@@ -68,7 +68,7 @@ The appender also requires a logger implementation, for example:
 
 The logzio-log4j2-appender artifact can be found in the Maven central repo at https://search.maven.org/artifact/io.logz.log4j2/logzio-log4j2-appender.
 
-### Configure the appender
+#### Configure the appender
 
 Use the samples in the code block below as a starting point, and replace the sample with a configuration that matches your needs.
 
@@ -126,7 +126,7 @@ See the [Log4j documentation](https://logging.apache.org/log4j/2.x/manual/config
 :::
  
 
-### Parameters
+#### Parameters
 | Parameter          | Default                              | Explained  |
 | ------------------ | ------------------------------------ | ----- |
 | **logzioToken**              | *None*                                 | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). {@include: ../../_include/log-shipping/log-shipping-token.html} Begin with `$` to use an environment variable or system property with the specified name. For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable. | Required |
@@ -190,12 +190,7 @@ If you receive an error message regarding a missing appender, try adding the fol
 
 ```
 
-#### More options
-
-You can optionally add mapped diagnostic context (MDC)
-and markers to your logs.
-
-##### MDC
+#### MDC
 
 When you add mapped diagnostic context (MDC) to your logs,
 each key-value pair you define is added log lines while the thread is alive.
@@ -226,7 +221,7 @@ public class LogzioLog4j2Example {
 }
 ```
 
-##### Markers
+#### Markers
 
 Markers are values you can use to tag and enrich log statements.
 
@@ -273,7 +268,7 @@ Java 8 or higher
 
  
 
-### Add the dependency to your project
+#### Add the dependency to your project
 
 Add a dependency to your project configuration file
 
@@ -312,7 +307,7 @@ Logback appender also requires logback classic:
 The logzio-log4j2-appender artifact can be found in the Maven central repo at https://search.maven.org/artifact/io.logz.log4j2/logzio-log4j2-appender.
 
 
-### Configure the appender
+#### Configure the appender
 
 Use the samples in the code block below as a starting point, and replace the sample with a configuration that matches your needs.
 
@@ -417,7 +412,7 @@ and markers to your logs.
 
 ##### MDC
 
-When you add MDC to your logs,
+When you add Mapped Diagnostic Context (MDC) to your logs,
 each key-value pair you define is added log lines while the thread is alive.
 
 So this code sample...
@@ -447,7 +442,7 @@ public class LogzioLogbackExample {
 }
 ```
 
-##### Markers
+#### Markers
 
 Markers are values you can use to tag and enrich log statements.
 
@@ -479,7 +474,7 @@ public class LogzioLogbackExample {
 }
 ```
   
-##### Troubleshooting
+#### Troubleshooting
   
 If the log appender does not ship logs, add `<inMemoryQueue>true</inMemoryQueue>` and `<inMemoryQueueCapacityBytes>-1</inMemoryQueueCapacityBytes>` to the configuration file as follows:
   
@@ -540,7 +535,7 @@ import io.micrometer.logzio.LogzioConfig;
 import io.micrometer.logzio.LogzioMeterRegistry;
 ```
 
-## Quick start
+#### Quick start
 
 Replace the placeholders in the code (indicated by the double angle brackets `<< >>`) to match your specifics.
 
@@ -613,7 +608,7 @@ class MicrometerLogzio {
 }
 ```
 
-## Common tags
+#### Common tags
 
 You can attach common tags to your registry that will be added to all metrics reported, for example:
 
@@ -624,7 +619,7 @@ LogzioMeterRegistry registry = new LogzioMeterRegistry(logzioConfig, Clock.SYSTE
 registry.config().commonTags("key", "value");
 ```
 
-## Filter labels
+#### Filter labels
 
 You can the `includeLabels` or `excludeLabels` functions to filter your metrics by labels.
 
@@ -660,7 +655,7 @@ public Hashtable<String, String> excludeLabels() {
 The registry will drop all metrics with the label `__name__` matching the regex `my_counter_abc_total|my_second_counter_abc_total`, and with the label `k1` matching the regex `v1`.
 
 
-## Meter binders
+#### Meter binders
 
 Micrometer provides a set of binders for monitoring JVM metrics out of the box, for example:
 
@@ -691,7 +686,7 @@ new Log4j2Metrics().bindTo(registry);
 
 For more information about other binders check out [Micrometer-core](https://github.com/micrometer-metrics/micrometer/tree/main/micrometer-core/src/main/java/io/micrometer/core/instrument/binder) Github repo.
 
-## Types of metrics 
+#### Types of metrics 
 
 Refer to the Micrometer [documentation](https://micrometer.io/docs/concepts) for more details.
 
@@ -787,12 +782,12 @@ timer.record(()-> {
 
 
 
-##### Run your application
+### Run your application
 
 Run your application to start sending metrics to Logz.io.
 
 
-##### Check Logz.io for your metrics
+### Check Logz.io for your metrics
 
 Give your metrics some time to get from your system to ours, and then open [Metrics dashboard](https://app.logz.io/#/dashboard/metrics/discover?).
 
@@ -811,7 +806,7 @@ This integration includes:
 
 On deployment, the Java agent automatically captures spans from your application and forwards them to the collector, which exports the data to your Logz.io account.
 
-#### Setup auto-instrumentation for your locally hosted Java application and send traces to Logz.io
+### Setup auto-instrumentation for your locally hosted Java application and send traces to Logz.io
 
 **Before you begin, you'll need**:
 
@@ -827,11 +822,11 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 <!-- info-box-end -->
 
 
-##### Download Java agent
+### Download Java agent
 
 Download the latest version of the [OpenTelemetry Java agent](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar) to the host of your Java application.
 
-##### Download and configure OpenTelemetry collector
+### Download and configure OpenTelemetry collector
 
 Create a dedicated directory on the host of your Java application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.70.0) that is relevant to the operating system of your host.
 
@@ -843,7 +838,7 @@ After downloading the collector, create a configuration file `config.yaml` with 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
 
-##### Start the collector
+### Start the collector
 
 Run the following command:
 
@@ -853,7 +848,7 @@ Run the following command:
 * Replace `<path/to>` with the path to the directory where you downloaded the collector.
 * Replace `<VERSION-NAME>` with the version name of the collector applicable to your system, e.g. `otelcontribcol_darwin_amd64`.
 
-##### Attach the agent to the collector and run it
+### Attach the agent to the collector and run it
 
 Run the following command from the directory of your Java application:
 
@@ -870,12 +865,12 @@ java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
 * Replace `<YOUR-SERVICE-NAME>` with the name of your tracing service defined earlier.
 
 
-##### Check Logz.io for your traces
+### Check Logz.io for your traces
 
 Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
 
 
-###### Controlling the number of spans
+### Controlling the number of spans
 
 To limit the number of outgoing spans, you can use the sampling option in the Java agent.
 
