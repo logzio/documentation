@@ -1,5 +1,5 @@
 ---
-id: Docker-Swarm
+id: Docker-Swarm-orchestration
 title: Docker Swarm
 overview: Deploy this integration to ship metrics from your Docker Swarm network using containerized Telegraf agent.
 product: ['metrics']

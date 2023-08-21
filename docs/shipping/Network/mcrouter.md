@@ -1,5 +1,5 @@
 ---
-id: Mcrouter
+id: Mcrouter-network
 title: Mcrouter
 overview: Mcrouter is a memcached protocol router for scaling memcached deployments. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']

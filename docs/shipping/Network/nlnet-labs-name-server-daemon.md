@@ -1,5 +1,5 @@
 ---
-id: nlnet-labs-name-server-daemon
+id: nlnet-labs-name-server-daemon-network
 title: NLnet Labs Name Server Daemon
 overview: NLnet Labs Name Server Daemon (NSD) is an authoritative DNS name server. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']

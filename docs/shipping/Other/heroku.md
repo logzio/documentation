@@ -1,5 +1,5 @@
 ---
-id: Heroku
+id: Heroku-data
 title: Heroku
 overview: Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud. This integration allows you to send logs from your Heroku applications to your Logz.io account. 
 product: ['logs','metrics']

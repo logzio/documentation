@@ -1,5 +1,5 @@
 ---
-id: Salesforce-Commerce-Cloud
+id: Salesforce-Commerce-Cloud-data
 title: Salesforce Commerce Cloud
 overview: Salesforce Commerce Cloud is a scalable, cloud-based software-as-a-service (SaaS) ecommerce platform. This integration allows you to collect data from Salesforce Commerce Cloud and send it to your Logz.io account.
 product: ['metrics']

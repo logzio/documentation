@@ -1,5 +1,5 @@
 ---
-id: Stormshield
+id: Stormshield-network
 title: Stormshield
 overview: Stormshield provides cyber-security solutions. This integration allows you to send logs from your Stormshield applications to your Logz.io SIEM account.
 product: ['logs']

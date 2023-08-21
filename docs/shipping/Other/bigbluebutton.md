@@ -1,5 +1,5 @@
 ---
-id: BigBlueButton
+id: BigBlueButton-data
 title: BigBlueButton
 overview: BigBlueButton is a free software web conferencing system for Linux servers. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']

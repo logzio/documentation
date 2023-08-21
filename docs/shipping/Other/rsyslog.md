@@ -1,5 +1,5 @@
 ---
-id: Rsyslog
+id: Rsyslog-data
 title: Rsyslog
 overview: Most Unix systems these days come with pre-installed rsyslog, which is a great lightweight service to consolidate logs.
 product: ['logs']

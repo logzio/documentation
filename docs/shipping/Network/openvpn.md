@@ -1,5 +1,5 @@
 ---
-id: OpenVPN
+id: OpenVPN-network
 title: OpenVPN
 overview: OpenVPN  is a virtual private network system for secure point-to-point or site-to-site connections.
 product: ['metrics']

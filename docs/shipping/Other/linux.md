@@ -1,5 +1,5 @@
 ---
-id: Linux
+id: Linux-data
 title: Linux
 overview: This integration sends Linux logs to Logz.io
 product: ['logs']

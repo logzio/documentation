@@ -1,5 +1,5 @@
 ---
-id: Network-devices
+id: Network-devices-network
 title: Network devices
 overview: This integration allows you to send logs from your network devices to your Logz.io account. 
 product: ['logs']

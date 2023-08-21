@@ -1,5 +1,5 @@
 ---
-id: OpenTelemetry
+id: OpenTelemetry-data
 title: OpenTelemetry
 overview: Deploy this integration to send traces from your OpenTelemetry installation to Logz.io.
 product: ['tracing']

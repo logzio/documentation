@@ -1,5 +1,5 @@
 ---
-id: SentinelOne
+id: SentinelOne-security
 title: SentinelOne
 overview: SentinelOne platform delivers the defenses to prevent, detect, and undo—known and unknown—threats. This integration allows you to send logs from your SentinelOne applications to your Logz.io SIEM account.
 product: ['logs']

@@ -1,5 +1,5 @@
 ---
-id: Fluent-Bit
+id: Fluent-Bit-data
 title: Fluent Bit
 overview: Fluent Bit is an open source Log Processor and Forwarder which allows you to collect any data like metrics and logs from different sources. This integration allows you to send logs from Fluent Bit running as a standalone app and forward them to your Logz.io account.
 product: ['logs']

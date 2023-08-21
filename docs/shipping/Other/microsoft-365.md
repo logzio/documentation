@@ -1,5 +1,5 @@
 ---
-id: Microsoft-365
+id: Microsoft-365-data
 title: Microsoft 365
 overview: Deploy this integration to send Unified Audit Logging logs from Microsoft 365 to Logz.io.
 product: ['logs']

@@ -1,5 +1,5 @@
 ---
-id: Disque
+id: Disque-data
 title: Disque
 overview: Disque is a distributed message broker. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']

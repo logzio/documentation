@@ -1,5 +1,5 @@
 ---
-id: Wazuh
+id: Wazuh-security
 title: Wazuh
 overview: Wazuh is a free, open source and enterprise-ready security monitoring solution for threat detection, integrity monitoring, incident response and compliance. This integration allows you to send Wazuh logs to your Logz.io SIEM account.
 product: ['logs','siem']

@@ -1,5 +1,5 @@
 ---
-id: Jaeger
+id: Jaeger-data
 title: Jaeger
 overview: Deploy this integration to send traces from your Jaeger installation to Logz.io.
 product: ['tracing']

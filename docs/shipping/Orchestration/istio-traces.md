@@ -1,5 +1,5 @@
 ---
-id: Istio
+id: Istio-orchestration
 title: Istio
 overview: Deploy this integration to send traces from your Istio service mesh layers to Logz.io via the OpenTelemetry collector.
 product: ['tracing']

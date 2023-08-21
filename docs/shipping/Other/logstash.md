@@ -1,5 +1,5 @@
 ---
-id: Logstash
+id: Logstash-data
 title: Logstash
 overview: This integration ships Logstash metrics to Logz.io.
 product: ['metrics']

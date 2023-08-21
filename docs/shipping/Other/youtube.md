@@ -1,5 +1,5 @@
 ---
-id: Youtube
+id: Youtube-data
 title: Youtube
 overview: Youtube is an online video sharing and social media platform. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']

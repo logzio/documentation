@@ -1,5 +1,5 @@
 ---
-id: Vector
+id: Vector-data
 title: Vector
 overview: Vector by Datadog is a lightweight, ultra-fast tool for building observability pipelines. Deploy this integration to send logs from your Vector tools to your Logz.io account.
 product: ['logs']

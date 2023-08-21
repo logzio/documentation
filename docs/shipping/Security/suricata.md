@@ -1,5 +1,5 @@
 ---
-id: Suricata
+id: Suricata-security
 title: Suricata
 overview: Suricata is an open source-based intrusion detection system and intrusion prevention system. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']

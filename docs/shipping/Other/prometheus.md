@@ -1,5 +1,5 @@
 ---
-id: Prometheus
+id: Prometheus-data
 title: Prometheus
 overview: This project lets you send Prometheus-format logs, metrics and traces to Logz.io.
 product: ['metrics', 'logs']

@@ -1,5 +1,5 @@
 ---
-id: Kubernetes-events
+id: Kubernetes-events-orchestration
 title: Kubernetes events
 overview: This guide uses the kubernetes-event-exporter tool to ship kubernetes events to Logz.io.
 product: ['metrics']

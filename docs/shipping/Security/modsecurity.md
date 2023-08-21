@@ -1,5 +1,5 @@
 ---
-id: ModSecurity
+id: ModSecurity-security
 title: ModSecurity
 overview: ModSecurity, sometimes called Modsec, is an open-source web application firewall. This integration allows you to send ModSecurity logs to your Logz.io SIEM account.
 product: ['logs']

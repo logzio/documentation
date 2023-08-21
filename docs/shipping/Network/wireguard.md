@@ -1,5 +1,5 @@
 ---
-id: WireGuard
+id: WireGuard-network
 title: WireGuard
 overview: WireGuard is a communication protocol and free and open-source software that implements encrypted virtual private networks, and was designed with the goals of ease of use, high speed performance, and low attack surface. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']

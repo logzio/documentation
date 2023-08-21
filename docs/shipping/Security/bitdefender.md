@@ -1,5 +1,5 @@
 ---
-id: Bitdefender
+id: Bitdefender-security
 title: Bitdefender
 overview: Bitdefender is an antivirus software. This integration allows you to send Bitdefender logs to your Logz.io SIEM account.
 product: ['logs']

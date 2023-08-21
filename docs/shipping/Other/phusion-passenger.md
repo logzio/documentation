@@ -1,5 +1,5 @@
 ---
-id: Phusion-Passenger
+id: Phusion-Passenger-data
 title: Phusion Passenger
 overview: Phusion Passenger is a free web server and application server with support for Ruby, Python and Node.js. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
