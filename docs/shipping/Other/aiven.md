@@ -1,5 +1,5 @@
 ---
-id: Aiven
+id: Aiven-data
 title: Aiven
 overview: Aiven is a cloud service provider that specializes in managed open-source database, messaging, and event streaming solutions.
 product: ['logs']

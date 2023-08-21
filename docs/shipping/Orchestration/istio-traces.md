@@ -1,5 +1,5 @@
 ---
-id: Istio
+id: Istio-orchestration
 title: Istio
 overview: Deploy this integration to send traces from your Istio service mesh layers to Logz.io via the OpenTelemetry collector.
 product: ['tracing']
@@ -48,7 +48,7 @@ helm install  \
 logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 ```
 
-{@include: ../_include/tracing-shipping/replace-tracing-token.html}
+{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
 
 ### 3. Define the logzio-k8s-telemetry service name

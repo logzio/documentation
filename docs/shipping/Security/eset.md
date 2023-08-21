@@ -91,7 +91,7 @@ output.logstash:
 ```
 
 
-{@include: ../../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include/general-shipping/replace-placeholders.html}
 
 :::note
 One last validation - make sure Logz.io is the only output and appears only once.

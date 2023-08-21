@@ -1,5 +1,5 @@
 ---
-id: Cloudflare
+id: Cloudflare-network
 title: Cloudflare
 overview: The Cloudflare web application firewall (WAF) protects your internet property against malicious attacks that aim to exploit vulnerabilities such as SQL injection attacks, cross-site scripting, and cross-site forgery requests.
 product: ['logs']
