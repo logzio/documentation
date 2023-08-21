@@ -123,6 +123,7 @@ rootLogger.appenderRef.logzioAppender.ref = logzioAppender
 :::note
 See the [Log4j documentation](https://logging.apache.org/log4j/2.x/manual/configuration.html) for more information on the Log4j 2 configuration file.
 {:.info-box.read}
+:::
  
 
 ### Parameters
@@ -320,6 +321,7 @@ For a complete list of options, see the configuration parameters below the code 
 :::note
 See the [Logback documentation](https://logback.qos.ch/manual/configuration.html) for more information on the Logback configuration file.
 {:.info-box.read}
+:::
  
 
 ```xml
@@ -851,7 +853,7 @@ Run the following command:
 * Replace `<path/to>` with the path to the directory where you downloaded the collector.
 * Replace `<VERSION-NAME>` with the version name of the collector applicable to your system, e.g. `otelcontribcol_darwin_amd64`.
 
-##### 4. Attach the agent to the collector and run it
+##### Attach the agent to the collector and run it
 
 Run the following command from the directory of your Java application:
 
@@ -868,7 +870,7 @@ java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
 * Replace `<YOUR-SERVICE-NAME>` with the name of your tracing service defined earlier.
 
 
-##### 5. Check Logz.io for your traces
+##### Check Logz.io for your traces
 
 Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
 
