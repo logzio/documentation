@@ -50,7 +50,7 @@ https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=github
 http://<<LISTENER-HOST>>:8070/?token=<<LOG-SHIPPING-TOKEN>>&type=github
 ```
 
-{@include: ../../_include//log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/log-shipping-token.html}
 
 {@include: ../../_include/log-shipping/listener-var.html}
 

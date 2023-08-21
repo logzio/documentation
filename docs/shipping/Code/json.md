@@ -35,7 +35,7 @@ Otherwise, for HTTP shipping, use this configuration:
 http://<<LISTENER-HOST>>:8070?token=<<LOG-SHIPPING-TOKEN>>&type=<<MY-TYPE>>
 ```
 
-{@include: ../../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include/general-shipping/replace-placeholders.html}
 
 * {@include: ../../_include/log-shipping/type.md} Otherwise, the default `type` is `http-bulk`.
 

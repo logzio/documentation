@@ -1,5 +1,5 @@
 ---
-id: Intercom
+id: Intercom-data
 title: Intercom
 overview: Intercom is a messaging platform with bots, apps, product tours and oher features. Deploy this integration to ship Intercom events from your Intercom account to Logz.io using webhooks. 
 product: ['metrics']
@@ -44,9 +44,9 @@ Deploy this integration to ship Intercom events from your Intercom account to Lo
    ```shell
    https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=<<MY-TYPE>>
    ```
-      {@include: ../_include//general-shipping/replace-placeholders.md}
+      {@include: ../../_include/general-shipping/replace-placeholders.md}
 
-9. {@include: ../_include/log-shipping/type.md}
+9. {@include: ../../_include/log-shipping/type.md}
 
 10. Select the required webhook topics for the notification types that will be sent to Logz.io.
 

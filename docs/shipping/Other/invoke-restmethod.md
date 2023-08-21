@@ -1,5 +1,5 @@
 ---
-id: invoke-restmethod
+id: invoke-restmethod-data
 title: Invoke RestMethod
 overview: Invoke-RestMethod is a command to interact with REST APIs in PowerShell. Invoke-RestMethod is a quick and easy way to test your configuration or troubleshoot your connectivity to Logz.io.
 product: ['logs']
@@ -45,9 +45,9 @@ you can send them directly to the Logz.io listener as a minified JSON file.
 Invoke-RestMethod -method POST -Uri https://<<LISTENER-HOST>>:8071?token=<<LOG-SHIPPING-TOKEN>>"&"<<LOG-TYPE>> -InFile <<PATH/TO/LOG/FILE.JSON>>
 ```
 
-{@include: ../_include//general-shipping/replace-placeholders.html}
+{@include: ../../_include/general-shipping/replace-placeholders.html}
 
-* {@include: ../_include/log-shipping/type.md} Otherwise, the default `type` is `http-bulk`.
+* {@include: ../../_include/log-shipping/type.md} Otherwise, the default `type` is `http-bulk`.
 * Replace `<<PATH/TO/LOG/FILE.JSON>>` with the path to your log file.
 
 ### Check Logz.io for your logs

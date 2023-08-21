@@ -64,8 +64,9 @@ Specify the stack details as per the table below, check the checkboxes and selec
 | `httpEndpointDestinationSizeInMBs`         | The size of the buffer, in MBs, that Kinesis Data Firehose uses for incoming data before delivering it to the destination                                                                                                                                | `5`               |
 
 
+:::caution Important
 AWS limits every log group to have up to 2 subscription filters. If your chosen log group already has 2 subscription filters, the trigger function won't be able to add another one.
-{:.info-box.important}
+:::
 
 
 
@@ -77,8 +78,10 @@ Give the stack a few minutes to be deployed.
 
 Once new logs are added to your chosen log group, they will be sent to your Logz.io account.
 
+
+:::caution Important
 If you've used the `services` field, you'll have to **wait 6 minutes** before creating new log groups for your chosen services. This is due to cold start and custom resource invocation, that can cause the Lambda to behave unexpectedly.
-{:.info-box.important}
+:::
 
 ##### Check Logz.io for your logs
 

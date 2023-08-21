@@ -1,5 +1,5 @@
 ---
-id: NVIDIA
+id: NVIDIA-data
 title: NVIDIA
 overview: NVIDIA System Management Interface (nvidia-smi) is a command line utility, based on top of the NVIDIA Management Library (NVML), intended to aid in the management and monitoring of NVIDIA GPU devices. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
@@ -9,7 +9,7 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/nvid
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['']
+metrics_dashboards: []
 metrics_alerts: []
 drop_filter: []
 ---
@@ -25,7 +25,7 @@ To send your Prometheus-format NVIDIA SMI metrics to Logz.io, you need to add th
 
 #### Set up Telegraf v1.17 or higher on the same machine as the NVIDIA card
 
-{@include: ../_include/metric-shipping/telegraf-setup.md}
+{@include: ../../_include/metric-shipping/telegraf-setup.md}
 
   
 #### Add the inputs.nvidia_smi plug-in
@@ -50,8 +50,8 @@ The database name is only required for instantiating a connection with the serve
 
 #### Add the outputs.http plug-in
 
-{@include: ../_include/metric-shipping/telegraf-outputs.md}
-{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+{@include: ../../_include/metric-shipping/telegraf-outputs.md}
+{@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
 
 ### Check Logz.io for your metrics
 

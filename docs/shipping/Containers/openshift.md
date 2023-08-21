@@ -9,7 +9,7 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/open
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['']
+metrics_dashboards: []
 metrics_alerts: []
 drop_filter: []
 ---
@@ -114,7 +114,7 @@ In the resources file, go to the Daemonset section and edit the following enviro
 
 :::note
 The above variables can be edited directly in the DaemonSet without the Configmap.
-{:.info-box.read}
+:::
 
 
 ##### Add additional configuration in the Configmap
