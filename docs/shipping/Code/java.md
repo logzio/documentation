@@ -865,11 +865,6 @@ java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
 * Replace `<YOUR-SERVICE-NAME>` with the name of your tracing service defined earlier.
 
 
-### Check Logz.io for your traces
-
-Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
-
-
 ### Controlling the number of spans
 
 To limit the number of outgoing spans, you can use the sampling option in the Java agent.
@@ -890,3 +885,6 @@ Supported values for `otel.traces.sampler` are
 - "parentbased_always_off": ParentBased(root=AlwaysOffSampler)
 - "parentbased_traceidratio": ParentBased(root=TraceIdRatioBased). `otel.traces.sampler.arg` sets the ratio.
 
+### Check Logz.io for your traces
+
+Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
