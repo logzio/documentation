@@ -2,7 +2,7 @@
 id: AWS-ECS-Fargate
 title: AWS ECS Fargate 
 overview: AWS Fargate is a serverless compute engine for building applications without managing servers.
-product: ['metrics']
+product: ['metrics','tracing']
 os: ['windows', 'linux']
 filters: ['AWS', 'Compute', 'Containers']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-fargate.svg
@@ -60,7 +60,12 @@ Click on the **Launch Stack** button below to deploy the CloudFormation template
 
 Update the OTLP exporter configuration in your applications to point to the new collector container running in your ECS Fargate tasks.
 
-## Parameters
+### Check Logz.io for your data
+
+Give your data some time to get from your system to ours.
+
+
+### Parameters
 
 The CloudFormation template requires the following parameters:
 ### Traces and metrics
