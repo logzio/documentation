@@ -6,7 +6,6 @@ product: ['metrics']
 os: ['windows', 'linux']
 filters: ['GCP', 'Memory Caching']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/memorystore.png
-
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
