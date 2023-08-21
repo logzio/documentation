@@ -35,7 +35,7 @@ We recommend the configuaration shown in the code block.
 
 :::note
 Find the complete configuration docs at [http sink](https://vector.dev/docs/reference/configuration/sinks/http/) from Vector.
-{:.info-box.read}
+:::
 
 
 ```toml
