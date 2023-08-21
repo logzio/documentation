@@ -17,13 +17,12 @@ drop_filter: []
 
 You can ship logs available from Azure Security Center via the Microsoft Graph APIs with Logzio-MSGraph. Logzio-MSGraph is a self-hosted application.
 
-Logzio-MSGraph currently supports the following Azure Security Center APIs:
+Logzio-MSGraph currently supports only the following Azure Security Center APIs:
 
 * Alerts
 
 There are many other APIs available through Microsoft Graph.
-If you don't see your API in the list,
-please [open an issue](https://github.com/logzio/microsoft-graph/issues/new) at GitHub to request it.
+If you don't see your API in the list, please [open an issue](https://github.com/logzio/microsoft-graph/issues/new) at GitHub to request it.
 
 To integrate Microsoft Graph and Logz.io:
 
@@ -31,15 +30,13 @@ To integrate Microsoft Graph and Logz.io:
 
 ### Register a new app in Azure Active Directory
 
-In the Azure portal, go to [App registration](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
-and select **New registration** from the top menu.
+In the Azure portal, go to [App registration](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) and select **New registration** from the top menu.
 
 Name your app and click **Register**.
 
 ### Create a client secret
 
-Choose **Certificates & secrets** from the side menu,
-and click on **New client secret**.
+Choose **Certificates & secrets** from the side menu, and click on **New client secret**.
 
 Add a **Description**.
 We recommend something specific, such as "secret for Logzio-MSGraph integration".
@@ -58,8 +55,7 @@ You won't be able to retrieve the secret's value after you leave this page.
 
 ### Set the app's permissions
 
-Choose **API permissions** from the side menu,
-and click **Add a permission**.
+Choose **API permissions** from the side menu, and click **Add a permission**.
 
 Select **Microsoft Graph > Application permissions**.
 
@@ -145,8 +141,7 @@ In a Docker container:
 docker run -d -v $(pwd)/logzio-msgraph-config.yaml:/config.yaml logzio/logzio-msgraph
 ```
 
-Or to run as a standalone Java app,
-download the latest jar from the [release page](https://github.com/logzio/microsoft-graph/releases).
+Or to run as a standalone Java app, download the latest jar from the [release page](https://github.com/logzio/microsoft-graph/releases).
 Then run:
 
 ```shell
@@ -159,6 +154,6 @@ Logs collected by this integration will have the type `Microsoft-Graph`
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-management/troubleshooting/log-shipping-troubleshooting.html).
 
  
