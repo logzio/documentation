@@ -230,13 +230,13 @@ we will use `cool app` as the `app_name` and the `message` will have strings con
 In Logz.io we wish to have `app_name`, `message` in their own fields, named `my_app` and `my_message`, respectively.
 To do so, we'll set the environment variables as follows:
 
-## GROK_PATTERNS
+### GROK_PATTERNS
 
 The `GROK_PATTERNS` variable should be in a JSON format.
 The key is used as the pattern name, and the value should be the regex that captures the pattern.
 In our case, while `app_name` always stays `cool app`, we don't know what `message` will be, so we need to set `GROK_PATTERNS` as: `{"app_name":"cool app","message":".*"}`
 
-## LOGS_FORMAT
+### LOGS_FORMAT
 
 The `LOGS_FORMAT` variable will contain the same format as the logs, according to the pattern names that we used in `GROK_PATTERNS`.
 The variable should be in a grok format for each pattern name: `${PATTERN_NAME:FIELD_NAME}` where `PATTERN_NAME` is the pattern name from `GROK_PATTERNS`, and `FIELD_NAME` is the name of the field you want the pattern to be parsed to.
@@ -252,7 +252,7 @@ my_message: The sky is so blue
 
 This project uses an external module for its grok parsing. To learn more about it, see the [grok library repo](https://github.com/vjeantet/grok).
 
-## Nested fields
+### Nested fields
 
 As of v0.2.0 the extension can detect if a log is in a JSON format, and to parse the fields to appear as nested fields in the Logz.io app.
 For example, the following log:
