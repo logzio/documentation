@@ -75,7 +75,7 @@ Filebeat is often the easiest way to get logs from your system to Logz.io. Logz.
 **Before you begin, you'll need**: 
 
 
-{@include: ../../_include//log-shipping/filebeat-installed-port5015-begin.md} installed as a Windows service{@include: ../_include//log-shipping/filebeat-installed-port5015-end.md}
+{@include: ../../_include/log-shipping/filebeat-installed-port5015-begin.md} installed as a Windows service{@include: ../../_include/log-shipping/filebeat-installed-port5015-end.md}
 
 
 
