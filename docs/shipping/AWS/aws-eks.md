@@ -74,7 +74,7 @@ Fluentd splits multiline logs by default. If your original logs span multiple li
 
 The Logz.io Docker image comes with a pre-built Fluentd filter plug-in that can be used to concatenate multiline logs. The plug-in is named `fluent-plugin-concat` and you can view the full list of configuration options in the [GitHub project](https://github.com/fluent-plugins-nursery/fluent-plugin-concat).
 
-#### Example
+### Example
 
 The following is an example of a multiline log sent from a deployment on a k8s cluster:
 
@@ -103,10 +103,23 @@ For the above example, we could use the following regex expressions to demarcate
 </filter>
 ```
 
-## Monitoring fluentd with prometheus
+### Monitoring fluentd with prometheus
 In order to monitor fluentd and collect input & output metrics. You can 
 enable prometheus configuration with the `logzio-fluentd.daemonset.fluentdPrometheusConf` and `logzio-fluentd.windowsDaemonset.fluentdPrometheusConf` parameter (default to false).
 When enabling promehteus configuration, the pod collects and exposes fluentd metrics on port `24231`, `/metrics` endpoint.
+
+### Modifying the configuration
+
+You can see a full list of the possible configuration values in the [logzio-fluentd Chart folder](https://github.com/logzio/logzio-helm/tree/master/charts/fluentd#configuration).
+
+If you would like to modify any of the values found in the `logzio-fluentd` folder, use the `--set` flag with the `logzio-fluentd` prefix.
+
+For instance, if there is a parameter called `someField` in the `logzio-telemetry`'s `values.yaml` file, you can set it by adding the following to the `helm install` command:
+
+```sh
+--set logzio-fluentd.someField="my new value"
+```
+You can add `log_type` annotation with a custom value, which will be parsed into a `log_type` field with the same value.
 
 ### Sending logs from nodes with taints
 
@@ -172,28 +185,6 @@ logzio-monitoring logzio-helm/logzio-monitoring
 
 For troubleshooting metrics shipping, see our [user guide](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/k8-helm-opentelemetry-troubleshooting.html).
  
-  
-
-### Check Logz.io for your metrics
-
-Give your metrics some time to get from your system to ours.
-
-
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
-
-<!-- logzio-inject:install:grafana:dashboards ids=["1aO3NWtPAtVwO5Ipmc3Deh", "6KQUyksnNT2E40PifmCHR5", "X6YYCFajD56zayxcQOG2H", "M06b1BjTSGsSNZBWeiLnR"] -->
-
-{@include: ../../_include/metric-shipping/generic-dashboard.html} 
-  
- 
-
-For troubleshooting this solution, see our [EKS troubleshooting guide](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/eks-helm-opentelemetry-troubleshooting.html).
-  
-  
-
-##  Customizing Helm chart parameters
-
- 
 
 ### Customize the metrics collected by the Helm chart 
 
@@ -205,9 +196,19 @@ The default configuration uses the Prometheus receiver with the following scrape
 To customize your configuration, edit the `config` section in the `values.yaml` file.
 
  
+### Check Logz.io for your metrics
+Give your metrics some time to get from your system to ours.
+
+
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["1aO3NWtPAtVwO5Ipmc3Deh", "6KQUyksnNT2E40PifmCHR5", "X6YYCFajD56zayxcQOG2H", "M06b1BjTSGsSNZBWeiLnR"] -->
+
+{@include: ../../_include/metric-shipping/generic-dashboard.html} 
+  
+ 
 For troubleshooting this solution, see our [EKS troubleshooting guide](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/eks-helm-opentelemetry-troubleshooting.html).
-
-
+ 
 ## Send your traces
 
 ```sh
@@ -241,7 +242,7 @@ helm install -n monitoring \
 --set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO-REGION>>" \
 --set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
 --set logzio-k8s-telemetry.spm.enabled=true \
---set logzio-k8s-telemetry.secrets.SpmToken=<<SPM-SHIPPING-TOKEN>> \
+--set logzio-k8s-telemetry.secrets.SpmToken={@include: ../../_include/tracing-shipping/replace-spm-token.html} \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
@@ -270,21 +271,7 @@ helm install -n monitoring \
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
 
 
-## Modifying the configuration for logs
-
-You can see a full list of the possible configuration values in the [logzio-fluentd Chart folder](https://github.com/logzio/logzio-helm/tree/master/charts/fluentd#configuration).
-
-If you would like to modify any of the values found in the `logzio-fluentd` folder, use the `--set` flag with the `logzio-fluentd` prefix.
-
-For instance, if there is a parameter called `someField` in the `logzio-telemetry`'s `values.yaml` file, you can set it by adding the following to the `helm install` command:
-
-```sh
---set logzio-fluentd.someField="my new value"
-```
-You can add `log_type` annotation with a custom value, which will be parsed into a `log_type` field with the same value.
-
-
-### Modifying the configuration for metrics and traces
+## Modifying the configuration for metrics and traces
 
 You can see a full list of the possible configuration values in the [logzio-telemetry Chart folder](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-telemetry).
 
@@ -296,10 +283,6 @@ For instance, if there is a parameter called `someField` in the `logzio-telemetr
 ```sh
 --set logzio-k8s-telemetry.someField="my new value"
 ```
-
-
-
-  
 
 ## **Uninstalling the Chart**
 
