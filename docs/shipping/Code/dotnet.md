@@ -1607,6 +1607,6 @@ Run the application to generate traces.
 
 Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
 
-### Troubleshooting
+## Troubleshooting
 
 {@include: ../../_include/tracing-shipping/otel-troubleshooting.md}
