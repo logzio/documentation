@@ -31,8 +31,8 @@ Send your logs
 ```sh
 helm install -n monitoring \
 --set logs.enabled=true \
---set logzio-fluentd.secrets.logzioShippingToken="<<LOG-SHIPPING-TOKEN>>" \
---set logzio-fluentd.secrets.logzioListener="<<LISTENER-HOST>>" \
+--set logzio-fluentd.secrets.logzioShippingToken="{@include: ../../_include/log-shipping/log-shipping-token.html}" \
+--set logzio-fluentd.secrets.logzioListener="{@include: ../../_include/log-shipping/listener-var.html}" \
 --set logzio-fluentd.env_id="<<CLUSTER-NAME>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
@@ -54,8 +54,8 @@ For troubleshooting log shipping, see our [user guide](https://docs.logz.io/user
 helm install -n monitoring \
 --set metricsOrTraces.enabled=true \
 --set logzio-k8s-telemetry.metrics.enabled=true \
---set logzio-k8s-telemetry.secrets.MetricsToken="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>" \
---set logzio-k8s-telemetry.secrets.ListenerHost="https://<<LISTENER-HOST>>:8053" \
+--set logzio-k8s-telemetry.secrets.MetricsToken="{@include: ../../_include/p8s-shipping/replace-prometheus-token.html}" \
+--set logzio-k8s-telemetry.secrets.ListenerHost="{@include: ../../_include/p8s-shipping/replace-prometheus-listener.html}" \
 --set logzio-k8s-telemetry.secrets.p8s_logzio_name="<<CLUSTER-NAME>>" \
 --set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
@@ -69,7 +69,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
 
 
-For troubleshooting metrics shipping, see our [user guide]([https://docs.logz.io/user-guide/kubernetes-troubleshooting/](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/k8-helm-opentelemetry-troubleshooting.html).
+For troubleshooting metrics shipping, see our [user guide](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/k8-helm-opentelemetry-troubleshooting.html).
 
 
 
@@ -79,7 +79,7 @@ For troubleshooting metrics shipping, see our [user guide]([https://docs.logz.io
 helm install -n monitoring \
 --set metricsOrTraces.enabled=true \
 --set logzio-k8s-telemetry.traces.enabled=true \
---set logzio-k8s-telemetry.secrets.TracesToken="<<TRACES-SHIPPING-TOKEN>>" \
+--set logzio-k8s-telemetry.secrets.TracesToken="{@include: ../../_include/tracing-shipping/replace-tracing-token.html}" \
 --set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO-REGION>>" \
 --set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
@@ -87,7 +87,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 
 | Parameter | Description |
 | --- | --- |
-| `<<TRACES-SHIPPING-TOKEN>>` | Your [traces shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
+| `<<TRACES-SHIPPING-TOKEN>>` | Your [traces shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=tracing). |
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
 | `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
 | `<<LOGZIO-REGION>>` | Name of your Logz.io traces region e.g `us`, `eu`... |
@@ -102,11 +102,11 @@ For troubleshooting traces shipping, see our [user guide]([https://docs.logz.io/
 helm install -n monitoring \
 --set metricsOrTraces.enabled=true \
 --set logzio-k8s-telemetry.traces.enabled=true \
---set logzio-k8s-telemetry.secrets.TracesToken="<<TRACES-SHIPPING-TOKEN>>" \
+--set logzio-k8s-telemetry.secrets.TracesToken="{@include: ../../_include/tracing-shipping/replace-tracing-token.html}" \
 --set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO-REGION>>" \
 --set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
 --set logzio-k8s-telemetry.spm.enabled=true \
---set logzio-k8s-telemetry.secrets.SpmToken=<<SPM-SHIPPING-TOKEN>> \
+--set logzio-k8s-telemetry.secrets.SpmToken={@include: ../../_include/tracing-shipping/replace-spm-token.html} \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
@@ -125,8 +125,8 @@ logzio-monitoring logzio-helm/logzio-monitoring
 helm install -n monitoring \
 --set securityReport.enabled=true \
 --set logzio-trivy.env_id="<<CLUSTER-NAME>>" \
---set logzio-trivy.secrets.logzioShippingToken="<<LOG-SHIPPING-TOKEN>>" \
---set logzio-trivy.secrets.logzioListener="<<LISTENER-HOST>>" \
+--set logzio-trivy.secrets.logzioShippingToken="{@include: ../../_include/log-shipping/log-shipping-token.html}" \
+--set logzio-trivy.secrets.logzioListener="{@include: ../../_include/log-shipping/listener-var.html}" \
 ```
 
 | Parameter | Description |
@@ -171,24 +171,26 @@ To ship logs from pods running on Fargate, set the `fargateLogRouter.enabled` va
 helm install -n monitoring \
 --set logs.enabled=true \
 --set logzio-fluentd.fargateLogRouter.enabled=true \
---set logzio-fluentd.secrets.logzioShippingToken="<<LOG-SHIPPING-TOKEN>>" \
---set logzio-fluentd.secrets.logzioListener="<<LISTENER-HOST>>" \
+--set logzio-fluentd.secrets.logzioShippingToken="{@include: ../../_include/log-shipping/listener-var.html}" \
+--set logzio-fluentd.secrets.logzioListener="{@include: ../../_include/log-shipping/listener-var.html}" \
 --set metricsOrTraces.enabled=true \
 --set logzio-k8s-telemetry.metrics.enabled=true \
---set logzio-k8s-telemetry.secrets.MetricsToken="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>" \
---set logzio-k8s-telemetry.secrets.ListenerHost="https://<<LISTENER-HOST>>:8053" \
+--set logzio-k8s-telemetry.secrets.MetricsToken="{@include: ../../_include/p8s-shipping/replace-prometheus-token.html}
+" \
+--set logzio-k8s-telemetry.secrets.ListenerHost="{@include: ../../_include/p8s-shipping/replace-prometheus-listener.html}
+" \
 --set logzio-k8s-telemetry.secrets.p8s_logzio_name="<<ENV-TAG>>" \
 --set logzio-k8s-telemetry.traces.enabled=true \
---set logzio-k8s-telemetry.secrets.TracesToken="<<TRACES-SHIPPING-TOKEN>>" \
+--set logzio-k8s-telemetry.secrets.TracesToken="{@include: ../../_include/tracing-shipping/replace-tracing-token.html}" \
 --set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO-REGION>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
 | Parameter | Description |
 | --- | --- |
-| `<<LOG-SHIPPING-TOKEN>>` | {@include: ../../_include/log-shipping/log-shipping-token.html} |
-| `<<LISTENER-HOST>>` | {@include: ../../_include/log-shipping/listener-var.html}. |
-| `<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>` | Your [metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
+| `<<LOG-SHIPPING-TOKEN>>` | Your [logs shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
+| `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
+| `<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>` | Your [metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=metrics). |
 | `<<P8S-LOGZIO-NAME>>` | The name for the environment's metrics, to easily identify the metrics for each environment. |
 | `<<ENV-ID>>` | The name for your environment's identifier, to easily identify the telemetry data for each environment. |
 | `<<ENV-TAG>>` | Your custom name for the environment's metrics, to easily identify the metrics for each environment. |
