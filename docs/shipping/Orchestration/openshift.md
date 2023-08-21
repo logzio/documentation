@@ -9,13 +9,63 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/open
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['']
+metrics_dashboards: []
 metrics_alerts: []
 drop_filter: []
 ---
 
 
-OpenShift is a family of containerization software products developed by Red Hat. Deploy this integration to ship logs from your OpenShift cluster to Logz.io. Deploy this integration to ship logs from your OpenShift cluster to Logz.io. This integration will deploy the default daemonset, which sends only container logs while ignoring all containers with "openshift" namespace.
+OpenShift is a family of containerization software products developed by Red Hat. Deploy this integration to ship logs from your OpenShift cluster to Logz.io. Deploy this integration to ship logs from your OpenShift cluster to Logz.io. 
+This integration will deploy the default daemonset, which sends only container logs while ignoring all containers with "openshift" namespace.
+
+**Before you begin, you'll need**:
+
+* Working Openshift cluster
+* Openshift CLI (oc) installed on your machine
+
+## Setup using default configuraiton
+
+### Create monitoring namespace
+
+```shell
+oc create namespace monitoring
+```
+
+### Store your Logz.io credentials
+
+```shell
+oc create secret generic logzio-logs-secret \
+  --from-literal=logzio-log-shipping-token='<<LOG-SHIPPING-TOKEN>>' \
+  --from-literal=logzio-log-listener='https://<<LISTENER-HOST>>:8071' \
+  -n monitoring
+```
+{@include: ../../_include/log-shipping/log-shipping-token.md}
+{@include: ../../_include/log-shipping/listener-var.html}
+
+### Deploy the resources
+
+```shell
+oc create -f https://raw.githubusercontent.com/logzio/logzio-openshift/main/resources.yaml \
+&& oc adm policy add-scc-to-user privileged -z fluentd \
+&& oc delete pod -l k8s-app=fluentd-logzio
+```
+
+:::note
+Fluentd will fetch all existing logs, as it is not able to ignore older logs.
+:::
+
+
+### Check Logz.io for your logs
+
+Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
+
+If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+
+## Setup using custom configuration 
+
+
+OpenShift is a family of containerization software products developed by Red Hat. Deploy this integration to ship logs from your OpenShift cluster to Logz.io. Deploy this integration to ship logs from your OpenShift cluster to Logz.io. This integration will deploy the daemonset with your custom configuration.
 
 **Before you begin, you'll need**:
 
@@ -38,63 +88,14 @@ oc create secret generic logzio-logs-secret \
   --from-literal=logzio-log-listener='https://<<LISTENER-HOST>>:8071' \
   -n monitoring
 ```
-{@include: ../_include/log-shipping/log-shipping-token.md}
-{@include: ../_include/log-shipping/listener-var.html}
+{@include: ../../_include/log-shipping/log-shipping-token.md}
+{@include: ../../_include/log-shipping/listener-var.html}
 
-### Deploy the resources
-
-```shell
-oc create -f https://raw.githubusercontent.com/logzio/logzio-openshift/main/resources.yaml \
-&& oc adm policy add-scc-to-user privileged -z fluentd \
-&& oc delete pod -l k8s-app=fluentd-logzio
-```
-
-:::note
-Fluentd will fetch all existing logs, as it is not able to ignore older logs.
-:::
-
-
-### Check Logz.io for your logs
-
-Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
-
-If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-
-
-
-
-
-OpenShift is a family of containerization software products developed by Red Hat. Deploy this integration to ship logs from your OpenShift cluster to Logz.io. Deploy this integration to ship logs from your OpenShift cluster to Logz.io. This integration will deploy the daemonset with your custom configuration.
-
-**Before you begin, you'll need**:
-
-* Working Openshift cluster
-* Openshift CLI (oc) installed on your machine
-
-
-
-##### Create monitoring namespace
-
-```shell
-oc create namespace monitoring
-```
-
-##### Store your Logz.io credentials
-
-```shell
-oc create secret generic logzio-logs-secret \
-  --from-literal=logzio-log-shipping-token='<<LOG-SHIPPING-TOKEN>>' \
-  --from-literal=logzio-log-listener='https://<<LISTENER-HOST>>:8071' \
-  -n monitoring
-```
-{@include: ../_include/log-shipping/log-shipping-token.md}
-{@include: ../_include/log-shipping/listener-var.html}
-
-##### Download the resources file
+### Download the resources file
 
 Download the [resouces file](https://raw.githubusercontent.com/logzio/logzio-openshift/main/resources.yaml) from our repository.
 
-##### Add environment variables to the resources file
+### Add environment variables to the resources file
 
 In the resources file, go to the Daemonset section and edit the following environment variables:
 
@@ -117,12 +118,12 @@ The above variables can be edited directly in the DaemonSet without the Configma
 {:.info-box.read}
 
 
-##### Add additional configuration in the Configmap
+### Add additional configuration in the Configmap
 
 If you wish to make any further configuration changes, go to the ConfigMap section of the file and make the changes that you need.
 
 
-##### Deploy the resources
+### Deploy the resources
 
 ```shell
 oc create -f /path/to/your/resources.yaml \
@@ -130,14 +131,8 @@ oc create -f /path/to/your/resources.yaml \
 && oc delete pod -l k8s-app=fluentd-logzio
 ```
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
-
-
-
-
-
-
+If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
