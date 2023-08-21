@@ -15,13 +15,13 @@ drop_filter: []
 ---
 
 
-#### Shipping Kubernetes events
+### Shipping Kubernetes events
 
 Kubernetes events are a resource type that Kubernetes automatically creates when other resources get state changes, errors, or other messages that should be shared across the system.
 
 This guide uses the [kubernetes-event-exporter](https://github.com/opsgenie/kubernetes-event-exporter) tool to ship kubernetes events to Logz.io.
 
-###### Sending logs from nodes with taints
+##### Sending logs from nodes with taints
 
 If you want to ship logs from any of the nodes that have a taint, make sure that the taint key values are listed in your in your daemonset/deployment configuration as follows:
   
@@ -42,13 +42,13 @@ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.tain
 
  
 
-##### Create monitoring namespace
+#### Create monitoring namespace
 
 ```shell
 kubectl create namespace monitoring
 ```
 
-##### Store your Logz.io credentials
+#### Store your Logz.io credentials
 Save your Logz.io shipping credentials as a Kubernetes secret. To do this, customize the sample command below to your specifics and run it.
 
 ```shell
@@ -58,21 +58,20 @@ kubectl create secret generic logzio-events-secret \
   -n monitoring
 ```
 
-* {@include: ../../_include//log-shipping/listener-var.html}
-* {@include: ../../_include//log-shipping/log-shipping-token.html}
+* {@include: ../../_include/log-shipping/listener-var.html}
+* {@include: ../../_include/log-shipping/log-shipping-token.html}
 
-##### Deploy
+#### Deploy
 
 ```shell
 kubectl apply -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-events.yaml
 ```
 
-##### Check Logz.io for your events
+#### Check Logz.io for your events
 
 Give your events some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs,
-see [Kubernetes log shipping troubleshooting]({{site.baseurl}}/user-guide/kubernetes-troubleshooting/).
+If you still don't see your logs, see [Kubernetes log shipping troubleshooting](https://docs.logz.io/user-guide/kubernetes-troubleshooting/).
   
  
 

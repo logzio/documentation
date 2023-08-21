@@ -61,7 +61,7 @@ You'll first need to make sure all your logs are being written to an S3 bucket.
 
 :::note
 If you run into issues, you can reference the [guide for troubleshooting user permissions](https://docs.logz.io/user-guide/give-aws-access-with-iam-roles/).
-{:.info-box.tip}
+:::
  
 
 ### Check Logz.io for your logs

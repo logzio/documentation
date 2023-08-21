@@ -1,5 +1,5 @@
 ---
-id: Beats
+id: Beats-data
 title: Beats
 overview: This document describes the way to get logs from your system to Logz.io using any of the Beats shippers.
 product: ['logs']

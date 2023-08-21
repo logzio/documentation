@@ -65,7 +65,7 @@ Your Kubernetes version may affect your options, as follows:
   
   If you are running K8S 1.17 or later, the DaemonSet is set to use `apiVersion: rbac.authorization.k8s.io/v1` by default. No change is needed.
 
-{@include: ../../_include//log-shipping/multiline-logs-fluentd.md}
+{@include: ../../_include/log-shipping/multiline-logs-fluentd.md}
 
  
 
@@ -246,7 +246,7 @@ If you need to specify multiple namespaces, add another `kubernetes.var.log.cont
 ## Multiline logs
 
 
-{@include: ../../_include//log-shipping/multiline-fluentd-plugin.md}
+{@include: ../../_include/log-shipping/multiline-fluentd-plugin.md}
 
  
 
@@ -333,9 +333,9 @@ affinity:
 
    * Replace `<<YOUR_NAMESPACE>>` with the required namespace.
 
-   * {@include: ../../_include//metric-shipping/replace-metrics-token.html}
+   * {@include: ../../_include/metric-shipping/replace-metrics-token.html}
 
-   * {@include: ../../_include//log-shipping/listener-var.html}
+   * {@include: ../../_include/log-shipping/listener-var.html}
 
    * Replace `<<ENV-TAG>>` with the name for the environment's metrics, to easily identify the metrics for each environment.
 

@@ -1,5 +1,5 @@
 ---
-id: Apache-Mesos
+id: Apache-Mesos-orchestration
 title: Apache Mesos
 overview: Apache Mesos is an open-source project to manage computer clusters.
 product: ['metrics']
@@ -25,7 +25,7 @@ To send your Prometheus-format Apache Mesos metrics to Logz.io, you need to add 
 
 ### Set up Telegraf v1.17 or higher
 
-{@include: ../_include/metric-shipping/telegraf-setup.md}
+{@include: ../../_include/metric-shipping/telegraf-setup.md}
 
 ### Add the inputs.mesos plug-in
 
@@ -82,12 +82,12 @@ The full list of data scraping and configuring options can be found [here](https
 
 ### Add the outputs.http plug-in
   
-{@include: ../_include/metric-shipping/telegraf-outputs.md}
-{@include: ../_include/general-shipping/replace-placeholders-prometheus.html}
+{@include: ../../_include/metric-shipping/telegraf-outputs.md}
+{@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
   
 ### Start Telegraf
 
-{@include: ../_include/metric-shipping/telegraf-run.md}
+{@include: ../../_include/metric-shipping/telegraf-run.md}
 
 ### Check Logz.io for your metrics
 
