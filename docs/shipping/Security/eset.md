@@ -1,5 +1,5 @@
 ---
-id: ESET-security
+id: ESET
 title: ESET
 overview: ESET provides anti-virus and firewall solutions. This integration allows you to send ESET logs to your Logz.io SIEM account.
 product: ['siem']

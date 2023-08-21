@@ -1,5 +1,5 @@
 ---
-id: Avast-security
+id: Avast
 title: Avast
 overview: Avast is a family of cross-platform internet security applications. This topic describes how to send system logs from your Avast Antivirus platform to Logz.io. 
 product: ['logs', 'siem']

@@ -1,5 +1,5 @@
 ---
-id: OpenVAS-security
+id: OpenVAS
 title: OpenVAS
 overview: These instructions show you how to configure Filebeat to send OpenVAS reports to Logz.io.
 product: ['logs']

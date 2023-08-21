@@ -1,5 +1,5 @@
 ---
-id: Cynet-security
+id: Cynet
 title: Cynet
 overview: Cynet is a cybersecurity asset management platform. This topic describes how to send system logs from your Cynet platform to Logz.io.
 product: ['siem']
