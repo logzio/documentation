@@ -20,11 +20,8 @@ Fluentd is a data collector, which unifies the data collection and consumption. 
 :::note
 Fluentd will fetch all existing logs, as it is not able to ignore older logs.
 :::
- 
 
-  
-
-#### Configure Fluentd
+#### Configure Fluentd with Ruby Gems
 
 **Before you begin, you'll need**:
 Ruby and ruby-dev 2.1 or higher
@@ -164,7 +161,7 @@ Fluentd will fetch all existing logs, as it is not able to ignore older logs.
 :::
   
 
-#### Configure Fluentd
+#### Configure Fluentd with td-agent
 
 **Before you begin, you'll need**:
 Ruby and ruby-dev 2.1 or higher
