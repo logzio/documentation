@@ -58,7 +58,7 @@ Your Logz.io listener may not be using the correct endpoint.
 Change the endpoint of your listener from `https://<<LISTENER-HOST>>:<<PORT>>` to `http://<<LISTENER-HOST>>:<<PORT>>` or from `http://<<LISTENER-HOST>>:<<PORT>>` to `https://<<LISTENER-HOST>>:<<PORT>>`
 
 
-{@include: ../../_include/log-shipping/listener-var.html}
+{@include: ../../../_include/log-shipping/listener-var.html}
 
 
 
