@@ -2,7 +2,7 @@
 id: dotnet
 title: .NET
 overview: Send .NET metrics.
-product: ['logs', 'metrics']
+product: ['logs', 'metrics', 'tracing']
 os: ['windows', 'linux']
 filters: ['Code']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/dotnet.png
