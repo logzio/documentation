@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 title: Single Sign-On for Azure Pay-As-You-Go Portal Integration
 ---
 

@@ -11,11 +11,10 @@ To send your Prometheus application metrics to a Logz.io Infrastructure Monitori
 :::
 
 
-### Configuring Remote Write to Logz.io
-
-
 {@include: ../../../_include/p8s-shipping/remotewrite-syd-userguide.md}
 
+
+<!--
 #### Add a remote_write url
 
 
@@ -25,9 +24,9 @@ Configure your Prometheus yaml file or use a Helm chart:
 
 Add the following parameters to your Prometheus yaml file:
 
+
 | Environment variable | Description |Required/Default|
 |---|---|---|
-
 
 
 ```yaml
@@ -108,3 +107,4 @@ After your metrics are flowing, [import your existing Prometheus and Grafana das
 
 * **Tune the remote write process**: Learn more about Prometheus [remote write tuning here.](https://prometheus.io/docs/practices/remote_write/) 
 
+-->

@@ -1,17 +1,16 @@
 ---
 sidebar_position: 11
-title: Cold search
+title: Cold Tier
 ---
 
 Archived data usually contains a lot of information, and it can take time and resources to sift through it and find what you’re looking for.
 
-With Cold search, you can seamlessly search cold storage data you've archived, view up to 1,000 raw logs that match your search query, and get the information you want. You can also re-ingest these logs to your Logz.io account to further analyze and investigate them.
+With Cold Tier, you can seamlessly search cold storage data you've archived, view up to 1,000 raw logs that match your search query, and get the information you want. You can also re-ingest these logs to your Logz.io account to further analyze and investigate them.
 
 
-![cold search fetched logs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cold-search/cold-search-close-up.png)
+![cold Tier fetched logs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cold-search/cold-search-close-up.png)
 
-To start using Cold search, navigate to [Log analytics > Cold search](https://app.logz.io/#/dashboard/osd/discover/).
-
+To start using Cold Tier, navigate to [Log analytics > Cold Tier](https://app.logz.io/#/dashboard/osd/discover/).
 
 <!-- ### Cold search overview
 
@@ -21,19 +20,20 @@ Click on the Cold search button to open the relevant screen.
 
 -->
 
-## Accessing Cold search
+## Accessing Cold Tier
 
-To get started with Cold search, contact your account manager or [Logz.io's support team](mailto:help@logz.io).
+To get started with Cold Tier, contact your account manager or [Logz.io's support team](mailto:help@logz.io).
 
-## Using Cold search
+## Using Cold Tier
+
 
 :::caution Important
-All users can fetch raw logs from Cold search. However, only **account admins** can re-ingest logs into the account.
+All users can fetch raw logs from Cold Tier. However, only **account admins** can re-ingest logs into the account.
 :::
 
-To use Cold search, navigate to [Log analytics](https://app.logz.io/#/dashboard/osd/discover/), choose Cold search from the navigation menu, or click the **Cold Search** button.
+To use Cold Tier, navigate to [Log analytics](https://app.logz.io/#/dashboard/osd/discover/), choose Cold Tier from the navigation menu, or click the **Cold Tier** button.
 
-![cold search nav](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cold-search/cold-search-from-nav.png)
+![cold Tier nav](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cold-search/cold-search-from-nav.png)
 
 
 Type the search term or query you'd like to use, and choose the relevant time frame. Your search result will only include data matching your exact search term.
@@ -67,7 +67,7 @@ Click on **Fetch raw logs** to receive the logs that match your query criteria. 
 
 And more.
 
-![cold search log overviee](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cold-search/cold-search-log-results.png)
+![cold Tier log overviee](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cold-search/cold-search-log-results.png)
 
 To investigate the logs further, you can re-ingest them to your Logz.io account by clicking the **Re-ingest** button.
 
@@ -80,7 +80,7 @@ Once you click the **Re-ingest** button, you'll be asked to confirm your action.
 
 Click **Confirm** to approve and continue with the process. 
 
-![cold search confirm](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cold-search/confirmation-message.png)
+![cold Tier confirm](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cold-search/confirmation-message.png)
 
 This process might take a few minutes, during which you can continue using Logz.io. You'll get a notification via email once the process is complete, with a link to the relevant account in OpenSearch Dashboards.
 
@@ -89,19 +89,19 @@ Your re-ingested logs will be available to search and analyze from OpenSearch Da
 :::
 
 
-## Troubleshooting Cold search
+## Troubleshooting Cold Tier
 
 You might encounter an issue while fetching raw logs or re-ingesting them. Here are some common issues that can arise and how you can quickly resolve them:
 
 ### Issue: Exceeded max limit of restored accounts
 
-Cold search works with your cold storage archived accounts and has similar limitations. To re-ingest Cold search logs, you must have at least 1 available account in your restored accounts. Note that you can restore up to 5 accounts at a time.
+Cold Tier works with your cold storage archived accounts and has similar limitations. To re-ingest Cold Tier logs, you must have at least 1 available account in your restored accounts. Note that you can restore up to 5 accounts at a time.
 
-<h3 id="#max-remedy">Suggested remedy</h3>
+#### Suggested remedy
 
 Ensure you have at least 1 available account to which you can restore the data. To check how many accounts you use, navigate to [Data Hub > Archive and restore > Restored account](https://app.logz.io/#/dashboard/tools/archive-and-restore) to review if you've exceeded your limit.
 
-If you have exceeded your restored accounts limit, you can delete one or more accounts to use Cold search. 
+If you have exceeded your restored accounts limit, you can delete one or more accounts to use Cold Tier. 
 
 If you wish to upgrade your existing quota, you can contact [Logz.io's support team](mailto:help@logz.io).
 
@@ -110,8 +110,8 @@ If you wish to upgrade your existing quota, you can contact [Logz.io's support t
 
 Re-ingesting logs process failed since you've exceeded your account's limit. This happens when you've reached your daily quota.
 
+#### Suggested remedy
 
-<h3 id="#limit-remedy">Suggested remedy</h3>
 
 If your account has a [flexible volume](/user-guide/accounts/flexible-volume.html), you can allocate available GB from one of the existing sub accounts.
 
@@ -119,5 +119,6 @@ Otherwise, you can update your plan and adjust your daily volume on the [Plan an
 
 
 <!-- ###### Additional resources
+{:.no_toc}
 
 * [Read more](https://logz.io/blog/kibana-advanced/) about creating and running advanced searches in OpenSearch Dashboards.  -->

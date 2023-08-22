@@ -164,6 +164,10 @@ const config = {
                 href: 'https://logz.io/about-us/terms-of-use/',
               },
               {
+                label: 'Sending Data to Logz.io',
+                href: '/docs/user-guide/admin/sending-data-to-logzio',
+              },
+              {
                 label: 'Trademark Legal Notice',
                 href: 'https://logz.io/about-us/trademarks-legal-notice/',
               },

@@ -19,6 +19,12 @@ This integration is only compatible with Amazon Linux version 2 on EC2. The use 
 
 ![Start collecting button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/telemetry-start-here.png)
 
+## Prerequisite
+
+The IAM role assigned to the EC2 instance must include the `ec2:DescribeTags` permission in its policy.
+
+
+
 ## Start sending AWS data
 
 ### 1. Select platform
