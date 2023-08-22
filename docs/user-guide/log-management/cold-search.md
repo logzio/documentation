@@ -10,8 +10,7 @@ With Cold Tier, you can seamlessly search cold storage data you've archived, vie
 
 ![cold Tier fetched logs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cold-search/cold-search-close-up.png)
 
-To start using Cold Tearch, navigate to [Log analytics > Cold Tier](https://app.logz.io/#/dashboard/osd/discover/).
-
+To start using Cold Tier, navigate to [Log analytics > Cold Tier](https://app.logz.io/#/dashboard/osd/discover/).
 
 <!-- ### Cold search overview
 
@@ -26,6 +25,7 @@ Click on the Cold search button to open the relevant screen.
 To get started with Cold Tier, contact your account manager or [Logz.io's support team](mailto:help@logz.io).
 
 ## Using Cold Tier
+
 
 :::caution Important
 All users can fetch raw logs from Cold Tier. However, only **account admins** can re-ingest logs into the account.
@@ -97,7 +97,7 @@ You might encounter an issue while fetching raw logs or re-ingesting them. Here 
 
 Cold Tier works with your cold storage archived accounts and has similar limitations. To re-ingest Cold Tier logs, you must have at least 1 available account in your restored accounts. Note that you can restore up to 5 accounts at a time.
 
-<h3 id="#max-remedy">Suggested remedy</h3>
+#### Suggested remedy
 
 Ensure you have at least 1 available account to which you can restore the data. To check how many accounts you use, navigate to [Data Hub > Archive and restore > Restored account](https://app.logz.io/#/dashboard/tools/archive-and-restore) to review if you've exceeded your limit.
 
@@ -110,8 +110,8 @@ If you wish to upgrade your existing quota, you can contact [Logz.io's support t
 
 Re-ingesting logs process failed since you've exceeded your account's limit. This happens when you've reached your daily quota.
 
+#### Suggested remedy
 
-<h3 id="#limit-remedy">Suggested remedy</h3>
 
 If your account has a [flexible volume](/user-guide/accounts/flexible-volume.html), you can allocate available GB from one of the existing sub accounts.
 
@@ -119,5 +119,6 @@ Otherwise, you can update your plan and adjust your daily volume on the [Plan an
 
 
 <!-- ###### Additional resources
+{:.no_toc}
 
 * [Read more](https://logz.io/blog/kibana-advanced/) about creating and running advanced searches in OpenSearch Dashboards.  -->
