@@ -16,7 +16,7 @@ Here's how to get the metrics token:
 
 {@include: ../../../_include/general-shipping/manage-tokens-nav.md}
 
-{@include: ../../../_include/general-shipping/data-shipping-tokens_vars.md} <!-- Nico - product="Metrics" -->
+{@include: ../../../_include/general-shipping/data-shipping-tokens_vars.md}
 
 ## Via the Manage accounts page
 

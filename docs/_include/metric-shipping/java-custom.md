@@ -110,7 +110,7 @@ class MicrometerLogzio {
 }
 ```
 
-* {@include: ../general-shipping/eplace-placeholders-prometheus.html}
+* {@include: ../../_include/general-shipping/eplace-placeholders-prometheus.html}
 
 * Replace `<<PORT>>` with the applicable port for your traffic, which is 8052 for http or 8053 for https.
 
