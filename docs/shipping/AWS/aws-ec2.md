@@ -495,7 +495,7 @@ ExecStart=/opt/logzio-agent/otelcol-contrib --config /opt/logzio-agent/otel_conf
 WantedBy=multi-user.target
 ```
 
-### Manage your OpenTelemetry on Mac
+### Manage your OpenTelemetry on Linux
 
 To manage OpenTelemetry on your machine, use the following commands:
 
