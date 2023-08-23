@@ -15,7 +15,7 @@ drop_filter: []
 ---
 
 :::tip
-If your code is running inside Kubernetes the best practice will be to use our [Kuberenets integrations](https://docs.logz.io/shipping/Containers/Kubernetes).
+If your code is running inside Kubernetes the best practice will be to use our [kubernetes integrations](https://docs.logz.io/shipping/Containers/Kubernetes).
 :::
 
 ## Logs
