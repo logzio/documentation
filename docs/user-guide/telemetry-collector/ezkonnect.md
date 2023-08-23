@@ -1,21 +1,21 @@
 ---
 sidebar_position: 5
-title: EZKonnect
+title: Easy Connect
 ---
 
 
-EZKonnect is a deployment and configuration tool designed to assist you in effectively instrumenting Kubernetes applications with OpenTelemetry auto-instrumentation and configurable log types.
+Easy Connect is a deployment and configuration tool designed to assist you in effectively instrumenting Kubernetes applications with OpenTelemetry auto-instrumentation and configurable log types.
 
-At the heart of EZKonnect is the `logzio-ezkonnect` Helm chart, which functions synergistically with the `logzio-monitoring` Helm chart.
+At the heart of Easy Connect is the `logzio-ezkonnect` Helm chart, which functions synergistically with the `logzio-monitoring` Helm chart.
 
-EZKonnect comprises three principal components:
+Easy Connect comprises three principal components:
 
 * **Kubernetes Instrumentor** - Provides auto-instrumentation and manages log type control for Kubernetes applications.
-* **EZKonnect Server** - Facilitates communication between the user and the Kubernetes Instrumentor.
-* **EZKonnect UI** - Offers an intuitive graphical interface for managing and viewing your instrumentation data.
+* **Easy Connect Server** - Facilitates communication between the user and the Kubernetes Instrumentor.
+* **Easy Connect UI** - Offers an intuitive graphical interface for managing and viewing your instrumentation data.
 
 
-EZKonnect supports several programming languages, including:
+Easy Connect supports several programming languages, including:
 
 * Java
 * Node.js
@@ -27,28 +27,28 @@ EZKonnect supports several programming languages, including:
   - works out of the box with [logzio-monitoring](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-monitoring) chart installed with traces and logs enabled (version `0.5.8` or higher for log_type)
   - to send the data to a custom collector change the `kubernetesInstrumentor.env.monitoringServiceEndpoint` value
 
-## Install EZKonnect
+## Install Easy Connect
 
-To install the EZKonnect Helm chart, run the following commands:
+To install the Easy Connect Helm chart, run the following commands:
 
 ```shell
 helm repo add logzio-helm https://logzio.github.io/logzio-helm
 helm repo update
-helm install logzio-ezkonnect logzio-helm/ezkonnect -n ezkonnect --create-namespace
+helm install logzio-easy-connect logzio-helm/easy-connect -n monitoring --create-namespace
 ```
 
 Afterwards, use `kubectl port-forward` to access the user interface in your browser:
 
 ```shell
-kubectl port-forward svc/ezkonnect-ui -n ezkonnect 31032:31032
+kubectl port-forward svc/easy-connect-ui -n monitoring 31032:31032
 ```
 
 Go to http://localhost:31032 
 
-## Using EZKonnect UI
+## Using Easy Connect UI
 
 
-The EZKonnect UI shows when you access the deployment at `http://localhost:8080`.
+The Easy Connect UI shows when you access the deployment at `http://localhost:8080`.
 
 
 ### Logs
@@ -57,7 +57,7 @@ The EZKonnect UI shows when you access the deployment at `http://localhost:8080`
 
 #### Edit a log type of a log
 
-If you need to change a log type of a log collected by EZKonnect:
+If you need to change a log type of a log collected by Easy Connect:
 
 1. In the row of the required log, click the **Log Type** dropdown.
 2. Select the required log type.
@@ -65,7 +65,7 @@ If you need to change a log type of a log collected by EZKonnect:
 
 #### Add a log type
 
-If you need to add a log type to a log collected by EZKonnect:
+If you need to add a log type to a log collected by Easy Connect:
 
 1. In the row of the required log, click the **Log Type** dropdown.
 2. Type in the required log type definition.
@@ -74,7 +74,7 @@ If you need to add a log type to a log collected by EZKonnect:
 
 #### Remove a log type from a log
 
-If you need to change a log type of a log collected by EZKonnect:
+If you need to change a log type of a log collected by Easy Connect:
 
 1. In the row of the required log, click the **Remove log type**.
 
@@ -100,7 +100,7 @@ To remove OpenTelemetry instrumentation from a pod:
 
 ## Parameters configuration
 
-The EZKonnect chart has several configurable parameters and their default values. Below is a table detailing these parameters:
+The Easy Connect chart has several configurable parameters and their default values. Below is a table detailing these parameters:
 
 | Parameter | Description | Default |
 | --- | --- | --- |
@@ -127,25 +127,27 @@ The EZKonnect chart has several configurable parameters and their default values
 | `kubernetesInstrumentor.service.name` | Name of the instrumentor service | `"kubernetes-instrumentor-service"` |
 | `kubernetesInstrumentor.service.port` | Service port for the instrumentor | `8080` |
 | `kubernetesInstrumentor.service.targetPort` | Target port for the instrumentor service | `8080` |
-| `ezkonnectServer.serviceAccount` | Service account name of the instrumentor deployment | `"ezkonnect-server"` |
-| `ezkonnectServer.image.repository` | Repository of the server image | `"logzio/ezkonnect-server"` |
-| `ezkonnectServer.image.tag` | Tag of the server image | `"v1.0.6"` |
-| `ezkonnectServer.ports.http` | HTTP port for the server | `8080` |
-| `ezkonnectServer.service.name` | Name of the server service | `"ezkonnect-server"` |
-| `ezkonnectServer.service.port` | Service port for the server | `5050` |
-| `ezkonnectServer.service.targetPort` | Target port for the server service | `5050` |
-| `ezkonnectUi.image.repository` | Repository of the UI image | `"logzio/ezkonnect-ui"` |
-| `ezkonnectUi.image.tag` | Tag of the UI image | `"v1.0.0"` |
-| `ezkonnectUi.ports.http` | HTTP port for the UI | `31032` |
-| `ezkonnectUi.service.name` | Name of the UI service | `"ezkonnect-ui-service"` |
-| `ezkonnectUi.service.port` | Service port for the UI | `31032` |
-| `ezkonnectUi.service.targetPort` | Target port for the UI service | `31032` |
-| `rbac.clusterRoles...` | Configure the RBAC cluster roles | Refer to `values.yaml` |
-| `rbac.clusterRoleBindings...` | Configure the RBAC cluster role bindings | Refer to `values.yaml` |
+| `easyConnectServer.serviceAccount` |	Service account name of the instrumentor deployment |	`"easy-connect-server"`|
+|`easyConnectServer.image.repository`|	Repository of the server image|`"logzio/easy-connect-server"`|
+|`easyConnectServer.image.tag` | Tag of the server image|`"v1.0.7"`|
+|`easyConnectServer.ports.http`	| HTTP port for the server|`8080`|
+|`easyConnectServer.service.name` |	Name of the server service|`"easy-connect-server"`|
+|`easyConnectServer.service.port` |Service port for the server|`5050`|
+|`easyConnectServer.service.targetPort`|Target port for the server service|`5050`|
+|`easyConnectUi.image.repository`|Repository of the UI image|`"logzio/easy-connect-ui"`|
+|`easyConnectUi.image.tag`|Tag of the UI image|`"v1.0.0"`|
+|`easyConnectUi.ports.http`|HTTP port for the UI|`31032`|
+|`easyConnectUi.service.name`|Name of the UI service|`"easy-connect-ui"`|
+|`easyConnectUi.service.port`|Service port for the UI|`31032`|
+|`easyConnectUi.service.targetPort`|Target port for the UI service|`31032`|
+|`rbac.clusterRoles...`|Configure the RBAC cluster roles|Refer to `values.yaml`|
+|`rbac.clusterRoleBindings...`|Configure the RBAC cluster role bindings|Refer to `values.yaml`|
 
 
 You can override the default values by creating your own `values.yaml` file and passing the `--values` or `-f` option to the Helm command. For example:
 
 ```shell
-You can override the default values by creating your own values.yaml file and passing the --values or -f option to the Helm command. For example:
+helm install logzio-easy-connect logzio-helm/easy-connect -n easy-connect --create-namespace --values my_values.yaml
 ```
+
+Here, `my_values.yaml` is your custom configuration file.
