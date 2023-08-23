@@ -15,16 +15,6 @@ drop_filter: []
 ---
 
 
-
-:::note
-For a much easier and more efficient way to collect and send metrics, consider using the [Logz.io telemetry collector](https://app.logz.io/#/dashboard/send-your-data/agent/new).
-:::
-
-
-
-
-
-
 ## Manually configure OpenTelemetry on Linux
 
 :::note
