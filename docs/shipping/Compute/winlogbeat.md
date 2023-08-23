@@ -1,7 +1,7 @@
 ---
 id: Winlogbeat
 title: Windows Operating System
-overview: Shipping Windows logs: Follow these steps to integrate and forward your Windows system's logs to the Logz.io platform.
+overview: Follow these steps to integrate and forward your Windows system's logs to the Logz.io platform.
 product: ['logs']
 os: ['windows']
 filters: ['Other']
