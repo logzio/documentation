@@ -81,19 +81,19 @@ receivers:
 
     include:
 
-/var/log/*.log
+        - /var/log/*.log
 
     include_file_path: true
 
     operators:
 
-type: move
+        - type: move
 
         from: attributes["log.file.name"]
 
         to: attributes["log_file_name"]
 
-type: move
+        - type: move
 
         from: attributes["log.file.path"]
 
@@ -193,11 +193,11 @@ service:
 
       receivers:
 
-filelog/localhost_mac_system
+        - filelog/localhost_mac_system
 
       processors:
 
-resourcedetection/system
+        - resourcedetection/system
 
       exporters: [logzio/logs]
 
@@ -205,13 +205,13 @@ resourcedetection/system
 
       receivers:
 
-hostmetrics/localhost_mac_system
+        - hostmetrics/localhost_mac_system
 
       processors:
 
-resourcedetection/system
+        - resourcedetection/system
 
-filter
+        - filter
 
       exporters: [prometheusremotewrite]
 
@@ -311,19 +311,19 @@ receivers:
 
     include:
 
-/var/log/*.log
+        - /var/log/*.log
 
     include_file_path: true
 
     operators:
 
-type: move
+        - type: move
 
         from: attributes["log.file.name"]
 
         to: attributes["log_file_name"]
 
-type: move
+        - type: move
 
         from: attributes["log.file.path"]
 
@@ -423,11 +423,11 @@ service:
 
       receivers:
 
-filelog/localhost_linux_system
+        - filelog/localhost_linux_system
 
       processors:
 
-resourcedetection/system
+        - resourcedetection/system
 
       exporters: [logzio/logs]
 
@@ -435,13 +435,13 @@ resourcedetection/system
 
       receivers:
 
-hostmetrics/localhost_linux_system
+        - hostmetrics/localhost_linux_system
 
       processors:
 
-resourcedetection/system
+        - resourcedetection/system
 
-filter
+        - filter
 
       exporters: [prometheusremotewrite]
 
@@ -535,19 +535,19 @@ receivers:
 
     include:
 
-/var/log/*.log
+        - /var/log/*.log
 
-    include_file_path: true
+        include_file_path: true
 
     operators:
 
-type: move
+        - type: move
 
         from: attributes["log.file.name"]
 
         to: attributes["log_file_name"]
 
-type: move
+        - type: move
 
         from: attributes["log.file.path"]
 
@@ -615,7 +615,7 @@ processors:
 
       tags:
 
-^*$
+        - ^*$
 
   filter:
 
@@ -657,13 +657,13 @@ service:
 
       receivers:
 
-filelog/aws_ec2_system
+        - filelog/aws_ec2_system
 
       processors:
 
-resourcedetection/system
+        - resourcedetection/system
 
-resourcedetection/ec2
+        - resourcedetection/ec2
 
       exporters: [logzio/logs]
 
@@ -671,15 +671,15 @@ resourcedetection/ec2
 
       receivers:
 
-hostmetrics/aws_ec2_system
+        - hostmetrics/aws_ec2_system
 
       processors:
 
-resourcedetection/system
+        - resourcedetection/system
 
-resourcedetection/ec2
+        - resourcedetection/ec2
 
-filter
+        - filter
 
       exporters: [prometheusremotewrite]
 
