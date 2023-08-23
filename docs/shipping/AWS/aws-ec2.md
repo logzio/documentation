@@ -76,155 +76,80 @@ Replace  `<<LOGS_TOKEN>>`,  `<<LISTENER>>`, and `<<METRICS_TOKEN>>` with the rel
 
 ```yaml
 receivers:
-
   filelog/localhost_mac_system:
-
     include:
-
-        - /var/log/*.log
-
+      - /var/log/*.log
     include_file_path: true
-
     operators:
-
-        - type: move
-
+      - type: move
         from: attributes["log.file.name"]
-
         to: attributes["log_file_name"]
-
-        - type: move
-
+      - type: move
         from: attributes["log.file.path"]
-
         to: attributes["log_file_path"]
-
     attributes:
-
       type: agent-mac
-
   hostmetrics/localhost_mac_system:
-
     collection_interval: 15s
-
     scrapers:
-
       cpu:
-
         metrics:
-
           system.cpu.utilization:
-
             enabled: true
-
       disk:
-
       load:
-
       filesystem:
-
       memory:
-
         metrics:
-
           system.memory.utilization:
-
             enabled: true
-
       network:
-
       paging:
-
       process:
-
         mute_process_name_error: true
-
         mute_process_exe_error: true
-
         mute_process_io_error: true
-
 processors:
-
   resourcedetection/system:
-
     detectors: ["system"]
-
     system:
-
       hostname_sources: ["os"]
-
   filter:
-
     metrics:
-
       include:
-
         match_type: strict
-
         metric_names: ["system.cpu.time", "system.cpu.load_average.1m", "system.cpu.load_average.5m", "system.cpu.load_average.15m", "system.cpu.utilization", "system.memory.usage", "system.memory.utilization", "system.filesystem.usage", "system.disk.io", "system.disk.io_time", "system.disk.operation_time", "system.network.connections", "system.network.io", "system.network.packets", "system.network.errors", "process.cpu.time", "process.memory.usage", "process.disk.io", "process.memory.usage", "process.memory.virtual"]
-
 exporters:
-
   logging:
-
   logzio/logs:
-
     account_token: <<LOGS_TOKEN>>
-
     region: us
-
   prometheusremotewrite:
-
     endpoint: https://<<LISTENER>>:8053
-
     headers:
-
       Authorization: Bearer <<METRICS_TOKEN>>
-
     resource_to_telemetry_conversion:
-
       enabled: true
-
 service:
-
   pipelines:
-
     logs:
-
       receivers:
-
         - filelog/localhost_mac_system
-
       processors:
-
         - resourcedetection/system
-
       exporters: [logzio/logs]
-
     metrics:
-
       receivers:
-
         - hostmetrics/localhost_mac_system
-
       processors:
-
         - resourcedetection/system
-
         - filter
-
       exporters: [prometheusremotewrite]
-
   telemetry:
-
     logs:
-
       level: "info"
-
     metrics:
-
-      address: localhost:8888 
-
+      address: localhost:8888
 ```
 
 :::caution Important
@@ -306,155 +231,80 @@ Replace `<<LOGS_TOKEN>>`, `<<LISTENER>>`, and `<<METRICS_TOKEN>>` with the relev
  
 ```yaml
 receivers:
-
   filelog/localhost_linux_system:
-
     include:
-
-        - /var/log/*.log
-
+      - /var/log/*.log
     include_file_path: true
-
     operators:
-
-        - type: move
-
+      - type: move
         from: attributes["log.file.name"]
-
         to: attributes["log_file_name"]
-
-        - type: move
-
+      - type: move
         from: attributes["log.file.path"]
-
         to: attributes["log_file_path"]
-
     attributes:
-
       type: agent-linux
-
   hostmetrics/localhost_linux_system:
-
     collection_interval: 15s
-
     scrapers:
-
       cpu:
-
         metrics:
-
           system.cpu.utilization:
-
             enabled: true
-
       disk:
-
       load:
-
       filesystem:
-
       memory:
-
         metrics:
-
           system.memory.utilization:
-
             enabled: true
-
       network:
-
       paging:
-
       process:
-
         mute_process_name_error: true
-
         mute_process_exe_error: true
-
         mute_process_io_error: true
-
 processors:
-
   resourcedetection/system:
-
     detectors: ["system"]
-
     system:
-
       hostname_sources: ["os"]
-
   filter:
-
     metrics:
-
       include:
-
         match_type: strict
-
         metric_names: ["system.cpu.time", "system.cpu.load_average.1m", "system.cpu.load_average.5m", "system.cpu.load_average.15m", "system.cpu.utilization", "system.memory.usage", "system.memory.utilization", "system.filesystem.usage", "system.disk.io", "system.disk.io_time", "system.disk.operation_time", "system.network.connections", "system.network.io", "system.network.packets", "system.network.errors", "process.cpu.time", "process.memory.usage", "process.disk.io", "process.memory.usage", "process.memory.virtual"]
-
 exporters:
-
   logging:
-
   logzio/logs:
-
     account_token: <<LOGS_TOKEN>>
-
     region: us
-
   prometheusremotewrite:
-
     endpoint: https:<<LISTENER>>:8053
-
     headers:
-
       Authorization: Bearer <<METRICS_TOKEN>>
-
     resource_to_telemetry_conversion:
-
       enabled: true
-
 service:
-
   pipelines:
-
     logs:
-
       receivers:
-
         - filelog/localhost_linux_system
-
       processors:
-
         - resourcedetection/system
-
       exporters: [logzio/logs]
-
     metrics:
-
       receivers:
-
         - hostmetrics/localhost_linux_system
-
       processors:
-
         - resourcedetection/system
-
         - filter
-
       exporters: [prometheusremotewrite]
-
   telemetry:
-
     logs:
-
       level: "info"
-
     metrics:
-
       address: localhost:8888
-
 ```
 
  
@@ -530,167 +380,86 @@ Replace `<<LOGS_TOKEN>>`, `<<LISTENER>>`, and `<<METRICS_TOKEN>>` with the relev
 
 ```yaml
 receivers:
-
   filelog/aws_ec2_system:
-
     include:
-
-        - /var/log/*.log
-
-        include_file_path: true
-
+      - /var/log/*.log
+    include_file_path: true
     operators:
-
-        - type: move
-
+      - type: move
         from: attributes["log.file.name"]
-
         to: attributes["log_file_name"]
-
-        - type: move
-
+      - type: move
         from: attributes["log.file.path"]
-
         to: attributes["log_file_path"]
-
     attributes:
-
       type: agent-ec2-linux
-
   hostmetrics/aws_ec2_system:
-
     collection_interval: 15s
-
     scrapers:
-
       cpu:
-
         metrics:
-
           system.cpu.utilization:
-
             enabled: true
-
       disk:
-
       load:
-
       filesystem:
-
       memory:
-
         metrics:
-
           system.memory.utilization:
-
             enabled: true
-
       network:
-
       paging:
-
       process:
-
         mute_process_name_error: true
-
         mute_process_exe_error: true
-
         mute_process_io_error: true
-
 processors:
-
   resourcedetection/system:
-
     detectors: ["system"]
-
     system:
-
       hostname_sources: ["os"]
-
   resourcedetection/ec2:
-
     detectors: ["ec2"]
-
     ec2:
-
       tags:
-
         - ^*$
-
   filter:
-
     metrics:
-
       include:
-
         match_type: strict
-
         metric_names: ["system.cpu.time", "system.cpu.load_average.1m", "system.cpu.load_average.5m", "system.cpu.load_average.15m", "system.cpu.utilization", "system.memory.usage", "system.memory.utilization", "system.filesystem.usage", "system.disk.io", "system.disk.io_time", "system.disk.operation_time", "system.network.connections", "system.network.io", "system.network.packets", "system.network.errors", "process.cpu.time", "process.memory.usage", "process.disk.io", "process.memory.usage", "process.memory.virtual"]
-
 exporters:
-
   logging:
-
   logzio/logs:
-
     account_token: <<LOGS_TOKEN>>
-
     region: us
-
   prometheusremotewrite:
-
     endpoint: https://<<LISTENER>>:8053
-
     headers:
-
       Authorization: Bearer <<METRICS_TOKEN>>
-
     resource_to_telemetry_conversion:
-
       enabled: true
-
 service:
-
   pipelines:
-
     logs:
-
       receivers:
-
         - filelog/aws_ec2_system
-
       processors:
-
         - resourcedetection/system
-
         - resourcedetection/ec2
-
       exporters: [logzio/logs]
-
     metrics:
-
       receivers:
-
         - hostmetrics/aws_ec2_system
-
       processors:
-
         - resourcedetection/system
-
         - resourcedetection/ec2
-
         - filter
-
       exporters: [prometheusremotewrite]
-
   telemetry:
-
     logs:
-
       level: "debug"
-
     metrics:
-
       address: localhost:8888
 ```
 
