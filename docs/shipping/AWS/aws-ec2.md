@@ -223,7 +223,7 @@ service:
 
     metrics:
 
-      address: localhost:8888
+      address: localhost:8888 
 
 ```
 
