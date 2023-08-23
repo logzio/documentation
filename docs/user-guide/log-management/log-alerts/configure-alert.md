@@ -53,6 +53,11 @@ click **Preview** to open OpenSearch Dashboards in another tab. It can help revi
 
 ##### Using Group-by (order matters!)
 
+:::caution Important
+Alerts won't trigger if the field added to the Group-by doesn't exist in the logs. The logs must include **both** the field you have in group-by and the field you use in your query/filter to trigger the alert. 
+:::
+
+
 You can apply **group by** operators to up to 3 fields. If you use this option, the alert will return the aggregated results.
 
 The order in which you add group-by fields matters. Results are grouped in the order in which the group-by fields are added. (The fields are shown from first to last from Left-To-Right.)
