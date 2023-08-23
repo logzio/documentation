@@ -18,10 +18,8 @@ drop_filter: []
 **Before you begin, you'll need**:
 
 * Root access
-* Port 5000 open
 
-
-## Manually configure OpenTelemetry on Localhost
+## Send your Linux machine logs and metrics using OpenTelemetry service
 
 :::note
 For a much easier and more efficient way to collect and send metrics, consider using the [Logz.io telemetry collector](https://app.logz.io/#/dashboard/send-your-data/agent/new).
@@ -176,6 +174,11 @@ WantedBy=multi-user.target
 
 
 ## Send your logs to Logz.io through rsyslog 
+
+**Before you begin, you'll need**:
+
+* Root access
+* Port 5000 open
 
 ### Run the rsyslog configuration script
 

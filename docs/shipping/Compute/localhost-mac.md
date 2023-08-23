@@ -16,7 +16,7 @@ drop_filter: []
 
 
 
-## Manually configure OpenTelemetry on Mac
+## Send your Mac machine logs and metrics using Opentelemetry service
 
 Follow these steps to manually configure OpenTelemetry on your Mac machine
 

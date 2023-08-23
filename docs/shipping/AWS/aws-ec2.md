@@ -23,22 +23,6 @@ For a much easier and more efficient way to collect and send metrics, consider u
 
 
 
-Deploy this integration to send your Amazon EC2 metrics to Logz.io.
-
-This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon EC2 metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
-
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
-
-<!-- logzio-inject:install:grafana:dashboards ids=["2VNLppOm4XOFwVouv8dorr"] -->
-
-{@include: ../../_include/metric-shipping/generic-dashboard.html}
-
-
-
-**Before you begin, you'll need**:
-
-* An active account with Logz.io
-
 
 
 ## Manually configure OpenTelemetry on Linux
@@ -206,7 +190,25 @@ To manage OpenTelemetry on your machine, use the following commands:
 |Delete service|`sudo systemctl stop logzioOTELCollector` `sudo systemctl disable logzioOTELCollector` `sudo systemctl reset-failed logzioOTELCollector 2>/dev/null` `sudo rm /etc/systemd/system/logzioOTELCollector.service 2>/dev/null` `sudo rm /usr/lib/systemd/system/logzioOTELCollector.service 2>/dev/null` `sudo rm /etc/init.d/logzioOTELCollector 2>/dev/null`|
 
 
-## Configure AWS to forward Cloudwatch metrics to Logz.io
+## Send your AWS EC2 logs and metrics using OpenTelemetry collector service
+
+
+Deploy this integration to send your Amazon EC2 metrics to Logz.io.
+
+This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon EC2 metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
+
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["2VNLppOm4XOFwVouv8dorr"] -->
+
+{@include: ../../_include/metric-shipping/generic-dashboard.html}
+
+
+
+**Before you begin, you'll need**:
+
+* An active account with Logz.io
+
 ### Create Stack in the relevant region
 
 To deploy this project, click the button that matches the region you wish to deploy your Stack to:
