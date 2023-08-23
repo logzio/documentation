@@ -107,7 +107,7 @@ Click **Go to resource group** to go to your resource group with all the created
 
 ### Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for logs of `type` `blobStorage` to see the incoming logs.
+Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for logs of `type` `azure_blob_trigger` to see the incoming logs.
 
 If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
