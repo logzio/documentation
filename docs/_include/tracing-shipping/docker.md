@@ -66,6 +66,8 @@ service:
 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
+##### Tail Sampling 
+
 {@include: ../../_include/tracing-shipping/tail-sampling.md}
  
 
