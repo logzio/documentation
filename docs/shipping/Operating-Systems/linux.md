@@ -1,7 +1,7 @@
 ---
 id: Linux-data
-title: Linux
-overview: This integration sends Linux logs to Logz.io
+title: Linux Operating System
+overview: Follow these steps to integrate and forward your Linux system's logs to the Logz.io platform.
 product: ['logs']
 os: ['windows', 'linux']
 filters: ['Other', 'Most Popular']
