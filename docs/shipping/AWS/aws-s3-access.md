@@ -17,7 +17,7 @@ drop_filter: []
 
 Amazon S3 Access Logs provide detailed records about requests that are made to your S3 bucket. This integration allows you to send these logs to your Logz.io account.
 
-#### Configuration
+## Configuration
 
 **Before you begin, you'll need**:
 
@@ -27,7 +27,7 @@ Amazon S3 Access Logs provide detailed records about requests that are made to y
 
  
 
-##### Send your logs to an S3 bucket
+### Send your logs to an S3 bucket
 
 Logz.io fetches your S3 access logs from a separate S3 bucket.
 By default, S3 access logs are not enabled, so you'll need to set this up.
@@ -35,7 +35,7 @@ By default, S3 access logs are not enabled, so you'll need to set this up.
 For help with this, see [Amazon S3 Server Access Logging](https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerLogs.html) from AWS.
 
 
-##### Add a new S3 bucket using the dedicated Logz.io configuration wizard
+### Add a new S3 bucket using the dedicated Logz.io configuration wizard
 
 {@include: ../../_include/log-shipping/app_login.html}
 
@@ -46,7 +46,7 @@ For help with this, see [Amazon S3 Server Access Logging](https://docs.aws.amazo
 {@include: ../../_include/log-shipping/add-s3-bucket.md}
 
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs  
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
