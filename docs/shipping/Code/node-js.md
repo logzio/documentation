@@ -4,7 +4,7 @@ title: Node.js
 overview: Send Node.js logs, metrics and traces to Logz.io.
 product: ['logs','metrics','tracing']
 os: ['windows', 'linux']
-filters: ['Code']
+filters: ['Code', 'Most Popular']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/nodejs.svg
 logs_dashboards: []
 logs_alerts: []

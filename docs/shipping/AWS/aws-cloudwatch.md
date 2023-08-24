@@ -4,7 +4,7 @@ title: CloudWatch Logs with a Firehose Delivery Stream
 overview: This project deploys instrumentation that allows shipping Cloudwatch logs to Logz.io, with a Firehose Delivery Stream. It uses a Cloudformation template to create a Stack that deploys Firehose Delivery Stream with Logz.io as the stream's destination, Lambda function that adds Subscription Filters to Cloudwatch Log Groups, as defined by user's input, and Roles, log groups, and other resources that are necessary for this instrumentation.
 product: ['logs']
 os: ['windows', 'linux']
-filters: ['AWS', 'Monitoring']
+filters: ['AWS', 'Monitoring', 'Most Popular']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-cloudwatch.svg
 logs_dashboards: []
 logs_alerts: []
