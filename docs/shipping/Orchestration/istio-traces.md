@@ -23,11 +23,11 @@ Deploy this integration to send traces from your Istio service mesh layers to Lo
 * [Istioctl](https://istio.io/latest/docs/reference/commands/istioctl/) installed on your machine
 * An active account with Logz.io
 
-<!-- info-box-start:info -->
+ 
 :::note
 This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
 :::
-<!-- info-box-end -->
+  
 
 
 ### 1. Deploy the Helm chart in the same Kubernetes cluster as your application
@@ -73,11 +73,11 @@ Replace `<<logzio-k8s-telemetry-service-name>>` in the command below with the se
 istioctl install --set meshConfig.defaultConfig.tracing.zipkin.address=<<logzio-k8s-telemetry-service-name>>:9411 --set values.pilot.traceSampling=100.0
 ```
 
-<!-- info-box-start:info -->
+ 
 :::note
 By default, we set the `traceSampling` to 100, which means that Istio will send 100% of the application traces to Logz.io. You can adjust this value as required.
 :::
-<!-- info-box-end -->
+  
 
 ### 5. Check Logz.io for your traces
 

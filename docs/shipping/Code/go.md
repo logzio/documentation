@@ -394,11 +394,11 @@ On deployment, the Go instrumentation automatically captures spans from your app
 * Port `4318` available on your host system
 * A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 
-<!-- info-box-start:info -->
+
 :::note
 This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
 :::
-<!-- info-box-end -->
+
 
 
 
@@ -422,11 +422,11 @@ go get -u go.opentelemetry.io/otel/trace
 go get -u go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp
 ```
 
-<!-- info-box-start:info -->
+
 :::note
 We recommend sending OTLP traces using HTTP. This is why we import the `otlptracehttp` package.
 :::
-<!-- info-box-end -->
+
 
 ##### Download the application specific instrumentation packages
 

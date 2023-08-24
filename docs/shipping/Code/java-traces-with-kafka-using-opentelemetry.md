@@ -61,11 +61,10 @@ Download the latest version of the [OpenTelemetry Java agent](https://github.com
 
 Run the following command from the directory of your Java application:
 
-<!-- info-box-start:info -->
 :::note
 If you produce and consume Kafka topics/messages from different applications, the Java agent command must be used with both applications in order to provide a full trace.
 :::
-<!-- info-box-end -->
+
 
 ```shell
 java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
@@ -164,11 +163,11 @@ Download the latest version of the [OpenTelemetry Java agent](https://github.com
 
 ### Attach the agent to your java application 
 
-<!-- info-box-start:info -->
+ 
 :::note
 If you produce and consume Kafka topics/messages from different applications, the Java agent command must be used with both applications in order to provide a full trace.
 :::
-<!-- info-box-end -->
+  
 
 Add the following command to your Java application Dockerfile or equivalent:
 
@@ -217,11 +216,11 @@ You can run the logzio-monitoring chart with your custom configuration file that
 
 For example:
 
-<!-- info-box-start:info -->
+ 
 :::note
 The collector will sample **ALL traces** where is some span with error with this example configuration. 
 :::
-<!-- info-box-end -->
+  
 
 ```yaml
 logzio-k8s-telemetry:

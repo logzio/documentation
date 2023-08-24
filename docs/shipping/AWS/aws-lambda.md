@@ -91,7 +91,7 @@ Give your data some time to get from your system to ours, then log in to your Lo
 
 Deploy this integration to auto-instrument your Node.js application running on AWS Lambda and send the traces to your Logz.io account. This is done by adding a dedicated layer for OpenTelemetry collector, a dedicated layer for Node.js auto-instrumentation and configuring environment variables of these layers. This integration will require no change to your application code.
 
-<!-- info-box-start:info -->
+
 :::note
 This integration only works for the following AWS regions: `us-east-1`, `us-east-2`, `us-west-1`, `us-west-2`,
                `ap-south-1`, `ap-northeast-3`, `ap-northeast-2`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`,
@@ -99,7 +99,7 @@ This integration only works for the following AWS regions: `us-east-1`, `us-east
                `sa-east-1`,
                `ca-central-1`.
 :::
-<!-- info-box-end -->
+
 
 
 **Before you begin, you'll need**:
@@ -108,17 +108,17 @@ This integration only works for the following AWS regions: `us-east-1`, `us-east
 * Configured [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
 * A Lambda function with a Node.js application that is not yet instrumented.
 
-<!-- info-box-start:info -->
+
 :::note
 Adding environmental variables using the AWS CLI commands below, will overwrite all existing variables for your Lambda function.
 :::
-<!-- info-box-end -->
 
-<!-- info-box-start:info -->
+
+
 :::caution Important
 This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
 :::
-<!-- info-box-end -->
+
 
 
 ### Add the OpenTelemetry collector layer to your Lambda function 
