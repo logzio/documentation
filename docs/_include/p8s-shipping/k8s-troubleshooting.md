@@ -1,7 +1,7 @@
 This section contains some guidelines for handling errors that you may encounter when trying to collect Kubernetes metrics.
 
 
-## Problem: Permanent error - context deadline exceeded
+#### Problem: Permanent error - context deadline exceeded
 
 The following error appears:
 
@@ -10,11 +10,11 @@ Permanent error: Post \"https://<<LISTENER-HOST>>:8053\": context deadline excee
 meaning that the post request timeout.
 ```
 
-### Possible cause - Connectivity issue
+##### Possible cause - Connectivity issue
 
 A connectivity issue may be causing this error.
 
-#### Suggested remedy
+###### Suggested remedy
 
 Check your shipper's connectivity as follows.
 
@@ -41,44 +41,44 @@ Test-NetConnection listener.logz.io -Port {port-number}
 
 The port numbers are 8052 and 8053.
 
-### Possible cause - Service exposing the metrics need more time
+##### Possible cause - Service exposing the metrics need more time
 
 
 A service exposing the metrics may need more time to send the response to the OpenTelemetry collector.
 
-#### Suggested remedy
+###### Suggested remedy
 
 
 Increase the OpenTelemetry collector timeout as follows.
 
 In values.yaml,under: `config: receivers: prometheus: config: global: scrape_timeout: <<timeout time>>`.
 
-## Problem: Incorrect listener and/or token
+#### Problem: Incorrect listener and/or token
 
 You may be using an incorrect listener and/or token.
 
 You will need to look in the logs of a pod whose name contains `otel-collector`. 
 
-### Possible cause - The token is not valid
+##### Possible cause - The token is not valid
 
 
 In the logs, for the token the error will be: `"error": "Permanent error: remote write returned HTTP status 401 Unauthorized; err = <nil>: Shipping token is not valid"`. 
 
-### Possible cause - The listener is not valid
+##### Possible cause - The listener is not valid
 
 
 For the Url the error will be: `"error": "Permanent error: Post \"https://liener.logz.io:8053\": dial tcp: lookup <<provided listener>> on <<ip>>: no such host"`.
 
-#### Suggested remedy
+###### Suggested remedy
 
 
 Check that the listener and token of your account are correct. You can view them in the [Manage tokens section](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=metrics).
 
 
-## Problem: Windows nodes error
+#### Problem: Windows nodes error
 
 
-### Possible cause - Incorrect username and/or password for Windows nodes
+##### Possible cause - Incorrect username and/or password for Windows nodes
 
 You may be using an incorrect username and/or password for Windows nodes.
 
@@ -87,17 +87,17 @@ You will need to look in the logs of the `windows-exporter-installer` pod. The e
 `ERROR:root:SSH connection to node aksnpwin000002 failed, please check username and password`.
  
 
-#### Suggested remedy
+###### Suggested remedy
 
 Ensure the username and password to Windows nodes are correct.
 
-## Problem: Invalid helm chart version
+#### Problem: Invalid helm chart version
 
-### Possible cause - The version of the helm chart is not up to date
+##### Possible cause - The version of the helm chart is not up to date
 
 The helm chart version that you are using may have expired.
 
-#### Suggested remedy
+###### Suggested remedy
 
 
 Update the helm chart by running:
@@ -106,17 +106,17 @@ Update the helm chart by running:
 helm repo update
 ```
 
-## Problem: The prometheusremotewrite exporter timeout
+#### Problem: The prometheusremotewrite exporter timeout
 
 
 When checking the Logz.io app you don't see any metrics, or you only see some of your metrics, but when checking your otel-collector pod for logs, you don't see any errors. This might indicate this issue.
 
-### Possible cause - The timeout in prometheusremotewrite exporter too short
+##### Possible cause - The timeout in prometheusremotewrite exporter too short
 
 
 The `timeout` setting in the `prometheusremotewrite` exporter is too short.
 
-#### Suggested remedy
+###### Suggested remedy
 
 
 Increase the `timeout` setting in the `prometheusremotewrite` exporter.
@@ -158,12 +158,12 @@ Exit Code: 137
 ```
 
 
-### Possible cause
+#### Possible cause
 
 
 Insufficient memory allocated to the pod.
 
-#### Suggested remedy
+###### Suggested remedy
 
 
 In `values.yaml`, increase the memory of the `standaloneCollector` resources by approximately `100Mi`.
@@ -198,7 +198,7 @@ standaloneCollector:
       memory: 612Mi
 ```
 
-### When running apps on Kubernetes 
+###### When running apps on Kubernetes 
 
 
 
@@ -209,7 +209,7 @@ prometheus.io/scrape: true
 ```
 
 
-##  Problem: You have reached your pull rate limit
+####  Problem: You have reached your pull rate limit
 
 In some cases (i.e. spot clusters) where the pods or nodes are replaced frequently, they might reach the pull rate limit for images pulled from dockerhub with the following error:
 
@@ -218,7 +218,7 @@ You have reached your pull rate limit. You may increase the limit by authenticat
 https://www.docker.com/increase-rate-limits
 ```
 
-#### Suggested remedy
+###### Suggested remedy
 
 
 You can use the following `--set` commands to use an alternative image repository:
