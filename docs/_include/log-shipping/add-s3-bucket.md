@@ -16,3 +16,4 @@ The configuration wizard will open.
 Logz.io fetches logs that are generated after configuring an S3 bucket.
 Logz.io cannot fetch old logs retroactively.
 :::
+
