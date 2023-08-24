@@ -1,5 +1,5 @@
 ---
-id: Winlogbeat
+id: Windows
 title: Windows Operating System
 overview: Follow these steps to integrate and forward your Windows system's logs to the Logz.io platform.
 product: ['logs']
@@ -13,11 +13,6 @@ metrics_dashboards: ['1Pm3OYbu1MRGoELc2qhxQ1','7vydxtpnlKLILHIGK4puX5']
 metrics_alerts: ['4GVNTAqeH4lSRQBfN7dCXQ']
 drop_filter: []
 ---
-
-## Default configuration
-
-**Before you begin, you'll need**:
-[Winlogbeat 8](https://www.elastic.co/guide/en/beats/winlogbeat/8.7/winlogbeat-installation-configuration.html#installation), [Winlogbeat 7](https://www.elastic.co/guide/en/beats/winlogbeat/7.x/winlogbeat-installation-configuration.html#installation), or [Winlogbeat 6](https://www.elastic.co/guide/en/beats/winlogbeat/6.8/winlogbeat-installation.html).
 
  
 ## Manually configure OpenTelemetry on Localhost
@@ -160,7 +155,12 @@ New-Service -Name LogzioOTELCollector -BinaryPathName "$env:APPDATA\LogzioAgent\
 |Delete service|`Stop-Service -Name LogzioOTELCollector` `sc.exe DELETE LogzioOTELCollector`|
 
 
-## Send your logs through Winlogbeat
+## Send your data through Winlogbeat
+
+
+**Before you begin, you'll need**:
+[Winlogbeat 8](https://www.elastic.co/guide/en/beats/winlogbeat/8.7/winlogbeat-installation-configuration.html#installation), [Winlogbeat 7](https://www.elastic.co/guide/en/beats/winlogbeat/7.x/winlogbeat-installation-configuration.html#installation), or [Winlogbeat 6](https://www.elastic.co/guide/en/beats/winlogbeat/6.8/winlogbeat-installation.html).
+
 ### Download the Logz.io public certificate
 
 Download the
