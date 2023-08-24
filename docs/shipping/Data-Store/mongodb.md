@@ -88,7 +88,7 @@ Add this code block to your Fluent configuration file (`fluent.conf` by default)
 
 See the configuration parameters below the code block.👇
 
-```conf
+```java
 # To ignore fluentd logs
 <label @FLUENT_LOG>
   <match fluent.*>

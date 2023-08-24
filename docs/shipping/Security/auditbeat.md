@@ -38,7 +38,7 @@ Download and install [Auditbeat 7.7](https://www.elastic.co/guide/en/beats/audit
 
 Go to the audit rules location in you auditbeat directory. The default location:
 
-```js
+```javascript
 cd /etc/auditbeat/audit.rules.d/
 ```
 

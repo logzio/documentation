@@ -14,9 +14,6 @@ metrics_alerts: []
 drop_filter: []
 ---
 
-
-Deploy this integration to send traces from your OpenTelemetry installation to Logz.io.
-
 ## Manual configuration
 
 This integration includes:

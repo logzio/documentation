@@ -33,7 +33,7 @@ Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\
 
 {@include: ../../_include/log-shipping/listener-var.html} 
 
-```conf
+```java
 define ROOT C:\\Program Files (x86)\\nxlog
 define ROOT_STRING C:\\Program Files (x86)\\nxlog
 define CERTDIR %ROOT%\\cert

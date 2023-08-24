@@ -189,7 +189,7 @@ In this example, for the log sample: `2021-06-21T20:19:40.45+01:00 DEBUG This sh
 ###### Log sample
 
 
-```js
+```javascript
 2021-06-21T20:19:40.45+01:00 DEBUG This should be a log sample
 
 ```

@@ -64,7 +64,7 @@ Add this code block to your Fluent configuration file (`fluent.conf` by default)
 
 See the configuration parameters below the code block.👇
 
-```conf
+```java
 <match **>
   @type logzio_buffered
   endpoint_url https://<<LISTENER-HOST>>:8071?token=<<LOG-SHIPPING-TOKEN>>&type=my_type
@@ -306,7 +306,7 @@ docker pull logzio/fluentd-docker-logs
 
 Run the following command:
 
-   ```conf
+   ```java
    docker run -it --rm \
    --name fluentd-docker-logs \
    -v $(pwd)/log:/fluentd/log \

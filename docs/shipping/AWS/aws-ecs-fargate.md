@@ -358,7 +358,7 @@ You'll be able to find these logs by searching for `type:{{fargate}}`.
 
 Create an `extra.conf` file with the extra configuration. For example:
 
-```conf
+```java
 [FILTER]
     Name record_modifier
     Match *

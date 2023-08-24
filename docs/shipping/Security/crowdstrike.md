@@ -69,7 +69,7 @@ Upon deployment, the Crowdstrike connector connects to your Crowdstrike account 
 3. Copy and paste the code block below into the configuration file. The **log_level** setting defines which events are recorded in the log. In order of verbosity, the log level can be defined as **fatal**, **error**, **warn**, **info**, **debug** or **trace**.  The default for the log level is **info**: The **info** level records all events categorized as **info** and higher in verbosity. To learn more about the settings used in the configuration file, see [Logz.io plugin for Fluentd](https://github.com/logzio/fluent-plugin-logzio).
    
 
-   ```conf
+   ```java
    <system>
      log_level info
    </system>

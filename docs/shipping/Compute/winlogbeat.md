@@ -124,7 +124,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\nxlog.conf` by default).
 
-```conf
+```java
 define ROOT C:\\Program Files (x86)\\nxlog
 define ROOT_STRING C:\\Program Files (x86)\\nxlog
 define CERTDIR %ROOT%\\cert
@@ -150,7 +150,7 @@ Add an `Input` block to append your account token to log records.
 
 {@include: ../../_include/log-shipping/log-shipping-token.html}
 
-```conf
+```java
 <Input eventlog>
 
 # For Windows Vista/2008 and later, set Module to `im_msvistalog`. For
@@ -169,7 +169,7 @@ Add the Logz.io listener in the `Output` block.
 
 {@include: ../../_include/log-shipping/listener-var.html} 
 
-```conf
+```java
 <Output out>
     Module  om_tcp
     Host    <<LISTENER-HOST>>

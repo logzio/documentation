@@ -56,7 +56,7 @@ Make sure the `mutate` block is the last item in the `filters` block.
 
 * For MacOS and Linux:
 
-```conf
+```java
 filter {
   # ...
   # ...
@@ -77,7 +77,7 @@ output {
 
 * For Windows:
 
-```conf
+```java
 filter {
   # ...
   # ...
@@ -124,7 +124,7 @@ Make sure the `mutate` block is the last item in the `filters` block.
 
 {@include: ../../_include/log-shipping/listener-var.html}
 
-```conf
+```java
 filter {
   # ...
   # ...

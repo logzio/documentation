@@ -33,7 +33,7 @@ rsyslog 5.8.0 or later
 
 Copy this text to your HAProxy configuration (`/etc/haproxy/haproxy.cfg` by default).
 
-```conf
+```java
 global
   log 127.0.0.1:514 len 4096 local1 # Send logs to localhost port 514 over UDP, facility set to ‘local1’
 
@@ -68,7 +68,7 @@ Copy this text to your rsyslog configuration (`/etc/rsyslog.conf` by default).
 
 {@include: ../../_include/log-shipping/listener-var.html} 
 
-```conf
+```java
 $ModLoad imuxsock # provides support for local system logging
 $ModLoad imklog # provides kernel logging support
 $ModLoad imudp
