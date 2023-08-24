@@ -229,3 +229,7 @@ In this case, the cause of the error is that the location is empty or that the p
 The bucket should be `aws-cloudtrail-logs-486140753397-9f0d7dbd`, and the prefix should be `AWSLogs/486140753397/CloudTrail/`. You can click on the prefix to verify that it is empty.
 
 Once you fix these issues, you can return to Logz.io to create the CloudTrail bucket.
+
+
+
+
