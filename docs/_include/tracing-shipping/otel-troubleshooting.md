@@ -5,11 +5,11 @@ This section contains some guidelines for handling errors that you may encounter
 
 The code has been instrumented, but the traces are not being sent.
 
-### Possible cause - Collector not installed
+##### Possible cause - Collector not installed
 
 The OpenTelemetry collector may not be installed on your system.
 
-#### Suggested remedy
+###### Suggested remedy
 
 Check if you have an OpenTelemetry collector installed and configured to receive traces from your hosts.
 
@@ -18,7 +18,7 @@ Check if you have an OpenTelemetry collector installed and configured to receive
 
 If the collector is installed, it may not have the correct endpoint configured for the receiver.
 
-#### Suggested remedy
+###### Suggested remedy
 
 1. Check that the configuration file of the collector lists the following endpoints:
 
@@ -35,12 +35,12 @@ If the collector is installed, it may not have the correct endpoint configured f
 2. In the instrumentation code, make sure that the endpoint is specified correctly. Refer to our [tracing documentation](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=tracing-sources) for more on this.
 
 
-### Possible cause - Traces not genereated
+##### Possible cause - Traces not genereated
 
 If the collector is installed and the endpoints are properly configured, the instrumentation code may be incorrect.
 
 
-#### Suggested remedy
+###### Suggested remedy
 
 
 1. Check if the instrumentation can output traces to a console exporter.
@@ -68,7 +68,7 @@ The correct endpoints are:
            endpoint: "<<COLLECTOR-URL>>:4318/v1/traces"
 ```
 
-#### Suggested remedy
+###### Suggested remedy
 
 1. Activate `debug` logs in the configuration file of the collector as follows:
 
@@ -86,11 +86,11 @@ If the post request is not successful, check if the collector is configured to u
 If the post request is successful, there will be an additional log with the status code 200. If the post request failed for some reason, there would be another log with the reason for the failure.
 
 
-### Possible cause - Collector failure
+##### Possible cause - Collector failure
 
 If the `debug` logs are sent, but the traces are still not generated, the collector logs need to be investigated.
 
-#### Suggested remedy
+###### Suggested remedy
 
 
 1. On Linux and MacOS, see the logs for the collector:
@@ -109,11 +109,11 @@ If the `debug` logs are sent, but the traces are still not generated, the collec
 
 This is the endpoint to access the collector metrics in order to see different events that might happen within the collector - receiving spans, sending spans as well as other errors.
 
-### Possible cause - Exporter failure
+##### Possible cause - Exporter failure
 
 Traces may not be generated if the exporter is not configured properly.
 
-#### Suggested remedy
+###### Suggested remedy
 
 
 If you are unable to export traces to a destination, this may be caused by the following:
@@ -138,12 +138,12 @@ otelcol_exporter_enqueue_failed_metric_points{exporter="logging",service_instanc
 ```
 
 
-### Possible cause - Receiver failure
+##### Possible cause - Receiver failure
 
 Traces may not be generated if the receiver is not configured properly.
 
 
-#### Suggested remedy
+###### Suggested remedy
 
 If you are unable to receive data, this may be caused by the following:
 
