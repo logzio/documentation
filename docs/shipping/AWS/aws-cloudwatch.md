@@ -1,10 +1,10 @@
 ---
 id: cloudwatch-logs
 title: CloudWatch Logs with a Firehose Delivery Stream
-overview: This project deploys instrumentation that allows shipping Cloudwatch logs to Logz.io, with a Firehose Delivery Stream.
+overview: This project deploys instrumentation that allows shipping Cloudwatch logs to Logz.io, with a Firehose Delivery Stream. It uses a Cloudformation template to create a Stack that deploys Firehose Delivery Stream with Logz.io as the stream's destination, Lambda function that adds Subscription Filters to Cloudwatch Log Groups, as defined by user's input, and Roles, log groups, and other resources that are necessary for this instrumentation.
 product: ['logs']
 os: ['windows', 'linux']
-filters: ['AWS', 'Monitoring']
+filters: ['AWS', 'Monitoring', 'Most Popular']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-cloudwatch.svg
 logs_dashboards: []
 logs_alerts: []
@@ -14,14 +14,8 @@ metrics_alerts: []
 drop_filter: []
 ---
 
- This project deploys instrumentation that allows shipping Cloudwatch logs to Logz.io, with a Firehose Delivery Stream. It uses a Cloudformation template to create a Stack that deploys:
 
-* Firehose Delivery Stream with Logz.io as the stream's destination.
-* Lambda function that adds Subscription Filters to Cloudwatch Log Groups, as defined by user's input.
-* Roles, log groups, and other resources that are necessary for this instrumentation.
-
-
-##### Auto-deploy the Stack in the relevant region
+## Auto-deploy the Stack in the relevant region
 
 
 To deploy this project, click the button that matches the region you wish to deploy your Stack to:
@@ -46,7 +40,7 @@ To deploy this project, click the button that matches the region you wish to dep
 | `ap-southeast-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-southeast-2.s3.amazonaws.com/firehose-logs/0.0.1/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs-<<LISTENER-HOST>>) | 
 | `ca-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ca-central-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ca-central-1.s3.amazonaws.com/firehose-logs/0.0.1/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs-<<LISTENER-HOST>>)     |
 
-##### Specify stack details
+### Specify stack details
 
 Specify the stack details as per the table below, check the checkboxes and select **Create stack**.
 
@@ -72,7 +66,7 @@ AWS limits every log group to have up to 2 subscription filters. If your chosen 
 
 
 
-##### Send logs
+### Send logs
 
 Give the stack a few minutes to be deployed.
 
@@ -83,7 +77,7 @@ Once new logs are added to your chosen log group, they will be sent to your Logz
 If you've used the `services` field, you'll have to **wait 6 minutes** before creating new log groups for your chosen services. This is due to cold start and custom resource invocation, that can cause the Lambda to behave unexpectedly.
 :::
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

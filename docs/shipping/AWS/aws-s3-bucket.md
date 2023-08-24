@@ -4,7 +4,7 @@ title: AWS S3 Bucket
 overview: Send logs stored in AWS S3 Buckets, and AWS S3 metrics.
 product: ['logs', 'metrics']
 os: ['windows', 'linux']
-filters: ['AWS', 'Data Store', 'Other']
+filters: ['AWS', 'Data Store', 'Other', 'Most Popular']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-s3.svg
 logs_dashboards: []
 logs_alerts: []

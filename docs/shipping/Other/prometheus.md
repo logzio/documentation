@@ -4,7 +4,7 @@ title: Prometheus
 overview: This project lets you send Prometheus-format logs, metrics and traces to Logz.io.
 product: ['metrics', 'logs']
 os: ['windows', 'linux']
-filters: ['Other']
+filters: ['Other', 'Most Popular']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/mascot-telegraf.png
 logs_dashboards: []
 logs_alerts: []

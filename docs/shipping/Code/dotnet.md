@@ -4,7 +4,7 @@ title: .NET
 overview: Send .NET metrics.
 product: ['logs', 'metrics', 'tracing']
 os: ['windows', 'linux']
-filters: ['Code']
+filters: ['Code', 'Most Popular']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/dotnet.png
 logs_dashboards: []
 logs_alerts: []

@@ -4,7 +4,7 @@ title: Python
 overview: These integrations allows you to send custom logs, custom metrics and auto insturmated traces to your Logz.io account.
 product: ['metrics','logs','tracing']
 os: ['windows', 'linux', 'mac']
-filters: ['Code']
+filters: ['Code', 'Most Popular']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/python.svg
 logs_dashboards: []
 logs_alerts: []
@@ -22,13 +22,13 @@ Logs are grouped into bulks based on their size.
 If the main thread quits,the handler tries to consume the remaining logs and then exits.
 If the handler can't send the remaining logs, they're written to the local file system for later retrieval.
 
-### Set up Logz.io Python Handler
+## Set up Logz.io Python Handler
 
  
 
 *Supported versions*: Python 3.5 or newer. 
 
-#### Add the dependency to your project
+### Add the dependency to your project
 
 Navigate to your project's folder in the command line, and run this command to install the dependency.
 
@@ -42,7 +42,7 @@ If you'd like to use [Trace context](#trace-context), you need to install the Op
 pip install logzio-python-handler[opentelemetry-logging]
 ```
 
-#### Configure Logz.io Python Handler for a standard Python project
+### Configure Logz.io Python Handler for a standard Python project
 
 Use the samples in the code block below as a starting point, and replace the sample with a configuration that matches your needs.
 
@@ -173,17 +173,17 @@ LOGGING = {
 
 
 
-#### Serverless platforms
+### Serverless platforms
 
 If you're using a serverless function, you'll need to import and add the LogzioFlusher annotation before your sender function. To do this, in the code sample below, uncomment the `import` statement and the `@LogzioFlusher(logger)` annotation line.  
 **Note:** For the LogzioFlusher to work properly, you'll need to make sure that the Logz.io. handler is added to the root logger. See the configuration above for an example.
 
-#### Dynamic Extra Fields
+### Dynamic Extra Fields
 If you prefer, you can add extra fields to your logs dynamically, and not pre-defining them in the configuration.
 This way, you can allow different logs to have different extra fields.
 Example in the code below. 
 
-#### Code Example
+### Code Example
 
 ```python
 import logging
@@ -227,7 +227,7 @@ def my_func():
 
 ```
 
-#### Extra Fields
+### Extra Fields
 In case you need to dynamic metadata to a speific log and not [dynamically to the logger](#dynamic-extra-fields), other than the constant metadata from the formatter, you can use the "extra" parameter.
 All key values in the dictionary passed in "extra" will be presented in Logz.io as new fields in the log you are sending.
 Please note, that you cannot override default fields by the python logger (i.e. lineno, thread, etc..)
@@ -237,7 +237,7 @@ For example:
 logger.info('Warning', extra={'extra_key':'extra_value'})
 ```
 
-#### Trace context
+### Trace context
 
 If you're sending traces with OpenTelemetry instrumentation (auto or manual), you can correlate your logs with the trace context.
 That way, your logs will have traces data in it, such as service name, span id and trace id.
@@ -483,7 +483,7 @@ meter.register_valueobserver(
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
 
-### Setup using Lambda
+### Setup Metrics using Lambda
 
 This integration uses OpenTelemetry collector extention and Python metrics SDK to create and send metrics from your Lambda functions to your Logz.io account.
 
@@ -1182,7 +1182,7 @@ helm uninstall logzio-monitoring
 ```
 
 
-### Troubleshooting
+## Troubleshooting
 
 
 #### Logz.io Python handler 

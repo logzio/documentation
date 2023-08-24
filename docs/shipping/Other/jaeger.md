@@ -4,7 +4,7 @@ title: Jaeger
 overview: Deploy this integration to send traces from your Jaeger installation to Logz.io.
 product: ['tracing']
 os: ['windows', 'linux']
-filters: ['Other']
+filters: ['Other', 'Most Popular']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/jaeger.svg
 logs_dashboards: []
 logs_alerts: []
@@ -14,13 +14,10 @@ metrics_alerts: []
 drop_filter: []
 ---
 
-
-
-Deploy this integration to send traces from your Jaeger installation to Logz.io.
+## Manual configuration
 
 Logz.io recommends that you use OpenTelemetry to gather trace transaction data from your system. Because of its versatility, OpenTelemetry has been widely adopted as the industry standard: OpenTelemetry can be equipped with many additional functionalities, one of which is collecting aggregated trace data. Beyond that, [OpenTelemetry](https://github.com/open-telemetry) is set to be the best production-ready solution going forward.
 
-## Manual configuration
 
 This integration includes:
 

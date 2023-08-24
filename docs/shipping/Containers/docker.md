@@ -4,7 +4,7 @@ title: Docker
 overview: This integration collect logs and metrics from your docker enviroment.
 product: ['logs','metrics']
 os: ['windows', 'linux']
-filters: ['Containers']
+filters: ['Containers', 'Most Popular']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/docker.png
 logs_dashboards: []
 logs_alerts: []
