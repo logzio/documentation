@@ -15,7 +15,7 @@ drop_filter: []
 ---
 
  
-## Manually configure OpenTelemetry on Localhost
+## Send your Windows machine logs and metrics using OpenTelemetry service
 
 :::note
 For a much easier and more efficient way to collect and send metrics, consider using the [Logz.io telemetry collector](https://app.logz.io/#/dashboard/send-your-data/agent/new).
@@ -155,7 +155,7 @@ New-Service -Name LogzioOTELCollector -BinaryPathName "$env:APPDATA\LogzioAgent\
 |Delete service|`Stop-Service -Name LogzioOTELCollector` `sc.exe DELETE LogzioOTELCollector`|
 
 
-## Send your data through Winlogbeat
+## Send your logs and metrics using Winlogbeat
 
 
 **Before you begin, you'll need**:

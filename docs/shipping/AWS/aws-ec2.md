@@ -15,7 +15,7 @@ drop_filter: []
 ---
 
 
-## Manually configure OpenTelemetry on Linux
+## Send your AWS EC2 logs and metrics using OpenTelemetry collector service
 
 :::note
 For a much easier and more efficient way to collect and send metrics, consider using the [Logz.io telemetry collector](https://app.logz.io/#/dashboard/send-your-data/agent/new).
@@ -180,7 +180,7 @@ To manage OpenTelemetry on your machine, use the following commands:
 |Delete service|`sudo systemctl stop logzioOTELCollector` `sudo systemctl disable logzioOTELCollector` `sudo systemctl reset-failed logzioOTELCollector 2>/dev/null` `sudo rm /etc/systemd/system/logzioOTELCollector.service 2>/dev/null` `sudo rm /usr/lib/systemd/system/logzioOTELCollector.service 2>/dev/null` `sudo rm /etc/init.d/logzioOTELCollector 2>/dev/null`|
 
 
-## Send your AWS EC2 logs and metrics using OpenTelemetry collector service
+## Manually send AWS EC2 metrics to Logz.io
 
 
 Deploy this integration to send your Amazon EC2 metrics to Logz.io.
