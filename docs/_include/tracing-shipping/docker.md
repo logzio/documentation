@@ -5,7 +5,7 @@ docker pull otel/opentelemetry-collector-contrib:0.78.0
 ```
 
 ### Create a configuration file
-
+ 
 Create a file `config.yaml` with the following content:
 
 ```yaml
@@ -65,6 +65,8 @@ service:
  
 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
+
+.
 
 {@include: ../../_include/tracing-shipping/tail-sampling.md}
  
