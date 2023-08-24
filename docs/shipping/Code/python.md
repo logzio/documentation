@@ -4,7 +4,7 @@ title: Python
 overview: These integrations allows you to send custom logs, custom metrics and auto insturmated traces to your Logz.io account.
 product: ['metrics','logs','tracing']
 os: ['windows', 'linux', 'mac']
-filters: ['Code']
+filters: ['Code', 'Most Popular']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/python.svg
 logs_dashboards: []
 logs_alerts: []

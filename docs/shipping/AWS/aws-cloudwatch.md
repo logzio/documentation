@@ -4,7 +4,7 @@ title: CloudWatch Logs with a Firehose Delivery Stream
 overview: This project deploys instrumentation that allows shipping Cloudwatch logs to Logz.io, with a Firehose Delivery Stream.
 product: ['logs']
 os: ['windows', 'linux']
-filters: ['AWS', 'Monitoring']
+filters: ['AWS', 'Monitoring', 'Most Popular']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-cloudwatch.svg
 logs_dashboards: []
 logs_alerts: []

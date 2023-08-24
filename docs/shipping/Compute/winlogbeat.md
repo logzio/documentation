@@ -4,7 +4,7 @@ title: Windows Operating System
 overview: Follow these steps to integrate and forward your Windows system's logs to the Logz.io platform.
 product: ['logs']
 os: ['windows']
-filters: ['Other']
+filters: ['Other', 'Most Popular']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/windows.svg
 logs_dashboards: []
 logs_alerts: []
