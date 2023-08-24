@@ -813,11 +813,11 @@ On deployment, the Java agent automatically captures spans from your application
 * Port `4317` available on your host system
 * A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 
-<!-- info-box-start:info -->
+ 
 :::note
 This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
 :::
-<!-- info-box-end -->
+  
 
 
 ### Download Java agent

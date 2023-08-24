@@ -31,11 +31,11 @@ On deployment, your OpenTelemetry instrumentation captures spans from your appli
 
 * An active account with Logz.io
 
-<!-- info-box-start:info -->
+ 
 :::note
 This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
 :::
-<!-- info-box-end -->
+  
 
 
 #### Download and configure OpenTelemetry collector
@@ -137,17 +137,17 @@ You can use a Helm chart to ship traces to Logz.io via the OpenTelemetry collect
 
 **logzio-k8s-telemetry** allows you to ship traces from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
 
-<!-- info-box-start:info -->
+ 
 :::note
 This chart is a fork of the [opentelemtry-collector](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-collector) Helm chart. The main repository for Logz.io helm charts are [logzio-helm](https://github.com/logzio/logzio-helm).
 :::
-<!-- info-box-end -->
+  
 
-<!-- info-box-start:info -->
+ 
 :::caution Important
 This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
 :::
-<!-- info-box-end -->
+  
 
 
 ### Deploy the Helm chart
@@ -203,11 +203,11 @@ You can run the logzio-k8s-telemetry chart with your custom configuration file t
 
 For example:
 
-<!-- info-box-start:info -->
+ 
 :::note
 The collector will sample **ALL traces** where is some span with error with this example configuration. 
 :::
-<!-- info-box-end -->
+  
 
 ```yaml
 baseCollectorConfig:
