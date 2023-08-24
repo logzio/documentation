@@ -14,9 +14,6 @@ metrics_alerts: []
 drop_filter: []
 ---
 
-
-Deploy this integration to enable automatic instrumentation of your Java application with Kafka using OpenTelemetry.
-
 ## Manual configuration
 
 This integration includes:
@@ -210,7 +207,7 @@ If required, you can add the following optional parameters as environment variab
 | secrets.SamplingProbability | Sampling percentage for the probabilistic policy. Default 10. | 
 
 
-#### Example
+##### Example
 
 You can run the logzio-monitoring chart with your custom configuration file that takes precedence over the `values.yaml` of the chart.
 

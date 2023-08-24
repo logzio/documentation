@@ -1,16 +1,16 @@
 This section contains some guidelines for handling errors that you may encounter when trying to collect .NET metrics.
 
 
-## Problem: No metrics received
+#### Problem: No metrics received
 
 No metrics are observed in your Logz.io account.
 
-### Possible cause - Incorrect token and/or listener URL
+##### Possible cause - Incorrect token and/or listener URL
 
 
 Your Logz.io token and/or listener URL may be incorrect.
 
-#### Suggested remedy
+###### Suggested remedy
 
 
 1. Navigate to  **[Manage tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/shared) > [Data shipping tokens - Metrics](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=metrics)** and verify your account's metrics token and listener URL.
@@ -22,7 +22,7 @@ Your Logz.io token and/or listener URL may be incorrect.
 Your host/server may not be connected to your Logz.io listener.
 
 
-#### Suggested remedy
+###### Suggested remedy
 
 
 Verify connectivity of your Logz.io listener as follows.
@@ -43,11 +43,11 @@ Verify connectivity of your Logz.io listener as follows.
   Replace `<<PORT>>` with the appropriate port nummber. For HTTPS communication use port 8053. For HTTP communication use port 8052.
 
 
-### Possible cause - Incorrect listener endpoint
+##### Possible cause - Incorrect listener endpoint
 
 Your Logz.io listener may not be using the correct endpoint.
 
-#### Suggested remedy
+###### Suggested remedy
 
 Change the endpoint of your listener from `https://<<LISTENER-HOST>>:<<PORT>>` to `http://<<LISTENER-HOST>>:<<PORT>>` or from `http://<<LISTENER-HOST>>:<<PORT>>` to `https://<<LISTENER-HOST>>:<<PORT>>`
 
@@ -55,22 +55,22 @@ Change the endpoint of your listener from `https://<<LISTENER-HOST>>:<<PORT>>` t
 * {@include: ../log-shipping/listener-var.html}
 
 
-### Possible cause - Kubernetes environment - prometheus.io/scrape is not set
+##### Possible cause - Kubernetes environment - prometheus.io/scrape is not set
 
 If you're running .NET on Kubernetes, the `prometheus.io/scrape` may not be enabled.
 
-#### Suggested remedy
+###### Suggested remedy
 
 
 Make sure you have the scrape setting enabled as follows: `prometheus.io/scrape: true`.
 
 
-### Possible cause - Code needs debugging
+##### Possible cause - Code needs debugging
 
 If all the above causes are not applicable, the code may need debugging.
 
 
-#### Suggested remedy
+###### Suggested remedy
 
 
 Check if the following code works with your integration:
