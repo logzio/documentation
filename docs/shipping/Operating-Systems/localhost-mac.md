@@ -1,6 +1,6 @@
 ---
 id: localhost-mac
-title: Mac
+title: Mac Operating System
 overview: Send Send data from your localhost Mac machine to Logz.io. 
 product: ['logs']
 os: ['linux']
