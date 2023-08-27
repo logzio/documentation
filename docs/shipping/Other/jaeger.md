@@ -1,7 +1,7 @@
 ---
 id: Jaeger-data
 title: Jaeger
-overview: Deploy this integration to send traces from your Jaeger installation to Logz.io.
+overview: Jaeger is an open-source software that can help you monitor and troubleshoot problems on microservices. Integrate Jaeger with Logz.io to gain more observability into your data, identify if and when issues occur, and resolve them quickly and easily. 
 product: ['tracing']
 os: ['windows', 'linux']
 filters: ['Other', 'Most Popular']

@@ -1,7 +1,7 @@
 ---
 id: Node-js
 title: Node.js
-overview: Send Node.js logs, metrics and traces to Logz.io.
+overview: Send Node.js logs, metrics, and traces to monitor and maintain your applications' stability, dependability, and performance. By sending your data to Logz.io, you can rapidly spot any issue that might harm your applications and quickly resolve them.
 product: ['logs','metrics','tracing']
 os: ['windows', 'linux']
 filters: ['Code', 'Most Popular']

@@ -1,7 +1,7 @@
 ---
 id: Rsyslog-data
 title: Rsyslog
-overview: Most Unix systems these days come with pre-installed rsyslog, which is a great lightweight service to consolidate logs.
+overview: Rsyslog is an open-source software utility used on most UNIX and Unix-like computer systems. It offers a great lightweight service to consolidate logs. With Logz.io, you can monitor these logs, identify if and when issues arise, and solve them before they impact your customers. 
 product: ['logs']
 os: ['windows', 'linux']
 filters: ['Other', 'Most Popular']
@@ -14,7 +14,6 @@ metrics_alerts: []
 drop_filter: []
 ---
  
-
 
 ###### Shipping with Rsyslog
 

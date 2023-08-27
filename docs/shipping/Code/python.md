@@ -1,7 +1,7 @@
 ---
 id: Python 
 title: Python
-overview: These integrations allows you to send custom logs, custom metrics and auto insturmated traces to your Logz.io account.
+overview: Logz.io's Python integration allows you to send custom logs, custom metrics, and auto-instrument traces into your account, allowing you to identify and resolve issues in your code.
 product: ['metrics','logs','tracing']
 os: ['windows', 'linux', 'mac']
 filters: ['Code', 'Most Popular']

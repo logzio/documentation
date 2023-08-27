@@ -1,7 +1,7 @@
 ---
 id: JSON
 title: JSON
-overview: If you want to ship logs from your code but don't have a library in place, you can send them directly to the Logz.io listener as a minified JSON file.
+overview: Ship logs from your code directly to the Logz.io listener as a minified JavaScript Object Notation (JSON) file, a standard text-based format for representing structured data based on JavaScript object syntax.
 product: ['logs']
 os: ['windows', 'linux']
 filters: ['Code', 'Most Popular']
