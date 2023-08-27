@@ -155,7 +155,7 @@ New-Service -Name LogzioOTELCollector -BinaryPathName "$env:APPDATA\LogzioAgent\
 |Delete service|`Stop-Service -Name LogzioOTELCollector` `sc.exe DELETE LogzioOTELCollector`|
 
 
-## Send your logs and metrics using Winlogbeat
+## Send your logs using Winlogbeat
 
 
 **Before you begin, you'll need**:
