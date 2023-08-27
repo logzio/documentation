@@ -1,7 +1,7 @@
 ---
 id: Linux-data
 title: Linux Operating System
-overview: Follow these steps to integrate and forward your Linux system's logs to the Logz.io platform.
+overview: Send your Linux machine logs and metrics to Logz.io to monitor and manage your Linux data, allowing you to identify anomalies, investigate incidents, get to the root cause of any issue, and quickly resolve it.
 product: ['logs']
 os: ['windows', 'linux']
 filters: ['Other', 'Most Popular']

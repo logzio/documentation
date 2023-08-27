@@ -1,7 +1,7 @@
 ---
 id: Java
 title: Java 
-overview: Send logs, metrics and traces from your Java code
+overview: Integrate your Java applications with Logz.io to gain observability needed to maintain and improve your applications and performance. With Logz.io, you can monitor your Java logs, metrics, and traces, know if and when incidents occur, and quickly resolve them.
 product: ['logs','metrics','tracing']
 os: ['windows', 'linux']
 filters: ['Code', 'Most Popular']

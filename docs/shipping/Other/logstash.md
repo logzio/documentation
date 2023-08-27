@@ -1,7 +1,7 @@
 ---
 id: Logstash-data
 title: Logstash
-overview: This integration ships Logstash metrics to Logz.io.
+overview: Logstash is an open-source server-side data processing pipeline. This integration can ingest data from multiple  sources. With Logz.io, you can monitor Logstash instances and quickly identify if and when issues arise.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['Other']

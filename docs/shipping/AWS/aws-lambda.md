@@ -1,7 +1,7 @@
 ---
 id: AWS-Lambda
 title: AWS Lambda
-overview: Deploy this integration to auto-instrument your Node.js application running on AWS Lambda and send the traces to your Logz.io account.
+overview: AWS Lambda serverless compute service runs code in response to events and automatically manages compute resources. Send these events to Logz.io to identify anomalies and issues and quickly solve them.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['AWS', 'Compute']
