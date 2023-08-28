@@ -1,7 +1,7 @@
 ---
 id: Kubernetes
 title: Kubernetes
-overview: Send Kubernetes logs, metrics and traces to Logz.io.
+overview: Kubernetes, also known as K8s, is an open-source system for automating deployments, scaling, and managing containerized applications. Integrate your Kubernetes system with Logz.io to monitor your logs, metrics, and traces, gain observability into your environment, and be able to identify and resolve issues with just a few clicks. 
 product: ['logs', 'metrics', 'tracing']
 os: ['windows', 'linux']
 filters: ['Containers', 'Most Popular']
@@ -13,6 +13,9 @@ metrics_dashboards: ['1Pm3OYbu1MRGoELc2qhxQ1', '1Pm3OYbu1MRGoELc2qhxQ1']
 metrics_alerts: []
 drop_filter: []
 ---
+
+
+
 
 
 The logzio-monitoring Helm Chart ships your Kubernetes telemetry (logs, metrics, traces and security reports) to your Logz.io account.

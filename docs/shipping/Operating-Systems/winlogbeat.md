@@ -1,7 +1,7 @@
 ---
 id: Windows
 title: Windows Operating System
-overview: Follow these steps to integrate and forward your Windows system's logs to the Logz.io platform.
+overview: Send your Windows machine logs and metrics to Logz.io to monitor and manage your Windows data, allowing you to identify anomalies, investigate incidents, get to the root cause of any issue, and quickly resolve it.
 product: ['logs']
 os: ['windows']
 filters: ['Other', 'Most Popular']

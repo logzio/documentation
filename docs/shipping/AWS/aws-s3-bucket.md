@@ -1,7 +1,7 @@
 ---
 id: AWS-S3-Bucket
 title: AWS S3 Bucket
-overview: Send logs stored in AWS S3 Buckets, and AWS S3 metrics.
+overview: Amazon S3 stores data within buckets, allowing you to send your AWS logs and metrics to Logz.io. S3 buckets lets you store and access large amounts of data and is often used for big data analytics, root cause analysis, and more.
 product: ['logs', 'metrics']
 os: ['windows', 'linux']
 filters: ['AWS', 'Data Store', 'Other', 'Most Popular']
@@ -13,6 +13,8 @@ metrics_dashboards: ['1Pm3OYbu1MRGoELc2qhxQ1']
 metrics_alerts: []
 drop_filter: []
 ---
+
+
 
 
 ## Shipping logs via S3 Fetcher

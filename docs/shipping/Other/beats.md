@@ -1,7 +1,7 @@
 ---
 id: Beats-data
 title: Beats
-overview: This document describes the way to get logs from your system to Logz.io using any of the Beats shippers.
+overview: Beats is an open platform that allows you to send data from hundreds or thousands of machines and systems. You can send data from your Beats to Logz.io to add a layer of observability to identify and resolve issues quickly.
 product: ['logs']
 os: ['windows', 'linux']
 filters: ['Other']
@@ -13,7 +13,6 @@ metrics_dashboards: []
 metrics_alerts: []
 drop_filter: []
 ---
-
 
 ## MacOS or Linux
 

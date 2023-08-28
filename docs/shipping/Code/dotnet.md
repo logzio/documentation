@@ -1,7 +1,7 @@
 ---
 id: dotnet
 title: .NET
-overview: Send .NET metrics.
+overview: .NET is an open-source, managed computer software framework for Windows, Linux, and macOS operating systems. Integrate .NET with Logz.io to monitor logs, metrics, and traces, identify when issues occur, easily troubleshoot them, and improve your applications and services. 
 product: ['logs', 'metrics', 'tracing']
 os: ['windows', 'linux']
 filters: ['Code', 'Most Popular']
@@ -13,6 +13,8 @@ metrics_dashboards: []
 metrics_alerts: []
 drop_filter: []
 ---
+
+
 ## Logs
 
 ### log4net

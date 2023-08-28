@@ -1,11 +1,11 @@
 ---
 id: localhost-mac
 title: Mac Operating System
-overview: Send Send data from your localhost Mac machine to Logz.io. 
+overview: Send your Mac machine logs and metrics to Logz.io to monitor and manage your Mac data, allowing you to identify anomalies, investigate incidents, get to the root cause of any issue, and quickly resolve it.
 product: ['logs']
 os: ['linux']
 filters: ['Compute']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/windows.svg
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/mac-os.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
