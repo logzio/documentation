@@ -519,7 +519,7 @@ LogManager.Configuration = config;
 
 
 
-### Loggerfactiry
+### LoggerFactory
 
 **Before you begin, you'll need**:
 
