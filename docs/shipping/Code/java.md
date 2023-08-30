@@ -795,8 +795,6 @@ Give your metrics some time to get from your system to ours, and then open [Metr
 
 Deploy this integration to enable automatic instrumentation of your Java application using OpenTelemetry.
 
-### Manual configuration
-
 This integration includes:
 
 * Downloading the OpenTelemetry Java agent to your application host
