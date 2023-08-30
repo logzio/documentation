@@ -2,8 +2,8 @@
 id: Linux-data
 title: Linux Operating System
 overview: Send your Linux machine logs and metrics to Logz.io to monitor and manage your Linux data, allowing you to identify anomalies, investigate incidents, get to the root cause of any issue, and quickly resolve it.
-product: ['logs']
-os: ['windows', 'linux']
+product: ['logs','metrics']
+os: ['linux']
 filters: ['Other', 'Most Popular']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/linux.svg
 logs_dashboards: []
