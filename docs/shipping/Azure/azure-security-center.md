@@ -81,7 +81,7 @@ For a complete list of options, see the configuration parameters below.👇
 
 ```yaml
 senderParams:
-  accountToken: "<<SHIPPING-TOKEN>>"
+  accountToken: "<<LOG-SHIPPING-TOKEN>>"
   listenerUrl: "<<LISTENER-HOST>>"
 
 azureADClient:
