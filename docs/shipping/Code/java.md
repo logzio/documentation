@@ -126,19 +126,20 @@ See the [Log4j documentation](https://logging.apache.org/log4j/2.x/manual/config
  
 
 #### Parameters
-| Parameter          | Default                              | Explained  |
-| ------------------ | ------------------------------------ | ----- |
+
+| Parameter          | Default                              | Explained  | Required/Optional  |
+| ------------------ | ------------------------------------ | ----- | ----- |
 | **logzioToken**              | *None*                                 | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). {@include: ../../_include/log-shipping/log-shipping-token.html} Begin with `$` to use an environment variable or system property with the specified name. For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable. | Required |
-| **logzioType**               | *java*                                 | The [log type](https://support.logz.io/hc/en-us/articles/209486049-What-is-Type-) for that appender, it must not contain any spaces |
-| **logzioUrl**               | *https://listener.logz.io:8071*                                 | Listener URL and port.    {@include: ../../_include/log-shipping/listener-var.html}  | `https://listener.logz.io:8071` |
-| **drainTimeoutSec**       | *5*                                    | How often the appender should drain the queue (in seconds) |
-| **socketTimeoutMs**       | *10 * 1000*                                    | The socket timeout during log shipment |
-| **connectTimeoutMs**       | *10 * 1000*                                    | The connection timeout during log shipment |
-| **addHostname**       | *false*                                    | Optional. If true, then a field named 'hostname' will be added holding the host name of the machine. If from some reason there's no defined hostname, this field won't be added |
-| **additionalFields**       | *None*                                    | Optional. Allows to add additional fields to the JSON message sent. The format is "fieldName1=fieldValue1;fieldName2=fieldValue2". You can optionally inject an environment variable value using the following format: "fieldName1=fieldValue1;fieldName2=$ENV_VAR_NAME". In that case, the environment variable should be the only value. In case the environment variable can't be resolved, the field will be omitted. |
-| **debug**       | *false*                                    | Print some debug messages to stdout to help to diagnose issues |
-| **compressRequests**       | *false*                                    | Boolean. `true` if logs are compressed in gzip format before sending. `false` if logs are sent uncompressed. |
-| **exceedMaxSizeAction**       | *"cut"*                                    | String. cut to truncate the message field or drop to drop log that exceed the allowed maximum size for logzio. If the log size exceeding the maximum size allowed after truncating the message field, the log will be dropped. |
+| **logzioType**               | *java*                                 | The [log type](https://support.logz.io/hc/en-us/articles/209486049-What-is-Type-) for that appender, it must not contain any spaces | Optional |
+| **logzioUrl**               | *https://listener.logz.io:8071*                                 | Listener URL and port.    {@include: ../../_include/log-shipping/listener-var.html}  | Required |
+| **drainTimeoutSec**       | *5*                                    | How often the appender should drain the queue (in seconds) | Required |
+| **socketTimeoutMs**       | *10 * 1000*                                    | The socket timeout during log shipment | Required |
+| **connectTimeoutMs**       | *10 * 1000*                                    | The connection timeout during log shipment | Required |
+| **addHostname**       | *false*                                    | If true, then a field named 'hostname' will be added holding the host name of the machine. If from some reason there's no defined hostname, this field won't be added | Required |
+| **additionalFields**       | *None*                                    | Allows to add additional fields to the JSON message sent. The format is "fieldName1=fieldValue1;fieldName2=fieldValue2". You can optionally inject an environment variable value using the following format: "fieldName1=fieldValue1;fieldName2=$ENV_VAR_NAME". In that case, the environment variable should be the only value. In case the environment variable can't be resolved, the field will be omitted. | Optional |
+| **debug**       | *false*                                    | Print some debug messages to stdout to help to diagnose issues | Required |
+| **compressRequests**       | *false*                                    | Boolean. `true` if logs are compressed in gzip format before sending. `false` if logs are sent uncompressed. | Required |
+| **exceedMaxSizeAction**       | *"cut"*                                    | String. cut to truncate the message field or drop to drop log that exceed the allowed maximum size for logzio. If the log size exceeding the maximum size allowed after truncating the message field, the log will be dropped. | Required |
 
 #### Parameters for in-memory queue
 | Parameter          | Default                              | Explained  |
