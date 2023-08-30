@@ -341,7 +341,7 @@ For a complete list of options, see the configuration parameters below the code 
         -->
 
 	<target name="logzio" type="Logzio"
-		token="<<SHIPPING-TOKEN>>"
+		token="<<LOG-SHIPPING-TOKEN>>"
 		logzioType="nlog"
 		listenerUrl="<<LISTENER-HOST>>:8071"
                 <!--Optional proxy server address:
@@ -375,7 +375,7 @@ var config = new LoggingConfiguration();
 // Replace these parameters with your configuration
 var logzioTarget = new LogzioTarget {
     Name = "Logzio",
-    Token = "<<SHIPPING-TOKEN>>",
+    Token = "<<LOG-SHIPPING-TOKEN>>",
     LogzioType = "nlog",
     ListenerUrl = "<<LISTENER-HOST>>:8071",
     BufferSize = 100,
@@ -498,7 +498,7 @@ var config = new LoggingConfiguration();
 // Replace these parameters with your configuration
 var logzioTarget = new LogzioTarget {
     Name = "Logzio",
-    Token = "<<SHIPPING-TOKEN>>",
+    Token = "<<LOG-SHIPPING-TOKEN>>",
     LogzioType = "nlog",
     ListenerUrl = "<<LISTENER-HOST>>:8071",
     BufferSize = 100,
