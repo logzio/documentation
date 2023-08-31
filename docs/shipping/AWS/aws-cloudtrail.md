@@ -107,6 +107,42 @@ Give your logs some time to get from your system to ours, and then open [Open Se
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
+
+## Troubleshooting
+
+### Problem: Failed to save bucket configuration 
+
+The following error appears when you're trying to create a bucket:
+
+```shell
+AWS failed to create cloudtrail bucket. Exception AWS bucket is empty: 403.
+```
+
+#### Possible cause
+
+The bucket's location is incorrect or might be missing the correct prefix.
+
+#### Suggested remedy
+
+
+1. Head to CloudTrail console on AWS and check the relevant trail:
+
+![Dashboard trail](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/dashboard-trail.png)
+
+2. Verify that the location of the trail is correct:
+
+![Trail location](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/trail-location.png)
+
+And verify that the prefix contains all parts:
+
+![Prefix trail](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/prefix-trail.png)
+
+In this case, the cause of the error is that the location is empty or that the prefix is wrong. 
+
+The bucket should be `aws-cloudtrail-logs-486140753397-9f0d7dbd`, and the prefix should be `AWSLogs/486140753397/CloudTrail/`. You can click on the prefix to verify that it is empty.
+
+Once you fix these issues, you can return to Logz.io to create the CloudTrail bucket.
+
  
 
 ## Metrics
@@ -164,44 +200,5 @@ Specify the stack details as per the table below, check the checkboxes and selec
 ### Check Logz.io for your metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
-
-## Troubleshooting
-
-### Problem: Failed to save bucket configuration 
-
-The following error appears when you're trying to create a bucket:
-
-```shell
-AWS failed to create cloudtrail bucket. Exception AWS bucket is empty: 403.
-```
-
-#### Possible cause
-
-The bucket's location is incorrect or might be missing the correct prefix.
-
-#### Suggested remedy
-
-
-1. Head to CloudTrail console on AWS and check the relevant trail:
-
-![Dashboard trail](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/dashboard-trail.png)
-
-2. Verify that the location of the trail is correct:
-
-![Trail location](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/trail-location.png)
-
-And verify that the prefix contains all parts:
-
-![Prefix trail](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/prefix-trail.png)
-
-In this case, the cause of the error is that the location is empty or that the prefix is wrong. 
-
-The bucket should be `aws-cloudtrail-logs-486140753397-9f0d7dbd`, and the prefix should be `AWSLogs/486140753397/CloudTrail/`. You can click on the prefix to verify that it is empty.
-
-Once you fix these issues, you can return to Logz.io to create the CloudTrail bucket.
-
-
-
-
 
 .
