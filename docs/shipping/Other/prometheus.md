@@ -1,7 +1,7 @@
 ---
 id: Prometheus-data
 title: Prometheus
-overview: This project lets you send Prometheus-format logs, metrics and traces to Logz.io.
+overview: This integration lets you send Prometheus-format metrics and traces to Logz.io.
 product: ['metrics', 'logs']
 os: ['windows', 'linux']
 filters: ['Other', 'Most Popular']
@@ -14,11 +14,9 @@ metrics_alerts: []
 drop_filter: []
 ---
 
-
+## Using Telegraf
 
 This project lets you configure a Telegraf agent to send your collected Prometheus-format metrics to Logz.io.
-
-## Overview
 
 Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems, and IoT sensors.
 
@@ -27,8 +25,6 @@ To send your Prometheus-format metrics to Logz.io, you add the **outputs.http** 
 <!-- logzio-inject:install:grafana:dashboards ids=["32X5zm8qW7ByLlp1YPFkrJ"] -->
 
 #### Configure Telegraf to send your metrics data to Logz.io
-
-
 
 ##### Set up Telegraf v1.17 or higher:
 
@@ -99,7 +95,7 @@ The full list of data scraping and configuring options can be found [here](https
 {@include: ../../_include/metric-shipping/generic-dashboard.html}
 
 
-
+## Using Prometheus
 
 
 To send your Prometheus application metrics to a Logz.io Infrastructure Monitoring account, use remote write to connect to Logz.io as the endpoint. Your data is formatted as JSON documents by the Logz.io listener.
@@ -108,7 +104,6 @@ To send your Prometheus application metrics to a Logz.io Infrastructure Monitori
 :::note
 **Multiple server environments:**  If you have multiple Prometheus server instances, you'll have to add Logz.io as an endpoint for each instance.
 :::
-
 
 
 #### Configuring Remote Write to Logz.io
@@ -210,72 +205,6 @@ After your metrics are flowing, [import your existing Prometheus and Grafana das
 * **Metrics metadata dashboards**: If you have both Prometheus & Grafana, you can activate a dashboard as part of the remote write configuration that will show you the queue size and how many metrics you're sending. If your queue size increases, it might be necessary to open an additional channel. _(currently in development)_
 
 * **Tune the remote write process**: Learn more about Prometheus [remote write tuning here.](https://prometheus.io/docs/practices/remote_write/)
-
-
-This project lets you configure the OpenTelemetry collector to send your collected Prometheus-format metrics to Logz.io.
-
-
-#### Configuring OpenTelemetry to send your metrics data to Logz.io
-
- 
-
-##### Download OpenTelemetry collector
-  
-:::note
-If you already have OpenTelemetry, proceed to the next step.
-:::
- 
-
-Create a dedicated directory on your host and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.60.0) that is relevant to the operating system of your host.
-
-After downloading the collector, create a configuration file `config.yaml`.
-
-##### Configure the receivers
-  
-Open the configuration file and make sure that it states the receivers required for your source.
-
-##### Configure the exporters
-
-In the same configuration file, add the following to the `exporters` section:
-  
-```yaml  
-exporters:
-  prometheusremotewrite:
-    endpoint: https://<<LISTENER-HOST>>:8053
-    headers:
-      Authorization: Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
-```
-  
-{@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
-
-##### Configure the service pipeline
-  
-In the `service` section of the configuration file, add the following configuration
-  
-```yaml
-service:
-  pipelines:
-    metrics:
-      receivers: [<<YOUR-RECEIVER>>]
-      exporters: [prometheusremotewrite]
-```
-* Replace `<<YOUR_RECEIVER>>` with the name of your receiver.
-
-
-
-##### Start the collector
-
-Run the following command:
-
-```shell
-<path/to>/otelcol-contrib --config ./config.yaml
-```
-
-* Replace `<path/to>` with the path to the directory where you downloaded the collector. If the name of your configuration file is different to `config`, adjust name in the command accordingly.
-
-##### Check Logz.io for your metrics
-
-Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
 
  
