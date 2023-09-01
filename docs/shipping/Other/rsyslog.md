@@ -14,8 +14,7 @@ metrics_alerts: []
 drop_filter: []
 ---
  
-
-###### Shipping with Rsyslog
+## Rsyslog over TLS
 
 Most Unix systems these days come with pre-installed rsyslog, which is a great lightweight service to consolidate logs.
 
@@ -110,6 +109,10 @@ Give your logs some time to get from your system to ours, and then [open Open Se
 If you still don't see your logs, see our [Rsyslog troubleshooting guide](https://docs.logz.io/user-guide/log-shipping/rsyslog-selinux-troubleshooting.html).
 
   
+
+
+## Rsyslog with SELinux
+
 
 
 Security-Enhanced Linux (SELinux) is a security architecture for Linux based systems that allows administrators to have more control over who can access the system.
@@ -209,7 +212,7 @@ Give your logs some time to get from your system to ours, and then [open Open Se
 If you still don't see your logs, see our [Rsyslog troubleshooting guide](https://docs.logz.io/user-guide/log-shipping/rsyslog-selinux-troubleshooting.html).
 
  
-  
+## Automatic configuration
 
 ###### Shipping with Rsyslog
 
@@ -255,7 +258,7 @@ curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslo
 * `<<TYPE>>`: {@include: ../../_include/log-shipping/type.md}
 
 
- 
+## Manual configuration
 
 ###### Shipping with Rsyslog
 
