@@ -60,7 +60,7 @@ service:
       exporters: [logzio/logs]
 ```
 
-* Replace <<YOUR-LOG-RECEIVER>> with the name of your log receiver.
+* Replace `<<YOUR-LOG-RECEIVER>>` with the name of your log receiver.
 
 #### Start the Collector
 
