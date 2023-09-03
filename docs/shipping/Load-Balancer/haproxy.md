@@ -107,64 +107,82 @@ If you don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/
 
  ## Metrics
 
- To send your Prometheus-format HAProxy metrics to Logz.io, you need to add the **inputs.haproxy** and **outputs.http** plug-ins to your Telegraf configuration file.
+ To send your Prometheus-format HAProxy metrics to Logz.io, you need configure the OpenTelemetry collector to send your collected Prometheus-format HAproxy metrics to Logz.io.
 
-### Configure Telegraf to send your metrics data to Logz.io
+#### Configuring OpenTelemetry to send your metrics data to Logz.io
 
- 
+##### Download OpenTelemetry collector
+  
+:::note
+If you already have OpenTelemetry, proceed to the next step.
+:::
 
-#### Set up Telegraf v1.17 or higher
+Create a dedicated directory on your host and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.60.0) that is relevant to the operating system of your host.
 
-{@include: ../../_include/metric-shipping/telegraf-setup.md}
- 
-#### Add the inputs.haproxy plug-in
+After downloading the collector, create a configuration file `config.yaml`.
 
-First you need to configure the input plug-in to enable Telegraf to scrape the HAProxy data from your hosts. To do this, add the following code to the configuration file:
+##### Configure the receivers
+  
+Open the configuration file and make sure that it states the receivers required for your source.
 
-
-``` ini
-[[inputs.haproxy]]
-  ## An array of address to gather stats about. Specify an ip on hostname
-  ## with optional port. ie localhost, 10.10.3.33:1936, etc.
-  ## Make sure you specify the complete path to the stats endpoint
-  ## including the protocol, ie http://10.10.3.33:1936/haproxy?stats
-
-  ## Credentials for basic HTTP authentication
-  # username = "admin"
-  # password = "admin"
-
-  ## If no servers are specified, then default to 127.0.0.1:1936/haproxy?stats
-  servers = ["http://myhaproxy.com:1936/haproxy?stats"]
-
-  ## You can also use local socket with standard wildcard globbing.
-  ## Server address not starting with 'http' will be treated as a possible
-  ## socket, so both examples below are valid.
-  # servers = ["socket:/run/haproxy/admin.sock", "/run/haproxy/*.sock"]
-
-  ## By default, some of the fields are renamed from what haproxy calls them.
-  ## Setting this option to true results in the plugin keeping the original
-  ## field names.
-  # keep_field_names = false
-
-  ## Optional TLS Config
-  # tls_ca = "/etc/telegraf/ca.pem"
-  # tls_cert = "/etc/telegraf/cert.pem"
-  # tls_key = "/etc/telegraf/key.pem"
-  ## Use TLS but skip chain & host verification
-  # insecure_skip_verify = false
+```yaml
+receivers:
+  prometheus:
+    config:
+      scrape_configs:
+        - job_name: 'haproxy'
+          static_configs:
+            - targets: ['localhost:1936']
+              labels:
+                instance: 'haproxy_instance'
+          metrics_path: '/haproxy?stats;csv'
+          basic_auth:
+            username: 'your_username'
+            password: 'your_password'
 ```
 
-:::note
-The database name is only required for instantiating a connection with the server and does not restrict the databases that we collect metrics from. The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/blob/release-1.18/plugins/inputs/haproxy/README.md).
-:::
- 
+Adjust the `targets`, `username`, and `password` as per your HAProxy setup.
 
-#### Add the outputs.http plug-in
+##### Configure the exporters
 
-{@include: ../../_include/metric-shipping/telegraf-outputs.md}
+In the same configuration file, add the following to the `exporters` section:
+  
+```yaml  
+exporters:
+  prometheusremotewrite:
+    endpoint: https://<<LISTENER-HOST>>:8053
+    headers:
+      Authorization: Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
+```
+  
 {@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
 
-### Check Logz.io for your metrics
+##### Configure the service pipeline
+  
+In the `service` section of the configuration file, add the following configuration
+  
+```yaml
+service:
+  pipelines:
+    metrics:
+      receivers: [<<YOUR-RECEIVER>>]
+      exporters: [prometheusremotewrite]
+```
+* Replace `<<YOUR_RECEIVER>>` with the name of your receiver.
+
+
+
+##### Start the collector
+
+Run the following command:
+
+```shell
+<path/to>/otelcol-contrib --config ./config.yaml
+```
+
+* Replace `<path/to>` with the path to the directory where you downloaded the collector. If the name of your configuration file is different to `config`, adjust name in the command accordingly.
+
+##### Check Logz.io for your metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
