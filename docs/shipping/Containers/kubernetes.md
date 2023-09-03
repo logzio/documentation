@@ -31,6 +31,9 @@ Add Logzio-helm repository
 
 ## All telemetry (logs, metrics, traces and security reports) at once
 
+
+To enjoy the full Kubernetes 360 experience, you can send all your telemetry data to Logz.io using one single Helm chart:
+
 ```sh
 helm install -n monitoring \
 --set logs.enabled=true \
