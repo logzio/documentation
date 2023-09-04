@@ -1,5 +1,5 @@
 ---
-id: Windows
+id: Windows-winlogbeat
 title: Windows Operating System
 overview: Send your Windows machine logs and metrics to Logz.io to monitor and manage your Windows data, allowing you to identify anomalies, investigate incidents, get to the root cause of any issue, and quickly resolve it.
 product: ['logs']
