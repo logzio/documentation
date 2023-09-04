@@ -2,7 +2,7 @@
 id: OpenTelemetry-data
 title: OpenTelemetry
 overview: OpenTelemetry is a collection of APIs, SDKs, and tools to instrument, generate, collect, and export telemetry data, including logs, metrics, and traces. Logz.io helps you identify anomalies and issues in the data so you can resolve them quickly and easily. 
-product: ['tracing']
+product: ['logs','metrics','tracing']
 os: ['windows', 'linux']
 filters: ['Other', 'Most Popular']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/opentelemetry-icon-color.png
