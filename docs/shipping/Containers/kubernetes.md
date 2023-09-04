@@ -25,10 +25,10 @@ The logzio-monitoring Helm Chart ships your Kubernetes telemetry (logs, metrics,
 1. [Helm](https://helm.sh/)
 
 Add Logzio-helm repository
-`helm repo add logzio-helm https://logzio.github.io/logzio-helm && helm repo update`
 
-
-
+```sh
+helm repo add logzio-helm https://logzio.github.io/logzio-helm && helm repo update
+```
 {@include: ../../_include/general-shipping/k8s-all-data.md}
 
 ## Send your logs
