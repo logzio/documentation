@@ -5,7 +5,7 @@ overview: Send your Windows machine logs and metrics to Logz.io to monitor and m
 product: ['logs','metrics']
 os: ['windows']
 filters: ['Compute']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/mac-os.svg
+logo: https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/windows.svg
 logs_dashboards: []
 logs_alerts: ['72Yry8pK5OfiGdPOV2y9RZ','4Mkw0OICZz7xnZZjlGWX9x']
 logs2metrics: []
