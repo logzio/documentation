@@ -98,7 +98,7 @@ def get_changed_files():
     files_to_track = []
     for file in files_arr:
         docs_path = os.getenv(consts.ENV_DOCS_PREFIX, consts.DOCS_PATH)
-        if file.startswith(docs_path):
+        if file.startswith(docs_path) and file.endswith('.md'):
             files_to_track.append(file)
     return files_to_track
 

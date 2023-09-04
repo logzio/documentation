@@ -50,6 +50,8 @@ Any file under path `docs/shipping` that is a **markdown** (`.md`) file, should 
 
 ## Changelog:
 
+- **0.0.3**:
+  - Bug fix - validate only markdown files.
 - **0.0.2**:
   - More details error logs.
   - Match validation to new sub-folder structure.
