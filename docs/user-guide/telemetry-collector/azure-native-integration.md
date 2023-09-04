@@ -90,7 +90,8 @@ Once your Azure app is ready, navigate to Logz.io to continue the setup process.
 
 Open **[Logz.io > Send data > Telemetry Collector](https://app.logz.io/#/dashboard/send-your-data/agent/new)** and Choose Azure.
 
-![Azure telemetry collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/fetcher/azure-cloud-fetcher-agent.png)
+![Azure telemetry collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/fetcher/choose-azure-cloud.png)
+
 
 ### Enter your credentials
 
