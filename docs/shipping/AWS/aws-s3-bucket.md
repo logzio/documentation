@@ -14,6 +14,10 @@ metrics_alerts: []
 drop_filter: []
 ---
 
+These instructions support collecting logs and metrics from S3 bucket
+* [Collect logs from S3 Bucket](#logs)
+* [Collect S3 metrics](#metrics)
+
 ## Logs
 
 Some AWS services can be configured to ship their logs to an S3 bucket, where Logz.io can fetch those logs directly.
@@ -41,10 +45,10 @@ Please keep these notes in mind when configuring logging.
 
 ### Which shipping method is right for you
 
-* If your data is organized in alphabetical order, you should opt for the S3 fetcher. Logz.io operates this fetcher on our end, directly accessing your S3 to retrieve the data.
+* If your data is organized in alphabetical order, you should opt for the [S3 fetcher](#shipping-logs-via-s3-fetcher). Logz.io operates this fetcher on our end, directly accessing your S3 to retrieve the data.
 
 
-* If your data is not organized in alphabetical order, use the S3 hook. This approach requires deploying a Lambda function within your environment to manage the process.
+* If your data is not organized in alphabetical order, use the [S3 hook](#shipping-logs-via-s3-hook). This approach requires deploying a Lambda function within your environment to manage the process.
 
 
 ### Shipping logs via S3 Fetcher
