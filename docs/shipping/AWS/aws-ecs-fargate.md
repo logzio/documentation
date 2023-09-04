@@ -2,8 +2,8 @@
 id: AWS-ECS-Fargate
 title: AWS ECS Fargate 
 overview: AWS Fargate is a serverless compute engine for building applications without managing servers.
-product: ['metrics','tracing']
-os: ['windows', 'linux']
+product: ['logs','metrics','tracing']
+os: []
 filters: ['AWS', 'Compute', 'Containers']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-fargate.svg
 logs_dashboards: []

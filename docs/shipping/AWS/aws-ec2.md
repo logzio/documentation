@@ -2,7 +2,7 @@
 id: AWS-EC2
 title: AWS EC2
 overview: Send your Amazon EC2 metrics to Logz.io.
-product: ['metrics']
+product: ['logs','metrics']
 os: ['windows', 'linux']
 filters: ['AWS', 'Compute']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-ec2.svg
