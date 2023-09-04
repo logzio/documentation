@@ -39,30 +39,12 @@ Please keep these notes in mind when configuring logging.
   To guarantee successful file upload, make sure that the size of each log file does not exceed 50 MB.
 
 
-### Log Shipping Methods Comparison for S3
+### Which shipping method is right for you
 
-#### Setup using IAM roles
+* If your data is organized in alphabetical order, you should opt for the S3 fetcher. Logz.io operates this fetcher on our end, directly accessing your S3 to retrieve the data.
 
-**Pros:**
-- **Security**: Does not require sharing or storing permanent AWS credentials.
-- **Delegation**: Can assign fine-grained permissions and roles, providing flexibility.
-- **Auditability**: IAM roles provide better traceability of access.
 
-**Cons:**
-- **Complexity**: Might be slightly complex for users unfamiliar with AWS IAM roles.
-- **Maintenance**: Might require occasional maintenance if AWS policies or permissions change.
-
-#### Setup using access keys
-
-**Pros:**
-- **Simplicity**: Straightforward for those familiar with AWS as it uses the basic access and secret keys.
-- **Direct Access**: Provides direct access without the need for role assumption or extra configuration.
-
-**Cons:**
-- **Security Risks**: If keys are compromised, they provide direct access unless they're revoked.
-- **Management Overhead**: Requires secure storage and periodic rotation of keys.
-- **Limited Traceability**: Harder to trace specific actions to individual users or services, as keys can be shared.
-
+* If your data is not organized in alphabetical order, use the S3 hook. This approach requires deploying a Lambda function within your environment to manage the process.
 
 
 ### Shipping logs via S3 Fetcher
