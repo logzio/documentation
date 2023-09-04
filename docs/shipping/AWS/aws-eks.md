@@ -25,6 +25,8 @@ The logzio-monitoring Helm Chart ships your EKS Fargate telemetry (logs, metrics
 Add Logzio-helm repository
 `helm repo add logzio-helm https://logzio.github.io/logzio-helm && helm repo update`
 
+{@include: ../../_include/general-shipping/k8s-all-data.md}
+
 
 ## Send your logs
  
