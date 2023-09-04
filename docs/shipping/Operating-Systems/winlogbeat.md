@@ -4,7 +4,7 @@ title: Windows Operating System
 overview: Send your Windows machine logs and metrics to Logz.io to monitor and manage your Windows data, allowing you to identify anomalies, investigate incidents, get to the root cause of any issue, and quickly resolve it.
 product: ['logs']
 os: ['windows']
-filters: ['Other', 'Most Popular']
+filters: ['Operating Systems', 'Most Popular']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/windows.svg
 logs_dashboards: []
 logs_alerts: ['72Yry8pK5OfiGdPOV2y9RZ', '4Mkw0OICZz7xnZZjlGWX9x']
