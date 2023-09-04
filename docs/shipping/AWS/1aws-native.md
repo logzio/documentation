@@ -1,9 +1,9 @@
 ---
-id: cloudwatch-logs
-title: CloudWatch Logs with a Firehose Delivery Stream
+id: aws native integration
+title: AWS Native Integration
 overview: This project deploys instrumentation that allows shipping logs and metrics from AWS services.
-product: ['logs']
-os: ['windows', 'linux']
+product: ['logs','metrics']
+os: []
 filters: ['AWS', 'Monitoring', 'Most Popular']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-cloudwatch.svg
 logs_dashboards: []
@@ -13,6 +13,8 @@ metrics_dashboards: []
 metrics_alerts: []
 drop_filter: []
 ---
+
+Collect logs and Metrics from AWS services based on Cloudwatch
 
 ## Logs
 
