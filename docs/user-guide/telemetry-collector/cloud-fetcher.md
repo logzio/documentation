@@ -1,19 +1,19 @@
 ---
 sidebar_position: 6
-title: Configure Cloud Fetcher
+title: Configure Azure Native Integration
 ---
 
 
-Azure Cloud Fetcher offers a fast and efficient way to sync your Azure data with Logz.io, providing visibility and allowing you to monitor and troubleshoot your environments. With Azure Cloud Fetcher, you can monitor the performance and health of your systems in real-time, and quickly identify the root cause of issues and problems.
+Azure Native Integration offers a fast and efficient way to sync your Azure data with Logz.io, providing visibility and allowing you to monitor and troubleshoot your environments. With Azure Native Integration, you can monitor the performance and health of your systems in real-time, and quickly identify the root cause of issues and problems.
 
 :::caution Important
 Azure may **charge additional fees** for using this integration. [Read more about Azure API costs](https://azure.microsoft.com/en-us/pricing/details/api-management/).
 :::
 
-* [Set up Azure Cloud Fetcher](/user-guide/cloud-fetcher.html#set-up-azure-cloud-fetcher)
-* [Set up Logz.io's Azure Cloud Fetcher](/user-guide/cloud-fetcher.html#set-up-logzios-azure-cloud-fetcher)
+* [Set up Azure Native Integration](/user-guide/cloud-fetcher.html#set-up-azure-cloud-fetcher)
+* [Set up Logz.io's Azure Native Integration](/user-guide/cloud-fetcher.html#set-up-logzios-azure-cloud-fetcher)
 
-## Set up Azure Cloud Fetcher 
+## Set up Azure Native Integration 
 
 
 ### Create a new app in Azure
@@ -62,7 +62,7 @@ Search for the name of the app you created and select it. Click **Review + assig
 
 ### Send your details to Logz.io
 
-To connect your Azure Cloud Fetcher with Logz.io you'll need to send the following information:
+To connect your Azure Native Integration with Logz.io you'll need to send the following information:
 
 * **Client secret value** - that you created and copied in the [Create a certificate](/user-guide/cloud-fetcher.html#create-a-certificate) section.
 
@@ -82,11 +82,11 @@ And lastly, navigate to **Resource groups** and copy the group’s name associat
 ![resource group](https://dytvr9ot2sszz.cloudfront.net/logz-docs/fetcher/resource-group-copy.png)
 
 
-## Set up Logz.io's Azure Cloud Fetcher
+## Set up Logz.io's Azure Native Integration
 
 Once your Azure app is ready, navigate to Logz.io to continue the setup process.
 
-### Setup Azure Cloud Fetcher integration
+### Setup Azure Native Integration integration
 
 Open **[Logz.io > Send data > Telemetry Collector](https://app.logz.io/#/dashboard/send-your-data/agent/new)** and Choose Azure.
 
@@ -117,7 +117,7 @@ Click **Generate collector** to continue.
 
 ### Activate and run the collector
 
-To get started with Azure Cloud Fetcher, toggle the **Enable Connection** on. You might have to wait a few minutes to see your data.
+To get started with Azure Native Integration, toggle the **Enable Connection** on. You might have to wait a few minutes to see your data.
 
 ![Toggle fetcher](https://dytvr9ot2sszz.cloudfront.net/logz-docs/fetcher/toggle-fetcher.png)
 
@@ -125,4 +125,4 @@ If you encounter an error and can't enable the connection, click **Advanced sett
 
 ### Explore Logz.io
 
-Once your Azure Cloud Fetcher is running, you can explore and analyze your data through Logz.io's dashboards.
+Once your Azure Native Integration is running, you can explore and analyze your data through Logz.io's dashboards.
