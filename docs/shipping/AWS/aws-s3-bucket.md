@@ -23,10 +23,21 @@ These instructions support collecting logs and metrics from S3 bucket
 Some AWS services can be configured to ship their logs to an S3 bucket, where Logz.io can fetch those logs directly.
 
 
+### Which shipping method is right for you
+
+* If your data is organized in alphabetical order, you should opt for the [S3 fetcher](#shipping-logs-via-s3-fetcher). Logz.io operates this fetcher on our end, directly accessing your S3 to retrieve the data.
+
+
+* If your data is not organized in alphabetical order, use the [S3 hook](#shipping-logs-via-s3-hook). This approach requires deploying a Lambda function within your environment to manage the process.
+
+
+### Shipping logs via S3 Fetcher
+
 :::note
 In case your S3 bucket is encrypted, you need to add `kms:Decrypt` to the policy on the ARN of the KMS key used to encrypt the bucket.
 :::
-### Best practices
+
+#### Best practices
 
 The S3 API does not allow retrieval of object timestamps, so Logz.io must collect logs in alphabetical order.
 Please keep these notes in mind when configuring logging.
@@ -43,19 +54,9 @@ Please keep these notes in mind when configuring logging.
   To guarantee successful file upload, make sure that the size of each log file does not exceed 50 MB.
 
 
-### Which shipping method is right for you
-
-* If your data is organized in alphabetical order, you should opt for the [S3 fetcher](#shipping-logs-via-s3-fetcher). Logz.io operates this fetcher on our end, directly accessing your S3 to retrieve the data.
-
-
-* If your data is not organized in alphabetical order, use the [S3 hook](#shipping-logs-via-s3-hook). This approach requires deploying a Lambda function within your environment to manage the process.
-
-
-### Shipping logs via S3 Fetcher
-
 
 #### Configure Logz.io to fetch logs from an S3 bucket
- 
+
 
 ##### Add a new S3 bucket using the dedicated Logz.io configuration wizard
 
