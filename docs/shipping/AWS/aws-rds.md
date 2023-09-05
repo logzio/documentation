@@ -1,7 +1,7 @@
 ---
 id: AWS-RDS
 title: AWS RDS
-overview: This integration csends AWS RDS metrics to your Logz.io account.
+overview: This integration sends AWS RDS logs and metrics to your Logz.io account.
 product: ['logs', 'metrics']
 os: ['windows', 'linux']
 filters: ['AWS', 'Database']
