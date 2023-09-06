@@ -14,7 +14,7 @@ metrics_alerts: []
 drop_filter: []
 ---
 
-Collect logs and Metrics from AWS services based on Cloudwatch
+Collect logs and metrics from AWS services based on Cloudwatch
 
 ## Logs
 
