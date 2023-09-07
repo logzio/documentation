@@ -30,6 +30,7 @@ import TabItem from '@theme/TabItem';
   <TabItem value="mac" label="macOS">Use Command + V to paste.</TabItem>
 </Tabs>
 
+
 <Tabs>
   <TabItem value="apple" label="Apple" default>
     This is an apple 🍎
