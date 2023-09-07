@@ -15,8 +15,17 @@ drop_filter: []
 ---
 
 
+
+
+
 ## Logs
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="log4net" label="log4net" default>
+    
 ### log4net
 
 **Before you begin, you'll need**:
@@ -300,9 +309,9 @@ namespace dotnet_log4net
     }
 }
 ```
-
-
-### NLog
+  </TabItem>
+  <TabItem value="NLog" label="NLog">
+    ### NLog
 
 **Before you begin, you'll need**:
 
@@ -516,10 +525,9 @@ config.AddRule(LogLevel.Debug, LogLevel.Fatal, logzioTarget);
 LogManager.Configuration = config;
 ```
 
-
-
-
-### LoggerFactory
+  </TabItem>
+  <TabItem value="LoggerFactory" label="LoggerFactory">
+    ### LoggerFactory
 
 **Before you begin, you'll need**:
 
@@ -780,8 +788,9 @@ hierarchy.Root.AddAppender(logzioAppender);
 hierarchy.Root.Level = Level.All;
 hierarchy.Configured = true;
 ```
-
-
+  </TabItem>
+  <TabItem value="Serilog" label="Serilog">
+    
 ### Serilog
 
 :::note
@@ -909,6 +918,18 @@ namespace Example
 {@include: ../../_include/log-shipping/listener-var.html}
 
 Replace `<<TYPE>` with the type that you want to assign to your logs. You will use this value to identify these logs in Logz.io.
+
+  </TabItem>
+</Tabs>
+
+
+
+
+
+
+
+
+
 
 
 ## Metrics

@@ -17,6 +17,31 @@ drop_filter: []
 
 ## Bulk uploads over HTTP/HTTPS
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="apple" label="Apple" default>
+    This is an apple 🍎
+  </TabItem>
+
+  <TabItem value="orange" label="Orange">
+    <Tabs>
+      <TabItem value="tangerine" label="Tangerine" default>
+        This is a tangerine 🍊
+      </TabItem>
+      <TabItem value="mandarin" label="Mandarin">
+        This is a mandarin 🍊
+      </TabItem>
+    </Tabs>
+  </TabItem>
+
+  <TabItem value="banana" label="Banana">
+    This is a banana 🍌
+  </TabItem>
+</Tabs>
+
+
 If you want to ship logs from your code but don't have a library in place, you can send them directly to the Logz.io listener as a minified JSON file.
 
 The listeners accept bulk uploads over an HTTP/HTTPS connection or TLS/SSL streams over TCP.
