@@ -1,6 +1,6 @@
 {
   "label": "Telemetry Collector",
-  "position": 1,
+  "position": 3,
   "link": {
     "type": "generated-index",
     "description": "Logz.io’s Telemetry Collector lets you quickly send your data based on the configuration that fits your needs."
