@@ -1,6 +1,6 @@
 {
   "label": "Log Management",
-  "position": 2,
+  "position": 3,
   "link": {
     "type": "generated-index",
     "description": "Search and query your logs to identify issues and troubleshoot incidents quickly and effectively."
