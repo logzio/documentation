@@ -5,6 +5,14 @@ title: Live Tail
 
 Live Tail gives you a live view of your logs as they come into Logz.io, eliminating the need to SSH into a remote machine.
 
+:::note
+The live tail configuration is set to close the session after 10 minutes of inactivity. "Inactivity" is defined as either the system not finding the specified log you've filtered for within 10 minutes or the user not interacting with the page during that same period.
+:::
+
+
+
+
+
 ### Live Tail basics - Start, stop, scroll, and clear
 
 * Click [**Logs > Live tail**](https://app.logz.io/#/dashboard/live-tail)
