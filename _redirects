@@ -1,2 +1,2 @@
 # Redirects from what the browser requests to what we serve
-https://shiny-alfajores-ede8d8.netlify.app/getting-started.html               /docs/user-guide/quick-start
+/getting-started               /docs/user-guide/quick-start
