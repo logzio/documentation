@@ -1,5 +1,4 @@
 # Redirects from what the browser requests to what we serve
-
 /getting-started               /docs/user-guide/quick-start
 /home-dashboard.html		/docs/user-guide/home-dashboard
 /user-guide/logs/		/docs/user-guide/log-management/opensearch-dashboards/
