@@ -207,7 +207,7 @@
 /report-a-security-issue/		/docs/user-guide/report-security-issue
 /credits.html		/
 /user-guide/infrastructure-monitoring/custom-metrics		/docs/user-guide/Infrastructure-monitoring/introduction-to-prometheus/explore-metrics-prometheus
-/integrations/alice-slack-chatbot*		/
+/integrations/alice-slack-chatbot		/
 /user-guide/accounts/manage-timeless-accounts.html		/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts#create-or-manage-a-timeless-account
 /user-guide/accounts/manage-the-cloud-siem-account.html		/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts#create-or-manage-a-timeless-account
 /user-guide/accounts/manage-the-infrastructure-monitoring-account.html		/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts#create-or-manage-a-timeless-account
