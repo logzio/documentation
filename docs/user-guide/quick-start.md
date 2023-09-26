@@ -1,5 +1,10 @@
 ---
 sidebar_position: 1
+title: Quick Start with Logz.io
+description: Meet Logz.io's Infrastructure Monitoring solution
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logs, metrics, traces, logz.io, getting started]
+
 ---
 
 # Quick Start 
