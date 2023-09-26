@@ -137,7 +137,7 @@ Here are some popular Cloud SIEM resources to help you get started:
 * **[Configure a security rule](https://docs.logz.io/user-guide/cloud-siem/manage-security-rules.html)**
 * **[Dashboards and reports](https://docs.logz.io/user-guide/cloud-siem/dashboards/)**
 
-## Manage your Logz.io account
+## Manage and optimize your Logz.io account
 
 Logz.io's account admins can control and edit different elements inside their accounts. These abilities include setting up SSO access, assigning permissions per user, and sharing and managing data.
 
@@ -149,9 +149,17 @@ The following list explores the more common use cases for Logz.io's account admi
 * **[Setting up SSO access](https://docs.logz.io/user-guide/users/single-sign-on/)**
 * **[Archiving and restoring data](https://docs.logz.io/user-guide/archive-and-restore/)**
 
+In addition, Logz.io's Data Hub helps you manage and optimize your Logz.io products by offering tailored recommendations and a quick and easy way to control your logs and metrics usage. You can use Data Hub to:
+
+* **[Analyze and optimize logs and metrics usage](/docs/user-guide/data-hub/cost-optimization)**
+* **[Create graphs and dashboards from your logs](/docs/user-guide/data-hub/logstometrics)**
+* **[Index and monitor your traces](/docs/user-guide/data-hub/sampling-rules)**
+* **[Archive and restore your data](/docs/category/archive--restore)**
+
+[And more](/docs/category/data-hub).
 
 
-## Home Dashboard 
+## Get a detailed overview with the Home Dashboard 
 
 Home Dashboard includes your account’s data, logs, metrics, traces, alerts, exceptions, and insights. 
 
