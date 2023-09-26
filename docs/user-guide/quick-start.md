@@ -150,7 +150,9 @@ The following list explores the more common use cases for Logz.io's account admi
 
 Home Dashboard includes your account’s data, logs, metrics, traces, alerts, exceptions, and insights. 
 
-You can quickly access the Home Dashboard by clicking on the **Home** icon in the navigation. [Learn how to utilize your Home Dashboard](/docs/user-guide/home-dashboard).
+You can quickly access the Home Dashboard by clicking on the **Home** icon in the navigation. 
+
+[Learn how to utilize your Home Dashboard](/docs/user-guide/home-dashboard).
 
 ![Home dashboard Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/home-dashboard/dashboard-overview-.png)
 
