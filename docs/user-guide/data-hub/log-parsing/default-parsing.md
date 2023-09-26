@@ -25,6 +25,7 @@ This table shows the log types that Logz.io parses automatically.
 | Alcide kAudit         | `alcide-kaudit` | ✖️ Auto-parsed as part of platform integration. |
 | Apache access         | `apache`, `apache_access`, `apache-access` | ✔ |
 | Auditd                | `auditd`                                   | ✔ |
+| Avast                 | `avast`                                    | ✔ |
 | AWS CloudFront        | `cloudfront`                               | ✔ |
 | AWS CloudTrail        | `cloudtrail`                               | ✔ |
 | AWS ELB               | `elb`                                      | ✔ |
