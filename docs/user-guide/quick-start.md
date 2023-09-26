@@ -1,13 +1,13 @@
 ---
 sidebar_position: 1
-title: Quick Start with Logz.io
+title: Getting Started with Logz.io
 description: Meet Logz.io's Infrastructure Monitoring solution
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [logs, metrics, traces, logz.io, getting started]
 
 ---
 
-# Quick Start 
+
 
 
 Logz.io is an end-to-end cloud monitoring service built for scale. It’s the best-of-breed open source monitoring tools on a fully managed cloud service.
