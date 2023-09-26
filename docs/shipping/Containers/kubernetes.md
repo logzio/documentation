@@ -208,5 +208,6 @@ To address this issue, you can use the `--set` commands provided below in order 
 --set logzio-k8s-telemetry.image.repository=ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib
 --set logzio-k8s-telemetry.prometheus-pushgateway.image.repository=public.ecr.aws/logzio/prom-pushgateway
 --set logzio-fluentd.image=public.ecr.aws/logzio/logzio-fluentd
+--set logzio-fluentd.daemonset.init.containerImage=public.ecr.aws/docker/library/busybox
 --set logzio-trivy.image=public.ecr.aws/logzio/trivy-to-logzio
 ```
