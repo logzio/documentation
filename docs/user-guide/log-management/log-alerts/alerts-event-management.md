@@ -28,7 +28,7 @@ The information that is provided for each event triggered is summarized in the t
 |Count| The number of grouped events included in the entry |
 |Assigned to| Team member handling event investigation and resolution |
 |Status|Investigation stage of the triggered event:    **- New:** A triggered event that has not been assigned **- Assigned:** Investigation pending **- In Progress:** The assigned handler is investigating the event **- Waiting for response:** Investigation on hold pending reply from external stakeholders  **- False positive:**  Investigation verified that the detected activity is benign  **- Resolved:** Investigation complete |
-|Last triggered| Date and time the alert was last triggered |
+|Last triggered| Date and time of the most recent occurrence of this event within the past 3 days |
 |Comment| Additional information added by investigators:  Use this field to include handling priority information and any information relevant to the investigation|
 |Updated|Date of latest changes made to the event and which user made the changes|
 

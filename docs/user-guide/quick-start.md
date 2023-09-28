@@ -1,8 +1,13 @@
 ---
 sidebar_position: 1
+title: Getting Started with Logz.io
+description: Meet Logz.io's Infrastructure Monitoring solution
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logs, metrics, traces, logz.io, getting started]
+
 ---
 
-# Quick Start 
+
 
 
 Logz.io is an end-to-end cloud monitoring service built for scale. It’s the best-of-breed open source monitoring tools on a fully managed cloud service.
@@ -13,7 +18,7 @@ One unified SaaS platform to collect and analyze logs, metrics, and traces, comb
 Whether you are a new user or looking for a refresher on Logz.io, you are invited to join one of our engineers for a **[training session on the Logz.io platform](https://docs.logz.io/training/)**!
 
 
-### Send your data to Logz.io
+## Send your data to Logz.io
 
 Once you’ve set up your account, you can start sending your data.
 
@@ -42,7 +47,7 @@ To learn more about shipping your data, check out **Shipping Log Data to Logz.io
   <iframe style={{position: 'absolute', top: '0', left: '0', width: '100%', height: '100%'}} src="https://fast.wistia.com/embed/iframe/oi6qydmyk6" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
-#### Parsing your data
+### Parsing your data
 
 Logz.io offers automatic parsing [for over 50 log types](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html).
 
@@ -60,11 +65,11 @@ Learn more about sending data to Logz.io:
 * [Log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html)
 * [Troubleshooting Filebeat](https://docs.logz.io/user-guide/log-troubleshooting/filebeat-troubleshooting.html)
 
-#### Explore your data with Logz.io's Log Management platform
+### Explore your data with Logz.io's Log Management platform
 
 Logz.io’s **[Log Management](https://app.logz.io/#/dashboard/osd)** is where you can search and query log files. You can use it to identify and analyze your code, and the platform is optimized for debugging and troubleshooting issues as quickly and effectively as possible.
 
-![Log management overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/log-management-screenshot.png)
+![Log management overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/log-analytics-main-sep26.png)
 
 The following list contains some of the common abilities available in Log Management:
 
@@ -76,13 +81,13 @@ The following list contains some of the common abilities available in Log Manage
 * Predicting exceptions and critical errors with **Insights**
 
 
-### Create visualizations with Logz.io's Infrastructure Monitoring
+## Create visualizations with Logz.io's Infrastructure Monitoring
 
 Monitor your **[Infrastructure Monitoring](https://app.logz.io/#/dashboard/metrics)** to gain a clear picture of the ongoing status of your distributed cloud services at all times.
 
 Logz.io's Infrastructure Monitoring lets your team curate a handy roster of dashboards to oversee continuous deployment, CI/CD pipelines, prevent outages, manage incidents, and remediate crashes in multi-microservice environments and hybrid infrastructures and complex tech stacks.
 
-![Infrastructure Monitoring overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/infrastructure-monitoring-dashboard.png)
+![Infrastructure Monitoring overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/metrics-overview-sep26.png)
 
 Once you've sent your metrics to Logz.io, you can:
 
@@ -104,11 +109,11 @@ You can also:
 * [Sending Prometheus metrics to Logz.io](https://logz.io/learn/sending-prometheus-metrics-to-logzio/)
 
 
-### Dive deeper into the code with Logz.io's Distributed Tracing
+## Dive deeper into the code with Logz.io's Distributed Tracing
 
 Use Logz.io’s **[Distributed Tracing](https://app.logz.io/#/dashboard/jaeger)** to look under the hood at how your microservices behave, and access rich information to improve performance, investigate, and troubleshoot issues.
 
-![Distributed Tracing overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/tracing-dashboard.png)
+![Distributed Tracing overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/traces-overview-sep26.png)
 
 To help you understand how Distributed Tracing can enhance your data, check out the following guides:
 
@@ -118,11 +123,11 @@ To help you understand how Distributed Tracing can enhance your data, check out 
 * **[Correlate logs and traces](https://docs.logz.io/user-guide/distributed-tracing/correlate-traces/)**
 
 
-### Secure your environment with Logz.io's Cloud SIEM
+## Secure your environment with Logz.io's Cloud SIEM
 
 Logz.io **[Cloud SIEM](https://app.logz.io/#/dashboard/security/summary)** (Security Information and Event Management) aggregates security logs and alerts across distributed environments to allow your team to investigate security incidents from a single observability platform.
 
-![Cloud SIEM overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/siem-dashboard.png)
+![Cloud SIEM overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/SIEM-overview-sep26.png)
 
 Here are some popular Cloud SIEM resources to help you get started:
 
@@ -132,7 +137,7 @@ Here are some popular Cloud SIEM resources to help you get started:
 * **[Configure a security rule](https://docs.logz.io/user-guide/cloud-siem/manage-security-rules.html)**
 * **[Dashboards and reports](https://docs.logz.io/user-guide/cloud-siem/dashboards/)**
 
-### Manage your Logz.io account
+## Manage and optimize your Logz.io account
 
 Logz.io's account admins can control and edit different elements inside their accounts. These abilities include setting up SSO access, assigning permissions per user, and sharing and managing data.
 
@@ -144,19 +149,29 @@ The following list explores the more common use cases for Logz.io's account admi
 * **[Setting up SSO access](https://docs.logz.io/user-guide/users/single-sign-on/)**
 * **[Archiving and restoring data](https://docs.logz.io/user-guide/archive-and-restore/)**
 
+In addition, Logz.io's Data Hub helps you manage and optimize your Logz.io products by offering tailored recommendations and a quick and easy way to control your logs and metrics usage. You can use Data Hub to:
+
+* **[Analyze and optimize logs and metrics usage](/docs/user-guide/data-hub/cost-optimization)**
+* **[Create graphs and dashboards from your logs](/docs/user-guide/data-hub/logstometrics)**
+* **[Index and monitor your traces](/docs/user-guide/data-hub/sampling-rules)**
+* **[Archive and restore your data](/docs/category/archive--restore)**
+
+[And more](/docs/category/data-hub).
 
 
-### Home Dashboard 
+## Get a detailed overview with the Home Dashboard 
 
 Home Dashboard includes your account’s data, logs, metrics, traces, alerts, exceptions, and insights. 
 
 You can quickly access the Home Dashboard by clicking on the **Home** icon in the navigation. 
 
+[Learn how to utilize your Home Dashboard](/docs/user-guide/home-dashboard).
+
 ![Home dashboard Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/home-dashboard/dashboard-overview-.png)
 
 
 
-#### 1. Choose elements to view
+### 1. Choose elements to view
 
 You can choose which elements you want to view; logs, metrics, traces, number of alerts triggered, and insights gathered within the selected time frame. Click on one of the boxes to add or remove them from your view. The graph and chart will be updated immediately. 
 
@@ -165,14 +180,14 @@ For example, clicking on Insights or Exceptions will remove all of them from the
 ![Add remove elements](https://dytvr9ot2sszz.cloudfront.net/logz-docs/home-dashboard/add-remove-elements.gif)
 
 
-#### 2. Graph overview
+### 2. Graph overview
 
 This is a visual representation of your account’s data. Hover over the graph to see a breakdown of elements per hour. This view includes the number of overall and unique events.
 
 ![Graph hover view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/home-dashboard/graph-hover-view.png)
 
 
-#### 3. Table overview
+### 3. Table overview
 
 At the bottom of the page, you can view your account's data as a table. The data is broken down by events, and you can view each event’s type, severity, number of grouped events, and the date on which the event was last triggered. 
 
@@ -180,11 +195,11 @@ When hovering over one of the events you'll see an **Investigate** button, which
 
 ![Investigate button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/home-dashboard/investigate-button.png)
 
-#### 4. Search and access dashboards
+### 4. Search and access dashboards
 
 Home Dashboard offers easy access to your logs and metrics dashboards, allowing you to search any available dashboard across your account. Start typing to search throughout your available dashboards, and click on one of the options to open it in a new tab. This view includes which dashboards you've viewed recently, and you can add critical or important dashboards to your favorites for quick access.
 
-#### 5. Set your time frame
+### 5. Set your time frame
 
 The top of the page indicates when the data was last updated, helping you keep up to date with the data.
 
