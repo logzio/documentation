@@ -90,7 +90,14 @@ const config = {
       }),
     ],
   ],
-
+  scripts: [
+    {
+      src: '/js/intercomSettings.js'
+    },
+    {
+      src: '/js/intercomWidget.js'
+    }
+  ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
