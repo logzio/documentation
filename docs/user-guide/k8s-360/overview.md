@@ -108,8 +108,9 @@ Each view lets you dive deeper into the data by using the links at the top of th
 
 ### Quick view tabs
 
+:::note
 To enrich your existing and newly sent data, use the [Telemetry Collector](https://app.logz.io/#/dashboard/send-your-data/agent/new) to configure and send data quickly, followed by the [Easy Connect](https://docs.logz.io/user-guide/log-shipping/ezkonnect.html) platform to effectively instrument Kubernetes applications with OpenTelemetry auto-instrumentation.
-{:.info-box.note}
+:::
 
 Each quick view includes several tabs that provide additional information you can act on. For each tab, you can change the time frame chosen by clicking on the date bar at the top.
 
