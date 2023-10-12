@@ -29,7 +29,7 @@ Add a required HttpModule to the Web.Config file as follows:
 
 Add the following code to the Global.asax.cs file:
 
-```cs
+```csharp
 using OpenTelemetry;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
