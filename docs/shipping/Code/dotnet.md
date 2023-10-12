@@ -307,41 +307,40 @@ If you’re using a serverless function, you’ll need to call the appender's fl
 ###### Code sample
 
 ```csharp
+using System;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
 using log4net;
+using log4net.Core;
+using log4net.Repository.Hierarchy;
+using Logzio.DotNet.Log4net;
 using MicrosoftLogger = Microsoft.Extensions.Logging.ILogger;
-using MicrosoftLoggerFactory = Microsoft.Extensions.Logging.LoggerFactory;
-using System.IO;
-using System.Reflection;
-using log4net.Config;
-using System;
-using System.Threading;
-namespace LogzioLoggerFactorySampleApplication
+
+namespace LogzioLog4NetSampleApplication
 {
-    public class TimerTriggerCSharpLoggerFactory
+    public class TimerTriggerCSharpLog4Net
     {
-        [FunctionName("TimerTriggerCSharpLoggerFactory")]
-        public void Run([TimerTrigger("*/30 * * * * *")] TimerInfo myTimer, MicrosoftLogger msLog, Microsoft.Azure.WebJobs.ExecutionContext context)
+        [FunctionName("TimerTriggerCSharpLog4Net")]
+        public void Run([TimerTrigger("*/30 * * * * *")]TimerInfo myTimer, MicrosoftLogger msLog)
         {
+            msLog.LogInformation($"Log4Net C# Timer trigger function executed at: {DateTime.Now}");
+            var hierarchy = (Hierarchy)LogManager.GetRepository();
+            var logger = LogManager.GetCurrentClassLogger();
+            var logzioAppender = new LogzioAppender();
 
-            msLog.LogInformation($"LoggerFactory C# Timer trigger function executed at: {DateTime.Now}");
+            logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
+            logzioAppender.AddListenerUrl("https://<<LISTENER-HOST>>:8071");
+            logzioAppender.ActivateOptions();
 
-            var functionAppDirectory = context.FunctionAppDirectory; // Function app root directory
-            MicrosoftLoggerFactory loggerFactory = new();
-            loggerFactory.AddLog4Net(Path.Combine(functionAppDirectory, "log4net.config")); // Use the log4net.config in the function app root directory
-            var logger = loggerFactory.CreateLogger<TimerTriggerCSharpLoggerFactory>();
-
-            var logRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());
-
-            // Replace "App.config" with the config file that holds your log4net configuration
-            XmlConfigurator.Configure(logRepository, new FileInfo(Path.Combine(functionAppDirectory, "log4net.config")));
-
-            logger.LogInformation("Hello");
-            logger.LogInformation("Is it me you looking for?");
+            hierarchy.Root.AddAppender(logzioAppender);
+            hierarchy.Configured = true;
+            hierarchy.Root.Level = Level.All;
+            logger.Info("Now I don't blame him 'cause he run and hid");
+            logger.Info("But the meanest thing he ever did");
+            logger.Info("Before he left was he went and named me Sue");
             LogManager.Flush(5000);
             LogManager.Shutdown();
-            msLog.LogInformation($"LoggerFactory C# Timer trigger function finishd at: {DateTime.Now}");
+            msLog.LogInformation($"Log4Net C# Timer trigger function finishd at: {DateTime.Now}");
 
         }
     }
