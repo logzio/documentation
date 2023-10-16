@@ -193,6 +193,10 @@ To determine if a node uses taints as well as to display the taint keys, run:
 kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
 ```
 
+:::node
+You need to use `Helm` client with version `v3.9.0` or above.
+:::
+
 ### Enabling multiline logs parser
 
 If you want to enable parsing for multiline logs, add the following code to `values.yaml` under the `customParsers` parameter:
