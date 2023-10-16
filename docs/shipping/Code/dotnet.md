@@ -17,7 +17,11 @@ drop_filter: []
 
 ## Logs
 
-### log4net
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="log4net" label="log4net" default>
 
 **Before you begin, you'll need**:
 
@@ -346,9 +350,8 @@ namespace LogzioLog4NetSampleApplication
     }
 }
 ```
-
-
-### NLog
+</TabItem>
+  <TabItem value="NLog" label="NLog">
 
 **Before you begin, you'll need**:
 
@@ -610,8 +613,8 @@ namespace LogzioNLogSampleApplication
 }
 ```
 
-
-### LoggerFactory
+</TabItem>
+  <TabItem value="LoggerFactory" label="LoggerFactory">
 
 **Before you begin, you'll need**:
 
@@ -919,7 +922,8 @@ namespace LogzioLoggerFactorySampleApplication
     }
 }
 ```
-### Serilog
+</TabItem>
+  <TabItem value="Serilog" label="Serilog">
 
 :::note
 This integration is based on [Serilog.Sinks.Logz.Io repository](https://github.com/serilog-contrib/Serilog.Sinks.Logz.Io). Refer to this repo for further usage and settings information.
@@ -1088,11 +1092,15 @@ namespace LogzioSeriLogSampleApplication
 {@include: ../../_include/log-shipping/listener-var.html}
 
 Replace `<<TYPE>` with the type that you want to assign to your logs. You will use this value to identify these logs in Logz.io.
-
+</TabItem>
+</Tabs>
 
 ## Metrics
 
-### Kubernetes
+
+
+<Tabs>
+  <TabItem value="Kubernetes" label="Kubernetes" default>
 
 Helm is a tool for managing packages of pre-configured Kubernetes resources using Charts. This integration allows you to collect and ship diagnostic metrics of your .NET application in Kubernetes to Logz.io, using dotnet-monitor and OpenTelemetry. logzio-dotnet-monitor runs as a sidecar in the same pod as the .NET application.
 
@@ -1224,10 +1232,8 @@ helm uninstall dotnet-monitor-collector
 ```
 
 For troubleshooting this solution, see our [.NET with helm troubleshooting guide](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/dotnet-helm-troubleshooting.html).
-
- 
-### SDK
-
+</TabItem>
+  <TabItem value="SDK" label="SDK">
 
 You can send custom metrics from your .NET Core application using Logzio.App.Metrics. Logzio.App.Metrics is an open-source and cross-platform .NET library used to record metrics within an application and forward the data to Logz.io.
 
@@ -1750,7 +1756,8 @@ using (var stream = new MemoryStream())
 ```
 
 For troubleshooting this solution, see our [.NET core troubleshooting guide](/user-guide/infrastructure-monitoring/troubleshooting/dotnet-core-troubleshooting.html).
-  
+</TabItem>
+</Tabs>
 
 
 ## Traces
@@ -1791,6 +1798,7 @@ Give your traces some time to get from your system to ours, and then open [Traci
 ### Troubleshooting
 
 #### OpenTelemetry instrumentation 
+
 For troubleshooting the OpenTelemetry instrumentation, see our [OpenTelemetry troubleshooting guide](/docs/user-guide/distributed-tracing/troubleshooting/otel-troubleshooting).
 
 

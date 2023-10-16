@@ -16,15 +16,14 @@ drop_filter: []
 
 
 
-Google Cloud Platform (GCP) Stackdriver collects logs from your cloud services.
-You can use Google Cloud Pub/Sub to forward your logs from Stackdriver to Logz.io using a continuously runnung Docker container .
+Google Cloud Platform (GCP) Stackdriver collects logs from your cloud services. You can use Google Cloud Pub/Sub to forward your logs from GP sinks to Logz.io.
 
 
 **Before you begin, you'll need**:
 
-* [Google Cloud SDK](https://cloud.google.com/sdk/docs/quickstarts)
-* [a GCP project](https://console.cloud.google.com/projectcreate)
-* [a GCP Pub/Sub topic and subscribers](https://cloud.google.com/pubsub/docs/quickstart-console) to your GCP project
+* [Google Cloud CLI](https://cloud.google.com/sdk/docs/install)
+* Active GCP account
+* [JQ](https://jqlang.github.io/jq/download/)
 
 
 

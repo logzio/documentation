@@ -20,7 +20,11 @@ If your code runs within Kubernetes, it's best practice to use our Kubernetes in
 
 ## Logs 
 
-### Logs option 1: Configure Logzio-Log4j2-Appender
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="Logzio-Log4j2-Appender" label="Logzio-Log4j2-Appender" default>
 
 The Logz.io Log4j 2 appender sends logs using non-blocking threading, bulks, and HTTPS encryption to port 8071.
 
@@ -252,8 +256,8 @@ public class LogzioLog4j2Example {
 }
 ```
 
-  
-### Logs option 2: Configure Logzio-Logback-Appender
+</TabItem>
+  <TabItem value="Logzio-Logback-Appender" label="Logzio-Logback-Appender">
 
 Logback sends logs to your Logz.io account using non-blocking threading, bulks, and HTTPS encryption to port 8071.
 
@@ -501,11 +505,14 @@ If the log appender does not ship logs, add `<inMemoryQueue>true</inMemoryQueue>
   </root>
 </configuration>
 ```
+</TabItem>
+</Tabs>
   
 ## Metrics
 ### Usage
 
-#### Via maven
+<Tabs>
+  <TabItem value="Via-maven" label="Via maven" default>
 
 ```xml
 <dependency>
@@ -515,17 +522,21 @@ If the log appender does not ship logs, add `<inMemoryQueue>true</inMemoryQueue>
 </dependency>
 ```
 
-#### Via gradle groovy
+</TabItem>
+  <TabItem value="Via-gradle-groovy" label="Via gradle groovy">
 
 ```groovy
 implementation 'io.logz.micrometer:micrometer-registry-logzio:1.0.2'
 ```
+</TabItem>
+  <TabItem value="Via-gradle-Kotlin" label="Via gradle Kotlin">
 
-#### Via gradle Kotlin
 
 ```kotlin
 implementation("io.logz.micrometer:micrometer-registry-logzio:1.0.2")
 ```
+</TabItem>
+</Tabs>
 
 #### Import in your package
 
