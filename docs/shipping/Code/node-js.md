@@ -16,7 +16,11 @@ drop_filter: []
 
 ## Logs
 
-### logzio-nodejs setup
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="logzio-nodejs" label="logzio-nodejs" default>
 
 logzio-nodejs collects log messages in an array, which is sent asynchronously when it reaches its size limit or time limit (100 messages or 10 seconds), whichever comes first.
 It contains a simple retry mechanism which upon connection reset or client timeout, tries to send a waiting bulk (2 seconds default).
@@ -115,10 +119,8 @@ var obj = {
 
 logger.log(obj);
 ```
-
- 
- 
-### winston-logzio setup
+</TabItem>
+  <TabItem value="winston-logzio" label="winston-logzio">
 
 This winston plugin is a wrapper for the logzio-nodejs appender, which basically means it just wraps our nodejs logzio shipper.
 With winston-logzio, you can take advantage of the winston logger framework with your Node.js app.
@@ -368,7 +370,8 @@ var obj = {
 
 logger.log(obj);
 ```
-
+</TabItem>
+</Tabs>
 
 ## Metrics
 
@@ -386,7 +389,7 @@ We advise to use this integration with [the Logz.io Metrics backend](https://app
 :::
  
 
-### Configuring your Node.js applicatin to send custom metrics to Logz.io
+### Configuring your Node.js application to send custom metrics to Logz.io
 
  
 

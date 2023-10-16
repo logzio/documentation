@@ -14,8 +14,11 @@ metrics_alerts: []
 drop_filter: []
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-## Bulk uploads over HTTP/HTTPS
+<Tabs>
+  <TabItem value="http" label="Bulk uploads over HTTP/HTTPS" default>
 
 If you want to ship logs from your code but don't have a library in place, you can send them directly to the Logz.io listener as a minified JSON file.
 
@@ -98,10 +101,8 @@ In the response body, you'll see either "Logging token is missing" or "Logging t
 
 The request body size is larger than 10 MB.
  
-
-## Bulk uploads over TCP
-
-
+</TabItem>
+  <TabItem value="tcp" label="Bulk uploads over TCP">
 
 If you want to ship logs from your code but don't have a library in place, you can send them directly to the Logz.io listener as a minified JSON file.
 
@@ -117,7 +118,6 @@ Keep to these practices when shipping JSON logs over TCP:
 * Each log line must be 500,000 bytes or less
 * Each log line must be followed by a `\n` (even the last log)
 * Include your account token as a top-level property: `{ ... "token": "<<LOG-SHIPPING-TOKEN>>" , ... }`
-
 ### Send TLS/SSL streams over TCP
 
 
@@ -134,3 +134,6 @@ Using the certificate you just downloaded, send the logs to TCP port 5052 on you
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
 If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
+
+</TabItem>
+</Tabs>
