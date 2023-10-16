@@ -36,6 +36,10 @@ tolerations:
   effect: 
 ```
 
+:::node
+You need to use `Helm` client with version `v3.9.0` or above.
+:::
+
 ##### 2. Add the Helm Chart
 
 ```shell

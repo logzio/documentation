@@ -141,6 +141,10 @@ To determine if a node uses taints as well as to display the taint keys, run:
 kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
 ```
 
+:::node
+You need to use `Helm` client with version `v3.9.0` or above.
+:::
+
 For troubleshooting log shipping, see our [user guide](https://docs.logz.io/user-guide/kubernetes-troubleshooting/).
 
 
@@ -162,6 +166,9 @@ To determine if a node uses taints as well as to display the taint keys, run:
 kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
 ```
 
+:::node
+You need to use `Helm` client with version `v3.9.0` or above.
+:::
 
 ## Send your Metrics
 
