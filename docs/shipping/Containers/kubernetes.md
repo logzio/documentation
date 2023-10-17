@@ -74,6 +74,16 @@ logzio-k8s-events logzio-helm/logzio-k8s-events
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
 | `<<CUSTOM-HOST>>` | (*optional*) HTTP/s listener endpoint that receives JSON input, overrides the Logz.io listener. |
 
+### Deployment Events Versioning
+
+In order to add an indication for the versioning in our K8S 360 and Service Overview UI, the following annotation should be added to each resource you'd like to track its versioning. 
+
+```yaml
+metadata:
+  annotations:
+  logzio/commit_url: ""  
+```
+
 
 For log shipping troubleshooting, see our [user guide](https://docs.logz.io/user-guide/kubernetes-troubleshooting/).
 
