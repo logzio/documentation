@@ -17,7 +17,11 @@ drop_filter: []
 
 ## Logs
 
-### log4net
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="log4net" label="log4net" default>
 
 **Before you begin, you'll need**:
 
@@ -301,8 +305,53 @@ namespace dotnet_log4net
 }
 ```
 
+##### Serverless platforms
+If you’re using a serverless function, you’ll need to call the appender's flush methods at the end of the function run to make sure the logs are sent before the function finishes its execution.
 
-### NLog
+###### Code sample
+
+```csharp
+using System;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Extensions.Logging;
+using log4net;
+using log4net.Core;
+using log4net.Repository.Hierarchy;
+using Logzio.DotNet.Log4net;
+using MicrosoftLogger = Microsoft.Extensions.Logging.ILogger;
+
+namespace LogzioLog4NetSampleApplication
+{
+    public class TimerTriggerCSharpLog4Net
+    {
+        [FunctionName("TimerTriggerCSharpLog4Net")]
+        public void Run([TimerTrigger("*/30 * * * * *")]TimerInfo myTimer, MicrosoftLogger msLog)
+        {
+            msLog.LogInformation($"Log4Net C# Timer trigger function executed at: {DateTime.Now}");
+            var hierarchy = (Hierarchy)LogManager.GetRepository();
+            var logger = LogManager.GetCurrentClassLogger();
+            var logzioAppender = new LogzioAppender();
+
+            logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
+            logzioAppender.AddListenerUrl("https://<<LISTENER-HOST>>:8071");
+            logzioAppender.ActivateOptions();
+
+            hierarchy.Root.AddAppender(logzioAppender);
+            hierarchy.Configured = true;
+            hierarchy.Root.Level = Level.All;
+            logger.Info("Now I don't blame him 'cause he run and hid");
+            logger.Info("But the meanest thing he ever did");
+            logger.Info("Before he left was he went and named me Sue");
+            LogManager.Flush(5000);
+            LogManager.Shutdown();
+            msLog.LogInformation($"Log4Net C# Timer trigger function finishd at: {DateTime.Now}");
+
+        }
+    }
+}
+```
+</TabItem>
+  <TabItem value="NLog" label="NLog">
 
 **Before you begin, you'll need**:
 
@@ -344,7 +393,7 @@ For a complete list of options, see the configuration parameters below the code 
 		token="<<LOG-SHIPPING-TOKEN>>"
 		logzioType="nlog"
 		listenerUrl="<<LISTENER-HOST>>:8071"
-                <!--Optional proxy server address:
+    <!--Optional proxy server address:
                 proxyAddress = "http://your.proxy.com:port" -->
 		bufferSize="100"
 		bufferTimeout="00:00:05"
@@ -435,7 +484,7 @@ namespace LogzioNLogSampleApplication
         .Property("youCanCallMe", "Al")
         .Write();
 
-      LogManager.Shutdown();
+      LogManager.Shutdown(); 
     }
   }
 }
@@ -516,10 +565,56 @@ config.AddRule(LogLevel.Debug, LogLevel.Fatal, logzioTarget);
 LogManager.Configuration = config;
 ```
 
+##### Serverless platforms
+If you’re using a serverless function, you’ll need to call the appender's flush methods at the end of the function run to make sure the logs are sent before the function finishes its execution.
 
+###### Code sample
 
+```csharp
+using System;
+using Microsoft.Azure.WebJobs;
+using Logzio.DotNet.NLog;
+using NLog;
+using NLog.Config;
+using NLog.Fluent;
+using Microsoft.Extensions.Logging;
+using MicrosoftLogger = Microsoft.Extensions.Logging.ILogger;
+namespace LogzioNLogSampleApplication
+{
+    public class TimerTriggerCSharpNLog
+    {
+        [FunctionName("TimerTriggerCSharpNLog")]
+        public void Run([TimerTrigger("*/30 * * * * *")] TimerInfo myTimer, MicrosoftLogger msLog)
+        {
+            msLog.LogInformation($"NLogzio C# Timer trigger function executed at: {DateTime.Now}");
 
-### LoggerFactory
+            var nLog = LogManager.GetCurrentClassLogger();
+
+            nLog.Info()
+              .Message("If you'll be my bodyguard")
+              .Property("iCanBe", "your long lost pal")
+              .Property("iCanCallYou", "Betty, and Betty when you call me")
+              .Property("youCanCallMe", "Al")
+              .Write();
+
+            // Call Flush with a callback to Shutdown LogManager
+            LogManager.Flush(ex =>
+            {
+                if (ex != null)
+                    msLog.LogError(ex, "Error while flushing NLog.");
+                else
+                {
+                    LogManager.Shutdown();
+                    msLog.LogInformation($"NLogzio C# Timer trigger function finished at: {DateTime.Now}");
+                }
+            }, TimeSpan.FromSeconds(5));
+        }
+    }
+}
+```
+
+</TabItem>
+  <TabItem value="LoggerFactory" label="LoggerFactory">
 
 **Before you begin, you'll need**:
 
@@ -781,8 +876,54 @@ hierarchy.Root.Level = Level.All;
 hierarchy.Configured = true;
 ```
 
+##### Serverless platforms
+If you’re using a serverless function, you’ll need to call the logger's shutdown methods at the end of the function run and make sure the logs are sent before the function finishes its execution.  Make sure 'debug' is set to false if the function is deployed as it might cause permission issues with debug files. 
 
-### Serilog
+###### Code sample
+
+```csharp
+using Microsoft.Azure.WebJobs;
+using Microsoft.Extensions.Logging;
+using log4net;
+using MicrosoftLogger = Microsoft.Extensions.Logging.ILogger;
+using MicrosoftLoggerFactory = Microsoft.Extensions.Logging.LoggerFactory;
+using System.IO;
+using System.Reflection;
+using log4net.Config;
+using System;
+using System.Threading;
+namespace LogzioLoggerFactorySampleApplication
+{
+    public class TimerTriggerCSharpLoggerFactory
+    {
+        [FunctionName("TimerTriggerCSharpLoggerFactory")]
+        public void Run([TimerTrigger("*/30 * * * * *")] TimerInfo myTimer, MicrosoftLogger msLog, Microsoft.Azure.WebJobs.ExecutionContext context)
+        {
+
+            msLog.LogInformation($"LoggerFactory C# Timer trigger function executed at: {DateTime.Now}");
+
+            var functionAppDirectory = context.FunctionAppDirectory; // Function app root directory
+            MicrosoftLoggerFactory loggerFactory = new();
+            loggerFactory.AddLog4Net(Path.Combine(functionAppDirectory, "log4net.config")); // Use the log4net.config in the function app root directory
+            var logger = loggerFactory.CreateLogger<TimerTriggerCSharpLoggerFactory>();
+
+            var logRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());
+
+            // Replace "App.config" with the config file that holds your log4net configuration
+            XmlConfigurator.Configure(logRepository, new FileInfo(Path.Combine(functionAppDirectory, "log4net.config")));
+
+            logger.LogInformation("Hello");
+            logger.LogInformation("Is it me you looking for?");
+            Thread.Sleep(5000); // gives the logs enough time to be sent to Logz.io
+            LogManager.Shutdown();
+            msLog.LogInformation($"LoggerFactory C# Timer trigger function finishd at: {DateTime.Now}");
+
+        }
+    }
+}
+```
+</TabItem>
+  <TabItem value="Serilog" label="Serilog">
 
 :::note
 This integration is based on [Serilog.Sinks.Logz.Io repository](https://github.com/serilog-contrib/Serilog.Sinks.Logz.Io). Refer to this repo for further usage and settings information.
@@ -904,16 +1045,62 @@ namespace Example
 }
 ```
 
+##### Serverless platforms
+If you’re using a serverless function, you’ll need to call the appender's flush methods at the end of the function run to make sure the logs are sent before the function finishes its execution.
+In the Serilog integration, you should use the 'WriteTo.LogzIo()' instad of 'WriteTo.LogzIoDurableHttp()' method as it uses in-memory buffering which is best practice for serverless functions. 
+###### Code sample
+
+```csharp
+using System;
+using Microsoft.Azure.WebJobs;
+using Serilog;
+using Serilog.Sinks.Logz.Io;
+using Microsoft.Extensions.Logging;
+using MicrosoftLogger = Microsoft.Extensions.Logging.ILogger;
+using Serilogger = Serilog.ILogger;
+using System.Threading;
+
+
+namespace LogzioSeriLogSampleApplication
+{
+    public class TimerTriggerCSharpSeriLogzio
+    {
+        [FunctionName("TimerTriggerCSharpSeriLogzio")]
+        public void Run([TimerTrigger("*/30 * * * * *")] TimerInfo myTimer, MicrosoftLogger msLog)
+        {
+            msLog.LogInformation($"Serilog C# Timer trigger function executed at: {DateTime.Now}");
+            Serilogger logzioLogger = new LoggerConfiguration()
+            .WriteTo.LogzIo("<<LOG-SHIPPING-TOKEN>>", "<<TYPE>>", useHttps: true, dataCenterSubDomain: "listener") // Replace 'listener' with the relevant region, i.e: 'listener-eu'
+        .CreateLogger();
+
+            // Assign the logger to the static Log class
+            Log.Logger = logzioLogger;
+
+            logzioLogger.Information("Hello. Is it me you're looking for?");
+            Thread.Sleep(5000);
+            // // Flush the static logger
+            Log.CloseAndFlush();
+
+            msLog.LogInformation($"Serilog C# Timer trigger function finished at: {DateTime.Now}");
+        }
+    }
+}
+```
+
 {@include: ../../_include/log-shipping/log-shipping-token.html}
 
 {@include: ../../_include/log-shipping/listener-var.html}
 
 Replace `<<TYPE>` with the type that you want to assign to your logs. You will use this value to identify these logs in Logz.io.
-
+</TabItem>
+</Tabs>
 
 ## Metrics
 
-### Kubernetes
+
+
+<Tabs>
+  <TabItem value="Kubernetes" label="Kubernetes" default>
 
 Helm is a tool for managing packages of pre-configured Kubernetes resources using Charts. This integration allows you to collect and ship diagnostic metrics of your .NET application in Kubernetes to Logz.io, using dotnet-monitor and OpenTelemetry. logzio-dotnet-monitor runs as a sidecar in the same pod as the .NET application.
 
@@ -935,7 +1122,9 @@ To determine if a node uses taints as well as to display the taint keys, run:
 kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
 ```
 
-  
+:::node
+You need to use `Helm` client with version `v3.9.0` or above.
+:::
 
 #### Standard configuration
 
@@ -1045,10 +1234,8 @@ helm uninstall dotnet-monitor-collector
 ```
 
 For troubleshooting this solution, see our [.NET with helm troubleshooting guide](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/dotnet-helm-troubleshooting.html).
-
- 
-### SDK
-
+</TabItem>
+  <TabItem value="SDK" label="SDK">
 
 You can send custom metrics from your .NET Core application using Logzio.App.Metrics. Logzio.App.Metrics is an open-source and cross-platform .NET library used to record metrics within an application and forward the data to Logz.io.
 
@@ -1571,7 +1758,8 @@ using (var stream = new MemoryStream())
 ```
 
 For troubleshooting this solution, see our [.NET core troubleshooting guide](/user-guide/infrastructure-monitoring/troubleshooting/dotnet-core-troubleshooting.html).
-  
+</TabItem>
+</Tabs>
 
 
 ## Traces
@@ -1612,6 +1800,7 @@ Give your traces some time to get from your system to ours, and then open [Traci
 ### Troubleshooting
 
 #### OpenTelemetry instrumentation 
+
 For troubleshooting the OpenTelemetry instrumentation, see our [OpenTelemetry troubleshooting guide](/docs/user-guide/distributed-tracing/troubleshooting/otel-troubleshooting).
 
 

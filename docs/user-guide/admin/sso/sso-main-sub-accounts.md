@@ -46,6 +46,10 @@ The **Management-Users** SSO group has User access, enabling search capabilities
 
 ![example main sso](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/main-sso-all-accounts.png)
 
+:::caution Important
+When setting SSO group permissions, you must ensure you didn’t set user permissions. If a user has both SSO group permissions and user permissions, the user permissions **may override** those of the SSO group permissions.
+:::
+
 ## Manage sub account SSO groups:
 
 Admin users can create SSO groups for sub accounts in Logz.io.
@@ -54,8 +58,9 @@ To add and assign SSO groups, navigate to [Settings > Manage users](https://app.
 
 Scroll down to the second part of the page, **Sub accounts SSO groups**, and click on **+ New SSO group** button. Next, paste the name of the relevant SSO group created in your SSO provider, choose the [appropriate permissions](/user-guide/users/#access-level-per-role) from the dropdown list, and click the dropdown list to view and choose which sub accounts these users will be able to access.
 
+:::tip
 To ensure the correct permissions are transferred, use the **exact SSO group name** as declared in your SSO provider.
-{:.info-box.important}
+:::
 
 ![sub account accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/sub-account-sso.png)
 

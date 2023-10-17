@@ -13,14 +13,14 @@ dotnet add package OpenTelemetry.Extensions.Hosting
 
 Add the following configuration to the beginning of the Startup.cs file:
 
-```cs
+```csharp
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
 ```
 
 Add the following configuration to the Startup class:
 
-```cs
+```csharp
 public void ConfigureServices(IServiceCollection services)
         {
 

@@ -11,6 +11,8 @@ This ensures that data is properly balanced on our listener servers,
 and that your data will be available to you as quickly as possible.
 :::
  
+You can access this list as plain text file [here](../../../../static/IPs.txt).
+
 ## listener.logz.io — US East (Northern Virginia), AWS
 
 If you’re sending data to listener.logz.io, open your firewall to these AWS IP addresses:

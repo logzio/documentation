@@ -288,6 +288,12 @@ LOGGING = {
 
 You can send custom metrics to Logz.io from your Python application. This example uses the [OpenTelemetry Python SDK](https://github.com/open-telemetry/opentelemetry-python-contrib) and the [OpenTelemetry remote write exporter](https://pypi.org/project/opentelemetry-exporter-prometheus-remote-write/), which are both in alpha/preview.
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="Setup-in-code" label="Setup in code" default>
+
 ### Setup in code
 
 
@@ -482,6 +488,8 @@ meter.register_valueobserver(
 #### Check Logz.io for your metrics
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
+</TabItem>
+  <TabItem value="Setup-Metrics-using-Lambda" label="Setup Metrics using Lambda">
 
 ### Setup Metrics using Lambda
 
@@ -652,6 +660,9 @@ For more information, see the OpenTelemetry [documentation](https://github.com/o
     up_down_counter.add(20,labels)
     up_down_counter.add(-10,labels)
 ```
+
+</TabItem>
+</Tabs>
 
 ## Traces
 

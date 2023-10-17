@@ -4,7 +4,7 @@ By default, we do not send logs of type START, END, REPORT.
 
 If you prefer to send all log types, replace the method `_parse_cloudwatch_log` in the Lambda function with the following:
 
-```py
+``````python
 def _parse_cloudwatch_log(log, additional_data):
     # type: (dict, dict) -> bool
     _add_timestamp(log)

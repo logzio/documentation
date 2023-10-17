@@ -16,7 +16,11 @@ drop_filter: []
 
 ## Logs
 
-### logzio-nodejs setup
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="logzio-nodejs" label="logzio-nodejs" default>
 
 logzio-nodejs collects log messages in an array, which is sent asynchronously when it reaches its size limit or time limit (100 messages or 10 seconds), whichever comes first.
 It contains a simple retry mechanism which upon connection reset or client timeout, tries to send a waiting bulk (2 seconds default).
@@ -43,7 +47,7 @@ Use the samples in the code block below as a starting point, and replace the sam
 
 For a complete list of options, see the configuration parameters below the code block.👇
 
-```js
+```javascript
 // Replace these parameters with your configuration
 var logger = require('logzio-nodejs').createLogger({
   token: '<<LOG-SHIPPING-TOKEN>>',
@@ -79,7 +83,7 @@ For more consistent and reliable parsing, we recommend sending logs as objects.
 
 To send an object (recommended):
 
-  ```js
+  ```javascript
   var obj = {
       message: 'Some log message',
       param1: 'val1',
@@ -90,13 +94,13 @@ To send an object (recommended):
 
 To send raw text:
 
-  ```js
+  ```javascript
   logger.log('This is a log message');
   ```
 
 Include this line at the end of the run if you're using logzio-nodejs in a severless environment, such as AWS Lambda, Azure Functions, or Google Cloud Functions:
 
-  ```js
+  ```javascript
   logger.sendAndClose();
   ```
 
@@ -104,7 +108,7 @@ Include this line at the end of the run if you're using logzio-nodejs in a sever
 
 You can add custom tags to your logs using the following format: `{ tags : ['tag1']}`, for example:
 
-```js
+```javascript
 var obj = {
 
     message: 'Your log message',
@@ -115,10 +119,8 @@ var obj = {
 
 logger.log(obj);
 ```
-
- 
- 
-### winston-logzio setup
+</TabItem>
+  <TabItem value="winston-logzio" label="winston-logzio">
 
 This winston plugin is a wrapper for the logzio-nodejs appender, which basically means it just wraps our nodejs logzio shipper.
 With winston-logzio, you can take advantage of the winston logger framework with your Node.js app.
@@ -143,7 +145,7 @@ npm install winston-logzio --save
 Here's a sample configuration that you can use as a starting point.
 Use the samples in the code block below or replace the sample with a configuration that matches your needs.
 
-```js
+```javascript
 const winston = require('winston');
 const LogzioWinstonTransport = require('winston-logzio');
 
@@ -196,24 +198,24 @@ For a complete list of your options, see the configuration parameters below.👇
 
 * If winston-logzio is used as part of a serverless service (AWS Lambda, Azure Functions, Google Cloud Functions, etc.), add this line at the end of the configuration code block.
 
-  ```js
+  ```javascript
   logger.close()
   ```
 
 * The winston logger by default sends all logs to the console. You can easily disable this by adding this line to your code:
 
-  ```js
+  ```javascript
   winston.remove(winston.transports.Console);
   ```
 * To send a log line:
 
-  ```js
+  ```javascript
   winston.log('info', 'winston logger configured with logzio transport');
   ```
 
 * To log the last UncaughtException before Node exits:
 
-  ```js
+  ```javascript
   var logzIOTransport = new (winstonLogzIO)(loggerOptions);
   var logger = new(winston.Logger)({
     transports: [
@@ -235,7 +237,7 @@ For a complete list of your options, see the configuration parameters below.👇
 
 * Another configuration option
 
-  ```js
+  ```javascript
   var winston = require('winston');
   var logzioWinstonTransport = require('winston-logzio');
 
@@ -255,7 +257,7 @@ For a complete list of your options, see the configuration parameters below.👇
 
 You can add custom tags to your logs using the following format: `{ tags : ['tag1']}`, for example:
 
-```js
+```javascript
 var obj = {
 
     message: 'Your log message',
@@ -295,13 +297,13 @@ npm install winston-logzio --save
 
 If you don't have a `tsconfig.json` file, you'll need to add it first. Start by running:
 
-```js
+```javascript
 tsc --init
 ```
 
 On your `tsconfig.json` file, under the parameter `compilerOptions` make sure you have the `esModuleInterop` flag set to `true` or add it:
 
-```js
+```javascript
 "compilerOptions": {
   ...
   "esModuleInterop": true
@@ -311,7 +313,7 @@ On your `tsconfig.json` file, under the parameter `compilerOptions` make sure yo
 Here's a sample configuration that you can use as a starting point.
 Use the samples in the code block below or replace the sample with a configuration that matches your needs.
 
-```js
+```javascript
 import winston from 'winston';
 import LogzioWinstonTransport from 'winston-logzio';
 const logzioWinstonTransport = new LogzioWinstonTransport({
@@ -329,7 +331,7 @@ logger.log('warn', 'Just a test message');
 
 If winston-logzio is used as part of a serverless service (AWS Lambda, Azure Functions, Google Cloud Functions, etc.), add this line at the end of the configuration code block, every time you are using the logger.
 
-```js
+```javascript
 await logger.info(“API Called”)
 
 logger.close()
@@ -357,7 +359,7 @@ tsc --project tsconfig.json
 
 You can add custom tags to your logs using the following format: `{ tags : ['tag1']}`, for example:
 
-```js
+```javascript
 var obj = {
 
     message: 'Your log message',
@@ -368,7 +370,8 @@ var obj = {
 
 logger.log(obj);
 ```
-
+</TabItem>
+</Tabs>
 
 ## Metrics
 
@@ -386,7 +389,7 @@ We advise to use this integration with [the Logz.io Metrics backend](https://app
 :::
  
 
-### Configuring your Node.js applicatin to send custom metrics to Logz.io
+### Configuring your Node.js application to send custom metrics to Logz.io
 
  
 
@@ -400,7 +403,7 @@ npm install logzio-nodejs-metrics-sdk@0.4.0
   
 Add the following code to your application:
   
-```js
+```javascript
 const MeterProvider = require('@opentelemetry/sdk-metrics-base');
 const sdk =  require('logzio-nodejs-metrics-sdk');
 
@@ -441,7 +444,7 @@ To add a required metric to your code, copy and paste the required metric code t
   
 #### Counter
 
-```js
+```javascript
 // Create your first counter metric
 const requestCounter = meter.createCounter('Counter', {
     description: 'Example of a Counter', 
@@ -456,7 +459,7 @@ requestCounter.add(1,labels);
   
 #### UpDownCounter
   
-```js
+```javascript
 // Create UpDownCounter metric
 const upDownCounter = meter.createUpDownCounter('UpDownCounter', {
     description: 'Example of a UpDownCounter',
@@ -472,7 +475,7 @@ upDownCounter.add(-1,labels);
 
 #### Histogram:
 
-```js
+```javascript
 // Create ValueRecorder metric
 const histogram = meter.createHistogram('test_histogram', {
     description: 'Example of a histogram',
