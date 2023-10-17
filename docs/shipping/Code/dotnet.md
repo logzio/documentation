@@ -55,7 +55,7 @@ For a complete list of options, see the configuration parameters below the code 
     	<!--
 		Required fields
 	-->
-	<!-- Your Logz.io API token -->
+	<!-- Your Logz.io log shipping token -->
 	<token><<LOG-SHIPPING-TOKEN>></token>
 
 	<!--
@@ -64,7 +64,7 @@ For a complete list of options, see the configuration parameters below the code 
 	<!-- The type field will be added to each log message, making it
 	easier for you to differ between different types of logs. -->
     	<type>log4net</type>
-	<!-- The URL of the Lgz.io listener -->
+	<!-- The URL of the Logz.io listener -->
     	<listenerUrl>https://<<LISTENER-HOST>>:8071</listenerUrl>
         <!--Optional proxy server address:
         proxyAddress = "http://your.proxy.com:port" -->
@@ -653,7 +653,7 @@ For a complete list of options, see the configuration parameters below the code 
     	<!--
 		Required fields
 	-->
-	<!-- Your Logz.io API token -->
+	<!-- Your Logz.io log shipping token -->
 	<token><<LOG-SHIPPING-TOKEN>></token>
 
 	<!--
@@ -662,7 +662,7 @@ For a complete list of options, see the configuration parameters below the code 
 	<!-- The type field will be added to each log message, making it
 	easier for you to differ between different types of logs. -->
     	<type>log4net</type>
-	<!-- The URL of the Lgz.io listener -->
+	<!-- The URL of the Logz.io listener -->
     	<listenerUrl>https://<<LISTENER-HOST>>:8071</listenerUrl>
         <!--Optional proxy server address:
         proxyAddress = "http://your.proxy.com:port" -->
