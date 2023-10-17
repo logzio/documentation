@@ -42,7 +42,7 @@ You'll need to run this command as root:
 
 
 ```shell
-mkdir /etc/logzio-pubsub && cd /etc/logzio-pubsub
+mkdir /etc/logzio-google-pubsub && cd /etc/logzio-google-pubsub
 ```
 
 Next, you'll need to build a credentials file so Pub/Sub can authenticate
@@ -57,14 +57,14 @@ In this step, you'll build your credentials file using your Google Cloud project
 
 Before you begin, you'll need the gcloud command-line tool (CLI) installed. If it isn't, follow the steps to install it:
 
-  1. [Download](https://cloud.google.com/sdk/docs/quickstarts) the 'google-cloud-sdk' to '/etc/logzio-pubsub'.
-  2. Run  ```source '/etc/logzio-pubsub/google-cloud-sdk/path.bash.inc'```.
+  1. [Download](https://cloud.google.com/sdk/docs/quickstarts) the 'google-cloud-sdk' to '/etc/logzio-google-pubsub'.
+  2. Run  ```source '/etc/logzio-google-pubsub/google-cloud-sdk/path.bash.inc'```.
   If you're are not already logged in to gcloud, you will be requested to login through your browser.
 
 Run the following command for each project you're working with. Replace the placeholder with your project id before running the command:
 
 ```shell
-wget https://raw.githubusercontent.com/logzio/logzio-pubsub/master/create-credentials.py \
+wget https://raw.githubusercontent.com/logzio/logzio-google pubsub/master/create-credentials.py \
 && python create-credentials.py <<project_id>>
 ```
 
@@ -91,7 +91,7 @@ Select **JSON** and click **CREATE** to save the private key to your machine.
 * Click **DONE** to return to the _Service accounts_ page.
 
 * Rename it in the following format: `<project-id>-credentials.json` - replace to your project id.
-Move it to the `/etc/logzio-pubsub` folder you've created at the beginning of this step.
+Move it to the `/etc/logzio-google-pubsub` folder you've created at the beginning of this step.
 
 #### Variation
 
@@ -106,7 +106,7 @@ Create a file 'pubsub-input.yml' to hold your Pub/Sub input configuration.
 To create the file run the following command as root. Then open the file in your text editor:
 
 ```shell
-touch /etc/logzio-pubsub/pubsub-input.yml
+touch /etc/logzio-google-pubsub/pubsub-input.yml
 ```
 
 Paste this code block into your file.
@@ -148,15 +148,15 @@ Click here for more information about [filebeat for Google Cloud Pub/Sub](https:
 | listener | The Logz.io listener host. {@include: ../../_include/log-shipping/listener-var.html}  |
 | pubsubs | This is an array of one or more GCP subscriptions. For each subscription, provide topic and subscription IDs, as given from Pub/Sub. |
 | token | Your Logz.io shipping token. For each project under `pubsubs`. Replace `<<LOG-SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to. You can send your logs to different accounts that are in the same region, you can do that by inserting a different token per project.  |
-| credentials_file (Not required, Default value: `'<project_id>-credentials.json'`) | This field is only required if your credentials file is named differently than the default value. For an example of adding this field go to [input example file](https://github.com/logzio/logzio-pubsub/blob/master/pubsub-input-example.yml). |
+| credentials_file (Not required, Default value: `'<project_id>-credentials.json'`) | This field is only required if your credentials file is named differently than the default value. For an example of adding this field go to [input example file](https://github.com/logzio/logzio-google-pubsub/blob/master/pubsub-input-example.yml). |
 {:.paramlist}
 
 #### Pull the Docker image
 
-Download the logzio/logzio-pubsub image:
+Download the logzio/logzio-google-pubsub image:
 
 ```shell
-docker pull logzio/logzio-pubsub
+docker pull logzio/logzio-google-pubsub
 ```
 
 #### Run the container
@@ -164,10 +164,10 @@ docker pull logzio/logzio-pubsub
 Run the following command after you replace `<<PROJECT_ID>>`  with your details.
 
 ```shell
-docker run --name logzio-pubsub \
--v /etc/logzio-pubsub/pubsub-input.yml:/logzio-pubsub/pubsub-input.yml \
--v /etc/logzio-pubsub/<<PROJECT_ID>>-credentials.json:/logzio-pubsub/<<PROJECT_ID>>-credentials.json \
-logzio/logzio-pubsub
+docker run --name logzio-google-pubsub \
+-v /etc/logzio-google-pubsub/pubsub-input.yml:/logzio-pubsub/pubsub-input.yml \
+-v /etc/logzio-google-pubsub/<<PROJECT_ID>>-credentials.json:/logzio-pubsub/<<PROJECT_ID>>-credentials.json \
+logzio/logzio-google-pubsub
 ```
 
 #### Variations
@@ -175,14 +175,14 @@ logzio/logzio-pubsub
 * If you're working with multiple topics, add this line for every credentials file you've created. Insert your project id instead of the parameters:
 
 ```
--v /etc/logzio-pubsub/<PROJECT_ID>-credentials.json:/logzio-pubsub/<PROJECT_ID>-credentials-file.json \
+-v /etc/logzio-google-pubsub/<PROJECT_ID>-credentials.json:/logzio-google-pubsub/<PROJECT_ID>-credentials-file.json \
 ```
 
 
 * If your credentials file name isn't of the default format `<<project_id>>-credentials.json`, follow [the steps below](#cred-info) as well.
 
 * If you're using a Mac, you'll need to fix issues with mounting files from root directory.
-Add the path '/etc/logzio-pubsub' to your Docker File Sharing. Click [here](https://medium.com/effy-tech/fixing-the-var-folders-error-in-docker-for-mac-v2-2-3-2a40e776132d) for a guide on how to fix this issue - you can use docker desktop or manually edit your Docker configuration file.
+Add the path '/etc/logzio-google-pubsub' to your Docker File Sharing. Click [here](https://medium.com/effy-tech/fixing-the-var-folders-error-in-docker-for-mac-v2-2-3-2a40e776132d) for a guide on how to fix this issue - you can use docker desktop or manually edit your Docker configuration file.
 For more information about mounting files from the root directory click [here](https://docs.docker.com/docker-for-mac/osxfs/#namespaces).
 
 
@@ -205,11 +205,11 @@ If you decide to give the credentials file another name, please follow these ins
 
 1. On step 3 - building your 'pubsub-input.yml' file, add the field 'credentials_file' with your credentials file's name as the value.
 
-    Go to the github project to see an [example of an input file](https://github.com/logzio/logzio-pubsub/blob/master/pubsub-input-example.yml).
+    Go to the github project to see an [example of an input file](https://github.com/logzio/logzio-google-pubsub/blob/master/pubsub-input-example.yml).
 
 2. On step 5 - running the docker, add the following line for every credentials file you've created:
 
-`-v /etc/logzio-pubsub/<<credentials-file-name>>.json:/logzio-pubsub/<<credentials-file-name>>.json \`
+`-v /etc/logzio-google-pubsub/<<credentials-file-name>>.json:/logzio-google-pubsub/<<credentials-file-name>>.json \`
 
 Replace `<<credentials-file-name>>` with your credentials file's name.
 
