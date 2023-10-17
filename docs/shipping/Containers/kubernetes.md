@@ -50,8 +50,42 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
 
 
-For troubleshooting log shipping, see our [user guide](https://docs.logz.io/user-guide/kubernetes-troubleshooting/).
+For log shipping troubleshooting, see our [user guide](https://docs.logz.io/user-guide/kubernetes-troubleshooting/).
 
+## Send your deploy events logs
+
+This integration sends data about deployment events in the cluster, and how they affect the cluster's resources. 
+Currently supported resource kinds are `Deployment`, `Daemonset`, `Statefulset`, `ConfigMap`, `Secret`, `Service Account`, `Cluster Role` and `Cluster Role Binding`.
+
+```sh
+helm install --namespace=monitoring \
+--set secrets.logzioShippingToken='<<LOG-SHIPPING-TOKEN>>' \
+--set secrets.logzioListener='<<LISTENER-HOST>>' \
+--set secrets.env_id='<<CLUSTER-NAME>>' \
+--set secrets.customListener='<<CUSTOM-HOST>>' \
+logzio-k8s-events logzio-helm/logzio-k8s-events
+```
+
+
+| Parameter | Description |
+| --- | --- |
+| `<<LOG-SHIPPING-TOKEN>>` | Your [logs shipping token](https://app.logz.io/#/dashboard/settings/general). |
+| `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
+| `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
+| `<<CUSTOM-HOST>>` | (*optional*) HTTP/s listener endpoint that receives JSON input, overrides the Logz.io listener. |
+
+### Deployment Events Versioning
+
+In order to add an indication for the versioning in our K8S 360 and Service Overview UI, the following annotation should be added to each resource you'd like to track its versioning. 
+
+```yaml
+metadata:
+  annotations:
+  logzio/commit_url: ""  
+```
+
+
+For log shipping troubleshooting, see our [user guide](https://docs.logz.io/user-guide/kubernetes-troubleshooting/).
 
 ## Send your Metrics
 
@@ -73,7 +107,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
 
 
-For troubleshooting metrics shipping, see our [user guide](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/k8-helm-opentelemetry-troubleshooting.html).
+For metrics shipping troubleshooting, see our [user guide](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/k8-helm-opentelemetry-troubleshooting.html).
 
 
 
@@ -96,7 +130,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<LOGZIO_ACCOUNT_REGION_CODE>>` | Name of your Logz.io traces region e.g `us`, `eu`... |
 
 
-For troubleshooting traces shipping, see our [user guide]([https://docs.logz.io/user-guide/kubernetes-troubleshooting/](https://docs.logz.io/user-guide/distributed-tracing/tracing-troubleshooting.html)).
+For traces shipping troubleshooting, see our [user guide]([https://docs.logz.io/user-guide/kubernetes-troubleshooting/](https://docs.logz.io/user-guide/distributed-tracing/tracing-troubleshooting.html)).
 
 
 ## Send traces with SPM
@@ -200,7 +234,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 
 ## Handling image pull rate limit
 
-In certain situations, such as with spot clusters where pods/nodes are frequently replaced, you may encounter the pull rate limit for images fetched from Docker Hub. This could result in the following error: Y`ou have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limits`.
+In certain situations, such as with spot clusters where pods/nodes are frequently replaced, you may encounter the pull rate limit for images fetched from Docker Hub. This could result in the following error: `You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limits`.
 
 To address this issue, you can use the `--set` commands provided below in order to access an alternative image repository:
 
