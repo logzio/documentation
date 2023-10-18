@@ -856,7 +856,7 @@ Run the following command:
 * Replace `<path/to>` with the path to the directory where you downloaded the collector.
 * Replace `<VERSION-NAME>` with the version name of the collector applicable to your system, e.g. `otelcontribcol_darwin_amd64`.
 
-### Attach the agent to the collector and run it
+### Attach the agent to the runtime and run it
 
 Run the following command from the directory of your Java application:
 
