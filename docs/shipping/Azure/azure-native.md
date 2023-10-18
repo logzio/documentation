@@ -1,7 +1,7 @@
 ---
 id: Azure-Native
 title: Azure Native Logs
-overview: This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon S3 metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
+overview: This integration uses Logz.io's Cloud-Native Observability Platform to monitor the health and performance of your Azure environment through the Azure portal.
 product: ['logs']
 os: ['windows', 'linux']
 filters: ['Azure', 'Other']
