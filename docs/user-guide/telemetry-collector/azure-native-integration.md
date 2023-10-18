@@ -80,7 +80,6 @@ Once you connect your Azure Native Integration with Logz.io, it'll have access t
 ![configure logs in Azure](https://dytvr9ot2sszz.cloudfront.net/logz-docs/fetcher/diagnostic-settings.png)
 
 
-
 ### Send your details to Logz.io
 
 To connect your Azure Native Integration with Logz.io you'll need to send the following information:

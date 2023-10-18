@@ -15,47 +15,29 @@ To start sending your Kubernetes data through the Telemetry Collector, you'll ne
 _If you're unsure whether traffic is allowed to these ports, continue the process, and Logz.io will notify you if access is restricted._
 
 
-Navigate to [Send your data](https://app.logz.io/#/dashboard/send-your-data), and click on **Start collecting**.
+Navigate to [Send your data](https://app.logz.io/#/dashboard/send-your-data), and click on **Go to the Telemetry Collector**.
 
 :::caution Important
 To configure the Telemetry Collector, you must be logged into your **main** Logz.io account.
 :::
 
 
-![Start collecting button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/telemetry-start-here.png)
+![Start collecting button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/start-collecting-sep.png)
 
 ## Send Kubernetes data
-### 1. Select your platform
+
+### Select your environment
 
 
-Select the platform through which you’d like to ship your data. Then, if required, select the relevant sub-type.
+Select the environment through which you’d like to ship your data. Then, if required, select the relevant sub-type.
 
-![Select platform](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/telemetry-collector-main-aug22.png)
+![Select platform](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/telemetry-collector-main-sep.png)
 
-### 2. Select data sources
+### Activate your collector
 
-Next, select the data sources. Hover over each source to see the type of data it collects and processes.
+Choose the platform on which you want to run the Telemetry Collector. You can choose between **Helm**, **Mac**, **Windows**, or **Linux**. 
 
-*You'll have to manually [define auto-instrumentation](https://docs.logz.io/user-guide/distributed-tracing/tracing-instrumentation) to collect your **Distributed Tracing** through Logz.io’s Telemetry Collector.*
-
-![Select data source](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/telemetry-step-2.png)
-
-### 3. Define your collector
-
-Choose a name and write a description to help identify the collector. 
-
-Under **Accounts**, you can review the Logs, Metrics, and Tracing accounts to which the Telemetry Collector will send the data. If you don't have an existing account, you'll be able to review the account's name before continuing.
-
-Click **Generate snippet** to continue.
-
-![Define collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/telemetry-step-3.png)
-
-Next, review your collector. The Summary, located on the left side of the screen, includes all of the data in the collector.
-
-### 4. Choose a platform
-
-Choose the platform on which you want to run the Telemetry Collector. You can choose between **Mac**, **Windows**, or **Linux**. 
-
+* **Helm** users - Connect to the Kubernetes cluster from which you want to send telemetry, copy the Helm Install snippet, replace the placeholders with the relevant values, and run it in your terminal.
 * **Mac** users - Copy the snippet and run it in your terminal.
 * **Windows** users - Copy the snippet and run it in your PowerShell x64 **as Administrator** (Note that PowerShell x86 and PowerShell ISE are currently not supported).
 * **Linux** users - Copy the snippet and run it in your command line.
@@ -64,20 +46,40 @@ Choose the platform on which you want to run the Telemetry Collector. You can ch
 Some platforms might require additional details, such as admin privileges or passwords to complete the installation. These details are not sent to or stored by Logz.io.
 :::
 
-![Review collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/telemetry-snippet-last-step.png)
+![Review collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/activate-collector-sep.png)
 
-### 5. Run the Telemetry Collector
+### Run the Telemetry Collector
 
-The Telemetry Collector will create all setters needed for the Helm install command to install Logz.io Helm chart and deploy the chart with the relevant parameters. Once running, the Telemetry Collector will continuously collect the relevant data from your end, and you'll be able to view and manage it in Logz.io.
+The Telemetry Collector will create all setters needed for the Helm install command to install Logz.io Helm chart and deploy the chart with the relevant parameters. Once running, the Telemetry Collector will continuously collect the relevant data from your end, and you can view and manage it in Logz.io.
 
 You can review the complete list of parameters and commands that Logz.io runs in the background [on the **Logzio Monitoring GitHub repository**](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-monitoring).
 
-### 6. Collect data
+It might take a while for the Telemetry Collector to get up and running, after which you can view your logs, metrics, or traces and get full observability into your system.
 
-That’s it! It might take a while for the Telemetry Collector to get up and running, after which you’ll be able to view your logs, metrics, or traces and get full observability into your system.
+### Optional - Select data sources
+
+You can configure the data sources the Telemetry Collector will collect. To do so, click on **Advance settings** at the top of the page. Next, you can edit and change telemetries, which Logz.io will collect.
 
 
-## Manage your Telemetry Collector
+![Select data source](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/select-data-sources-sep.png)
+
+
+<!-- *You'll have to manually [define auto-instrumentation](https://docs.logz.io/user-guide/distributed-tracing/tracing-instrumentation) to collect your **Distributed Tracing** through Logz.io’s Telemetry Collector.* -->
+
+
+
+### Optional - Define your collector
+
+You can edit your collector’s name and description and choose which Logs, Metrics, and Tracing accounts to use. If you don’t have active accounts, you’ll be able to review the newly generated account names before continuing.
+
+Click **Save changes** to continue.
+
+![Define collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/define-collector-sep.png)
+
+
+
+
+## Manage your Telemetry Collector:
 
 
 To manage a Kubernetes Telemetry Collector, you can use the following commands:
@@ -107,7 +109,7 @@ _Replace `<<USERNAME>>` with your Windows user name._
 If you have additional questions about managing your Telemetry Collector, [contact Logz.io's Support team](mailto:help@logz.io).
 
 
-## Remove your Telemetry Collector
+### Remove your Telemetry Collector:
 
 You can uninstall your Telemetry Collector from **Kubernetes** by running the following snippet in the same platform you've used to install it:
 
@@ -123,6 +125,6 @@ This snippet removes the collector from Logz.io and stops sending your data. Of 
 If you have additional questions about managing your Telemetry Collector, [contact Logz.io's Support team](mailto:help@logz.io).
 
 
-###### Additional resources
+## Additional resources
 
 * [View Telemetry Collector on GitHub](https://github.com/logzio/logzio-agent-manifest)
