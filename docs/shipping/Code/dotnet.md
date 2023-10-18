@@ -1764,43 +1764,201 @@ For troubleshooting this solution, see our [.NET core troubleshooting guide](/us
 
 ## Traces
 
-This integration enables you to send traces from your instrumented applications running in Docker. This is achieved by using a dedicated Logz.io OpenTelemetry collector deployed in the same Docker network as your application. This collector configuration can collect traces from:
+<Tabs>
+  <TabItem value="asp-net-core" label="ASP.NET Core" default>
 
-* OpenTelemetry
-* Zipkin
-* Jaeger
-* OpenCensus 
+Deploy this integration to enable automatic instrumentation of your ASP.NET Core application using OpenTelemetry.
+
+### Architecture overview
+
+This integration includes:
+
+* Installing the OpenTelemetry ASP.NET Core instrumentation packages on your application host
+* Installing the OpenTelemetry collector with Logz.io exporter
+* Running your ASP.NET Core application in conjunction with the OpenTelemetry instrumentation
+
+On deployment, the ASP.NET Core instrumentation automatically captures spans from your application and forwards them to the collector, which exports the data to your Logz.io account.
+
+
+
+### Setup auto-instrumentation for your locally hosted ASP.NET Core application and send traces to Logz.io
+
+**Before you begin, you'll need**:
+
+* An ASP.NET Core application without instrumentation
+* An active account with Logz.io
+* Port `4317` available on your host system
+* A name defined for your tracing service. You will need it to identify the traces in Logz.io.
+
+:::note
+This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
+:::
+
+
+{@include: ../../_include/tracing-shipping/dotnet-steps.md}
+
+#### Download and configure OpenTelemetry collector
+
+Create a dedicated directory on the host of your ASP.NET Core application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.60.0) that is relevant to the operating system of your host.
+
+
+After downloading the collector, create a configuration file `config.yaml` with the following parameters:
+
+{@include: ../../_include/tracing-shipping/collector-config.md}
+
+{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
+
+
+#### Start the collector
+
+{@include: ../../_include/tracing-shipping/collector-run.md}
+
+
+#### Run the application
+
+Run the application to generate traces.
+
+
+#### Check Logz.io for your traces
+
+Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
+
+
+### Setup auto-instrumentation for your ASP.NET Core application using Docker and send traces to Logz.io
+
+This integration enables you to auto-instrument your ASP.NET Core application and run a containerized OpenTelemetry collector to send your traces to Logz.io. If your application also runs in a Docker container, make sure that both the application and collector containers are on the same network.
 
 
 **Before you begin, you'll need**:
 
-* An instrumented application running in a Docker network
+* An ASP.NET Core application without instrumentation
 * An active account with Logz.io
+* Port `4317` available on your host system
+* A name defined for your tracing service
+
+
+{@include: ../../_include/tracing-shipping/dotnet-steps.md}
+
+{@include: ../../_include/tracing-shipping/docker.md}
+
+{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
+
+#### Run the application
+
+{@include: ../../_include/tracing-shipping/collector-run-note.md}
+
+
+
+Run the application to generate traces.
+
+
+#### Check Logz.io for your traces
+
+Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
+
+
+</TabItem>
+  <TabItem value="asp-net" label="ASP.NET or .NET">
+
+Deploy this integration to enable automatic instrumentation of your ASP.NET Core application using OpenTelemetry.
+
+### Architecture overview
+
+This integration includes:
+
+* Installing the OpenTelemetry ASP.NET Core instrumentation packages on your application host
+* Installing the OpenTelemetry collector with Logz.io exporter
+* Running your ASP.NET Core application in conjunction with the OpenTelemetry instrumentation
+
+On deployment, the ASP.NET Core instrumentation automatically captures spans from your application and forwards them to the collector, which exports the data to your Logz.io account.
+
+
+
+### Setup auto-instrumentation for your locally hosted ASP.NET Core application and send traces to Logz.io
+
+**Before you begin, you'll need**:
+
+* An ASP.NET Core application without instrumentation
+* An active account with Logz.io
+* Port `4317` available on your host system
 * A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 
+:::note
+This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
+:::
 
-In the same Docker network as your application:
+
+{@include: ../../_include/tracing-shipping/dotnet-steps.md}
+
+
+##### Download and configure OpenTelemetry collector
+
+Create a dedicated directory on the host of your ASP.NET Core application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.60.0) that is relevant to the operating system of your host.
+
+
+After downloading the collector, create a configuration file `config.yaml` with the following parameters:
+
+{@include: ../../_include/tracing-shipping/collector-config.md}
+
+{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
+
+
+##### Start the collector
+
+{@include: ../../_include/tracing-shipping/collector-run.md}
+
+
+##### Run the application
+
+Run the application to generate traces.
+
+
+##### Check Logz.io for your traces
+
+Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
+
+
+
+### Setup auto-instrumentation for your ASP.NET Core application using Docker and send traces to Logz.io
+
+This integration enables you to auto-instrument your ASP.NET Core application and run a containerized OpenTelemetry collector to send your traces to Logz.io. If your application also runs in a Docker container, make sure that both the application and collector containers are on the same network.
+
+
+**Before you begin, you'll need**:
+
+* An ASP.NET Core application without instrumentation
+* An active account with Logz.io
+* Port `4317` available on your host system
+* A name defined for your tracing service
+
+
+{@include: ../../_include/tracing-shipping/dotnet-steps.md}
 
 {@include: ../../_include/tracing-shipping/docker.md}
 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
 
-### Run the application
+##### Run the application
 
 {@include: ../../_include/tracing-shipping/collector-run-note.md}
+
+
 
 Run the application to generate traces.
 
 
-### Check Logz.io for your traces
+##### Check Logz.io for your traces
 
 Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
 
-### Troubleshooting
+
+</TabItem>
+  <TabItem value="troubleshooting" label="Troubleshooting">
 
 #### OpenTelemetry instrumentation 
 
 For troubleshooting the OpenTelemetry instrumentation, see our [OpenTelemetry troubleshooting guide](/docs/user-guide/distributed-tracing/troubleshooting/otel-troubleshooting).
 
-
+</TabItem>
+</Tabs>
