@@ -13,9 +13,6 @@ Azure Native Integration offers a fast and efficient way to sync your Azure data
 Azure may **charge additional fees** for using this integration. [Read more about Azure API costs](https://azure.microsoft.com/en-us/pricing/details/api-management/).
 :::
 
-* [Set up Azure Native Integration](/user-guide/cloud-fetcher.html#set-up-azure-cloud-fetcher)
-* [Set up Logz.io's Azure Native Integration](/user-guide/cloud-fetcher.html#set-up-logzios-azure-cloud-fetcher)
-
 ## Set up Azure Native Integration 
 
 
