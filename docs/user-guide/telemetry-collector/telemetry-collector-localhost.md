@@ -1,6 +1,9 @@
 ---
 sidebar_position: 4
 title: Send Localhost Data with Telemetry Collector
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Send your Localhost data with Logz.io's Telemetry Collector
+keywords: [log-shipping, telemetry collector, localhost data, local host, agent, collector, mac, linux, windows]
 ---
 
 :::note
