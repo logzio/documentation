@@ -1,6 +1,9 @@
 ---
 sidebar_position: 6
 title: Configure Azure Native Integration
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Step by step guide to configuring Azure native integration
+keywords: [Azure, Azure native integration, ship Azure data, Azure logs, Azure metrics, Azure tracing, Azure Logz.io]
 ---
 
 
@@ -9,9 +12,6 @@ Azure Native Integration offers a fast and efficient way to sync your Azure data
 :::caution Important
 Azure may **charge additional fees** for using this integration. [Read more about Azure API costs](https://azure.microsoft.com/en-us/pricing/details/api-management/).
 :::
-
-* [Set up Azure Native Integration](/user-guide/cloud-fetcher.html#set-up-azure-cloud-fetcher)
-* [Set up Logz.io's Azure Native Integration](/user-guide/cloud-fetcher.html#set-up-logzios-azure-cloud-fetcher)
 
 ## Set up Azure Native Integration 
 
@@ -59,6 +59,26 @@ Ensure that the **User, group, or service principal** option is checked in the M
 ![add role from list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/fetcher/add-role-from-list.png)
 
 Search for the name of the app you created and select it. Click **Review + assign** to confirm. Click on **Review + assign** again to apply the role.
+
+### _(Optional)_ - Collect logs with Azure Native Integration
+
+Azure Native Integration collects metrics data by default. If you wish to collect and monitor your logs, you'll need to:
+
+1. [Create a workspace in Azure](https://learn.microsoft.com/en-us/azure/machine-learning/quickstart-create-resources?view=azureml-api-2)
+2. Ship logs to your log analytics workspace via Diagnostic Settings / Data Collection Rules / Application Insights
+
+You must configure your logs through the relevant settings according to your Azure account. Once configured, Logz.io can collect and monitor the desired logs.
+
+For example, if you have a **Kubernetes service**, you can configure your logs via Diagnostic Settings.
+
+Navigate to **Kubernetes service** > **Diagnostic settings**, choose the storage account you want to enable diagnostics for and click **Add diagnostic settings**. 
+
+Next, choose which log categories to monitor and set up the Destination details to Send to the Log Analytics workspace.
+
+Once you connect your Azure Native Integration with Logz.io, it'll have access to all logs inside the workspace, which will be monitored on your Logz.io dashboard. 
+
+![configure logs in Azure](https://dytvr9ot2sszz.cloudfront.net/logz-docs/fetcher/diagnostic-settings.png)
+
 
 ### Send your details to Logz.io
 

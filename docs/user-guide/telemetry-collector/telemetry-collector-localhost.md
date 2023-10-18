@@ -1,6 +1,9 @@
 ---
 sidebar_position: 4
 title: Send Localhost Data with Telemetry Collector
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Send your Localhost data with Logz.io's Telemetry Collector
+keywords: [log-shipping, telemetry collector, localhost data, local host, agent, collector, mac, linux, windows]
 ---
 
 :::note
@@ -14,52 +17,49 @@ To configure the Telemetry Collector, you must be logged into your **main** Logz
 :::
 
 
-![Start collecting button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/telemetry-start-here.png)
+![Start collecting button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/start-collecting-sep.png)
 
 
 ## Send Localhost data
 
-### 1. Select platform
+### Select your environment
 
-Select the Localhost platform and the relevant sub-type through which you want to send your data.
+Select your preferred Localhost platform through which you want to send your data.
 
-![Localhost select platform](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/tc-select-localhost.png)
-
-### 2. Select data sources
+![Localhost select platform](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/collector-localhost-sep.png)
 
 
-Enter the full path location of your log folders from your machine. You can add multiple log folders or files by clicking on the **Add a folder**/**Add a file** option.
-
-The Telemetry Collector can also collect metrics data from your logs.
-
-![Select folder collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/log-location.png)
-
-If you're running on a **Windows** machine, you'll be able to choose whether you want to collect application, security, and system logs.
-
-### 3. Define your collector
-
-Choose a name and write a description to help identify the collector. 
-
-Under **Accounts**, you can review the Logs and Metrics accounts to which the Telemetry Collector will send the data. If you don’t have an existing account, one will be created for you, and you’ll be able to review its name before continuing.
-
-Click **Generate snippet** to continue.
-
-![Define collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/define-collector-localhost.png)
-
-### 4. Run the Telemetry Collector
+### Activate your collector
 
 Copy the code snippet and run it on your end:
 
-* **Mac** and **Linux** users - Run the snippet in your terminal.
 * **Windows** users - Run the snippet in your PowerShell x64 **as Administrator** (Note that PowerShell x86 and PowerShell ISE are currently not supported).
+* **Linux** and **Mac** users - Run the snippet in your terminal. Note that your Bash version should be **4.0** or higher.
 
 Some platforms might require additional details, such as admin privileges or passwords, to complete the installation. These details are not sent to or stored by Logz.io.
 
-![Review collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/collector-localhost-finish.png)
+![Review collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/activate-collector-localhost-sep.png)
 
-### 5. Collect data
+It might take a while for the Telemetry Collector to get up and running, after which you can view your logs or metrics and get full observability into your system.
 
-That’s it! It might take a while for the Telemetry Collector to get up and running, after which you’ll be able to view your logs or metrics and get full observability into your system.
+### _Optional_ - Select data sources
+
+You can configure the data sources the Telemetry Collector will collect. To do so, click on **Advance settings** at the top of the page. Next, you can edit and change telemetries, which Logz.io will collect.
+
+You can edit the path location of your log folders from your machine and choose which telemetries you want to collect.
+
+![Select folder collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/configure-localhost-sep.png)
+
+If you're running on a **Windows** machine, you can choose whether you want to collect application, security, and system logs.
+
+### _Optional_ - Define your collector
+
+You can edit your collector’s name and description and choose which Logs, Metrics, and Tracing accounts to use. If you don’t have active accounts, you’ll be able to review the newly generated account names before continuing.
+
+Click **Save changes** to continue.
+
+![Define collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/define-localhost-sep.png)
+
 
 If you encounter issues in installing or running your Telemetry Collector, [contact Logz.io's Support team](mailto:help@logz.io).
 
@@ -109,6 +109,6 @@ To manage a Localhost Telemetry Collector on your **Windows** machine, you can u
 Replace `<<USERNAME>>` with your Windows user name. If you have additional questions about managing your Telemetry Collector, [contact Logz.io's Support team](mailto:help@logz.io).
 
 
-###### Additional resources
+## Additional resources
 
 * [View Telemetry Collector on GitHub](https://github.com/logzio/logzio-agent-manifest)

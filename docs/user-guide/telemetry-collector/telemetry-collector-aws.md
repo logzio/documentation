@@ -1,6 +1,9 @@
 ---
 sidebar_position: 2
 title: Send AWS data with Telemetry Collector
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Send your AWS data with Logz.io's Telemetry Collector
+keywords: [AWS, Amazon Web Service, ship AWS data, AWS logs, AWS metrics, AWS tracing]
 ---
 
 :::note
@@ -8,6 +11,7 @@ Telemetry Collector is currently **available in all regions** except for Japan a
 :::
 
 To start sending your AWS data through the Telemetry Collector, Log into your **main** Logz.io account, navigate to [Send your data](https://app.logz.io/#/dashboard/send-your-data), and click on **Start collecting**.
+
 
 :::caution Important
 To configure the Telemetry Collector, you must be logged into your **main** Logz.io account.
@@ -17,53 +21,59 @@ To configure the Telemetry Collector, you must be logged into your **main** Logz
 This integration is only compatible with Amazon Linux version 2 on EC2. The use of version 1 is deprecated.
 :::
 
-![Start collecting button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/telemetry-start-here.png)
+![Start collecting button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/start-collecting-sep.png)
 
 ## Prerequisite
 
 The IAM role assigned to the EC2 instance must include the `ec2:DescribeTags` permission in its policy.
 
+## Configure Collector
 
 
-## Start sending AWS data
-
-### 1. Select platform
+### Select your environment
 
 Select the AWS platform and the relevant sub-type through which you want to send your data.
 
-![Select platform](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/aws-agent.png)
+![Select platform](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/collector-main-aws-sep.png)
 
-### 2. Select data sources
+### Select data sources
 
-Enter the full path location of your log files from your machine. You can add multiple files by clicking on the **Add a file** option.
+Each AWS environment requires different elements to collect your data.
 
-Logz.io uses OpenTelemetry to monitor your EC2.
+* **AWS Logs** - Select your region, AWS services, and Custom Log Groups.
+* **AWS Metrics** - Select your region and AWS namespace.
+* **EC2 Monitoring** - Auto collects the data. Logz.io uses OpenTelemetry to monitor your EC2.
 
-![Select data source](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/telemetry-aws-data-source.png)
+![Select data source](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/configure-aws-sep.png)
 
-### 3. Define your collector
+### Define your collector
 
-Choose a name and write a description to help identify the collector. 
+You can edit your collector’s name and description and choose which Logs, Metrics, and Tracing accounts to use. If you don’t have active accounts, you’ll be able to review the newly generated account names before continuing.
 
-Under **Accounts**, you can review the Logs and Metrics accounts to which the Telemetry Collector will send the data. If you don't have an existing account, one will be generated for you, and you’ll be able to review its name before continuing.
+Click **Generate collector** to continue.
 
-Click **Generate snippet** to continue.
+![Define collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/define-aws-sep.png)
 
-![Define collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/telemetry-aws-define.png)
 
-### 4. Install the Telemetry Collector
+### _Optional_ - Define your EC2 collector
 
-Copy the code snippet and **run it in your EC2** to install the AWS Telemetry Collector.
+You can configure the data sources the Telemetry Collector will collect. To do so, after choosing the EC2 Monitoring option, click on **Advance settings** at the top of the page. Next, you can edit and change the location of your logs, and whether you want to monitor both logs and metrics. 
 
-:::note
+
+![configure ec2 data source](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/configure-ec2-sep.png)
+
+
+### Install the Telemetry Collector
+
+
+Login to your AWS account, launch the AWS stack to run stack configuration and click the **Run AWS stack** button to activate your collector. 
+
 Some platforms might require additional details, such as admin privileges or passwords, to complete the installation. These details are not sent to or stored by Logz.io.
-:::
+{:.info-box.note}
 
-![Review collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/collector-localhost-finish.png)
+![Review collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/activate-aws-sep.png)
 
-### 5. Collect data
-
-That’s it! It might take a while for the Telemetry Collector to get up and running, after which you’ll be able to view your logs, metrics, or traces and get full observability into your system.
+It might take a while for the Telemetry Collector to get up and running, after which you’ll be able to view your logs, metrics, or traces and get full observability into your system.
 
 ## Manage your Telemetry Collector:
 
@@ -84,6 +94,6 @@ To manage an AWS Telemetry Collector on your **Linux** machine, you can use the 
 If you have additional questions about managing your Telemetry Collector, [contact Logz.io's Support team](mailto:help@logz.io).
 
 
-###### Additional resources
+## Additional resources
 
 * [View Telemetry Collector on GitHub](https://github.com/logzio/logzio-agent-manifest)
