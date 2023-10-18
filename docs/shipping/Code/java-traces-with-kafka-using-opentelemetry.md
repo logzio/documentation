@@ -51,7 +51,7 @@ Download the latest version of the [OpenTelemetry Java agent](https://github.com
 
 
 
-### Attach the agent to the collector and run it
+### Attach the agent to the runtime and run it
 
 {@include: ../../_include/tracing-shipping/collector-run-note.md}
 
