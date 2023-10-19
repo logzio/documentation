@@ -306,52 +306,71 @@ namespace dotnet_log4net
 ```
 
 ##### Serverless platforms
-If you’re using a serverless function, you’ll need to call the appender's flush methods at the end of the function run to make sure the logs are sent before the function finishes its execution.
+If you’re using a serverless function, you’ll need to call the appender's flush methods at the end of the function run to make sure the logs are sent before the function finishes its execution. You’ll also need to create a static appender in the Startup.cs file so each invocation will use the same appender. 
+Make sure 'debug' is set to false if the function is deployed as it might cause permission issues with debug files. 
 
 ###### Code sample
-
+*Startup.cs*
 ```csharp
-using System;
+using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+using log4net;
+using log4net.Repository.Hierarchy;
+using Logzio.DotNet.Log4net;
+
+[assembly: FunctionsStartup(typeof(LogzioLog4NetSampleApplication.Startup))]
+
+namespace LogzioLog4NetSampleApplication
+{
+    public class Startup : FunctionsStartup
+    {
+        public override void Configure(IFunctionsHostBuilder builder)
+        {
+            var hierarchy = (Hierarchy)LogManager.GetRepository();
+            var logzioAppender = new LogzioAppender();
+            logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
+            logzioAppender.AddListenerUrl("https://<<LISTENER-HOST>>:8071");
+            logzioAppender.ActivateOptions();
+            hierarchy.Root.AddAppender(logzioAppender);
+            hierarchy.Configured = true;
+        }
+    }
+}
+
+```
+
+*FunctionApp.cs*
+```csharp
+uusing System;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
 using log4net;
-using log4net.Core;
-using log4net.Repository.Hierarchy;
-using Logzio.DotNet.Log4net;
 using MicrosoftLogger = Microsoft.Extensions.Logging.ILogger;
 
 namespace LogzioLog4NetSampleApplication
 {
     public class TimerTriggerCSharpLog4Net
     {
+        
+        private static readonly ILog logger = LogManager.GetLogger(typeof(TimerTriggerCSharpLog4Net));
+
         [FunctionName("TimerTriggerCSharpLog4Net")]
         public void Run([TimerTrigger("*/30 * * * * *")]TimerInfo myTimer, MicrosoftLogger msLog)
         {
             msLog.LogInformation($"Log4Net C# Timer trigger function executed at: {DateTime.Now}");
-            var hierarchy = (Hierarchy)LogManager.GetRepository();
-            var logger = LogManager.GetCurrentClassLogger();
-            var logzioAppender = new LogzioAppender();
 
-            logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
-            logzioAppender.AddListenerUrl("https://<<LISTENER-HOST>>:8071");
-            logzioAppender.ActivateOptions();
-
-            hierarchy.Root.AddAppender(logzioAppender);
-            hierarchy.Configured = true;
-            hierarchy.Root.Level = Level.All;
             logger.Info("Now I don't blame him 'cause he run and hid");
             logger.Info("But the meanest thing he ever did");
             logger.Info("Before he left was he went and named me Sue");
             LogManager.Flush(5000);
-            LogManager.Shutdown();
-            msLog.LogInformation($"Log4Net C# Timer trigger function finishd at: {DateTime.Now}");
 
+            msLog.LogInformation($"Log4Net C# Timer trigger function finished at: {DateTime.Now}");
         }
     }
 }
 ```
 </TabItem>
   <TabItem value="NLog" label="NLog">
+
 
 **Before you begin, you'll need**:
 
@@ -566,48 +585,81 @@ LogManager.Configuration = config;
 ```
 
 ##### Serverless platforms
-If you’re using a serverless function, you’ll need to call the appender's flush methods at the end of the function run to make sure the logs are sent before the function finishes its execution.
+If you’re using a serverless function, you’ll need to call the appender's flush methods at the end of the function run to make sure the logs are sent before the function finishes its execution. You’ll also need to create a static appender in the Startup.cs file so each invocation will use the same appender. 
+Make sure 'debug' is set to false if the function is deployed as it might cause permission issues with debug files. 
 
 ###### Code sample
+
+*Startup.cs*
+
+```csharp
+using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+using Logzio.DotNet.NLog;
+using NLog;
+using NLog.Config;
+using System;
+
+[assembly: FunctionsStartup(typeof(LogzioNLogSampleApplication.Startup))]
+
+namespace LogzioNLogSampleApplication
+{
+    public class Startup : FunctionsStartup
+    {
+        public override void Configure(IFunctionsHostBuilder builder)
+        {
+            var config = new LoggingConfiguration();
+
+            // Replace these parameters with your configuration
+            var logzioTarget = new LogzioTarget
+            {
+                Name = "Logzio",
+                Token = "<<LOG-SHIPPING-TOKEN>>",
+                LogzioType = "nlog",
+                ListenerUrl = "https://<<LISTENER-HOST>>:8071",
+                BufferSize = 100,
+                BufferTimeout = TimeSpan.Parse("00:00:05"),
+                RetriesMaxAttempts = 3,
+                RetriesInterval = TimeSpan.Parse("00:00:02"),
+                Debug = false,
+                JsonKeysCamelCase = false,
+                AddTraceContext = false,
+                // ParseJsonMessage = true,
+                // ProxyAddress = "http://your.proxy.com:port"
+            };
+
+            config.AddRule(NLog.LogLevel.Debug, NLog.LogLevel.Fatal, logzioTarget);
+            LogManager.Configuration = config;
+        }
+    }
+}
+```
+
+*FunctionApp.cs*
 
 ```csharp
 using System;
 using Microsoft.Azure.WebJobs;
-using Logzio.DotNet.NLog;
 using NLog;
-using NLog.Config;
-using NLog.Fluent;
 using Microsoft.Extensions.Logging;
 using MicrosoftLogger = Microsoft.Extensions.Logging.ILogger;
+
 namespace LogzioNLogSampleApplication
 {
     public class TimerTriggerCSharpNLog
     {
+        private static readonly Logger nLog = LogManager.GetCurrentClassLogger();
+
         [FunctionName("TimerTriggerCSharpNLog")]
-        public void Run([TimerTrigger("*/30 * * * * *")] TimerInfo myTimer, MicrosoftLogger msLog)
+        public void Run([TimerTrigger("*/30 * * * * *")]TimerInfo myTimer, MicrosoftLogger msLog)
         {
             msLog.LogInformation($"NLogzio C# Timer trigger function executed at: {DateTime.Now}");
 
-            var nLog = LogManager.GetCurrentClassLogger();
-
-            nLog.Info()
-              .Message("If you'll be my bodyguard")
-              .Property("iCanBe", "your long lost pal")
-              .Property("iCanCallYou", "Betty, and Betty when you call me")
-              .Property("youCanCallMe", "Al")
-              .Write();
-
-            // Call Flush with a callback to Shutdown LogManager
-            LogManager.Flush(ex =>
-            {
-                if (ex != null)
-                    msLog.LogError(ex, "Error while flushing NLog.");
-                else
-                {
-                    LogManager.Shutdown();
-                    msLog.LogInformation($"NLogzio C# Timer trigger function finished at: {DateTime.Now}");
-                }
-            }, TimeSpan.FromSeconds(5));
+            nLog.WithProperty("iCanBe", "your long lost pal")
+                .WithProperty("iCanCallYou", "Betty, and Betty when you call me")
+                .WithProperty("youCanCallMe", "Al")
+                .Info("If you'll be my bodyguard");
+            // Call Flush method before function trigger finishes
+            LogManager.Flush(5000);
         }
     }
 }
@@ -877,46 +929,70 @@ hierarchy.Configured = true;
 ```
 
 ##### Serverless platforms
-If you’re using a serverless function, you’ll need to call the logger's shutdown methods at the end of the function run and make sure the logs are sent before the function finishes its execution.  Make sure 'debug' is set to false if the function is deployed as it might cause permission issues with debug files. 
+If you’re using a serverless function, you’ll need to call the appender's flush methods at the end of the function run to make sure the logs are sent before the function finishes its execution. You’ll also need to create a static appender in the Startup.cs file so each invocation will use the same appender. 
+Make sure 'debug' is set to false if the function is deployed as it might cause permission issues with debug files. 
 
 ###### Code sample
+*Startup.cs*
+
+```csharp
+using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using log4net;
+using log4net.Config;
+using System.IO;
+using System.Reflection;
+using System;
+[assembly: FunctionsStartup(typeof(LogzioLoggerFactorySampleApplication.Startup))]
+
+namespace LogzioLoggerFactorySampleApplication
+{
+    public class Startup : FunctionsStartup
+    {
+        public static ILoggerFactory LoggerFactory { get; set; }
+
+        public override void Configure(IFunctionsHostBuilder builder)
+        {
+            var logRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());
+            string functionAppDirectory = Environment.GetEnvironmentVariable("AzureWebJobsScriptRoot");
+
+            // Configure log4net here
+            XmlConfigurator.Configure(logRepository, new FileInfo(Path.Combine(functionAppDirectory, "log4net.config")));
+
+            var loggerFactory = new LoggerFactory();
+            loggerFactory.AddLog4Net(Path.Combine(functionAppDirectory, "log4net.config")); // Use the log4net.config in the function app root directory
+
+            LoggerFactory = loggerFactory;
+        }
+    }
+}
+```
+*FunctionApp.cs*
 
 ```csharp
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
 using log4net;
-using MicrosoftLogger = Microsoft.Extensions.Logging.ILogger;
-using MicrosoftLoggerFactory = Microsoft.Extensions.Logging.LoggerFactory;
-using System.IO;
-using System.Reflection;
-using log4net.Config;
 using System;
-using System.Threading;
+
 namespace LogzioLoggerFactorySampleApplication
 {
     public class TimerTriggerCSharpLoggerFactory
     {
+        private readonly ILogger _logger = Startup.LoggerFactory.CreateLogger<TimerTriggerCSharpLoggerFactory>();
+
+
         [FunctionName("TimerTriggerCSharpLoggerFactory")]
-        public void Run([TimerTrigger("*/30 * * * * *")] TimerInfo myTimer, MicrosoftLogger msLog, Microsoft.Azure.WebJobs.ExecutionContext context)
+        public void Run([TimerTrigger("*/30 * * * * *")] TimerInfo myTimer)
         {
+            _logger.LogInformation($"LoggerFactory C# Timer trigger function executed at: {DateTime.Now}");
 
-            msLog.LogInformation($"LoggerFactory C# Timer trigger function executed at: {DateTime.Now}");
+            _logger.LogInformation("Hello");
+            _logger.LogInformation("Is it me you looking for?");
+            
+            LogManager.Flush(5000);
 
-            var functionAppDirectory = context.FunctionAppDirectory; // Function app root directory
-            MicrosoftLoggerFactory loggerFactory = new();
-            loggerFactory.AddLog4Net(Path.Combine(functionAppDirectory, "log4net.config")); // Use the log4net.config in the function app root directory
-            var logger = loggerFactory.CreateLogger<TimerTriggerCSharpLoggerFactory>();
-
-            var logRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());
-
-            // Replace "App.config" with the config file that holds your log4net configuration
-            XmlConfigurator.Configure(logRepository, new FileInfo(Path.Combine(functionAppDirectory, "log4net.config")));
-
-            logger.LogInformation("Hello");
-            logger.LogInformation("Is it me you looking for?");
-            Thread.Sleep(5000); // gives the logs enough time to be sent to Logz.io
-            LogManager.Shutdown();
-            msLog.LogInformation($"LoggerFactory C# Timer trigger function finishd at: {DateTime.Now}");
+            _logger.LogInformation($"LoggerFactory C# Timer trigger function finished at: {DateTime.Now}");
 
         }
     }
@@ -1046,40 +1122,58 @@ namespace Example
 ```
 
 ##### Serverless platforms
-If you’re using a serverless function, you’ll need to call the appender's flush methods at the end of the function run to make sure the logs are sent before the function finishes its execution.
+If you’re using a serverless function, you’ll need to create a static appender in the Startup.cs file so each invocation will use the same appender.
 In the Serilog integration, you should use the 'WriteTo.LogzIo()' instad of 'WriteTo.LogzIoDurableHttp()' method as it uses in-memory buffering which is best practice for serverless functions. 
+
 ###### Code sample
 
+*Startup.cs*
+```csharp
+using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+using Serilog;
+using Serilog.Sinks.Logz.Io;
+
+[assembly: FunctionsStartup(typeof(LogzioSerilogSampleApplication.Startup))]
+
+namespace LogzioSerilogSampleApplication
+{
+    public class Startup : FunctionsStartup
+    {
+        public override void Configure(IFunctionsHostBuilder builder)
+        {
+            var logzioLogger = new LoggerConfiguration()
+                .WriteTo.LogzIo("<<LOG-SHIPPING-TOKEN>>", "serilog", dataCenterSubDomain: "listener", useHttps: true)
+                .CreateLogger();
+
+            // Assign the logger to the static Log class
+            Log.Logger = logzioLogger;
+        }
+    }
+}
+```
+
+*FunctionApp.cs*
 ```csharp
 using System;
 using Microsoft.Azure.WebJobs;
 using Serilog;
-using Serilog.Sinks.Logz.Io;
 using Microsoft.Extensions.Logging;
 using MicrosoftLogger = Microsoft.Extensions.Logging.ILogger;
 using Serilogger = Serilog.ILogger;
 using System.Threading;
 
-
-namespace LogzioSeriLogSampleApplication
+namespace LogzioSerilogSampleApplication
 {
     public class TimerTriggerCSharpSeriLogzio
     {
+        private static readonly Serilogger logzioLogger = Log.Logger;
+
         [FunctionName("TimerTriggerCSharpSeriLogzio")]
-        public void Run([TimerTrigger("*/30 * * * * *")] TimerInfo myTimer, MicrosoftLogger msLog)
+        public void Run([TimerTrigger("*/30 * * * * *")]TimerInfo myTimer, MicrosoftLogger msLog)
         {
             msLog.LogInformation($"Serilog C# Timer trigger function executed at: {DateTime.Now}");
-            Serilogger logzioLogger = new LoggerConfiguration()
-            .WriteTo.LogzIo("<<LOG-SHIPPING-TOKEN>>", "<<TYPE>>", useHttps: true, dataCenterSubDomain: "listener") // Replace 'listener' with the relevant region, i.e: 'listener-eu'
-        .CreateLogger();
-
-            // Assign the logger to the static Log class
-            Log.Logger = logzioLogger;
-
+              
             logzioLogger.Information("Hello. Is it me you're looking for?");
-            Thread.Sleep(5000);
-            // // Flush the static logger
-            Log.CloseAndFlush();
 
             msLog.LogInformation($"Serilog C# Timer trigger function finished at: {DateTime.Now}");
         }
