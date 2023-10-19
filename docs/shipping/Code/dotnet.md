@@ -340,7 +340,7 @@ namespace LogzioLog4NetSampleApplication
 
 *FunctionApp.cs*
 ```csharp
-uusing System;
+using System;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
 using log4net;
