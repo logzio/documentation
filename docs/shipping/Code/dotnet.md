@@ -309,7 +309,7 @@ namespace dotnet_log4net
 If you’re using a serverless function, you’ll need to call the appender's flush methods at the end of the function run to make sure the logs are sent before the function finishes its execution. You’ll also need to create a static appender in the Startup.cs file so each invocation will use the same appender. 
 Make sure 'debug' is set to false if the function is deployed as it might cause permission issues with debug files. 
 
-###### Code sample
+###### Azure serverless function code sample
 *Startup.cs*
 ```csharp
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
@@ -588,7 +588,7 @@ LogManager.Configuration = config;
 If you’re using a serverless function, you’ll need to call the appender's flush methods at the end of the function run to make sure the logs are sent before the function finishes its execution. You’ll also need to create a static appender in the Startup.cs file so each invocation will use the same appender. 
 Make sure 'debug' is set to false if the function is deployed as it might cause permission issues with debug files. 
 
-###### Code sample
+###### Azure serverless function code sample
 
 *Startup.cs*
 
@@ -932,7 +932,7 @@ hierarchy.Configured = true;
 If you’re using a serverless function, you’ll need to call the appender's flush methods at the end of the function run to make sure the logs are sent before the function finishes its execution. You’ll also need to create a static appender in the Startup.cs file so each invocation will use the same appender. 
 Make sure 'debug' is set to false if the function is deployed as it might cause permission issues with debug files. 
 
-###### Code sample
+###### Azure serverless function code sample
 *Startup.cs*
 
 ```csharp
@@ -1125,7 +1125,7 @@ namespace Example
 If you’re using a serverless function, you’ll need to create a static appender in the Startup.cs file so each invocation will use the same appender.
 In the Serilog integration, you should use the 'WriteTo.LogzIo()' instad of 'WriteTo.LogzIoDurableHttp()' method as it uses in-memory buffering which is best practice for serverless functions. 
 
-###### Code sample
+###### Azure serverless function code sample
 
 *Startup.cs*
 ```csharp
