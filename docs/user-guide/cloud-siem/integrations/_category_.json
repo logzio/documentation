@@ -1,6 +1,6 @@
 {
   "label": "Integrations",
-  "position": 10,
+  "position": 11,
   "link": {
     "type": "generated-index",
     "description": "Integrations for Logz.io's Cloud SIEM platform."

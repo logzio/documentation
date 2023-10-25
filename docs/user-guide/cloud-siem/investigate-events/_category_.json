@@ -1,6 +1,6 @@
 {
   "label": "Investigate Events",
-  "position": 4,
+  "position": 5,
   "link": {
     "type": "generated-index",
     "description": "Investigate and manage SIEM related events."
