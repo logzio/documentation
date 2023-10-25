@@ -1,8 +1,11 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
+title: Create sub accounts as a Managed Security Service Provider (MSSP)
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Create and manage sub accounts as an MSSP
+keywords: [mssp, siem, logz.io siem. security solution, Managed Security Service Provider, Security information and event management]
 ---
 
-# Create sub accounts as a Managed Security Service Provider (MSSP)
 
 As an MSSP you can create a dedicated SIEM account for each logging account. This lets your customers access their data without the risk of accidentally seeing other customers’ data.
 

@@ -1,11 +1,15 @@
 ---
 sidebar_position: 1
 title: Getting Started with Logz.io Distributed Tracing
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Set up your Logz.io Distributed Tracing solution
+keywords: [Tracing, traces, Logz.io tracing, distributed tracing, trace]
 ---
+
 Get set and get ready: This section describes what you have to do to get set up - before you can use Distributed Tracing in Logz.io.
 
-If you already use Distributed Tracing, refer to our [guides on how to get connected to Logz.io](https://app.logz.io/#/dashboard/send-your-data/collection?tag=existing-instrumentation&collection=tracing-sources). 
-This information is also available in the [**Logz.io Docs**](https://docs.logz.io/shipping/#tracing-sources), via the **My code is instrumented** filter.
+If you already use Distributed Tracing, you can quickly send your tracing data to Logz.io through your [chosen integration](https://app.logz.io/#/dashboard/integrations/). 
+
 
 ## To set up Distributed Tracing: 
 
@@ -31,13 +35,19 @@ You must have admin permissions for the Logz.io account to view the **Manage tok
 
    1. Find the Distributed Tracing account you want to ship to in the table, and copy the token. 
 
-   *Related Links*
+###### Related Links
 
-   + For information about how to manage your tracing data sources, see the [Manage a Distributed Tracing account](https://docs.logz.io/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#tracing) topic.
+For information about how to manage your tracing data sources, see the [Manage a Distributed Tracing account](https://docs.logz.io/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#tracing) topic.
 
 
 
 #### Look up your Region information
+
+If you have admin user permissions, you can clarify the 2-letter code for your region in Settings > General settings > [Account settings](https://app.logz.io/#/dashboard/settings/general).
+
+![Navigate to general settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/general-settings1_sept2021.png)
+
+The list of all the region codes is available in the **Logz.io Docs**, in the **Region code** column of the [Regions and Listener Hosts table](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions). The default region is US east.
 
 
 ### Set up instrumentation
@@ -52,9 +62,7 @@ But instrumentation doesn't *have* to be a huge all-or-nothing effort. It's not 
 
 If you hit a wall, we’ll do our best to provide support to help you solve your instrumentation issues. 
 
-To determine the best instrumentation strategy for your system, start with [**Tracing > Send your traces**](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=tracing-sources&accountIds=true), and then select the relevant filter in the **Tracing** tab, depending on whether or not your code is already instrumented: Either **My code is instrumented** or **My code is not instrumented**.  
-
-This information is also available in the **Logz.io Docs**, in [**Send your data > Tracing**](https://docs.logz.io/shipping/#tracing-sources).
+To determine the best instrumentation strategy for your system, start with [**Send your traces**](https://app.logz.io/#/dashboard/integrations/collectors).
 
 
 ### Install and Run the OpenTelemetry Collector

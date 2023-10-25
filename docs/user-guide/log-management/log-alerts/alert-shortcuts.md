@@ -1,10 +1,28 @@
 ---
 sidebar_position: 4
 title: How to Quickly Create Alerts
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: How to quickly create alerts in Logz.io
+keywords: [alerts, logz.io alerts, opendashboards alerts]
 ---
 
 
 Sometimes, you may want to take shortcuts when creating an alert. You have several options for shortening the process:
+
+### Create an alert manually
+
+These are your most standard methods for creating an alert.
+
+* From the navigation menu, select **Logs > Alerts +** (Yellow + icon).
+
+![Create an alert from navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts-from-nav.png)
+
+
+* From the alerts page. Navigate to **Logs > Alerts** and click the button **+ New alert**.
+
+
+![Create an alert from page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts-from-page.png)
+
 
 ### Create an alert from OpenSearch Dashboards
 
@@ -37,10 +55,3 @@ If an **Application Insight** or **Cognitive Insight** interests you, you can cr
 
   ![Duplicate alert](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/duplicate-alert.png)
 
-### Create an alert manually
-
-These are your most standard methods for creating an alert.
-
-* From the navigation menu, select **Logs > Alerts +** (Yellow + icon).
-
-* From the top menu, select **Logs > Alerts** and click the button **+ New alert**.

@@ -1,6 +1,6 @@
 {
   "label": "Security Rules",
-  "position": 7,
+  "position": 8,
   "link": {
     "type": "generated-index",
     "description": "Configure and use Logz.io's SIEM security rules."

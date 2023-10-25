@@ -107,7 +107,7 @@
 /user-guide/siem/intro/		/docs/user-guide/cloud-siem/about-siem/why-siem
 /user-guide/siem/highlights/		/docs/user-guide/cloud-siem/about-siem/highlights
 /user-guide/cloud-siem/		/docs/user-guide/cloud-siem/
-/user-guide/cloud-siem/mssp-accounts.html		/docs/user-guide/cloud-siem/quick-guide/mssp-accounts
+/user-guide/cloud-siem/mssp-accounts.html		/docs/user-guide/cloud-siem/mssp-accounts
 /user-guide/cloud-siem/send-data-options.html		/docs/user-guide/cloud-siem/quick-guide/send-data-options
 /user-guide/cloud-siem/summary-dashboard.html		/docs/user-guide/cloud-siem/quick-guide/summary-dashboard
 /user-guide/cloud-siem/investigate-events.html		/docs/user-guide/cloud-siem/quick-guide/investigate-events
