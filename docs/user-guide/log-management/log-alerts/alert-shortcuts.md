@@ -1,6 +1,9 @@
 ---
 sidebar_position: 4
 title: How to Quickly Create Alerts
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: How to quickly create alerts in Logz.io
+keywords: [alerts, logz.io alerts, opendashboards alerts]
 ---
 
 
