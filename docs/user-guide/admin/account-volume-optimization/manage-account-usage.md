@@ -56,6 +56,12 @@ You can find these logs in OpenSearch Dashboards when you filter for the `logzio
 | plan_volume_in_GB | Data allocated to this account, in GB |
 | utilization | Current utilization, in percent |
 | volume_in_GB | Current utilization, in GB |
+| overall_plan_size_in_GB | Plan size, in GB |
+| overall_overage_in_GB | This account's grace capacity, in GB |
+| overall_limit_in_GB | This account's daily shipping limit, in GB |
+| expected_overall_volume_in_GB_EOD | The expected utilization for all accounts by the end of the day, in GB |
+| expected_overall_overage_in_GB_EOD | The expected overage by the end of the day, in GB |
+| overall_volume_in_GB | Current utilization FOR ALL ACCOUNTS, in GB |
 
 ## Account utilization metrics for flexible accounts
 
