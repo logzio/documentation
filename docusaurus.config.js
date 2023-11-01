@@ -101,9 +101,9 @@ const config = {
         appId: 'GAVMESY4FI',
   
         // Public API key: it is safe to commit it
-        apiKey: 'e826c9c6e5d38e3921a6c725fff9058c',
+        apiKey: '7f9d22d433c66f1a108b092d02c8d034',
   
-        indexName: 'GAVMESY4FI',
+        indexName: 'shiny-alfajores-ede8d8',
   
         // Optional: see doc section below
         contextualSearch: true,
