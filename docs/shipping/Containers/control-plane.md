@@ -55,17 +55,17 @@ Deploy this integration to ship all `Org` logs from your Control Plane account t
 
 ```yaml
 kind: org
-name: ORG_NAME
+name: <<ORG_NAME>>
 spec:
   logging:
     logzio:
-      credentials: //secret/<<LOG-SHIPPING-TOKEN>>
+      credentials: //secret/<<OPAQUE-SECRET-NAME>>
       listenerHost: <<LISTENER-HOST>>
 ```
 
-Replace `ORG_NAME` with your organization's name.
+Replace `<<ORG_NAME>>` with your organization's name.
 
-{@include: ../../_include/log-shipping/log-shipping-token.html}
+Replace `<<OPAQUE-SECRET-NAME>>` with the name of the opaque secret created in the first step of these instructions.
 
 {@include: ../../_include/log-shipping/listener-var.html}
 
