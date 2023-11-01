@@ -4,7 +4,7 @@ title: Control Plane
 overview: Control Plane is a hybrid platform that integrates multiple cloud services, such as AWS, GCP, and Azure, providing a unified and flexible environment for developers to build and manage backend applications and services across various public and private clouds.
 product: ['logs']
 os: ['windows', 'linux']
-filters: ['Containers', 'Most Popular']
+filters: ['Containers']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/control-plane.png
 logs_dashboards: []
 logs_alerts: []
@@ -33,10 +33,10 @@ Deploy this integration to ship all `Org` logs from your Control Plane account t
 3. Create a new secret.
 4. Give the secret a name.
 5. Select `Opaque` from the **Secret Type list**.
-6. Paste `<<LOG-SHIPPING-TOKEN>>` into the content text box.
+6. Paste `<<LOG-SHIPPING-TOKEN>>` into the content text box. {@include: ../../_include/log-shipping/log-shipping-token.html}
 7. Click **Create**.
 
-{@include: ../../_include/log-shipping/log-shipping-token.html}
+
 
 ### Enable Control Plane logging
 
