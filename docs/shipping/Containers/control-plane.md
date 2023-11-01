@@ -33,7 +33,7 @@ Deploy this integration to ship all `Org` logs from your Control Plane account t
 3. Create a new secret.
 4. Give the secret a name.
 5. Select `Opaque` from the **Secret Type list**.
-6. Paste `<<LOG-SHIPPING-TOKEN>>` into the content text box. {@include: ../../_include/log-shipping/log-shipping-token.html}
+6. Paste `<<LOG-SHIPPING-TOKEN>>` into the content text box. This is the [log shipping token of your Logz.io account](../../user-guide/admin/authentication-tokens/log-shipping-tokens/).
 7. Click **Create**.
 
 
