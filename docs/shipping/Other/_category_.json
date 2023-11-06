@@ -1,7 +1,7 @@
 {
   "label": "Other",
-  "link": {
-    "type": "generated-index",
-    "description": "More tools"
+  "position": 19,
+  "customProps": {
+    "description": "More tools."
   }
 }

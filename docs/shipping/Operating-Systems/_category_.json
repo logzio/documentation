@@ -1,0 +1,7 @@
+{
+  "label": "Operating systems",
+  "position": 15,
+  "customProps": {
+    "description": "Send data from your operating systems."
+  }
+}

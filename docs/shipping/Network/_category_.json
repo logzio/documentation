@@ -1,0 +1,7 @@
+{
+  "label": "Network",
+  "position": 14,
+  "customProps": {
+    "description": "Send data from your network services."
+  }
+}

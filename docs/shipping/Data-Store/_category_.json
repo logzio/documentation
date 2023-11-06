@@ -1,0 +1,7 @@
+{
+  "label": "Data Store",
+  "position": 8,
+  "customProps": {
+    "description": "Send data from your data store services."
+  }
+}

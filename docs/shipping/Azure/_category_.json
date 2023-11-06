@@ -1,0 +1,7 @@
+{
+  "label": "Azure",
+  "position": 3,
+  "customProps": {
+    "description": "Send data from your Azure services."
+  }
+}

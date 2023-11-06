@@ -1,0 +1,7 @@
+{
+  "label": "Memory Caching",
+  "position": 13,
+  "customProps": {
+    "description": "Send data from your memory caching services."
+  }
+}

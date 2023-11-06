@@ -1,0 +1,7 @@
+{
+  "label": "CI-CD",
+  "position": 3,
+  "customProps": {
+    "description": "Send data from your CI-CD services."
+  }
+}

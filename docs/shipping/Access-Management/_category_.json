@@ -1,0 +1,7 @@
+{
+  "label": "Access Management",
+  "position": 4,
+  "customProps": {
+    "description": "Send data from your Access Management services."
+  }
+}

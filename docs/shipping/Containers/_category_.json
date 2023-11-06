@@ -1,0 +1,7 @@
+{
+  "label": "Containers",
+  "position": 7,
+  "customProps": {
+    "description": "Send data from your container services."
+  }
+}
