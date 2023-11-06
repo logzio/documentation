@@ -1,0 +1,7 @@
+{
+  "label": "Load Balancer",
+  "position": 12,
+  "customProps": {
+    "description": "Send data from your load balancer services."
+  }
+}

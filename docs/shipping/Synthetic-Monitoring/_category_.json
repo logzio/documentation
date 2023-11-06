@@ -1,0 +1,7 @@
+{
+  "label": "Synthetic Monitoring",
+  "position": 18,
+  "customProps": {
+    "description": "Send data from your synthetic monitoring services."
+  }
+}

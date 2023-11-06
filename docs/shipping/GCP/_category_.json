@@ -1,0 +1,7 @@
+{
+  "label": "GCP",
+  "position": 11,
+  "customProps": {
+    "description": "Send data from your GCP services."
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "label": "Security",
+  "position": 17,
+  "customProps": {
+    "description": "Send data from your security services."
+  }
+}

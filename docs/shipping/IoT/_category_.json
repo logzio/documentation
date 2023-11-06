@@ -1,0 +1,7 @@
+{
+  "label": "IoT",
+  "position": 11,
+  "customProps": {
+    "description": "Send data from your IoT services."
+  }
+}

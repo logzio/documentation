@@ -1,0 +1,7 @@
+{
+  "label": "Distributed Messaging",
+  "position": 10,
+  "customProps": {
+    "description": "Send data from your distributed messaging services."
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "label": "Compute",
+  "position": 6,
+  "customProps": {
+    "description": "Send data from your compute services."
+  }
+}
