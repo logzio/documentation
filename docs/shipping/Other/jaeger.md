@@ -65,7 +65,7 @@ receivers:
 exporters:
   logzio/traces:
     account_token: <<TRACING-SHIPPING-TOKEN>>
-    region: <<LOGZIO_ACCOUNT_REGION_CODE>>
+    region: <<LOGZIO_ACCOUNT_REGION_CODE_PREFIX>>
     
 processors:
   batch:
@@ -106,7 +106,7 @@ service:
       exporters: [logzio/traces]
 ```
 
-{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
+{@include: ../../_include/tracing-shipping/replace-tracing-token-prefix.html}
 {@include: ../../_include/tracing-shipping/tail-sampling.md}
 
 #### Start the collector
