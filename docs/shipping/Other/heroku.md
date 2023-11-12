@@ -71,7 +71,9 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 * [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
 
- 
+:::note
+[Project's GitHub repo](https://github.com/logzio/gheroku-buildpack-telegraf/)
+:::
 
 :::note
 All commands in these instructions should be run from your Heroku app directory.

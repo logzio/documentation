@@ -19,7 +19,9 @@ drop_filter: []
 
 With this integration, you can collect Logs from Carbon Black and forward them to Logz.io.
 
- 
+:::note
+[Project's GitHub repo](https://github.com/logzio/s3-hook/)
+:::
 
 ### Set Carbon Black Event Forwarder
   

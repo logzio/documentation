@@ -18,13 +18,18 @@ drop_filter: []
 If your code runs within Kubernetes, it's best practice to use our Kubernetes integration to collect various telemetry types.
 :::
 
-## Logs 
+## Logs
+
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
   <TabItem value="Logzio-Log4j2-Appender" label="Logzio-Log4j2-Appender" default>
+
+:::note
+[Project's GitHub repo](https://github.com/logzio/go-metrics-sdk/)
+:::
 
 The Logz.io Log4j 2 appender sends logs using non-blocking threading, bulks, and HTTPS encryption to port 8071.
 
@@ -258,6 +263,10 @@ public class LogzioLog4j2Example {
 
 </TabItem>
   <TabItem value="Logzio-Logback-Appender" label="Logzio-Logback-Appender">
+
+:::note
+[Project's GitHub repo](https://github.com/logzio/ogzio-log4j2-appender/)
+:::
 
 Logback sends logs to your Logz.io account using non-blocking threading, bulks, and HTTPS encryption to port 8071.
 
@@ -509,6 +518,10 @@ If the log appender does not ship logs, add `<inMemoryQueue>true</inMemoryQueue>
 </Tabs>
   
 ## Metrics
+
+:::note
+[Project's GitHub repo](https://github.com/logzio/micrometer-registry-logzio/)
+:::
 ### Usage
 
 <Tabs>

@@ -18,6 +18,9 @@ drop_filter: []
 
 Google Cloud Platform (GCP) Stackdriver collects logs from your cloud services. You can use Google Cloud Pub/Sub to forward your logs from GP sinks to Logz.io.
 
+:::note
+[Project's GitHub repo](https://github.com/logzio/logzio-pubsub/)
+:::
 
 **Before you begin, you'll need**:
 

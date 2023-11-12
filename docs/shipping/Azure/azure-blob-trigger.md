@@ -28,6 +28,10 @@ The following resources are needed for this integration:
 
 ![Integration-architecture](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_blob/blob-trigger-resources.png)
 
+:::note
+[Project's GitHub repo](https://github.com/logzio/logzio-azure-blob-trigger/)
+:::
+
 ### Supported data types
 
 This Logz.io function supports the following data types:

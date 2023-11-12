@@ -21,6 +21,7 @@ Fluentd is a data collector, which unifies the data collection and consumption. 
 Fluentd will fetch all existing logs, as it is not able to ignore older logs.
 :::
 
+
 ## Configure Fluentd with Ruby Gems
 
 **Before you begin, you'll need**:
@@ -289,6 +290,10 @@ This integration includes:
 ![Integration architecture Fluentd on Docker](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/docker-fluentd-hla-v2.png)
 
 Upon deployment, each container on your host system, including the Fluentd container, writes logs to a dedicated log file. Fluentd fetches the log data from this file and ships the data over HTTP or HTTPS to your Logz.io account, either via an optional proxy sever or directly.
+
+:::note
+[Project's GitHub repo](https://github.com/logzio/fluentd-docker-logs/)
+:::
 
 
 **Before you begin, you'll need**:

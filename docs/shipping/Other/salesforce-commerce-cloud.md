@@ -21,7 +21,9 @@ Salesforce Commerce Cloud is a scalable, cloud-based software-as-a-service (SaaS
 
 The default configuration uses a Docker container with environment variables.
 
- 
+:::note
+[Project's GitHub repo](https://github.com/logzio/sfcc-webdav-fetcher/)
+:::
 
 
 ##### Pull the Docker image of the Logz.io Salesforce Commerce Cloud data fetcher

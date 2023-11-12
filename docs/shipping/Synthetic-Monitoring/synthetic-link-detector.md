@@ -16,6 +16,10 @@ drop_filter: []
 
 Deploy this integration to collect data on broken links in a web page, and to get additional data about the links.
 
+:::note
+[Project's GitHub repo](https://github.com/logzio/synthetic-link-detector/)
+:::
+
 <!-- logzio-inject:install:grafana:dashboards ids=["4l4xVZhvqsrJWO7rZwOxgx", "1NiBMzN5DvQZ8BjePpUtvQ"] -->
 
 

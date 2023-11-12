@@ -19,6 +19,10 @@ drop_filter: []
 
 Deploy this integration to collect metrics of ping statistics collected from your preferred web addresses and send them to Logz.io.
 
+:::note
+[Project's GitHub repo](https://github.com/logzio/logzio-ping-statistics/)
+:::
+
 The integration is based on a Lambda function that will be auto-deployed together with the layer [LogzioLambdaExtensionLogs](https://github.com/logzio/logzio-lambda-extensions/tree/main/logzio-lambda-extensions-logs).
 
 

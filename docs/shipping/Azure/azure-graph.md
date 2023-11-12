@@ -24,6 +24,10 @@ Logzio-api-fetcher supports many API endpoints, including but not limited to:
 * Azure Active Directory sign-in logs
 
 There are many other APIs available through Microsoft Graph.
+
+:::note
+[Project's GitHub repo](https://github.com/logzio/logzio-api-fetcher/)
+:::
  
 
 ## Register a new app in Azure Active Directory

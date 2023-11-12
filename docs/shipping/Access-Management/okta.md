@@ -26,6 +26,10 @@ You can send logs from multiple Okta tenants and any Okta domain.
 If you want to ship from multiple Okta tenants over the same docker, you'll need to use the latest configuration using a tenants-credentials.yml file. Otherwise, you can continue using the previous configuration without a tenants-credentials.yml.
 :::
 
+:::note
+[Project's GitHub repo](https://github.com/logzio/logzio-okta/)
+:::
+
 **Before you begin, you'll need**:
 
 * Okta administrator privileges

@@ -17,6 +17,10 @@ drop_filter: []
  
 ## Logs
 
+:::note
+[Project's GitHub repo](https://github.com/logzio/logzio-mysql-logs/)
+:::
+
 ### Default configuration
 
 **Before you begin, you'll need**:
