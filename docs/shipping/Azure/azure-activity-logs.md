@@ -20,6 +20,9 @@ At the end of this process, you'll have configured an event hub namespace, an ev
 
 The resources set up by the automated deployment can collect data for a single Azure region.
 
+:::note
+[Project's GitHub repo](https://github.com/logzio/logzio-azure-serverless/)
+:::
 
 ### Overview of the services you'll be setting up in your Azure account
 

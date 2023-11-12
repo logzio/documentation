@@ -16,6 +16,10 @@ drop_filter: []
 
 ## Logs
 
+:::note
+[Project's GitHub repo](https://github.com/logzio/logzio-python-handler/)
+:::
+
 Logz.io Python Handler sends logs in bulk over HTTPS to Logz.io.
 Logs are grouped into bulks based on their size.
 

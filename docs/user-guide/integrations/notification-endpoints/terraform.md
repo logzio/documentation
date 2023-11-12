@@ -4,6 +4,10 @@ sidebar_position: 7
 
 # Terraform Logz.io Provider
 
+:::note
+[Project's GitHub repo](https://github.com/logzio/logzio_terraform_provider/)
+:::
+
 The Terraform Logz.io provider offers a great way to build integrations using Logz.io APIs.
 
 Terraform is an infrastructure orchestrator written in Hashicorp Language (HCL). It is a popular Infrastructure-as-Code (IaC) tool that does away with manual configuration processes. You can take advantage of the Terraform Logz.io provider to really streamline the process of integrating observability into your dev workflows.

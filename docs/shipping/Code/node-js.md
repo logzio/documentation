@@ -22,6 +22,10 @@ import TabItem from '@theme/TabItem';
 <Tabs>
   <TabItem value="logzio-nodejs" label="logzio-nodejs" default>
 
+:::note
+[Project's GitHub repo](https://github.com/logzio/logzio-nodejs/)
+:::
+
 logzio-nodejs collects log messages in an array, which is sent asynchronously when it reaches its size limit or time limit (100 messages or 10 seconds), whichever comes first.
 It contains a simple retry mechanism which upon connection reset or client timeout, tries to send a waiting bulk (2 seconds default).
 
@@ -121,6 +125,10 @@ logger.log(obj);
 ```
 </TabItem>
   <TabItem value="winston-logzio" label="winston-logzio">
+
+:::note
+[Project's GitHub repo](https://github.com/logzio/winston-logzio/)
+:::
 
 This winston plugin is a wrapper for the logzio-nodejs appender, which basically means it just wraps our nodejs logzio shipper.
 With winston-logzio, you can take advantage of the winston logger framework with your Node.js app.
@@ -379,6 +387,11 @@ logger.log(obj);
 Deploy this integration to send custom metrics from your Node.js application to Logz.io.
 
 The provided example uses the [OpenTelemetry JS SDK](https://github.com/open-telemetry/opentelemetry-js) and is based on [OpenTelemetry exporter collector proto](https://github.com/open-telemetry/opentelemetry-js/tree/main/packages/opentelemetry-exporter-collector-proto).
+
+:::note
+[Project's GitHub repo](https://github.com/logzio/js-metrics/)
+:::
+
 
 **Before you begin, you'll need**:
 

@@ -24,6 +24,10 @@ from other Docker containers and forward them to your Logz.io account.
 To use docker-collector-logs, you'll set environment variables when you run the container.
 The Docker logs directory and docker.sock are mounted to the container, allowing Filebeat to collect the logs and metadata.
 
+:::note
+[Project's GitHub repo](https://github.com/logzio/docker-collector-logs/)
+:::
+
 
 ##### Upgrading to a newer version
 

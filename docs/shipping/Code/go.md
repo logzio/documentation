@@ -20,6 +20,10 @@ If your code is running inside Kubernetes the best practice will be to use our [
 
 ## Logs
 
+:::note
+[Project's GitHub repo](https://github.com/logzio/logzio-go/)
+:::
+
 This shipper uses **goleveldb** and **goqueue** as a persistent storage implementation of a persistent queue, so the shipper backs up your logs to the local file system before sending them.
 Logs are queued in the buffer and 100% non-blocking.
 A background Go routine ships the logs every 5 seconds.
@@ -102,6 +106,11 @@ l.Stop() // Drains the log buffer
 ```
 
 ## Metrics
+
+:::note
+[Project's GitHub repo](https://github.com/logzio/go-metrics-sdk/)
+:::
+
 ### Install the SDK
 
 Run the following command:

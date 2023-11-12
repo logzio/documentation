@@ -14,13 +14,15 @@ metrics_alerts: []
 drop_filter: []
 ---
 
- 
+
 
 ## Run Fluent Bit as a standalone app
 
 Fluent Bit is an open source Log Processor and Forwarder which allows you to collect any data like metrics and logs from different sources. This integration allows you to send logs from Fluent Bit running as a standalone app and forward them to your Logz.io account.
 
-
+:::note
+[Project's GitHub repo](https://github.com/logzio/fluent-bit-logzio-output/)
+:::
  
 
 ### Install Fluent Bit

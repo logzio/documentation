@@ -18,7 +18,9 @@ drop_filter: []
 
 Microsoft Graph is a RESTful web API that enables you to access Microsoft Cloud service resources. This integration allows you to collect data from Microsoft Graph API and send it to your Logz.io account.
 
-
+:::note
+[Project's GitHub repo](https://github.com/logzio/logzio-api-fetcher/)
+:::
  
 
 

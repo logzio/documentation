@@ -29,6 +29,10 @@ import TabItem from '@theme/TabItem';
 * .NET Core SDK version 2.0 or higher
 * .NET Framework version 4.6.1 or higher
 
+:::note
+[Project's GitHub repo](https://github.com/logzio/logzio-dotnet/)
+:::
+
 
 #### Add the dependency to your project
 
@@ -385,6 +389,9 @@ namespace LogzioLog4NetSampleApplication
 * .NET Core SDK version 2.0 or higher
 * .NET Framework version 4.6.1 or higher
 
+:::note
+[Project's GitHub repo](https://github.com/logzio/logzio-dotnet/)
+:::
 
 #### Add the dependency to your project
 
@@ -685,7 +692,9 @@ namespace LogzioNLogSampleApplication
 * .NET Core SDK version 2.0 or higher
 * .NET Framework version 4.6.1 or higher
 
-
+:::note
+[Project's GitHub repo](https://github.com/logzio/logzio-dotnet/)
+:::
 
 #### Add the dependency to your project
 
@@ -1027,6 +1036,9 @@ This integration is based on [Serilog.Sinks.Logz.Io repository](https://github.c
 * .NET Core SDK version 2.0 or higher
 * .NET Framework version 4.6.1 or higher
 
+:::note
+[Project's GitHub repo](https://github.com/logzio/logzio-dotnet/)
+:::
 
 #### Install the Logz.io Serilog sink
 
@@ -1214,6 +1226,10 @@ Replace `<<TYPE>` with the type that you want to assign to your logs. You will u
 
 Helm is a tool for managing packages of pre-configured Kubernetes resources using Charts. This integration allows you to collect and ship diagnostic metrics of your .NET application in Kubernetes to Logz.io, using dotnet-monitor and OpenTelemetry. logzio-dotnet-monitor runs as a sidecar in the same pod as the .NET application.
 
+:::note
+[Project's GitHub repo](https://github.com/logzio/logzio-helm/)
+:::
+
 ###### Sending metrics from nodes with taints
 
 If you want to ship metrics from any of the nodes that have a taint, make sure that the taint key values are listed in your in your daemonset/deployment configuration as follows:
@@ -1356,8 +1372,9 @@ These instructions show you how to:
 * Add advanced settings to the basic custom metrics export configuration
   
 
-  
-
+:::note
+[Project's GitHub repo](https://github.com/logzio/logzio-app-metrics/)
+:::
 
 #### Send custom metrics to Logz.io with a hardcoded Logz.io exporter
 

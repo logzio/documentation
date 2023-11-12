@@ -21,6 +21,10 @@ At the end of this process, your Azure function will forward logs from an Azure 
 
 ![Overview of Azure Diagnostic Logz.io integration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/azure-diagnostic-logs-overview.png)
 
+:::note
+[Project's GitHub repo](https://github.com/logzio/logzio-azure-serverless/)
+:::
+
 ### Overview of the services you'll be setting up in your Azure account
 
 The automated deployment sets up a new Event Hub namespace and all the components you'll need to collect logs in one Azure region.
