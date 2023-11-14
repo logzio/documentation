@@ -4,7 +4,7 @@ By default, Filebeat uses SSL/TLS to secure the communication between Filebeat a
 
 To ship logs without using SSL in Filebeat:
 
-1. Open the Filebeat configuration file for editing. The configuration file's location may vary depending on your operating system, but it is commonly located at `/etc/filebeat/filebeat.yml` or `/etc/filebeat/filebeat.yaml`.
+1. Open the Filebeat configuration file for editing. The configuration file's location may vary depending on your operating system, but it is commonly located at `/etc/filebeat/filebeat.yml` (Linux) or `C:\ProgramData\Filebeat\filebeat.yml` (Windows).
 
 2. Look for the `output.logstash` section in the configuration file.
 
