@@ -130,10 +130,10 @@ const config = {
       // Replace with your project's social card
       image: 'https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg',
       navbar: {
-        title: 'Logz.io Docs',
+        title: 'Docs',
         logo: {
           alt: 'Logz.io Docs',
-          src: 'https://docs.logz.io/images/logo/logz-symbol.svg',
+          src: 'img/logz-logo.svg',
         },
         items: [
           {
@@ -141,7 +141,7 @@ const config = {
             position: 'right',
           },
           {to: '/docs/category/send-your-data/', label: 'Ship data', position: 'left'},
-          {to: 'https://docs.logz.io/api/', label: 'API', position: 'left'},
+          {to: 'https://logz-docs-api.netlify.app/api/', label: 'API', position: 'left'},
           {to: 'https://status.logz.io/', label: 'System status', position: 'left'},
           {to: 'https://logz.io/blog/', label: 'Blog', position: 'left'},
           {
