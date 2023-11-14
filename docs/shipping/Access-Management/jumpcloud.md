@@ -83,7 +83,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 docker stop -t 30 logzio/logzio-jumpcloud
 ```
 
-#### Tracking and continuity of API calls using lastTime.txt
+## Tracking and continuity of API calls using lastTime.txt
 
 
 Upon the successful completion of each API call, the system records the last start date for the subsequent iteration in a file named `lastTime.txt`. Each entry in this file begins with the API name and concludes with the last start date, formatted in UTC as `%Y-%m-%dT%H:%M:%S.%fZ`.
