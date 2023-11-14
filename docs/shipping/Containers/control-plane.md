@@ -22,7 +22,7 @@ Deploy this integration to ship all `Org` logs from your Control Plane account t
 
 **Before you begin, you'll need**:
 
-* Control Plane account
+* [Control Plane](https://controlplane.com/) account
 
 
 
