@@ -67,8 +67,8 @@ Once you toggle the 2FA option, you'll receive an email guiding you on setting u
 
 Account admins have various options when it comes to managing the account. For further information, check out the following guides:
 
-* [Manage your **Log Management** account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#logs)
-* [Manage your **Cloud SIEM** account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#siem)
-* [Manage your **Infrastructure Monitoring** (Metrics) account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#metrics)
-* [Manage your **Distributed Tracing** account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#tracing)
-* [Manage your **Timeless** account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#timeless)
+* [Manage your **Log Management** account](./manage-the-main-account-and-sub-accounts.html#logs)
+* [Manage your **Cloud SIEM** account](./manage-the-main-account-and-sub-accounts.html#siem)
+* [Manage your **Infrastructure Monitoring** (Metrics) account](./manage-the-main-account-and-sub-accounts.html#metrics)
+* [Manage your **Distributed Tracing** account](./manage-the-main-account-and-sub-accounts.html#tracing)
+* [Manage your **Timeless** account](./manage-the-main-account-and-sub-accounts.html#timeless)
