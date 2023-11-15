@@ -149,6 +149,7 @@
 /user-guide/log-shipping/built-in-log-types.html		/docs/user-guide/data-hub/log-parsing/default-parsing
 /user-guide/mapping-and-parsing/split-json-array.html		/docs/user-guide/data-hub/log-parsing/split-json-array
 /user-guide/mapping-and-parsing/sawmill-parsing.html		/docs/user-guide/data-hub/log-parsing/sawmill-parsing
+/user-guide/mapping-and-parsing/sawmill-parsing		/docs/user-guide/data-hub/log-parsing/sawmill-parsing
 /user-guide/mapping-and-parsing/data-parsing-wizard.html		/docs/user-guide/data-hub/log-parsing/sawmill-parsing
 /user-guide/logs/mapping/		/docs/user-guide/data-hub/field-mapping/
 /user-guide/logs/mapping/field-not-indexed/		/docs/user-guide/data-hub/field-mapping/field-not-indexed
