@@ -12,6 +12,7 @@ If necessary, allowlist the relevant IPs in your firewalls. These depend on the 
 | ca-central-1 | 3.97.162.114 | AWS |
 | eu-west-2 | 18.168.65.253 | AWS |
 | ap-southeast-2 | 3.104.195.194 | AWS |
+| ap-northeast-1 | 54.238.45.227 | AWS |
 
 <!--  21 Oct 2021: These table entries are on hold until the issue with Azure regions is resolved
 | westeurope | x.x.x.x | Azure |

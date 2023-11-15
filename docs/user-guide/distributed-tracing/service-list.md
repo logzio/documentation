@@ -63,6 +63,26 @@ Hovering over the graphs provides values for the specific time point, allowing y
 
 You can toggle your view between pods and nodes inside the service.
 
+## Track Deployment Data
+
+You can enrich your Service Overview graphs by adding an indication of recent deployments, helping you determine if a deployment has increased response times for end-users, altered your application's memory/CPU footprint, or introduced any other performance-related changes.
+
+To enable deployment tracking ability, run the [**Telemetry Collector**](https://app.logz.io/#/dashboard/send-your-data/agent/new) on your Kubernetes clusters. You can also activate this process **manually** by installing [Logz.io Kubernetes events Helm chart](https://app.logz.io/#/dashboard/integrations/Kubernetes:~:text=user%20guide.-,Send%20your%20deploy%20events%20logs,-This%20integration%20sends) and sending Kubernetes deploy events logs.
+
+Once enabled, navigate to [Services](https://app.logz.io/#/dashboard/spm/service-list/table?timeFrame=2h&compareTo=1d) and choose one of your running services. The deployment marker will appear in your graphs, marked by a dotted vertical line.
+
+![deployment popup](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/deplyment-popup.png)
+
+You can view additional deployment data by clicking on the line. This data includes the deployment time, the associated service and environment, and a quick link to view the commit in your logs.
+
+Click **Go to commit** to access and view your own code related to this deployment, allowing you to probe deeper into the relevant data.
+
+:::caution Important
+To activate the **Go to Commit** button, go to **your app or service** and add the following annotation to the metadata of each resource's versioning you want to track: `logzio/commit_url: ""`, and the URL structure should be: "`https://github.com/<account>/<repository>/commit/<commit-hash>`". [Learn more](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-k8s-events#deployment-events-versioning).
+:::
+
+
+
 <!-- ### Logs overview
 
 All of the logs related to the service are shown at the bottom of the page. This view includes a graph view of the log levels and a table view with the following:
