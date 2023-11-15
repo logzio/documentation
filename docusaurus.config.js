@@ -10,7 +10,7 @@ const config = {
   favicon: 'https://logz.io/wp-content/themes/Avada-Child-Theme-logz/theme_favicon/apple-touch-icon.png',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://docs.logz.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
