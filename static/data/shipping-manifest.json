@@ -1,0 +1,81 @@
+---
+layout: json
+permalink: /data/shipping-manifest.json
+---
+
+{%- assign collectionsToAdd = site.collections | where: "in-shipping-manifest", true | sort: "order" -%}
+{%- assign tagsToAdd = site.data.shipper-tabs.tags | sort: "order" -%}
+
+{%- case jekyll.environment -%}
+  {%- when "production" -%}
+    {%- assign branch = "/master" -%}
+  {%- else -%}
+    {%- assign branch = "/prom-fix" -%}
+
+{%- endcase -%}
+{%- assign githubUrl = "https://raw.githubusercontent.com/logzio/logz-docs" | append: branch -%}
+
+{% capture json -%}
+  "updatedAt": "{{ "now" | date: "%Y-%m-%d %H:%M" }}",
+  "collections": [
+    {% for thisCollection in collectionsToAdd -%}
+    {% assign docsToAdd = thisCollection.docs | sort:"order" %}
+    {
+      "collection": "{{thisCollection.label}}",
+      "title": "{{thisCollection.name}}",
+      "contents": [
+        {%- for d in docsToAdd %}
+            {
+              "title": "{{d.title}}",
+              "shortDescription": "{{ | append: "" | append: d.short-description}}",
+              "id": "{{d.id| split: "/" | last}}",
+              "dataSource": "{{d.data-source}}",
+              {%- if d.open-source -%}
+                {%- capture openSourceString -%}
+                  [
+                    {%- for project in d.open-source -%}
+                      {
+                        "title": "{{project.title}}",
+                        "githubRepo": "{{
+                          | split: "." | last
+                          | append: "https://github.com/logzio/"
+                          | append: project.github-repo }}"
+                      }
+                      {%- unless forloop.last -%} , {% endunless -%}
+                    {%- endfor -%}
+                  ]
+                {%- endcapture %}
+                "openSource": {{ openSourceString }},
+              {% endif -%}
+              "logo": "{{
+                | split: "." | last
+                | append: "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/"
+                | append: d.logo.logofile }}",
+              "filepath": "{{ site.source
+                | split: "." | last
+                | append: "/"
+                | append: site.collections_dir
+                | append: "/"
+                | append: d.path
+                | prepend: githubUrl }}",
+              "tags": ["{{d.shipping-tags | join: '", "'}}"]
+            }
+            {%- unless forloop.last -%} , {% endunless -%}
+          {%- endfor -%}
+        ]
+      }
+      {%- unless forloop.last -%} , {% endunless -%}
+    {%- endfor -%}
+  ],
+  "tagMap": [
+    {%- for tag in tagsToAdd -%}
+      {
+        "tag": "{{tag.slug}}",
+        "name": "{{tag.name}}"
+      }
+      {%- unless forloop.last -%} , {% endunless -%}
+    {%- endfor -%}
+  ]
+{%- endcapture -%}
+
+{{ json | normalize_whitespace }}
