@@ -339,6 +339,7 @@
 /shipping/prometheus-sources/aws-elasticache-prometheus.html		/docs/shipping/AWS/Amazon-ElastiCache
 /shipping/prometheus-sources/aws-elasticache-redis.html		/docs/shipping/AWS/AWS-ElastiCache-Redis
 /shipping/prometheus-sources/aws-kinesis-prometheus.html		/docs/shipping/AWS/Kinesis
+/shipping/prometheus-sources/aws-kinesis-firehose-prometheus.html		/docs/shipping/AWS/AWS-Kinesis-Firehose
 /shipping/prometheus-sources/otel-metrics-eks-helm.html		/docs/shipping/AWS/aws-eks
 /shipping/prometheus-sources/aws-lambda-prometheus.html		/docs/shipping/AWS/AWS-Lambda
 /shipping/prometheus-sources/aws-amazonmq-prometheus.html		/docs/shipping/AWS/AWS-mq
@@ -500,6 +501,7 @@
 /shipping/log-sources/bunny-net.html		/docs/shipping/Other/BUNNY-NET-data
 /shipping/log-sources/cisco-securex.html		/docs/shipping/Security/Cisco-SecureX
 /shipping/log-sources/cloudfront.html		/docs/shipping/AWS/AWS-CloudFront
+/shipping/log-sources/cloudwatch-firehose.html		/docs/shipping/AWS/AWS-Kinesis-Firehose
 /shipping/log-sources/curl.html		/docs/shipping/Other/cURL-data
 /shipping/log-sources/docker.html		/docs/shipping/Containers/Docker
 /shipping/log-sources/docker-swarm.html		/docs/shipping/Containers/Docker
