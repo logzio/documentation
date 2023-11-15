@@ -17,7 +17,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-s3.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/s3-hook.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/s3-hook.md",
                   "tags": [
                       "aws"
                   ]
@@ -28,7 +28,7 @@
                   "id": "beats",
                   "dataSource": "Beats",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/beats.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/beats.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/beats.md",
                   "tags": [
                       "agents",
                       "popular"
@@ -40,7 +40,7 @@
                   "id": "filebeat",
                   "dataSource": "Filebeat",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/beats.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/filebeat.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/filebeat.md",
                   "tags": [
                       "agents",
                       "popular"
@@ -58,7 +58,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/openshift.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/openshift.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/openshift.md",
                   "tags": [
                       "container",
                       "popular"
@@ -70,7 +70,7 @@
                   "id": "s3-bucket",
                   "dataSource": "S3 Bucket",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-s3.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/s3-bucket.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/s3-bucket.md",
                   "tags": [
                       "aws",
                       "popular"
@@ -92,7 +92,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/docker-swarm-logo2.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/docker-swarm.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/docker-swarm.md",
                   "tags": [
                       "container",
                       "popular"
@@ -114,7 +114,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/docker.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/docker.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/docker.md",
                   "tags": [
                       "container",
                       "popular"
@@ -126,7 +126,7 @@
                   "id": "intercom",
                   "dataSource": "Intercom",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/intercom.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/intercom.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/intercom.md",
                   "tags": [
                       "platform-service"
                   ]
@@ -137,7 +137,7 @@
                   "id": "json-uploads",
                   "dataSource": "JSON via HTTP/HTTPS/TCP",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/json.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/json-uploads.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/json-uploads.md",
                   "tags": [
                       "from-your-code",
                       "popular"
@@ -149,7 +149,7 @@
                   "id": "curl",
                   "dataSource": "cURL file upload",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/curl.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/curl.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/curl.md",
                   "tags": [
                       "agents",
                       "popular"
@@ -161,7 +161,7 @@
                   "id": "file-upload",
                   "dataSource": "Invoke-RestMethod file upload",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/Invoke-RestMethod.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/file-upload.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/file-upload.md",
                   "tags": [
                       "agents",
                       "popular"
@@ -173,7 +173,7 @@
                   "id": "logstash",
                   "dataSource": "Logstash",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/logstash_temp.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/logstash.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/logstash.md",
                   "tags": [
                       "agents",
                       "popular"
@@ -185,7 +185,7 @@
                   "id": "linux",
                   "dataSource": "Linux",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/linux.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/linux.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/linux.md",
                   "tags": [
                       "os",
                       "popular"
@@ -207,7 +207,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/nodejs.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/nodejs.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/nodejs.md",
                   "tags": [
                       "from-your-code",
                       "popular"
@@ -219,7 +219,7 @@
                   "id": "windows",
                   "dataSource": "Windows",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/windows.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/windows.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/windows.md",
                   "tags": [
                       "os",
                       "popular"
@@ -231,7 +231,7 @@
                   "id": "apprunner",
                   "dataSource": "AppRunner",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-fusion.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/apprunner.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/apprunner.md",
                   "tags": [
                       "aws"
                   ]
@@ -248,7 +248,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-cloudwatch.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/aws-cross-account.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/aws-cross-account.md",
                   "tags": [
                       "aws"
                   ]
@@ -265,7 +265,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-cloudwatch.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/cloudwatch-firehose.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/cloudwatch-firehose.md",
                   "tags": [
                       "aws"
                   ]
@@ -276,7 +276,7 @@
                   "id": "apache-storm",
                   "dataSource": "Apache Storm",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/apache-storm.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/apache-storm.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/apache-storm.md",
                   "tags": [
                       "server-app"
                   ]
@@ -287,7 +287,7 @@
                   "id": "apache",
                   "dataSource": "Apache HTTPS Server",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/apache.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/apache.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/apache.md",
                   "tags": [
                       "server-app"
                   ]
@@ -298,7 +298,7 @@
                   "id": "mongo",
                   "dataSource": "MongoDB",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/mongo-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/mongo.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/mongo.md",
                   "tags": [
                       "database"
                   ]
@@ -309,7 +309,7 @@
                   "id": "rsyslog",
                   "dataSource": "Rsyslog over TLS",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/linux.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/rsyslog.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/rsyslog.md",
                   "tags": [
                       "os"
                   ]
@@ -326,7 +326,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/k8s-fluentd.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/kubernetes.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/kubernetes.md",
                   "tags": [
                       "container",
                       "popular"
@@ -338,7 +338,7 @@
                   "id": "k8s-events",
                   "dataSource": "Kubernetes events",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/kubernetes.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/k8s-events.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/k8s-events.md",
                   "tags": [
                       "container"
                   ]
@@ -349,7 +349,7 @@
                   "id": "s3-access",
                   "dataSource": "S3 access logs",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-s3.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/s3-access.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/s3-access.md",
                   "tags": [
                       "aws"
                   ]
@@ -366,7 +366,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/python.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/python.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/python.md",
                   "tags": [
                       "from-your-code"
                   ]
@@ -383,7 +383,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/FluentD_Docker.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/fluentd-docker.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/fluentd-docker.md",
                   "tags": [
                       "agents"
                   ]
@@ -400,7 +400,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/kubernetes.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/fluentd-helm.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/fluentd-helm.md",
                   "tags": [
                       "agents",
                       "container"
@@ -412,7 +412,7 @@
                   "id": "fluentd-windows",
                   "dataSource": "Fluentd - Windows logs",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/fluentd.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/fluentd-windows.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/fluentd-windows.md",
                   "tags": [
                       "agents"
                   ]
@@ -423,7 +423,7 @@
                   "id": "fluentd",
                   "dataSource": "Fluentd",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/fluentd.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/fluentd.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/fluentd.md",
                   "tags": [
                       "agents"
                   ]
@@ -440,7 +440,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/dotnet.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/dotnet.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/dotnet.md",
                   "tags": [
                       "from-your-code"
                   ]
@@ -461,7 +461,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/java.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/java.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/java.md",
                   "tags": [
                       "from-your-code"
                   ]
@@ -478,7 +478,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-eks.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/elastic-kubernetes-service.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/elastic-kubernetes-service.md",
                   "tags": [
                       "aws",
                       "container"
@@ -496,7 +496,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/amplify.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/amplify.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/amplify.md",
                   "tags": [
                       "aws"
                   ]
@@ -513,7 +513,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/AWS-Lambda.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/lambda-extensions.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/lambda-extensions.md",
                   "tags": [
                       "aws"
                   ]
@@ -524,7 +524,7 @@
                   "id": "elastic-load-balancing",
                   "dataSource": "Elastic Load Balancing",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-elb.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/elastic-load-balancing.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/elastic-load-balancing.md",
                   "tags": [
                       "aws"
                   ]
@@ -535,7 +535,7 @@
                   "id": "cloudfront",
                   "dataSource": "CloudFront",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-cloudfront.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/cloudfront.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/cloudfront.md",
                   "tags": [
                       "aws"
                   ]
@@ -552,7 +552,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/mysql.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/mysql.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/mysql.md",
                   "tags": [
                       "database"
                   ]
@@ -569,7 +569,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-rds-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/rds.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/rds.md",
                   "tags": [
                       "database",
                       "aws"
@@ -581,7 +581,7 @@
                   "id": "network-device",
                   "dataSource": "Network device",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/network-device.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/network-device.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/network-device.md",
                   "tags": [
                       "server-app"
                   ]
@@ -592,7 +592,7 @@
                   "id": "filebeat-kubernetes",
                   "dataSource": "Filebeat DaemonSet for Kubernetes",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/k8s-beats.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/filebeat-kubernetes.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/filebeat-kubernetes.md",
                   "tags": [
                       "container"
                   ]
@@ -609,7 +609,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/fluent-bit.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/fluent-bit.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/fluent-bit.md",
                   "tags": [
                       "agents"
                   ]
@@ -626,7 +626,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/fluentbit-helm.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/fluentbit-helm-chart.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/fluentbit-helm-chart.md",
                   "tags": [
                       "container"
                   ]
@@ -643,7 +643,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/kubernetes.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/k8s-deploy-events.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/k8s-deploy-events.md",
                   "tags": [
                       "log-shipper",
                       "container"
@@ -661,7 +661,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/k8s-helm.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/k8s-over-helm.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/k8s-over-helm.md",
                   "tags": [
                       "container"
                   ]
@@ -678,7 +678,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-ecs.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/elastic-container-service.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/elastic-container-service.md",
                   "tags": [
                       "aws"
                   ]
@@ -689,7 +689,7 @@
                   "id": "iis",
                   "dataSource": "Microsoft IIS",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/iis.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/iis.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/iis.md",
                   "tags": [
                       "server-app"
                   ]
@@ -706,7 +706,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/azure-blob.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/azure-blob-trigger.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/azure-blob-trigger.md",
                   "tags": [
                       "azure"
                   ]
@@ -717,7 +717,7 @@
                   "id": "azure-native",
                   "dataSource": "Azure native integration",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/Azure-native-integration2.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/azure-native.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/azure-native.md",
                   "tags": [
                       "azure"
                   ]
@@ -728,7 +728,7 @@
                   "id": "azure-vm-extension",
                   "dataSource": "Azure VM extension",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/azure-vm.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/azure-vm-extension.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/azure-vm-extension.md",
                   "tags": [
                       "azure"
                   ]
@@ -745,7 +745,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aks.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/aks.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/aks.md",
                   "tags": [
                       "container",
                       "azure"
@@ -763,7 +763,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/graph-api-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/azure-graph.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/azure-graph.md",
                   "tags": [
                       "azure"
                   ]
@@ -774,7 +774,7 @@
                   "id": "bunny-net",
                   "dataSource": "bunny.net",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/bunny.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/bunny-net.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/bunny-net.md",
                   "tags": [
                       "platform-service"
                   ]
@@ -791,7 +791,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/securex-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/cisco-securex.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/cisco-securex.md",
                   "tags": [
                       "popular"
                   ]
@@ -808,7 +808,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/salesforce-commerce-cloud-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/salesforce-commerce-cloud.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/salesforce-commerce-cloud.md",
                   "tags": [
                       "popular"
                   ]
@@ -825,7 +825,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/salesforce-commerce-cloud-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/salesforce.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/salesforce.md",
                   "tags": [
                       "popular"
                   ]
@@ -836,7 +836,7 @@
                   "id": "heroku",
                   "dataSource": "Heroku",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/heroku.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/heroku.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/heroku.md",
                   "tags": [
                       "platform-service"
                   ]
@@ -847,7 +847,7 @@
                   "id": "vpc",
                   "dataSource": "VPC",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-vpc.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/vpc.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/vpc.md",
                   "tags": [
                       "aws"
                   ]
@@ -858,7 +858,7 @@
                   "id": "jenkins",
                   "dataSource": "Jenkins",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/jenkins.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/jenkins.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/jenkins.md",
                   "tags": [
                       "ci-cd"
                   ]
@@ -869,7 +869,7 @@
                   "id": "fargate",
                   "dataSource": "ECS Fargate",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-fargate.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/fargate.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/fargate.md",
                   "tags": [
                       "aws",
                       "container"
@@ -887,7 +887,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-control-tower.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/aws-control-tower.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/aws-control-tower.md",
                   "tags": [
                       "aws"
                   ]
@@ -904,7 +904,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/azure-monitor.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/azure-diagnostic-logs.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/azure-diagnostic-logs.md",
                   "tags": [
                       "azure"
                   ]
@@ -915,7 +915,7 @@
                   "id": "azure-nsg",
                   "dataSource": "Azure NSG logs",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/nsg-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/azure-nsg.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/azure-nsg.md",
                   "tags": [
                       "azure"
                   ]
@@ -926,7 +926,7 @@
                   "id": "bitbucket",
                   "dataSource": "Bitbucket",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/bitbucket.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/bitbucket.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/bitbucket.md",
                   "tags": [
                       "ci-cd"
                   ]
@@ -937,7 +937,7 @@
                   "id": "github",
                   "dataSource": "GitHub",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/Octocat.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/github.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/github.md",
                   "tags": [
                       "ci-cd"
                   ]
@@ -954,7 +954,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/go.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/go.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/go.md",
                   "tags": [
                       "from-your-code"
                   ]
@@ -971,7 +971,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/gcp-stackdriver.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/stackdriver.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/stackdriver.md",
                   "tags": [
                       "gcp"
                   ]
@@ -982,7 +982,7 @@
                   "id": "vector",
                   "dataSource": "Vector",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/vector.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/vector.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/vector.md",
                   "tags": [
                       "agents"
                   ]
@@ -999,7 +999,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-kinesis.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/kinesis.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/kinesis.md",
                   "tags": [
                       "aws"
                   ]
@@ -1016,7 +1016,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/aws-cost-and-usage-report.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/aws-cost-and-usage-report.md",
                   "tags": [
                       "aws"
                   ]
@@ -1027,7 +1027,7 @@
                   "id": "gitlab",
                   "dataSource": "GitLab",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/gitlab.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/gitlab.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/gitlab.md",
                   "tags": [
                       "ci-cd"
                   ]
@@ -1038,7 +1038,7 @@
                   "id": "haproxy",
                   "dataSource": "HAProxy",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/haproxy-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/haproxy.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/haproxy.md",
                   "tags": [
                       "server-app"
                   ]
@@ -1055,7 +1055,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/iks.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/iks.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/iks.md",
                   "tags": [
                       "container"
                   ]
@@ -1066,7 +1066,7 @@
                   "id": "puppet",
                   "dataSource": "Puppet",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/puppet.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/puppet.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/puppet.md",
                   "tags": [
                       "ci-cd"
                   ]
@@ -1077,7 +1077,7 @@
                   "id": "oracle-kubernetes-engine",
                   "dataSource": "Oracle Kubernetes Engine",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/oke.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/oracle-kubernetes-engine.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/oracle-kubernetes-engine.md",
                   "tags": [
                       "container"
                   ]
@@ -1088,7 +1088,7 @@
                   "id": "aiven",
                   "dataSource": "Aiven",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aiven-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/aiven.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/aiven.md",
                   "tags": [
                       "popular"
                   ]
@@ -1099,7 +1099,7 @@
                   "id": "control-plane",
                   "dataSource": "Control Plane",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/control-plane.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/control-plane.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/control-plane.md",
                   "tags": [
                       "popular"
                   ]
@@ -1110,7 +1110,7 @@
                   "id": "trivy",
                   "dataSource": "Trivy Operator",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/trivy-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_log-sources/trivy.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_log-sources/trivy.md",
                   "tags": [
                       "container"
                   ]
@@ -1127,7 +1127,7 @@
                   "id": "aws-services",
                   "dataSource": "Amazon Services",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-services.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-services.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-services.md",
                   "tags": [
                       "aws"
                   ]
@@ -1144,7 +1144,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/dotnet-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/dotnet-custom.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/dotnet-custom.md",
                   "tags": [
                       "popular",
                       "custom-metrics"
@@ -1156,7 +1156,7 @@
                   "id": "prometheus-remote-write-shipping",
                   "dataSource": "Remote write for Prometheus",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/prometheusio-icon.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/prometheus-remote-write-shipping.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/prometheus-remote-write-shipping.md",
                   "tags": [
                       "prometheus",
                       "popular"
@@ -1174,7 +1174,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-mq.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-amazonmq-prometheus.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-amazonmq-prometheus.md",
                   "tags": [
                       "aws",
                       "prebuilt-dashboards"
@@ -1192,7 +1192,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-fusion.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-apprunner-prometheus.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-apprunner-prometheus.md",
                   "tags": [
                       "aws"
                   ]
@@ -1209,7 +1209,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-cloudformation.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-cloudformation.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-cloudformation.md",
                   "tags": [
                       "aws"
                   ]
@@ -1226,7 +1226,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-cloudwatch.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-cloudwatch-fsx-lustre.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-cloudwatch-fsx-lustre.md",
                   "tags": [
                       "aws",
                       "prebuilt-dashboards"
@@ -1244,7 +1244,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-cloudwatch.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-cloudwatch-kafka.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-cloudwatch-kafka.md",
                   "tags": [
                       "aws",
                       "prebuilt-dashboards"
@@ -1262,7 +1262,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-redis-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-elasticache-redis.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-elasticache-redis.md",
                   "tags": [
                       "aws",
                       "prebuilt-dashboards"
@@ -1280,7 +1280,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aks-logo-2.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/otel-metrics-aks-helm.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/otel-metrics-aks-helm.md",
                   "tags": [
                       "container",
                       "popular",
@@ -1299,7 +1299,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/eks-logo-new.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/otel-metrics-eks-helm.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/otel-metrics-eks-helm.md",
                   "tags": [
                       "container",
                       "popular",
@@ -1318,7 +1318,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/google-gke2.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/otel-metrics-gke-helm.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/otel-metrics-gke-helm.md",
                   "tags": [
                       "container",
                       "popular",
@@ -1337,7 +1337,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/k8s-helm.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/otel-metrics-k8s-helm.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/otel-metrics-k8s-helm.md",
                   "tags": [
                       "container",
                       "popular",
@@ -1356,7 +1356,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-cloudwatch.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/prometheus-cloudwatch-exporter.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/prometheus-cloudwatch-exporter.md",
                   "tags": [
                       "aws"
                   ]
@@ -1373,7 +1373,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-s3.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-s3-prometheus.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-s3-prometheus.md",
                   "tags": [
                       "aws",
                       "prebuilt-dashboards"
@@ -1391,7 +1391,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/dotnet-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/dotnet-helm-chart.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/dotnet-helm-chart.md",
                   "tags": [
                       "container"
                   ]
@@ -1402,7 +1402,7 @@
                   "id": "python-custom-prometheus",
                   "dataSource": "Python custom metrics",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/python.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/python-custom-prometheus.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/python-custom-prometheus.md",
                   "tags": [
                       "prometheus",
                       "custom-metrics"
@@ -1420,7 +1420,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-ec2.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-ec2-prometheus.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-ec2-prometheus.md",
                   "tags": [
                       "aws",
                       "popular",
@@ -1439,7 +1439,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/amazon-ecs.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-ecs-prometheus.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-ecs-prometheus.md",
                   "tags": [
                       "aws",
                       "prebuilt-dashboards"
@@ -1457,7 +1457,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/micrometer-java.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/java-custom-metrics-via-micrometer.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/java-custom-metrics-via-micrometer.md",
                   "tags": [
                       "prometheus",
                       "custom-metrics"
@@ -1475,7 +1475,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/java.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/java-custom-metrics.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/java-custom-metrics.md",
                   "tags": [
                       "prometheus",
                       "custom-metrics"
@@ -1493,7 +1493,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/nodejs.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/nodejs-custom-metrics.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/nodejs-custom-metrics.md",
                   "tags": [
                       "prometheus",
                       "custom-metrics"
@@ -1505,7 +1505,7 @@
                   "id": "actions",
                   "dataSource": "Google Assistant Smart Home",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/assistant.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/actions.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/actions.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1517,7 +1517,7 @@
                   "id": "apache-aurora-telegraf",
                   "dataSource": "Apache Aurora",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aurora-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/apache-aurora-telegraf.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/apache-aurora-telegraf.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -1528,7 +1528,7 @@
                   "id": "apache-http-telegraf",
                   "dataSource": "Apache HTTP Server",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/apache-http-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/apache-http-telegraf.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/apache-http-telegraf.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -1539,7 +1539,7 @@
                   "id": "apache-mesos-telegraf",
                   "dataSource": "Apache Mesos",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/mesos-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/apache-mesos-telegraf.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/apache-mesos-telegraf.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -1550,7 +1550,7 @@
                   "id": "apache-solr-telegraf",
                   "dataSource": "Apache Solr",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/solr-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/apache-solr-telegraf.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/apache-solr-telegraf.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -1561,7 +1561,7 @@
                   "id": "apache-tomcat-telegraf",
                   "dataSource": "Apache Tomcat",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/tomcat-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/apache-tomcat-telegraf.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/apache-tomcat-telegraf.md",
                   "tags": [
                       "prometheus",
                       "prebuilt-dashboards"
@@ -1573,7 +1573,7 @@
                   "id": "api-gateway",
                   "dataSource": "Google API Gateway",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/apigateway.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/api-gateway.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/api-gateway.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1585,7 +1585,7 @@
                   "id": "apigee",
                   "dataSource": "Google Apigee",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/apigee.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/apigee.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/apigee.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1597,7 +1597,7 @@
                   "id": "app-engine",
                   "dataSource": "Google App Engine",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/appengine.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/app-engine.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/app-engine.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1609,7 +1609,7 @@
                   "id": "autoscaler",
                   "dataSource": "Google Compute Engine Autoscaler",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/computeengine.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/autoscaler.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/autoscaler.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1621,7 +1621,7 @@
                   "id": "bigquery",
                   "dataSource": "Google BigQuery",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/bigquery.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/bigquery.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/bigquery.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1633,7 +1633,7 @@
                   "id": "bigquerybiengine",
                   "dataSource": "Google BigQuery BI Engine",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/bigquery.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/bigquerybiengine.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/bigquerybiengine.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1645,7 +1645,7 @@
                   "id": "bigquerydatatransfer",
                   "dataSource": "Google BigQuery Data Transfer Service",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/bigquery.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/bigquerydatatransfer.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/bigquerydatatransfer.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1657,7 +1657,7 @@
                   "id": "bigtable",
                   "dataSource": "Google Cloud Bigtable",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/bigtable.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/bigtable.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/bigtable.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1669,7 +1669,7 @@
                   "id": "cloudfunctions",
                   "dataSource": "Google Cloud Functions",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/cloudfunctions.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/cloudfunctions.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/cloudfunctions.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1681,7 +1681,7 @@
                   "id": "cloudiot",
                   "dataSource": "Google IoT Core",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/googleiot.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/cloudiot.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/cloudiot.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1693,7 +1693,7 @@
                   "id": "cloudsql",
                   "dataSource": "Google Cloud SQL",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/gcpsql.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/cloudsql.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/cloudsql.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1705,7 +1705,7 @@
                   "id": "cloudtasks",
                   "dataSource": "Google Cloud Tasks",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/gcptasks.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/cloudtasks.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/cloudtasks.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1717,7 +1717,7 @@
                   "id": "cloudtrace",
                   "dataSource": "Google Cloud Trace",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/gcptrace.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/cloudtrace.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/cloudtrace.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1729,7 +1729,7 @@
                   "id": "composer",
                   "dataSource": "Google Cloud Composer",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/gcpcomposer.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/composer.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/composer.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1741,7 +1741,7 @@
                   "id": "compute",
                   "dataSource": "Google Compute Engine",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/computeengine.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/compute.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/compute.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1753,7 +1753,7 @@
                   "id": "consul",
                   "dataSource": "Hashicorp Consul",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/consul-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/consul.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/consul.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -1764,7 +1764,7 @@
                   "id": "contactcenterinsights",
                   "dataSource": "Google Contact Center AI Insights",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/gcpai.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/contactcenterinsights.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/contactcenterinsights.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1776,7 +1776,7 @@
                   "id": "container",
                   "dataSource": "Google Kubernetes Engine over Telegraf",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/gcpkubernetes.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/container.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/container.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1788,7 +1788,7 @@
                   "id": "dataflow",
                   "dataSource": "Google Dataflow",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/gcpdataflow.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/dataflow.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/dataflow.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1800,7 +1800,7 @@
                   "id": "dataproc",
                   "dataSource": "Google Dataproc",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/gcpdataproc.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/dataproc.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/dataproc.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1812,7 +1812,7 @@
                   "id": "datastore",
                   "dataSource": "Google Datastore",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/gcpdatastore.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/datastore.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/datastore.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1824,7 +1824,7 @@
                   "id": "datastream",
                   "dataSource": "Google Datastream",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/gcpdatastream.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/datastream.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/datastream.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1836,7 +1836,7 @@
                   "id": "dlp",
                   "dataSource": "Google Cloud Data Loss Prevention",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/lossprevention.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/dlp.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/dlp.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1848,7 +1848,7 @@
                   "id": "dns",
                   "dataSource": "Google Cloud DNS",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/dns.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/dns.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/dns.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1860,7 +1860,7 @@
                   "id": "file",
                   "dataSource": "Google Filestore",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/gcpfilestore.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/file.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/file.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1872,7 +1872,7 @@
                   "id": "firebase",
                   "dataSource": "Google Firebase",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/firebase.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/firebase.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/firebase.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1884,7 +1884,7 @@
                   "id": "firestore",
                   "dataSource": "Google Firestore",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/firestore.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/firestore.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/firestore.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1896,7 +1896,7 @@
                   "id": "firewallinsights",
                   "dataSource": "Google Firewall Insights",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/gcpfirewall.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/firewallinsights.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/firewallinsights.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1908,7 +1908,7 @@
                   "id": "healthcare",
                   "dataSource": "Google Cloud Healthcare API",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/gcphealthcare.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/healthcare.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/healthcare.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1926,7 +1926,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/heroku.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/heroku-telegraf.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/heroku-telegraf.md",
                   "tags": [
                       "platform-service"
                   ]
@@ -1937,7 +1937,7 @@
                   "id": "iam",
                   "dataSource": "Google Identity and Access Management",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/gcpiam.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/iam.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/iam.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1949,7 +1949,7 @@
                   "id": "ids",
                   "dataSource": "Google Cloud IDS",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/ids.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/ids.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/ids.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1961,7 +1961,7 @@
                   "id": "interconnect",
                   "dataSource": "Google Cloud Interconnect",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/interconnect.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/interconnect.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/interconnect.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1973,7 +1973,7 @@
                   "id": "kafka-telegraf",
                   "dataSource": "Apache Kafka",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/kafka.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/kafka-telegraf.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/kafka-telegraf.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -1984,7 +1984,7 @@
                   "id": "loadbalancing",
                   "dataSource": "Google Cloud Load Balancing",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/gcplb.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/loadbalancing.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/loadbalancing.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -1996,7 +1996,7 @@
                   "id": "logging",
                   "dataSource": "Google Cloud Logging",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/cloudlogging.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/logging.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/logging.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -2008,7 +2008,7 @@
                   "id": "managedidentities",
                   "dataSource": "Google Managed Service for Microsoft Active Directory",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/gcpiam.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/managedidentities.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/managedidentities.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -2020,7 +2020,7 @@
                   "id": "memcache",
                   "dataSource": "Google Memorystore for Memcached",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/memorystore.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/memcache.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/memcache.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -2032,7 +2032,7 @@
                   "id": "metastore",
                   "dataSource": "Google Dataproc Metastore",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/gcpdataproc.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/metastore.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/metastore.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -2044,7 +2044,7 @@
                   "id": "ml",
                   "dataSource": "Google AI Platform",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/gcpai.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/ml.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/ml.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -2056,7 +2056,7 @@
                   "id": "mongodb-atlas-otel",
                   "dataSource": "MongoDB Atlas",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/mongoatlas-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/mongodb-atlas-otel.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/mongodb-atlas-otel.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2067,7 +2067,7 @@
                   "id": "monitoring",
                   "dataSource": "Google Cloud Monitoring",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/cloudmonitoring.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/monitoring.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/monitoring.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -2079,7 +2079,7 @@
                   "id": "networking",
                   "dataSource": "Google Network Topology",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/gcpnetwork.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/networking.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/networking.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -2091,7 +2091,7 @@
                   "id": "networksecurity",
                   "dataSource": "Google Cloud Armor",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/cloudarmor.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/networksecurity.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/networksecurity.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -2103,7 +2103,7 @@
                   "id": "osconfig",
                   "dataSource": "Google VM Manager",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/computeengine.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/osconfig.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/osconfig.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -2115,7 +2115,7 @@
                   "id": "privateca",
                   "dataSource": "Google Certificate Authority Service",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/certmanager.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/privateca.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/privateca.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -2127,7 +2127,7 @@
                   "id": "prometheus-otel-output",
                   "dataSource": "OTEL for Prometheus metrics",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/opentelemetry-icon-color.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/prometheus-otel-output.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/prometheus-otel-output.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2138,7 +2138,7 @@
                   "id": "prometheus-telegraf-output",
                   "dataSource": "Telegraf for Prometheus metrics",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/mascot-telegraf.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/prometheus-telegraf-output.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/prometheus-telegraf-output.md",
                   "tags": [
                       "prometheus",
                       "prebuilt-dashboards"
@@ -2150,7 +2150,7 @@
                   "id": "pubsub",
                   "dataSource": "Google Pub/Sub",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/pubsub.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/pubsub.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/pubsub.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -2162,7 +2162,7 @@
                   "id": "recaptchaenterprise",
                   "dataSource": "Google reCAPTCHA Enterprise",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/recap.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/recaptchaenterprise.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/recaptchaenterprise.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -2174,7 +2174,7 @@
                   "id": "recommendationengine",
                   "dataSource": "Google Recommendations AI",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/gcpai.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/recommendationengine.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/recommendationengine.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -2186,7 +2186,7 @@
                   "id": "redis",
                   "dataSource": "Google Memorystore for Redis",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/memorystore.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/redis.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/redis.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -2198,7 +2198,7 @@
                   "id": "router",
                   "dataSource": "Google Cloud Router",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/gcprouter.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/router.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/router.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -2210,7 +2210,7 @@
                   "id": "run",
                   "dataSource": "Google Cloud Run",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/cloudrun.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/run.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/run.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -2222,7 +2222,7 @@
                   "id": "serviceruntime",
                   "dataSource": "Google Cloud API",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/gcpapis.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/serviceruntime.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/serviceruntime.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -2234,7 +2234,7 @@
                   "id": "storage",
                   "dataSource": "Google Cloud Storage",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/gcpstorage.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/storage.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/storage.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -2246,7 +2246,7 @@
                   "id": "storagetransfer",
                   "dataSource": "Google Storage Transfer Service for on-premises data",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/gcpstorage.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/storagetransfer.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/storagetransfer.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -2258,7 +2258,7 @@
                   "id": "telegraf-activemq",
                   "dataSource": "ActiveMQ",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/activemq-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-activemq.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-activemq.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2269,7 +2269,7 @@
                   "id": "telegraf-aerospike",
                   "dataSource": "Aerospike",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aerospike-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-aerospike.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-aerospike.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2280,7 +2280,7 @@
                   "id": "telegraf-argo",
                   "dataSource": "Argo CD",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/argo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-argo.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-argo.md",
                   "tags": [
                       "prometheus",
                       "prebuilt-dashboards"
@@ -2292,7 +2292,7 @@
                   "id": "telegraf-bCache",
                   "dataSource": "bCache",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/linux.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-bCache.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-bCache.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2303,7 +2303,7 @@
                   "id": "telegraf-beanstalkd",
                   "dataSource": "Beanstalkd",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/beanstalk-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-beanstalkd.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-beanstalkd.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2314,7 +2314,7 @@
                   "id": "telegraf-bigbluebutton",
                   "dataSource": "BigBlueButton",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/bigbluebutton-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-bigbluebutton.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-bigbluebutton.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2325,7 +2325,7 @@
                   "id": "telegraf-bond",
                   "dataSource": "Bond",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/bond-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-bond.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-bond.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2336,7 +2336,7 @@
                   "id": "telegraf-burrow",
                   "dataSource": "Burrow",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/kafka.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-burrow.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-burrow.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2347,7 +2347,7 @@
                   "id": "telegraf-cassandra",
                   "dataSource": "Apache Cassandra",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/cassandra-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-cassandra.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-cassandra.md",
                   "tags": [
                       "prometheus",
                       "prebuilt-dashboards"
@@ -2359,7 +2359,7 @@
                   "id": "telegraf-ceph",
                   "dataSource": "Ceph Storage",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/ceph-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-ceph.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-ceph.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2370,7 +2370,7 @@
                   "id": "telegraf-clickhouse",
                   "dataSource": "ClickHouse",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/clickhouse.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-clickhouse.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-clickhouse.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2381,7 +2381,7 @@
                   "id": "telegraf-couchdb",
                   "dataSource": "CouchDB",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/couchdb.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-couchdb.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-couchdb.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2392,7 +2392,7 @@
                   "id": "telegraf-disque",
                   "dataSource": "Disque",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/disque-telegraf.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-disque.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-disque.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2409,7 +2409,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/docker-swarm-logo2.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-docker-swarm.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-docker-swarm.md",
                   "tags": [
                       "container"
                   ]
@@ -2426,7 +2426,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/docker-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-docker.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-docker.md",
                   "tags": [
                       "container"
                   ]
@@ -2437,7 +2437,7 @@
                   "id": "telegraf-dovecot",
                   "dataSource": "Dovecot",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/dovecot.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-dovecot.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-dovecot.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2448,7 +2448,7 @@
                   "id": "telegraf-ds",
                   "dataSource": "Mesosphere DC/OS",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/dcos.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-ds.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-ds.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2459,7 +2459,7 @@
                   "id": "telegraf-elasticsearch",
                   "dataSource": "Elasticsearch",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/elasticsearch.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-elasticsearch.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-elasticsearch.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2470,7 +2470,7 @@
                   "id": "telegraf-etcd",
                   "dataSource": "etcd",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/etcd-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-etcd.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-etcd.md",
                   "tags": [
                       "prometheus",
                       "prebuilt-dashboards"
@@ -2482,7 +2482,7 @@
                   "id": "telegraf-github",
                   "dataSource": "Github",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/github.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-github.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-github.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2493,7 +2493,7 @@
                   "id": "telegraf-haproxy",
                   "dataSource": "HAProxy",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/haproxy-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-haproxy.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-haproxy.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2504,7 +2504,7 @@
                   "id": "telegraf-ipmi",
                   "dataSource": "IPMI Sensor",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/ipmi.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-ipmi.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-ipmi.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2515,7 +2515,7 @@
                   "id": "telegraf-jenkins",
                   "dataSource": "Jenkins",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/jenkins.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-jenkins.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-jenkins.md",
                   "tags": [
                       "prometheus",
                       "prebuilt-dashboards"
@@ -2527,7 +2527,7 @@
                   "id": "telegraf-juniper",
                   "dataSource": "JTI OpenConfig Telemetry",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/juniper.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-juniper.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-juniper.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2538,7 +2538,7 @@
                   "id": "telegraf-mailchimp",
                   "dataSource": "Mailchimp",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/mailchimp.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-mailchimp.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-mailchimp.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2549,7 +2549,7 @@
                   "id": "telegraf-marklogic",
                   "dataSource": "MarkLogic",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/marklogic.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-marklogic.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-marklogic.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2560,7 +2560,7 @@
                   "id": "telegraf-mcrouter",
                   "dataSource": "Mcrouter",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/mcrouter-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-mcrouter.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-mcrouter.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2571,7 +2571,7 @@
                   "id": "telegraf-memcached",
                   "dataSource": "Memcached",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/memcached.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-memcached.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-memcached.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2582,7 +2582,7 @@
                   "id": "telegraf-mongo",
                   "dataSource": "MongoDB",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/mongo-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-mongo.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-mongo.md",
                   "tags": [
                       "prometheus",
                       "prebuilt-dashboards"
@@ -2594,7 +2594,7 @@
                   "id": "telegraf-mysql",
                   "dataSource": "MySQL",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/mysql.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-mysql.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-mysql.md",
                   "tags": [
                       "prometheus",
                       "prebuilt-dashboards"
@@ -2606,7 +2606,7 @@
                   "id": "telegraf-neptune",
                   "dataSource": "Neptune Apex",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/neptune.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-neptune.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-neptune.md",
                   "tags": [
                       "prometheus",
                       "iot"
@@ -2618,7 +2618,7 @@
                   "id": "telegraf-nginx",
                   "dataSource": "Nginx",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/nginx.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-nginx.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-nginx.md",
                   "tags": [
                       "prometheus",
                       "prebuilt-dashboards"
@@ -2630,7 +2630,7 @@
                   "id": "telegraf-nsd",
                   "dataSource": "NLnet Labs Name Server Daemon",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/nsd.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-nsd.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-nsd.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2641,7 +2641,7 @@
                   "id": "telegraf-nsq-consumer",
                   "dataSource": "NSQ Consumer",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/nsq.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-nsq-consumer.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-nsq-consumer.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2652,7 +2652,7 @@
                   "id": "telegraf-nsq",
                   "dataSource": "NSQ",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/nsq.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-nsq.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-nsq.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2663,7 +2663,7 @@
                   "id": "telegraf-nvidia",
                   "dataSource": "NVIDIA SMI",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/nvidia.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-nvidia.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-nvidia.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2674,7 +2674,7 @@
                   "id": "telegraf-passenger",
                   "dataSource": "Phusion Passenger",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/phfusion-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-passenger.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-passenger.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2685,7 +2685,7 @@
                   "id": "telegraf-pgbouncer",
                   "dataSource": "PgBouncer",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/pgbouncer.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-pgbouncer.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-pgbouncer.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2696,7 +2696,7 @@
                   "id": "telegraf-phpfpm",
                   "dataSource": "PHP-FPM",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/phpfpm-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-phpfpm.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-phpfpm.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2707,7 +2707,7 @@
                   "id": "telegraf-postgresql",
                   "dataSource": "PostgreSQL",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/postgresql-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-postgresql.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-postgresql.md",
                   "tags": [
                       "prometheus",
                       "prebuilt-dashboards"
@@ -2719,7 +2719,7 @@
                   "id": "telegraf-rabbitmq",
                   "dataSource": "RabbitMQ",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/rabbitmq-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-rabbitmq.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-rabbitmq.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2730,7 +2730,7 @@
                   "id": "telegraf-ravendb",
                   "dataSource": "RavenDB",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/ravendb-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-ravendb.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-ravendb.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2741,7 +2741,7 @@
                   "id": "telegraf-redfish",
                   "dataSource": "Redfish",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/redfish-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-redfish.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-redfish.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2752,7 +2752,7 @@
                   "id": "telegraf-redis",
                   "dataSource": "Redis",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/redis-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-redis.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-redis.md",
                   "tags": [
                       "prometheus",
                       "prebuilt-dashboards"
@@ -2764,7 +2764,7 @@
                   "id": "telegraf-riak",
                   "dataSource": "Riak",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/riak-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-riak.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-riak.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2775,7 +2775,7 @@
                   "id": "telegraf-sql",
                   "dataSource": "SQL Server",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/sqlserver.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-sql.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-sql.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2786,7 +2786,7 @@
                   "id": "telegraf-suricata",
                   "dataSource": "Suricata",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/suricata-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-suricata.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-suricata.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2797,7 +2797,7 @@
                   "id": "telegraf-synproxy",
                   "dataSource": "Synproxy",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/linux.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-synproxy.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-synproxy.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2808,7 +2808,7 @@
                   "id": "telegraf-sysmetrics",
                   "dataSource": "System metrics via Telegraf",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/telegraf-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-sysmetrics.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-sysmetrics.md",
                   "tags": [
                       "prometheus",
                       "prebuilt-dashboards"
@@ -2820,7 +2820,7 @@
                   "id": "telegraf-teamcity",
                   "dataSource": "TeamCity",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/TeamCity-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-teamcity.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-teamcity.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2831,7 +2831,7 @@
                   "id": "telegraf-tengine",
                   "dataSource": "Tengine Web Server",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/tengine-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-tengine.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-tengine.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2842,7 +2842,7 @@
                   "id": "telegraf-uWSGI",
                   "dataSource": "uWSGI",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/uwsgi-logo1.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-uWSGI.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-uWSGI.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2853,7 +2853,7 @@
                   "id": "telegraf-unbound",
                   "dataSource": "Unbound",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/unbound-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-unbound.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-unbound.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2864,7 +2864,7 @@
                   "id": "telegraf-vsphere",
                   "dataSource": "Vmware Vsphere",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/vsphere-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-vsphere.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-vsphere.md",
                   "tags": [
                       "prometheus",
                       "prebuilt-dashboards"
@@ -2876,7 +2876,7 @@
                   "id": "telegraf-windows-performance",
                   "dataSource": "Windows Performance",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/windows.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-windows-performance.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-windows-performance.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2887,7 +2887,7 @@
                   "id": "telegraf-windows",
                   "dataSource": "Windows Services",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/windows.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-windows.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-windows.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2898,7 +2898,7 @@
                   "id": "telegraf-wireguard",
                   "dataSource": "Wireguard",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/wireguard-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-wireguard.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-wireguard.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2909,7 +2909,7 @@
                   "id": "telegraf-youtube",
                   "dataSource": "Youtube",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/youtube-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-youtube.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-youtube.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2920,7 +2920,7 @@
                   "id": "telegraf-zfs",
                   "dataSource": "ZFS",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/zfs-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-zfs.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-zfs.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2931,7 +2931,7 @@
                   "id": "telegraf-zookeeper",
                   "dataSource": "Apache Zookeper",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/zookeeper-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/telegraf-zookeeper.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/telegraf-zookeeper.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2942,7 +2942,7 @@
                   "id": "tpu",
                   "dataSource": "Google Cloud TPU",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/tpu.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/tpu.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/tpu.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -2954,7 +2954,7 @@
                   "id": "unified-helm-chart",
                   "dataSource": "Kubernetes 360 (logs, metrics, traces, reports)",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/kubernetes.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/unified-helm-chart.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/unified-helm-chart.md",
                   "tags": [
                       "prometheus"
                   ]
@@ -2965,7 +2965,7 @@
                   "id": "vertex-ai",
                   "dataSource": "Google Vertex AI",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/vertexai.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/vertex-ai.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/vertex-ai.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -2977,7 +2977,7 @@
                   "id": "vpc",
                   "dataSource": "Google Virtual Private Cloud (VPC)",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/vpc.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/vpc.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/vpc.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -2989,7 +2989,7 @@
                   "id": "vpn",
                   "dataSource": "Google Cloud VPN",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/vpc.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/vpn.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/vpn.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -3001,7 +3001,7 @@
                   "id": "workflows",
                   "dataSource": "Google Workflows",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/workflows.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/workflows.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/workflows.md",
                   "tags": [
                       "prometheus",
                       "gcp"
@@ -3019,7 +3019,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/go.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/go-custom-metrics.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/go-custom-metrics.md",
                   "tags": [
                       "prometheus",
                       "custom-metrics"
@@ -3037,7 +3037,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-api-gateway.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-apigateway-prometheus.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-apigateway-prometheus.md",
                   "tags": [
                       "aws",
                       "prebuilt-dashboards"
@@ -3055,7 +3055,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-app-elb.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-app-elb-prometheus.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-app-elb-prometheus.md",
                   "tags": [
                       "aws",
                       "prebuilt-dashboards"
@@ -3073,7 +3073,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-athena.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-athena-prometheus.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-athena-prometheus.md",
                   "tags": [
                       "aws"
                   ]
@@ -3090,7 +3090,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-classic-elb.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-classic-elb-prometheus.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-classic-elb-prometheus.md",
                   "tags": [
                       "aws",
                       "prebuilt-dashboards"
@@ -3108,7 +3108,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-cloudfront.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-cloudfront-prometheus.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-cloudfront-prometheus.md",
                   "tags": [
                       "aws",
                       "prebuilt-dashboards"
@@ -3126,7 +3126,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-dynamodb.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-dynamodb-prometheus.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-dynamodb-prometheus.md",
                   "tags": [
                       "aws",
                       "prebuilt-dashboards"
@@ -3144,7 +3144,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-ebs.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-ebs-prometheus.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-ebs-prometheus.md",
                   "tags": [
                       "aws",
                       "prebuilt-dashboards"
@@ -3162,7 +3162,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-ec2-auto-scaling.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-ec2-auto-scaling-prometheus.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-ec2-auto-scaling-prometheus.md",
                   "tags": [
                       "aws",
                       "prebuilt-dashboards"
@@ -3180,7 +3180,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/Amazon-Kinesis-Data-Firehose.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-kinesis-firehose-prometheus.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-kinesis-firehose-prometheus.md",
                   "tags": [
                       "aws",
                       "prebuilt-dashboards"
@@ -3198,7 +3198,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/Amazon-Kinesis.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-kinesis-prometheus.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-kinesis-prometheus.md",
                   "tags": [
                       "aws",
                       "prebuilt-dashboards"
@@ -3216,7 +3216,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/AWS-Lambda.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-lambda-prometheus.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-lambda-prometheus.md",
                   "tags": [
                       "aws",
                       "prebuilt-dashboards"
@@ -3234,7 +3234,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/elb-network.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-network-elb-prometheus.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-network-elb-prometheus.md",
                   "tags": [
                       "aws",
                       "prebuilt-dashboards"
@@ -3252,7 +3252,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-rds.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-rds-prometheus.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-rds-prometheus.md",
                   "tags": [
                       "aws",
                       "prebuilt-dashboards"
@@ -3270,7 +3270,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/Amazon-Redshift.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-redshift-prometheus.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-redshift-prometheus.md",
                   "tags": [
                       "aws"
                   ]
@@ -3287,7 +3287,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/Amazon-Route-53.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-route53-prometheus.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-route53-prometheus.md",
                   "tags": [
                       "aws",
                       "prebuilt-dashboards"
@@ -3305,7 +3305,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-nat.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-nat-prometheus.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-nat-prometheus.md",
                   "tags": [
                       "aws",
                       "prebuilt-dashboards"
@@ -3323,7 +3323,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-ses.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-ses-prometheus.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-ses-prometheus.md",
                   "tags": [
                       "aws",
                       "prebuilt-dashboards"
@@ -3341,7 +3341,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-sns.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-sns-prometheus.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-sns-prometheus.md",
                   "tags": [
                       "aws",
                       "prebuilt-dashboards"
@@ -3359,7 +3359,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-vpn.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-vpn-prometheus.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-vpn-prometheus.md",
                   "tags": [
                       "aws",
                       "prebuilt-dashboards"
@@ -3377,7 +3377,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-sqs.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-sqs-prometheus.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-sqs-prometheus.md",
                   "tags": [
                       "aws",
                       "prebuilt-dashboards"
@@ -3395,7 +3395,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-efs.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-efs-prometheus.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-efs-prometheus.md",
                   "tags": [
                       "aws"
                   ]
@@ -3412,7 +3412,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-msk.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-msk.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-msk.md",
                   "tags": [
                       "aws"
                   ]
@@ -3429,7 +3429,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/Amazon-ElastiCache.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_prometheus-sources/aws-elasticache-prometheus.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_prometheus-sources/aws-elasticache-prometheus.md",
                   "tags": [
                       "aws"
                   ]
@@ -3446,7 +3446,7 @@
                   "id": "jaeger_collector",
                   "dataSource": "Jaeger installation",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/jaeger.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_tracing-sources/jaeger_collector.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_tracing-sources/jaeger_collector.md",
                   "tags": [
                       "existing-instrumentation"
                   ]
@@ -3457,7 +3457,7 @@
                   "id": "opentelemetry",
                   "dataSource": "OpenTelemetry installation",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/opentelemetry-icon-color.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_tracing-sources/opentelemetry.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_tracing-sources/opentelemetry.md",
                   "tags": [
                       "existing-instrumentation"
                   ]
@@ -3468,7 +3468,7 @@
                   "id": "span-metrics",
                   "dataSource": "Service Monitoring with OTEL",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/span-metrics.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_tracing-sources/span-metrics.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_tracing-sources/span-metrics.md",
                   "tags": [
                       "existing-instrumentation"
                   ]
@@ -3479,7 +3479,7 @@
                   "id": "zipkin-installation",
                   "dataSource": "Zipkin installation",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/zipkin.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_tracing-sources/zipkin-installation.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_tracing-sources/zipkin-installation.md",
                   "tags": [
                       "existing-instrumentation"
                   ]
@@ -3490,7 +3490,7 @@
                   "id": "docker-otel",
                   "dataSource": "Docker",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/docker-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_tracing-sources/docker-otel.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_tracing-sources/docker-otel.md",
                   "tags": [
                       "existing-instrumentation"
                   ]
@@ -3501,7 +3501,7 @@
                   "id": "dotnet-framework-otel-auto",
                   "dataSource": "Automatic ASP.NET or .NET Framework instrumentation",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/dotnet.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_tracing-sources/dotnet-framework-otel-auto.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_tracing-sources/dotnet-framework-otel-auto.md",
                   "tags": [
                       "new-instrumentation"
                   ]
@@ -3512,7 +3512,7 @@
                   "id": "dotnet-otel-auto",
                   "dataSource": "Automatic ASP.NET Core instrumentation",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/dotnet.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_tracing-sources/dotnet-otel-auto.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_tracing-sources/dotnet-otel-auto.md",
                   "tags": [
                       "new-instrumentation"
                   ]
@@ -3523,7 +3523,7 @@
                   "id": "ecs-fargate",
                   "dataSource": "ECS Fargate",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-fargate.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_tracing-sources/ecs-fargate.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_tracing-sources/ecs-fargate.md",
                   "tags": [
                       "ecs",
                       "aws",
@@ -3536,7 +3536,7 @@
                   "id": "go-otel",
                   "dataSource": "Go instrumentation",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/go.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_tracing-sources/go-otel.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_tracing-sources/go-otel.md",
                   "tags": [
                       "new-instrumentation"
                   ]
@@ -3547,7 +3547,7 @@
                   "id": "istio-traces",
                   "dataSource": "Istio",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/istio.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_tracing-sources/istio-traces.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_tracing-sources/istio-traces.md",
                   "tags": [
                       "new-instrumentation"
                   ]
@@ -3558,7 +3558,7 @@
                   "id": "java-otel-auto",
                   "dataSource": "Automatic Java instrumentation",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/java.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_tracing-sources/java-otel-auto.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_tracing-sources/java-otel-auto.md",
                   "tags": [
                       "new-instrumentation"
                   ]
@@ -3569,7 +3569,7 @@
                   "id": "kafka-java-otel-auto copy",
                   "dataSource": "Automatic Java with Kafka instrumentation",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/kafka.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_tracing-sources/kafka-java-otel-auto copy.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_tracing-sources/kafka-java-otel-auto copy.md",
                   "tags": [
                       "new-instrumentation"
                   ]
@@ -3580,7 +3580,7 @@
                   "id": "nestjs-otel-auto",
                   "dataSource": "Automatic NestJS instrumentation",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/nest-logo.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_tracing-sources/nestjs-otel-auto.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_tracing-sources/nestjs-otel-auto.md",
                   "tags": [
                       "new-instrumentation"
                   ]
@@ -3591,7 +3591,7 @@
                   "id": "nodejs-otel-auto",
                   "dataSource": "Automatic Node.js instrumentation",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/nodejs.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_tracing-sources/nodejs-otel-auto.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_tracing-sources/nodejs-otel-auto.md",
                   "tags": [
                       "new-instrumentation"
                   ]
@@ -3602,7 +3602,7 @@
                   "id": "opentelemetry-nodejs-lambda",
                   "dataSource": "Automatic instrumentation for Node.js & Lambda",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/lambda-nodejs2.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_tracing-sources/opentelemetry-nodejs-lambda.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_tracing-sources/opentelemetry-nodejs-lambda.md",
                   "tags": [
                       "new-instrumentation"
                   ]
@@ -3613,7 +3613,7 @@
                   "id": "otel-traces-helm",
                   "dataSource": "Kubernetes",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/kubernetes.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_tracing-sources/otel-traces-helm.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_tracing-sources/otel-traces-helm.md",
                   "tags": [
                       "existing-instrumentation"
                   ]
@@ -3624,7 +3624,7 @@
                   "id": "python-otel-auto",
                   "dataSource": "Automatic Python instrumentation",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/python.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_tracing-sources/python-otel-auto.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_tracing-sources/python-otel-auto.md",
                   "tags": [
                       "new-instrumentation"
                   ]
@@ -3635,7 +3635,7 @@
                   "id": "ruby-otel-auto",
                   "dataSource": "Automatic Ruby instrumentation",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/ruby.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_tracing-sources/ruby-otel-auto.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_tracing-sources/ruby-otel-auto.md",
                   "tags": [
                       "new-instrumentation"
                   ]
@@ -3658,7 +3658,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/carbon-black.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/carbon-black.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/carbon-black.md",
                   "tags": [
                       "aws"
                   ]
@@ -3669,7 +3669,7 @@
                   "id": "cloudflare",
                   "dataSource": "Cloudflare",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/cloudflare.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/cloudflare.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/cloudflare.md",
                   "tags": [
                       "firewalls",
                       "popular"
@@ -3681,7 +3681,7 @@
                   "id": "active-directory-winserver",
                   "dataSource": "Active Directory",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/windows.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/active-directory-winserver.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/active-directory-winserver.md",
                   "tags": [
                       "windows"
                   ]
@@ -3692,7 +3692,7 @@
                   "id": "cloudtrail",
                   "dataSource": "CloudTrail",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-cloudtrail.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/cloudtrail.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/cloudtrail.md",
                   "tags": [
                       "aws"
                   ]
@@ -3703,7 +3703,7 @@
                   "id": "nginx",
                   "dataSource": "nginx",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/nginx.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/nginx.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/nginx.md",
                   "tags": [
                       "server-app",
                       "popular"
@@ -3715,7 +3715,7 @@
                   "id": "aws-waf",
                   "dataSource": "AWS WAF",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/AWS-WAF.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/aws-waf.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/aws-waf.md",
                   "tags": [
                       "aws",
                       "web-firewalls"
@@ -3727,7 +3727,7 @@
                   "id": "auditd",
                   "dataSource": "auditd",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/linux.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/auditd.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/auditd.md",
                   "tags": [
                       "linux"
                   ]
@@ -3738,7 +3738,7 @@
                   "id": "sysmon",
                   "dataSource": "Sysmon",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/windows.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/sysmon.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/sysmon.md",
                   "tags": [
                       "windows"
                   ]
@@ -3749,7 +3749,7 @@
                   "id": "fortigate",
                   "dataSource": "FortiGate",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/fortinet.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/fortigate.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/fortigate.md",
                   "tags": [
                       "firewalls"
                   ]
@@ -3766,7 +3766,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/azure-monitor.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/azure-activity-logs.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/azure-activity-logs.md",
                   "tags": [
                       "azure"
                   ]
@@ -3777,7 +3777,7 @@
                   "id": "cisco-meraki",
                   "dataSource": "Cisco Meraki",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/cisco-meraki-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/cisco-meraki.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/cisco-meraki.md",
                   "tags": [
                       "firewalls",
                       "endpoint-security"
@@ -3789,7 +3789,7 @@
                   "id": "fail2ban",
                   "dataSource": "Fail2ban",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/fail2ban.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/fail2ban.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/fail2ban.md",
                   "tags": [
                       "linux"
                   ]
@@ -3800,7 +3800,7 @@
                   "id": "gsuite",
                   "dataSource": "Google Workspace",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/google-workspace.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/gsuite.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/gsuite.md",
                   "tags": [
                       "gcp"
                   ]
@@ -3811,7 +3811,7 @@
                   "id": "onelogin",
                   "dataSource": "OneLogin",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/onelogin.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/onelogin.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/onelogin.md",
                   "tags": [
                       "identity"
                   ]
@@ -3822,7 +3822,7 @@
                   "id": "bitdefender",
                   "dataSource": "Bitdefender",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/bitdefender.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/bitdefender.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/bitdefender.md",
                   "tags": [
                       "endpoint-security"
                   ]
@@ -3833,7 +3833,7 @@
                   "id": "zeek",
                   "dataSource": "Zeek",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/zeek.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/zeek.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/zeek.md",
                   "tags": [
                       "ids"
                   ]
@@ -3844,7 +3844,7 @@
                   "id": "eset",
                   "dataSource": "ESET",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/eset.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/eset.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/eset.md",
                   "tags": [
                       "endpoint-security"
                   ]
@@ -3855,7 +3855,7 @@
                   "id": "sophos",
                   "dataSource": "Sophos",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/sophos-shield.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/sophos.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/sophos.md",
                   "tags": [
                       "endpoint-security"
                   ]
@@ -3872,7 +3872,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-guardduty.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/guardduty.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/guardduty.md",
                   "tags": [
                       "aws"
                   ]
@@ -3883,7 +3883,7 @@
                   "id": "auth0",
                   "dataSource": "Auth0",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/auth0.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/auth0.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/auth0.md",
                   "tags": [
                       "identity"
                   ]
@@ -3900,7 +3900,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/okta.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/okta.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/okta.md",
                   "tags": [
                       "identity"
                   ]
@@ -3911,7 +3911,7 @@
                   "id": "palo-alto-networks",
                   "dataSource": "Palo Alto Networks",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/palo-alto-networks.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/palo-alto-networks.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/palo-alto-networks.md",
                   "tags": [
                       "firewalls"
                   ]
@@ -3928,7 +3928,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/aws-security-hub.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/aws-security-hub.md",
                   "tags": [
                       "endpoint-security",
                       "aws"
@@ -3940,7 +3940,7 @@
                   "id": "falco",
                   "dataSource": "Falco",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/falco-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/falco.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/falco.md",
                   "tags": [
                       "k8s"
                   ]
@@ -3951,7 +3951,7 @@
                   "id": "sonicwall",
                   "dataSource": "SonicWall",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/SonicWall-Logo.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/sonicwall.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/sonicwall.md",
                   "tags": [
                       "firewalls"
                   ]
@@ -3968,7 +3968,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/azc-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/microsoft-graph-asc.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/microsoft-graph-asc.md",
                   "tags": [
                       "azure"
                   ]
@@ -3985,7 +3985,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/azure.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/microsoft-graph.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/microsoft-graph.md",
                   "tags": [
                       "azure"
                   ]
@@ -3996,7 +3996,7 @@
                   "id": "wazuh",
                   "dataSource": "Wazuh",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/wazuh.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/wazuh.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/wazuh.md",
                   "tags": [
                       "endpoint-security"
                   ]
@@ -4007,7 +4007,7 @@
                   "id": "cisco-asa",
                   "dataSource": "Cisco ASA",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/cisco.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/cisco-asa.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/cisco-asa.md",
                   "tags": [
                       "firewalls"
                   ]
@@ -4018,7 +4018,7 @@
                   "id": "windows-defender",
                   "dataSource": "Windows Defender",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/windows-defender.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/windows-defender.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/windows-defender.md",
                   "tags": [
                       "endpoint-security"
                   ]
@@ -4029,7 +4029,7 @@
                   "id": "juniper-srx",
                   "dataSource": "Juniper",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/juniper.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/juniper-srx.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/juniper-srx.md",
                   "tags": [
                       "firewalls"
                   ]
@@ -4040,7 +4040,7 @@
                   "id": "alcide",
                   "dataSource": "Alcide kAudit",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/alcide.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/alcide.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/alcide.md",
                   "tags": [
                       "k8s"
                   ]
@@ -4051,7 +4051,7 @@
                   "id": "trendmicro",
                   "dataSource": "Trend Micro",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/trendmicro-small-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/trendmicro.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/trendmicro.md",
                   "tags": [
                       "endpoint-security"
                   ]
@@ -4062,7 +4062,7 @@
                   "id": "stormshield",
                   "dataSource": "Stormshield",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/stormshield.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/stormshield.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/stormshield.md",
                   "tags": [
                       "firewalls"
                   ]
@@ -4073,7 +4073,7 @@
                   "id": "ossec",
                   "dataSource": "OSSEC",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/ossec.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/ossec.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/ossec.md",
                   "tags": [
                       "endpoint-security"
                   ]
@@ -4084,7 +4084,7 @@
                   "id": "check-point",
                   "dataSource": "Check Point",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/check-point.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/check-point.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/check-point.md",
                   "tags": [
                       "firewalls"
                   ]
@@ -4095,7 +4095,7 @@
                   "id": "openvas",
                   "dataSource": "OpenVAS",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/greenbone_icon.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/openvas.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/openvas.md",
                   "tags": [
                       "vulnerability-scanners"
                   ]
@@ -4106,7 +4106,7 @@
                   "id": "modsecurity",
                   "dataSource": "ModSecurity",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/modsec.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/modsecurity.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/modsecurity.md",
                   "tags": [
                       "web-firewalls"
                   ]
@@ -4117,7 +4117,7 @@
                   "id": "mcafee-epolicy-orchestrator",
                   "dataSource": "McAfee ePolicy Orchestrator",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/mcafee.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/mcafee-epolicy-orchestrator.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/mcafee-epolicy-orchestrator.md",
                   "tags": [
                       "endpoint-security"
                   ]
@@ -4128,7 +4128,7 @@
                   "id": "hashicorp-vault",
                   "dataSource": "HashiCorp Vault",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/hashicorp-vault.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/hashicorp-vault.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/hashicorp-vault.md",
                   "tags": [
                       "server-app"
                   ]
@@ -4139,7 +4139,7 @@
                   "id": "avast",
                   "dataSource": "Avast Antivirus",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/avast.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/avast.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/avast.md",
                   "tags": [
                       "firewalls"
                   ]
@@ -4150,7 +4150,7 @@
                   "id": "axonius",
                   "dataSource": "Axonius",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/axonius.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/axonius.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/axonius.md",
                   "tags": [
                       "firewalls"
                   ]
@@ -4161,7 +4161,7 @@
                   "id": "crowdstrike",
                   "dataSource": "Crowdstrike",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/crowdstrike-logo.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/crowdstrike.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/crowdstrike.md",
                   "tags": [
                       "endpoint-security"
                   ]
@@ -4172,7 +4172,7 @@
                   "id": "cynet",
                   "dataSource": "Cynet",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/cynet.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/cynet.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/cynet.md",
                   "tags": [
                       "firewalls"
                   ]
@@ -4183,7 +4183,7 @@
                   "id": "office365",
                   "dataSource": "Microsoft 365",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/office365.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/office365.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/office365.md",
                   "tags": [
                       "azure"
                   ]
@@ -4194,7 +4194,7 @@
                   "id": "openvpn",
                   "dataSource": "OpenVPN",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/openvpn.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/openvpn.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/openvpn.md",
                   "tags": [
                       "firewalls"
                   ]
@@ -4205,7 +4205,7 @@
                   "id": "pfsense",
                   "dataSource": "pfSense",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/pfsense-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/pfsense.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/pfsense.md",
                   "tags": [
                       "firewalls"
                   ]
@@ -4216,7 +4216,7 @@
                   "id": "sentinelone",
                   "dataSource": "SentinelOne",
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/sentintelone-icon.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_security-sources/sentinelone.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_security-sources/sentinelone.md",
                   "tags": [
                       "endpoint-security"
                   ]
@@ -4239,7 +4239,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/ssl-certificate.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_synthetic-monitoring-sources/X509.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_synthetic-monitoring-sources/X509.md",
                   "tags": [
                       ""
                   ]
@@ -4256,7 +4256,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/apii.svg",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_synthetic-monitoring-sources/api-status.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_synthetic-monitoring-sources/api-status.md",
                   "tags": [
                       ""
                   ]
@@ -4273,7 +4273,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/ping-logo.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_synthetic-monitoring-sources/ping-statistics.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_synthetic-monitoring-sources/ping-statistics.md",
                   "tags": [
                       ""
                   ]
@@ -4290,7 +4290,7 @@
                       }
                   ],
                   "logo": "https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/link.png",
-                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/prom-fix/_source/logzio_collections/_synthetic-monitoring-sources/synthetic-link-detector.md",
+                  "filepath": "https://raw.githubusercontent.com/logzio/logz-docs/master/_source/logzio_collections/_synthetic-monitoring-sources/synthetic-link-detector.md",
                   "tags": [
                       ""
                   ]
