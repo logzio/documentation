@@ -38,9 +38,19 @@ Under **Application properties**, enter the **Application start URL** given to y
 
 ![Download certificate](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/aws/application-properties-aws.png)
 
-Next, in **Application metadata**, click on the link located underneath the browse button. Enter the ACS URL and Application SAML audience given to you by Logz.io support.
+Next, in **Application metadata**, click on the link located underneath the browse button. Enter the ACS URL and Application SAML audience given to you by Logz.io support. You'll need to paste the Single Sign-on URL to the Application ACS URL, and Audience URI to Application audience.
 
-![Set entity ID](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/aws/application-metadata.gif)
+![Set entity ID](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/aws/new-saml-screen.png)
+
+Click on the **Attribute mappings** tab. 
+
+Add a new attribute called **email** and the variable `${user:email}`.
+
+To configure groups you'll need to add another attribute mapping called **groups** and the variable `${user:groups}`.
+
+[Read more about attribute mapping for AWS](https://docs.aws.amazon.com/singlesignon/latest/userguide/attributemappingsconcept.html). 
+
+![Adding attributes](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/aws/adding-attribute-aws.png)
 
 Click on **Save changes** to create your app.
 
