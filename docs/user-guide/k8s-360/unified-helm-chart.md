@@ -14,7 +14,7 @@ Please be aware that this project is presently in its beta stage, and as such, i
 :::
 
 :::tip
-To get the most out of Kubernetes 360, try out dedicated [dashboard](/user-guide/k360/kubernetes-360-pre.html). Log in to your Logz.io account and navigate to the current instructions page [inside the Logz.io app](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=prometheus-sources). Install the pre-built dashboard to enhance the observability of your metrics. To view the metrics on the main dashboard, log in to your Logz.io Metrics account, and open the [Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics).
+To get the most out of Kubernetes 360, try out dedicated [dashboard](./kubernetes-360-pre). Log in to your Logz.io account and navigate to the current instructions page [inside the Logz.io app](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=prometheus-sources). Install the pre-built dashboard to enhance the observability of your metrics. To view the metrics on the main dashboard, log in to your Logz.io Metrics account, and open the [Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics).
 :::
 
 
@@ -69,7 +69,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | Parameter | Description |
 | --- | --- |
 | `<<LOG-SHIPPING-TOKEN>>` | Replace `<<LOG-SHIPPING-TOKEN>>` with the token of the account you want to ship to. |
-| `<<LISTENER-HOST>>` | Replace `<<LISTENER-HOST>>` with the host [for your region](/user-guide/accounts/account-region.html#available-regions). For example, `listener.logz.io` if your account is hosted on AWS US East, or `listener-nl.logz.io` if hosted on Azure West Europe. The required port depends whether HTTP or HTTPS is used: HTTP = 8070, HTTPS = 8071. |
+| `<<LISTENER-HOST>>` | Replace `<<LISTENER-HOST>>` with the host [for your region](../../admin/hosting-regions/account-region/#available-regions). For example, `listener.logz.io` if your account is hosted on AWS US East, or `listener-nl.logz.io` if hosted on Azure West Europe. The required port depends whether HTTP or HTTPS is used: HTTP = 8070, HTTPS = 8071. |
 | `<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>` | Your [metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
 | `<<P8S-LOGZIO-NAME>>` | The name for the environment's metrics, to easily identify the metrics for each environment. |
 | `<<ENV-ID>>` | The name for your environment's identifier, to easily identify the telemetry data for each environment. |
@@ -148,7 +148,7 @@ For instance, if there is a parameter called `someField` in the `logzio-telemetr
 
 #### Sending telemetry data from eks on fargate
 
-To ship logs from pods running on Fargate, set the `fargateLogRouter.enabled` value to `true`. Doing so will deploy a dedicated `aws-observability` namespace and a `configmap` for the Fargate log router. For more information on EKS Fargate logging, please refer to the [official AWS documentation]((https://docs.aws.amazon.com/eks/latest/userguide/fargate-logging.html).
+To ship logs from pods running on Fargate, set the `fargateLogRouter.enabled` value to `true`. Doing so will deploy a dedicated `aws-observability` namespace and a `configmap` for the Fargate log router. For more information on EKS Fargate logging, please refer to the [official AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/fargate-logging.html).
 
 ```shell
 helm install -n monitoring \

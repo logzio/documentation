@@ -161,7 +161,7 @@ For example, if a `metadata` field is assigned as an `Object` in your production
 
 You can also send data from each environment to a dedicated sub account to monitor them individually.
 
-Learn more about [creating and managing sub accounts](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#add-and-manage-a-log-management-sub-account) and about [field mapping](/user-guide/logs/mapping/) in your account.
+Learn more about [creating and managing sub accounts](../../admin/logzio-accounts/manage-the-main-account-and-sub-accounts/#add-and-manage-a-log-management-sub-account) and about [field mapping](../../data-hub/field-mapping/) in your account.
 
 ## Additional resources
 

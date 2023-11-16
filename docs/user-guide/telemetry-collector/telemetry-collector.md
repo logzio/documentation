@@ -30,12 +30,12 @@ If you're interested in sending your data through a different source, you can us
 
 ## Getting started with the Telemetry Collector:
 
-* [Send **AWS** data with Telemetry Collector](/user-guide/log-shipping/telemetry-collector-aws.html)
-  * [Manage an AWS Telemetry Collector](/user-guide/log-shipping/telemetry-collector-aws.html#how-to-remove-a-telemetry-collector)
-* [Send **Kubernetes** data with Telemetry Collector](/user-guide/log-shipping/telemetry-collector-k8s.html)
-  * [Manage a Kubernetes Telemetry Collector](/user-guide/log-shipping/telemetry-collector-k8s.html#how-to-remove-a-telemetry-collector)
-* [Send **Localhost** data with Telemetry Collector](/user-guide/log-shipping/telemetry-collector-localhost.html)
-  * [Manage a Localhost Telemetry Collector](/user-guide/log-shipping/telemetry-collector-localhost.html#manage-and-remove-a-telemetry-collector)
+* [Send **AWS** data with Telemetry Collector](./telemetry-collector-aws/)
+  * [Manage an AWS Telemetry Collector](./telemetry-collector-aws.html#how-to-remove-a-telemetry-collector)
+* [Send **Kubernetes** data with Telemetry Collector](./telemetry-collector-k8s.html)
+  * [Manage a Kubernetes Telemetry Collector](./telemetry-collector-k8s.html#how-to-remove-a-telemetry-collector)
+* [Send **Localhost** data with Telemetry Collector](./telemetry-collector-localhost.html)
+  * [Manage a Localhost Telemetry Collector](./telemetry-collector-localhost.html#manage-and-remove-a-telemetry-collector)
 
 ###### Additional resources
 

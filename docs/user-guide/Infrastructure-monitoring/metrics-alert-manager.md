@@ -96,7 +96,7 @@ In the second step, you'll need to build the query for this alert. You can use t
 
 ![Metric browser](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metric-browser-alert.png)
 
-Complete the alert by following the steps to [define your alert condition](/user-guide/infrastructure-monitoring/alerts.html#define-alert-conditions), and [add details to your alert](/user-guide/infrastructure-monitoring/alerts.html#add-details-for-your-alert). 
+Complete the alert by following the steps to [define your alert condition](#define-alert-conditions), and [add details to your alert](#add-details-for-your-alert). 
 
 
 ### 1. Define your notification endpoint

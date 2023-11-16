@@ -15,7 +15,7 @@ Logz.io is an end-to-end cloud monitoring service built for scale. It’s the be
 One unified SaaS platform to collect and analyze logs, metrics, and traces, combined with human-powered AI/ML features to improve troubleshooting, reduce response time and help you manage costs.
 
 
-Whether you are a new user or looking for a refresher on Logz.io, you are invited to join one of our engineers for a **[training session on the Logz.io platform](https://docs.logz.io/training/)**!
+Whether you are a new user or looking for a refresher on Logz.io, you are invited to join one of our engineers for a **[training session on the Logz.io platform](https://logz.io/training/)**!
 
 
 ## Send your data to Logz.io
@@ -38,7 +38,7 @@ If you prefer to send your data manually, Logz.io offers numerous methods to do 
 |[JSON uploads](https://app.logz.io/#/dashboard/send-your-data/log-sources/json-uploads)|[Google Kubernetes Engine over OpenTelemetry](https://app.logz.io/#/dashboard/send-your-data/prometheus-sources/otel-metrics-gke-helm)|[Kubernetes](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/otel-traces-helm)|[CloudTrail](https://app.logz.io/#/dashboard/send-your-data/security-sources/cloudtrail)
 |[Docker container](https://app.logz.io/#/dashboard/send-your-data/log-sources/docker)|[Amazon EC2](https://app.logz.io/#/dashboard/send-your-data/prometheus-sources/aws-ec2-prometheus)|[Go instrumentation](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/go-otel)|[auditd](https://app.logz.io/#/dashboard/send-your-data/security-sources/auditd) |
 
-Browse the complete list of available shipping methods [here](https://docs.logz.io/shipping/).
+Browse the complete list of available shipping methods [here](https://docs.logz.io/docs/category/send-your-data).
 
 To learn more about shipping your data, check out **Shipping Log Data to Logz.io**:
 
@@ -131,7 +131,7 @@ Logz.io **[Cloud SIEM](https://app.logz.io/#/dashboard/security/summary)** (Secu
 
 Here are some popular Cloud SIEM resources to help you get started:
 
-* **[Cloud SIEM quick start guide](https://docs.logz.io/user-guide/cloud-siem/quick-guide.html)**
+* **[Cloud SIEM quick start guide](https://docs.logz.io/docs/category/cloud-siem-quick-start-guide)** 
 * **[Investigate security events](https://docs.logz.io/user-guide/cloud-siem/security-events.html)**
 * **[Threat Intelligence feeds](https://docs.logz.io/user-guide/cloud-siem/threat-intelligence.html)**
 * **[Configure a security rule](https://docs.logz.io/user-guide/cloud-siem/manage-security-rules.html)**

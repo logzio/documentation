@@ -74,7 +74,7 @@ For the dashboard import to work smoothly, you'll need to change the name of the
 Your Metrics account information is located in the <a href ="https://app.logz.io/#/dashboard/settings/manage-accounts" target="_blank">Manage Accounts **(<i class="li li-gear"></i> > Settings > Manage accounts)**</a> page of your Operations workspace. ![Account settings navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8s-account-token00.png)
 
 
-For the record, notification endpoints and dashboard annotations are not imported: You'll need to recreate them in Logz.io.  See [Notification endpoints](/user-guide/integrations/endpoints.html) and [Annotations](/user-guide/infrastructure-monitoring/annotations/)for more information.
+For the record, notification endpoints and dashboard annotations are not imported: You'll need to recreate them in Logz.io.  See [Notification endpoints](../integrations/notification-endpoints/endpoints/) and [Annotations](../log-correlations/annotations/)for more information.
 
 ### Importing individual dashboards
 
@@ -93,7 +93,7 @@ In the left navigation pane, click <i class="fas fa-plus"></i> and select **Impo
 
   - To import your existing Prometheus dashboards, first export the relevant dashboards as JSON files, then click **Upload json file** and select the files to upload.
 
-    For related information see [Upload JSON logs]({{site.baseurl}}/shipping/log-sources/json-uploads).
+    For related information see [Upload JSON logs](../../../shipping/code/json).
   - To import dashboards from Grafana.com, enter the relevant dashboard URL or ID in **Import via grafana.com** and **Load** them.
 
 

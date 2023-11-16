@@ -84,7 +84,7 @@ Once you connect your Azure Native Integration with Logz.io, it'll have access t
 
 To connect your Azure Native Integration with Logz.io you'll need to send the following information:
 
-* **Client secret value** - that you created and copied in the [Create a certificate](/user-guide/cloud-fetcher.html#create-a-certificate) section.
+* **Client secret value** - that you created and copied in the [Create a certificate](./azure-native-integration/#create-a-certificate) section.
 
 Navigate to App registration and click on the app you created. There, you'll be able to find the following information:
 
@@ -119,7 +119,7 @@ Take the credentials you've copied from your Azure app and enter the required va
 
 * **Tenant ID** - Your Azure app's directory ID
 * **Client ID** - Your Azure app's application ID
-* **Client Secret** - The value you've copied in the [Create a certificate](/user-guide/cloud-fetcher.html#create-a-certificate) section
+* **Client Secret** - The value you've copied in the [Create a certificate](./azure-native-integration/#create-a-certificate) section
 * **Subscription** - Your Azure app's subscription ID
 * *Optional* - **Resource group name** - The name of the group that's associated with the Azure app you created
 * _Optional_ - **Tags** - You can add tags associated with the sent data for easier analysis and identification

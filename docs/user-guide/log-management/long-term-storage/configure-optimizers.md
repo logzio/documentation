@@ -17,7 +17,7 @@ Once a log is pulled to your Logz.io account, it takes up to **2 hours** until i
 :::
 
 
-If you want help updating an existing optimizer, you can [skip the first part of this page](/user-guide/optimizers/configure-optimizers.html#to-configure-an-optimizer).
+If you want help updating an existing optimizer, you can [skip the first part of this page](../../admin/logzio-accounts/manage-the-main-account-and-sub-accounts/#timeless).
 
 ### Create an optimizer:
 

@@ -555,3 +555,5 @@
 /shipping/log-sources/windows.html		/docs/shipping/Operating-Systems/Windows
 /api https://logz-docs-api.netlify.app/api
 /shipping/prometheus-sources/aws-cloudformation.html /docs/shipping/AWS/aws-cloudformation
+/shipping/ /docs/category/send-your-data
+/docs/category/cloud-siem-quick-start-guide /docs/category/cloud-siem-quick-start-guide

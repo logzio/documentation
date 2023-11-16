@@ -72,7 +72,7 @@ Logz.io tracks the recurrence of each exception over time, and retains its **Fir
 
 You can set an alert to get a digest, including your exceptions insights.
 
-To do so, you'll need to [**configure an alert**](/user-guide/alerts/configure-an-alert.html) with the following query:
+To do so, you'll need to [**configure an alert**](../../log-management/log-alerts/configure-alert/) with the following query:
 
 `_exists_: _logzio_logceptions OR _exists_:"_logzio_insights"`
 
