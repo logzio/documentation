@@ -52,7 +52,7 @@ Your Logz.io listener may not be using the correct endpoint.
 Change the endpoint of your listener from `https://<<LISTENER-HOST>>:<<PORT>>` to `http://<<LISTENER-HOST>>:<<PORT>>` or from `http://<<LISTENER-HOST>>:<<PORT>>` to `https://<<LISTENER-HOST>>:<<PORT>>`
 
 
-* {@include: ../log-shipping/listener-var.html}
+* Use the listener URL specific to the region where your Logz.io account is hosted. [Click to look up your listener URL](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions). The required port depends whether HTTP or HTTPS is used: HTTP = 8070, HTTPS = 8071.
 
 
 ##### Possible cause - Kubernetes environment - prometheus.io/scrape is not set

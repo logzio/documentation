@@ -18,7 +18,7 @@ The platform utilizes Kubernetes' numerous advantages for R&D and dev teams, all
 
 To activate your Kubernetes 360 dashboard, connect your Kubernetes data quickly and easily through Logz.io's **[Telemetry Collector](https://app.logz.io/#/dashboard/send-your-data/agent/new)**.
 
-If you already have Kubernetes 360 data in your Logz.io account or prefer connecting Kubernetes manually, follow our **[Kubernetes 360 Prerequisite](/user-guide/k360/kubernetes-360-pre.html)** guide.
+If you already have Kubernetes 360 data in your Logz.io account or prefer connecting Kubernetes manually, follow our **[Kubernetes 360 Prerequisite](./kubernetes-360-pre/)** guide.
 
 Once everything is up and running, you can use your Kubernetes 360 application.
 
@@ -32,7 +32,7 @@ Once everything is up and running, you can use your Kubernetes 360 application.
 
 ![deployments card](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/focus-on-nodes.png) -->
 
-You can dive deeper into each card by clicking on it and opening the **[Quick view](/user-guide/k360/overview.html#quick-view)** menu.
+You can dive deeper into each card by clicking on it and opening the **[Quick view](#quick-view)** menu.
 
 ## Customize your application
 
@@ -61,7 +61,7 @@ When switching between views, the main cards change to represent the different r
 
 ![deployments card](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/node-view-jul-.png)
 
-You can dive deeper into each card by clicking on it and opening the **[Quick view](/user-guide/k360/overview.html#quick-view)** menu.
+You can dive deeper into each card by clicking on it and opening the **[Quick view](#quick-view)** menu.
 
 <h4 id="#search">Search</h4>
 

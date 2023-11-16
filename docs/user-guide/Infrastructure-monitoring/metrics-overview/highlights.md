@@ -36,9 +36,9 @@ Logz.io’s Metrics platform is pre-loaded with dozens of dashboards to help you
 
 After configuring how to stream your data to Logz.io, you can select any relevant dashboard from the list and select the data source. Each dashboard is preconfigured to match the particular data type it's named after. These dashboards are production-ready: You don't have to do any customizations, and you don't need to have previous experience to set them up. 
 
-The metrics dashboards are designed by Logz.io specialists so that you can get up-and-running in a matter of minutes. [Learn how to select your first dashboard](/user-guide/infrastructure-monitoring/getting-started).
+The metrics dashboards are designed by Logz.io specialists so that you can get up-and-running in a matter of minutes. 
 
-Once you’re ready to move to the next level, you can duplicate any of the preconfigured dashboards to add your own panels and changes, or create entirely new dashboards of your own. [Learn how to add a new dashboard](/user-guide/infrastructure-monitoring/configure-metrics-drilldown-links).
+Once you’re ready to move to the next level, you can duplicate any of the preconfigured dashboards to add your own panels and changes, or create entirely new dashboards of your own. [Learn how to add a new dashboard](../variables).
 
 ### Maintain data integrity over an extended time
 
