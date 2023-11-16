@@ -27,8 +27,8 @@ This CloudFormation template allows shipping AWS Logs and Metrics to logz.io.
 
 It will deploy the following projects:
 
-- AWS metrics to Logzio (See here the function's repo)[https://github.com/logzio/cloudwatch-metrics-helpers].
-- AWS logs to Logz.io (See here the function's repo)[https://github.com/logzio/cloudwatch-shipper-trigger].
+- AWS metrics to Logzio [See here the function's repo](https://github.com/logzio/cloudwatch-metrics-helpers).
+- AWS logs to Logz.io [See here the function's repo](https://github.com/logzio/cloudwatch-shipper-trigger).
 
 
 ##### Instructions
