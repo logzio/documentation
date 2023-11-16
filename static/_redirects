@@ -554,3 +554,4 @@
 /shipping/log-sources/vpc.html		/docs/shipping/Network/VPC-network
 /shipping/log-sources/windows.html		/docs/shipping/Operating-Systems/Windows
 /api https://logz-docs-api.netlify.app/api
+/shipping/prometheus-sources/aws-cloudformation.html		/docs/shipping/AWS/aws-cloudformation
