@@ -27,6 +27,7 @@ If you try to set another port in your end point, the alert will NOT be sent.
 
 {@include: ../../../_include/general-shipping/allowed-ips.md}
 
+
 ### 2. Create a verification token (_Best practice but optional_)
 
 The Logz.io IP range is used by all customers and should be used together with a verification token.
