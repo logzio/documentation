@@ -81,6 +81,17 @@ Click **Go to commit** to access and view your own code related to this deployme
 To activate the **Go to Commit** button, go to **your app or service** and add the following annotation to the metadata of each resource's versioning you want to track: `logzio/commit_url: ""`, and the URL structure should be: "`https://github.com/<account>/<repository>/commit/<commit-hash>`". [Learn more](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-k8s-events#deployment-events-versioning).
 :::
 
+## Detect Anomalies
+
+Logz.io's Anomaly Detector helps you engage a predictive approach towards your data. It monitors your service latency and error ratio to detect any abnormal patterns or data points that deviate from the expected behavior, helping to detect and address issues, improve security, and ensure system reliability.
+
+To add a new Anomaly Detector, select the service you want to monitor. In map view, click on the service and choose New Anomaly Detector. In the table view, click on the additional items menu on the right end and choose New Anomaly Detector. 
+
+The popup presents the chosen service, and now it's time to select the operations you want to monitor for anomalies. The All operations option monitors the entire service, or you can select up to 5 operations inside the service, to monitor aggregated anomalies.
+
+Next, you can determine the sensitivity of the anomaly detector. Low triggers an alert after finding 3 deviations in the data, Medium triggers when 2 deviations are detected, and High triggers immediately as the first deviation is detected.
+
+Finally, you can choose whether to receive or send notifications whenever new anomalies are detected. 
 
 
 <!-- ### Logs overview
