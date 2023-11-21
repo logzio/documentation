@@ -47,7 +47,7 @@ It is needed to replace the placeholder `<<ACCESS_URL>>` below.
 Open a MAC or linux terminal. Run the echo command with the new API Key created in the previous section.
 
 ```
-echo -n "[<API_KEY]>" | base64
+echo -n "[<API_KEY]>": | base64
 ```
 Sample response (shortened for simplicity): `AeFgjU5N0Eg4rRMwFGG=AeFgjU5N0Eg4rRMwFGG=`
 
