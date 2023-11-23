@@ -96,14 +96,14 @@ def print_missing_fields(file_metadata):
 def get_changed_files():
     files_str = os.getenv(consts.ENV_FILES_TO_TRACK, '')
     if files_str == '':
-        return []
+        return [], []
     files_str = files_str.replace(' ', '')
     files_arr = files_str.split(',')
     files_to_track = []
     removed_files = []
     for file in files_arr:
         docs_path = os.getenv(consts.ENV_DOCS_PREFIX, consts.DOCS_PATH)
-        if not os.path.isfile(docs_path):
+        if not os.path.isfile(file):
             removed_files.append(file)
             continue
         if file.startswith(docs_path) and file.endswith('.md'):
