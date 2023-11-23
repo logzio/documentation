@@ -19,7 +19,7 @@ Community plans have a maximum of 50 users.
 
 ## Access level per role
 
-You can assign **Read Only**, **User**, or **Admin** roles. Each role has different access that helps you limit the data, visibility, and abilities shared with other users.
+You can assign **Read Only**, **User**, **SIEM**, or **Admin** roles. Each role has different access that helps you limit the data, visibility, and abilities shared with other users.
 
 Logz.io observability platform offers several features, each with its own set of permission and access levels:
 
@@ -34,21 +34,21 @@ Logz.io observability platform offers several features, each with its own set of
 Log Management lets you search and query logs, create alerts, investigate issues, identify patterns, surface errors, and more. This table contains all Log Management features and which user roles can access and use them.
 
 
-| **Main features**                       | Read Only | User | Admin |
-|-----------------------------------------|-----------|------|-------|
-| View dashboards                         | ✓<i class="fas fa-check"></i>         | ✓<i class="fas fa-check"></i>    | ✓<i class="fas fa-check"></i>     |
-| View alerts                             | ✓<i class="fas fa-check"></i>         | ✓<i class="fas fa-check"></i>    | ✓<i class="fas fa-check"></i>     |
-| Create an alert                         |           | ✓<i class="fas fa-check"></i>    | ✓<i class="fas fa-check"></i>     |
-| View alerts Event Management                   | ✓<i class="fas fa-check"></i>         | ✓<i class="fas fa-check"></i>    | ✓<i class="fas fa-check"></i>     |
-| Live tail                               | ✓<i class="fas fa-check"></i>         | ✓<i class="fas fa-check"></i>    | ✓<i class="fas fa-check"></i>     |
-| Optimizers                              |           | ✓<i class="fas fa-check"></i>    | ✓<i class="fas fa-check"></i>     |
-| Insights                                |           | ✓<i class="fas fa-check"></i>    | ✓<i class="fas fa-check"></i>     |
-| Reports                                 |           | ✓<i class="fas fa-check"></i>    | ✓<i class="fas fa-check"></i>     |
-| Data parsing                            |           |     | ✓<i class="fas fa-check"></i>     |
-| Field mapping                           |           |     | ✓<i class="fas fa-check"></i>     |
-| Archive and restore                     |           |     | ✓<i class="fas fa-check"></i>     |
-| Drop filters                            |           |     | ✓<i class="fas fa-check"></i>     |
-| Incident reports                        |           | ✓<i class="fas fa-check"></i>    | ✓<i class="fas fa-check"></i>     |
+| **Main features**                       | Read Only | User | SIEM | Admin |
+|-----------------------------------------|-----------|------|-------|-------|
+| View dashboards                         | ✓         | ✓    | ✓     | ✓     |
+| View alerts                             | ✓         | ✓    | ✓     | ✓     |
+| Create an alert                         |           | ✓    | ✓     | ✓     |
+| View alerts Event Management            | ✓         | ✓    | ✓     | ✓     |
+| Live tail                               | ✓         | ✓    | ✓     | ✓     |
+| Optimizers                              |           | ✓    | ✓     | ✓     |
+| Insights                                |           | ✓    | ✓     | ✓     |
+| Reports                                 |           | ✓    | ✓     | ✓     |
+| Data parsing                            |           |      |       | ✓     |
+| Field mapping                           |           |      |       | ✓     |
+| Archive and restore                     |           |      |       | ✓     |
+| Drop filters                            |           |      |       | ✓     |
+| Incident reports                        |           | ✓    | ✓     | ✓     |
 
 ###### Additional restrictions
 
@@ -61,10 +61,10 @@ Log Management lets you search and query logs, create alerts, investigate issues
 Use Infrastructure Monitoring to create and curate dashboards that monitor your system's health and status. This table contains Metrics features, and which user roles can access and use them.
 
 
-| **Main features**                       | Read Only | User | Admin |
-|-----------------------------------------|-----------|------|-------|
-| View dashboards                         | ✓<i class="fas fa-check"></i>         | ✓<i class="fas fa-check"></i>    | ✓<i class="fas fa-check"></i>     |
-| Manage tokens                           |           |      | ✓<i class="fas fa-check"></i>     |
+| **Main features**                       | Read Only | User | SIEM | Admin |
+|-----------------------------------------|-----------|------|-------|------|
+| View dashboards                         | ✓         | ✓    | ✓     |  ✓   |
+| Manage tokens                           |           |      |       | ✓    |
 
 ###### Additional restrictions
 
@@ -75,54 +75,54 @@ Use Infrastructure Monitoring to create and curate dashboards that monitor your 
 Logz.io’s Tracing feature gives you the ability to look under the hood at how your microservices interact, and lets you access rich information to help improve performance, investigate, and troubleshoot issues. This table contains all Tracing features, and which user roles can access and use them.
 
 
-| **Main features**                       | Read Only | User | Admin |
-|-----------------------------------------|-----------|------|-------|
-| View dashboards                         | ✓<i class="fas fa-check"></i>         | ✓<i class="fas fa-check"></i>    | ✓<i class="fas fa-check"></i>     |
-| Manage tokens                           |           |      | ✓<i class="fas fa-check"></i>     |
+| **Main features**                       | Read Only | User | SIEM | Admin |
+|-----------------------------------------|-----------|------|-------|-----|
+| View dashboards                         | ✓         | ✓    | ✓     | ✓   |
+| Manage tokens                           |           |      |       | ✓   |
 
 ### User role permissions for Cloud SIEM
 
 Cloud SIEM (*Security Information and Event Management*) aggregates security logs and alerts across distributed environments to allow your team to investigate security incidents from a single observability platform. This table contains all Cloud SIEM features, and which user roles can access and use them.
 
 
-| **Main features**                       | Read Only | User | Admin |
-|-----------------------------------------|-----------|------|-------|
-| View summary                            | ✓<i class="fas fa-check"></i>         | ✓<i class="fas fa-check"></i>    | ✓<i class="fas fa-check"></i>     |
-| Event management                        | ✓<i class="fas fa-check"></i>         | ✓<i class="fas fa-check"></i>    | ✓<i class="fas fa-check"></i>     |
-| View rules                              | ✓<i class="fas fa-check"></i>         | ✓<i class="fas fa-check"></i>    | ✓<i class="fas fa-check"></i>     |
-| Create rules                            |           | ✓<i class="fas fa-check"></i>    | ✓<i class="fas fa-check"></i>     |
-| Dashboards                              | ✓<i class="fas fa-check"></i>         | ✓<i class="fas fa-check"></i>    | ✓<i class="fas fa-check"></i>     |
-| Threats overview                        | ✓<i class="fas fa-check"></i>         | ✓<i class="fas fa-check"></i>    | ✓<i class="fas fa-check"></i>     |
-| Threats intelligent field               | ✓<i class="fas fa-check"></i>         | ✓<i class="fas fa-check"></i>    | ✓<i class="fas fa-check"></i>     |
-| OpenSearch Dashboards                                  | ✓<i class="fas fa-check"></i>         | ✓<i class="fas fa-check"></i>    | ✓<i class="fas fa-check"></i>     |
-| Reports                                 |           | ✓<i class="fas fa-check"></i>    | ✓<i class="fas fa-check"></i>     |
-| Drilldowns                              |           |      | ✓<i class="fas fa-check"></i>     |
-| Lookups                                 |           | ✓<i class="fas fa-check"></i>    | ✓<i class="fas fa-check"></i>     |
-| Incident reports                        |           | ✓<i class="fas fa-check"></i>    | ✓<i class="fas fa-check"></i>     |
+| **Main features**                       | Read Only | User | SIEM | Admin |
+|-----------------------------------------|-----------|------|-------|------|
+| View summary                            | ✓         | ✓    | ✓     | ✓     |
+| Event management                        | ✓         | ✓    | ✓     | ✓     |
+| View rules                              | ✓         | ✓    |       | ✓     |
+| Create rules                            |           | ✓    | ✓     | ✓     |
+| Dashboards                              | ✓         | ✓    | ✓     | ✓     |
+| Threats overview                        | ✓         | ✓    | ✓     | ✓     |
+| Threats intelligent field               | ✓         | ✓    | ✓     | ✓     |
+| OpenSearch Dashboards                   | ✓         | ✓    | ✓     | ✓     |
+| Reports                                 |           | ✓    | ✓     | ✓     |
+| Drilldowns                              |           |      |       | ✓     |
+| Lookups                                 |           | ✓    | ✓     | ✓     |
+| Incident reports                        |           | ✓    | ✓     | ✓     |
 
 
 ## User role permissions for general account settings
 
 Logz.io general settings allow users to control elements relevant to their accounts, such as passwords, tokens, system status, unified variables, and more. This table contains all general settings, and which user roles can access and use them.
 
-| **Main features**                       | Read Only | User | Admin |
-|-----------------------------------------|-----------|------|-------|
-| Change personal password                | ✓<i class="fas fa-check"></i>         | ✓<i class="fas fa-check"></i>    | ✓<i class="fas fa-check"></i>     |
-| Change dark/light theme                 | ✓<i class="fas fa-check"></i>         | ✓<i class="fas fa-check"></i>    | ✓<i class="fas fa-check"></i>     |
-| View token                              |           |      | ✓<i class="fas fa-check"></i>     |
-| Manage tokens                           |           |      | ✓<i class="fas fa-check"></i>     |
-| View region                             |           |      | ✓<i class="fas fa-check"></i>     |
-| Toggle support access                   |           |      | ✓<i class="fas fa-check"></i>     |
-| Refresh OpenSearch Dashboards mapping                  |           | ✓<i class="fas fa-check"></i>    | ✓<i class="fas fa-check"></i>     |
-| View system status                      | ✓<i class="fas fa-check"></i>         | ✓<i class="fas fa-check"></i>    | ✓<i class="fas fa-check"></i>     |
-| Notification endpoints                  |           | ✓<i class="fas fa-check"></i>    | ✓<i class="fas fa-check"></i>     |
-| ELK apps                                |           | ✓<i class="fas fa-check"></i>    | ✓<i class="fas fa-check"></i>     |
-| View Unified variables                  | ✓<i class="fas fa-check"></i>         | ✓<i class="fas fa-check"></i>    | ✓<i class="fas fa-check"></i>     |
-| Edit Unified variables                  |           |      | ✓<i class="fas fa-check"></i>     |
-| Manage users                            |           |      | ✓<i class="fas fa-check"></i>     |
-| Audit trail                             |           |      | ✓<i class="fas fa-check"></i>     |
-| Manage accounts                         |           |      | ✓<i class="fas fa-check"></i>     |
-| Usage and billing                       |           |      | ✓<i class="fas fa-check"></i>     |
+| **Main features**                       | Read Only | User | SIEM | Admin |
+|-----------------------------------------|-----------|------|-------|-------|
+| Change personal password                | ✓         | ✓    | ✓     | ✓     |
+| Change dark/light theme                 | ✓         | ✓    | ✓     | ✓     |
+| View token                              |           |      |       | ✓     |
+| Manage tokens                           |           |      |       | ✓     |
+| View region                             |           |      |       | ✓     |
+| Toggle support access                   |           |      |       | ✓     |
+| Refresh OpenSearch Dashboards mapping   |           | ✓    | ✓     | ✓     |
+| View system status                      | ✓         | ✓    | ✓     | ✓     |
+| Notification endpoints                  |           | ✓    | ✓     | ✓     |
+| ELK apps                                |           | ✓    | ✓     | ✓     |
+| View Unified variables                  | ✓         | ✓    | ✓     | ✓     |
+| Edit Unified variables                  |           |      |       | ✓     |
+| Manage users                            |           |      |       | ✓     |
+| Audit trail                             |           |      |       | ✓     |
+| Manage accounts                         |           |      |       | ✓     |
+| Usage and billing                       |           |      |       | ✓     |
 
 
 ### Sub account
