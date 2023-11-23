@@ -26,8 +26,7 @@ def get_pr_files():
         if len(files) == 0:
             break
         for file in files:
-            if file[status_field] != 'removed':
-                files_in_pr.append(file[file_name_field])
+            files_in_pr.append(file[file_name_field])
         page_number += 1
 
     files_str = ''

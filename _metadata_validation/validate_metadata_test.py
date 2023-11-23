@@ -148,13 +148,13 @@ class TestValidateMetadata(unittest.TestCase):
     def test_get_changed_files(self):
         changed_set = f'{self.PATH_PREFIX}valid-sample.md'
         os.environ[validate_metadata.consts.ENV_FILES_TO_TRACK] = changed_set
-        changed_files = validate_metadata.get_changed_files()
+        changed_files, removed_files = validate_metadata.get_changed_files()
         self.assertEqual(len(changed_files), 1)
         self.assertEqual(changed_files[0], changed_set)
 
     def test_get_changed_files_empty(self):
         os.environ[validate_metadata.consts.ENV_FILES_TO_TRACK] = ''
-        changed_files = validate_metadata.get_changed_files()
+        changed_files, removed_files = validate_metadata.get_changed_files()
         self.assertEqual(len(changed_files), 0)
 
     def test_get_file_metadata(self):
