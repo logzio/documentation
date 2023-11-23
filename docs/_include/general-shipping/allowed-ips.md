@@ -14,6 +14,10 @@ If necessary, allowlist the relevant IPs in your firewalls. These depend on the 
 | ap-southeast-2 | 3.104.195.194 | AWS |
 | ap-northeast-1 | 54.238.45.227 | AWS |
 
+:::note
+Azure Hosting is now deprecated; however, Azure Shipping and Azure Marketplace remain active and will continue to be supported.
+:::
+
 <!--  21 Oct 2021: These table entries are on hold until the issue with Azure regions is resolved
 | westeurope | x.x.x.x | Azure |
 | westus2 | x.x.x.x | Azure |  -->

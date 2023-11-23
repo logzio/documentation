@@ -23,6 +23,10 @@ For example, if you see `app-eu.logz.io`, then your account is in the Europe (Fr
 
 ## Available regions
 
+:::note
+Azure Hosting is now deprecated; however, Azure Shipping and Azure Marketplace remain active and will continue to be supported.
+:::
+
 Your listener host and API host will always be in the same region as your account.
 
 | Region | Cloud | Logz.io account host | Listener host | API host | Region code | Region slug |
