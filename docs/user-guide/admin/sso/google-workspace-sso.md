@@ -61,15 +61,18 @@ When [creating access groups for Google Workspace](https://support.google.com/a/
 
 First, **[add a custom attribute](https://support.google.com/a/answer/6208725?hl=en)** and link it to your SAML app.
 
-Open your SAML app, navigate to the **Add a new custom attribute** section, and add the following configuration:
+Open your SAML app, navigate to the **SAML attribute mapping** section, and click **Configure SAML attribute mapping**.
 
-* Name: groups
-* Info type: Text
-* Visibility: Visible to user and admin
-* Number of values: Multi-value
+In the **Attributes** section, add the custom attribute you've just created and set the app attribute of your choice.
 
-![Set group SSO](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/google/add-custom-fields.png)
+Next, you can add Group membership information by selecting the relevant groups from your account.
 
-Next, configure the groups attribute to be sent across as part of the SAML login.
+:::note
+When using a Custom Attribute, you must update **every user** manually with a string.
+:::
 
-![Set group attribute](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/google/sent-group-sso.png)
+![Set group SSO](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/google/google-sso-saml-group.png)
+
+<!-- Next, configure the groups attribute to be sent across as part of the SAML login.
+
+![Set group attribute](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/google/sent-group-sso.png) -->
