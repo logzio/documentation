@@ -14,10 +14,14 @@ logger = logging.getLogger()
 
 def validate_changed_files():
     error_counter = 0
-    changed_files = get_changed_files()
+    changed_files, removed_files = get_changed_files()
     if len(changed_files) == 0:
-        logger.error('Could not find changed files, exiting')
-        exit(1)
+        if len(removed_files) > 0:
+            logger.info('PR only deletes files')
+            exit(0)
+        else:
+            logger.error('Could not find changed files, exiting')
+            exit(1)
     logger.info(f'Files to scan: {changed_files}')
     files_to_unique_fields = get_files_to_unique_fields()
     if len(files_to_unique_fields) == 0:
@@ -92,15 +96,19 @@ def print_missing_fields(file_metadata):
 def get_changed_files():
     files_str = os.getenv(consts.ENV_FILES_TO_TRACK, '')
     if files_str == '':
-        return []
+        return [], []
     files_str = files_str.replace(' ', '')
     files_arr = files_str.split(',')
     files_to_track = []
+    removed_files = []
     for file in files_arr:
         docs_path = os.getenv(consts.ENV_DOCS_PREFIX, consts.DOCS_PATH)
+        if not os.path.isfile(file):
+            removed_files.append(file)
+            continue
         if file.startswith(docs_path) and file.endswith('.md'):
             files_to_track.append(file)
-    return files_to_track
+    return files_to_track, removed_files
 
 
 def get_files_to_unique_fields():
