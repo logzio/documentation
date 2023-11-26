@@ -7,6 +7,10 @@ title: Migrating Accounts Between Hosting Regions
 
 You can migrate your Logz.io Log Management accounts between hosting regions. We'll be frank - it can take a bit of effort, but with the right scripting and API implementation, can be done fairly quickly.
 
+:::note
+Azure Hosting is now deprecated; however, Azure Shipping and Azure Marketplace remain active and will continue to be supported.
+:::
+
 ## Implications
 
 Before you set out to migrate your account, you will want to take the following implications into consideration:
