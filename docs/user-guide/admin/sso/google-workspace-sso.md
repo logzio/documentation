@@ -73,6 +73,8 @@ When using a Custom Attribute, you must update **every user** manually with a st
 
 ![Set group SSO](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/google/google-sso-saml-group.png)
 
+Click **Save** to apply the changes. 
+
 <!-- Next, configure the groups attribute to be sent across as part of the SAML login.
 
 ![Set group attribute](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/google/sent-group-sso.png) -->
