@@ -65,13 +65,15 @@ Open your SAML app, navigate to the **SAML attribute mapping** section, and clic
 
 In the **Attributes** section, add the custom attribute you've just created and set the app attribute of your choice.
 
-Next, you can add Group membership information by selecting the relevant groups from your account.
-
 :::note
 When using a Custom Attribute, you must update **every user** manually with a string.
 :::
 
 ![Set group SSO](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/google/google-sso-saml-group.png)
+
+Next, you can add Group membership information by selecting the relevant groups from your account.
+
+![Set groups](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/google/group-membership.png)
 
 Click **Save** to apply the changes. 
 
