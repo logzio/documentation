@@ -249,3 +249,13 @@ To address this issue, you can use the `--set` commands provided below in order 
 --set logzio-fluentd.daemonset.init.containerImage=public.ecr.aws/docker/library/busybox
 --set logzio-trivy.image=public.ecr.aws/logzio/trivy-to-logzio
 ```
+
+## Upgrade logzio-monitoring to v3.0.0
+
+The logzio-monitoring chart was upgraded with breaking changes on version 3.0.0, upon trying to upgrade the chart using `helm upgrade -n monitoring --version 3.0.0 logzio-monitoring logzio-helm/logzio-monitoring`, an error occurs that correlates with the version upgrade of the sub charts of logzio-telemetry chart.
+
+There are 2 possible approachs for the upgrade you can choose from:
+
+- Before running the `helm upgrade` command, delete the old sub charts resources: `logzio-monitoring-prometheus-pushgateway` deployment and the `logzio-monitoring-prometheus-node-exporter` daemonset.
+
+- Re-install the chart. 
