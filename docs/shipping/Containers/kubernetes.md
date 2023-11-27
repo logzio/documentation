@@ -59,11 +59,12 @@ Currently supported resource kinds are `Deployment`, `Daemonset`, `Statefulset`,
 
 ```sh
 helm install --namespace=monitoring \
---set secrets.logzioShippingToken='<<LOG-SHIPPING-TOKEN>>' \
---set secrets.logzioListener='<<LISTENER-HOST>>' \
---set secrets.env_id='<<CLUSTER-NAME>>' \
---set secrets.customListener='<<CUSTOM-HOST>>' \
-logzio-k8s-events logzio-helm/logzio-k8s-events
+--set logzio-k8s-events.secrets.logzioShippingToken='<<LOG-SHIPPING-TOKEN>>' \
+--set logzio-k8s-events.secrets.logzioListener='<<LISTENER-HOST>>' \
+--set logzio-k8s-events.secrets.env_id='<<CLUSTER-NAME>>' \
+--set logzio-k8s-events.secrets.customListener='<<CUSTOM-HOST>>' \
+logzio-monitoring logzio-helm/logzio-monitoring
+
 ```
 
 
