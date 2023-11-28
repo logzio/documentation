@@ -59,7 +59,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
 | `<<CUSTOM-HOST>>` | (*optional*) HTTP/s listener endpoint that receives JSON input, overrides the Logz.io listener. |
 
-### Deployment Events Versioning
+### Deployment events versioning
 
 In order to add an indication for the versioning in our K8S 360 and Service Overview UI, the following annotation should be added to the metadata of each resource you'd like to track its versioning. 
 Commit URL structure: `https://github.com/<account>/<repository>/commit/<commit-hash>`
@@ -75,7 +75,7 @@ metadata:
 
 For log shipping troubleshooting, see our [user guide](https://docs.logz.io/user-guide/kubernetes-troubleshooting/).
 
-## Send your Metrics
+## Send your metrics
 
 ```sh
 helm install -n monitoring \
