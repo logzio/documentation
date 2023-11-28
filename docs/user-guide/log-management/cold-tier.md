@@ -12,6 +12,10 @@ With Cold Tier, you can seamlessly search cold storage data you've archived, vie
 
 To start using Cold Tier, navigate to [Log analytics > Cold Tier](https://app.logz.io/#/dashboard/osd/discover/).
 
+:::caution Important 
+Cold tier is currently only available for users using **Amazon S3 archive**. 
+:::
+
 <!-- ### Cold search overview
 
 Once you've [set up an AWS S3 archive](/user-guide/archive-and-restore/configure-archiving.html) and granted the relevant Cold search permissions, you can start using the feature from the main Log analytics dashboard.
