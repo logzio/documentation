@@ -85,5 +85,5 @@ Copy a valid [API token](https://app.logz.io/#/dashboard/settings/manage-tokens/
 You're using a valid API token, but you sent the request to the wrong account region.
 Change the API region to your account region and try again.
 
-For more information on finding your account's region, see [Account region]({{site.baseurl}}/user-guide/accounts/account-region.html).
+For more information on finding your account's region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
  
