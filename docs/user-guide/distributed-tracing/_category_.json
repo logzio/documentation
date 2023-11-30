@@ -1,6 +1,6 @@
 {
   "label": "Distributed Tracing",
-  "position": 6,
+  "position": 8,
   "link": {
     "type": "generated-index",
     "description": "Logz.io gives you the ability to look under the hood at how your microservices are interacting with each other and lets you access rich information to improve performance, investigate, and troubleshoot issues."

@@ -1,16 +1,23 @@
 ---
 sidebar_position: 4
+title: Services
+description: View your services' performance and health in Logz.io's Services
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [traces, logs, metrics, services, service overview, logz.io]
 ---
 
-# Service List
 
-The **Service list** dashboard centralizes all of your running services, allowing you to detect if and when issues occur quickly.  You can use the dashboard to investigate the different services, operations, and logs inside each one.
+The **Services** dashboard centralizes all of your running services, allowing you to detect if and when issues occur quickly.  You can use the dashboard to investigate the different services, operations, and logs inside each one.
 
-![Services](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/service-list-overview.png)
+![Services](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/services-main-map-list.png)
 
-## Service list overview
+## Services overview
 
-The main Service list table view contains the following details:
+You can choose how you want to view your services; a table view or a map view. Switch between the views by clicking on the buttons at the top right corner of the screen.
+
+### Table view
+
+The table view contains the following details:
 
 * **Name** of each service
 * **Impact** level - Determines the severity of each event, calculated based on the latency and request rate
@@ -22,6 +29,21 @@ The main Service list table view contains the following details:
 You can change your view by comparing the data to a previous time frame, such as the last day or week. You can also choose a different time frame that ranges from 2 hours ago and up to 24 hours ago.
 
 If you’re looking for a specific service, start typing its name in the search box, and your view will change to display all the matching results.
+
+### Map view
+
+The map lets you visualize your system architecture, understand the connections between elements, and focus on your services and operations. 
+
+Use the filters to change the time frame, service, service, environment, and operations. You can choose to view the data according to the following:
+
+* **Request rate** - Number of requests per second, in numeral and graph view
+* **Latency** - The duration it takes data to travel in the environment, presented in milliseconds and graph view
+* **Error ratio** - Both percentage and graph view
+
+You can also zoom in and out of the map, move the elements around, and click on them to get additional info in graph form. Clicking on the button will take you to the service overview screen.
+
+![service map overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/service-map.gif)
+
 
 ## Dive deeper into your services
 

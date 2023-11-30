@@ -253,6 +253,7 @@
 /user-guide/log-shipping/telemetry-collector-localhost.html		/docs/user-guide/telemetry-collector/telemetry-collector-localhost
 /user-guide/log-shipping/ezkonnect.html		/docs/user-guide/telemetry-collector/ezkonnect
 /user-guide/azure-native-integration.html		/docs/user-guide/telemetry-collector/azure-native-integration
+/docs/user-guide/distributed-tracing/service-list		/docs/user-guide/app360/service-list
 # Shippers
 /shipping/synthetic-monitoring-sources/api-status.html		/docs/shipping/Synthetic-Monitoring/API-status-metrics-synthetic
 /shipping/synthetic-monitoring-sources/ping-statistics.html		/docs/shipping/Synthetic-Monitoring/Ping-statistics-synthetic
