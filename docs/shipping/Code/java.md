@@ -517,7 +517,9 @@ If the log appender does not ship logs, add `<inMemoryQueue>true</inMemoryQueue>
 </TabItem>
 </Tabs>
   
+
 ## Metrics
+
 
 :::note
 [Project's GitHub repo](https://github.com/logzio/micrometer-registry-logzio/)
