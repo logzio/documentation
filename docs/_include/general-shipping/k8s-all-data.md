@@ -13,7 +13,7 @@ helm install -n monitoring \
 --set logzio-k8s-telemetry.metrics.enabled=true \
 --set logzio-k8s-telemetry.secrets.MetricsToken="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>" \
 --set logzio-k8s-telemetry.secrets.ListenerHost="https://<<LISTENER-HOST>>:8053" \
---set logzio-k8s-telemetry.secrets.p8s_logzio_name="<<ENV-TAG>>" \
+--set logzio-k8s-telemetry.secrets.p8s_logzio_name="<<ENV-ID>>" \
 --set logzio-k8s-telemetry.traces.enabled=true \
 --set logzio-k8s-telemetry.secrets.TracesToken="<<TRACES-SHIPPING-TOKEN>>" \
 --set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO-REGION>>" \
@@ -24,6 +24,10 @@ helm install -n monitoring \
 --set logzio-trivy.env_id="<<ENV-ID>>" \
 --set logzio-trivy.secrets.logzioShippingToken="<<LOG-SHIPPING-TOKEN>>" \
 --set logzio-trivy.secrets.logzioListener="<<LISTENER-HOST>>" \
+--set deployEvents.enabled=true \
+--set logzio-k8s-events.secrets.logzioShippingToken='<<LOG-SHIPPING-TOKEN>>' \
+--set logzio-k8s-events.secrets.logzioListener='<<LISTENER-HOST>>' \
+--set logzio-k8s-events.secrets.env_id='<<ENV-ID>>' \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
