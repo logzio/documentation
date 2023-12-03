@@ -16,7 +16,7 @@ To set up your Google Workspace SSO, you'll first need to email [help@logz.io](m
 
 Include these items in the message:
 
-* Your Logz.io [account ID](https://docs.logz.io/user-guide/accounts/finding-your-account-id.html)
+* Your Logz.io [account ID](https://app.logz.io/#/dashboard/settings/general)
 * The last six characters of your [account token](https://app.logz.io/#/dashboard/settings/manage-accounts)
 
 The Support team will respond with the connection information needed to set up your Google Workspace SSO.
