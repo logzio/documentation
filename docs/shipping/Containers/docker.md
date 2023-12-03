@@ -107,7 +107,7 @@ By default, logs from docker-collector-logs and docker-collector-metrics contain
 Spin up your Docker containers if you haven't done so already.
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see [log shipping troubleshooting](/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
 
  
 ### The logzio-logging plugin
@@ -221,7 +221,7 @@ For a complete list of options, see the configuration parameters above. 👆
 
 Spin up your Docker containers if you haven't done so already. Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see [log shipping troubleshooting](/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
 
  
 ## Metrics

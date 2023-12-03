@@ -17,7 +17,7 @@ To set up your AWS SSO, you'll first need to email [help@logz.io](mailto:help@lo
 
 Include these items in the message:
 
-* Your Logz.io [account ID]({{site.baseurl}}/user-guide/accounts/finding-your-account-id.html)
+* Your Logz.io account ID.
 * The last six characters of your [account token](https://app.logz.io/#/dashboard/settings/manage-accounts)
 
 The Support team will respond with the connection information needed to set up your AWS SSO.

@@ -45,7 +45,7 @@ In the _Restore data_ tab, give your restored account a **Name**, and choose a *
 
 There are a few things you need to check before you begin the process.
 
-<!-- 1. Double-check your [Drop filters]({{site.baseurl}}/user-guide/accounts/drop-filters/) to make sure logs you need won't be filtered.
+<!-- 1. Double-check your [Drop filters](/docs/user-guide/data-hub/drop-fiters/) to make sure logs you need won't be filtered.
 
     If you're planning to restore logs that could be dropped by your drop-filters, you'll need to first make the necessary changes to your drop-filters before restoring. Otherwise the logs will just be dropped right after they are restored, and before   they reach your Logz.io account. 
 
