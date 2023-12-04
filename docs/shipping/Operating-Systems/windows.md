@@ -9,7 +9,7 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/wind
 logs_dashboards: []
 logs_alerts: ['72Yry8pK5OfiGdPOV2y9RZ', '4Mkw0OICZz7xnZZjlGWX9x']
 logs2metrics: []
-metrics_dashboards: ['1Pm3OYbu1MRGoELc2qhxQ1','7vydxtpnlKLILHIGK4puX5']
+metrics_dashboards: ['7vydxtpnlKLILHIGK4puX5']
 metrics_alerts: ['4GVNTAqeH4lSRQBfN7dCXQ']
 drop_filter: []
 ---
