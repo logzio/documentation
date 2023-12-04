@@ -45,6 +45,7 @@
 /user-guide/infrastructure-monitoring/metrics-explore-prometheus		/docs/user-guide/Infrastructure-monitoring/introduction-to-prometheus/explore-metrics-prometheus
 /user-guide/infrastructure-monitoring/alerts.html		/docs/user-guide/Infrastructure-monitoring/metrics-alert-manager
 /user-guide/infrastructure-monitoring/configure-metrics-drilldown-links.html		/docs/user-guide/Infrastructure-monitoring/variables
+/user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html		/docs/user-guide/Infrastructure-monitoring/variables
 /user-guide/infrastructure-monitoring/metrics-correlations/		/docs/user-guide/Infrastructure-monitoring/log-correlations/
 /user-guide/infrastructure-monitoring/annotations/		/docs/user-guide/Infrastructure-monitoring/log-correlations/annotations
 /user-guide/infrastructure-monitoring/explore-in-logs-drilldown-links.html		/docs/user-guide/Infrastructure-monitoring/log-correlations/explore-in-logs-drilldown-links
