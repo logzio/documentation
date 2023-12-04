@@ -49,9 +49,24 @@ This table includes all of the operations running inside the chosen service, wit
 
 Use the search bar to find a specific operation or the arrows at the bottom of the table to navigate the operations.
 
-Click on an operation's name to view its detailed trace. The trace dashboard helps you pinpoint where failures occur and find the leading contributors to slow transaction performance.
-
 ![operations view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/operations-view.png)
+
+### (Single) Operation overview
+
+Click on an operation's name for a more in-depth view of its current state. You get a graph overview of the operation's request rate, latency, error ratio, and HTTP status code.
+
+You can also view the operation's spans with these additional details:
+
+* **Time**
+* **Trace group**
+* **Trace ID**
+* The **Operation** related to this span
+* **Duration**
+* **Status code**
+
+Clicking on any of the spans will direct you to its trace view, helping you pinpoint where failures occur and find the leading contributors to slow transaction performance.
+
+![operation spans view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/operations-spans-view.png)
 
 ### Infrastructure overview
 
