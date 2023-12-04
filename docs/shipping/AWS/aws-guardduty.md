@@ -21,12 +21,12 @@ drop_filter: []
 
 You'll need to create a new EventBridge rule that will send your GuardDuty findings to a Cloudwatch Log Group.
 
-1. In your **AWS Console** go to ** Amazon EventBridge** service.
-2. In the left Amazon EventBridge menu choose **Rules**, then click on **Create rule**.
-3. Insert the name of your new rule, and click **Next**.
-4. Scroll down to the **Event pattern** panel. For **AWS service** field, choose **GuardDuty**. For **Event type** field choose **All Events**, and click **Next**.
-5. For **Select a target** field choose **CloudWatch log group**. For **Log Group** field, choose the first option (`/aws/events`) and type the name you'd like to give your new log group. Click **Next**.
-6. Add tags to your event rule, if you want to. Click **Next**.
+1. In your **AWS Console**, go to ** Amazon EventBridge** service.
+2. In the left menu of Amazon EventBridge, choose **Rules**, then click on **Create rule**.
+3. Enter the name of your new rule, and click **Next**.
+4. Scroll down to the **Event pattern** panel. In the **AWS service** field, choose **GuardDuty**. In the **Event type** field choose **All Events**, and click **Next**.
+5. For the **Select a target** field, choose **CloudWatch log group**. In the **Log Group** field, choose the first option (`/aws/events`) and enter the name you'd like for your new log group. Click **Next**.
+6. Optionally, add tags to your event rule. Click **Next**.
 7. Review the details and click **Create rule**.
 
 
@@ -84,11 +84,11 @@ Give the stack a few minutes to be deployed.
 
 Once new logs are added to your chosen log group, they will be sent to your Logz.io account.
 
-Your GuardDuty logs will be sent in accordance to your GuardDuty configuration.
+Your GuardDuty logs will be sent in accordance with your GuardDuty configuration.
 GuardDuty publishes its findings to EventBridge every 6 hours. If you want to configure it differently:
 1. Go to your GuardDuty settings.
 2. Scroll down to **Findings export options**. Click on **Edit** of **Frequency**.
-3. Choose your prefered exporting frequency to export GuardDuty findings.
+3. Choose your prefered frequency to export GuardDuty findings.
 
 You can export a sample finding by going to GuardDuty **settings** and clicking the **Generate sample findings**.
 
