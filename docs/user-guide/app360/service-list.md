@@ -14,7 +14,7 @@ The **Services** dashboard centralizes all of your running services, allowing yo
 
 ## Services overview
 
-You can choose how you want to view your services; a table view or a map view. Switch between the views by clicking on the buttons at the top right corner of the screen.
+You can choose how you want to view your services: a table view or a map view. Switch between the views by clicking on the buttons at the top right corner of the screen.
 
 ### Table view
 
@@ -52,7 +52,7 @@ Clicking on the **Clear filters** will remove all of the filters.
 
 The map lets you visualize your system architecture, understand the connections between elements, and focus on your services and operations. 
 
-Use the filters to change the time frame, service, service, environment, and operations. You can choose to view the data according to the following:
+The filters change the time frame, service, environment, and operations. You can choose to view the data according to the following:
 
 * **Request rate** - Number of requests per second, in numeral and graph view
 * **Latency** - The duration it takes data to travel in the environment, presented in milliseconds and graph view
@@ -108,7 +108,7 @@ You can also view the operation's spans with these additional details:
 * **Duration**
 * **Status code**
 
-Clicking on any of the spans will direct you to its trace view, helping you pinpoint where failures occur and find the leading contributors to slow transaction performance.
+Clicking on any span will direct you to its trace view, helping you pinpoint where failures occur and find the leading contributors to slow transaction performance.
 
 ![operation spans view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/operations-spans-view.png)
 
@@ -144,13 +144,26 @@ To activate the **Go to Commit** button, go to **your app or service** and add t
 
 Logz.io's Anomaly Detector helps you engage a predictive approach towards your data. It monitors your service latency and error ratio to detect any abnormal patterns or data points that deviate from the expected behavior, helping to detect and address issues, improve security, and ensure system reliability.
 
-To add a new Anomaly Detector, select the service you want to monitor. In map view, click on the service and choose New Anomaly Detector. In the table view, click on the additional items menu on the right end and choose New Anomaly Detector. 
+To get started with the Anomaly Detector, you'll need to setup the anomaly you want to track.
 
-The popup presents the chosen service, and now it's time to select the operations you want to monitor for anomalies. The All operations option monitors the entire service, or you can select up to 5 operations inside the service, to monitor aggregated anomalies.
+In List view, select the service you wish to monitor, click the three dots, then choose **Edit Anomaly Detector**. In Map view, click on the operation you want to monitor and select Edit Anomaly Detector.
 
-Next, you can determine the sensitivity of the anomaly detector. Low triggers an alert after finding 3 deviations in the data, Medium triggers when 2 deviations are detected, and High triggers immediately as the first deviation is detected.
+![anomaly detector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/new-anomaly-detector.png)
 
-Finally, you can choose whether to receive or send notifications whenever new anomalies are detected. 
+The Anomaly Detector automatically selects the service, and you can choose to monitor all operations, which will aggregate the anomalies by service, or select up to five specific operations from which to aggregate anomalies.
+
+Next, you can determine the sensitivity of the anomaly detector. **Low** triggers an alert after finding 3 deviations in the data, **Medium** triggers when 2 deviations are detected, and **High** triggers immediately as the first deviation is detected.
+
+Finally, you can choose if and how to receive notifications whenever new anomalies are detected. 
+
+Click **Save** to create the anomaly detector. 
+
+![anomaly popup](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/setup-anomaly-detector.png)
+
+Once your anomaly detector is up and running, you'll see an indicator in the list and map view next to each service and operation being monitored.
+
+![no anomaly](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/no-anomaly.png)
+
 
 
 
