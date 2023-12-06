@@ -1,6 +1,6 @@
 ---
 id: Windows-Defender
-title: Windows Defender
+title: Windows Defender via Winlogbeat
 overview: This integration enable you to send Windows Defender events to Logz.io using winlogbeat
 product: ['logs','siem']
 os: ['windows']
