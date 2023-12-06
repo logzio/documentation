@@ -41,9 +41,9 @@ we recommend authenticating with an IAM role.
 
 
 * To set up an IAM role, see
-  [_Give AWS access with IAM roles_]({{site.baseurl}}/user-guide/give-aws-access-with-iam-roles/).
+  [_Give AWS access with IAM roles_](/docs/user-guide/admin/give-aws-access-with-iam-roles).
 * To set up an access key, see
-  [_Give AWS access with access keys_]({{site.baseurl}}/user-guide/give-aws-access-with-access-keys/).
+  [_Give AWS access with access keys_](/docs/user-guide/admin/give-aws-access-with-access-keys).
 
 :::caution Important
 Select a path to the **root of an S3 bucket**, to support data restore options. Data cannot be restored from a sub-bucket path.

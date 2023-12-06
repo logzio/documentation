@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-title: Manage Log, Metrics, Tracing, and SIEM accounts
+title: Manage Log, Metrics, Tracing, Timeless and SIEM accounts
 
 ---
 
