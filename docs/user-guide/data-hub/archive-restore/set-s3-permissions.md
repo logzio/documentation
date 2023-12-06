@@ -115,4 +115,4 @@ Logz.io can archive and restore your logs with these credentials.
 Setting up your Power search permissions:
 
 
-Once the new policy is updated, you'll be able to [use Power search](/user-guide/archive-and-restore/restore-archived-logs.html#apply-power-search) when restoring archived logs. 
+Once the new policy is updated, you'll be able to [use Power search](/docs/user-guide/data-hub/archive-restore/restore-archived-logs#apply-power-search-and-filters) when restoring archived logs. 
