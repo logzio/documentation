@@ -2,7 +2,7 @@
 id: Lambda-extension-node
 title: Traces from Node.js on AWS Lambda using OpenTelemetry
 overview: This integration to auto-instrument your Node.js application running on AWS Lambda and send the traces to your Logz.io account.
-product: ['logs']
+product: ['tracing']
 os: ['windows', 'linux']
 filters: ['AWS', 'Compute']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/AWS-Lambda.svg
