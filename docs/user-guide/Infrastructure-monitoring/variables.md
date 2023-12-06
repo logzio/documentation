@@ -59,4 +59,4 @@ You're now ready to use the variable in your new dashboard.
 ###### Additional resources
 
 * To learn more about Prometheus and PromQL, check out our [examples and best practices guide](https://docs.logz.io/user-guide/infrastructure-monitoring/prometheus-promql-queries.html). 
-* Looking to configure **Explore in OpenSearch Dashboards** drilldown links? [Read our guide](./log-correlations/explore-in-logs-drilldown-links/).
+* Looking to configure **Explore in OpenSearch Dashboards** drilldown links? [Read our guide](/docs/user-guide/infrastructure-monitoring/log-correlations/explore-in-logs-drilldown-links/).

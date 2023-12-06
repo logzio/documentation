@@ -18,7 +18,7 @@ The platform utilizes Kubernetes' numerous advantages for R&D and dev teams, all
 
 To activate your Kubernetes 360 dashboard, connect your Kubernetes data quickly and easily through Logz.io's **[Telemetry Collector](https://app.logz.io/#/dashboard/send-your-data/agent/new)**.
 
-If you already have Kubernetes 360 data in your Logz.io account or prefer connecting Kubernetes manually, follow our **[Kubernetes 360 Prerequisite](./kubernetes-360-pre/)** guide.
+If you already have Kubernetes 360 data in your Logz.io account or prefer connecting Kubernetes manually, follow our **[Kubernetes 360 Prerequisite](/docs/user-guide/k8s-360/kubernetes-360-pre)** guide.
 
 Once everything is up and running, you can use your Kubernetes 360 application.
 
