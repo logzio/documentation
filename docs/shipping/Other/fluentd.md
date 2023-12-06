@@ -362,4 +362,4 @@ If you need to customize the default settings of the configuration parameters, a
 
  ## Ship Kubernetes logs with Fluentd
 
- See the full documentation for shipping your Kubernetes logs with Fluentd [here](/shipping/Containers/kubernetes.md).
+ See the full documentation for shipping your Kubernetes logs with Fluentd [here](../containers/kubernetes.md).
