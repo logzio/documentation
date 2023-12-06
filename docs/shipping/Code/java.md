@@ -28,7 +28,7 @@ import TabItem from '@theme/TabItem';
   <TabItem value="Logzio-Log4j2-Appender" label="Logzio-Log4j2-Appender" default>
 
 :::note
-[Project's GitHub repo](https://github.com/logzio/go-metrics-sdk/)
+[Project's GitHub repo](https://github.com/logzio/logzio-log4j2-appender/)
 :::
 
 The Logz.io Log4j 2 appender sends logs using non-blocking threading, bulks, and HTTPS encryption to port 8071.
@@ -265,7 +265,7 @@ public class LogzioLog4j2Example {
   <TabItem value="Logzio-Logback-Appender" label="Logzio-Logback-Appender">
 
 :::note
-[Project's GitHub repo](https://github.com/logzio/ogzio-log4j2-appender/)
+[Project's GitHub repo](https://github.com/logzio/logzio-logback-appender)
 :::
 
 Logback sends logs to your Logz.io account using non-blocking threading, bulks, and HTTPS encryption to port 8071.
@@ -590,7 +590,7 @@ class MicrometerLogzio {
          }
          @Override
          public String uri() {
-           return "https://<<LISTENER-HOST>>";
+           return "https://<<LISTENER-HOST>>":8053;
            // example:
            // return "https://listener.logz.io:8053"; 
          }
