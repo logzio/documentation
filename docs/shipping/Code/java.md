@@ -590,7 +590,7 @@ class MicrometerLogzio {
          }
          @Override
          public String uri() {
-           return "https://<<LISTENER-HOST>>";
+           return "https://<<LISTENER-HOST>>":8053;
            // example:
            // return "https://listener.logz.io:8053"; 
          }
