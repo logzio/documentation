@@ -85,7 +85,7 @@ Power search lets you apply a text search directly on your archived data before 
 **Before using Power search:**
 
 
-Power search requires [additional permissions](/user-guide/archive-and-restore/set-s3-permissions.html#add-power-search-permissions) to run.
+Power search requires [additional permissions](/docs/user-guide/data-hub/archive-restore/set-s3-permissions/#add-power-search-permissions) to run.
 
 <!-- * Make sure your restore time range is **at most 24 hours**. Otherwise, you won't be able to run the Power search. -->
 <!--* Your archived data time zone is UTC, which might be different than your browser's time zone. Take that into consideration when choosing your restore duration.-->
