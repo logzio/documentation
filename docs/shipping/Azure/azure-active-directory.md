@@ -92,9 +92,16 @@ azureADClient:
   pullIntervalSeconds: 300
   tenantId: "<<AD_TENANT_ID>>"
   clientId: "<<APP_CLIENT_ID>>"
-  clientSecret: "<<APP_CLIENT_SECRET_VALUE>>"
+  clientSecret: "<<APP_CLIENT_SECRET>>"
+
+targetApi:
+  ASCApis:
+    - <<supportedApi1>>
 
 logLevel: INFO
+
+additionalFields:
+  <<KEY>>: "<<VALUE>>"
 ```
 
 #### Parameters
