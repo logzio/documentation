@@ -33,7 +33,7 @@ You can **compare** your view to a previous time frame and view the differences 
 
 ![service compare](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/compare-services1.png)
 
-**Change the time frame** to range from 2 hours ago and up to 2 days ago.
+**Change the time frame** to range from 2 hours to 2 days ago.
 
 ![service time](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/services-last1.png)
 
@@ -67,7 +67,7 @@ You can also zoom in and out of the map, move the elements around, and click on 
 
 Clicking on one of the services opens a new page with additional info, including a visual representation of the service’s current error ratio, request rate, latency, and a breakdown of the service’s operations, infrastructure, and logs. Each data point is compared to the time frame of your choice (last day or last week), helping you understand the trends and know which area you should focus on. 
 
-At the top of the page, you can change the time frame, choose which nodes or pods to focus on, or manually update the data by clicking on the refresh icon. 
+At the top of the page, you can change the time frame, choose which nodes or pods to focus on, or manually update the data by clicking the refresh icon. 
 
 ![service deeper](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/astronomy-services-service.png)
 
@@ -145,7 +145,7 @@ To activate the **Go to Commit** button, go to **your app or service** and add t
 
 Logz.io's Anomaly Detector helps you engage a predictive approach towards your data. It monitors your service latency and error ratio to detect any abnormal patterns or data points that deviate from the expected behavior, helping to detect and address issues, improve security, and ensure system reliability.
 
-To get started with the Anomaly Detector, you'll need to setup the anomaly you want to track.
+To get started with the Anomaly Detector, you'll need to set up the anomaly you want to track.
 
 In List view, select the service you wish to monitor, click the three dots, then choose **Edit Anomaly Detector**. In Map view, click on the operation you want to monitor and select Edit Anomaly Detector.
 
