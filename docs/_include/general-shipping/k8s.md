@@ -241,3 +241,19 @@ Before upgrading your logzio-monitoring Chart to v3.0.0 with `helm upgrade`, not
 There are two possible approaches to the upgrade you can choose from:
 - Reinstall the chart.
 - Before running the `helm upgrade` command, delete the old subcharts resources: `logzio-monitoring-prometheus-pushgateway` deployment and the `logzio-monitoring-prometheus-node-exporter` daemonset.
+
+## Configure logs in JSON format
+
+This configuration sets up a log processor to parse, restructure, and clean JSON-formatted log messages for streamlined analysis and monitoring:
+
+```json
+<filter **>
+  @type parser
+  key_name message
+  reserve_data true
+  remove_key_name_field true
+  <parse>
+    @type json
+  </parse>
+</filter>
+```
