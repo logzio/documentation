@@ -1,6 +1,6 @@
 ---
 id: Active-Directory
-title: Active Directory
+title: Active Directory via Winlogbeat
 overview: Active Directory is a directory service developed by Microsoft for Windows domain networks. This integration allows you to send Active Directory logs to your Logz.io SIEM account.
 product: ['logs','siem']
 os: ['windows']

@@ -1,6 +1,6 @@
 ---
 id: Sysmon-data
-title: Sysmon (System Monitor)
+title: Sysmon (System Monitor) via Winlogbeat
 overview: Sysmon (System Monitor) is a Windows system service that monitors and logs system activity of the Windows event log. It tracks process creations, network connections, and changes to file creation time.
 product: ['logs']
 os: ['windows']
