@@ -10,7 +10,7 @@ keywords: [traces, logs, metrics, services, service overview, logz.io]
 
 The **Services** dashboard centralizes all of your running services, allowing you to quickly detect if and when issues occur.  You can use the dashboard to investigate the different services, operations, and logs inside each one.
 
-![Services](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/services-main-dev.png)
+![Services](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/astronomy-services-main.png)
 
 ## Services overview
 
@@ -60,7 +60,7 @@ The filters change the time frame, service, environment, and operations. You can
 
 You can also zoom in and out of the map, move the elements around, and click on them to get additional info in graph form. Clicking on the button will take you to the service overview screen.
 
-![service map overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/service-map.gif)
+![service map overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/service-map-astronomy.gif)
 
 
 ## Dive deeper into your services
@@ -69,7 +69,7 @@ Clicking on one of the services opens a new page with additional info, including
 
 At the top of the page, you can change the time frame, choose which nodes or pods to focus on, or manually update the data by clicking on the refresh icon. 
 
-![service deeper](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/services-inner-dec.png)
+![service deeper](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/astronomy-services-service.png)
 
 
 Hovering over the graphs provides additional info for the time point you've chosen:
@@ -77,8 +77,9 @@ Hovering over the graphs provides additional info for the time point you've chos
 * The **Request rate** graph shows the number of requests made per minute
 * The **Latency** graph provides a milliseconds count of how long it takes for data to travel in your environment
 * The **Errors** graph analyzes the percentage of errors that occurred
+* The **HTTP status code** graph measures the distribution of various HTTP status codes
 
-![graphs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/hover-graph.png)
+![graphs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/astronomy-shop-graphs.png)
 
 ### Operations overview
 
@@ -92,7 +93,7 @@ This table includes all of the operations running inside the chosen service with
 
 Use the search bar to find a specific operation or the arrows at the bottom of the table to navigate the operations.
 
-![operations view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/operations-overview-dec.png)
+![operations view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/astronomy-operations-table.png)
 
 
 ### (Single) Operation overview
@@ -110,7 +111,7 @@ You can also view the operation's spans with these additional details:
 
 Clicking on any span will direct you to its trace view, helping you pinpoint where failures occur and find the leading contributors to slow transaction performance.
 
-![operation spans view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/operations-spans-view.png)
+![operation spans view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/astronomy-service-inside.png)
 
 ### Infrastructure overview
 
@@ -118,7 +119,7 @@ View the CPU and memory consumption inside the service. The graphs represent a b
 
 Hovering over the graphs provides values for the specific time point, allowing you to see how much CPU was used by the deployment at this specific time or how much memory this deployment used.
 
-![hovering graph](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/hover-infra.png)
+![hovering graph](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/hover-infra-small.png)
 
 You can toggle your view between pods and nodes inside the service.
 
