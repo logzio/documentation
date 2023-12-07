@@ -112,6 +112,8 @@ exporters:
       Authorization: Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
     resource_to_telemetry_conversion:
       enabled: true
+    target_info:
+        enabled: false
 service:
   pipelines:
     logs:
