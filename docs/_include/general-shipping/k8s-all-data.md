@@ -4,7 +4,7 @@
 To enjoy the full Kubernetes 360 experience, you can send all your telemetry data to Logz.io using one single Helm chart:
 
 ```sh
-helm install -n monitoring \
+helm install  -n monitoring --create-namespace \
 --set logs.enabled=true \
 --set logzio-fluentd.secrets.logzioShippingToken="<<LOG-SHIPPING-TOKEN>>" \
 --set logzio-fluentd.secrets.logzioListener="<<LISTENER-HOST>>" \
