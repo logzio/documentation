@@ -1,6 +1,6 @@
 ---
 id: GPC-Bigtable
-title: GPC Bigtable
+title: GCP Bigtable
 overview: Google Cloud Bigtable is a high performance NoSQL database service for large analytical and operational workloads. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']

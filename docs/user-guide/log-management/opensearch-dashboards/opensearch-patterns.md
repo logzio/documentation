@@ -74,7 +74,7 @@ Variables come in 2 forms:
 
 ### Log pattern limitations
 
-**A. **Unidentified size: Estimated size calculations depend on a enabling the log size field in the [Manage accounts page](https://app.logz.io/#/dashboard/settings/manage-accounts). [Learn more](../../admin/account-volume-optimization/manage-account-usage/#enabling-account-utilization-metrics-and-log-size)
+**A. **Unidentified size: Estimated size calculations depend on a enabling the log size field in the [Manage accounts page](https://app.logz.io/#/dashboard/settings/manage-accounts). [Learn more](/docs/user-guide/admin/account-volume-optimization/manage-account-usage/#enabling-account-utilization-metrics-and-log-size)
 
 **B.** Unidentified patterns: Logs that don't fall under any pattern are grouped under the unidentified pattern category.
 

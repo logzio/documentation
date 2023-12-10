@@ -45,7 +45,7 @@ For an overview of the Logpush service, [click here](https://developers.cloudfla
 
 ##### Configure Logz.io to collect logs from the S3 bucket. 
 
-Use [our procedure](https://docs.logz.io/shipping/log-sources/s3-bucket.html#configure-logzio-to-fetch-logs-from-an-s3-bucket) to configure Logz.io to fetch logs from your S3 bucket.
+Use [our procedure](https://docs.logz.io/docs/shipping/aws/aws-s3-bucket/#configure-logzio-to-fetch-logs-from-an-s3-bucket) to configure Logz.io to fetch logs from your S3 bucket.
 
 
 ##### Check Logz.io for your logs

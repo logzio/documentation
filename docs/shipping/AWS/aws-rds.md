@@ -151,7 +151,7 @@ Replace the placeholders to match your specifics. (They are indicated by the dou
 | Parameter | Description | Required/Default |
 |---|---|---|
 | logzio-logs-shipping-token | Your Logz.io account token. Replace `<<LOG-SHIPPING-TOKEN>>` with the token of the account you want to ship to. | Required |
-| logzio-logs-listener | Listener URL. Replace `<<LISTENER-HOST>>` with the host [for your region](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions). For example, `listener.logz.io` if your account is hosted on AWS US East, or `listener-nl.logz.io` if hosted on Azure West Europe. | Required. Default: `listener.logz.io` |
+| logzio-logs-listener | Listener URL. Replace `<<LISTENER-HOST>>` with the host [for your region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). For example, `listener.logz.io` if your account is hosted on AWS US East, or `listener-nl.logz.io` if hosted on Azure West Europe. | Required. Default: `listener.logz.io` |
 | rds-identifier | The RDS identifier of the host from which you want to read logs from. | Required |
 | aws-access-key | A proper AMI credentials for RDS logs access (permissions for `download-db-log-file-portion` and `describe-db-log-files` are needed). | Optional |
 | aws-secret-key | A proper AMI credentials for RDS logs access (permissions for `download-db-log-file-portion` and `describe-db-log-files` are needed). | Optional |
