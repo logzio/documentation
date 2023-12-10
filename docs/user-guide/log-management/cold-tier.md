@@ -117,7 +117,7 @@ Re-ingesting logs process failed since you've exceeded your account's limit. Thi
 #### Suggested remedy
 
 
-If your account has a [flexible volume](../../admin/logzio-accounts/flexible-volume/), you can allocate available GB from one of the existing sub accounts.
+If your account has a [flexible volume](/docs/user-guide/admin/logzio-accounts/flexible-volume/), you can allocate available GB from one of the existing sub accounts.
 
 Otherwise, you can update your plan and adjust your daily volume on the [Plan and usage](https://app.logz.io/#/dashboard/settings/plan-and-billing/plan) page.
 

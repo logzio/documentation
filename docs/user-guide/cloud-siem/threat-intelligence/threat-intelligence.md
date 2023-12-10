@@ -6,7 +6,7 @@ sidebar_position: 1
 # Threat Intelligence Feeds
 
 
-Cloud SIEM cross references incoming logs against lists of known Indicators of Compromise (IOCs) to automatically detect threats. Whenever an IOC is detected, the original log is [enriched with the relevant details](/user-guide/cloud-siem/malicious-IPs.html#log-enrichment).
+Cloud SIEM cross references incoming logs against lists of known Indicators of Compromise (IOCs) to automatically detect threats. Whenever an IOC is detected, the original log is [enriched with the relevant details](/docs/user-guide/cloud-siem/malicious-ips/#log-enrichment-for-ips).
 
 ## IOC types
 

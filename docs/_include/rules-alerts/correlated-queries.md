@@ -90,7 +90,7 @@ It's a good idea to add a description that works for both queries and what they 
 You have the option to send notification sample data in **JSON** or **Table** format.
 Toggle the button to select your preferred format.
 
-Next, select the output fields for each query, as applicable. As usual, if the query has aggregations (or group-by fields) definted, the output will be auto-selected, and the aggregated results will be sent by default. Otherwise, you can select which fields to include. [Learn more](/user-guide/alerts/configure-an-alert.html#output-format--content).
+Next, select the output fields for each query, as applicable. As usual, if the query has aggregations (or group-by fields) definted, the output will be auto-selected, and the aggregated results will be sent by default. Otherwise, you can select which fields to include. [Learn more](/docs/user-guide/log-management/log-alerts/configure-alert/#output-format--content).
 
 ![Notifications are auto-configured](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/join-notification.png)
 

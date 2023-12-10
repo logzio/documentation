@@ -32,7 +32,7 @@ drop_filter: []
 5. Fill out the parameters as follows:
    ![2](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven10.png)
    * Endpoint name: Logz.io 
-   * Server: The`<<LISTENER-HOST>>` URL (without the prefix) [for your region](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions). The example value in the screenshot above is for the information purposes only. It may differ depending on [your region](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
+   * Server: The`<<LISTENER-HOST>>` URL (without the prefix) [for your region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). The example value in the screenshot above is for the information purposes only. It may differ depending on [your region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
    * Port: 5001 
    * Format: custom
    * Log Template: 

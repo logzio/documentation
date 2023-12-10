@@ -52,7 +52,7 @@ Use the samples in the code block below as a starting point, and replace the sam
 
 Replace:
 * << LOG-SHIPPING-TOKEN >> - Your Logz.io account log shipping token.
-* << LISTENER-HOST >> - Logz.io listener host, as described [here](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls).
+* << LISTENER-HOST >> - Logz.io listener host, as described [here](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#regions-and-urls).
 * << LOG-TYPE >> - Log type, for searching in logz.io (defaults to "python")
 
 For a complete list of options, see the configuration parameters below the code block.👇
@@ -1063,7 +1063,7 @@ logzio-monitoring logzio-helm/logzio-monitoring -n monitoring
 ```
 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
-`<<LOGZIO_ACCOUNT_REGION_CODE>>` - Your Logz.io account region code. [Available regions](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
+`<<LOGZIO_ACCOUNT_REGION_CODE>>` - Your Logz.io account region code. [Available regions](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
 
 
 ##### Define the logzio-k8s-telemetry service DNS

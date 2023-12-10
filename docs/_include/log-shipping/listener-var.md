@@ -1,1 +1,1 @@
-Use the listener URL specific to the region where your Logz.io account is hosted. [Click to look up your listener URL](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions). The required port depends whether HTTP or HTTPS is used: HTTP = 8070, HTTPS = 8071.
+Use the listener URL specific to the region where your Logz.io account is hosted. [Click to look up your listener URL](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). The required port depends whether HTTP or HTTPS is used: HTTP = 8070, HTTPS = 8071.
