@@ -33,7 +33,7 @@ Deploy this integration to ship all `Org` logs from your Control Plane account t
 3. Create a new secret.
 4. Give the secret a name.
 5. Select `Opaque` from the **Secret Type list**.
-6. Paste `<<LOG-SHIPPING-TOKEN>>` into the content text box. This is the [log shipping token of your Logz.io account](/docs/user-guide/admin/authentication-tokens/log-shipping-tokens/).
+6. Paste `<<LOG-SHIPPING-TOKEN>>` into the content text box. This is the [log shipping token of your Logz.io account](https://docs.logz.io/docs/user-guide/admin/authentication-tokens/log-shipping-tokens/).
 7. Click **Create**.
 
 
@@ -84,4 +84,4 @@ cpln org patch ORG_NAME -f logging-config.yaml
 
 Spin up your Docker containers if you haven't done so already. Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see [log shipping troubleshooting](/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
+If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
