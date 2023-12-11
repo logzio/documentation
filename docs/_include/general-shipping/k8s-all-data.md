@@ -19,16 +19,16 @@ helm install  -n monitoring --create-namespace \
 --set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO-REGION>>" \
 --set logzio-k8s-telemetry.spm.enabled=true \
 --set logzio-k8s-telemetry.secrets.env_id="<<ENV-ID>>" \
---set logzio-k8s-telemetry.secrets.SpmToken=<<PROMETHEUS-METRICS-SHIPPING-TOKEN>> \
+--set logzio-k8s-telemetry.secrets.SpmToken="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>" \
 --set logzio-k8s-telemetry.serviceGraph.enabled=true \
 --set securityReport.enabled=true \
 --set logzio-trivy.env_id="<<ENV-ID>>" \
 --set logzio-trivy.secrets.logzioShippingToken="<<LOG-SHIPPING-TOKEN>>" \
 --set logzio-trivy.secrets.logzioListener="<<LISTENER-HOST>>" \
 --set deployEvents.enabled=true \
---set logzio-k8s-events.secrets.logzioShippingToken='<<LOG-SHIPPING-TOKEN>>' \
---set logzio-k8s-events.secrets.logzioListener='<<LISTENER-HOST>>' \
---set logzio-k8s-events.secrets.env_id='<<ENV-ID>>' \
+--set logzio-k8s-events.secrets.logzioShippingToken="<<LOG-SHIPPING-TOKEN>>" \
+--set logzio-k8s-events.secrets.logzioListener="<<LISTENER-HOST>>" \
+--set logzio-k8s-events.secrets.env_id="<<ENV-ID>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
