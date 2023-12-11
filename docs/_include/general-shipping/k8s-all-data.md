@@ -16,7 +16,7 @@ helm install  -n monitoring --create-namespace \
 --set logzio-k8s-telemetry.secrets.p8s_logzio_name="<<ENV-ID>>" \
 --set logzio-k8s-telemetry.traces.enabled=true \
 --set logzio-k8s-telemetry.secrets.TracesToken="<<TRACING-SHIPPING-TOKEN>>" \
---set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO-REGION>>" \
+--set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE_PREFIX>>" \
 --set logzio-k8s-telemetry.spm.enabled=true \
 --set logzio-k8s-telemetry.secrets.env_id="<<ENV-ID>>" \
 --set logzio-k8s-telemetry.secrets.SpmToken="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>" \
@@ -40,5 +40,5 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<P8S-LOGZIO-NAME>>` | The name for the environment's metrics, to easily identify the metrics for each environment. |
 | `<<ENV-ID>>` | The name for your environment's identifier, to easily identify the telemetry data for each environment. |
 | `<<TRACING-SHIPPING-TOKEN>>` | Your [traces shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
-| `<<LOGZIO-REGION>>` | Name of your Logz.io traces region e.g `us`, `eu`... |
+| `<<LOGZIO_ACCOUNT_REGION_CODE_PREFIX>>` | Name of your Logz.io traces region e.g `us`, `eu`... |
 
