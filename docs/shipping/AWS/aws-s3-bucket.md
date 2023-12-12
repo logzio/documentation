@@ -128,12 +128,11 @@ Note that the ListBucket permission is set to the entire bucket and the GetObjec
 
 ##### Create a Logz.io-AWS connector
 
-In your Logz.io app, go to **Send your data**.
-Select the relevant AWS resource from the left menu.
+In your Logz.io app, go to **Integration hub** and select the relevant AWS resource.
 
-Click **+ Add a bucket** and select the option to **Authenticate with a role**
+Inside the integration, click **+ Add a bucket** and select the option to **Authenticate with a role**
 
-![Connect Logz.io to an AWS resource](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/s3-add-bucket-ids.png)
+![Connect Logz.io to an AWS resource](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/s3-bucket-id-dec.png)
 
 Copy and paste the **Account ID** and **External ID** in your text editor.
 
@@ -157,9 +156,9 @@ Go to your [IAM roles](https://console.aws.amazon.com/iam/home#/roles) page in y
 Click **Create role**.
 You're taken to the _Create role_ wizard.
 
-![Create an IAM role for another AWS account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/iam--create-role.png)
+![Create an IAM role for another AWS account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/create-role-main-screen-dec.png)
 
-Click **Another AWS account**.
+Click **AWS Account > Another AWS account**.
 
 Paste the **Account ID** you copied from Logz.io.
 
