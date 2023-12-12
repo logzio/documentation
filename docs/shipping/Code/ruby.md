@@ -180,7 +180,7 @@ logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 ```
 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
-`<<LOGZIO_ACCOUNT_REGION_CODE>>` - Your Logz.io account region code. [Available regions](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
+`<<LOGZIO_ACCOUNT_REGION_CODE>>` - Your Logz.io account region code. [Available regions](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
 
 
 ### Define the logzio-k8s-telemetry service dns
