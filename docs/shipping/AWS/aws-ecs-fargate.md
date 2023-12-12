@@ -136,6 +136,8 @@ exporters:
       Authorization: "Bearer ${LOGZIO_METRICS_TOKEN}"
     resource_to_telemetry_conversion:
       enabled: true
+    target_info:
+        enabled: false
 service:
   pipelines:
     traces:

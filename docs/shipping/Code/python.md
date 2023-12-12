@@ -547,6 +547,8 @@ exporters:
     endpoint: "<<LISTENER-HOST>>:<PORT>>" # example: https://listener.logz.io:8053
     resource_to_telemetry_conversion:
       enabled: true # Convert resource attributes to metric labels
+    target_info:
+        enabled: false
     headers:
       Authorization: Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
 service:
