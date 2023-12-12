@@ -1,9 +1,11 @@
 ---
 sidebar_position: 1
+title: Intro to OpenSearch Dashboards
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Getting started with Logz.io's Discover and Log Management 
+keywords: [log-shipping, discover, logz.io, opensearch dashboards, osd, open search dashboards]
 ---
 
-
-# Intro to OpenSearch Dashboards
 
 
 OpenSearch Dashboards (OSD) is where you search and query your logs to figure out what happened. It is optimized for debugging and troubleshooting issues as quickly and effectively as possible.
@@ -11,7 +13,7 @@ OpenSearch Dashboards (OSD) is where you search and query your logs to figure ou
 You can use the Discover page to filter logs, search for specific events, and create alerts based on your search queries.
 
 
-![OSD Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/osd-main-screen.png)
+![OSD Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/logs-dashboards-main-dec.png)
 
 ### OpenSearch Dashboards Overview
 
@@ -38,7 +40,17 @@ You can type a search query in Lucene syntax or DQL. It is an alternative to fil
 
 You can also save your search query in case you want to use them again in the future. Save or load search queries by clicking on the **Save** icon located next to the search bar. 
 
-![Save search query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/save-search-query.png)
+![Save search query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/save-query-dec.png)
+
+#### 3.1 Simplify log queries with AI Assistant
+
+AI Assistant automatically converts text queries into Lucene queries, using AI to help you find what you're looking for in your logs. It simplifies your search process, reduces the change of syntax errors, and ensures accurate and relevant search results.
+
+To get started, click on **AI Assistant** and type the query you'd like to create. For example, find all errors in a specific environment. Click on **Generate** to create and run the query. Note that the queries are case-sensitive.
+
+![AI Assistant](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/ai-assistant-demo.png)
+
+Click on AI Assistant again to edit the query or to create a new one. 
 
 #### 4. Change your time frame and date
 
