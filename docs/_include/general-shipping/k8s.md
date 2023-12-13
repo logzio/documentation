@@ -61,16 +61,18 @@ logzio-monitoring logzio-helm/logzio-monitoring
 
 ### Deployment events versioning
 
-In order to add an indication for the versioning in our K8S 360 and Service Overview UI, the following annotation should be added to the metadata of each resource you'd like to track its versioning. 
-Commit URL structure: `https://github.com/<account>/<repository>/commit/<commit-hash>`
-
-Example: `https://github.com/logzio/logzio-k8s-events/commit/069c75c95caeca58dd0776405bb8dfb4eed3acb2`
+To add a versioning indicator to our K8S 360 and Service Overview UI, the specified annotation must be included in the metadata of each resource whose versioning you wish to track. The 'View commit' button will link to the commit URL in your version control system (VCS) from the logzio/commit_url annotation value.
 
 ```yaml
 metadata:
   annotations:
     logzio/commit_url: ""  
 ```
+
+#### GitHub VCS Example 
+
+Commit URL structure: `https://github.com/<account>/<repository>/commit/<commit-hash>`
+   - Example: `https://github.com/logzio/logzio-k8s-events/commit/069c75c95caeca58dd0776405bb8dfb4eed3acb2`
 
 
 For log shipping troubleshooting, see our [user guide](https://docs.logz.io/user-guide/kubernetes-troubleshooting/).
