@@ -104,7 +104,7 @@ logzio:
   token: <<LOG-SHIPPING-TOKEN>>
 
 oauth_apis:
-  - type: api_fetcher
+  - type: azure_graph
     name: azure_test
     credentials:
       id: <<AZURE_AD_SECRET_ID>>
@@ -136,10 +136,10 @@ oauth_apis:
 | name | The name of the OAuth API. Please make names unique. | Required | 
 | credentials.id | The OAuth API credentials id. | Required | 
 | credentials.key | The OAuth API credentials key. | Required |
-| http_request.method | The HTTP method. Can be GET or POST. | Required | 
-| http_request.url | The OAuth API url. Make sure the url is without `?` at the end. | Required | 
-| http_request.headers | Pairs of key and value the represents the headers of the HTTP request. | Optional | 
-| http_request.body | The body of the HTTP request. Will be added to HTTP POST requests only. | Optional | 
+| data_http_request.method | The HTTP method. Can be GET or POST. | Required | 
+| data_http_request.url | The OAuth API url. Make sure the url is without `?` at the end. | Required | 
+| data_http_request.headers | Pairs of key and value the represents the headers of the HTTP request. | Optional | 
+| data_http_request.body | The body of the HTTP request. Will be added to HTTP POST requests only. | Optional | 
 | token_http_request.method | The HTTP method. Can be GET or POST. | Required |
 | token_http_request.url | The OAuth API token request  url. Make sure the url is without `?` at the end. | Required | 
 | token_http_request.headers | Pairs of key and value the represents the headers of the HTTP request. | Optional |
