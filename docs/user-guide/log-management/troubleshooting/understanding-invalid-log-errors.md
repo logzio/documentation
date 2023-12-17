@@ -68,7 +68,7 @@ For example, suppose you have a `metadata` field assigned as an Object in your p
 
 Use sub accounts to adjust your mapping based on your monitoring needs.
 
-Learn more about **[creating and managing sub accounts](https://docs.logz.io/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#add-and-manage-a-log-management-sub-account)** and about **[field mapping](https://docs.logz.io/user-guide/logs/mapping/)** in your account.
+Learn more about **[creating and managing sub accounts](https://docs.logz.io/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts/#add-and-manage-a-log-management-sub-account)** and about **[field mapping](https://docs.logz.io/user-guide/logs/mapping/)** in your account.
 
 
 

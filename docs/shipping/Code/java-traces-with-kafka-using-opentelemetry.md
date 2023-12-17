@@ -64,7 +64,7 @@ If you produce and consume Kafka topics/messages from different applications, th
 
 
 ```shell
-java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
+java -javaagent:<path/to>/opentelemetry-javaagent.jar \
      -Dotel.traces.exporter=otlp \
      -Dotel.metrics.exporter=none \
      -Dotel.resource.attributes=service.name=<YOUR-SERVICE-NAME> \
@@ -76,6 +76,34 @@ java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
 * Replace `<path/to>` with the path to the directory where you downloaded the agent.
 * Replace `<YOUR-SERVICE-NAME>` with the name of your tracing service defined earlier.
 
+### Kafka OpenTelemery Java Applications
+There are some pre-written Java applications that insturment Kafka clients with OpenTelemetry.
+
+You can download the relevant applications from the [kafka-opentelemetry GitHub repository](https://github.com/ppatierno/kafka-opentelemetry/tree/main) and compile the JAR file using the `mvn install` command. 
+
+#### Kafka Consumer Example 
+Run the OpenTelemetry Java Agent insturmated with the [Kafka consumer application](https://github.com/ppatierno/kafka-opentelemetry/tree/main/kafka-consumer-agent) in the following way:
+```shell
+java -javaagent:<path/to>/opentelemetry-javaagent.jar \
+     -Dotel.traces.exporter=otlp \
+     -Dotel.metrics.exporter=none \
+     -Dotel.resource.attributes=service.name=<YOUR-CONSUMER-NAME> \
+     -Dotel.exporter.otlp.endpoint=http://localhost:4317 \
+     -Dotel.instrumentation.messaging.experimental.receive-telemetry.enabled=true \
+     -jar kafka-consumer-agent/target/kafka-consumer-agent-1.0-SNAPSHOT-jar-with-dependencies.jar
+```
+
+#### Kafka Producer Example
+Run the OpenTelemetry Java Agent insturmated with the [Kafka producer application](https://github.com/ppatierno/kafka-opentelemetry/tree/main/kafka-producer-agent) in the following way:
+```shell
+java -javaagent:<path/to>/opentelemetry-javaagent.jar \
+     -Dotel.traces.exporter=otlp \
+     -Dotel.metrics.exporter=none \
+     -Dotel.resource.attributes=service.name=<YOUR-PRODUCER-NAME> \
+     -Dotel.exporter.otlp.endpoint=http://localhost:4317 \
+     -Dotel.instrumentation.messaging.experimental.receive-telemetry.enabled=true \
+     -jar kafka-producer-agent/target/kafka-producer-agent-1.0-SNAPSHOT-jar-with-dependencies.jar
+```
 
 ### Check Logz.io for your traces
 

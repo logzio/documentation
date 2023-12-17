@@ -18,7 +18,7 @@ drop_filter: []
 Logstash is a server app that ingests and parses log data.
 We recommend using it for shipping to Logz.io only when you have an existing Logstash configuration.
 
-For most other cases, we recommend using [Filebeat]({{site.baseurl}}/shipping/log-sources/filebeat.html).
+For most other cases, we recommend using [Filebeat](/docs/shipping/other/filebeat-data/).
 
 These instructions apply to Logstash running on MacOS, Linux and Windows.
 
@@ -104,7 +104,7 @@ Start or restart Logstash for the changes to take effect.
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
 
  
  
@@ -150,7 +150,7 @@ Start or restart Logstash for the changes to take effect.
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
 
 
   

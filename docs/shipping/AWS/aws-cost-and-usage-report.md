@@ -85,7 +85,7 @@ All logs that were sent from the Lambda function will be under the type **billin
   
 To get more out of this functionality, you can enable a dedicated AWS cost and usage dashboard in [ELK Apps](https://app.logz.io/#/dashboard/elk-apps).
 
-If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
 
  
 

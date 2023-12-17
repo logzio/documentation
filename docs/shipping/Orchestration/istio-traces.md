@@ -42,10 +42,13 @@ helm repo update
 ### 2. Run the Helm deployment code
 
 ```
-helm install  \
---set config.exporters.logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
---set config.exporters.logzio.account_token=<<TRACING-SHIPPING-TOKEN>> \
-logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
+helm install -n monitoring \
+--set metricsOrTraces.enabled=true \
+--set logzio-k8s-telemetry.traces.enabled=true \
+--set logzio-k8s-telemetry.secrets.TracesToken="<<TRACING-SHIPPING-TOKEN>>" \
+--set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
+logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}

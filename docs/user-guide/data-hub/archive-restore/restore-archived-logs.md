@@ -34,7 +34,7 @@ Your existing drop filters **will not apply** when restoring data. Instead, use 
 :::
 
 
-### 1. Name your restored account and set the desired time range
+### Name your restored account and set the desired time range
 
 
 In the _Restore data_ tab, give your restored account a **Name**, and choose a **Time range** of up to 24 hours.
@@ -45,7 +45,7 @@ In the _Restore data_ tab, give your restored account a **Name**, and choose a *
 
 There are a few things you need to check before you begin the process.
 
-<!-- 1. Double-check your [Drop filters]({{site.baseurl}}/user-guide/accounts/drop-filters/) to make sure logs you need won't be filtered.
+<!-- 1. Double-check your [Drop filters](/docs/user-guide/data-hub/drop-fiters/) to make sure logs you need won't be filtered.
 
     If you're planning to restore logs that could be dropped by your drop-filters, you'll need to first make the necessary changes to your drop-filters before restoring. Otherwise the logs will just be dropped right after they are restored, and before   they reach your Logz.io account. 
 
@@ -57,7 +57,7 @@ There are a few things you need to check before you begin the process.
     ::: -->
 
 
-### 2. Apply power search and filters 
+### Apply power search and filters 
 
 
 You can control and limit which data you'd like to restore by applying **filters**, using **Power search**, or both. Your restored logs will only include data that matches all of your filters and your exact search term.
@@ -85,7 +85,7 @@ Power search lets you apply a text search directly on your archived data before 
 **Before using Power search:**
 
 
-Power search requires [additional permissions](/user-guide/archive-and-restore/set-s3-permissions.html#add-power-search-permissions) to run.
+Power search requires [additional permissions](/docs/user-guide/data-hub/archive-restore/set-s3-permissions/#add-power-search-permissions) to run.
 
 <!-- * Make sure your restore time range is **at most 24 hours**. Otherwise, you won't be able to run the Power search. -->
 <!--* Your archived data time zone is UTC, which might be different than your browser's time zone. Take that into consideration when choosing your restore duration.-->
@@ -128,7 +128,7 @@ If you want to remove one of the filters you've created, click on the **X** next
 
 
 
-### 3. Restore your data
+### Restore your data
 
 
 To continue, click on the **Proceed** button. You'll see a summary of your restore settings and be asked to approve them to continue the process.
@@ -145,7 +145,7 @@ Once the restored account is ready, you'll receive a notification via email.
 
 Your restored account will remain available for 5 days. If you want to explore the data after the restore has expired, you'll have to restore it again.
 
-### 4. Explore the restored account in OpenSearch Dashboards
+### Explore the restored account in OpenSearch Dashboards
 
 You can view your restored account directly from the Restored accounts page by clicking on the **View logs** option next to the relevant account.
 

@@ -122,6 +122,6 @@ Give your logs some time to get from your system to ours, and then open [Open Se
 You can search for `type:wazuh` to filter for your logs. Your logs should be already parsed thanks to the Logz.io preconfigured parsing pipeline.
 
 
-If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/shipping/log-sources/filebeat.html#troubleshooting).
+If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-filebeat/).
 
   

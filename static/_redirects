@@ -45,6 +45,7 @@
 /user-guide/infrastructure-monitoring/metrics-explore-prometheus		/docs/user-guide/Infrastructure-monitoring/introduction-to-prometheus/explore-metrics-prometheus
 /user-guide/infrastructure-monitoring/alerts.html		/docs/user-guide/Infrastructure-monitoring/metrics-alert-manager
 /user-guide/infrastructure-monitoring/configure-metrics-drilldown-links.html		/docs/user-guide/Infrastructure-monitoring/variables
+/user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html		/docs/user-guide/Infrastructure-monitoring/variables
 /user-guide/infrastructure-monitoring/metrics-correlations/		/docs/user-guide/Infrastructure-monitoring/log-correlations/
 /user-guide/infrastructure-monitoring/annotations/		/docs/user-guide/Infrastructure-monitoring/log-correlations/annotations
 /user-guide/infrastructure-monitoring/explore-in-logs-drilldown-links.html		/docs/user-guide/Infrastructure-monitoring/log-correlations/explore-in-logs-drilldown-links
@@ -253,6 +254,9 @@
 /user-guide/log-shipping/telemetry-collector-localhost.html		/docs/user-guide/telemetry-collector/telemetry-collector-localhost
 /user-guide/log-shipping/ezkonnect.html		/docs/user-guide/telemetry-collector/ezkonnect
 /user-guide/azure-native-integration.html		/docs/user-guide/telemetry-collector/azure-native-integration
+/user-guide/give-aws-access-with-iam-roles/     /docs/user-guide/admin/give-aws-access-with-iam-roles
+/user-guide/give-aws-access-with-access-keys/     /docs/user-guide/admin/give-aws-access-with-access-keys
+/docs/user-guide/distributed-tracing/service-list		/docs/user-guide/app360/service-list
 # Shippers
 /shipping/synthetic-monitoring-sources/api-status.html		/docs/shipping/Synthetic-Monitoring/API-status-metrics-synthetic
 /shipping/synthetic-monitoring-sources/ping-statistics.html		/docs/shipping/Synthetic-Monitoring/Ping-statistics-synthetic
