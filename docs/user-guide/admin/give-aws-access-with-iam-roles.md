@@ -318,10 +318,7 @@ Continue with this procedure when you're done.
 
 ### _(If needed)_ Replace other configurations that use this role
 
-If there are other S3 fetcher or Archive & restore configurations
-in this account that use the same role,
-repeat the steps,
-and use the role ARN you copied to your text editor.
+If there are other S3 fetcher or Archive & restore configurations in this account that use the same role, repeat the steps, and use the role ARN you copied to your text editor.
 
 For configurations in other Logz.io accounts,
 repeat this procedure from the beginning.
