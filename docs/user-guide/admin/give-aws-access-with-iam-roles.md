@@ -220,7 +220,7 @@ and copy the **External ID** (you'll paste it in AWS in the next step).
 ### Replace the external ID in your IAM role
 
 Browse to the [IAM roles](https://console.aws.amazon.com/iam/home#/roles) page.
-Open the role used by the configuration you deleted in step 1.
+Open the role used by the configuration you deleted in a previous step.
 
 ![IAM role summary page, trust relationships tab](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/logzrole-in-aws.png)
 
@@ -320,7 +320,7 @@ Continue with this procedure when you're done.
 
 If there are other S3 fetcher or Archive & restore configurations
 in this account that use the same role,
-repeat steps 1 and 2,
+repeat the steps,
 and use the role ARN you copied to your text editor.
 
 For configurations in other Logz.io accounts,

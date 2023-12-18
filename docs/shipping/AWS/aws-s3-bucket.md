@@ -449,7 +449,7 @@ and click **Authenticate with a role**.
 
 ![S3 fetcher and archive configuration screens](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-and-restore/s3-fetcher-and-archive-config-external-id.png)
 
-Recreate your configuration with the values you copied in step 1,
+Recreate your configuration with the values you copied in a previous step,
 and copy the **External ID** (you'll paste it in AWS in the next step).
 
 ###### Replace the external ID in your IAM role
