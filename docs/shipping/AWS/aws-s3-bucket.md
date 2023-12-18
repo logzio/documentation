@@ -149,12 +149,28 @@ Keep this information available so you can use it in AWS.
 
 Choose whether you want to include the **source file path**. This saves the path of the file as a field in your log.
 
+##### Create the policy
+
+Navigate to [IAM policies](https://us-east-1.console.aws.amazon.com/iam/home#/policies) and click **Create policy**.
+
+In the **JSON** tab,
+replace the default JSON with the policy you copied from Logz.io.
+
+Click **Next** to continue.
+
+Give the policy a **Name** and optional **Description**,
+and then click **Create policy**.
+
+Remember the policy's name—you'll need this in the next step.
+
+Return to the _Create role_ page.
+
+
 ##### Create the IAM Role in AWS
 
 Go to your [IAM roles](https://console.aws.amazon.com/iam/home#/roles) page in your AWS admin console.
 
-Click **Create role**.
-You're taken to the _Create role_ wizard.
+Click **Create role** to open the _Create role_ wizard.
 
 ![Create an IAM role for another AWS account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/create-role-main-screen-dec.png)
 
@@ -163,26 +179,10 @@ Click **AWS Account > Another AWS account**.
 Paste the **Account ID** you copied from Logz.io.
 
 Select **Require external ID**,
-and then paste the **External ID** from step 1.
+and then paste the **External ID** you've copied and saved in your text editor.
 
 Click **Next: Permissions** to continue.
 
-##### Create the policy
-
-In the  _Create role_ screen, click **Create policy**.
-The _Create policy_ page loads in a new tab.
-
-In the **JSON** tab,
-replace the default JSON with the policy you copied from Logz.io.
-
-Click **Review policy** to continue.
-
-Give the policy a **Name** and optional **Description**,
-and then click **Create policy**.
-
-Remember the policy's name—you'll need this in the next step.
-
-Close the tab to return to the _Create role_ page.
 
 ##### Attach the policy to the role
 
@@ -191,8 +191,8 @@ and then type your new policy's name in the search box.
 
 Find your policy in the filtered list and select its check box.
 
-Click **Next: Tags**,
-and then click **Next: Review** to continue to the _Review_ screen.
+Click **Next** to review the new role.
+
 
 ##### Finalize the role
 
@@ -300,10 +300,9 @@ Note that the ListBucket permission is set to the entire bucket and the GetObjec
 ##### Create the user
 
 Browse to the [IAM users](https://console.aws.amazon.com/iam/home#/users)
-and click **Add user**.
-You're taken to the _Add user_ wizard.
+and click **Create user**.
 
-![Create an IAM role for another AWS account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/iam--add-user.png)
+![Create an IAM role for another AWS account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/iam-create-user-dec.png)
 
 Assign a **User name**.
 
