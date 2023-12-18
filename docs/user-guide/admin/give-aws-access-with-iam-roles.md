@@ -86,7 +86,7 @@ Keep this information available so you can use it in AWS.
 Navigate to [IAM policies](https://us-east-1.console.aws.amazon.com/iam/home#/policies) and click **Create policy**.
 
 In the **JSON** tab,
-replace the default JSON with the policy you copied from Logz.io.
+replace the default JSON with the policy you copied from Logz.io in the previous step.
 
 Click **Next** to continue.
 
