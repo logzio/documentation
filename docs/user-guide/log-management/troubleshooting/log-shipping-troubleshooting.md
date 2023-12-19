@@ -97,7 +97,7 @@ your machine is having trouble connecting to the Logz.io listener.
 
 Confirm that your firewall and network settings
 allow communication with the right outbound port
-and the Logz.io [listener IP addresses](../../admin/hosting-regions/listener-ip-addresses/)
+and the Logz.io [listener IP addresses](/docs/user-guide/admin/hosting-regions/listener-ip-addresses/)
 for your region.
 
 ## Check that log shipping configuration is set to the right account token

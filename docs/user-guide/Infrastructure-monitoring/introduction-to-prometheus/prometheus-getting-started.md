@@ -27,13 +27,13 @@ For the trial program, your incoming raw data has a 30-day retention period.
 
 Once your metrics are flowing, import your existing Prometheus and Grafana dashboards to Logz.io Infrastructure Monitoring as JSON files.
 
-For the record, notification endpoints and dashboard annotations are not imported: You'll need to recreate them in Logz.io.  See [Notification endpoints](../../integrations/notification-endpoints/endpoints/) and [Annotations](../log-correlations/annotations/) for more information.
+For the record, notification endpoints and dashboard annotations are not imported: You'll need to recreate them in Logz.io.  See [Notification endpoints](/docs/user-guide/integrations/notification-endpoints/endpoints) and [Annotations](/docs/user-guide/infrastructure-monitoring/log-correlations/annotations/) for more information.
 
-1. [Configure Remote Write](./configure-remote-write-prometheus#configuring-remote-write-to-logzio).
-1. [Import dashboards](./importing-dashboards).
-1. [Configure notification endpoints](../../integrations/notification-endpoints/endpoints/).
-1. [Recreate your dashboard annotations](../log-correlations/annotations/).
-1. [Explore your Prometheus metrics](./explore-metrics-prometheus).
+1. [Configure Remote Write](/docs/user-guide/Infrastructure-monitoring/introduction-to-prometheus/configure-remote-write-prometheus).
+1. [Import dashboards](/docs/user-guide/Infrastructure-monitoring/introduction-to-prometheus/importing-dashboards).
+1. [Configure notification endpoints](/docs/user-guide/integrations/notification-endpoints/endpoints).
+1. [Recreate your dashboard annotations](/docs/user-guide/infrastructure-monitoring/log-correlations/annotations/).
+1. [Explore your Prometheus metrics](/docs/user-guide/Infrastructure-monitoring/introduction-to-prometheus/explore-metrics-prometheusZ).
 
 
 

@@ -52,12 +52,13 @@ Use the samples in the code block below as a starting point, and replace the sam
 
 Replace:
 * << LOG-SHIPPING-TOKEN >> - Your Logz.io account log shipping token.
-* << LISTENER-HOST >> - Logz.io listener host, as described [here](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls).
+* << LISTENER-HOST >> - Logz.io listener host, as described [here](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#regions-and-urls).
 * << LOG-TYPE >> - Log type, for searching in logz.io (defaults to "python")
 
 For a complete list of options, see the configuration parameters below the code block.👇
 
 ##### Config File
+
 ```python
 [handlers]
 keys=LogzioHandler
@@ -97,6 +98,7 @@ format={"additional_field": "value"}
  i.e. you cannot set Debug to true, without configuring all of the previous parameters as well.
 
 ##### Dict Config
+
 ```python
 LOGGING = {
     'version': 1,
@@ -130,6 +132,7 @@ LOGGING = {
 }
 ```
 ##### Django configuration
+
 ```python
 LOGGING = {
     'version': 1,
@@ -232,6 +235,7 @@ def my_func():
 ```
 
 ### Extra Fields
+
 In case you need to dynamic metadata to a speific log and not [dynamically to the logger](#dynamic-extra-fields), other than the constant metadata from the formatter, you can use the "extra" parameter.
 All key values in the dictionary passed in "extra" will be presented in Logz.io as new fields in the log you are sending.
 Please note, that you cannot override default fields by the python logger (i.e. lineno, thread, etc..)
@@ -334,6 +338,7 @@ from opentelemetry.exporter.prometheus_remote_write import (
     PrometheusRemoteWriteMetricsExporter,
 )
 from opentelemetry.sdk.metrics import MeterProvider
+from opentelemetry.sdk.metrics.export import PeriodicExportingMetricReader
 
 # configure the Logz.io listener endpoint and Prometheus metrics account token
 exporter = PrometheusRemoteWriteMetricsExporter(
@@ -346,20 +351,21 @@ exporter = PrometheusRemoteWriteMetricsExporter(
 push_interval = 15
 
 # setup metrics export pipeline
-metrics.set_meter_provider(MeterProvider())
+reader = PeriodicExportingMetricReader(exporter, 1000)
+provider = MeterProvider(metric_readers=[reader])
+metrics.set_meter_provider(provider)
 meter = metrics.get_meter(__name__)
-metrics.get_meter_provider().start_pipeline(meter, exporter, push_interval)
 
 # create a counter instrument and provide the first data point
 counter = meter.create_counter(
     name="MyCounter",
     description="Description of MyCounter",
-    unit="1",
-    value_type=int
+    unit="1"
 )
 # add labels
 labels = {
-    "dimension": "value"
+    "dimension": "value",
+    "from": "testlogzio"
 }
 counter.add(25, labels)
 ```
@@ -381,6 +387,7 @@ Refer to the OpenTelemetry [documentation](https://github.com/open-telemetry/ope
 | ValueObserver     | Metric values captured by the `valuerecorder.observe(value)` function, calculated per push interval.| LastValue  |
 
 ##### [Counter](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#counter)
+
 ```python
 # create a counter instrument
 counter = meter.create_counter(
@@ -398,6 +405,7 @@ counter.add(25, labels)
 ```
 
 ##### [UpDownCounter](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#updowncounter)
+
 ```python
 # create a updowncounter instrument
 requests_active = meter.create_updowncounter(
@@ -415,6 +423,7 @@ requests_active.add(-2, labels)
 ```
 
 ##### [ValueRecorder](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#valuerecorder)
+
 ```python
 # create a valuerecorder instrument
 requests_size = meter.create_valuerecorder(
@@ -432,6 +441,7 @@ requests_size.record(85, labels)
 ```
 
 ##### [SumObserver](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#sumobserver)
+
 ```python
 import psutil
 # Callback to gather RAM usage
@@ -453,6 +463,7 @@ meter.register_sumobserver(
 ```
 
 ##### [UpDownSumObserver](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#updownsumobserver)
+
 ```python
 # Callback to gather RAM usage
 def get_ram_usage_callback(observer):
@@ -473,6 +484,7 @@ meter.register_updownsumobserver(
 ```
 
 ##### [ValueObserver](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md#valueobserver)
+
 ```python
 import psutil
 def get_cpu_usage_callback(observer):
@@ -490,6 +502,7 @@ meter.register_valueobserver(
 ```
 
 #### Check Logz.io for your metrics
+
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
 </TabItem>
@@ -534,6 +547,8 @@ exporters:
     endpoint: "<<LISTENER-HOST>>:<PORT>>" # example: https://listener.logz.io:8053
     resource_to_telemetry_conversion:
       enabled: true # Convert resource attributes to metric labels
+    target_info:
+        enabled: false
     headers:
       Authorization: Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
 service:
@@ -621,6 +636,7 @@ Start running the Lambda function to send metrics to your Logz.io account.
 
 
 #### Check Logz.io for your metrics
+
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
 
@@ -1049,7 +1065,7 @@ logzio-monitoring logzio-helm/logzio-monitoring -n monitoring
 ```
 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
-`<<LOGZIO_ACCOUNT_REGION_CODE>>` - Your Logz.io account region code. [Available regions](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
+`<<LOGZIO_ACCOUNT_REGION_CODE>>` - Your Logz.io account region code. [Available regions](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
 
 
 ##### Define the logzio-k8s-telemetry service DNS
