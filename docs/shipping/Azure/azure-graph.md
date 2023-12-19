@@ -119,6 +119,7 @@ oauth_apis:
       method: POST
     data_http_request:
       url: https://graph.microsoft.com/v1.0/auditLogs/signIns
+      method: GET
       headers:
     json_paths:
       data_date: createdDateTime
