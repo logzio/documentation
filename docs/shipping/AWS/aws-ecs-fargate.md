@@ -59,6 +59,7 @@ Click on the **Launch Stack** button below to deploy the CloudFormation template
 | `ap-southeast-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-southeast-2.s3.amazonaws.com/ecs-fargate/ecs-fargate-0.0.2/sam-template.yaml&stackName=logzio-ecs-fargate&param_logzioLogsToken=<<LOG-SHIPPING-TOKEN>>&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs-<<LISTENER-HOST>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053) |
 | `ca-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ca-central-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ca-central-1.s3.amazonaws.com/ecs-fargate/ecs-fargate-0.0.2/sam-template.yaml&stackName=logzio-ecs-fargate&param_logzioLogsToken=<<LOG-SHIPPING-TOKEN>>&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs-<<LISTENER-HOST>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053)     |
 
+
 ##### (Option 2) Cloudformation template for metrics and traces only:
 
 | Region           | Deployment                                                                                                                                                                                                                                                                                                                                           |
@@ -161,6 +162,8 @@ exporters:
       Authorization: "Bearer ${LOGZIO_METRICS_TOKEN}"
     resource_to_telemetry_conversion:
       enabled: true
+    target_info:
+        enabled: false
 service:
   pipelines:
     traces:

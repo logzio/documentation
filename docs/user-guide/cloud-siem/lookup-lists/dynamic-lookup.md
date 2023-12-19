@@ -48,4 +48,4 @@ Once the lookup list is up and running, you can go back to it to view the dynami
 Logz.io offers 2 additional methods to create lookup lists: 
 
 *  Create a [Static lookup lists](https://docs.logz.io/user-guide/lookups/static-lookup.html)
-* Upload your lookup from a [CSV file](https://docs.logz.io/user-guide/lookups/static-lookup.html#create-or-edit-a-lookup-list-via-csv-file-upload)
+* Upload your lookup from a [CSV file](https://docs.logz.io/docs/user-guide/cloud-siem/lookup-lists/static-lookup/#create-or-edit-a-lookup-list-via-csv-file-upload)

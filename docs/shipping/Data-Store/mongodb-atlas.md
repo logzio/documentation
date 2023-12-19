@@ -47,6 +47,8 @@ exporters:
     endpoint: https://<<LISTENER-HOST>>:8053
     headers:
       Authorization: Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
+    target_info:
+        enabled: false
 
 processors:
   batch:

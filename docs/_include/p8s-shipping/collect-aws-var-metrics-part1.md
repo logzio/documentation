@@ -33,6 +33,6 @@ docker-compose up
 | Environment variable | Description |Required/Default|
 |---|---|---|
 | AWS_DEFAULT_REGION | Your region's slug. You can find this in the AWS Console region menu (in the top menu, to the right).  **Note:** This is the region that you will collect metrics from. |Required|
-| LOGZIO_REGION | Your Logz.io region code. For example if your region is US, then your region code is `us`. [_Look up your region code_](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls). | Required |
+| LOGZIO_REGION | Your Logz.io region code. For example if your region is US, then your region code is `us`. [_Look up your region code_](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#regions-and-urls). | Required |
 | LOGZIO_TOKEN | Token for shipping Prometheus metrics to your Logz.io account. Find it under Settings > Manage accounts. [_Look up your Metrics account token_](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/) | Required |
 | SCRAPE_INTERVAL | The time interval (in seconds) during which the Cloudwatch exporter retrieves metrics from Cloudwatch, and the Opentelemtry collector scrapes and sends the metrics to Logz.io. Default = 300.   **Note:** This value must be a multiple of 60.| Required |

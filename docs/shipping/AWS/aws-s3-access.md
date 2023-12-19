@@ -21,7 +21,7 @@ Amazon S3 Access Logs provide detailed records about requests that are made to y
 
 **Before you begin, you'll need**:
 
-* `s3:ListBucket` and `s3:GetObject` [permissions](/docs/user-guide/admin/give-aws-access-with-iam-roles) for the required S3 bucket
+* `s3:ListBucket` and `s3:GetObject` [permissions](https://docs.logz.io/docs/user-guide/admin/give-aws-access-with-iam-roles) for the required S3 bucket
 
 * {@include: ../../_include/log-shipping/s3-bucket-file-order.md}
 
@@ -50,6 +50,6 @@ For help with this, see [Amazon S3 Server Access Logging](https://docs.aws.amazo
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see [log shipping troubleshooting](/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
+If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
 
  

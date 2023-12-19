@@ -61,7 +61,7 @@ Here's an example of a JSON payload for an alert that includes a verification to
 3. For POST/PUT methods, you can add a payload with a message.
 
 :::caution Important
-Some endpoints require a particular attribute/payload. For example, [Microsoft Teams](/user-guide/integrations/ms-teams.html#add-your-payload).
+Some endpoints require a particular attribute/payload. For example, [Microsoft Teams](/docs/user-guide/integrations/notification-endpoints/ms-teams/#3-add-your-payload).
 :::
 
 

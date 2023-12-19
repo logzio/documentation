@@ -1,7 +1,9 @@
 ---
 sidebar_position: 1
 title: Getting Started with Logz.io's Telemetry Collector
-
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Send your data with Logz.io's Telemetry Collector
+keywords: [Telemetry Collector, Telemetry, ship data, collectors, metrics, tracing, logs]
 ---
 
 
@@ -25,17 +27,17 @@ Logz.io’s Telemetry Collector currently supports **Kubernetes** for logs, metr
 
 The Telemetry Collector will soon support additional platforms, including **AWS**, **Azure**, **Linux**, **Windows**, **Mac**, and more.
 
-If you're interested in sending your data through a different source, you can use Logz.io's **[Send your data](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=all)** guide, which includes over 300 shipping methods.
+If you're interested in sending your data through a different source, you can browse Logz.io's **[Integration hub](https://app.logz.io/#/dashboard/integrations/collectors)**, which includes over 300 shipping methods.
 
 
 ## Getting started with the Telemetry Collector:
 
-* [Send **AWS** data with Telemetry Collector](./telemetry-collector-aws/)
-  * [Manage an AWS Telemetry Collector](./telemetry-collector-aws.html#how-to-remove-a-telemetry-collector)
-* [Send **Kubernetes** data with Telemetry Collector](./telemetry-collector-k8s.html)
-  * [Manage a Kubernetes Telemetry Collector](./telemetry-collector-k8s.html#how-to-remove-a-telemetry-collector)
-* [Send **Localhost** data with Telemetry Collector](./telemetry-collector-localhost.html)
-  * [Manage a Localhost Telemetry Collector](./telemetry-collector-localhost.html#manage-and-remove-a-telemetry-collector)
+* [Send **AWS** data with Telemetry Collector](/docs/user-guide/telemetry-collector/telemetry-collector-aws)
+  * [Manage an AWS Telemetry Collector](/docs/user-guide/telemetry-collector/telemetry-collector-aws#manage-your-telemetry-collector)
+* [Send **Kubernetes** data with Telemetry Collector](/docs/user-guide/telemetry-collector/telemetry-collector-k8s)
+  * [Manage a Kubernetes Telemetry Collector](/docs/user-guide/telemetry-collector/telemetry-collector-k8s#manage-your-telemetry-collector)
+* [Send **Localhost** data with Telemetry Collector](/docs/user-guide/telemetry-collector/telemetry-collector-localhost)
+  * [Manage a Localhost Telemetry Collector](/docs/user-guide/telemetry-collector/telemetry-collector-localhost#manage-and-remove-a-telemetry-collector)
 
 ###### Additional resources
 
