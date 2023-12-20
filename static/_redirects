@@ -557,7 +557,7 @@
 /shipping/log-sources/vector.html		/docs/shipping/Other/Vector-data
 /shipping/log-sources/vpc.html		/docs/shipping/Network/VPC-network
 /shipping/log-sources/windows.html		/docs/shipping/Operating-Systems/Windows
-/api https://logz-docs-api.netlify.app/api
+/api https://api-docs.logz.io/docs/logz/logz-io-api
 /shipping/prometheus-sources/aws-cloudformation.html /docs/shipping/AWS/aws-cloudformation
 /shipping/ /docs/category/send-your-data
 /docs/category/cloud-siem-quick-start-guide /docs/category/cloud-siem-quick-start-guide
