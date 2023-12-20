@@ -123,6 +123,6 @@ Otherwise, you can update your plan and adjust your daily volume on the [Plan an
 
 
 <!-- ###### Additional resources
-{:.no_toc}
+
 
 * [Read more](https://logz.io/blog/kibana-advanced/) about creating and running advanced searches in OpenSearch Dashboards.  -->
