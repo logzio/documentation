@@ -10,26 +10,29 @@ keywords: [log-shipping, telemetry collector, localhost data, local host, agent,
 Telemetry Collector is currently **available in all regions** except for Japan and Australia. If you're located in these regions, you can use **[Logz.io’s data shippers](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=all)** to send your data.
 :::
 
-To start sending Localhost data through the Telemetry Collector, Log into your **main** Logz.io account, navigate to [Send your data](https://app.logz.io/#/dashboard/send-your-data), and click on **Start collecting**.
+To start sending Localhost data through the Telemetry Collector, Log into your **main** Logz.io account, navigate to the [Integration hub](https://app.logz.io/#/dashboard/integrations/collectors) and choose one of the integrations under **Quick Setup**.
 
 :::caution Important
 To configure the Telemetry Collector, you must be logged into your **main** Logz.io account.
 :::
 
 
-![Start collecting button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/start-collecting-sep.png)
+![Start collecting button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/quick-setup-localhost-dec.png)
 
 
 ## Send Localhost data
 
+<!-- 
 ### Select your environment
 
 Select your preferred Localhost platform through which you want to send your data.
 
 ![Localhost select platform](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/collector-localhost-sep.png)
-
+-->
 
 ### Activate your collector
+
+Select your preferred Localhost platform through which you want to send your data.
 
 Copy the code snippet and run it on your end:
 
@@ -38,27 +41,29 @@ Copy the code snippet and run it on your end:
 
 Some platforms might require additional details, such as admin privileges or passwords, to complete the installation. These details are not sent to or stored by Logz.io.
 
-![Review collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/activate-collector-localhost-sep.png)
+![Review collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/activate-localhost-dec.png)
 
 It might take a while for the Telemetry Collector to get up and running, after which you can view your logs or metrics and get full observability into your system.
 
-### _Optional_ - Select data sources
+### _Optional_ - Configure data sources
 
-You can configure the data sources the Telemetry Collector will collect. To do so, click on **Advance settings** at the top of the page. Next, you can edit and change telemetries, which Logz.io will collect.
+You can configure the data sources the Telemetry Collector will collect. To do so, click on **Advance settings** at the top of the page. 
 
-You can edit the path location of your log folders from your machine and choose which telemetries you want to collect.
+You can review and edit the telemetries collected by Logz.io, or change the location of your data.
 
-![Select folder collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/configure-localhost-sep.png)
+![Select folder collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/configure-localhost-data-sources-dec.png)
 
-If you're running on a **Windows** machine, you can choose whether you want to collect application, security, and system logs.
+<!-- If you're running on a **Windows** machine, you can choose whether you want to collect application, security, and system logs.-->
 
 ### _Optional_ - Define your collector
 
-You can edit your collector’s name and description and choose which Logs, Metrics, and Tracing accounts to use. If you don’t have active accounts, you’ll be able to review the newly generated account names before continuing.
+You can edit your collector’s name and description and choose which Logs, Metrics, and Tracing accounts to use. To do so, click on **Advance settings** at the top of the **Activate your collector** page, and click **Next** to reach the **Finalize Telemetry Collector** page.
+
+If you don't have Logs, Metrics, or Traces accounts, you can review the newly generated accounts.
 
 Click **Save changes** to continue.
 
-![Define collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/define-localhost-sep.png)
+![Define collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/localhost-finalize-dec.png)
 
 
 If you encounter issues in installing or running your Telemetry Collector, [contact Logz.io's Support team](mailto:help@logz.io).
