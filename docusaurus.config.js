@@ -141,7 +141,7 @@ const config = {
             position: 'right',
           },
           {to: '/docs/category/send-your-data/', label: 'Ship data', position: 'left'},
-          {to: 'https://api-docs.logz.io/docs/logz/logz-io-api, label: 'API', position: 'left'},
+          {to: 'https://api-docs.logz.io/docs/logz/logz-io-api', label: 'API', position: 'left'},
           {to: 'https://status.logz.io/', label: 'System status', position: 'left'},
           {to: 'https://logz.io/blog/', label: 'Blog', position: 'left'},
           {
