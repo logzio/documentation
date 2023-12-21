@@ -85,7 +85,7 @@ By default, syslog will be forwarded over port 514. Feel free to adjust this, ba
   
    * Replace `<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>` with the address of your server running Filebeat.
    * {@include: ../../_include/log-shipping/log-shipping-token.md}
-   * {@include: ../../_include/log-shipping/listener-var.md}
+   * Use the listener URL specific to the region where your Logz.io account is hosted. [Click to look up your listener URL](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). The required port is 5015 used: HTTP = 8070, HTTPS = 8071.
 
 2. Run Filebeat with the new configuration.
 
