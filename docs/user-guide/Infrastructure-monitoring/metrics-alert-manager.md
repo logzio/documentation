@@ -74,7 +74,10 @@ At this point, you can preview the alert and verify it's successfully monitoring
 ### 4. Add details for your alert
 
 
-You can add additional details to the alert to provide context when and if it triggers. For example, adding `{{$labels.path}}` and `{{$values.D}}` to the summary will automatically populate information from the relevant services. 
+You can add additional details to the alert to provide context when and if it triggers. For example, adding `{{$labels.path}}` and `{{$values.D}}` to the summary will automatically populate information from the relevant services.
+
+[Learn more about adding annotations and context to your alerts](https://grafana.com/docs/grafana/latest/alerting/alerting-rules/create-grafana-managed-rule/#add-annotations).
+
 
 Click **Save** or **Save and exit**, located at the top right corner of the screen, to save your alert. You'll be redirected back to the panel view.
 
