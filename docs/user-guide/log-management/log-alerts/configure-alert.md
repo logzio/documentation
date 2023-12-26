@@ -11,6 +11,9 @@ Community plans limit the number of alerts that may be enabled. See the official
 
 ### Configuring an alert
 
+:::caution Important
+You cannot configure alerts using the `logzio-alert` log type. This type is reserved for system-generated alerts.
+:::
 
 #### Name the alert
 
