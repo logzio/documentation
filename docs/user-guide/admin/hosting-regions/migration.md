@@ -49,10 +49,10 @@ If you have custom parsing, ask your Logz.io Customer Success Manager or Account
 
 Retrieve all sub-accounts and re-create them in your new account. You can do so using the Logz.io API endpoints as follows:
 
-1. In your pre-migration account, [retrieve the settings for all of your Log Management accounts](https://docs.logz.io/api/#operation/getAllDetailedTimeBasedAccount).
+1. In your pre-migration account, [retrieve the settings for all of your Log Management accounts](https://api-docs.logz.io/docs/logz/get-all-detailed-time-based-account).
 2. In your post-migration account:
-    1. [Create a new sub-account](https://docs.logz.io/api/#operation/createTimeBasedAccount) with the matching settings. Repeat for each sub account.
-    2. [Update your main account](https://docs.logz.io/api/#operation/updateTimeBasedAccount) with the appropriate settings and daily capacity.
+    1. [Create a new sub-account](https://api-docs.logz.io/docs/logz/create-time-based-account) with the matching settings. Repeat for each sub account.
+    2. [Update your main account](https://api-docs.logz.io/docs/logz/update-time-based-account) with the appropriate settings and daily capacity.
 
 
 
@@ -63,15 +63,15 @@ Export any and all OpenSearch Dashboards objects you want to keep and import the
 The process can be performed by API or manually. Export & import guides:
 
 * [Export & import guide](https://docs.logz.io/user-guide/logs/share-import-export)
-* [API guide](https://docs.logz.io/api/#tag/Import-or-export-Kibana-objects)
+* [API guide](https://api-docs.logz.io/docs/logz/import-or-export-kibana-objects/)
 
 
 ### (Re-)Create your archive settings
 
 Retrieve your archive settings and re-create them in your new account. You can do so using the Logz.io API endpoints as follows:
 
-1. In your pre-migration account, [retrieve the archive settings](https://docs.logz.io/api/#operation/getSettingsForAccount). Repeat for each sub account.
-2. In your post-migration account, [set up log archiving](https://docs.logz.io/api/#operation/createSettings). Repeat for each sub account, as necessary.
+1. In your pre-migration account, [retrieve the archive settings](https://api-docs.logz.io/docs/logz/get-settings-for-account/). Repeat for each sub account.
+2. In your post-migration account, [set up log archiving](https://api-docs.logz.io/docs/logz/create-settings/). Repeat for each sub account, as necessary.
 
 If you prefer to perform the process manually, see the [archiving guide](https://docs.logz.io/user-guide/archive-and-restore/configure-archiving.html).
 
@@ -84,8 +84,8 @@ Note that only one archive can be active per account.
 
 Retrieve all drop filters and re-create them in your new account. You can do so using the Logz.io API endpoints as follows:
 
-1. In your pre-migration account, [retrieve the drop filters for all of your Log Management accounts](https://docs.logz.io/api/#operation/getAllForAccount). Repeat for each sub account.
-2. In your post-migration account, [create a new drop filter](https://docs.logz.io/api/#operation/create). Repeat for each filter and sub account, as necessary.
+1. In your pre-migration account, [retrieve the drop filters for all of your Log Management accounts](https://api-docs.logz.io/docs/logz/get-all-for-account/). Repeat for each sub account.
+2. In your post-migration account, [create a new drop filter](https://api-docs.logz.io/docs/logz/create/). Repeat for each filter and sub account, as necessary.
 
 
 If you prefer to perform the process manually, see the [drop filters guide](https://docs.logz.io/user-guide/accounts/drop-filters/).
@@ -110,8 +110,8 @@ Optimizers are currently not supported by the Logz.io API.
 
 Retrieve all notification endpoints and re-create them in your new account. You can do so using the Logz.io API endpoints as follows:
 
-1. In your pre-migration account, [retrieve all notification endpoints for your main Log Management account](https://docs.logz.io/api/#operation/getAllEndpoints). Repeat for each sub account.
-2. In your post-migration account, [create a new endpoint](https://docs.logz.io/api/#tag/Manage-notification-endpoints). Repeat for each endpoint and account, as necessary.
+1. In your pre-migration account, [retrieve all notification endpoints for your main Log Management account](https://api-docs.logz.io/docs/logz/get-all-endpoints/). Repeat for each sub account.
+2. In your post-migration account, [create a new endpoint](https://api-docs.logz.io/docs/logz/manage-notification-endpoints). Repeat for each endpoint and account, as necessary.
 
 
 If you prefer to perform the process manually, see the [notification endpoints guide](https://docs.logz.io/user-guide/integrations/endpoints.html).
@@ -122,11 +122,11 @@ If you prefer to perform the process manually, see the [notification endpoints g
 Retrieve all logging alerts you want to keep and re-create them in your new account.
 You can do so using the Logz.io API endpoints as follows:
 
-1. In your pre-migration account, [retrieve all log alerts](https://docs.logz.io/api/#operation/getAllAlerts). Repeat for each sub account.
+1. In your pre-migration account, [retrieve all log alerts](https://api-docs.logz.io/docs/logz/get-all-alerts/). Repeat for each sub account.
 2. Update and prepare the alerts with your new, post-migration account information:
     1. Update the account IDs, under the parameter `accountIdsToQueryOn`. If your alerts are set to run on all accounts, this will not be necessary. (That is, if the parameter `QueryOnAllAccounts` is set to true.)
     2. Update the notification endpoints, if relevant, under the parameter `notificationEndpointIds`.
-3. In your post-migration account, [create a new alert](https://docs.logz.io/api/#operation/createAlert) with the matching settings. Repeat for each alert and account.
+3. In your post-migration account, [create a new alert](https://api-docs.logz.io/docs/logz/create-alert/) with the matching settings. Repeat for each alert and account.
 
 If you prefer to perform the process manually, see the [alert guide](https://docs.logz.io/user-guide/alerts/configure-an-alert.html).
 
@@ -144,10 +144,10 @@ Scheduled reports are currently not supported by the Logz.io API.
 Retrieve all existing users and re-create them in your new account.
 You can do so using the Logz.io API endpoints as follows:
 
-1. In your pre-migration account, [retrieve users for all associated accounts](https://docs.logz.io/api/#operation/listAllAccountUsers).
+1. In your pre-migration account, [retrieve users for all associated accounts](https://api-docs.logz.io/docs/logz/list-all-account-users/).
     * This endpoint returns a list of users in the main account and all associated sub accounts as an array of JSON objects per account.
     * If a user appears in multiple accounts, it will be listed separately under each account.
-2. In your post-migration account, [create a new user/admin user](https://docs.logz.io/api/#operation/createUser). Repeat for each user and account.
+2. In your post-migration account, [create a new user/admin user](https://api-docs.logz.io/docs/logz/create-user/). Repeat for each user and account.
 
 If you prefer to perform the process manually, see the [user management guide](https://docs.logz.io/user-guide/users/).
 
