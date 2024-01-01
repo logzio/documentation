@@ -1,27 +1,31 @@
 ---
 sidebar_position: 5
-title: Throttling in Your Metrics Account
+title: Metrics Account Usage and Throttling
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Learn about Logz.io's Metrics account and Throttling mechanism
+keywords: [Metrics, Throttle, Throttling, Metrics account, UTS, Unique Time Series]
 ---
 
-Logz.io provides a throttling mechanism to assist you in effectively managing the volume of data in your Metrics account. This mechanism comes into play when your account exceeds the predefined hourly limit for Unique Time Metrics (UTS) sent.
+Your Logz.io Metrics account ingests [**Unique Time Series (UTS)**](/docs/user-guide/infrastructure-monitoring/introduction-to-prometheus/explore-metrics-prometheus/#calculating-infrastructure-monitoring-usage), a collection of pairs, each including a timestamp and value.
 
-## How Throttling Works
+## How Metrics are Measured
 
-Your account has an hourly limit for UTS data ingestion. Even after reaching this limit, you can continue to ingest data based on your [On Demand](/docs/user-guide/admin/logzio-accounts/on-demand/) settings. Throttling only activates when you exceed both your hourly limit and On Demand limit.
+Metric account usage is measured according to the average hourly ingestion of UTS, allowing you to ingest more data than your daily plan allows without incurring additional charges. 
 
+For example, if the hourly metrics plan allows ingesting 100,000 UTS per hour and you send 50,000 UTS in the first hour, followed by 150,000 UTS in the second hour, the average usage remains within your daily plan limit of 100,000 UTS.
 
-Throttling, when triggered, temporarily restricts the ingestion of new Unique Time Metrics until the start of the next hour. The throttling will end at the top of the next hour, allowing new unique metrics to be ingested into your account.
+In addition, Logz.io provides a safety net to avoid data surges during infrastructure changes, allowing up to twice your plan's hourly limit (e.g., plan 100,000 = 200,000 UTS/hour) unless your account admin specifies otherwise.
 
-Account administrators will receive an email notification when the account approaches its hourly UTS limit, indicating that throttling is about to begin. Another email notification will be sent when the account surpasses its On Demand limit.
+:::info Note
+If your hourly average exceeds your account plan for a continuous period of 24 hours, you'll be charged according to your On Demand settings. [Learn more about On Demand](/docs/user-guide/admin/logzio-accounts/on-demand/).
+:::
 
-This throttling mechanism ensures system stability while allowing flexibility in data ingestion based on your On Demand settings.
+## Logz.io's Throttling Mechanism
 
-## What can you do?
+However, if you exceed your plan and safety net, a **throttling** mechanism is activated. It briefly limits **new** UTS ingestion until the next hour, ensuring system stability. 
 
-Account admins can purchase or upgrade the current account, or if there's additional data available, you can re-allocate it to stop the throttling process. To do so, head to the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts?product=Logs) page and choose the option that suits your needs.
+Throttling helps maintain system stability while allowing flexibility in data ingestion.
 
+Account admins receive email alerts when the account ingestion approaches its hourly limit and another email when throttling starts.
 
-
-<!-- ![Edit a panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metric-alert-edit.png)-->
-
-
+To avoid throttling and to ensure new UTS are ingested, account admins can purchase or upgrade the relevant metrics account. If there's additional UTS data available from other metrics accounts, admins can re-allocate it to stop the throttling process from the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts?product=Logs) page.
