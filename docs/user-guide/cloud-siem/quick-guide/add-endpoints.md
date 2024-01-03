@@ -1,66 +1,37 @@
 ---
 sidebar_position: 6
 title: Adding Notification and SOAR Endpoints
+description: Adding notification endpoints to Logz.io's SIEM solution
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [SIEM, Security, Event Management, Endpoints, Notifications, SOAR]
 ---
 
-A notification endpoint defines where a notification of a rule execution needs to be sent to. Logz.io has a number of pre-configured endpoints, such as Slack or Opsgenie. Otherwise you can easily add any notification endpoint using the **Custom** feature. The latter option is currently used to integrate with SOARs.
+A notification endpoint specifies where to send a notification for a rule execution. Logz.io offers several pre-configured endpoints, and you can easily add custom notification points using the **Custom** feature. Custom notification points are integrated with SOARs (security orchestration, automation, and response).
 
-### Add a pre-configured notification endpoint
+:::info note
+You must be an account admin to add a notification endpoint.
+:::
 
-To add a pre-configured notification endpoint:
-
-1. Sign in to Logz.io as an administrator user.
-
-2. Go to **Settings > Notification endpoints**.
-
-   ![Notification](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/endpoint-1.png)
-
-3. Select **+ Add endpoint**.
-
-   ![Notification](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/endpoint-2.png)
+## Pre-configured notification endpoint
 
 
-3. Select your endpoint source from the **Type** menu.
+Navigate to your Logz.io [SIEM account > Settings > Notification endpoints](https://app.logz.io/#/dashboard/alerts/endpoints). 
 
-   ![Notification](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/endpoint-3.png)
+Select **+ Add endpoint** to open the configuration wizard. Select the **type** of your endpoint, name it, and add a description. Add the required connection data, e.g., API key or Instance URL. You can test your endpoint by clicking **Run the test** or click **Add a new endpoint** to save it. 
 
+![pre-configured endpoint](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/pre-endpoint-siem.png)
 
-   * Add a name for this endpoint.
+## Custom notification endpoint
 
-   * If required, add a description for the endpoint.
+Navigate to your Logz.io [SIEM account > Settings > Notification endpoints](https://app.logz.io/#/dashboard/alerts/endpoints). 
 
-   * Add the required connection data, e.g. API key or Instance URL.
+Select **+ Add endpoint** to open the configuration wizard, and choose the **Custom** option from the dropdown menu. Next:
 
-   * If you want to test the connection, select **Run the test**.
+* Name your endpoint
+* Add the webhook URL
+* Select the required method
+* Add the webhook header
 
-4. Select **Add endpoint**.
+You can test your endpoint by clicking **Run the test** or click **Add a new endpoint** to save it. 
 
-### Add a custom notification endpoint
-
-To add a custom notification endpoint:
-
-
-1. Sign in to Logz.io as an administrator user.
-
-2. Go to **Settings > Notification endpoints**.
-
-   ![Notification](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/endpoint-1.png)
-
-
-3. Select **Custom** from the **Type** menu.
-
-   ![Notification](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/endpoint-4.png)
-
-   * Add a name for this endpoint.
-
-   * If required, add a description for the endpoint.
-
-   * Add the webhook URL.
-
-   * Select the required method.
-
-   * Select the webhook header.
-
-   * If you want to test the connection, select **Run the test**.
-
-4. Select **Add endpoint**.
+![custom endpoint](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/custom-siem-endpoint.png)
