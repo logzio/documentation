@@ -123,7 +123,7 @@ const config = {
         //... other Algolia params
       },
       hotjar: {
-        applicationId: "3812613",
+        applicationId: "2108173",
       },
       docs: {
       sidebar: {
