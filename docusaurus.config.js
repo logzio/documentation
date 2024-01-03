@@ -33,7 +33,7 @@ const config = {
   },
 
   plugins: [
-
+    'docusaurus-plugin-hotjar',
     [
       'docusaurus-plugin-includes',
       {
@@ -121,6 +121,9 @@ const config = {
         searchPagePath: 'search',
   
         //... other Algolia params
+      },
+      hotjar: {
+        applicationId: "3812613",
       },
       docs: {
       sidebar: {
