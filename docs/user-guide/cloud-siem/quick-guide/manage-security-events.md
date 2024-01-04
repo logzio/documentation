@@ -52,7 +52,7 @@ Click the three dots to access the **View History** option. The popup includes t
 
 Event history helps you keep track of what happened to it during the last 2 weeks, including when it was created, who the handler is, and updates regarding its status.
 
-
+![Event history overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/event-history-siem-jan.png)
 
 
 
