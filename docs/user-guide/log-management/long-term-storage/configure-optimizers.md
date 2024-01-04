@@ -8,7 +8,7 @@ sidebar_position: 2
 
 To create a new optimizer, start in OpenSearch Dashboards so you can test the query you want to use.
 
-Before creating an optimizer, you'll need a timeless account to send the data to. If you need help setting up a timeless account, see [Manage timeless accounts](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#timeless).
+Before creating an optimizer, you'll need a timeless account to send the data to. If you need help setting up a timeless account, see [Manage timeless accounts](/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts).
 
 After you've created your account, navigate back to **OpenSearch Dashboards** > **Create an optimizer**, where you can configure the optimizer settings.
 
@@ -17,7 +17,7 @@ Once a log is pulled to your Logz.io account, it takes up to **2 hours** until i
 :::
 
 
-If you want help updating an existing optimizer, you can [skip the first part of this page](../../admin/logzio-accounts/manage-the-main-account-and-sub-accounts/#timeless).
+If you want help updating an existing optimizer, you can [skip the first part of this page](/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts).
 
 ### Create an optimizer:
 

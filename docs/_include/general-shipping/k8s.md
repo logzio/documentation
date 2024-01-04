@@ -61,16 +61,18 @@ logzio-monitoring logzio-helm/logzio-monitoring
 
 ### Deployment events versioning
 
-In order to add an indication for the versioning in our K8S 360 and Service Overview UI, the following annotation should be added to the metadata of each resource you'd like to track its versioning. 
-Commit URL structure: `https://github.com/<account>/<repository>/commit/<commit-hash>`
-
-Example: `https://github.com/logzio/logzio-k8s-events/commit/069c75c95caeca58dd0776405bb8dfb4eed3acb2`
+To add a versioning indicator to our K8S 360 and Service Overview UI, the specified annotation must be included in the metadata of each resource whose versioning you wish to track. The 'View commit' button will link to the commit URL in your version control system (VCS) from the logzio/commit_url annotation value.
 
 ```yaml
 metadata:
   annotations:
     logzio/commit_url: ""  
 ```
+
+#### GitHub VCS Example 
+
+Commit URL structure: `https://github.com/<account>/<repository>/commit/<commit-hash>`
+   - Example: `https://github.com/logzio/logzio-k8s-events/commit/069c75c95caeca58dd0776405bb8dfb4eed3acb2`
 
 
 For log shipping troubleshooting, see our [user guide](https://docs.logz.io/user-guide/kubernetes-troubleshooting/).
@@ -113,7 +115,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 
 | Parameter | Description |
 | --- | --- |
-| `<<TRACES-SHIPPING-TOKEN>>` | Your [traces shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=tracing). |
+| `<<TRACING-SHIPPING-TOKEN>>` | Your [traces shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=tracing). |
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
 | `<<LOGZIO_ACCOUNT_REGION_CODE>>` | Name of your Logz.io traces region e.g `us`, `eu`... |
 
@@ -137,12 +139,26 @@ logzio-monitoring logzio-helm/logzio-monitoring
 
 | Parameter | Description |
 | --- | --- |
-| `<<TRACES-SHIPPING-TOKEN>>` | Your [traces shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
+| `<<TRACING-SHIPPING-TOKEN>>` | Your [traces shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
 | `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
 | `<<LOGZIO_ACCOUNT_REGION_CODE>>` | Name of your Logz.io traces region e.g `us`, `eu`... |
 | `<<SPM-METRICS-SHIPPING-TOKEN>>` | Your [span metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
 
+## Deploy both charts with span metrics and service graph
+**Note** `serviceGraph.enabled=true` will have no effect unless `traces.enabled` & `spm.enabled=true` is also set to `true`
+```sh
+helm install -n monitoring \
+--set metricsOrTraces.enabled=true \
+--set logzio-k8s-telemetry.traces.enabled=true \
+--set logzio-k8s-telemetry.secrets.TracesToken="<<TRACING-SHIPPING-TOKEN>>" \
+--set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
+--set logzio-k8s-telemetry.spm.enabled=true \
+--set logzio-k8s-telemetry.secrets.SpmToken=<<SPM-METRICS-SHIPPING-TOKEN>> \
+--set logzio-k8s-telemetry.serviceGraph.enabled=true \
+logzio-monitoring logzio-helm/logzio-monitoring
+```
 
 ## Scan your cluster for security vulnerabilities
 
@@ -204,7 +220,7 @@ helm install -n monitoring \
 --set logzio-k8s-telemetry.secrets.ListenerHost="https://<<LISTENER-HOST>>:8053" \
 --set logzio-k8s-telemetry.secrets.p8s_logzio_name="<<CLUSTER-NAME>>" \
 --set logzio-k8s-telemetry.traces.enabled=true \
---set logzio-k8s-telemetry.secrets.TracesToken="<<TRACES-SHIPPING-TOKEN>>" \
+--set logzio-k8s-telemetry.secrets.TracesToken="<<TRACING-SHIPPING-TOKEN>>" \
 --set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
@@ -217,8 +233,8 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<P8S-LOGZIO-NAME>>` | The name for the environment's metrics, to easily identify the metrics for each environment. |
 | `<<CLUSTER-NAME>>` | The name for your environment's identifier, to easily identify the telemetry data for each environment. |
 | `<<ENV-TAG>>` | Your custom name for the environment's metrics, to easily identify the metrics for each environment. |
-| `<<TRACES-SHIPPING-TOKEN>>` | Replace `<<TRACING-SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=tracing) of the account you want to ship to. |
-| `<<LOGZIO_ACCOUNT_REGION_CODE>>` | Name of your Logz.io traces region e.g `us` or `eu`. You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
+| `<<TRACING-SHIPPING-TOKEN>>` | Replace `<<TRACING-SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=tracing) of the account you want to ship to. |
+| `<<LOGZIO_ACCOUNT_REGION_CODE>>` | Name of your Logz.io traces region e.g `us` or `eu`. You can find your region code in the [Regions and URLs](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#regions-and-urls) table. |
 
 ## Handling image pull rate limit
 

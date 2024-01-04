@@ -13,7 +13,7 @@ Azure Native Integration offers a fast and efficient way to sync your Azure data
 Azure may **charge additional fees** for using this integration. [Read more about Azure API costs](https://azure.microsoft.com/en-us/pricing/details/api-management/).
 :::
 
-## Set up Azure Native Integration 
+## Set up Azure Native Integration in Azure 
 
 
 ### Create a new app in Azure
@@ -32,7 +32,7 @@ In your main app screen, click on **Add a certificate or secret**.
 
 Next, create a **New client secret**. Give it a description and choose the expiration date, such as the 730 days option. Click **Add** to create the secret.
 
-Copy your secret's **Value** and save if for later use. This is needed to complete the setup process with Logz.io.
+Copy your secret's **Value** and save it for later use. This is needed to complete the setup process with Logz.io.
 
 :::caution Important
 Client secret values **cannot be viewed except immediately after creation**. Be sure to save the secret when created before leaving the page. If you didn't keep the value, create a new client secret to continue the setup process.
@@ -67,7 +67,7 @@ Azure Native Integration collects metrics data by default. If you wish to collec
 1. [Create a workspace in Azure](https://learn.microsoft.com/en-us/azure/machine-learning/quickstart-create-resources?view=azureml-api-2)
 2. Ship logs to your log analytics workspace via Diagnostic Settings / Data Collection Rules / Application Insights
 
-You must configure your logs through the relevant settings according to your Azure account. Once configured, Logz.io can collect and monitor the desired logs.
+You must configure your logs through the relevant settings based on your Azure account. Once configured, Logz.io can collect and monitor the desired logs.
 
 For example, if you have a **Kubernetes service**, you can configure your logs via Diagnostic Settings.
 
@@ -108,9 +108,9 @@ Once your Azure app is ready, navigate to Logz.io to continue the setup process.
 
 ### Setup Azure Native Integration integration
 
-Open **[Logz.io > Send data > Telemetry Collector](https://app.logz.io/#/dashboard/send-your-data/agent/new)** and Choose Azure.
+Open **[Logz.io > Integration hub](https://app.logz.io/#/dashboard/integrations/collectors)** and Choose Azure.
 
-![Azure telemetry collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/fetcher/choose-azure-cloud.png)
+![Azure telemetry collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/quick-setup-azure-dec.png)
 
 
 ### Enter your credentials
@@ -128,7 +128,7 @@ Next, select the resource type you'd like to send. You can select **All services
 
 Click **Next** to continue.
 
-![Enter Azure details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/fetcher/configure-azure-fetcher.png)
+![Enter Azure details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/fetcher/azure-telemetry-dec.png)
 
 ### Finish setting up your collector
 
@@ -140,7 +140,7 @@ Click **Generate collector** to continue.
 
 To get started with Azure Native Integration, toggle the **Enable Connection** on. You might have to wait a few minutes to see your data.
 
-![Toggle fetcher](https://dytvr9ot2sszz.cloudfront.net/logz-docs/fetcher/toggle-fetcher.png)
+![Toggle fetcher](https://dytvr9ot2sszz.cloudfront.net/logz-docs/fetcher/azure-telemetry-finalize-dec.png)
 
 If you encounter an error and can't enable the connection, click **Advanced settings** to return to the configuration screen and verify the values you've entered are correct.
 

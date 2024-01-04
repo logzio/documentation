@@ -74,6 +74,6 @@ Give your logs some time to get from your system to ours,
 and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for data of the `salesforce` field type value or type `salesforce` to see the Salesforce logs.
 
 If you still don't see your logs,
-see [log shipping troubleshooting](/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
+see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
 
  

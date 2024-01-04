@@ -102,7 +102,7 @@ C:\PROGRA~1\td-agent-bit\bin\fluent-bit.exe -c C:\PROGRA~1\td-agent-bit\conf\flu
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see [log shipping troubleshooting](/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
+If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
 
   
 
@@ -163,7 +163,7 @@ logzio/fluent-bit-output
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see [log shipping troubleshooting](/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
+If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
 
 
 ## Run Fluent Bit in Kubernetes

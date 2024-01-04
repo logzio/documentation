@@ -128,12 +128,11 @@ Note that the ListBucket permission is set to the entire bucket and the GetObjec
 
 ##### Create a Logz.io-AWS connector
 
-In your Logz.io app, go to **Send your data**.
-Select the relevant AWS resource from the left menu.
+In your Logz.io app, go to **Integration hub** and select the relevant AWS resource.
 
-Click **+ Add a bucket** and select the option to **Authenticate with a role**
+Inside the integration, click **+ Add a bucket** and select the option to **Authenticate with a role**
 
-![Connect Logz.io to an AWS resource](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/s3-add-bucket-ids.png)
+![Connect Logz.io to an AWS resource](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/s3-bucket-id-dec.png)
 
 Copy and paste the **Account ID** and **External ID** in your text editor.
 
@@ -150,40 +149,40 @@ Keep this information available so you can use it in AWS.
 
 Choose whether you want to include the **source file path**. This saves the path of the file as a field in your log.
 
-##### Create the IAM Role in AWS
-
-Go to your [IAM roles](https://console.aws.amazon.com/iam/home#/roles) page in your AWS admin console.
-
-Click **Create role**.
-You're taken to the _Create role_ wizard.
-
-![Create an IAM role for another AWS account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/iam--create-role.png)
-
-Click **Another AWS account**.
-
-Paste the **Account ID** you copied from Logz.io.
-
-Select **Require external ID**,
-and then paste the **External ID** from step 1.
-
-Click **Next: Permissions** to continue.
-
 ##### Create the policy
 
-In the  _Create role_ screen, click **Create policy**.
-The _Create policy_ page loads in a new tab.
+Navigate to [IAM policies](https://us-east-1.console.aws.amazon.com/iam/home#/policies) and click **Create policy**.
 
 In the **JSON** tab,
 replace the default JSON with the policy you copied from Logz.io.
 
-Click **Review policy** to continue.
+Click **Next** to continue.
 
 Give the policy a **Name** and optional **Description**,
 and then click **Create policy**.
 
 Remember the policy's name—you'll need this in the next step.
 
-Close the tab to return to the _Create role_ page.
+Return to the _Create role_ page.
+
+
+##### Create the IAM Role in AWS
+
+Go to your [IAM roles](https://console.aws.amazon.com/iam/home#/roles) page in your AWS admin console.
+
+Click **Create role** to open the _Create role_ wizard.
+
+![Create an IAM role for another AWS account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/create-role-main-screen-dec.png)
+
+Click **AWS Account > Another AWS account**.
+
+Paste the **Account ID** you copied from Logz.io.
+
+Select **Require external ID**,
+and then paste the **External ID** you've copied and saved in your text editor.
+
+Click **Next: Permissions** to continue.
+
 
 ##### Attach the policy to the role
 
@@ -192,8 +191,8 @@ and then type your new policy's name in the search box.
 
 Find your policy in the filtered list and select its check box.
 
-Click **Next: Tags**,
-and then click **Next: Review** to continue to the _Review_ screen.
+Click **Next** to review the new role.
+
 
 ##### Finalize the role
 
@@ -217,7 +216,7 @@ In Logz.io, paste the ARN in the **Role ARN** field, and then click **Save**.
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see [log shipping troubleshooting](/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
+If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
 
 
 
@@ -301,10 +300,9 @@ Note that the ListBucket permission is set to the entire bucket and the GetObjec
 ##### Create the user
 
 Browse to the [IAM users](https://console.aws.amazon.com/iam/home#/users)
-and click **Add user**.
-You're taken to the _Add user_ wizard.
+and click **Create user**.
 
-![Create an IAM role for another AWS account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/iam--add-user.png)
+![Create an IAM role for another AWS account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/iam-create-user-dec.png)
 
 Assign a **User name**.
 
@@ -373,7 +371,7 @@ and then click **Save**.
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see [log shipping troubleshooting](/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
+If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
 
 
 ### Troubleshooting
@@ -451,7 +449,7 @@ and click **Authenticate with a role**.
 
 ![S3 fetcher and archive configuration screens](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-and-restore/s3-fetcher-and-archive-config-external-id.png)
 
-Recreate your configuration with the values you copied in step 1,
+Recreate your configuration with the values you copied in a previous step,
 and copy the **External ID** (you'll paste it in AWS in the next step).
 
 ###### Replace the external ID in your IAM role

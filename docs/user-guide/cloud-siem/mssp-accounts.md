@@ -7,16 +7,16 @@ keywords: [mssp, siem, logz.io siem. security solution, Managed Security Service
 ---
 
 
-As an MSSP you can create a dedicated SIEM account for each logging account. This lets your customers access their data without the risk of accidentally seeing other customers’ data.
+As a Managed Security Service Provider (MSSP) you can create a dedicated SIEM account for each logging account. This lets your customers access their data without the risk of accidentally seeing other customers’ data.
 
-To do this:
+## Configure MSSP account
 
 
-1. Sign in to Logz.io as an administrator user.
+1. Sign in to Logz.io as an **administrator user**.
 
-2. Go to **Settings > Manage accounts**.
+2. Go to **[Settings > Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts)**.
 
-   ![Manage_accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/mssp-1.png)
+   <!-- ![Manage_accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/mssp-1.png) -->
 
 
 3. In the **Plan Summary** section, select **Add sub account**.
@@ -41,11 +41,11 @@ To do this:
 
    ![Manage_accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/mssp-4.png)
 
-5. Scroll down to **Cloud SIEM plan**.
+5. Scroll down the page to **Cloud SIEM plan** and select **Add security account**.
 
-   ![Manage_accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/mssp-5.png)
+   <!-- >   ![Manage_accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/mssp-5.png)
 
-6. Select **Add security account**.
+   6. Select **Add security account**. -->
 
    ![Manage_accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/mssp-6.png)
 
@@ -59,9 +59,7 @@ To do this:
 
    ![Manage_accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/mssp-7.png)
 
-8. Go to **Cloud SIEM**.
-
-9. Click the account selection menu in the top right corner of the **Summary** screen.
+8. Go to your **Cloud SIEM** account in Logz.io. Click the account selection menu in the top right corner of the **Summary** screen.
 
    ![Manage_accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/mssp-8.png)
 

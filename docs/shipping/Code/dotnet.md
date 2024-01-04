@@ -2085,7 +2085,7 @@ Give your traces some time to get from your system to ours, and then open [Traci
 
 #### OpenTelemetry instrumentation 
 
-For troubleshooting the OpenTelemetry instrumentation, see our [OpenTelemetry troubleshooting guide](/docs/user-guide/distributed-tracing/troubleshooting/otel-troubleshooting).
+For troubleshooting the OpenTelemetry instrumentation, see our [OpenTelemetry troubleshooting guide](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/otel-troubleshooting).
 
 </TabItem>
 </Tabs>
