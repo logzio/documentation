@@ -1,6 +1,9 @@
 ---
 sidebar_position: 3
 title: Restore Archived Logs
+description: How to restore and view archived logs in Logz.io
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logs, archive, archived logs, archived data, view archive]
 ---
 
 
