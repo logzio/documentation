@@ -14,7 +14,7 @@ so you can investigate events in OpenSearch Dashboards that are older than your 
 
 #### Known limitations
 
-* The maximum data to restore is equivalent to your account's **daily reserved volume**, no more than 100 GB.
+* The maximum data to restore per restore sub-account is equivalent to your account's **daily reserved volume**, and can't be more than 100 GB.
 * If the restore process exceeds the max, the process will fail.
 * Data can be restored from the **root of an S3 bucket**, but not a sub-bucket path.
 
