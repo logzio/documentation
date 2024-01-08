@@ -46,8 +46,14 @@ Choose the Kafka topic(s) you want to collect data from.
 
 ### Set up authentication for Logz.io
 
-1. In the **HTTP URL** field, enter `https://<<LOGZIO-LISTENER-HOST>>:8071/?token=<<LOGZIO-SHIPPING-TOKEN>>&type=<<YOUR-TYPE>>` Replace `<<YOUR-TYPE>>` with the desired log type. {@include: ../../_include/log-shipping/log-shipping-token.html}
-{@include: ../../_include/log-shipping/listener-var.html}
+1. In the **HTTP URL** field, enter:
+
+   ```
+   https://<<LOGZIO-LISTENER-HOST>>:8071/?token=<<LOGZIO-SHIPPING-TOKEN>>&type=<<YOUR-TYPE>>
+   ```
+   - Replace `<<YOUR-TYPE>>` with the desired log type.
+   {@include: ../../_include/log-shipping/log-shipping-token.html}
+   {@include: ../../_include/log-shipping/listener-var.html}
 
 2. For **Endpoint Authentication type**, select **None**.
 
