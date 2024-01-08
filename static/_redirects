@@ -237,7 +237,7 @@
 /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html		/docs/user-guide/log-management/collaboration/share-import-export
 /user-guide/kibana/mapping/		/docs/user-guide/data-hub/field-mapping/
 /user-guide/kibana/mapping/field-not-indexed/		/docs/user-guide/data-hub/field-mapping/field-not-indexed
-/user-guide/log-shipping/telemetry-collector-		/docs/user-guide/telemetry-collector/
+/user-guide/log-shipping/telemetry-collector		/docs/user-guide/telemetry-collector/
 /user-guide/k360/overview.html#prerequisites		/docs/user-guide/k8s-360/kubernetes-360-pre
 /alerting-and-monitoring/alerts/alert-quotas		/docs/category/log-alerts
 /alerting/alerts.html		/docs/category/log-alerts
