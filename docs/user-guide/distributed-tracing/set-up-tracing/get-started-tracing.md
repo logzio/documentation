@@ -37,7 +37,7 @@ You must have admin permissions for the Logz.io account to view the **Manage tok
 
 ###### Related Links
 
-For information about how to manage your tracing data sources, see the [Manage a Distributed Tracing account](https://docs.logz.io/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#tracing) topic.
+For information about how to manage your tracing data sources, see the [Manage a Distributed Tracing account](https://docs.logz.io/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts/#tracing) topic.
 
 
 
@@ -47,7 +47,7 @@ If you have admin user permissions, you can clarify the 2-letter code for your r
 
 ![Navigate to general settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/general-settings1_sept2021.png)
 
-The list of all the region codes is available in the **Logz.io Docs**, in the **Region code** column of the [Regions and Listener Hosts table](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions). The default region is US east.
+The list of all the region codes is available in the **Logz.io Docs**, in the **Region code** column of the [Regions and Listener Hosts table](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). The default region is US east.
 
 
 ### Set up instrumentation

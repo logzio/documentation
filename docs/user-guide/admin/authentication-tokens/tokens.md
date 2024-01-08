@@ -49,7 +49,7 @@ API tokens are available to Enterprise and Pro plan subscribers, as well as duri
 To manage your API tokens, select [**<i class="li li-gear"></i>Settings > Tools > Manage tokens**](https://app.logz.io/#/dashboard/settings/manage-tokens/api) in the top menu and select the **API tokens** tab.
 
 * For more information on [managing API tokens](https://docs.logz.io/user-guide/tokens/api-tokens.html)
-* If you want to build your own integration, visit the [Logz.io API Developer Guide](https://docs.logz.io/api/)
+* If you want to build your own integration, visit the [Logz.io API Developer Guide](https://api-docs.logz.io/docs/logz/logz-io-api/)
 
 ## About token permissions
 

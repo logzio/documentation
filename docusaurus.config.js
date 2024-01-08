@@ -4,6 +4,7 @@
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Logz.io Docs',
@@ -32,7 +33,7 @@ const config = {
   },
 
   plugins: [
-
+    'docusaurus-plugin-hotjar',
     [
       'docusaurus-plugin-includes',
       {
@@ -121,6 +122,9 @@ const config = {
   
         //... other Algolia params
       },
+      hotjar: {
+        applicationId: "3812613",
+      },
       docs: {
       sidebar: {
         hideable: true,
@@ -141,7 +145,7 @@ const config = {
             position: 'right',
           },
           {to: '/docs/category/send-your-data/', label: 'Ship data', position: 'left'},
-          {to: 'https://logz-docs-api.netlify.app/api/', label: 'API', position: 'left'},
+          {to: 'https://api-docs.logz.io/docs/logz/logz-io-api', label: 'API', position: 'left'},
           {to: 'https://status.logz.io/', label: 'System status', position: 'left'},
           {to: 'https://logz.io/blog/', label: 'Blog', position: 'left'},
           {
@@ -234,7 +238,7 @@ const config = {
       },
       prism: {
         theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        //darkTheme: darkCodeTheme.dracula,
       },
     }),
 };

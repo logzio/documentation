@@ -15,9 +15,6 @@ drop_filter: []
 ---
 
 
-
-Google Cloud Operation Suite (Stackdriver) collects logs from your cloud services. You can use Google Cloud Pub/Sub to forward your logs from GP sinks to Logz.io.
-
 {@include: ../../_include/general-shipping/gcp-metrics.md}  
 
 For this integration, the telemetry list needs to include `gce_operation`.

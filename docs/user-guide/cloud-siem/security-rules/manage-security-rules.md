@@ -1,8 +1,10 @@
 ---
 sidebar_position: 2
+title: Configure a Security Rule
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Configure a security rule in Logz.io
+keywords: [SIEM, Security rule, rules, cloud security, cloud security rules, Security information and event management, Security information, event management]
 ---
-
-# Configure a Security Rule
 
 
 
@@ -13,6 +15,10 @@ and security use cases.
 
 You can create new security rules to supplement the built-in rules.
 You can also update any preconfigured rule at any time, including adding a notification endpoint (for example, email or Slack) or changing trigger thresholds.
+
+:::caution Important
+You cannot configure rules using the `logzio-alert` log type. This type is reserved for system-generated rules.
+:::
 
 ## To configure a rule
 

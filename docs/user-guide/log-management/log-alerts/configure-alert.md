@@ -11,6 +11,9 @@ Community plans limit the number of alerts that may be enabled. See the official
 
 ### Configuring an alert
 
+:::caution Important
+You cannot configure alerts using the `logzio-alert` log type. This type is reserved for system-generated alerts.
+:::
 
 #### Name the alert
 
@@ -25,7 +28,7 @@ Your alert name can contain letters, numbers, spaces, and special characters. It
 
 Next, set the search components. This determines which logs to look for and in which accounts.
 
-If you intend to create a correlated alert with 2 queries, see [this guide](../../log-management/log-alerts/correlated-alert/).
+If you intend to create a correlated alert with 2 queries, see [this guide](/docs/user-guide/log-management/log-alerts/correlated-alert).
 
 
 ![Alert group by settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alert-filter-component.gif)
@@ -162,9 +165,9 @@ To use an **email** as your endpoint, you need to type the email in the Recipien
 
 
 If you need help adding a new endpoint,
-see [_Notification endpoints_](../../integrations/notification-endpoints/endpoints/).
+see [_Notification endpoints_](/docs/user-guide/integrations/notification-endpoints/endpoints).
 
-Set a time period between notifications to limit how frequently recipients are notified. Logz.io will continue to log triggered alerts without sending notifications, and you can [review these alerts](../../log-management/log-alerts/alerts-event-management/) directly from the Logz.io platform at any time.
+Set a time period between notifications to limit how frequently recipients are notified. Logz.io will continue to log triggered alerts without sending notifications, and you can [review these alerts](/docs/user-guide/log-management/log-alerts/alerts-event-management/) directly from the Logz.io platform at any time.
 
 :::note
 The system combines the **Trigger if** time interval with the **Wait time** interval to calculate how long it should snooze notifications and chooses the more extended time duration available. For example, if your trigger condition is 1 hour and the wait time is 15 Minutes, the system will snooze notifications for 1 hour before triggering them again.

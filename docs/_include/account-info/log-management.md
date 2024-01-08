@@ -27,7 +27,7 @@ Inside each account, you can view and edit the following details:
 
 You can add the following elements:
 
-* [Save account utilization metrics (and how often)](https://docs.logz.io/user-guide/accounts/manage-account-usage.html#what-are-account-utilization-metrics)
+* [Save account utilization metrics (and how often)](/docs/user-guide/admin/account-volume-optimization/manage-account-usage/#what-are-account-utilization-metrics)
 * Save the account's log size 
 * Which accounts/sub accounts have visibility to the data in this account
 
@@ -78,7 +78,6 @@ Choose the sub account name, retention, and volume options if relevant. On the r
 | **Save account utilization metrics** | Logs metrics on your account utilization, such as used and expected data volume at current indexing rate (GB). |
 | **Save log size** | Adds the logSizeEnabled field to each log, stating the log's size. |
 | **Use dashboards, visualizations, and saved searches from these accounts** | Choose the main account from which these elements will be visible on the sub account. Useful if you want to be able to access your main account's data from this sub account. |
-{:.paramlist}
 
 Click **Apply** to create the sub account.
 

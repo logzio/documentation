@@ -1,7 +1,7 @@
 ---
-id: GCP-Apigee
+id: GPC-Apigee
 title: GCP Apigee
-overview: Send Google Cloud Apigee metrics to your Logz.io account.
+overview: Apigee, part of Google Cloud, helps design, secure, and scale application programming interfaces (APIs). Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['GCP', 'Other']
