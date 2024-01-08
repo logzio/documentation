@@ -93,7 +93,7 @@ Cloud SIEM (*Security Information and Event Management*) aggregates security log
 | Create rules                            |           | ✓    | ✓     | ✓     |
 | Dashboards                              | ✓         | ✓    | ✓     | ✓     |
 | Threats overview                        | ✓         | ✓    | ✓     | ✓     |
-| Threats intelligent field               | ✓         | ✓    | ✓     | ✓     |
+| Threats intelligent field               |           |      |       | ✓     |
 | OpenSearch Dashboards                   | ✓         | ✓    | ✓     | ✓     |
 | Reports                                 |           | ✓    | ✓     | ✓     |
 | Drilldowns                              |           |      |       | ✓     |
