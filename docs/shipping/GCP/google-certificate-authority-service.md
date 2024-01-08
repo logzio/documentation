@@ -16,4 +16,10 @@ drop_filter: []
 
 Google Certificate Authority Service is a highly available, scalable Google Cloud service that enables you to simplify, automate, and customize the deployment, management, and security of private certificate authorities (CA).
 
-{@include: ../../_include/general-shipping/gcp.md}  
+{@include: ../../_include/general-shipping/gcp-metrics.md}
+
+For this integration, the telemetry list needs to include `gce_ssl_certificate`.
+
+### Check Logz.io for your metrics
+
+Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).

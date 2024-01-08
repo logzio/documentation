@@ -19,4 +19,10 @@ drop_filter: []
 Google Cloud Interconnect provides low latency, high availability connections that enable you to reliably transfer data between your on-premises and Google Cloud Virtual Private Cloud (VPC) networks. 
 
 
-{@include: ../../_include/general-shipping/gcp.md}  
+{@include: ../../_include/general-shipping/gcp-metrics.md}  
+
+For this integration, the telemetry list needs to include `connectors`.
+
+### Check Logz.io for your metrics
+
+Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).

@@ -19,4 +19,10 @@ drop_filter: []
 Google Cloud Logging is fully managed, real-time log management with storage, search, analysis and alerting at exabyte scale. 
 
 
-{@include: ../../_include/general-shipping/gcp.md}  
+{@include: ../../_include/general-shipping/gcp-metrics.md}  
+
+For this integration, the telemetry list needs to include `logging_bucket`, `logging_exclusion`, `logging_log`, `logging_sink`  .
+
+### Check Logz.io for your metrics
+
+Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).

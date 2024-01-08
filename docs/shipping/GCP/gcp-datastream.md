@@ -18,4 +18,10 @@ drop_filter: []
 Google Datastream is a serverless and easy-to-use change data capture (CDC) and replication service. 
 
 
-{@include: ../../_include/general-shipping/gcp.md}  
+{@include: ../../_include/general-shipping/gcp-metrics.md}  
+
+For this integration, the telemetry list needs to include `datastream`.
+
+### Check Logz.io for your metrics
+
+Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).

@@ -59,8 +59,3 @@ Replace the variables as per the table below:
 | `log_type`       | Log type. Help classify logs into different classifications. (Default:`gcp-pubsub`)                                                                                                                       |
 | `function_name`  | Function name will be using as Google Cloud Function name. (Default:`logzioHandler`)                                                                                                                      |
 | `telemetry_list` | **_Optional_** Will send logs that match the Google resource type. Detailed list you can find [here](https://cloud.google.com/logging/docs/api/v2/resource-list) (ex: `pubsub_topic,pubsub_subscription`) |
-
-
-### Check Logz.io for your metrics
-
-Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).

@@ -16,4 +16,10 @@ drop_filter: []
 
 Apigee, part of Google Cloud, helps design, secure, and scale application programming interfaces (APIs). 
 
-{@include: ../../_include/general-shipping/gcp.md}  
+{@include: ../../_include/general-shipping/gcp-metrics.md}  
+
+For this integration, the telemetry list needs to include `apigee`.
+
+### Check Logz.io for your metrics
+
+Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).

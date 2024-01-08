@@ -17,4 +17,10 @@ drop_filter: []
 Google Cloud Load Balancing is a fully distributed, software-defined, managed service for all Google Cloud traffic. 
 
 
-{@include: ../../_include/general-shipping/gcp.md}  
+{@include: ../../_include/general-shipping/gcp-metrics.md}  
+
+For this integration, the telemetry list needs to include `aws_alb_load_balancer`.
+
+### Check Logz.io for your metrics
+
+Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
