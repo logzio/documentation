@@ -1,14 +1,15 @@
 ---
 sidebar_position: 3
+title: Preparing a Feed
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Adding private feeds to Logz.io
+keywords: [SIEM, threat feeds, threats, feeds, managing threats, Security information]
 ---
-
-
-# Preparing a Feed
 
 
 You can enrich log threat detection by adding your own private feeds to those provided by Logz.io.
 
-This page provides guidelines to help you prepare your private feeds of IOCs so they can be pulled by Logz.io. For help configuring the sync, see [Adding a private feed.
+This page provides guidelines to help you prepare your private feeds of IOCs so Logz.io can pull them. For help configuring the sync, see [Adding a private feed](/docs/user-guide/cloud-siem/threat-intelligence/private-feeds/).
 
 ## Supported IOC types
 
@@ -38,7 +39,7 @@ Supported IOC types include:
   
   For the default format, every IOC appears on a new line, without delimiters, separators, or additional notes or comments.
 
-  Here's an example for what a feed of malicious IPs might look like when using the default format:
+  Here's an example of what a feed of malicious IPs might look like when using the default format:
 
   ```
   1.1.1.1
@@ -64,3 +65,6 @@ Supported IOC types include:
 
 
 ### Allowlist IPs per region
+
+
+{@include: ../../../_include/general-shipping/allowed-ips.md}
