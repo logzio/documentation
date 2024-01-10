@@ -1,9 +1,10 @@
 ---
 sidebar_position: 1
+title: Lookup Lists
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Learn about Logz.io's lookup lists
+keywords: [SIEM, rules, correlated rules, managing threats, Security information]
 ---
-
-
-# Lookup Lists
 
 
 
@@ -16,7 +17,7 @@ Lookup list values are only string-based and do not support ranges. OpenSearch D
 
 Each list you create is added to the main Lookup lists library: Because the lookup lists are centrally managed, any list can be easily updated and changed without requiring manually updating multiple dashboards, saved searches, security rules, and so on.
 
-To view and create lookup lists, from the **Cloud SIEM** menu, go to [**More Options > Lookups**](https://app.logz.io/#/dashboard/security/rules/lookup).
+To view and create lookup lists, from the **Cloud SIEM** menu, go to [**More Options > Lookups**](https://app.logz.io/#/dashboard/security/lookups).
 
 ![Open Lookup lists](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/lookuplist-nav.gif)
 

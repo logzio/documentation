@@ -258,6 +258,13 @@
 /user-guide/give-aws-access-with-access-keys/     /docs/user-guide/admin/give-aws-access-with-access-keys
 /docs/user-guide/distributed-tracing/service-list		/docs/user-guide/app360/service-list
 /docs/user-guide/cloud-siem/quick-guide/send-data-options      /docs/category/cloud-siem-quick-start-guide
+/docs/user-guide/cloud-siem/quick-guide/add-endpoints       /docs/user-guide/cloud-siem/integrations/add-endpoints
+/docs/user-guide/cloud-siem/quick-guide/create-jira-ticket-alert        /docs/user-guide/cloud-siem/integrations/create-jira-ticket-alert
+/docs/user-guide/cloud-siem/quick-guide/manage-feeds/       /docs/category/threat-intelligence
+/docs/user-guide/cloud-siem/malicious-IPs       /docs/user-guide/cloud-siem/threat-intelligence/malicious-IPs
+/docs/user-guide/cloud-siem/quick-guide/edit-rules      /docs/user-guide/cloud-siem/security-rules/intro-security-rules
+/docs/user-guide/cloud-siem/quick-guide/create-rules        /docs/user-guide/cloud-siem/security-rules/manage-security-rules
+
 # Shippers
 /shipping/synthetic-monitoring-sources/api-status.html		/docs/shipping/Synthetic-Monitoring/API-status-metrics-synthetic
 /shipping/synthetic-monitoring-sources/ping-statistics.html		/docs/shipping/Synthetic-Monitoring/Ping-statistics-synthetic

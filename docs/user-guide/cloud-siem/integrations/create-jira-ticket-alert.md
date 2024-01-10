@@ -1,12 +1,17 @@
 ---
 sidebar_position: 7
-title: Configure SIEM to Automatically Create JIRA Tickets by Alert
+title: Create JIRA Tickets Through SIEM Alerts
+description: Automatically create JIRA tickets through SIEM alerts
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [SIEM, Security, Event Management, JIRA, Notifications, tickets, alerts, automatic]
 ---
-You can configure the notification endpoint to create a JIRA ticket in your preferred board, every time there is a new alert.
+
+You can configure your notification endpoints to automatically create JIRA tickets based on triggered alerts. 
+
 
 ### Pre-requisites
 
-* Make sure that you have permissions to create a task in the required JIRA board.
+* Make sure that you have the required permissions to create a task in the required JIRA board.
 
 * Create an API token for your [Atlassian account](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/).
 
@@ -19,35 +24,24 @@ You can configure the notification endpoint to create a JIRA ticket in your pref
 
 ### Add a JIRA notification endpoint
 
-To add a pre-configured notification endpoint:
 
-1. Sign in to Logz.io as an administrator user.
+Navigate to your Logz.io [SIEM account > Settings > Notification endpoints](https://app.logz.io/#/dashboard/alerts/endpoints). 
 
-2. Go to **Settings > Notification endpoints**.
+Select **+ Add endpoint** to open the configuration wizard, and select **Custom**. 
 
-   ![Notification](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/endpoint-1.png)
+![custom endpoint](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/custom-siem-endpoint.png)
 
-3. Select **+ Add endpoint**.
+Next: 
 
-   ![Notification](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/endpoint-2.png)
+* Name your endpoint and, if required, provide a description of the endpoint
 
+* Provide the URL to your JIRA board as follows: `https://<tenantname>.atlassian.net/rest/api/3/issue`. Replace `<tenantname>` with the name of your JIRA domain stated before `.atlassian`
 
-4. Select **Custom** from the **Type** menu.
+* Select **POST** from the **Method** menu
 
-   ![Notification](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/endpoint-3.png)
+* Enter the following header into the **Headers** field: `authorization= Basic <API-TOKEN>`. Replace `<API-TOKEN>` with the API token to your Atlassian account
 
-
-   * Add a name for this endpoint.
-
-   * If required, add a description for the endpoint.
-
-   * Provide the URL to your JIRA board as follows: `https://<tenantname>.atlassian.net/rest/api/3/issue`. Replace `<tenantname>` with the name of your JIRA domain stated before `.atlassian`.
-
-   * Select **POST** from the **Method** menu.
-
-   * Enter the following header into the **Headers** field: `authorization= Basic <API-TOKEN>`. Replace `<API-TOKEN>` with the API token to your Atlassian account.
-
-   * Add the following code as the payload:
+* Add the following code as the payload:
 
    ```json
    {
@@ -81,6 +75,4 @@ To add a pre-configured notification endpoint:
    Replace `<project board key>` with the key of your JIRA project board.
    Replace `<board specific issue type>` with the issue type specific to your project board.
 
-5. Select **Add endpoint**.
-
-
+Click **Add a new endpoint** to save.
