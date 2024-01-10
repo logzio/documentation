@@ -1,8 +1,10 @@
 ---
 sidebar_position: 3
+title: Correlated Rules
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Investigating correlated rules in Logz.io's Cloud SIEM
+keywords: [SIEM, rules, correlated rules, managing threats, Security information]
 ---
-
-# Correlated Rules
 
 
 Some security incidents are best detected by a sequence of logs originating from different products, i.e. log types.
@@ -13,7 +15,7 @@ In this example, the first event is detected by an email security product and th
 Correlated events are instrumental for reducing false-positives. By defining a more specific use case that contains 2 scenarios, the trigger can be more sensitive and reduce unwanted noise.
 
 
-##### Investigating correlated rules
+## Investigate correlated rules
 
 You can view all recently triggered rules from your [Summary](https://app.logz.io/#/dashboard/security/summary) dashboard.
 
