@@ -125,6 +125,9 @@ const config = {
       hotjar: {
         applicationId: "3812613",
       },
+      googleTagManager: {
+        containerId: 'GTM-NH9MTDW',
+      },
       docs: {
       sidebar: {
         hideable: true,
