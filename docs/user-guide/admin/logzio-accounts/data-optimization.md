@@ -65,7 +65,7 @@ Once you import the file, navigate to [Visualize](https://app.logz.io/#/dashboar
 
 ## Optimize metrics data 
 
-Your Infrastructure Monitoring (metrics) account can help you visualize the status of your services and operations. The account usage is [calculated based on Unique Time Series (UTS)](/user-guide/infrastructure-monitoring/metrics-explore-prometheus/#calculating-infrastructure-monitoring-usage), a collection of pairs, each including a timestamp and value. Time series is uniquely identified by its metric name and a set of labels.
+Your Infrastructure Monitoring (metrics) account can help you visualize the status of your services and operations. The account usage is [calculated based on Unique Time Series (UTS)](/docs/user-guide/infrastructure-monitoring/introduction-to-prometheus/explore-metrics-prometheus/#calculating-infrastructure-monitoring-usage), a collection of pairs, each including a timestamp and value. Time series is uniquely identified by its metric name and a set of labels.
 
 
 To gain quick insights into your metrics account, navigate to your **[Metrics](https://app.logz.io/#/dashboard/metrics)** account and run the following query to view the total unique metrics in the query’s timeframe:
