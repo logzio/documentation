@@ -12,7 +12,6 @@ OpenSearch Dashboards (OSD) is where you search and query your logs to figure ou
 
 You can use the Discover page to filter logs, search for specific events, and create alerts based on your search queries.
 
-
 ![OSD Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/logs-dashboards-main-dec.png)
 
 ### OpenSearch Dashboards Overview
