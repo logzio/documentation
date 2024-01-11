@@ -236,7 +236,7 @@ def my_func():
 
 ### Extra Fields
 
-In case you need to dynamic metadata to a speific log and not [dynamically to the logger](#dynamic-extra-fields), other than the constant metadata from the formatter, you can use the "extra" parameter.
+In case you need to dynamic metadata to a specific log and not [dynamically to the logger](#dynamic-extra-fields), other than the constant metadata from the formatter, you can use the "extra" parameter.
 All key values in the dictionary passed in "extra" will be presented in Logz.io as new fields in the log you are sending.
 Please note, that you cannot override default fields by the python logger (i.e. lineno, thread, etc..)
 For example:
