@@ -1,9 +1,11 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
+title: Investigate Security Events
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Manage and Investigate Security Events
+keywords: [SIEM, Security, Security events, investigate, Security information]
+
 ---
-
-
-# Investigate Security Events
 
 
 Cloud SIEM logs a security event every time a rule triggers. The terms **triggered rules** and **security events** have the same meaning and are used interchangeably.

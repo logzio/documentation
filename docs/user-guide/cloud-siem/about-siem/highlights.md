@@ -12,7 +12,7 @@ Here's how your Cloud SIEM will help you reduce mean-time-to-response and improv
 
 ### Get started in minutes
 
-Pre-configured security rules and monitoring dashboards make it simple to start identifying security incidents and attacks straight away.
+preconfigured security rules and monitoring dashboards make it simple to start identifying security incidents and attacks straight away.
 
 The list of rules and dashboards is continuously expanding and Logz.io's dedicated team of security experts adds content and improvements on a regular basis.
 

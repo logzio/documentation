@@ -99,7 +99,7 @@
 /user-guide/distributed-tracing/trace-flamegraph/		/docs/user-guide/distributed-tracing/navigating-tracing/trace-flamegraph
 /user-guide/distributed-tracing/compare-traces		/docs/user-guide/distributed-tracing/navigating-tracing/compare-traces
 /user-guide/distributed-tracing/topology-system_architecture		/docs/user-guide/distributed-tracing/navigating-tracing/topology
-/user-guide/distributed-tracing/services.html		/docs/user-guide/distributed-tracing/service-list
+/user-guide/distributed-tracing/services.html		/docs/user-guide/app360/service-list
 /user-guide/distributed-tracing/service-performance-monitoring		/docs/user-guide/distributed-tracing/spm
 /user-guide/distributed-tracing/service-performance-monitoring-setup		/docs/user-guide/distributed-tracing/setup-spm
 /user-guide/distributed-tracing/correlate-traces/		/docs/user-guide/distributed-tracing/correlate-traces
@@ -109,13 +109,13 @@
 /user-guide/siem/highlights/		/docs/user-guide/cloud-siem/about-siem/highlights
 /user-guide/cloud-siem/		/docs/user-guide/cloud-siem/
 /user-guide/cloud-siem/mssp-accounts.html		/docs/user-guide/cloud-siem/mssp-accounts
-/user-guide/cloud-siem/send-data-options.html		/docs/user-guide/cloud-siem/quick-guide/send-data-options
+/user-guide/cloud-siem/send-data-options.html		/docs/category/cloud-siem-quick-start-guide
 /user-guide/cloud-siem/summary-dashboard.html		/docs/user-guide/cloud-siem/quick-guide/summary-dashboard
-/user-guide/cloud-siem/investigate-events.html		/docs/user-guide/cloud-siem/quick-guide/investigate-events
-/user-guide/cloud-siem/create-rules.html		/docs/user-guide/cloud-siem/quick-guide/create-rules
-/user-guide/cloud-siem/add-endpoints.html		/docs/user-guide/cloud-siem/quick-guide/add-endpoints
-/user-guide/cloud-siem/create-jira-ticket-alert.html		/docs/user-guide/cloud-siem/quick-guide/create-jira-ticket-alert
-/user-guide/cloud-siem/edit-rules.html		/docs/user-guide/cloud-siem/quick-guide/edit-rules
+/user-guide/cloud-siem/investigate-events.html		/docs/category/investigate-events
+/user-guide/cloud-siem/create-rules.html		/docs/user-guide/cloud-siem/security-rules/manage-security-rules
+/user-guide/cloud-siem/add-endpoints.html		/docs/user-guide/cloud-siem/integrations/add-endpoints
+/user-guide/cloud-siem/create-jira-ticket-alert.html		/docs/user-guide/cloud-siem/integrations/create-jira-ticket-alert
+/user-guide/cloud-siem/edit-rules.html		/docs/user-guide/cloud-siem/security-rules/intro-security-rules
 /user-guide/cloud-siem/manage-security-events.html		/docs/user-guide/cloud-siem/quick-guide/manage-security-events
 /user-guide/cloud-siem/manage-feeds.html		/docs/user-guide/cloud-siem/quick-guide/manage-feeds
 /user-guide/cloud-siem/select-dashboards.html		/docs/user-guide/cloud-siem/quick-guide/select-dashboards
@@ -126,7 +126,7 @@
 /user-guide/cloud-siem/threat-intelligence.html		/docs/user-guide/cloud-siem/threat-intelligence/
 /user-guide/cloud-siem/private-feeds.html		/docs/user-guide/cloud-siem/threat-intelligence/private-feeds
 /user-guide/siem/ioc-types/		/docs/user-guide/cloud-siem/threat-intelligence/ioc-types
-/user-guide/cloud-siem/malicious-IPs.html		/docs/user-guide/cloud-siem/malicious-IPs
+/user-guide/cloud-siem/malicious-IPs.html		/docs/user-guide/cloud-siem/threat-intelligence/malicious-IPs
 /user-guide/cloud-siem/intro-security-rules.html		/docs/user-guide/cloud-siem/security-rules/intro-security-rules
 /user-guide/cloud-siem/manage-security-rules.html		/docs/user-guide/cloud-siem/security-rules/manage-security-rules
 /user-guide/siem/security-correlated-queries/		/docs/user-guide/cloud-siem/security-rules/security-correlated-queries
@@ -264,7 +264,7 @@
 /docs/user-guide/cloud-siem/malicious-IPs       /docs/user-guide/cloud-siem/threat-intelligence/malicious-IPs
 /docs/user-guide/cloud-siem/quick-guide/edit-rules      /docs/user-guide/cloud-siem/security-rules/intro-security-rules
 /docs/user-guide/cloud-siem/quick-guide/create-rules        /docs/user-guide/cloud-siem/security-rules/manage-security-rules
-
+/docs/user-guide/cloud-siem/quick-guide/investigate-events      /docs/category/investigate-events
 # Shippers
 /shipping/synthetic-monitoring-sources/api-status.html		/docs/shipping/Synthetic-Monitoring/API-status-metrics-synthetic
 /shipping/synthetic-monitoring-sources/ping-statistics.html		/docs/shipping/Synthetic-Monitoring/Ping-statistics-synthetic

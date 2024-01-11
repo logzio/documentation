@@ -7,7 +7,7 @@ keywords: [SIEM, Security, Security rules, security rule, Security information]
 ---
 
 
-Set up security rules to notify you when critical events occur on your machines and systems. Logz.io offers a set of updated pre-configured rules you can refine and edit or create custom rules with your desired thresholds and triggers. 
+Set up security rules to notify you when critical events occur on your machines and systems. Logz.io offers a set of updated preconfigured rules you can refine and edit or create custom rules with your desired thresholds and triggers. 
 
 To open the **Rules** page, navigate to **[SIEM account](https://app.logz.io/#/dashboard/security/summary) > [Rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions)**.
 
@@ -57,7 +57,7 @@ To edit, duplicate or delete a rule, hover over its line to reveal the **Edit** 
 
 Click the **Menu button** to open the additional options: **Duplicate** a rule and **View last events**. Select the latter to display the rule's query and the number of hits.
 
-## Managing multiple rules
+## Manage multiple rules
 
 Choosing one or more rules opens a top menu with the following actions:
  
@@ -79,7 +79,7 @@ Clicking on the **Recipient** option presents you with a pop-up with 2 available
 
 ![Alert recepients edit](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/add-replace-rule.png)
 
-## Manage pre-configured rules
+## Manage preconfigured rules
 
 If you need to customize a protected rule, you can clone it, adjust the cloned rule to your needs and then disable the original protected rule.
 

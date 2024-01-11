@@ -16,7 +16,7 @@ Annotations can mark events on your Metrics dashboards based on data from a logg
 
 Before you begin, you'll need to make sure you have permissions to edit the dashboard.
 
-If you are using any of the pre-configured dashboards provided by Logz.io, you'll first need to select the option to make it editable. (You can also click the gear **<i class="li li-gear"></i>** in the top menu, then select **Save as > Save**).
+If you are using any of the preconfigured dashboards provided by Logz.io, you'll first need to select the option to make it editable. (You can also click the gear **<i class="li li-gear"></i>** in the top menu, then select **Save as > Save**).
 
 ### Add a new annotation
 

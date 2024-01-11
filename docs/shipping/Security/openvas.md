@@ -17,7 +17,7 @@ drop_filter: []
 
 [OpenVAS](https://www.openvas.org/about.html) (Open Vulnerability Assessment System) is an open source vulnerability scanner. The following instructions show you how to configure Filebeat to send OpenVAS reports to Logz.io.
 
-Once you start sending OpenVAS reports to your Cloud SIEM, you'll be able to review events triggered by pre-configured [OpenVAS security rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC&search=openvas) and [dashboards](https://app.logz.io/#/dashboard/security/research/dashboards?).
+Once you start sending OpenVAS reports to your Cloud SIEM, you'll be able to review events triggered by preconfigured [OpenVAS security rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC&search=openvas) and [dashboards](https://app.logz.io/#/dashboard/security/research/dashboards?).
 
 #### Step by step
 

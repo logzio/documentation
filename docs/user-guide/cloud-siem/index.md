@@ -9,8 +9,7 @@ keywords: [SIEM, Cloud Security, Security, Security information, event managemen
 Logz.io Cloud SIEM combines the power of OpenSearch Dashboards with advanced security analytics tools
 to help you identify, investigate, and remediate threats quickly and efficiently.
 
-To open your Cloud SIEM account,
-click **SIEM** in the navigation menu.
+You [Cloud SIEM](https://app.logz.io/#/dashboard/security/summary) account has the following:
 
 ![Logz.io Cloud SIEM](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/siem-main-navigation-dec.png)
 
