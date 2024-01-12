@@ -81,15 +81,15 @@ By default, the trace opens in the timeline view. Select an option for different
 
 ![pick a trace view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/trace_view_pick-context.png)
 
-**[What can I do in the Trace Timeline?](/user-guide/distributed-tracing/trace-timeline)**
+**[What can I do in the Trace Timeline?](/user-guide/distributed-tracing/navigating-tracing/trace-timeline)**
 
-**[What can I do in the Trace Graph?](/user-guide/distributed-tracing/trace-graph)**
+**[What can I do in the Trace Graph?](/user-guide/distributed-tracing/navigating-tracing/trace-graph)**
 
-**[What can I do in the Trace Statistics?](/user-guide/distributed-tracing/trace-statistics)**
+**[What can I do in the Trace Statistics?](/user-guide/distributed-tracing/navigating-tracing/trace-stats)**
 
-**[What can I do in the Trace Spans Table?](/user-guide/distributed-tracing/trace-spans-table)**
+**[What can I do in the Trace Spans Table?](/user-guide/distributed-tracing/navigating-tracing/trace-spands-table)**
 
-**[What can I do in the Trace Flamegraph?](/user-guide/distributed-tracing/trace-flamegraph)**
+**[What can I do in the Trace Flamegraph?](/user-guide/distributed-tracing/navigating-tracing/trace-flamegraph)**
 
 
 ### Find a specific trace. 
@@ -101,7 +101,7 @@ After you log in to your Distributed Tracing account, if you need to view a spec
 
 
 ### Compare traces
-[Select traces for comparison](/user-guide/distributed-tracing/compare-traces) and find out how they differ.
+[Select traces for comparison](/user-guide/distributed-tracing/navigating-tracing/compare-traces) and find out how they differ.
 
 ### View Topology diagrams for your system
-Leverage the power of [topology diagrams](/user-guide/distributed-tracing/topology-system_architecture/) to obtain better observability for your system services and how they interact with each other.
+Leverage the power of [topology diagrams](/user-guide/distributed-tracing/navigating-tracing/topology) to obtain better observability for your system services and how they interact with each other.
