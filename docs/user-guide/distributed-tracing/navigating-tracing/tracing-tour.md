@@ -81,7 +81,7 @@ By default, the trace opens in the timeline view. Select an option for different
 
 ![pick a trace view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/trace_view_pick-context.png)
 
-**[What can I do in the Trace Timeline?](/user-guide/distributed-tracing/navigating-tracing/trace-timeline)**
+**[What can I do in the Trace Timeline?](/docs/user-guide/distributed-tracing/navigating-tracing/trace-timeline)**
 
 **[What can I do in the Trace Graph?](/user-guide/distributed-tracing/navigating-tracing/trace-graph)**
 
