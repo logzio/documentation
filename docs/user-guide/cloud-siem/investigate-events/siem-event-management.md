@@ -6,8 +6,6 @@ description: Manage and Investigate Security Events
 keywords: [SIEM, Security, Security events, investigate, Security information]
 ---
 
-
-
 Use Cloud SIEM Event Management to monitor the events triggered by Logz.io Cloud SIEM security rules.
 
 With a single source of truth, you have visibility into the triggered security events in your environment, to track triggered event rules, set the event status, assign an event handler, and use comments to add information, and prioritize how those issues are handled.
