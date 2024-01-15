@@ -127,6 +127,7 @@
 /user-guide/cloud-siem/private-feeds.html		/docs/user-guide/cloud-siem/threat-intelligence/private-feeds
 /user-guide/siem/ioc-types/		/docs/user-guide/cloud-siem/threat-intelligence/ioc-types
 /user-guide/cloud-siem/malicious-IPs.html		/docs/user-guide/cloud-siem/threat-intelligence/malicious-ips/
+/docs/user-guide/cloud-siem/malicious-ips/      /docs/user-guide/cloud-siem/threat-intelligence/malicious-ips/
 /user-guide/cloud-siem/intro-security-rules.html		/docs/user-guide/cloud-siem/security-rules/intro-security-rules
 /user-guide/cloud-siem/manage-security-rules.html		/docs/user-guide/cloud-siem/security-rules/manage-security-rules
 /user-guide/siem/security-correlated-queries/		/docs/user-guide/cloud-siem/security-rules/security-correlated-queries
