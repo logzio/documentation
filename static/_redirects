@@ -128,6 +128,7 @@
 /user-guide/siem/ioc-types/		/docs/user-guide/cloud-siem/threat-intelligence/ioc-types
 /user-guide/cloud-siem/malicious-IPs.html		/docs/user-guide/cloud-siem/threat-intelligence/malicious-ips/
 /docs/user-guide/cloud-siem/malicious-ips/      /docs/user-guide/cloud-siem/threat-intelligence/malicious-ips/
+/docs/user-guide/cloud-siem/malicious-ips       /docs/user-guide/cloud-siem/threat-intelligence/malicious-ips/
 /user-guide/cloud-siem/intro-security-rules.html		/docs/user-guide/cloud-siem/security-rules/intro-security-rules
 /user-guide/cloud-siem/manage-security-rules.html		/docs/user-guide/cloud-siem/security-rules/manage-security-rules
 /user-guide/siem/security-correlated-queries/		/docs/user-guide/cloud-siem/security-rules/security-correlated-queries
@@ -262,7 +263,6 @@
 /docs/user-guide/cloud-siem/quick-guide/add-endpoints       /docs/user-guide/cloud-siem/integrations/add-endpoints
 /docs/user-guide/cloud-siem/quick-guide/create-jira-ticket-alert        /docs/user-guide/cloud-siem/integrations/create-jira-ticket-alert
 /docs/user-guide/cloud-siem/quick-guide/manage-feeds/       /docs/category/threat-intelligence
-/docs/user-guide/cloud-siem/malicious-IPs       /docs/user-guide/cloud-siem/threat-intelligence/malicious-IPs
 /docs/user-guide/cloud-siem/quick-guide/edit-rules      /docs/user-guide/cloud-siem/security-rules/intro-security-rules
 /docs/user-guide/cloud-siem/quick-guide/create-rules        /docs/user-guide/cloud-siem/security-rules/manage-security-rules
 /docs/user-guide/cloud-siem/quick-guide/investigate-events      /docs/category/investigate-events

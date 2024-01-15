@@ -17,9 +17,11 @@ Lookup list values are only string-based and do not support ranges. OpenSearch D
 
 Each list you create is added to the main Lookup lists library: Because the lookup lists are centrally managed, any list can be easily updated and changed without requiring manually updating multiple dashboards, saved searches, security rules, and so on.
 
-To view and create lookup lists, from the **Cloud SIEM** menu, go to [**More Options > Lookups**](https://app.logz.io/#/dashboard/security/lookups).
+To view and create lookup lists, from the **Cloud SIEM** menu, go to [**Lookups**](https://app.logz.io/#/dashboard/security/lookups).
 
-![Open Lookup lists](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/lookuplist-nav.gif)
+<!--![Open Lookup lists](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/lookuplist-nav.gif) -->
+
+![Lookup list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/siem-lookups-jan.png)
 
 ## Static and Dynamic lookups
 
@@ -27,17 +29,10 @@ Logz.io offers two main lookup lists, Static and Dynamic.
 
 A **Static lookup list** is created by adding individual values or uploading a CSV file with the different fields and values you want to track. While you can update the list, it has to be done manually and maintained by you.
 
-a **Dynamic lookup list** uses a query as its source of data. The query's results fill the list with the different fields and values, updating and maintaining it independently.
+A **Dynamic lookup list** uses a query as its source of data. The query's results fill the list with the different fields and values, updating and maintaining it independently.
 
-Learn more about the two lookup lists and how to use them:
-
-
-
-* **[Create a Static lookup](/user-guide/lookups/static-lookup.html)**
-* **[Create a Dynamic lookup](/user-guide/lookups/dynamic-lookup.html)**
-* [Filter by lookup lists in OpenSearch Dashboards](/user-guide/lookups/#filter-by-lookup-lists-in-opensearch-dashboards)
-* [Add a lookup list filter to a security rule](/user-guide/lookups/#add-a-lookup-list-filter-to-a-security-rule)
-* [Delete a lookup list](/user-guide/lookups/#delete-a-lookup-list)
+* **[Create a Static lookup](/docs/user-guide/cloud-siem/lookup-lists/static-lookup/)**
+* **[Create a Dynamic lookup](/docs/user-guide/cloud-siem/lookup-lists/dynamic-lookup)**
 
 ## Filter by lookup lists in OpenSearch Dashboards
 
@@ -63,9 +58,9 @@ Next, select the lookup list you'd like to refer to from the dropdown menu.
 
 **Save** your filter, and continue editing the rule.
 
-[Learn more about managing security rules](https://docs.logz.io/user-guide/cloud-siem/manage-security-rules.html)
+[Learn more about managing security rules](/docs/user-guide/cloud-siem/security-rules/manage-security-rules/)
 
 ## Delete a lookup list
 
-To delete a lookup, hover over the item and click **delete** <i class="li li-trash"></i> to delete it. You'll be asked to confirm the deletion.
+To delete a lookup, hover over the item and click **delete**. You'll be asked to confirm the deletion.
 
