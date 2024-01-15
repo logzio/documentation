@@ -1,8 +1,10 @@
 ---
 sidebar_position: 4
+title: Sampling Rules
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: How Sampling rules can improve your monitoring
+keywords: [Sampling, data, sampling rules, traces, tracing]
 ---
-
-# Sampling Rules
 
 
 Sampling rules let you choose which traces you want to index and monitor inside your account. They help you focus your attention on events that are happening right now inside your systems and services. In addition, applying Sampling rules optimizes your quota management by only indexing critical and actionable spans or full traces.
@@ -23,10 +25,10 @@ The Sampling rules screen has these main components:
 ## Create custom Sampling rules
 
 :::tip
-By creating a separate set of rules per each tracing account, you can control the span volume more accurately.
+Creating a separate set of rules per each tracing account allows you to control the span volume more accurately.
 :::
 
-To create Sampling rules, click on the **New rule** button at the top right corner.
+To create Sampling rules, click the **New rule** button at the top right corner.
 
 Next, choose the services to which you'd like to apply this rule. To manually add your services, check the **These services** option and select the relevant services from the drop down menu.
 
@@ -47,9 +49,10 @@ For example, you can create the following rules:
 * Sample 50% of the traces
 * Sample all traces from a critical service
 
-Once you create a set of rules, navigate to the **[OTEL configuration generator](https://app.logz.io/#/dashboard/settings/tracing-yaml-configuration/)** to activate them.
 
-
+:::caution Important
+To **activate the new set of rules**, navigate to the [OTEL Configuration Generator](https://app.logz.io/#/dashboard/settings/tracing-yaml-configuration/) and follow the instructions. 
+:::
 
 ## Configure and apply your Sampling rules
 
