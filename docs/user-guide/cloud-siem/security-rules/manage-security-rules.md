@@ -201,7 +201,7 @@ Navigate to **[SIEM > Rules](https://app.logz.io/#/dashboard/security/rules/rule
 
 ![duplicate rule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/siem-duplicate-dec.png)
 
-The rule configuration wizard includes all of the pre-configured queries, filters, etc.
+The rule configuration wizard includes all of the preconfigured queries, filters, etc.
 
 Now, you can edit the rule based on your needs and set the trigger conditions, schedule, notification endpoints, etc.
 

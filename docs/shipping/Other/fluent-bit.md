@@ -169,7 +169,7 @@ If you still don't see your logs, see [log shipping troubleshooting](https://doc
 ## Run Fluent Bit in Kubernetes
 
 
-Fluent Bit is an open source Log Processor and Forwarder which allows you to collect any data like metrics and logs from different sources. Helm is a tool for managing packages of pre-configured Kubernetes resources using Charts. You can use this Helm chart to ship Kubernetes logs to Logz.io with Fluent Bit. 
+Fluent Bit is an open source Log Processor and Forwarder which allows you to collect any data like metrics and logs from different sources. Helm is a tool for managing packages of preconfigured Kubernetes resources using Charts. You can use this Helm chart to ship Kubernetes logs to Logz.io with Fluent Bit. 
 
 
 :::note

@@ -3,7 +3,7 @@ sidebar_position: 10
 ---
 # Dashboards & Reports
 
-Cloud SIEM offers pre-configured monitoring dashboards for all official [security integrations on this list. Keep a lookout for new dashboards and new integrations, we ship them monthly.
+Cloud SIEM offers preconfigured monitoring dashboards for all official [security integrations on this list. Keep a lookout for new dashboards and new integrations, we ship them monthly.
 
 ## Dashboards
 

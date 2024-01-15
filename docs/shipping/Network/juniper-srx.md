@@ -19,7 +19,7 @@ Juniper SRX is a networking firewall solution and services gateway. If you ship 
 
 Here are just a few examples for security rules written specifically for Juniper SRX and provided out-of-the-box by Logz.io's security team: port scanning activity detected, failed login attempt from a malicious address, and more.
 
-You can review the Juniper SRX resources in your Logz.io Cloud SIEM account, under the pre-configured [Juniper SRX security rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC&search=juniper) and search for the provided Juniper SRX [dashboards](https://app.logz.io/#/dashboard/security/research/dashboards?) to get you started.
+You can review the Juniper SRX resources in your Logz.io Cloud SIEM account, under the preconfigured [Juniper SRX security rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC&search=juniper) and search for the provided Juniper SRX [dashboards](https://app.logz.io/#/dashboard/security/research/dashboards?) to get you started.
 
 
 **Before you begin, you'll need**:

@@ -17,7 +17,7 @@ drop_filter: []
 
 Trend Micro [Cloud One - Workload Security](https://www.trendmicro.com/en_us/business/products/hybrid-cloud/cloud-one-workload-security.html) (formerly Deep Security Software) is a hybrid cloud runtime security solution.
 
-You can review the Trend Micro resources in your security account, including pre-configured [security rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC&search=trend%20micro) and [dashboards](https://app.logz.io/#/dashboard/security/research/dashboards?) to get you started.
+You can review the Trend Micro resources in your security account, including preconfigured [security rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC&search=trend%20micro) and [dashboards](https://app.logz.io/#/dashboard/security/research/dashboards?) to get you started.
 
 
 **Before you begin, you'll need**:
