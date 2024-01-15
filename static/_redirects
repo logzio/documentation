@@ -265,7 +265,6 @@
 /docs/user-guide/cloud-siem/malicious-IPs       /docs/user-guide/cloud-siem/threat-intelligence/malicious-IPs
 /docs/user-guide/cloud-siem/quick-guide/edit-rules      /docs/user-guide/cloud-siem/security-rules/intro-security-rules
 /docs/user-guide/cloud-siem/quick-guide/create-rules        /docs/user-guide/cloud-siem/security-rules/manage-security-rules
-/docs/user-guide/cloud-siem/quick-guide/create-rules/        /docs/user-guide/cloud-siem/security-rules/manage-security-rules
 /docs/user-guide/cloud-siem/quick-guide/investigate-events      /docs/category/investigate-events
 # Shippers
 /shipping/synthetic-monitoring-sources/api-status.html		/docs/shipping/Synthetic-Monitoring/API-status-metrics-synthetic
