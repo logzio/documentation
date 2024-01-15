@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-title: Threats Overview Dashboard
+title: Investigate IOCs and Malicious IPs
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Investigate IOCs and malicious IPs with Logz.io Threats overview dashboard
 keywords: [SIEM, threat feeds, threats, feeds, managing threats, Security information]
