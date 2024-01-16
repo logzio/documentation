@@ -49,7 +49,7 @@ curl -X POST \
 The email address has to belong to an existing Logz.io user, and that user has to be an admin user on your main account.
 
 :::note Read more
-This API endpoint is documented in [Create a sub account](https://docs.logz.io/api#operation/createTimeBasedAccount) in the API docs.
+This API endpoint is documented in [Create a sub account](https://api-docs.logz.io/docs/logz/manage-time-based-log-accounts) in the API docs.
 :::
  
 ### ...and the response
@@ -81,7 +81,7 @@ curl -X GET \
 ```
 
 :::note Read more
-This API endpoint is documented in [Retrieve all sub accounts](https://docs.logz.io/api#operation/getAll) in the API docs.
+This API endpoint is documented in [Retrieve all sub accounts](https://api-docs.logz.io/docs/logz/manage-users) in the API docs.
 :::
  
 ### ...and the response

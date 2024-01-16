@@ -22,17 +22,17 @@ You can use the Terraform Logz.io Provider to manage users and log accounts in L
 
 The following Logz.io API endpoints are supported by this provider:
 
-* [User management](https://docs.logz.io/api/#tag/Manage-users)
-* [Notification channels](https://docs.logz.io/api/#tag/Manage-notification-endpoints)
-* [Sub accounts](https://docs.logz.io/api/#tag/Manage-time-based-log-accounts)
-* [Logs-based alerts v2](https://docs.logz.io/api/#tag/Alerts)
-* [Log shipping tokens](https://docs.logz.io/api/#tag/Manage-log-shipping-tokens)
-* [Drop filters](https://docs.logz.io/api/#tag/Drop-filters)
-* [Archive logs](https://docs.logz.io/api/#tag/Archive-logs)
-* [Restore logs](https://docs.logz.io/api/#tag/Restore-logs)
-* [Authentication groups](https://docs.logz.io/api/#tag/Authentication-groups)
-* [OpenSearch Dashboards objects](https://docs.logz.io/api/#tag/Import-or-export-Kibana-objects)
-* [S3 Fetcher](https://docs.logz.io/api/#tag/Connect-to-S3-Buckets)
+* [User management](https://api-docs.logz.io/docs/logz/manage-users)
+* [Notification channels](https://api-docs.logz.io/docs/logz/manage-notification-endpoints)
+* [Sub accounts](https://api-docs.logz.io/docs/logz/manage-time-based-log-accounts)
+* [Logs-based alerts v2](https://api-docs.logz.io/docs/logz/alerts)
+* [Log shipping tokens](https://api-docs.logz.io/docs/logz/manage-log-shipping-tokens)
+* [Drop filters](https://api-docs.logz.io/docs/logz/drop-filters)
+* [Archive logs](https://api-docs.logz.io/docs/logz/archive-logs)
+* [Restore logs](https://api-docs.logz.io/docs/logz/restore-logs)
+* [Authentication groups](https://api-docs.logz.io/docs/logz/authentication-groups)
+* [OpenSearch Dashboards objects](https://api-docs.logz.io/docs/logz/import-or-export-kibana-objects)
+* [S3 Fetcher](https://api-docs.logz.io/docs/logz/connect-to-s-3-buckets)
 
 ## Working with Terraform
 

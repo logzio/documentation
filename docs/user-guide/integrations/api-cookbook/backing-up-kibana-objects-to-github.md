@@ -69,7 +69,7 @@ curl -X POST \
 ```
 
 :::note Read more
-This API endpoint is documented in [Export Kibana objects](https://docs.logz.io/api#operation/exportSavedObjects) in the API docs.
+This API endpoint is documented in [Export Kibana objects](https://api-docs.logz.io/docs/logz/import-or-export-kibana-objects) in the API docs.
 :::
 
  
