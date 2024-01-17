@@ -2,7 +2,7 @@
 id: AWS-WAF
 title: AWS WAF
 overview: Ship your AWS WAF logs to Logz.io.
-product: ['logs']
+product: ['logs', 'siem']
 os: ['windows', 'linux']
 filters: ['AWS', 'Security']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/AWS-WAF.svg

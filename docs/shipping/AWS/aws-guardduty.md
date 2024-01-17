@@ -2,7 +2,7 @@
 id: GuardDuty
 title: GuardDuty
 overview: This integration sends GuardDuty logs.
-product: ['logs']
+product: ['logs', 'siem']
 os: ['windows', 'linux']
 filters: ['AWS', 'Security']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-guardduty.png

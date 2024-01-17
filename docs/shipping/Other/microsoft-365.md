@@ -2,7 +2,7 @@
 id: Microsoft-365-data
 title: Microsoft 365
 overview: Deploy this integration to send Unified Audit Logging logs from Microsoft 365 to Logz.io.
-product: ['logs']
+product: ['logs', 'siem']
 os: ['windows']
 filters: ['Other']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/office365.png

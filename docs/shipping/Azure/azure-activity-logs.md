@@ -2,7 +2,7 @@
 id: Azure-Activity-logs
 title: Azure Activity Logs
 overview: Ship your Azure activity logs using an automated deployment process.
-product: ['logs']
+product: ['logs', 'siem']
 os: ['windows', 'linux']
 filters: ['Azure', 'Security']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/azure-monitor.svg
