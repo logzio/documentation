@@ -51,7 +51,8 @@ For example, you can create the following rules:
 
 
 :::caution Important
-To **activate the new set of rules**, navigate to the [OTEL Configuration Generator](https://app.logz.io/#/dashboard/settings/tracing-yaml-configuration/) and follow the instructions. 
+To **activate the new set of rules**, navigate to the [YAML Configuration Generator](https://app.logz.io/#/dashboard/settings/tracing-yaml-configuration/) and follow the instructions.
+![Yaml configuration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/sampling-rules/click-on-yaml.png)
 :::
 
 ## Configure and apply your Sampling rules
