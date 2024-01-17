@@ -2,7 +2,7 @@
 id: AWS-CloudTrail
 title: AWS CloudTrail
 overview: AWS Cloudtrail enables governance, compliance, operational auditing, and risk auditing of your Amazon Web Services account. Integrate it with Logz.io to monitor your Cloudtrail logs and metrics and know if and when issues arise.
-product: ['logs','metrics']
+product: ['logs','metrics', 'siem']
 os: ['windows', 'linux']
 filters: ['AWS', 'Security', 'Most Popular']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-cloudtrail.svg
