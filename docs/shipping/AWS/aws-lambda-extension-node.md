@@ -30,11 +30,11 @@ This integration only works for the following AWS regions: `us-east-1`, `us-east
 * Configured [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
 * A Lambda function with a Node.js application that is not yet instrumented.
 
-:::node
+:::note
 Adding environmental variables using the AWS CLI commands below, will overwrite all existing variables for your Lambda function.
 :::
 
-:::node
+:::note
 This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
 :::
 
