@@ -134,7 +134,7 @@ Supported values for `otel.traces.sampler` are
 
 ## Configuration via Helm
 
-You can use a Helm chart to ship Traces to Logz.io via the OpenTelemetry collector. The Helm tool is used to manage packages of pre-configured Kubernetes resources that use charts.
+You can use a Helm chart to ship Traces to Logz.io via the OpenTelemetry collector. The Helm tool is used to manage packages of preconfigured Kubernetes resources that use charts.
 
 **logzio-monitoring** allows you to ship traces from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
 

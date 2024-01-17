@@ -32,6 +32,7 @@ In addition, you'll need to ship your cluster metrics from the following sources
 
 And send the following metrics:
 
+<!--
 |**Metric name**|**Labels**|
 | --- | --- |
 |*|p8s_logzio_name `// Equivalent to a Cluster's name`|
@@ -87,7 +88,69 @@ And send the following metrics:
 |kube_statefulset_status_replicas_updated|all labels|
 |kube_statefulset_status_replicas_available|all labels|
 |kube_job_owner|all labels|
+-->
 
+| **Metric name** | **Labels** |
+|--|--|
+|*|p8s_logzio_name `// Equivalent to a Cluster's name`|
+|	kube_pod_status_phase	|	p8s_logzio_name, namespace, pod, phase, uid 	|
+|	kube_pod_info	|	p8s_logzio_name, namespace, host_ip, node, pod	|  
+|	container_cpu_usage_seconds_total	|	p8s_logzio_name, namespace, pod, region, topology_kubernetes_io_region, container, instance, node |
+|	kube_pod_container_resource_limits	|	p8s_logzio_name, namespace, pod, resource, container	|
+|	container_memory_working_set_bytes	|	p8s_logzio_name, namespace, pod, container	| 
+|	kube_pod_container_info	|	p8s_logzio_name, namespace, pod	| 
+|	container_network_transmit_bytes_total	|	p8s_logzio_name, namespace, pod	|
+|	container_network_receive_bytes_total	|	p8s_logzio_name, namespace, pod	| 
+|	kube_pod_created	|	p8s_logzio_name, namespace, pod	| 
+|	kube_pod_owner	|	p8s_logzio_name, namespace, pod, owner_kind, owner_name | 
+|	kube_pod_container_status_restarts_total	|	p8s_logzio_name, namespace, pod, container | 
+|	kube_pod_status_reason	|	p8s_logzio_name, namespace, pod, reason	|
+|	kube_pod_container_status_waiting_reason	|	p8s_logzio_name, namespace, pod, reason	| 
+|	node_cpu_seconds_total	|	p8s_logzio_name, instance, kubernetes_node, mode	| 
+|	kube_node_status_allocatable	|	p8s_logzio_name, node, resource	|
+|	node_memory_MemAvailable_bytes	|	p8s_logzio_name, instance, kubernetes_node	| 
+|	kube_node_role	|	p8s_logzio_name, status, role, node	| 
+|	kube_node_status_condition	|	p8s_logzio_name, status, role, condition, node	|
+|	kube_node_created	|	p8s_logzio_name, node	| 
+|	node_filesystem_avail_bytes	|	p8s_logzio_name, instance	| 
+|	node_filesystem_size_bytes	|	p8s_logzio_name, instance	|
+|	kube_replicaset_owner	|	p8s_logzio_name, namespace, owner_kind, owner_name, replicaset	| 
+|	kube_deployment_created	|	p8s_logzio_name, namespace, deployment	| 
+|	kube_deployment_status_condition	|	p8s_logzio_name, namespace, deployment, status, condition	| 
+|	kube_pod_container_resource_requests	|	p8s_logzio_name, namespace, pod, container, resource	| 
+|	container_memory_usage_bytes	|	p8s_logzio_name, namespace, pod, container, instance, node	|
+|	kube_pod_container_status_waiting	|	p8s_logzio_name, pod, container	| 
+|	kube_pod_container_status_terminated	|	p8s_logzio_name, pod, container	| 
+|	kube_pod_container_status_running	|	p8s_logzio_name, pod	|
+|	node_memory_MemTotal_bytes	|	p8s_logzio_name, instance, kubernetes_node	| 
+|	kube_node_status_capacity	|	p8s_logzio_name, node, resource	| 
+|	node_disk_reads_completed_total	|	p8s_logzio_name, kubernetes_node	| 
+|	node_disk_read_bytes_total	|	p8s_logzio_name, kubernetes_node	| 
+|	node_disk_read_time_seconds_total	|	p8s_logzio_name, kubernetes_node	| 
+|	node_disk_writes_completed_total	|	p8s_logzio_name, kubernetes_node	|
+|	node_disk_written_bytes_total	|	p8s_logzio_name, kubernetes_node	|
+|	node_disk_write_time_seconds_total	|	p8s_logzio_name, kubernetes_node	|
+|	node_network_transmit_bytes_total	|	p8s_logzio_name, kubernetes_node	|
+|	node_receive_transmit_bytes_total	|	p8s_logzio_name, kubernetes_node	|
+|	node_memory_MemFree_bytes	|	p8s_logzio_name, kubernetes_node	| 
+|	kube_node_info	|	p8s_logzio_name, node	|
+|	kube_deployment_status_replicas	|	p8s_logzio_name, namespace, deployment	|   
+|	kube_deployment_status_replicas_updated	|	p8s_logzio_name, namespace, deployment	|
+|	kube_deployment_spec_replicas	|	p8s_logzio_name, namespace, deployment	| 
+|	kube_daemonset_status_number_available	|	p8s_logzio_name, daemonset	| 
+|	kube_daemonset_status_number_unavailable	|	p8s_logzio_name, daemonset	|
+|	kube_daemonset_status_current_number_scheduled	|	p8s_logzio_name, daemonset	|
+|	kube_daemonset_status_number_misscheduled	|	p8s_logzio_name, daemonset	|
+|	kube_daemonset_status_desired_number_scheduled	|	p8s_logzio_name, daemonset	|
+|	kube_statefulset_status_replicas	|	p8s_logzio_name, namespace, app_kubernetes_io_instance, statefulset	| 
+|	kube_statefulset_replicas	|	p8s_logzio_name, namespace, app_kubernetes_io_instance, statefulset	|
+|	container_network_transmit_packets_total	|	p8s_logzio_name, namespace, pod	|
+|	container_network_receive_packets_total	|	p8s_logzio_name, namespace, pod	|
+|	container_network_transmit_packets_dropped_total	|	p8s_logzio_name, namespace, pod	|
+|	container_network_receive_packets_dropped_total	|	p8s_logzio_name, namespace, pod, container	| 
+|	node_memory_Cached_bytes	|	p8s_logzio_name, kubernetes_node	|
+|	node_memory_Buffers_bytes	|	p8s_logzio_name, kubernetes_node	| 
+|	kube_statefulset_status_replicas_updated	|	p8s_logzio_name, namespace, statefulset, app_kubernetes_io_instance	| 
 
 ### Manually configuring Security Risks
 

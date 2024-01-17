@@ -131,7 +131,7 @@ The playbook makes use of Logz.io actions that investigate events and output rel
 
 ### Logzio-search-logs
 
-Searches the logs in your Logz.io Operations account using the [Logz.io log search API](https://docs.logz.io/api/#tag/Search-logs). Upon success, returns the logs that match the query as a paginated list in JSON format.
+Searches the logs in your Logz.io Operations account using the [Logz.io log search API](https://api-docs.logz.io/docs/logz/search/). Upon success, returns the logs that match the query as a paginated list in JSON format.
 
 ```
 {
@@ -163,12 +163,12 @@ If the timeframe for your search exceeds 48 hours, the search is only applied to
 |---|---|---|---|
 | from_time | String | Required | Earliest time to search. Accepts any format supported by the [Date parser python library](https://dateparser.readthedocs.io/en/latest/). Examples include unix timestamps in milliseconds, relative time such as `yesterday` or `24 hours ago`, or the format  `%Y-%m-%dT%H:%M:%S.%f`. |
 | to_time | String | -- | Latest time to search. (Leave blank if relative time was used for the parameter `from_time`.) | 
-| query | String | `*` | A search query written in valid Lucene syntax. Cannot be null - send a wildcard (*) if not using a search query. [For more info and limitations](https://docs.logz.io/api#operation/search) |
+| query | String | `*` | A search query written in valid Lucene syntax. Cannot be null - send a wildcard (*) if not using a search query. [For more info and limitations](https://api-docs.logz.io/docs/logz/search/) |
 | size |  String | -- | Number of log results per query. Limited to 1000 logs. |
 
 ### Logzio-get-logs-by-event-id
 
-Fetches the logs that triggered a security event using the [Logz.io Cloud SIEM API](https://docs.logz.io/api/#operation/searchSecurityRulesEvents). Upon success, returns the logs that match the query as a paginated list in JSON format.
+Fetches the logs that triggered a security event using the [Logz.io Cloud SIEM API](https://api-docs.logz.io/docs/logz/security-rules). Upon success, returns the logs that match the query as a paginated list in JSON format.
 
 ```
 {
@@ -246,7 +246,7 @@ If the fields exist in the json, it returns them in the following format:
 
 ### Ping
 
-Pings Logz.io to test and validate connectivity to both your Logz.io security and operations accounts using the [Logz.io API](https://docs.logz.io/api/#tag/Who-am-I).
+Pings Logz.io to test and validate connectivity to both your Logz.io security and operations accounts using the [Logz.io API](https://api-docs.logz.io/docs/category/logz-api/).
 
 * **Script timeout**: 20 seconds.
 * **Parameters extracted from the integration**:

@@ -19,13 +19,13 @@ OpenSearch Dashboards is designed to help you investigate massive volumes of dat
 
 #### 1. Select Account
 
-First, decide which accounts you want to search. Managing your accounts is the first step to successful logging. You can create sub accounts to separate data by environment, microservice, team, and more. [Learn more about account management and sub accounts](../../admin/logzio-accounts/manage-the-main-account-and-sub-accounts/).
+First, decide which accounts you want to search. Managing your accounts is the first step to successful logging. You can create sub accounts to separate data by environment, microservice, team, and more. [Learn more about account management and sub accounts](/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts).
 
 #### 2. Apply Filters
 
 OpenSearch Dashboards filters offer the most convenient, powerful, and flexible method for querying logs.
 
-Filters can be used on any mapped fields and can take any number of forms: filter for field exists or does not exist, filter for a field with an exact value match or a field that contains a value among the results, and more. [Learn more about OSD mapping](../../data-hub/field-mapping/).
+Filters can be used on any mapped fields and can take any number of forms: filter for field exists or does not exist, filter for a field with an exact value match or a field that contains a value among the results, and more. [Learn more about OSD mapping](/docs/user-guide/data-hub/field-mapping/).
 
 One advantage of OpenSearch filters is that they provide guidance that is specific to your dataset.
 When OpenSearch maps your data to fields, it also determines which filtering options are relevant. When you add filters, only relevant options appear in the dropdown menus.
@@ -56,9 +56,9 @@ The logs returned by your search are your results - aka "hits". Depending on the
 
   To expand a log, click it and review the complete log mapped into field:value pairs. You can also switch to the raw JSON.
 
-* **Patterns** - Logz.io groups your logs using advanced clustering techniques to help you identify similar logs by groups, reducing the amount of logs to review. Patterns also help to surface issues and errors that might otherwise go unnoticed. [Learn more](../../log-management/opensearch-dashboards/opensearch-patterns/).
+* **Patterns** - Logz.io groups your logs using advanced clustering techniques to help you identify similar logs by groups, reducing the amount of logs to review. Patterns also help to surface issues and errors that might otherwise go unnoticed. [Learn more](/docs/user-guide/log-management/opensearch-dashboards/opensearch-patterns/).
 
-* **Exceptions** - Logz.io Insights Engine scans your logs for application errors and warnings to help you identify issues that require your attention. [Learn more](../../log-management/insights/exceptions/).
+* **Exceptions** - Logz.io Insights Engine scans your logs for application errors and warnings to help you identify issues that require your attention. [Learn more](/docs/user-guide/log-management/insights/exceptions/).
 
 #### 6. Take action following your results
 
@@ -68,7 +68,7 @@ If you click the **Inspect** function, you can view the query as sent to OpenSea
 
 Once you've refined a query to the point that it returns exactly what you are looking for, you can be proactive in any number of ways:
 
-* Create an **alert** to trigger automatically and send out notifications to your preferred endpoints. [Learn how to configure an alert](../../log-management/log-alerts/configure-alert/).
+* Create an **alert** to trigger automatically and send out notifications to your preferred endpoints. [Learn how to configure an alert](/docs/user-guide/log-management/log-alerts/configure-alert/).
 * **Save** the search to display it in visualizations and dashboards or to load it in the future.
 * **Share** results with colleagues or external stakeholders.
 * **Export** results to a spreadsheet.
@@ -76,5 +76,5 @@ Once you've refined a query to the point that it returns exactly what you are lo
 
 ###### Additional resources
 
-* [OpenSearch Dashboards best practices](../../log-management/opensearch-dashboards/opensearch-best-practices/)
+* [OpenSearch Dashboards best practices](/docs/user-guide/log-management/opensearch-dashboards/opensearch-best-practices)
 * [Create and run advanced searches in OpenSearch Dashboards](https://logz.io/blog/kibana-advanced/)

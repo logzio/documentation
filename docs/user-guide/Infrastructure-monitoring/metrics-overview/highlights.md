@@ -19,7 +19,7 @@ In Logz.io, you can navigate seamlessly from your metrics to your logs and save 
 
   <img source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/Infrastructure-monitoring/grafana-to-osd.gif" alt="metrics to logs"/>
 
-You'll see the link in many of the graph panels in your pre-configured dashboards provided by Logz.io. You can also add similar drill-down links to any of your own dashboards too. See how.
+You'll see the link in many of the graph panels in your preconfigured dashboards provided by Logz.io. You can also add similar drill-down links to any of your own dashboards too. See how.
 
 
 ### Monitor complex tech stacks at a glance
@@ -38,7 +38,7 @@ After configuring how to stream your data to Logz.io, you can select any relevan
 
 The metrics dashboards are designed by Logz.io specialists so that you can get up-and-running in a matter of minutes. 
 
-Once you’re ready to move to the next level, you can duplicate any of the preconfigured dashboards to add your own panels and changes, or create entirely new dashboards of your own. [Learn how to add a new dashboard](../variables).
+Once you’re ready to move to the next level, you can duplicate any of the preconfigured dashboards to add your own panels and changes, or create entirely new dashboards of your own. [Learn how to add a new dashboard](/docs/user-guide/infrastructure-monitoring/variables/).
 
 ### Maintain data integrity over an extended time
 

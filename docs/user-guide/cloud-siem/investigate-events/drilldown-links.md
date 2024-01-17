@@ -1,8 +1,10 @@
 ---
 sidebar_position: 3
+title: Add Drilldown Links
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Add drilldown links in Cloud SIEM
+keywords: [SIEM, drilldown, drilldown links, Security information]
 ---
-# Add Drilldown Links
-
 
 A drilldown link is a redirect link that takes users directly from an informative log field to another dashboard, already filtered by the selected field.
 
@@ -11,25 +13,28 @@ When investigating a security incident through the logs, drilldown links make it
 Adding Drilldown links to your security account will help you speed up and streamline investigations and structure your team's workflows and processes.
 
 Drilldown links are configurable via your security account. To open the **Drilldown settings**,
-click [**SIEM > MORE OPTIONS > Drilldowns**](https://app.logz.io/#/dashboard/settings/drilldowns) in the navigation menu.
+navigate to [**SIEM > Drilldowns**](https://app.logz.io/#/dashboard/settings/drilldowns).
 
-![Security drilldown links](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/siem-drilldown-links_aug2021.png)
+![Security drilldown links](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/drilldown-links-jan.png)
 
 ### Add a drilldown link
 
 1. Click **+ Add drilldown**.
-2. Select the **Source field** from the dropdown list. This is the field that will become a hyperlink.
+2. Select the **Source field** from the dropdown list. This will be your drilldown starting point, and the field will become a hyperlink.
 3. Select a **Dashboard** from the dropdown list. This is the target destination of the drilldown link. When users click the log field in a dashboard or OpenSearch Dashboards, it will direct them to this dashboard.
-4. Click **Add** to confirm the new drilldown link.
+4. Click **Save drilldown** to confirm the new drilldown link.
+
+
+![Add drilldown](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/create-drilldown-jan.png)
 
 ### Edit or delete a drilldown link
 
-* To edit a drilldown link, hover over the drilldown, click **Edit** <i class="li li-pencil"></i>, make your changes, and click **Save** to confirm the changes.
+* To edit a drilldown link, hover over the drilldown, click **Edit**, make your changes, and click **Save** to confirm the changes.
 
-* To delete a drilldown link, hover over the drilldown and click **Delete** <i class="li li-trash"></i> to delete it. You'll be asked to confirm the deletion.
+* To delete a drilldown link, hover over the drilldown and click **Delete** to delete it. You'll be asked to confirm the deletion.
 
 
-### Example
+<h3 id="#example">Example</h3>
 
 Your Logz.io Security account comes with a few drilldown links preconfigured by default.
 

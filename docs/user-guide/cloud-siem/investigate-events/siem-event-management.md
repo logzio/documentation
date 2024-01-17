@@ -1,9 +1,10 @@
 ---
-sidebar_position: 4
+sidebar_position: 1
+title: Cloud SIEM Event Management
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Manage and Investigate Security Events
+keywords: [SIEM, Security, Security events, investigate, Security information]
 ---
-# Cloud SIEM Event Management
-
-
 
 Use Cloud SIEM Event Management to monitor the events triggered by Logz.io Cloud SIEM security rules.
 

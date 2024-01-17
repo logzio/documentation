@@ -52,7 +52,7 @@ Use the samples in the code block below as a starting point, and replace the sam
 
 Replace:
 * << LOG-SHIPPING-TOKEN >> - Your Logz.io account log shipping token.
-* << LISTENER-HOST >> - Logz.io listener host, as described [here](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls).
+* << LISTENER-HOST >> - Logz.io listener host, as described [here](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#regions-and-urls).
 * << LOG-TYPE >> - Log type, for searching in logz.io (defaults to "python")
 
 For a complete list of options, see the configuration parameters below the code block.👇
@@ -236,7 +236,7 @@ def my_func():
 
 ### Extra Fields
 
-In case you need to dynamic metadata to a speific log and not [dynamically to the logger](#dynamic-extra-fields), other than the constant metadata from the formatter, you can use the "extra" parameter.
+In case you need to dynamic metadata to a specific log and not [dynamically to the logger](#dynamic-extra-fields), other than the constant metadata from the formatter, you can use the "extra" parameter.
 All key values in the dictionary passed in "extra" will be presented in Logz.io as new fields in the log you are sending.
 Please note, that you cannot override default fields by the python logger (i.e. lineno, thread, etc..)
 For example:
@@ -547,6 +547,8 @@ exporters:
     endpoint: "<<LISTENER-HOST>>:<PORT>>" # example: https://listener.logz.io:8053
     resource_to_telemetry_conversion:
       enabled: true # Convert resource attributes to metric labels
+    target_info:
+        enabled: false
     headers:
       Authorization: Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
 service:
@@ -1023,7 +1025,7 @@ Give your traces some time to get from your system to ours, and then open [Traci
 
 #### Overview 
 
-You can use a Helm chart to ship Traces to Logz.io via the OpenTelemetry collector. The Helm tool is used to manage packages of pre-configured Kubernetes resources that use charts.
+You can use a Helm chart to ship Traces to Logz.io via the OpenTelemetry collector. The Helm tool is used to manage packages of preconfigured Kubernetes resources that use charts.
 
 **logzio-k8s-telemetry** allows you to ship traces from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
 
@@ -1063,7 +1065,7 @@ logzio-monitoring logzio-helm/logzio-monitoring -n monitoring
 ```
 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
-`<<LOGZIO_ACCOUNT_REGION_CODE>>` - Your Logz.io account region code. [Available regions](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
+`<<LOGZIO_ACCOUNT_REGION_CODE>>` - Your Logz.io account region code. [Available regions](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
 
 
 ##### Define the logzio-k8s-telemetry service DNS

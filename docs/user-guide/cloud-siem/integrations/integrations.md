@@ -1,10 +1,10 @@
 ---
 sidebar_position: 1
+title: Integrations for Logz.io Cloud SIEM
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Cloud SIEM security rules and dashboards
+keywords: [SIEM, security analysis, security, research, security rules, Security information]
 ---
-
-# Integrations for Logz.io Cloud SIEM
-
-Logz.io provides security rules and dashboards for the following security products:
 
 
 <!-- 
@@ -12,6 +12,9 @@ Logz.io provides security rules and dashboards for the following security produc
 * [{{doc.data-source}}]({{doc.url}})
 {%- endfor -%}
 -->
+
+Logz.io provides security rules and dashboards for the following security products:
+
 
 * [Active Directory](https://docs.logz.io/shipping/security-sources/active-directory-winserver.html)
 * [Alcide kAudit](https://docs.logz.io/shipping/security-sources/alcide.html)

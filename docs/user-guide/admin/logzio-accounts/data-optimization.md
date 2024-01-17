@@ -9,7 +9,7 @@ The following guide will help you understand how to do just that through Logz.io
 
 ## Manage your workspaces - Divide and conquer your quota
 
-Logz.io offers a centralized solution, including all the tools and elements needed to gain observability into your data. You can create a **[Sub account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#main-vs-sub-account)** to help manage usage, volume, and access to the data.
+Logz.io offers a centralized solution, including all the tools and elements needed to gain observability into your data. You can create a **[Sub account](/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts/#main-vs-sub-account)** to help manage usage, volume, and access to the data.
 
 If your account has **[Flexible volume](/user-guide/accounts/flexible-volume.html)**, use it to control how to allocate GB between your main and sub accounts, ensuring you don’t exceed your volume quota.
 
@@ -17,7 +17,7 @@ Shared volume can help cover your indexing needs across accounts instead of rese
 
 To manage access and permissions, define which data is accessible through the sub account, limiting or granting access to logs, dashboards, visualizations, and saved searches.
 
-In addition, if you have a flexible account, apply **[Utilization metrics](/user-guide/accounts/manage-account-usage.html#what-are-account-utilization-metrics)** to optimize it. You'll need to apply Utilization metrics per account, by clicking on **Settings > [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts)** > choosing the relevant account and checking the **Save access utilization metrics** option.
+In addition, if you have a flexible account, apply **[Utilization metrics](/docs/user-guide/admin/account-volume-optimization/manage-account-usage/#what-are-account-utilization-metrics)** to optimize it. You'll need to apply Utilization metrics per account, by clicking on **Settings > [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts)** > choosing the relevant account and checking the **Save access utilization metrics** option.
 
 ![Utilization metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/utilization--save-account-utilization-metrics.png)
 
@@ -65,7 +65,7 @@ Once you import the file, navigate to [Visualize](https://app.logz.io/#/dashboar
 
 ## Optimize metrics data 
 
-Your Infrastructure Monitoring (metrics) account can help you visualize the status of your services and operations. The account usage is [calculated based on Unique Time Series (UTS)](/user-guide/infrastructure-monitoring/metrics-explore-prometheus/#calculating-infrastructure-monitoring-usage), a collection of pairs, each including a timestamp and value. Time series is uniquely identified by its metric name and a set of labels.
+Your Infrastructure Monitoring (metrics) account can help you visualize the status of your services and operations. The account usage is [calculated based on Unique Time Series (UTS)](/docs/user-guide/infrastructure-monitoring/introduction-to-prometheus/explore-metrics-prometheus/#calculating-infrastructure-monitoring-usage), a collection of pairs, each including a timestamp and value. Time series is uniquely identified by its metric name and a set of labels.
 
 
 To gain quick insights into your metrics account, navigate to your **[Metrics](https://app.logz.io/#/dashboard/metrics)** account and run the following query to view the total unique metrics in the query’s timeframe:

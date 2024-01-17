@@ -1,51 +1,52 @@
 ---
-sidebar_position: 2
+sidebar_position: 4
+title: Adding a Private Feed
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Add and manage private feeds in Logz.io SIEM
+keywords: [SIEM, threat feeds, threats, feeds, managing threats, Security information]
 ---
 
 
-# Adding a Private Feed
+You can enrich log threat detection by adding your own private feeds to those provided by Logz.io. To do so, you'll need to maintain files with lists of IOCs and host them online to make them accessible by HTTP/HTTPS to Logz.io. [Learn more](/docs/user-guide/admin/logzio-accounts/shared_repository/) about the SIEM Repository.
 
+To share private feeds with your other SIEM accounts, include the feeds in a shared SIEM Repository account.
 
-You can enrich log threat detection by adding your own private feeds to those provided by Logz.io. To do so, you'll need to maintain files with lists of IOCs and host them online to make them accessible by HTTP/HTTPS to Logz.io.
-
-To share private feeds with your other SIEM accounts, include the feeds a shared SIEM Repository account. You can learn more about the SIEM Repository [here
-
-## Configure Logz.io to pull your private feed
+## Configure your private feed
 
 
 
 ### 1. Prepare a feed
 
-Prepare a list of IOCs as decribed [hereand host it where it can be fetched by Logz.io.
+Prepare a list of IOCs as described [here](/docs/user-guide/cloud-siem/threat-intelligence/ioc-types/) and host it where Logz.io can fetch it.
 
 ### 2. Add a new feed
 
-Go to **Threats > Threat Intelligence Feeds** from the top menu, and select the option **+ Add private feed**.
+Navigate to **[Threats > Threat Intelligence Feeds](https://app.logz.io/#/dashboard/security/threats/threat-intelligence-feeds)** and select the option **+ Add private feed**.
 
 ### 3. Configure the connection
 
+Fill in the form to configure the connection. 
 
-Fill in the form to configure the connection.   
+**About the feed:**
 
-![Configure a private feed](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/configure-private-feed_newnav.png)   
-
-**About the feed**
-
-1. **IOC type** - Select one type. Supported types include IPs, DNSs (domain), URLs, md5/sha1/sha256 hash-based signatures, user-agent HTTP headers, and custom indicators of your choice.
-2. **Use STIX** - Toggle the option on to use STIX format. _Structured Threat Information Expression_ (STIX™) is a language and serialization format used to exchange cyber threat intelligence (CTI).   Logz.io currently supports a single IOC type per feed for this format. We recommend that you define a separate private feed for each relevant IOC type that exists in your STIX feed.
-3. **Confidence** - Select a reliability score for your feed.
-4. **Description** - Give some context for your feed. It's a good idea to add contact info for the person who owns the feed.
+* **IOC type** - Select one type. Supported types include IPs, DNSs (domain), URLs, md5/sha1/sha256 hash-based signatures, user-agent HTTP headers, and custom indicators of your choice.
+* **Use STIX** - Toggle the option to use STIX format. _Structured Threat Information Expression_ (STIX™) is a language and serialization format that exchanges cyber threat intelligence (CTI). Logz.io currently supports a single IOC type per feed for this format. We recommend defining a separate private feed for each relevant IOC type in your STIX feed.
+* **Confidence** - Select a reliability score for your feed.
+* **Description** - Give some context for your feed. Adding contact info for the person who owns the feed is a good idea.
 
 **Configure the feed connection**
 
-1. **URL** - Type in the URL where your feed is hosted. It provides the base URL for the HTTP/HTTPS request.
-2. **Method** - Select the request method for the HTTP/HTTPS request. Available methods: GET / POST / PUT.
-3. **Headers** - Add headers to the HTTP/HTTPS request if they are needed.
+* **URL** - Type in the URL where your feed is hosted. It provides the base URL for the HTTP/HTTPS request.
+* **Method** - Select the request method for the HTTP/HTTPS request. Available methods: GET / POST / PUT.
+* **Headers** - Add headers to the HTTP/HTTPS request if needed.
 
     Send 1 header per line. (In other words, separate headers with line breaks.)
   
-    If your feed is password protected, you'll need to encode the credentials (username:password in base64) and pass them as an authorization header. See [this page for further instructions.
+    If your feed is password protected, you'll need to encode the credentials (username:password in base64) and pass them as an authorization header. See [this page](/docs/user-guide/cloud-siem/threat-intelligence/private-feed-authentication) for further instructions.
 
+Click **Save** to generate the private feed. 
+
+![Configure a private feed](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/feed-3.png)   
 
 ### 4. Give the sync some time
 
@@ -56,11 +57,9 @@ After that, Logz.io will sync the feed once every 24 hours to look for updates.
 If the connection fails at some point in the future, say if the feed is migrated to another hosting site or authorization headers are changed, you will be prompted to make the necessary changes.
 
 
-### 5. Manage private feeds
+## Manage private feeds
 
-To edit or delete a private feed, hover over the feed in the list,
-  and click <i class="li li-pencil"></i> (edit)
-  or <i class="li li-trash"></i> (delete).
+To edit or delete a private feed hover over the feed in the list and click the **pencil** icon to edit or the **trash** icon to delete.
 
 If you delete a private feed, Logz.io will immediately stop using it to enrich logs.
 

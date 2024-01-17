@@ -109,7 +109,7 @@ fluentd -c ./fluent/fluent.conf -vv
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see [log shipping troubleshooting](/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
+If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
 
  
  
@@ -237,7 +237,7 @@ C:\opt\td-agent> td-agent
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see [log shipping troubleshooting](/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
+If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
 
 Fluentd can receive and concatenate multiline logs. To do this, you need to add a parser and concatenation plugin to your Fluentd configuration.
 
@@ -362,4 +362,4 @@ If you need to customize the default settings of the configuration parameters, a
 
  ## Ship Kubernetes logs with Fluentd
 
- See the full documentation for shipping your Kubernetes logs with Fluentd [here](../containers/kubernetes.md).
+ See the full documentation for shipping your Kubernetes logs with Fluentd [here](https://docs.logz.io/docs/shipping/Containers/Kubernetes).

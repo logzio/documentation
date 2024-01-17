@@ -1,6 +1,6 @@
 {
   "label": "Troubleshooting Metrics",
-  "position": 7,
+  "position": 8,
   "link": {
     "type": "generated-index",
     "description": "Troubleshooting guides for common metrics and Infrastructure Monitoring issues."
