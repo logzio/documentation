@@ -131,6 +131,17 @@ Replace `<<YOUR-AWS-REGION>>` with the code of your AWS regions, e.g. `us-east-1
 
 Replace `<<LAYER_VERSION>>` with the latest stable version for your region.
 
+:::note
+When adding the OpenTelemetry Collector to your Lambda function, it's important to include all necessary layers in a single command to avoid overriding existing configurations. This layer captures data from your application.
+:::
+
+To add the OpenTelemetry Collector layer along with another layer, use the following format:
+
+```shell
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers arn:aws:lambda:<<YOUR-AWS-REGION>>:486140753397:layer:logzio-opentelemetry-collector-layer:<<LAYER_VERSION>> arn:aws:lambda:<<YOUR-AWS-REGION>>:486140753397:layer:another-layer:<<ANOTHER_LAYER_VERSION>>
+```
+
+
 |Region|logzio-opentelemetry-collector-layer|
 |--- |--- |
 |us-east-1|14|
@@ -191,10 +202,12 @@ service:
 Add `OPENTELEMETRY_COLLECTOR_CONFIG_FILE` variable to direct the OpenTelemetry collector to the configuration file:
 
 ```
-aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --environment Variables={OPENTELEMETRY_COLLECTOR_CONFIG_FILE=/var/task/collector.yaml}
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --environment Variables={OPENTELEMETRY_COLLECTOR_CONFIG_FILE=<<PATH_TO_YOUR_COLLECTOR.YAML>>}
 ```
 
 Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Node.js application.
+
+Replace `<<PATH_TO_YOUR_COLLECTOR.YAML>>` with the actual path to your `collector.yaml` file.
 
 
 ### Activate tracing for your Lambda function
