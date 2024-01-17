@@ -5,7 +5,7 @@ title: Manage API Tokens
 ---
 
 If you're an Enterprise or Pro plan subscriber (or during your trial period),
-your account includes API access. You can reference the [API guide](https://docs.logz.io/api/) and [Terraform Logz.io Provider guide](https://docs.logz.io/integrations/terraform/) to help you build integrations with Logz.io.
+your account includes API access. You can reference the [API guide](https://api-docs.logz.io/docs/logz/logz-io-api/) and [Terraform Logz.io Provider guide](https://docs.logz.io/integrations/terraform/) to help you build integrations with Logz.io.
 
 API tokens are unique to each account. The only exception is a subset of account configuration operations that must be run with the API token of the main account.
 

@@ -16,7 +16,7 @@ Annotations can mark events on your Metrics dashboards based on data from a logg
 
 Before you begin, you'll need to make sure you have permissions to edit the dashboard.
 
-If you are using any of the pre-configured dashboards provided by Logz.io, you'll first need to select the option to make it editable. (You can also click the gear **<i class="li li-gear"></i>** in the top menu, then select **Save as > Save**).
+If you are using any of the preconfigured dashboards provided by Logz.io, you'll first need to select the option to make it editable. (You can also click the gear **<i class="li li-gear"></i>** in the top menu, then select **Save as > Save**).
 
 ### Add a new annotation
 
@@ -41,7 +41,7 @@ Go to the dashboard's settings:
 You'll be using a OpenSearch Dashboards search query to select the logs you want to mark on your dashboard. They will appear as vertical markers on the dashboard's timeline to indicate when they were sent.
 
 Type in an _OpenSearch Dashboards_ query in Lucene syntax.
-It's best if you double-check your query results in [OpenSearch Dashboards](../../log-management/opensearch-dashboards/) to make sure it is specific enough.
+It's best if you double-check your query results in [OpenSearch Dashboards](/docs/user-guide/log-management/opensearch-dashboards/) to make sure it is specific enough.
 
 You can use Metrics interface variables, on condition that the value of the variable actually appears in the target log. For example, the query `logtype:configuration AND pod.name:$pod` would work assuming the fields `logtype` and `pod.name` exist in the log.
 

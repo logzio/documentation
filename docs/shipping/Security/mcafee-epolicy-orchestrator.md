@@ -2,7 +2,7 @@
 id: McAfee-ePolicy-Orchestrator
 title: McAfee ePolicy Orchestrator
 overview: McAfee ePolicy Orchestrator (McAfee ePO) software centralizes and streamlines management of endpoint, network, data security, and compliance solutions. This integration allows you to send McAfee ePolicy Orchestrator logs to your Logz.io SIEM account.
-product: ['logs']
+product: ['logs', 'siem']
 os: ['windows', 'linux']
 filters: ['Security']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/mcafee.svg
@@ -128,6 +128,6 @@ output.logstash:
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/shipping/log-sources/filebeat.html#troubleshooting).
+If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-filebeat/).
 
  

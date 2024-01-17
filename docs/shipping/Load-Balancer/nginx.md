@@ -2,7 +2,7 @@
 id: Nginx-load
 title: Nginx
 overview: Nginx is a web server that can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache. Deploy this integration to ship Nginx logs to your Logz.io SIEM account and metrics, including Plus API, Plus, Stream STS, VTS.
-product: ['logs','metrics']
+product: ['logs','metrics', 'siem']
 os: ['windows', 'linux']
 filters: ['Load Balancer']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/nginx.svg
@@ -144,7 +144,7 @@ You can search for `type:nginx OR nginx_access OR nginx-access OR nginx-error` t
 
 
 
-If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/shipping/log-sources/filebeat.html#troubleshooting).
+If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-filebeat/).
 
 ## Metrics
 

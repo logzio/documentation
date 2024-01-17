@@ -2,7 +2,7 @@
 id: SonicWall
 title: SonicWall
 overview: SonicWall firewalls allow you to identify and control all of the applications in use on your network. This integration allows you to send logs from your SonicWall applications to your Logz.io SIEM account.
-product: ['logs']
+product: ['logs', 'siem']
 os: ['windows', 'linux']
 filters: ['Network', 'Security']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/SonicWall-Logo.svg
@@ -117,6 +117,6 @@ Start or restart Filebeat for the changes to take effect.
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/shipping/log-sources/filebeat.html#troubleshooting).
+If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-filebeat/).
 
  

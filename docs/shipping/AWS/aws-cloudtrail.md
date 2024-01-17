@@ -2,7 +2,7 @@
 id: AWS-CloudTrail
 title: AWS CloudTrail
 overview: AWS Cloudtrail enables governance, compliance, operational auditing, and risk auditing of your Amazon Web Services account. Integrate it with Logz.io to monitor your Cloudtrail logs and metrics and know if and when issues arise.
-product: ['logs','metrics']
+product: ['logs','metrics', 'siem']
 os: ['windows', 'linux']
 filters: ['AWS', 'Security', 'Most Popular']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-cloudtrail.svg
@@ -23,7 +23,7 @@ drop_filter: []
 
 **Before you begin**:
 
-* If you plan on using an access key to authenticate your connection, you'll need to set the `s3:ListBucket` and `s3:GetObject` [permissions](/docs/user-guide/admin/give-aws-access-with-iam-roles) for the required S3 bucket.
+* If you plan on using an access key to authenticate your connection, you'll need to set the `s3:ListBucket` and `s3:GetObject` [permissions](https://docs.logz.io/docs/user-guide/admin/give-aws-access-with-iam-roles) for the required S3 bucket.
 
 * If you plan on using an IAM role to authenticate your connection, you can get the role policy by filling out the bucket information and clicking the "Get the role policy" button.
 
@@ -105,7 +105,7 @@ Logz.io cannot fetch past logs retroactively.
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see [log shipping troubleshooting](/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
+If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
 
 
 ## Troubleshooting

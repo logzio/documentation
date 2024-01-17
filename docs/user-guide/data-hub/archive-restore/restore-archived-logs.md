@@ -1,6 +1,9 @@
 ---
 sidebar_position: 3
 title: Restore Archived Logs
+description: How to restore and view archived logs in Logz.io
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logs, archive, archived logs, archived data, view archive]
 ---
 
 
@@ -14,7 +17,7 @@ so you can investigate events in OpenSearch Dashboards that are older than your 
 
 #### Known limitations
 
-* The maximum data to restore is equivalent to your account's **daily reserved volume**, no more than 100 GB.
+* The maximum data to restore per restore sub-account is equivalent to your account's **daily reserved volume**, and can't be more than 100 GB.
 * If the restore process exceeds the max, the process will fail.
 * Data can be restored from the **root of an S3 bucket**, but not a sub-bucket path.
 

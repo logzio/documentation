@@ -2,7 +2,7 @@
 id: OpenVPN-network
 title: OpenVPN
 overview: OpenVPN  is a virtual private network system for secure point-to-point or site-to-site connections.
-product: ['metrics']
+product: ['metrics', 'siem']
 os: ['windows', 'linux']
 filters: ['Network']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/openvpn.png
@@ -130,6 +130,6 @@ service filebeat restart
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for data of type `openvpn` to see the incoming OpenVPN logs.
   
-If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/shipping/log-sources/filebeat.html#troubleshooting).
+If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-filebeat/).
 
   

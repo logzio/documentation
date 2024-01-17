@@ -2,7 +2,7 @@
 id: AWS-WAF
 title: AWS WAF
 overview: Ship your AWS WAF logs to Logz.io.
-product: ['logs']
+product: ['logs', 'siem']
 os: ['windows', 'linux']
 filters: ['AWS', 'Security']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/AWS-WAF.svg
@@ -60,7 +60,7 @@ You'll first need to make sure all your logs are being written to an S3 bucket.
 2. In the log type section menu of Logz.io configuration wizard, select `other` and type in `awswaf`. The log type section menu is located beside the hosting region selection menu.
 
 :::note
-If you run into issues, you can reference the [guide for troubleshooting user permissions](/docs/user-guide/admin/give-aws-access-with-iam-roles).
+If you run into issues, you can reference the [guide for troubleshooting user permissions](https://docs.logz.io/docs/user-guide/admin/give-aws-access-with-iam-roles).
 :::
  
 
@@ -68,5 +68,5 @@ If you run into issues, you can reference the [guide for troubleshooting user pe
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd) and search for `type: awswaf`.
 
-If you still don't see your logs, see [log shipping troubleshooting](/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
+If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
 

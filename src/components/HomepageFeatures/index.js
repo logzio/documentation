@@ -36,7 +36,7 @@ const FeatureList = [
   },
   {
     title: 'API',
-    link: "https://docs.logz.io/api/",
+    link: "https://api-docs.logz.io/docs/category/logz-api",
     Svg: require('@site/static/img/api.svg').default,
     description: <>Grow your own integration.</>,
   },

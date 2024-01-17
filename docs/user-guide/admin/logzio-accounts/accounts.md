@@ -31,7 +31,7 @@ You can include up to 200 sub accounts when flexible volume is enabled. To add m
 
 Optimizers are great for analyzing long-term patterns and trends on aggregated data.
 
-You can use [data optimizers](https://docs.logz.io/user-guide/optimizers/configure-optimizers.html) to copy select data from your logs and store them long-term in a timeless account. Data stored in timeless accounts is easily searched and continuously available without requiring additional steps to restore the data. [Explore timeless accounts](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#timeless).
+You can use [data optimizers](https://docs.logz.io/user-guide/optimizers/configure-optimizers.html) to copy select data from your logs and store them long-term in a timeless account. Data stored in timeless accounts is easily searched and continuously available without requiring additional steps to restore the data. [Explore timeless accounts](/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts#timeless).
 
 ### Archive and restore data
 
@@ -59,8 +59,8 @@ Once you toggle the 2FA option, you'll receive an email guiding you on setting u
 | **Account name** | Your account name. You can edit and update it at any time. |
 | **Total daily volume** | The maximum volume of logs/data you can ship per calendar day. The index resets every day at midnight (00:00 UTC). |
 | **Retention** | The number of days your data is kept in storage. _Note that retention is measured in days, not hours. Retention of 2 days allows you to view logs from yesterday to today, and it's not the equivalent of 48 hours._  |
-| **Save account utilization metrics** | You can enable this option to log [account utilization metrics](/user-guide/accounts/manage-account-usage.html#what-are-account-utilization-metrics). Depending on the required granularity, metrics can be calculated every 10, 30, or 60 minutes. Utilization data is stored in a separate index as the log type: `logzio_account_utilization`. |
-| **Save log size** | Adds a [new field](/user-guide/accounts/manage-account-usage.html#what-happens-when-i-save-log-size) to incoming logs. This new field is called `LogSize`, and it contains the log size in bytes. |
+| **Save account utilization metrics** | You can enable this option to log [account utilization metrics](/docs/user-guide/admin/account-volume-optimization/manage-account-usage/#what-are-account-utilization-metrics). Depending on the required granularity, metrics can be calculated every 10, 30, or 60 minutes. Utilization data is stored in a separate index as the log type: `logzio_account_utilization`. |
+| **Save log size** | Adds a [new field](/docs/user-guide/admin/account-volume-optimization/manage-account-usage/#what-happens-when-i-save-log-size) to incoming logs. This new field is called `LogSize`, and it contains the log size in bytes. |
 | **Use objects from the selected accounts** | Gives the account access to OpenSearch Dashboards objects (dashboards, visualizations, saved searches) stored in other accounts under the same plan. |
 
 ## Manage your accounts

@@ -1,8 +1,9 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+// const lightCodeTheme = require('prism-react-renderer/themes/github');
+// const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
+//import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -32,7 +33,7 @@ const config = {
   },
 
   plugins: [
-
+    'docusaurus-plugin-hotjar',
     [
       'docusaurus-plugin-includes',
       {
@@ -121,6 +122,12 @@ const config = {
   
         //... other Algolia params
       },
+      hotjar: {
+        applicationId: "3812613",
+      },
+      googleTagManager: {
+        containerId: 'GTM-NH9MTDW',
+      },
       docs: {
       sidebar: {
         hideable: true,
@@ -141,9 +148,19 @@ const config = {
             position: 'right',
           },
           {to: '/docs/category/send-your-data/', label: 'Ship data', position: 'left'},
-          {to: 'https://logz-docs-api.netlify.app/api/', label: 'API', position: 'left'},
+          {to: 'https://api-docs.logz.io/docs/logz/logz-io-api', label: 'API', position: 'left'},
           {to: 'https://status.logz.io/', label: 'System status', position: 'left'},
           {to: 'https://logz.io/blog/', label: 'Blog', position: 'left'},
+          {
+            href: 'https://logz.io/freetrial/?utm_medium=referral&utm_source=api-portal&utm_campaign=api_trial&utm_content=lp&utm_term=free+trial',
+            label: 'Get a Demo',
+            position: 'right',
+          },
+          {
+            href: 'https://logz.io/freetrial/?utm_medium=referral&utm_source=docs-portal&utm_campaign=docs_trial&utm_content=lp&utm_term=free+trial',
+            label: 'Free Trial',
+            position: 'right',
+          },
           {
             href: 'https://app.logz.io/',
             label: 'Login',
@@ -232,10 +249,10 @@ const config = {
         ],
         copyright: `Copyright © ${new Date().getFullYear()} Logshero Ltd.`,
       },
-      prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-      },
+      // prism: {
+      //  theme: prismThemes.github,
+      //  darkTheme: prismThemes.dracula,
+      // },
     }),
 };
 

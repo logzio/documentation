@@ -20,7 +20,7 @@ Falco is a [CNCF-approved](https://www.cncf.io/blog/2020/01/08/toc-votes-to-move
 Shipping your Falco logs to your Cloud SIEM can help you monitor your Kubernetes workloads for potentially malicious behavior. This can help you catch attempts to remove logging data from a container, to run recon tools inside a container, or add potentially malicious repositories to a container. [Learn more in our blog 🔗](https://logz.io/blog/k8s-security-with-falco-and-cloud-siem/)
 
 
-Once your Falco logs are coming into your account, you can review the pre-configured [Falco security rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC&search=falco) and [dashboards](https://app.logz.io/#/dashboard/security/research/dashboards?) in your Cloud SIEM account.
+Once your Falco logs are coming into your account, you can review the preconfigured [Falco security rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC&search=falco) and [dashboards](https://app.logz.io/#/dashboard/security/research/dashboards?) in your Cloud SIEM account.
 
 
 **Before you begin, you'll need**:
@@ -283,6 +283,6 @@ If the file has other outputs, remove them.
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/shipping/log-sources/filebeat.html#troubleshooting).
+If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-filebeat/).
 
   

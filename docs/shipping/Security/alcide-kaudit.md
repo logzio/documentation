@@ -16,7 +16,7 @@ drop_filter: []
 
 Alcide kAudit is a security service for monitoring Kubernetes audit logs, and easily identifying abnormal administrative activity and compromised Kubernetes resources.
 
-You can review Alcide kAudit findings in your Logz.io security account, including a pre-configured [Alcide dashboard in Logz.io](https://app.logz.io/#/dashboard/security/research/dashboards?) to get you started.
+You can review Alcide kAudit findings in your Logz.io security account, including a preconfigured [Alcide dashboard in Logz.io](https://app.logz.io/#/dashboard/security/research/dashboards?) to get you started.
 
 
 You can configure an Alcide kAudit integration that uses the Logz.io HTTPS API. The integration can be configured from the kAudit app or kAudit Kubernetes ConfigMap.

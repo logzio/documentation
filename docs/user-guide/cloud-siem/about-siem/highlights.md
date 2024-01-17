@@ -1,9 +1,10 @@
 ---
 sidebar_position: 2
+title: Cloud SIEM Highlights
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Detect threats and investigate security incidents with Logz.io's Cloud SIEM
+keywords: [siem, logz.io siem. security solution, Managed Security Service Provider, Security information and event management]
 ---
-
-
-# Cloud SIEM Highlights
 
 
 Logz.io Cloud SIEM will help you detect threats and investigate security incidents as soon as you start sending logs.
@@ -11,7 +12,7 @@ Here's how your Cloud SIEM will help you reduce mean-time-to-response and improv
 
 ### Get started in minutes
 
-Pre-configured security rules and monitoring dashboards make it simple to start identifying security incidents and attacks straight away.
+preconfigured security rules and monitoring dashboards make it simple to start identifying security incidents and attacks straight away.
 
 The list of rules and dashboards is continuously expanding and Logz.io's dedicated team of security experts adds content and improvements on a regular basis.
 
@@ -40,14 +41,14 @@ Threats are tagged by their level of severity as indicated by the confidence of 
 
 ### Manage security events
 
-Monitor the triggered security events, assign event handlers, and track the resolution process in [Cloud SIEM Event Management](/user-guide/cloud-siem/siem-event-management.html).
+Monitor the triggered security events, assign event handlers, and track the resolution process in [Cloud SIEM Event Management](/docs/user-guide/cloud-siem/investigate-events/siem-event-management/).
 
 
 ### Create a shared Repository for security content
 
 Build a dedicated security library of the most useful dashboards, visualizations, saved searches, and private security feeds to share with all your Cloud SIEM accounts.
 
-Learn more about creating your own SIEM Repository account in [Manage the shared SIEM Repository](/user-guide/accounts/shared_repository.html).
+Learn more about creating your own SIEM Repository account in [Manage the shared SIEM Repository](/docs/user-guide/admin/logzio-accounts/shared_repository/).
 
 ### Dedicated support from security experts
 

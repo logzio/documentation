@@ -2,7 +2,7 @@
 id: Azure-Activity-logs
 title: Azure Activity Logs
 overview: Ship your Azure activity logs using an automated deployment process.
-product: ['logs']
+product: ['logs', 'siem']
 os: ['windows', 'linux']
 filters: ['Azure', 'Security']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/azure-monitor.svg
@@ -67,7 +67,7 @@ Make sure to use the settings shown below.
 |---|---|
 | Resource group | Click **Create new**. Give a meaningful **Name**, such as "logzioEventHubIntegration", and then click **OK**. |
 | Location | Choose the same region as the Azure services that will stream data to this Event Hub. |
-{:.paramlist}
+
 
 #### In the SETTINGS section
 
@@ -75,7 +75,7 @@ Make sure to use the settings shown below.
 |---|---|
 | Logs listener host | Use the listener host for your logs account region. For more information on finding your account's region, see Account region. |
 | Logs account token | Use the [token](https://app.logz.io/#/dashboard/settings/general) of the logs account you want to ship to. |
-{:.paramlist}
+
 
 At the bottom of the page, select **I agree to the terms and conditions stated above**, and then click **Purchase** to deploy.
 

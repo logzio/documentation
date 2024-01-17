@@ -61,7 +61,7 @@ Here's an example of a JSON payload for an alert that includes a verification to
 3. For POST/PUT methods, you can add a payload with a message.
 
 :::caution Important
-Some endpoints require a particular attribute/payload. For example, [Microsoft Teams](/user-guide/integrations/ms-teams.html#add-your-payload).
+Some endpoints require a particular attribute/payload. For example, [Microsoft Teams](/docs/user-guide/integrations/notification-endpoints/ms-teams/#3-add-your-payload).
 :::
 
 
@@ -100,7 +100,7 @@ All variables are HTML escaped by default. If you want to return **unescaped HTM
 | {{alert_event_image}} | Returns a URL to an image file with the output table, as defined in the alert: Only relevant if the alert is configured to output data in tables |
 | {{alert_timeframe_start}} | Start time for the triggered alert event   |
 | {{alert_timeframe_end}} | End time for the triggered alert event  |
-| {{alert_severity_img}} | Colored icon indicating the alert severity  |
+| {{alert_severity_img}} | A parameter used for sending notifications to Slack or MS Teams, representing alert severity as a text value  |
 | {{alert_timeframe_start_epoch_millis}} |  Start time for the triggered alert event in UNIX milliseconds |
 | {{alert_timeframe_end_epoch_millis}} |  End time for the triggered alert event in UNIX milliseconds |
 | {{alert_app_url}}| The domain to your Logz.io account that is used to build links: For example: `https://app.logz.io` |

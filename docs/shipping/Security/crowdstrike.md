@@ -170,7 +170,7 @@ For example, run `fluentd -c <<PATH-TO-YOUR-FLUENTD-CONFIG-FILE>>`.
 
 Give your events some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for data of type `crowdstrike` to see the incoming Crowdstrike events.
   
-If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/shipping/log-sources/filebeat.html#troubleshooting).
+If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-filebeat/).
 
 
   

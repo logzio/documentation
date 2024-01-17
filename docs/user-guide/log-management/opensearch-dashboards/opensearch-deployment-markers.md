@@ -13,7 +13,7 @@ You can send deployment logs by API to automatically correlate exceptions with s
 
 ### Send deployment logs by API
 
-Use the [API endpoint](https://docs.logz.io/api/#tag/Deployments) to create **Deployment markers**.
+Use the [API endpoint](https://api-docs.logz.io/docs/logz/deployments/) to create **Deployment markers**.
 
 Here's an example payload:
 

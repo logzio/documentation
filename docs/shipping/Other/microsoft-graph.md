@@ -2,7 +2,7 @@
 id: Microsoft-Graph-data
 title: Microsoft Graph
 overview: Microsoft Graph is a RESTful web API that enables you to access Microsoft Cloud service resources. This integration allows you to collect data from Microsoft Graph API and send it to your Logz.io account.
-product: ['logs']
+product: ['logs', 'siem']
 os: ['windows']
 filters: ['Other']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/graph-api-logo.png
@@ -130,6 +130,6 @@ Give your logs some time to get from your system to ours,
 and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for data of your custom field type value or type `api_fetcher` to see the incoming Microsoft Graph logs.
 
 If you still don't see your logs,
-see [log shipping troubleshooting](/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
+see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
 
  

@@ -52,7 +52,7 @@ Check that the message arrived at the target endpoint.
 ## Logz.io ServiceNow Notification template
 
 
-The ServiceNow endpoint comes pre-configured with the following notification template.
+The ServiceNow endpoint comes preconfigured with the following notification template.
 The double-brackets indicate variables that will be auto-populated by Logz.io with data specific to the triggered alert.
 
  

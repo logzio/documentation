@@ -2,7 +2,7 @@
 id: Cloudflare-network
 title: Cloudflare
 overview: The Cloudflare web application firewall (WAF) protects your internet property against malicious attacks that aim to exploit vulnerabilities such as SQL injection attacks, cross-site scripting, and cross-site forgery requests.
-product: ['logs']
+product: ['logs', 'siem']
 os: ['windows', 'linux']
 filters: ['Network']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/cloudflare.svg 
@@ -45,14 +45,14 @@ For an overview of the Logpush service, [click here](https://developers.cloudfla
 
 ##### Configure Logz.io to collect logs from the S3 bucket. 
 
-Use [our procedure](https://docs.logz.io/shipping/log-sources/s3-bucket.html#configure-logzio-to-fetch-logs-from-an-s3-bucket) to configure Logz.io to fetch logs from your S3 bucket.
+Use [our procedure](https://docs.logz.io/docs/shipping/aws/aws-s3-bucket/#configure-logzio-to-fetch-logs-from-an-s3-bucket) to configure Logz.io to fetch logs from your S3 bucket.
 
 
 ##### Check Logz.io for your logs
 
 Give your Cloudflare data some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your data, see [log shipping troubleshooting](/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
+If you still don't see your data, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
 
  
 

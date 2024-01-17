@@ -2,7 +2,7 @@
 id: Microsoft-365-data
 title: Microsoft 365
 overview: Deploy this integration to send Unified Audit Logging logs from Microsoft 365 to Logz.io.
-product: ['logs']
+product: ['logs', 'siem']
 os: ['windows']
 filters: ['Other']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/office365.png
@@ -162,7 +162,7 @@ curl https://raw.githubusercontent.com/logzio/public-certificates/master/AAACert
    ```
   
    * {@include: ../../_include/log-shipping/log-shipping-token.md}
-   * Use the listener URL specific to the region where your Logz.io account is hosted. [Click to look up your listener URL](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
+   * Use the listener URL specific to the region where your Logz.io account is hosted. [Click to look up your listener URL](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
 
 5. Run Filebeat with the new configuration.
 
@@ -170,7 +170,7 @@ curl https://raw.githubusercontent.com/logzio/public-certificates/master/AAACert
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for data of type `o365` to see the incoming Microsoft 365 logs.
   
-If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/shipping/log-sources/filebeat.html#troubleshooting).
+If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-filebeat/).
 
 
  

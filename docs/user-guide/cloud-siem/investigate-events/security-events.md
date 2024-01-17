@@ -1,9 +1,11 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
+title: Investigate Security Events
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Manage and Investigate Security Events
+keywords: [SIEM, Security, Security events, investigate, Security information]
+
 ---
-
-
-# Investigate Security Events
 
 
 Cloud SIEM logs a security event every time a rule triggers. The terms **triggered rules** and **security events** have the same meaning and are used interchangeably.
@@ -41,4 +43,4 @@ If you would like to investigate logs after they have expired from the logging d
 
 1. Set up [archiving](/user-guide/archive-and-restore/). Once logs are no longer in retention, they can be restored from the archive.
 
-2. Set up [Optimizers](/user-guide/optimizers/configure-optimizers.html) to capture logs and save them to a [Timeless account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#timeless).
+2. Set up [Optimizers](/user-guide/optimizers/configure-optimizers.html) to capture logs and save them to a [Timeless account](/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts/#timeless).

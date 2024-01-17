@@ -2,7 +2,7 @@
 id: pfSense
 title: pfSense
 overview: pfSense is an open source firewall solution. This topic describes how to configure pfSense to send system logs to Logz.io via Filebeat running on a dedicated server. 
-product: ['logs']
+product: ['logs', 'siem']
 os: ['windows', 'linux']
 filters: ['Security', 'Network']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/pfsense-logo.png
@@ -102,7 +102,7 @@ By default, syslog will be forwarded over port 514. Feel free to adjust this, ba
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for data of type `pfsense` to see the incoming pfSense logs.
   
-If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/shipping/log-sources/filebeat.html#troubleshooting).
+If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-filebeat/).
 
 
  

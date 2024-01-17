@@ -2,7 +2,7 @@
 id: OneLogin
 title: OneLogin
 overview: OneLogin is a cloud-based identity and access management (IAM) provider. This integration allows you to ship logs from your OneLogin account to your Logz.io account.
-product: ['logs']
+product: ['logs', 'siem']
 os: ['windows', 'linux']
 filters: ['Access Management']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/onelogin.png
@@ -53,7 +53,7 @@ When everything is filled out, click **Save**.
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can search for `type:onelogin` to filter for your OneLogin logs.
   
-If you still don’t see your logs, see [log shipping troubleshooting](/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
+If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
 
  
 
