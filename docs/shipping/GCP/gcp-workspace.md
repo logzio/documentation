@@ -2,7 +2,7 @@
 id: GCP-Workspace
 title: GCP Workspace
 overview: Google Workspace is a collection of cloud computing, productivity and collaboration tools, software and products developed and marketed by Google. You can ship Google Workspace logs to Logz.io using Filebeat and Google Reports API.
-product: ['metrics']
+product: ['metrics', 'siem']
 os: ['windows', 'linux']
 filters: ['GCP', 'Other']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/google-workspace.svg
