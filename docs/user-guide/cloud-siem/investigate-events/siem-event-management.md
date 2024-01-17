@@ -16,7 +16,7 @@ The events are displayed in a table: You can sort the events table by severity, 
 ## Event Management overview
 
 
-![Event management](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/siem-event-management.png)
+![Event management](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/main-event-mngmt-jan.png)
 
 The information provided for each event triggered by a Cloud SIEM rule appears in the table. The retention for the Event Management table is two weeks, and the number of triggered rules binds the number of events you can view.
 
@@ -36,10 +36,6 @@ In addition, you can **edit** the assignees and comments for each event, **inves
 ![event management](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/manage-event-mngmt-jan.png)
 
 
-:::info note
-The event manager has a retention period of 2 weeks. Older events are saved as logs on your security account and can be viewed from OpenSearch Dashboards.
-:::
-
 ### Filter events
 
 Filter events by any combination of the available filters. 
@@ -48,7 +44,7 @@ Filter events by any combination of the available filters.
 If you're using filters and no events are displayed, try adjusting your filter choices to find what you're looking for.
 :::
 
-![Filter panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/siem-filter-event-management.png)
+![Filter panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/event-mngmt-filter-jan.png)
 
 |Filter| Description| Filter options|
 |---|---|---|
@@ -56,10 +52,6 @@ If you're using filters and no events are displayed, try adjusting your filter c
 |Severity| The triggering conditions defined in the Cloud SIEM rule for a configured event threshold and time period. Default =  **All**| All, Severe, High, Medium,  Low, Info|
 |Status|Investigation stage of the triggered event.  Default =  **All**|  All, New, Assigned, In Progress, Waiting for response, False positive, Resolved   |
 
-
-<h3 id="filters">Clear filters</h3>
-
-You can always change the filters you've set. 
 To reset all the filters to the defaults, click **Clear filters**. 
 
 ### Search for events
@@ -84,9 +76,9 @@ After an investigator edits an event, the date and user are automatically displa
 
 ### Edit an event rule
 
-To fine tune event management, go back to a source rule and edit it! 
+To fine tune an event, you can edit the rule that triggered it. Find the event you want to edit and click on the three dots menu > **Edit rule**. You can only edit the trigger threshold and notification options in preconfigured rules.
 
-![Edit the event rule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/siem-edit-rule.gif)
+![Edit the event rule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/edit-rule-siem-jan.gif)
 
 
 ### Investigate an event
@@ -99,6 +91,12 @@ Click the **Investigate** button to open the quick view panel with additional de
 ### View event history
 
 Click the three dots to access the **View History** option. The popup includes the title and ID of the event, its description, and the timeline of when the event was triggered or modified.
+
+
+:::info note
+The retention period for event history is 2 weeks, and the system saves older event histories as logs on your security account, allowing you to view them from OpenSearch Dashboards.
+:::
+
 
 ![event history](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/event-history-siem-jan.png)
 
