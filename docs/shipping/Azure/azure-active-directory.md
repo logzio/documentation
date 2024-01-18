@@ -14,22 +14,6 @@ metrics_alerts: []
 drop_filter: []
 ---
 
----
-id: azure-active-Directory
-title: Azure Active Directory
-overview: You can ship logs available from the Microsoft Graph APIs with Logzio-MSGraph.
-product: ['siem']
-os: ['windows', 'linux']
-filters: ['Azure', 'Access Management']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/azure.svg
-logs_dashboards: []
-logs_alerts: []
-logs2metrics: []
-metrics_dashboards: []
-metrics_alerts: []
-drop_filter: []
----
-
 Microsoft Graph is a RESTful web API that enables you to access Microsoft Cloud service resources. This integration allows you to collect data from Microsoft Graph API and send it to your Logz.io account.
 
 
