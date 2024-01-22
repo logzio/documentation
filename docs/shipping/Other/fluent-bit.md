@@ -227,10 +227,10 @@ helm repo update
 ### Run the Helm deployment code
 
 ```shell
-helm install  \
---set logzio.token=<<LOG-SHIPPING-TOKEN>> \
---set logzio.listenerHost=<<LISTENER-HOST>> \
---set logzio.logType=<<LOG-TYPE>> \
+helm install -n monitoring --create-namespace \
+--set logzio.token="<<LOG-SHIPPING-TOKEN>>" \
+--set logzio.listenerHost="<<LISTENER-HOST>>" \
+--set logzio.logType="<<LOG-TYPE>>" \
 logzio-fluent-bit logzio-helm/logzio-fluent-bit
 ```
   
