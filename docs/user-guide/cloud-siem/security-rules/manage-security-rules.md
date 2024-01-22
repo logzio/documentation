@@ -14,7 +14,7 @@ with security rules for different attack types and security use cases.
 You can create new security rules to supplement the built-in rules. You can also update any preconfigured rule at any time, including adding a notification endpoint (for example, email or Slack) or changing trigger thresholds.
 
 :::caution Important
-You cannot configure rules using the `logzio-alert` log type. This type is reserved for system-generated rules.
+You cannot configure rules using the `logzio-alert` log type. This type is ignored by the rule engine.
 :::
 
 ## Manually create a new rule
