@@ -13,7 +13,7 @@ Cloud SIEM logs a security event every time a rule triggers. The terms **trigger
 The event log includes details about the security incident and the rule that caused it to trigger. It also offers an **Investigate** link to quickly pull up the logs that triggered the specific event.
 
 :::caution Important
-You cannot configure alerts using the `logzio-alert` log type. This type is reserved for system-generated alerts.
+You cannot configure rules using the `logzio-alert` log type. This type is ignored by the rule engine.
 :::
 
 ![Logz.io Cloud SIEM Summary page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-analytics/investigate-600px.png)
