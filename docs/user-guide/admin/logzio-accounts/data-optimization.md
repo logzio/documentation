@@ -84,7 +84,7 @@ Once your Logz.io account is up and running, it's time to focus on getting the d
 
 **[Log alerts](/user-guide/alerts/)** can ensure that you’re notified of critical events. Configuring the right alerts is the foundation of any proactive development, DevOps, and validation practice.
 
-Logz.io alerts use an OpenSearch Dashboard search query to continuously scan your logs and alert you when certain conditions are met. The simplest alerts can use a simple search query or a particular filter, but others can be quite complex and involve several conditions with varying thresholds.
+Logz.io alerts use an OpenSearch Dashboards search query to continuously scan your logs and alert you when certain conditions are met. The simplest alerts can use a simple search query or a particular filter, but others can be quite complex and involve several conditions with varying thresholds.
 
 For example, activate an alert when an error occurs, when a particular action is being performed, or even when your account usage crosses a threshold set by yourself.
 

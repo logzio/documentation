@@ -1,8 +1,10 @@
 ---
 sidebar_position: 3
+title: Correlated Alerts
+description: Correlate alerts with Logz.io
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, alerts, log alerts, log analysis, observability]
 ---
-
-# Correlated Alerts
 
 
 Some incidents are best detected by a sequence of logs, which may involve different log types, log fields, or even accounts.
@@ -12,7 +14,7 @@ For example: a deployment on a particular microservice, coinciding with an error
 Correlated alerts are instrumental for reducing false-positives. By defining a more specific use case that contains 2 scenarios, the trigger can be more sensitive and reduce unwanted noise.
 
 
-##### Investigating correlated alerts
+## Investigating correlated alerts
 
 The best way to begin investigating a correlated event, is to click the link **View in OpenSearch Dashboards** in the notification.
 

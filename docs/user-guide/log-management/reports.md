@@ -1,7 +1,11 @@
 ---
 sidebar_position: 4
+title: Reports
+description: Create and send reports
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, reports, share data, log analysis, observability]
 ---
-# Reports
+
 
 
 

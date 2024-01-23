@@ -1,6 +1,9 @@
 ---
 sidebar_position: 6
 title: Using Regex Filters in Alerts
+description: Use regex filters in your Logz.io alerts
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, alerts, regex, filters, log alerts, log analysis, observability]
 
 ---
 
@@ -15,7 +18,7 @@ There is no danger that a regex filter will disrupt the notification.
 * If the regex _does not_ match, the filter will be disregarded and the alert output will include the full value, unaltered.
 
 
-### Regex filters examples
+## Regex filters examples
 
 
 :::note
