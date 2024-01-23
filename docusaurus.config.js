@@ -125,8 +125,9 @@ const config = {
       hotjar: {
         applicationId: "3812613",
       },
-      googleTagManager: {
-        containerId: 'GTM-NH9MTDW',
+      gtag: {
+        trackingID: 'GTM-NH9MTDW',
+        anonymizeIP: true,
       },
       docs: {
       sidebar: {
