@@ -1,8 +1,14 @@
 ---
 sidebar_position: 7
 title: PCI Compliance and Log Redaction
-
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Keep your data secured with Logz.io
+keywords: [data, pii, pci, Personal Identifiable Information, Payment Card Industry, private data]
 ---
+
+:::tip Note
+Sending sensitive data to Logz.io **is not recommended**. Although Logz.io can mask data with parsing, it may break upon log format changes or production issues.
+:::
 
 
 Minimize the risk of exposing sensitive customer data with Logz.io's log redaction function and benefit from a logging management solution that offers
@@ -64,3 +70,6 @@ Once the regex pattern is approved, the changes will be applied to your data par
 
 You can deactivate PCI compliance at any time. Go to [**<i class="li li-gear"></i> > Settings > General**](https://app.logz.io/#/dashboard/settings/general) in the navigation menu and click `deactivate`.
 
+## Remove PII data
+
+You can remove and delete users' Personally Identifiable Information (PII) by contacting Logz.[io's support team](mailto:help@logz.io).
