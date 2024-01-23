@@ -2,7 +2,6 @@
 
 
 
-The logzio-monitoring Helm Chart ships your Kubernetes telemetry (logs, metrics, traces and security reports) to your Logz.io account.
 
 ## Prerequisites 
 

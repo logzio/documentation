@@ -14,6 +14,12 @@ metrics_alerts: []
 drop_filter: []
 ---
 
+
+
+Amazon EC2 Auto Scaling integration with Logz.io allows you to monitor the reliability, availability, and performance of all your EC2 instances in one place.
+
+
+
 ## Logs
 
 {@include: ../../_include/log-shipping/s3-bucket.md}

@@ -1,9 +1,10 @@
 ---
 sidebar_position: 5
+title: Wildcard Searches
+description: How to use Wildcards in Logz.io
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, wildcards, searching logs, log analysis, observability]
 ---
-
-
-# Wildcard Searches
 
 
 Wildcards can be useful when you need to run a search on an indefinite term or a partial string.

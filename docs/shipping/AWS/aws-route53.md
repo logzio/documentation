@@ -14,6 +14,9 @@ metrics_alerts: []
 drop_filter: []
 ---
 
+Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web service. Integrate it with Logz.io to monitor and maintain the reliability, availability, and performance of your domain registration, DNS routing, and health checking.
+
+
 ## Logs
 {@include: ../../_include/log-shipping/s3-bucket.md}
 

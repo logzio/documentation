@@ -1,4 +1,4 @@
-This section contains some guidelines for handling errors that you may encounter when trying to collect Kubernetes metrics.
+
 
 
 #### Problem: Permanent error - context deadline exceeded

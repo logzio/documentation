@@ -1,9 +1,11 @@
 ---
 sidebar_position: 1
+title: Intro to OpenSearch Dashboards
+description: Getting started with Log management and OpenSearch Dashboards
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, dashboard, opensearch dashboards, log analysis, observability]
 ---
 
-
-# Intro to OpenSearch Dashboards
 
 
 OpenSearch Dashboards (OSD) is where you search and query your logs to figure out what happened. It is optimized for debugging and troubleshooting issues as quickly and effectively as possible.
@@ -13,15 +15,15 @@ You can use the Discover page to filter logs, search for specific events, and cr
 
 ![OSD Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/osd-main-screen.png)
 
-### OpenSearch Dashboards Overview
+## OpenSearch Dashboards Overview
 
 OpenSearch Dashboards is designed to help you investigate massive volumes of data as quickly as possible. Filters, search phrases, and a date picker or relative time range selector are all designed to help you find the logs you want. Together, they are the _query criteria_ that determine which logs are returned from your logging database.
 
-#### 1. Select Account
+### 1. Select Account
 
 First, decide which accounts you want to search. Managing your accounts is the first step to successful logging. You can create sub accounts to separate data by environment, microservice, team, and more. [Learn more about account management and sub accounts](/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts).
 
-#### 2. Apply Filters
+### 2. Apply Filters
 
 OpenSearch Dashboards filters offer the most convenient, powerful, and flexible method for querying logs.
 
@@ -32,7 +34,7 @@ When OpenSearch maps your data to fields, it also determines which filtering opt
 
 Another advantage is that filters can be inverted, temporarily disabled, edited, and more using the filter menu.
 
-#### 3. Use the search bar
+### 3. Use the search bar
 
 You can type a search query in Lucene syntax or DQL. It is an alternative to filtering that requires a little familiarity with the search syntax. Almost anything that can be defined in the Search bar can be accomplished using filters as well.
 
@@ -40,13 +42,13 @@ You can also save your search query in case you want to use them again in the fu
 
 ![Save search query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/save-search-query.png)
 
-#### 4. Change your time frame and date
+### 4. Change your time frame and date
 
 The default time frame in OpenSearch Dashboards is always the last 15 minutes.
 
 You can select the time frame in any number of ways, including relative times such as the last hour, today so far, or the day before yesterday, or use absolute times by calendar dates and timestamps.
 
-#### 5. View log results
+### 5. View log results
 
 The logs returned by your search are your results - aka "hits". Depending on the time frame you've selected, the results can be set to continuously auto-refresh and can be quite dynamic.
 
@@ -60,7 +62,7 @@ The logs returned by your search are your results - aka "hits". Depending on the
 
 * **Exceptions** - Logz.io Insights Engine scans your logs for application errors and warnings to help you identify issues that require your attention. [Learn more](/docs/user-guide/log-management/insights/exceptions/).
 
-#### 6. Take action following your results
+### 6. Take action following your results
 
 The number of hits shows you the number of results returned by your query. This is the count of the total number of log documents that answer the query criteria.
 

@@ -14,6 +14,10 @@ metrics_alerts: []
 drop_filter: []
 ---
 
+Amazon DynamoDB is a NoSQL database used to run high-performance applications. Integrate it with Logz.io to identify slow queries and bottlenecks in your environment.
+
+
+
 ## Logs
 {@include: ../../_include/log-shipping/s3-bucket.md}
 

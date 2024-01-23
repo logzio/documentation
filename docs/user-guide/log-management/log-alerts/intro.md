@@ -1,6 +1,9 @@
 ---
 sidebar_position: 1
 title: Intro to Log Alerts
+description: Monitor your environment with log alerts
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, alerts, log alerts, log analysis, observability]
 ---
 
 
@@ -19,7 +22,7 @@ You'll see a paginated list of all alerts configured for your account.
 
 
 
-### Order or filter your Log alerts
+## Order or filter your Log alerts
 
 * You can click the column headers or the top filters to sort the list by **severity**, by the user who **created the alert**, by **tags**, or by the **state** of each alert. 
 
@@ -28,7 +31,7 @@ You'll see a paginated list of all alerts configured for your account.
 ![Alert definitions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts-updated-by-screenshot.png)
 
 
-### Manage Log alerts
+## Manage Log alerts
 
 You can manage each alert individually or act on many alerts at once.
 
@@ -45,7 +48,7 @@ If you have more than 25 alerts you'd like to edit, you can select all of the re
 There is a limit of 1,000 alerts that you can act on simultaneously.
 :::
 
-#### Managing individual alerts
+### Individual alerts
 
 
 Each alert has a **State** button you can toggle to enable or disable the alert as needed. 
@@ -54,7 +57,7 @@ To edit, duplicate or delete an alert, hover over its line to reveal the **Delet
 
 You can click the **Menu button :<i class="li li-ellipsis-v"></i>** to open the additional options: **Duplicate** an alert and **View last events**. Select the latter to display the alert query and number of hits.
 
-#### Managing multiple alerts
+### Multiple alerts
 
 Choosing one or more alerts opens a top menu with the following actions:
  

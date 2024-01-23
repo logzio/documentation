@@ -1,8 +1,10 @@
 ---
 sidebar_position: 2
+title: Home Dashboard
+description: Meet Logz.io's Home Dashboard
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, dashboard, home dashboard, observability, getting started]
 ---
-
-# Home Dashboard
 
 Logz.io Home Dashboard provides an overview of your environments, including the overall usage of your logs, metrics, and traces, the number of alerts triggered, exceptions found, and insights gathered within the chosen time frame.
 
