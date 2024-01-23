@@ -127,7 +127,6 @@ const config = {
       },
       gtag: {
         trackingID: 'GTM-NH9MTDW',
-        anonymizeIP: true,
       },
       docs: {
       sidebar: {
