@@ -1,6 +1,10 @@
 ---
 sidebar_position: 1
 title: Log Shipping Troubleshooting
+description: Troubleshoot shipping logs to Logz.io
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, troubleshooting, issues, log analysis, observability]
+
 ---
 
 

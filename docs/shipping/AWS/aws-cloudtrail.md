@@ -14,7 +14,7 @@ metrics_alerts: []
 drop_filter: []
 ---
 
-
+AWS CloudTrail is an AWS service that enables auditing, monitoring, and troubleshooting of your account by tracking user activity and API usage.
 
 
 ## Logs

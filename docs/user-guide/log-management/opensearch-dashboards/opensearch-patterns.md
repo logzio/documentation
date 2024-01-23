@@ -1,9 +1,11 @@
 ---
 sidebar_position: 4
+title: Understanding Log Patterns
+description: Learn more about Logz.io's Patterns Engine
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, patterns, pattern engine, log analysis, observability]
 ---
 
-
-# Understanding Log Patterns
 
 The Logz.io Patterns Engine runs advanced clustering algorithms to automatically group logs with similar message fields by their frequency of occurrence.
 
@@ -15,7 +17,7 @@ Patterns can help you isolate unusual events from a mass of repetitive events, i
 
 To review your log results clustered into Patterns, switch to the **Patterns** tab in OpenSearch Dashboards and filter Patterns in/out of your results.
 
-### Understanding log patterns
+## Understanding log patterns
 
 ![Log patterns](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/log-patterns-table-1.png)
 
@@ -33,20 +35,20 @@ To review your log results clustered into Patterns, switch to the **Patterns** t
 **F.** Filters: Filter a pattern in/out. You'll be taken to the **Logs** tab, where you'll see the filtered log results.
 
 
-### Split logs to optimize pattern view
+## Split logs to optimize pattern view
 
 Patterns are specific to your log results. For optimal pattern recognition, we recommend **splitting your logs into multiple types** to allow you to see the different patterns more clearly. Combining many logs into one type may result in many unidentified patterns.
 
 
 Log Patterns is an alternative view to the log document table. It shows the same logs organized in a different way. As you adjust your search and query parameters, filters, and time frame - Patterns are recalculated in sync with your log results.
 
-### Filtering by log patterns
+## Filtering by log patterns
 
 Pattern filters can be used in saved searches, visualizations, and dashboards. They can also be pinned across all apps, inverted, and temporarily disabled. Unlike other filters, Pattern filters cannot be edited.
   
 ![Patterns filter](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/patterns-filter1.png)
 
-### Sorting by log patterns
+## Sorting by log patterns
 
 The default sorting for your log document table is chronological, with the newest logs at the top. In contrast, Patterns are organized by default by frequency with the most common patterns at the top.
 
@@ -54,7 +56,7 @@ If you are looking for rare or infrequent logs, click the **Count** or **Ratio**
 
 You can sort your log patterns by their time of first occurrence, ratio, count, and estimated size.
 
-### Log pattern variables: Categories vs. Wildcards
+## Log pattern variables: Categories vs. Wildcards
 
 The log pattern reduces specifics in the log message field to generic _variables_.
 
@@ -72,7 +74,7 @@ Variables come in 2 forms:
 
   ![reloading account `.*`log patterns matcher](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/sample-pattern2.png)
 
-### Log pattern limitations
+## Log pattern limitations
 
 **A. **Unidentified size: Estimated size calculations depend on a enabling the log size field in the [Manage accounts page](https://app.logz.io/#/dashboard/settings/manage-accounts). [Learn more](/docs/user-guide/admin/account-volume-optimization/manage-account-usage/#enabling-account-utilization-metrics-and-log-size)
 

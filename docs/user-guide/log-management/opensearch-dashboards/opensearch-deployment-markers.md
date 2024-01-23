@@ -1,17 +1,19 @@
 ---
 sidebar_position: 3
+title: Deployment Markers
+description: What are deployment markers and how you can utilize them
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, deployment, deployment markers, log analysis, observability]
 ---
 
-# Deployment Markers
-
-#### Adding Deployment markers to Exception graphs
+## Adding Deployment markers to Exception graphs
 
 You can send deployment logs by API to automatically correlate exceptions with service deployments directly in your Logz.io Exceptions tab.
 
 
 ![Exceptions count](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/deployments.png)
 
-### Send deployment logs by API
+## Send deployment logs by API
 
 Use the [API endpoint](https://api-docs.logz.io/docs/logz/deployments/) to create **Deployment markers**.
 
@@ -34,7 +36,7 @@ Here's an example payload:
 }
 ```
 
-#### 1. Select the markers you want to view
+### 1. Select the markers you want to view
 
 The deployment logs you sent by API in the previous step appear as Deployment markers in your Logz.io Exception graphs. All Deployment markers are selected by default.
 
@@ -44,7 +46,7 @@ Open the Deployments menu to view all markers that appear in your search time fr
 
 
 
-#### 2. View the markers in the Exceptions tab
+### 2. View the markers in the Exceptions tab
 
 Hover over the markers in your Exception graphs to view their title and time stamp.
 
@@ -53,7 +55,7 @@ When sending Deployment marker logs, it is recommended to send the service name 
 :::
 
 
-#### 3. View additional details in the marker log
+### 3. View additional details in the marker log
 
 Some of the fields in the deployment logs sent by API are not rendered in the Exceptions tab view. These include the **description** and additional **metadata** fields.
 
