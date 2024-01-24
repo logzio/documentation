@@ -451,7 +451,7 @@ Each quick view menu contains the **View Metrics** button, allowing you to view 
 <h4 id="#see-logs">See Logs</h4>
 
 
-Node and pod views include the **See Logs** button, which opens an OpenSearch Dashboard screen with the relevant query to display the log information.
+Node and pod views include the **See Logs** button, which opens an OpenSearch Dashboards screen with the relevant query to display the log information.
 
 If you’ve manually set up your Kubernetes account, you might get an empty query with no results. In this case, you can view all related logs using a custom filter.
 
