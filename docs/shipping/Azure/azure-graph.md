@@ -126,7 +126,6 @@ oauth_apis:
     settings:
       time_interval: 1
       days_back_fetch: 30
-  
 ```
 
 | Parameter | Description | Required/Default |
