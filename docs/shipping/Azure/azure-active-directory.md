@@ -43,7 +43,7 @@ logzio:
   token: <<LOG-SHIPPING-TOKEN>>
 
 oauth_apis:
-  - type: api_fetcher
+  - type: azure_graph
     name: azure_test
     credentials:
       id: <<AZURE_AD_SECRET_ID>>
@@ -58,9 +58,12 @@ oauth_apis:
       method: POST
     data_http_request:
       url: https://graph.microsoft.com/v1.0/auditLogs/signIns
+      method: GET
       headers:
     json_paths:
       data_date: createdDateTime
+      next_url:
+      data:
     settings:
       time_interval: 1
       days_back_fetch: 30
