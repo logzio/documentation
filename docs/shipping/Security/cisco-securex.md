@@ -51,7 +51,7 @@ logzio:
   token: <<LOG-SHIPPING-TOKEN>>
 
 auth_apis:
-  - type: api_fetcher
+  - type: cisco_secure_x
     name: cisco
     credentials:
       id: <<API_CREDENTIALS_ID>>
@@ -63,7 +63,7 @@ auth_apis:
       event_type%5B%5D: '1090519054'
       start_date: 2021-10-05T10%3A10%3A10%2B00%3A00
     custom_fields:
-      type: cisco
+      type: cisco_amp
       level: high
 ```
 
