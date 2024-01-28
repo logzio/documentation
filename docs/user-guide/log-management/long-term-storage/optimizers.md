@@ -1,8 +1,11 @@
 ---
 sidebar_position: 1
+title: What are Optimizers?
+description: How to use optimizers in Logz.io
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, optimizers, log analysis, observability]
 ---
 
-# What are Optimizers?
 
 Optimizers are query-based rules that allow you to store logs and aggregations to a timeless account for extended retention. This way, you can retain important data for as long as you like for long term visibility.
 

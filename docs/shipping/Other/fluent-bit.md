@@ -135,6 +135,7 @@ For a list of options, see the configuration parameters below the code block. ðŸ
     Match *
     logzio_token <<LOG-SHIPPING-TOKEN>>
     logzio_url   https://<<LISTENER-HOST>>:8071
+    id <<any string>>
 ```
 
 ###  Parameters
@@ -145,6 +146,7 @@ For a list of options, see the configuration parameters below the code block. ðŸ
 | logzio_url  | Listener URL and port. {@include: ../../_include/log-shipping/listener-var.html}  | `https://listener.logz.io:8071` |
 | logzio_type   | {@include: ../../_include/log-shipping/type.md} | `logzio-fluent-bit` |
 | logzio_debug    | Set to `true` to print debug messages to stdout. | `false` |
+| id | Output id. Mandatory when using multiple outputs. | `logzio_output_1` |
 
 
 
