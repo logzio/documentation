@@ -59,6 +59,13 @@ const config = {
         }
       },
     ],
+    [
+      '@docusaurus/plugin-google-gtag',
+      {
+        trackingID: 'GTM-NH9MTDW',
+        anonymizeIP: true,
+      },
+    ],
     ],
 
   presets: [
@@ -124,9 +131,6 @@ const config = {
       },
       hotjar: {
         applicationId: "3812613",
-      },
-      googleTagManager: {
-        containerId: 'GTM-NH9MTDW',
       },
       docs: {
       sidebar: {
