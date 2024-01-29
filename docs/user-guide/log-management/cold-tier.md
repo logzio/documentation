@@ -1,11 +1,15 @@
 ---
 sidebar_position: 11
 title: Cold Tier
+description: Search your archived data before re-ingesting it with Cold Tier
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, cold tier, storage, archive, opensearch dashboards, log analysis, observability]
 ---
+
 
 Archived data usually contains a lot of information, and it can take time and resources to sift through it and find what you’re looking for.
 
-With Cold Tier, you can seamlessly search cold storage data you've archived, view up to 1,000 raw logs that match your search query, and get the information you want. You can also re-ingest these logs to your Logz.io account to further analyze and investigate them.
+With Cold Tier, you can seamlessly search cold storage data you've archived, view up to 1,000 raw logs that match your search query, and get the information you want. You can also re-ingest these logs to your Logz.io account to analyze and investigate them further.
 
 
 ![cold Tier fetched logs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cold-search/cold-search-close-up.png)
@@ -13,7 +17,7 @@ With Cold Tier, you can seamlessly search cold storage data you've archived, vie
 To start using Cold Tier, navigate to [Log analytics > Cold Tier](https://app.logz.io/#/dashboard/osd/discover/).
 
 :::caution Important 
-Cold tier is currently only available for users using **Amazon S3 archive**. 
+Cold Tier is currently only available for users using **Amazon S3 archive**. 
 :::
 
 <!-- ### Cold search overview
@@ -80,7 +84,7 @@ To investigate the logs further, you can re-ingest them to your Logz.io account 
 
 You can check your account usage and daily limit by navigating to [**Settings > Manage accounts**](https://app.logz.io/#/dashboard/settings/manage-accounts).
 
-Once you click the **Re-ingest** button, you'll be asked to confirm your action. You can review the name of the account that will hold these re-ingested logs, the chosen time frame, your query, and the estimated size of re-ingested data. 
+Once you click the **Re-ingest** button, you'll be asked to confirm your action. You can review the account name that will hold these re-ingested logs, the chosen time frame, your query, and the estimated size of re-ingested data. 
 
 Click **Confirm** to approve and continue with the process. 
 
@@ -97,11 +101,11 @@ Your re-ingested logs will be available to search and analyze from OpenSearch Da
 
 You might encounter an issue while fetching raw logs or re-ingesting them. Here are some common issues that can arise and how you can quickly resolve them:
 
-### Issue: Exceeded max limit of restored accounts
+<h3 id="max-limit"> Issue: Exceeded max limit of restored accounts</h3>
 
 Cold Tier works with your cold storage archived accounts and has similar limitations. To re-ingest Cold Tier logs, you must have at least 1 available account in your restored accounts. Note that you can restore up to 5 accounts at a time.
 
-#### Suggested remedy
+<h3 id="max-remedy"> Suggested remedy</h3>
 
 Ensure you have at least 1 available account to which you can restore the data. To check how many accounts you use, navigate to [Data Hub > Archive and restore > Restored account](https://app.logz.io/#/dashboard/tools/archive-and-restore) to review if you've exceeded your limit.
 
@@ -110,11 +114,11 @@ If you have exceeded your restored accounts limit, you can delete one or more ac
 If you wish to upgrade your existing quota, you can contact [Logz.io's support team](mailto:help@logz.io).
 
 
-### Issue: Limit exceeded
+<h3 id="limit"> Issue: Limit exceeded</h3>
 
 Re-ingesting logs process failed since you've exceeded your account's limit. This happens when you've reached your daily quota.
 
-#### Suggested remedy
+<h3 id="limit-remedy"> Suggested remedy</h3>
 
 
 If your account has a [flexible volume](/docs/user-guide/admin/logzio-accounts/flexible-volume/), you can allocate available GB from one of the existing sub accounts.
