@@ -65,7 +65,7 @@ Once you import the file, navigate to [Visualize](https://app.logz.io/#/dashboar
 
 ## Optimize metrics data 
 
-Your Infrastructure Monitoring (metrics) account can help you visualize the status of your services and operations. The account usage is [calculated based on Unique Time Series (UTS)](/user-guide/infrastructure-monitoring/metrics-explore-prometheus/#calculating-infrastructure-monitoring-usage), a collection of pairs, each including a timestamp and value. Time series is uniquely identified by its metric name and a set of labels.
+Your Infrastructure Monitoring (metrics) account can help you visualize the status of your services and operations. The account usage is [calculated based on Unique Time Series (UTS)](/docs/user-guide/infrastructure-monitoring/introduction-to-prometheus/explore-metrics-prometheus/#calculating-infrastructure-monitoring-usage), a collection of pairs, each including a timestamp and value. Time series is uniquely identified by its metric name and a set of labels.
 
 
 To gain quick insights into your metrics account, navigate to your **[Metrics](https://app.logz.io/#/dashboard/metrics)** account and run the following query to view the total unique metrics in the query’s timeframe:
@@ -84,7 +84,7 @@ Once your Logz.io account is up and running, it's time to focus on getting the d
 
 **[Log alerts](/user-guide/alerts/)** can ensure that you’re notified of critical events. Configuring the right alerts is the foundation of any proactive development, DevOps, and validation practice.
 
-Logz.io alerts use an OpenSearch Dashboard search query to continuously scan your logs and alert you when certain conditions are met. The simplest alerts can use a simple search query or a particular filter, but others can be quite complex and involve several conditions with varying thresholds.
+Logz.io alerts use an OpenSearch Dashboards search query to continuously scan your logs and alert you when certain conditions are met. The simplest alerts can use a simple search query or a particular filter, but others can be quite complex and involve several conditions with varying thresholds.
 
 For example, activate an alert when an error occurs, when a particular action is being performed, or even when your account usage crosses a threshold set by yourself.
 

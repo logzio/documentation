@@ -12,7 +12,7 @@ You can follow OpenSearch Dashboards's standard search practices to fully invest
 
 Click **SIEM > OpenSearch Dashboards** from the navigation menu and use OpenSearch Dashboards's left menu to navigate between Discover, Dashboard, Visualize, and Management settings.
 
-[Learn more about OpenSearch Dashboards](/user-guide/logs/).
+[Learn more about OpenSearch Dashboards](/docs/user-guide/log-management/opensearch-dashboards/).
 
 
 

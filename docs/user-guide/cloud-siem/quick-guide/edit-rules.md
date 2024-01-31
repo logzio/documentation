@@ -1,52 +1,52 @@
 ---
 sidebar_position: 8
-title: Edit Rules and Protected Rules
+title: Manage Security Rules
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Manage and edit security rules
+keywords: [SIEM, security rule, rules, cloud security, Security information and event management, Security information]
 ---
 
 
 There are two types of rules in Cloud SIEM:
 
-* A protected rule is a rule defined by Logz.io. These rules appear in the **Rule definitions** list with a **Logz.io rule** tag. You cannot edit the name or logic of a protected rule unless you duplicate the rule as described in this document. You can, however, define what accounts to apply the rule to, edit the trigger conditions, tags and recipient endpoints of a protected rule.
+* A **protected rule** is a rule defined by Logz.io. These rules appear in the **Rule definitions** list with a **Logz.io rule** tag. You can only edit the name or logic of a protected rule if you duplicate the rule as described in this document. You can, however, define what accounts to apply the rule to and edit the trigger conditions, tags, and recipient endpoints of a protected rule.
 
-* A regular rule is a rule defined by the user. These rules appear in the **Rule definitions** list without a tag. You can edit the name and logic of a regular rule, as well as define what accounts to apply the rule to, edit the trigger conditions, tags and recipient endpoints of the rule.
+* A **custom rule** is a rule defined by the user. These rules appear in the **Rule definitions** list without a tag. You can edit the name and logic of a regular rule, define what accounts to apply the rule to and edit the rule's trigger conditions, tags, and recipient endpoints.
 
+## Manage custom rules
 
-## Edit a regular rule:
+Navigate to your Logz.io [SIEM account > Rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions). 
 
-1. Sign in to Logz.io.
+![custom rule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/siem-created-team-member-dec.png)
 
-2. Go to **SIEM > Rules**.
+Click the pencil icon on the right side of the rule you want to edit. 
 
-   ![Edit_rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/rule-1.png)
+![edit rule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/siem-edit-rule-dec.png)
 
-3. Select the three dots menu on the right side of a rule that you need to edit.
+You can review and edit the rule according to your needs. Click **Save** to apply the changes.
 
-   ![Edit_rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/edit_rule.png)
+## Manage Protected Rules
 
+Rules that are Preconfigured By Logz.io cannot be edited. However, you **can add** trigger thresholds and notification options.
 
-4. Select **Edit**.
+Navigate to your Logz.io [SIEM account > Rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions).
 
-5. Edit the rule.
+Choose the rule you want to edit and click the pencil icon on the right side menu.
 
-6. Select **Save**.
+![edit preconfigured rule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/edit-preconfigured-rule-jan.png)
 
-If you need to customize a protected rule, you can clone it, adjust the cloned rule to your needs and then disable the original protected rule. To do tis:
+## Duplicate and Edit Protected Rules
 
-## Clone and edit an existing rule:
+You can edit and change preconfigured Logz.io rules by duplicating them. 
 
-1. Sign in to Logz.io.
+Navigate to your Logz.io [SIEM account > Rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions).
 
-2. Go to **SIEM > Rules**.
+Choose the rule you want to duplicate, click on the three dots next to it, and choose **Duplicate**. 
 
-   ![Edit_rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/rule-1.png)
+![duplicate preconfigured rule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/duplicate-rule-jan.png)
 
-3. Select the three dots menu on the right side of a rule that you need to clone.
+The rule configuration wizard includes all the settings set by Logz.io, and you can edit, change, or remove elements from each section.
 
-4. Select **Duplicate**.
+Click **Save** to apply the changes.
 
-5. Edit the rule.
-
-6. Select **Save**.
-
-7. In the **State** column of the original protected rule, set the state selector to the disabled mode.
-
+Navigate to the main [Rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions) page, find the original preconfigured rule you've duplicated, and change its **State** to disable it.

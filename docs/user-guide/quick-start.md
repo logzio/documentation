@@ -32,11 +32,11 @@ If you prefer to send your data manually, Logz.io offers numerous methods to do 
 
 |**Logs**|**Metrics**|**Traces**|**Cloud SIEM**|
 | --- | --- | --- | --- |
-|[Filebeat](https://app.logz.io/#/dashboard/send-your-data/log-sources/filebeat)|[.NET](https://app.logz.io/#/dashboard/send-your-data/prometheus-sources/dotnet-custom)|[Jaeger installation](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/jaeger_collector)|[Cloudflare](https://app.logz.io/#/dashboard/send-your-data/security-sources/cloudflare)
-|[S3 Bucket](https://app.logz.io/#/dashboard/send-your-data/log-sources/s3-bucket)|[Prometheus](https://app.logz.io/#/dashboard/send-your-data/prometheus-sources/prometheus-remote-write_shipping)|[OpenTelemetry installation](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/opentelemetry)|[NGINX](https://app.logz.io/#/dashboard/send-your-data/security-sources/nginx)
-|[cURL](https://app.logz.io/#/dashboard/send-your-data/log-sources/curl)|[Azure Kubernetes Service](https://app.logz.io/#/dashboard/send-your-data/prometheus-sources/otel-metrics-aks-helm)|[Docker](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/docker-otel)|[Active directory](https://app.logz.io/#/dashboard/send-your-data/security-sources/active-directory-winserver)
-|[JSON uploads](https://app.logz.io/#/dashboard/send-your-data/log-sources/json-uploads)|[Google Kubernetes Engine over OpenTelemetry](https://app.logz.io/#/dashboard/send-your-data/prometheus-sources/otel-metrics-gke-helm)|[Kubernetes](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/otel-traces-helm)|[CloudTrail](https://app.logz.io/#/dashboard/send-your-data/security-sources/cloudtrail)
-|[Docker container](https://app.logz.io/#/dashboard/send-your-data/log-sources/docker)|[Amazon EC2](https://app.logz.io/#/dashboard/send-your-data/prometheus-sources/aws-ec2-prometheus)|[Go instrumentation](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/go-otel)|[auditd](https://app.logz.io/#/dashboard/send-your-data/security-sources/auditd) |
+|[Filebeat](https://app.logz.io/#/dashboard/integrations/Filebeat-data)|[.NET](https://app.logz.io/#/dashboard/integrations/dotnet)|[Jaeger installation](https://app.logz.io/#/dashboard/integrations/Jaeger-data)|[Cloudflare](https://app.logz.io/#/dashboard/integrations/Cloudflare-network)
+|[S3 Bucket](https://app.logz.io/#/dashboard/integrations/AWS-S3-Bucket)|[Prometheus](https://app.logz.io/#/dashboard/integrations/Prometheus-remote-write)|[OpenTelemetry installation](https://app.logz.io/#/dashboard/integrations/OpenTelemetry-data)|[NGINX](https://app.logz.io/#/dashboard/integrations/Nginx-load)
+|[cURL](https://app.logz.io/#/dashboard/integrations/cURL-data)|[Azure Kubernetes Service](https://app.logz.io/#/dashboard/integrations/Kubernetes)|[Docker](https://app.logz.io/#/dashboard/integrations/Docker)|[Active directory](https://app.logz.io/#/dashboard/integrations/Active-Directory)
+|[JSON uploads](https://app.logz.io/#/dashboard/integrations/JSON)|[Google Kubernetes Engine over OpenTelemetry](https://app.logz.io/#/dashboard/integrations/Kubernetes)|[Kubernetes](https://app.logz.io/#/dashboard/integrations/Kubernetes)|[CloudTrail](https://app.logz.io/#/dashboard/integrations/AWS-CloudTrail)
+|[Docker container](https://app.logz.io/#/dashboard/integrations/Docker)|[Amazon EC2](https://app.logz.io/#/dashboard/integrations/AWS-EC2)|[Go instrumentation](https://app.logz.io/#/dashboard/integrations/GO)|[Auditbeat](https://app.logz.io/#/dashboard/integrations/auditbeat) |
 
 Browse the complete list of available shipping methods [here](https://docs.logz.io/docs/category/send-your-data).
 
@@ -49,11 +49,11 @@ To learn more about shipping your data, check out **Shipping Log Data to Logz.io
 
 ### Parsing your data
 
-Logz.io offers automatic parsing [for over 50 log types](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html).
+Logz.io offers automatic parsing [for over 50 log types](https://docs.logz.io/docs/user-guide/data-hub/log-parsing/default-parsing/).
 
 If you can't find your log type, or if you're interested in sending custom logs, Logz.io will parse the logs for you. Parsing-as-a-service is included in your Logz.io subscription; just open a chat with our **Support team** with your request, you can also email us at [help@logz.io](mailto:help@logz.io).
 
-If you prefer to parse the logs yourself, you can use our [DIY Data Parsing Editor](https://docs.logz.io/user-guide/mapping-and-parsing/sawmill-parsing.html).
+If you prefer to parse the logs yourself, you can use our [DIY Data Parsing Editor](https://docs.logz.io/docs/user-guide/data-hub/log-parsing/sawmill-parsing/).
 
 ###### Additional resources
 
@@ -61,9 +61,9 @@ If you prefer to parse the logs yourself, you can use our [DIY Data Parsing Edit
 Learn more about sending data to Logz.io:
 
 * [Use Logz.io API](https://api-docs.logz.io/docs/logz/logz-io-api/)
-* [Log shipping FAQ](https://docs.logz.io/user-guide/log-shipping/faqs-logs/)
-* [Log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html)
-* [Troubleshooting Filebeat](https://docs.logz.io/user-guide/log-troubleshooting/filebeat-troubleshooting.html)
+* [Log shipping FAQ](https://docs.logz.io/docs/user-guide/log-management/faqs-logs/)
+* [Log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/)
+* [Troubleshooting Filebeat](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-filebeat/)
 
 ### Explore your data with Logz.io's Log Management platform
 
@@ -73,11 +73,11 @@ Logz.io’s **[Log Management](https://app.logz.io/#/dashboard/osd)** is where y
 
 The following list contains some of the common abilities available in Log Management:
 
-* **[Log Management best practices](https://docs.logz.io/user-guide/logs/best-practices.html)**
+* **[Log Management best practices](https://docs.logz.io/docs/user-guide/log-management/opensearch-dashboards/opensearch-best-practices/)**
 * **[Configuring an alert](https://app.logz.io/#/dashboard/alerts/v2019/new)**
-* Using **[Logz.io's pattern engine](https://docs.logz.io/user-guide/logs/log-patterns.html)** to automatically group logs with similar message fields by their frequency of occurrence
-* **[Reviewing your fields' mapping](https://docs.logz.io/user-guide/logs/mapping/)**
-* Using **[Optimizers](https://docs.logz.io/user-guide/optimizers/)** to store logs and aggregations to a timeless account
+* Using **[Logz.io's pattern engine](https://docs.logz.io/docs/user-guide/log-management/opensearch-dashboards/opensearch-patterns/)** to automatically group logs with similar message fields by their frequency of occurrence
+* **[Reviewing your fields' mapping](https://docs.logz.io/docs/user-guide/data-hub/field-mapping/)**
+* Using **[Optimizers](https://docs.logz.io/docs/user-guide/log-management/long-term-storage/optimizers/)** to store logs and aggregations to a timeless account
 * Predicting exceptions and critical errors with **Insights**
 
 
@@ -99,10 +99,9 @@ Once you've sent your metrics to Logz.io, you can:
 
 You can also:
 
-* Start with a **[pre-build Metrics dashboard](https://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards)** to monitor data
-* **Create Metrics related alerts**
-* Work with **[Dashboard variable](https://docs.logz.io/user-guide/infrastructure-monitoring/configure-metrics-drilldown-links.html)** to apply filters on your dashboards and drilldown links
-* Mark events on your Metrics dashboard based on data from a logging account, with **[Annotations](https://docs.logz.io/user-guide/infrastructure-monitoring/annotations/)**
+* **[Create Metrics related alerts](https://docs.logz.io/docs/user-guide/Infrastructure-monitoring/metrics-alert-manager)**
+* Work with **[Dashboard variable](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/variables/)** to apply filters on your dashboards and drilldown links
+* Mark events on your Metrics dashboard based on data from a logging account, with **[Annotations](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/log-correlations/annotations/)**
 
 ###### Additional resources
 
@@ -117,10 +116,10 @@ Use Logz.io’s **[Distributed Tracing](https://app.logz.io/#/dashboard/jaeger)*
 
 To help you understand how Distributed Tracing can enhance your data, check out the following guides:
 
-* **[Getting started with Tracing](https://docs.logz.io/user-guide/distributed-tracing/getting-started-tracing/)**
-* **[Sending demo traces with HOTROD](https://docs.logz.io/user-guide/distributed-tracing/trace-hotrod-demo)**
-* Combine Traces and Metrics with **[Service Performance Monitoring](https://docs.logz.io/user-guide/distributed-tracing/service-performance-monitoring)**
-* **[Correlate logs and traces](https://docs.logz.io/user-guide/distributed-tracing/correlate-traces/)**
+* **[Getting started with Tracing](https://docs.logz.io/docs/user-guide/distributed-tracing/set-up-tracing/get-started-tracing/)**
+* **[Sending demo traces with HOTROD](https://docs.logz.io/docs/user-guide/distributed-tracing/set-up-tracing/hotrod/)**
+* Combine Traces and Metrics with **[Service Performance Monitoring](https://docs.logz.io/docs/user-guide/distributed-tracing/spm/)**
+* **[Correlate logs and traces](https://docs.logz.io/docs/user-guide/distributed-tracing/correlate-traces/)**
 
 
 ## Secure your environment with Logz.io's Cloud SIEM
@@ -132,10 +131,10 @@ Logz.io **[Cloud SIEM](https://app.logz.io/#/dashboard/security/summary)** (Secu
 Here are some popular Cloud SIEM resources to help you get started:
 
 * **[Cloud SIEM quick start guide](https://docs.logz.io/docs/category/cloud-siem-quick-start-guide)** 
-* **[Investigate security events](https://docs.logz.io/user-guide/cloud-siem/security-events.html)**
-* **[Threat Intelligence feeds](https://docs.logz.io/user-guide/cloud-siem/threat-intelligence.html)**
-* **[Configure a security rule](https://docs.logz.io/user-guide/cloud-siem/manage-security-rules.html)**
-* **[Dashboards and reports](https://docs.logz.io/user-guide/cloud-siem/dashboards/)**
+* **[Investigate security events](https://docs.logz.io/docs/user-guide/cloud-siem/investigate-events/security-events/)**
+* **[Threat Intelligence feeds](https://docs.logz.io/docs/user-guide/cloud-siem/threat-intelligence/)**
+* **[Configure a security rule](https://docs.logz.io/docs/user-guide/cloud-siem/security-rules/manage-security-rules/)**
+* **[Dashboards and reports](https://docs.logz.io/docs/user-guide/cloud-siem/dashboards/)**
 
 ## Manage and optimize your Logz.io account
 
@@ -143,11 +142,11 @@ Logz.io's account admins can control and edit different elements inside their ac
 
 The following list explores the more common use cases for Logz.io's account admins:
 
-* **[Setting and editing user permission levels](https://docs.logz.io/user-guide/users/)**
-* **[Managing main and sub accounts](https://docs.logz.io/user-guide/accounts/)**
-* **[Optimizing account volume usage](https://docs.logz.io/user-guide/accounts/manage-account-usage.html)**
-* **[Setting up SSO access](https://docs.logz.io/user-guide/users/single-sign-on/)**
-* **[Archiving and restoring data](https://docs.logz.io/user-guide/archive-and-restore/)**
+* **[Setting and editing user permission levels](https://docs.logz.io/docs/user-guide/admin/users/)**
+* **[Managing main and sub accounts](https://docs.logz.io/docs/user-guide/admin/logzio-accounts/accounts/)**
+* **[Optimizing account volume usage](https://docs.logz.io/docs/user-guide/admin/account-volume-optimization/manage-account-usage/)**
+* **[Setting up SSO access](https://docs.logz.io/docs/user-guide/admin/sso/single-sign-on/)**
+* **[Archiving and restoring data](https://docs.logz.io/docs/user-guide/data-hub/archive-restore/archive-and-restore/)**
 
 In addition, Logz.io's Data Hub helps you manage and optimize your Logz.io products by offering tailored recommendations and a quick and easy way to control your logs and metrics usage. You can use Data Hub to:
 

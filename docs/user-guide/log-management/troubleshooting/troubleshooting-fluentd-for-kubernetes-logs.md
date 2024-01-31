@@ -1,8 +1,10 @@
 ---
 sidebar_position: 3
+title: Troubleshooting Fluentd for Kubernetes Logs
+description: Learn about most common errors and remedies when running Fluentd for Kubernetes logs
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, troubleshooting, kubernetes, fluentd, invalid logs, log analysis, observability]
 ---
-
-# Troubleshooting Fluentd for Kubernetes Logs
 
 This section contains some guidelines for handling errors that you may encounter when trying to run Fluentd to collect Kubernetes logs.
 
@@ -20,8 +22,7 @@ You may need to add more volume and volume mount to your Daemonset.
 
 <h3 id="#heading-id">Suggested remedy</h3>
 
-
-###### Check on which node your pod is running
+<h4 id="check-node">Check on which node your pod is running</h4>
 
 Find out on which node your Fluentd pod with the errors is running. To do so, use this command:
 
@@ -29,11 +30,11 @@ Find out on which node your Fluentd pod with the errors is running. To do so, us
 kubectl -n <<NAMESPACE>> get pod <<FLUENTD-POD-NAME>> -owide
 ```
   
-###### Connect to the node
+<h4 id="connect-node"> Connect to the node</h4>
 
 Connect to the node you found in the previous step (ssh, etc...).
 
-###### Find the log's path
+<h4 id="log-path"> Find the log's path</h4>
 
 1. Run the following command, to go to the logs directory:
 
@@ -67,7 +68,7 @@ Again, this command will output the file and its symlink, or example:
 
 This directory (`/some/other/path`) is the directory where your log files are mounted at the host. You'll need to add that path to your Daemonset.
 
-###### Add the mount path to your Daemonset
+<h4 id="mount-path"> Add the mount path to your Daemonset</h4>
 
 1. Open your Daemonset in your preffered text editor.
 2. In the `volumeMounts` section, add the following:
@@ -92,17 +93,17 @@ Replace `<<MOUNT-PATH>>` with the directory path you found in step 3.
 
 4. Save the changes.
 
-###### Deploy your new Daemonset.
+<h4 id="deploy-new"> Deploy your new Daemonset</h4>
 
 Remove your previous Daemonset from the cluster, and apply the new one.
 
-:::note
-Applying the new Daemonset without removing the old one will not apply the changes.
+:::info note
+Applying the new Daemonset without removing the old one will **not** apply the changes.
 :::
 
 
 
-###### Check your Fluentd pods to ensure that the error is gone
+<h4 id="check-fluentd"> Check your Fluentd pods to ensure that the error is gone</h4>
 
 ```shell
 kubectl -n <<NAMESPACE>> logs <<POD-NAME>>

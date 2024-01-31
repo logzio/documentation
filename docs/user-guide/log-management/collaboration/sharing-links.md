@@ -1,12 +1,15 @@
 ---
 sidebar_position: 2
 title: Sharing Links
+description: Use shared tokens to share dashboards and visualizations
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, collaboration, sharing, log analysis, observability]
 ---
 
 You can use shared tokens to share OpenSearch dashboards and visualizations with
 stakeholders who don't have access to your Logz.io account.
 
-This can be useful for communicating with clients outside your organization or internally with other teams in your organization.
+This can be useful for communicating with clients outside your organization or internally with other teams.
 
 
 ### Decide which dashboard to share
@@ -16,7 +19,7 @@ When you share a dashboard, you can decide whether to share the dashboard with a
 
 * **Snapshot** - Converts the time selection to absolute dates. Your recipients will view the same data you are viewing now. For example, if you send out a snapshot when viewing the dashboard for the last 24 hours, your recipients will receive the dashboard with a fixed date range selection.
 
-  Of course, this type of permalink is short lived, as it depends on your log retention policy. Once the logs are too old, they will no longer feed the dashboard and your recipients won't have anything to see.
+  Of course, this type of permalink is short lived, depending on your log retention policy. Once the logs are too old, they will no longer feed the dashboard, and your recipients won't have anything to see.
 
 * **Saved object** - Shares the dashboard with a relative time selection.
 

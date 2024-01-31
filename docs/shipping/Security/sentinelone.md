@@ -2,7 +2,7 @@
 id: SentinelOne
 title: SentinelOne
 overview: SentinelOne platform delivers the defenses to prevent, detect, and undo—known and unknown—threats. This integration allows you to send logs from your SentinelOne applications to your Logz.io SIEM account.
-product: ['logs']
+product: ['logs', 'siem']
 os: ['windows', 'linux']
 filters: ['Security']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/sentintelone-icon.png
@@ -57,7 +57,23 @@ This code block adds SentinelOne as an input and sets Logz.io as the output.
 filebeat.inputs:
 - type: tcp
   max_message_size: 10MiB
-  host: "0.0.0.0:9000"
+  host: "0.0.0.0:6514"
+  ssl.enabled: true
+  ssl.certificate: "/etc/filebeat/certificates/SentinelOne.crt"
+  ssl.key: "/etc/filebeat/certificates/SentinelOne.key"
+  ssl.verification_mode: none
+  fields:
+    logzio_codec: json
+    token: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    type: sentinel_one
+  fields_under_root: true
+- type: udp
+  max_message_size: 10MiB
+  host: "0.0.0.0:6514"
+  ssl.enabled: true
+  ssl.certificate: "/etc/filebeat/certificates/SentinelOne.crt"
+  ssl.key: "/etc/filebeat/certificates/SentinelOne.key"
+  ssl.verification_mode: none
   fields:
     logzio_codec: json
     token: <<LOG-SHIPPING-TOKEN>>
@@ -76,7 +92,6 @@ processors:
      - from: "log.file.path"
        to: "source"
     ignore_missing: true
-
 ### Outputs
 output:
   logstash:

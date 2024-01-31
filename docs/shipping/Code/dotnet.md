@@ -15,6 +15,8 @@ drop_filter: []
 ---
 
 
+
+
 ## Logs
 
 import Tabs from '@theme/Tabs';
@@ -1224,7 +1226,7 @@ Replace `<<TYPE>` with the type that you want to assign to your logs. You will u
 <Tabs>
   <TabItem value="Kubernetes" label="Kubernetes" default>
 
-Helm is a tool for managing packages of pre-configured Kubernetes resources using Charts. This integration allows you to collect and ship diagnostic metrics of your .NET application in Kubernetes to Logz.io, using dotnet-monitor and OpenTelemetry. logzio-dotnet-monitor runs as a sidecar in the same pod as the .NET application.
+Helm is a tool for managing packages of preconfigured Kubernetes resources using Charts. This integration allows you to collect and ship diagnostic metrics of your .NET application in Kubernetes to Logz.io, using dotnet-monitor and OpenTelemetry. logzio-dotnet-monitor runs as a sidecar in the same pod as the .NET application.
 
 :::note
 [Project's GitHub repo](https://github.com/logzio/logzio-helm/)

@@ -1,7 +1,7 @@
 ---
-id: azure-graph
-title: Microsoft Azure Graph API
-overview: You can ship logs available from the Microsoft Graph APIs with Logzio-api-fetcher.
+id: azure-graph-mail-reports
+title: Microsoft Azure Graph API (mail reports)
+overview: You can ship mail report logs available from the Microsoft Graph APIs with Logzio-api-fetcher.
 product: ['logs']
 os: ['windows', 'linux']
 filters: ['Azure', 'Access Management']
@@ -104,28 +104,34 @@ logzio:
   token: <<LOG-SHIPPING-TOKEN>>
 
 oauth_apis:
-  - type: azure_graph
-    name: azure_test
+  - type: azure_mail_reports
+    name: mail_reports
     credentials:
       id: <<AZURE_AD_SECRET_ID>>
       key: <<AZURE_AD_SECRET_VALUE>>
     token_http_request:
-      url: https://login.microsoftonline.com/<<AZURE_AD_TENANT_ID>>/oauth2/v2.0/token
+      url: https://login.microsoftonline.com/abcd-efgh-abcd-efgh/oauth2/v2.0/token
       body: client_id=<<AZURE_AD_CLIENT_ID>>
-        &scope=https://graph.microsoft.com/.default
+        &scope=https://outlook.office365.com/.default
         &client_secret=<<AZURE_AD_SECRET_VALUE>>
         &grant_type=client_credentials
       headers:
       method: POST
     data_http_request:
-      url: https://graph.microsoft.com/v1.0/auditLogs/signIns
+      url: https://reports.office365.com/ecp/reportingwebservice/reporting.svc/MessageTrace
       method: GET
       headers:
     json_paths:
-      data_date: createdDateTime
+      data_date: EndDate
+      next_url:
+      data:
+    filters:
+      format: Json
     settings:
-      time_interval: 1
-      days_back_fetch: 30
+      time_interval: 60 # for mail reports we suggest no less than 60 minutes
+      days_back_fetch: 8 # for mail reports we suggest up to 8 days
+    start_date_name: StartDate
+    end_date_name: EndDate
 ```
 
 | Parameter | Description | Required/Default |
@@ -148,7 +154,13 @@ oauth_apis:
 | settings.time_interval | The OAuth API time interval between runs. | Required | 
 | settings.days_back_fetch | The max days back to fetch from the OAuth API. | Optional. Default value is 14 days.| 
 | filters | Pairs of key and value of parameters that can be added to the OAuth API url. Make sure the keys and values are valid for the OAuth API. | Optional |
-| custom_fields | Pairs of key and value that will be added to each data and be sent to Logz.io. | Optional | 
+| custom_fields | Pairs of key and value that will be added to each data and be sent to Logz.io. | Optional |
+
+## Important notes and limitations
+
+* We recommend setting the `days_back_fetch` parameter to no more than `8d` (~192 hours) as this might cause unexpected errors with the API.
+* We recommend setting the `time_interval` parameter to no less than `60`, to avoid short time frames in which messages trace will be missed.
+* Microsoft may delay trace events for up to 24 hours, and events are not guaranteed to be sequential during this delay. For more information, see the Data granularity, persistence, and availability section of the MessageTrace report topic in the Microsoft documentation: MessageTrace report API
 
 ## Create a Last Start Dates text file
 

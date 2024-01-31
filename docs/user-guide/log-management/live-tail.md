@@ -1,6 +1,9 @@
 ---
 sidebar_position: 8
 title: Live Tail
+description: Getting started with Logz.io's Live Tail
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, live tail, opensearch dashboards, log analysis, observability]
 ---
 
 Live Tail gives you a live view of your logs as they come into Logz.io, eliminating the need to SSH into a remote machine.
@@ -12,19 +15,17 @@ The live tail configuration is set to close the session after 10 minutes of inac
 ### Live Tail basics - Start, stop, scroll, and clear
 
 * Click [**Logs > Live tail**](https://app.logz.io/#/dashboard/live-tail)
-* To start Live Tail, press <i class="li li-play"></i> (play).
+* To start Live Tail, press <i class="li li-play"></i> play.
 * To display only filtered results,
   type a regex in the **Match** and **Ignore** boxes and press **Enter**.
   Log lines that meet your Match and Ignore criteria are shown in real time.
-  More on the [parsed data view](#work-in-parsed-data-view) below.&nbsp;👇
+  More on the [parsed data view](/docs/user-guide/log-management/live-tail#work-in-parsed-data-view) below.&nbsp;👇
 * To end the Live Tail session,
-  press <i class="li li-stop"></i> (stop).
+  press <i class="li li-stop"></i> stop.
 * To pause, scroll with your mouse or trackpad.
-  The session remains active and logs continue to load, but scrolling is paused.
-  To go to the bottom of the tail and resume scrolling,
-  press <i class="li li-scroll"></i> (scroll).
+  The session remains active, and logs continue to load, but scrolling is paused. Press scroll to view the bottom of the tail and resume scrolling.
 * To clear the Live Tail view,
-  click <i class="li li-clear"></i> (clear).
+  click <i class="li li-clear"></i> clear.
  
 :::note
 The **Raw data** view shows the value of the log **message** fields as they enter the log management queue. To view a live tail of logs without the **message** field, use the [**Parsed data view**](#work-in-parsed-data-view).
@@ -37,14 +38,14 @@ The **Raw data** view shows the value of the log **message** fields as they ente
 * To show all instances of a term in yellow,
   use the **Find** box.
 * To highlight different phrases,
-  click <i class="fas fa-ellipsis-h"></i> (settings),
+  click <i class="fas fa-ellipsis-h"></i> settings,
   and then type the word or phrase you want to highlight.
-  Click <i class="li li-x"></i> on a highlighted term to remove it.
+  Click X<i class="li li-x"></i> on a highlighted term to remove it.
 
 ### Live Tail parsed data view {#work-in-parsed-data-view}
 
 The parsed data view divides logs into columns, saving you from having to visually scan entire lines of raw text.
-When you first switch to parsed data view, you'll see the `@timestamp` and `message` columns.
+When switching to the parsed data view, you'll see the `@timestamp` and `message` columns.
 
 
 * To add a new column,

@@ -1,6 +1,10 @@
 ---
 sidebar_position: 9
 title: Log Highlighter
+description: Highlight important logs on Logz.io
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, highlight, opensearch dashboards, log analysis, observability]
+
 ---
 
 Troubleshooting your applications and systems just got easier with the help of Log Highlighter.

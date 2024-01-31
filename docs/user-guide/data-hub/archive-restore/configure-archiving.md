@@ -20,7 +20,7 @@ Each account (or sub-account) should have its own archive configuration.
 
 **Related information**
 
-You may also be interested in the API methods included in [**Archive logs**](https://docs.logz.io/api/#tag/Archive-logs) and [**Connect to AWS S3 Buckets**](https://docs.logz.io/api/#tag/Connect-to-S3-Buckets).
+You may also be interested in the API methods included in [**Archive logs**](https://api-docs.logz.io/docs/logz/archive-logs) and [**Connect to AWS S3 Buckets**](https://api-docs.logz.io/docs/logz/connect-to-s-3-buckets).
 
 ## Set up Archive and restore in AWS
 

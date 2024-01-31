@@ -22,17 +22,17 @@ You can use the Terraform Logz.io Provider to manage users and log accounts in L
 
 The following Logz.io API endpoints are supported by this provider:
 
-* [User management](https://docs.logz.io/api/#tag/Manage-users)
-* [Notification channels](https://docs.logz.io/api/#tag/Manage-notification-endpoints)
-* [Sub accounts](https://docs.logz.io/api/#tag/Manage-time-based-log-accounts)
-* [Logs-based alerts v2](https://docs.logz.io/api/#tag/Alerts)
-* [Log shipping tokens](https://docs.logz.io/api/#tag/Manage-log-shipping-tokens)
-* [Drop filters](https://docs.logz.io/api/#tag/Drop-filters)
-* [Archive logs](https://docs.logz.io/api/#tag/Archive-logs)
-* [Restore logs](https://docs.logz.io/api/#tag/Restore-logs)
-* [Authentication groups](https://docs.logz.io/api/#tag/Authentication-groups)
-* [OpenSearch Dashboards objects](https://docs.logz.io/api/#tag/Import-or-export-Kibana-objects)
-* [S3 Fetcher](https://docs.logz.io/api/#tag/Connect-to-S3-Buckets)
+* [User management](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/user)
+* [Notification channels](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/grafana_notification_policy)
+* [Sub accounts](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/subaccount)
+* [Logs-based alerts v2](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/alert_v2)
+* [Log shipping tokens](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/log_shipping_token)
+* [Drop filters](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/drop_filter)
+* [Archive logs](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/archive_logs)
+* [Restore logs](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/restore_logs)
+* [Authentication groups](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/authentication_groups)
+* [OpenSearch Dashboards objects](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/kibana_object)
+* [S3 Fetcher](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/s3_fetcher)
 
 ## Working with Terraform
 

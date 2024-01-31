@@ -1,9 +1,10 @@
 ---
 sidebar_position: 5
+title: Alerts Event Management
+description: Monitor alert triggered events
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, alerts, events, log alerts, log analysis, observability]
 ---
-
-
-# Alerts Event Management
 
 
 
@@ -51,7 +52,8 @@ If you're using filters and no events are displayed, try adjusting your filter c
 |Status|Investigation stage of the triggered event. Default =  **All**|  All, New, Assigned, In Progress, Waiting for response, False positive, Resolved   |
 
 
-### Clear event filters
+<h3 id="clear"> Clear event filters</h3>
+
 You can always change the filters you've set. 
 To reset all the filters to the defaults, click **Clear filters**. 
 

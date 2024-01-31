@@ -2,7 +2,7 @@
 id: Trend-micro
 title: Trend Micro is a hybrid cloud runtime security solution.
 overview: This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon S3 metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
-product: ['metrics']
+product: ['metrics', 'siem']
 os: ['windows', 'linux']
 filters: ['Security']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/trendmicro-small-logo.png
@@ -17,7 +17,7 @@ drop_filter: []
 
 Trend Micro [Cloud One - Workload Security](https://www.trendmicro.com/en_us/business/products/hybrid-cloud/cloud-one-workload-security.html) (formerly Deep Security Software) is a hybrid cloud runtime security solution.
 
-You can review the Trend Micro resources in your security account, including pre-configured [security rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC&search=trend%20micro) and [dashboards](https://app.logz.io/#/dashboard/security/research/dashboards?) to get you started.
+You can review the Trend Micro resources in your security account, including preconfigured [security rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions?from=0&sortBy=updatedAt&sortOrder=DESC&search=trend%20micro) and [dashboards](https://app.logz.io/#/dashboard/security/research/dashboards?) to get you started.
 
 
 **Before you begin, you'll need**:

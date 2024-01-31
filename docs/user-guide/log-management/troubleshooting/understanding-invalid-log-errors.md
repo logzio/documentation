@@ -1,15 +1,16 @@
 ---
 sidebar_position: 2
+title: Understanding Invalid Log Errors
+description: Learn about invalid logs and the error tags that help you resolve issues
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, troubleshooting, invalid logs, log analysis, observability]
 ---
-
-
-# Understanding Invalid Log Errors
 
 There are a number of scenarios that can lead to invalid log errors. In this doc, we'll walk through the different types of log errors and common methods to solve the issue.
 
 
 
-### Field mapping types
+## Field mapping types
 
 To make your search engine queries and analytics are more effective, OpenSearch Dashboards maps each field by a data type, so it knows how to display it according to its capabilities. There are two types of mapping fields:
 
@@ -32,7 +33,7 @@ Field data type determines how each field is indexed and shown in OpenSearch Das
 
 Changing a field’s data type may affect any dashboards, visualizations, searches, alerts, optimizers, and integrations using that field.
 
-### Mapping errors
+## Mapping errors
 
 Your logs are mapped daily, and each field is assigned a Dynamic or Explicit data type.
 
@@ -56,7 +57,7 @@ Here are some of the **common mapping errors** you might encounter and why they 
 | Numeric value (NUMBER) out of range of long (-9223372036854775808 - 9223372036854775807) | Field mapped as a number, but its value is outside the range of the “Long” data type |
 | Object field starting or ending with a [.] makes object resolution ambiguous | Some fields in the logs contain invalid characters in the name. For example: `.` , `,` , `_` , `#` |
 
-### Mapping errors through sub accounts
+## Mapping errors through sub accounts
 
 When mapping errors occur in your account, you can only assign one data type per specific field.
 
@@ -72,15 +73,15 @@ Learn more about **[creating and managing sub accounts](https://docs.logz.io/doc
 
 
 
-### Invalid logs
+## Invalid logs
 
-#### What causes an invalid log? 
+### What causes an invalid log? 
 
 When a log that includes specific issues is received, the log is flattened and ingested, the **`type`** field is changed to **`logzio-invalid-log`**,  and the **`tags`** field is added to the log to identify the issue.
 
 ![Invalid log example](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/invalid_log_eg-dec2021.png)
 
-#### Invalid log tags
+### Invalid log tags
 
 The tags in the table below explain the character or field issues that may cause a log to be labeled with the **`logzio-invalid-log`** field.
 

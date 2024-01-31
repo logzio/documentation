@@ -135,6 +135,7 @@ For a list of options, see the configuration parameters below the code block. ðŸ
     Match *
     logzio_token <<LOG-SHIPPING-TOKEN>>
     logzio_url   https://<<LISTENER-HOST>>:8071
+    id <<any string>>
 ```
 
 ###  Parameters
@@ -145,6 +146,7 @@ For a list of options, see the configuration parameters below the code block. ðŸ
 | logzio_url  | Listener URL and port. {@include: ../../_include/log-shipping/listener-var.html}  | `https://listener.logz.io:8071` |
 | logzio_type   | {@include: ../../_include/log-shipping/type.md} | `logzio-fluent-bit` |
 | logzio_debug    | Set to `true` to print debug messages to stdout. | `false` |
+| id | Output id. Mandatory when using multiple outputs. | `logzio_output_1` |
 
 
 
@@ -169,7 +171,7 @@ If you still don't see your logs, see [log shipping troubleshooting](https://doc
 ## Run Fluent Bit in Kubernetes
 
 
-Fluent Bit is an open source Log Processor and Forwarder which allows you to collect any data like metrics and logs from different sources. Helm is a tool for managing packages of pre-configured Kubernetes resources using Charts. You can use this Helm chart to ship Kubernetes logs to Logz.io with Fluent Bit. 
+Fluent Bit is an open source Log Processor and Forwarder which allows you to collect any data like metrics and logs from different sources. Helm is a tool for managing packages of preconfigured Kubernetes resources using Charts. You can use this Helm chart to ship Kubernetes logs to Logz.io with Fluent Bit. 
 
 
 :::note
@@ -227,10 +229,10 @@ helm repo update
 ### Run the Helm deployment code
 
 ```shell
-helm install  \
---set logzio.token=<<LOG-SHIPPING-TOKEN>> \
---set logzio.listenerHost=<<LISTENER-HOST>> \
---set logzio.logType=<<LOG-TYPE>> \
+helm install -n monitoring --create-namespace \
+--set logzio.token="<<LOG-SHIPPING-TOKEN>>" \
+--set logzio.listenerHost="<<LISTENER-HOST>>" \
+--set logzio.logType="<<LOG-TYPE>>" \
 logzio-fluent-bit logzio-helm/logzio-fluent-bit
 ```
   

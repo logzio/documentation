@@ -1,18 +1,20 @@
 ---
 sidebar_position: 3
 title: Share OpenSearch Dashboards Objects
+description: Learn how to share OpenSearch Dashboards objects
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, objects, opensearch dashboards, sharing, log analysis, observability]
 ---
 
-You can share OpenSearch dashboards, saved searches and visualizations between accounts by exporting and importing them. This is helpful if you have multiple main accounts or accounts on multiple regions. You can also use this process to keep a local backup copy. 
+You can share OpenSearch dashboards, saved searches, and visualizations between your Logz.io accounts by exporting and importing them. This is helpful if you have multiple main accounts or accounts in multiple regions. You can also use this process to keep a local backup copy.
 
-
-### Export objects from OpenSearch Dashboards 
+## Export objects from OpenSearch Dashboards 
 
 :::note
-You can export data from up to 20 different accounts. To export data from more than 20 accounts, you'll need to add all of your available accounts to the search by clicking `Add all accounts`.
+You can export data from up to 20 different accounts. To export data from more than 20 accounts, you'll need to add all your available accounts to the search by clicking `Add all accounts`.
 :::
 
-The first step is to export your existing dashboards, searches, and visualizations out of your OpenSearch Dashboards instance.
+The first step is to export your existing dashboards, searches, and visualizations from your OpenSearch Dashboards instance.
 
 1. In **Logs > OpenSearch Dashboards**, click the side menu > **<i class="li li-gear"></i> (Management) > Stack Management > Saved objects** 
 2. Select **Export xxx objects** (**xxx** is the number of objects available for export).
@@ -28,29 +30,31 @@ The first step is to export your existing dashboards, searches, and visualizatio
 </video> -->
 
 :::note
-The full export is highly recommended. That way, you can be sure that you'll have everything, irrespective of any inter-dependencies. For example, if you export a single object that happens to be dependent on another object, the export can fail.
+The full export is highly recommended. That way, you can be sure you'll have everything, irrespective of any inter-dependencies. For example, if you export a single object that happens to be dependent on another object, the export can fail.
 :::
 
 
-### Import objects from a JSON
+## Import objects from a JSON
 
-**Before you begin, you'll need**:
+**Before you begin**:
+
 Make sure that the relevant logs have already shipped to your Logz.io account and refresh the OpenSearch Dashboards mapping.
 
 Assuming you've got a JSON with your exported objects, it's time to import them into your Logz.io account.
 
 1. In **Logs > OpenSearch Dashboards**,  click the side menu > **<i class="li li-gear"></i> (Management) > Stack Management > Saved objects** 
 2. Click **Import** and select the relevant JSON file.
-3. You can toggle the option to **Automatically overwrite conflicts**. Enable it if you want the export to overwrite existing objects in case of conflict. Select the option that works for you.
+3. You can toggle the option to **overwrite conflicts automatically**. Enable it if you want the export to overwrite existing objects in case of conflict. Select the option that works for you.
 
-You're done! You're all set to use your newly imported OpenSearch dashboards, saved searches, and visualizations.
+
+You're done! You can use your newly imported OpenSearch dashboards, saved searches, and visualizations.
 
 :::note
-If any visualization or dashboard did not import, the issue is likely a field referenced in the visualization but not indexed in your Logz.io account. Check that the relevant logs are already in the account and refresh the OpenSearch Dashboards mapping.
+If any visualization or dashboard did not import, the issue is likely a field referenced in the visualization but not indexed in your Logz.io account. Check that the relevant logs are in the account and refresh the OpenSearch Dashboards mapping.
 :::
 
 
-### Sharing objects across versions
+## Sharing objects across versions
  
  Your saved and shared objects can only be imported into the following OpenSearch Dashboards versions: 
  

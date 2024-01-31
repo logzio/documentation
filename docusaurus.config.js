@@ -1,9 +1,9 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
-
+// const lightCodeTheme = require('prism-react-renderer/themes/github');
+// const darkCodeTheme = require('prism-react-renderer/themes/vsDark');
+//import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -57,6 +57,13 @@ const config = {
         injectedHtmlTags: {
           preBodyTags: [`<link rel="stylesheet" href="https://cdn.example.com/style.css" type="text/css">`]
         }
+      },
+    ],
+    [
+      '@docusaurus/plugin-google-gtag',
+      {
+        trackingID: 'GTM-NH9MTDW',
+        anonymizeIP: true,
       },
     ],
     ],
@@ -149,6 +156,16 @@ const config = {
           {to: 'https://status.logz.io/', label: 'System status', position: 'left'},
           {to: 'https://logz.io/blog/', label: 'Blog', position: 'left'},
           {
+            href: 'https://logz.io/freetrial/?utm_medium=referral&utm_source=api-portal&utm_campaign=api_trial&utm_content=lp&utm_term=free+trial',
+            label: 'Get a Demo',
+            position: 'right',
+          },
+          {
+            href: 'https://logz.io/freetrial/?utm_medium=referral&utm_source=docs-portal&utm_campaign=docs_trial&utm_content=lp&utm_term=free+trial',
+            label: 'Free Trial',
+            position: 'right',
+          },
+          {
             href: 'https://app.logz.io/',
             label: 'Login',
             position: 'right',
@@ -236,10 +253,10 @@ const config = {
         ],
         copyright: `Copyright © ${new Date().getFullYear()} Logshero Ltd.`,
       },
-      prism: {
-        theme: lightCodeTheme,
-        //darkTheme: darkCodeTheme.dracula,
-      },
+      // prism: {
+      //  theme: prismThemes.github,
+      //  darkTheme: prismThemes.dracula,
+      // },
     }),
 };
 
