@@ -17,11 +17,21 @@ drop_filter: []
 
 Google Cloud Healthcare API provides a managed solution for storing and accessing healthcare data in Google Cloud, providing a critical bridge between existing care systems and applications hosted on Google Cloud. 
 
+## Logs
 
 {@include: ../../_include/general-shipping/gcp-logs.md}  
 
 For this integration, the telemetry list needs to include `gce_health_check`.
 
 ### Check Logz.io for your logs
+
+Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
+
+## Metrics
+
+{@include: ../../_include/general-shipping/gcp-metrics.md}
+
+
+### Check Logz.io for your metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).

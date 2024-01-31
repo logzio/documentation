@@ -14,7 +14,9 @@ metrics_alerts: []
 drop_filter: []
 ---
 
-Google Workspace is a collection of cloud computing, productivity and collaboration tools, software and products developed and marketed by Google. You can ship Google Workspace logs to Logz.io using Filebeat and Google Reports API.
+Google Workspace is a collection of cloud computing, productivity and collaboration tools, software and products developed and marketed by Google. You can ship Google Workspace logs to Logz.io using Filebeat and Google Reports API.
+
+## Logs
 
 {@include: ../../_include/general-shipping/gcp-metrics.md}
 
@@ -22,5 +24,14 @@ Google Workspace is a collection of cloud computing, productivity and collaborat
 ### Check Logz.io for your logs
 
 
-Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
+Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
  
+
+## Metrics
+
+{@include: ../../_include/general-shipping/gcp-metrics.md}
+
+
+### Check Logz.io for your metrics
+
+Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).

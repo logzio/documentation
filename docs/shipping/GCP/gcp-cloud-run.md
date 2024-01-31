@@ -17,11 +17,21 @@ drop_filter: []
 
 Google Cloud Run is a fully managed platform that takes a Docker container image and runs it as a stateless, autoscaling HTTP service. 
 
+## Logs
 
 {@include: ../../_include/general-shipping/gcp-logs.md}  
 
 For this integration, the telemetry list needs to include `cloud_run_revision`, `serverless_service`.
 
 ### Check Logz.io for your logs
+
+Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
+
+## Metrics
+
+{@include: ../../_include/general-shipping/gcp-metrics.md}
+
+
+### Check Logz.io for your metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).

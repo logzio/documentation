@@ -18,11 +18,21 @@ drop_filter: []
 
 Google Cloud APIs allow you to automate your workflows by using your favorite language. 
 
+## Logs
 
 {@include: ../../_include/general-shipping/gcp-logs.md}  
 
 For this integration, the telemetry list needs to include `k8s_cluster`, `bigquery_dts_config`, `client_auth_config_brand`, `client_auth_config_client`, `billing_account`, `organization`, `project`, `build`, `cloud_scheduler_job`, `service_account`, `gke_cluster`, `gke_nodepool`, `global`, `logging_exclusion`, `logging_log`, `logging_sink`, `metric`, `spanner_instance`, `security_scanner_scan_config`.
 
 ### Check Logz.io for your logs
+
+Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
+
+## Metrics
+
+{@include: ../../_include/general-shipping/gcp-metrics.md}
+
+
+### Check Logz.io for your metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
