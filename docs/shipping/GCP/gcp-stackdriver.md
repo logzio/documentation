@@ -2,7 +2,7 @@
 id: GCP-Stackdriver
 title: GCP Operation Suite (Stackdriver)
 overview: Send Google Cloud Operation Suite (Stackdriver) metrics to your Logz.io account.
-product: ['metrics']
+product: ['logs', 'metrics']
 os: ['windows', 'linux']
 filters: ['GCP', 'Monitoring']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/gcp-stackdriver.svg

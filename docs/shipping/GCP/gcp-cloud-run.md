@@ -2,7 +2,7 @@
 id: Google-Cloud-Run
 title: GCP Cloud Run
 overview: Send Google Cloud Run metrics to your Logz.io account.
-product: ['metrics']
+product: ['logs', 'metrics']
 os: ['windows', 'linux']
 filters: ['GCP', 'Compute']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/cloudrun.png

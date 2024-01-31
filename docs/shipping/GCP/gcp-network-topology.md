@@ -2,7 +2,7 @@
 id: gcp-network-topology
 title: GCP Network Topology
 overview: Send Google Cloud Network Topology metrics to your Logz.io account.
-product: ['metrics']
+product: ['logs', 'metrics']
 os: ['windows', 'linux']
 filters: ['GCP', 'Network']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/gcpnetwork.png
@@ -33,6 +33,7 @@ Give your logs some time to get from your system to ours, and then open [Open Se
 
 {@include: ../../_include/general-shipping/gcp-metrics.md}
 
+For this integration, the telemetry list needs to include `networking.googleapis.com`
 
 ### Check Logz.io for your metrics
 

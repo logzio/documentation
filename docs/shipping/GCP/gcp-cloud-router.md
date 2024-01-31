@@ -2,7 +2,7 @@
 id: GCP-Cloud-Router
 title: GCP Router
 overview: Send Google Cloud Router metrics to your Logz.io account.
-product: ['metrics']
+product: ['logs', 'metrics']
 os: ['windows', 'linux']
 filters: ['GCP', 'Network']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/gcprouter.png
@@ -32,6 +32,7 @@ Give your logs some time to get from your system to ours, and then open [Open Se
 
 {@include: ../../_include/general-shipping/gcp-metrics.md}
 
+For this integration, the telemetry list needs to include `router.googleapis.com`.
 
 ### Check Logz.io for your metrics
 

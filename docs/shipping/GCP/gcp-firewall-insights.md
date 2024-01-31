@@ -2,7 +2,7 @@
 id: gcp-firewall-insights
 title: GCP Firewall Insights
 overview: Send Google Cloud Firewall metrics to your Logz.io account.
-product: ['metrics']
+product: ['logs', 'metrics']
 os: ['windows', 'linux']
 filters: ['GCP', 'Network', 'Security']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/gcpfirewall.png

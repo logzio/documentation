@@ -2,7 +2,7 @@
 id: GCP-BigQuery-Data-Transfer-Service
 title: GCP BigQuery Data Transfer Service
 overview: Send Google Cloud BigQuery Data Transfer Service metrics to your Logz.io account.
-product: ['metrics']
+product: ['logs', 'metrics']
 os: ['windows', 'linux']
 filters: ['GCP', 'Data Store']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/bigquery.png
@@ -32,6 +32,7 @@ Give your logs some time to get from your system to ours, and then open [Open Se
 
 {@include: ../../_include/general-shipping/gcp-metrics.md}
 
+For this integration, the telemetry list needs to include `bigquerydatatransfer.googleapis.com`.
 
 ### Check Logz.io for your metrics
 

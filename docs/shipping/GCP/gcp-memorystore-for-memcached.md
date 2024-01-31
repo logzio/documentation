@@ -2,7 +2,7 @@
 id: gcp-memorystore-for-memcached
 title: GCP Memorystore for Memcached
 overview: Send Google Cloud Memorystore for Memcached metrics to your Logz.io account.
-product: ['metrics']
+product: ['logs', 'metrics']
 os: ['windows', 'linux']
 filters: ['GCP', 'Memory Caching']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/memorystore.png
@@ -31,6 +31,7 @@ Give your logs some time to get from your system to ours, and then open [Open Se
 
 {@include: ../../_include/general-shipping/gcp-metrics.md}
 
+For this integration, the telemetry list needs to include `memcache.googleapis.com`.
 
 ### Check Logz.io for your metrics
 

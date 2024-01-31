@@ -2,7 +2,7 @@
 id: google-certificate-authority-service
 title: Google Certificate Authority Service
 overview: Send Google Cloud Certificate Authority Service metrics to your Logz.io account.
-product: ['metrics']
+product: ['logs', 'metrics']
 os: ['windows', 'linux']
 filters: ['GCP', 'Security']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/certmanager.png
@@ -30,6 +30,7 @@ Give your logs some time to get from your system to ours, and then open [Open Se
 
 {@include: ../../_include/general-shipping/gcp-metrics.md}
 
+For this integration, the telemetry list needs to include `privateca.googleapis.com`.
 
 ### Check Logz.io for your metrics
 

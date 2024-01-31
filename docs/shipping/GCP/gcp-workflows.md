@@ -2,7 +2,7 @@
 id: GCP-Workflows
 title: GCP Workflows
 overview: Send Google Cloud Workflows metrics to your Logz.io account.
-product: ['metrics']
+product: ['logs', 'metrics']
 os: ['windows', 'linux']
 filters: ['GCP', 'Orchestration']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/workflows.png
@@ -33,6 +33,7 @@ Give your logs some time to get from your system to ours, and then open [Open Se
 
 {@include: ../../_include/general-shipping/gcp-metrics.md}
 
+For this integration, the telemetry list needs to include `workflows.googleapis.com`.
 
 ### Check Logz.io for your metrics
 

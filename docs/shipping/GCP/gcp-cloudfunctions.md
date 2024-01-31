@@ -2,7 +2,7 @@
 id: GCP-Cloud-Functions
 title: GCP Cloud Functions
 overview: Send Google Cloud Functions metrics to your Logz.io account.
-product: ['metrics']
+product: ['logs', 'metrics']
 os: ['windows', 'linux']
 filters: ['GCP', 'Compute']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/cloudfunctions.png
@@ -32,6 +32,7 @@ Give your logs some time to get from your system to ours, and then open [Open Se
 
 {@include: ../../_include/general-shipping/gcp-metrics.md}
 
+For this integration, the telemetry list needs to include `cloudfunctions.googleapis.com`.
 
 ### Check Logz.io for your metrics
 

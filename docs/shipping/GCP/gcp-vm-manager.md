@@ -2,7 +2,7 @@
 id: GCP-VM-Manager
 title: GCP VM Manager
 overview: Send Google Cloud VM Manager metrics to your Logz.io account.
-product: ['metrics']
+product: ['logs', 'metrics']
 os: ['windows', 'linux']
 filters: ['GCP', 'Compute']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/computeengine.png

@@ -2,7 +2,7 @@
 id: GCP-Cloud-Logging
 title: GCP Cloud Logging
 overview: Send Google Cloud Logging metrics to your Logz.io account.
-product: ['metrics']
+product: ['logs', 'metrics']
 os: ['windows', 'linux']
 filters: ['GCP', 'Other']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/cloudlogging.png
@@ -32,6 +32,7 @@ Give your logs some time to get from your system to ours, and then open [Open Se
 
 {@include: ../../_include/general-shipping/gcp-metrics.md}
 
+For this integration, the telemetry list needs to include `logging.googleapis.com`.
 
 ### Check Logz.io for your metrics
 

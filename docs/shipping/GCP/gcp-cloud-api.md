@@ -2,7 +2,7 @@
 id: GCP-Cloud-API
 title: GCP API
 overview: Send Google Cloud API metrics to your Logz.io account.
-product: ['metrics']
+product: ['logs', 'metrics']
 os: ['windows', 'linux']
 filters: ['GCP', 'Other']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/gcpapis.png

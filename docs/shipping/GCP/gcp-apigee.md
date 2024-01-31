@@ -2,7 +2,7 @@
 id: GPC-Apigee
 title: GCP Apigee
 overview: Apigee, part of Google Cloud, helps design, secure, and scale application programming interfaces (APIs). Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
-product: ['metrics']
+product: ['logs', 'metrics']
 os: ['windows', 'linux']
 filters: ['GCP', 'Other']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/apigee.png
@@ -30,6 +30,7 @@ Give your logs some time to get from your system to ours, and then open [Open Se
 
 {@include: ../../_include/general-shipping/gcp-metrics.md}
 
+For this integration, the telemetry list needs to include `apigee.googleapis.com`.
 
 ### Check Logz.io for your metrics
 
