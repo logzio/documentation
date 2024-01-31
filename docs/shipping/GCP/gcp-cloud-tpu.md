@@ -22,6 +22,6 @@ Google Cloud TPU is the custom-designed machine learning ASIC that powers Google
 
 For this integration, the telemetry list needs to include `tpu_worker`.
 
-### Check Logz.io for your metrics
+### Check Logz.io for your logs
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).

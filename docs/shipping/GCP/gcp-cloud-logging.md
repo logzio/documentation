@@ -23,6 +23,6 @@ Google Cloud Logging is fully managed, real-time log management with storage, se
 
 For this integration, the telemetry list needs to include `logging_bucket`, `logging_exclusion`, `logging_log`, `logging_sink`  .
 
-### Check Logz.io for your metrics
+### Check Logz.io for your logs
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).

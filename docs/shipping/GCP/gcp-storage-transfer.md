@@ -21,6 +21,6 @@ Google Storage Transfer Service for on-premises data are secure, low-cost servic
 
 For this integration, the telemetry list needs to include `storage_transfer_job`.
 
-### Check Logz.io for your metrics
+### Check Logz.io for your logs
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).

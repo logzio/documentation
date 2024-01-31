@@ -23,6 +23,6 @@ Google Cloud Router enables you to dynamically exchange routes between your Virt
 
 For this integration, the telemetry list needs to include `gce_router`.
 
-### Check Logz.io for your metrics
+### Check Logz.io for your logs
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).

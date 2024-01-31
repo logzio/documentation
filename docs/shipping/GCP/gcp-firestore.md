@@ -23,6 +23,6 @@ Google Firestore is a NoSQL document database built for automatic scaling, high 
 
 For this integration, the telemetry list needs to include `firestore`.
 
-### Check Logz.io for your metrics
+### Check Logz.io for your logs
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).

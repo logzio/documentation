@@ -22,6 +22,6 @@ Google Managed Service for Microsoft Active Directory is a fully managed, real-t
 
 For this integration, the telemetry list needs to include `microsoft_ad_domain`.
 
-### Check Logz.io for your metrics
+### Check Logz.io for your logs
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).

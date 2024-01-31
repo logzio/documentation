@@ -23,6 +23,6 @@ Google Cloud Functions is a serverless execution environment for building and co
 
 For this integration, the telemetry list needs to include `cloud_function`.
 
-### Check Logz.io for your metrics
+### Check Logz.io for your logs
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).

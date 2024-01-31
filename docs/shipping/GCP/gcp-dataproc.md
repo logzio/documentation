@@ -23,6 +23,6 @@ Google Dataproc is a fully managed and highly scalable service for running Apach
 
 For this integration, the telemetry list needs to include `cloud_dataproc_batch`, `cloud_dataproc_cluster`, `cloud_dataproc_job`, `cloud_dataproc_session`.
 
-### Check Logz.io for your metrics
+### Check Logz.io for your logs
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).

@@ -20,6 +20,6 @@ Google Dataflow is a fully managed streaming analytics service that minimizes la
 {@include: ../../_include/general-shipping/gcp-logs.md}  
 
 
-### Check Logz.io for your metrics
+### Check Logz.io for your logs
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).

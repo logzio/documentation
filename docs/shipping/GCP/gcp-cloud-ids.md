@@ -22,6 +22,6 @@ Google Cloud IDS delivers cloud-native, managed, network-based threat detection,
 
 For this integration, the telemetry list needs to include `ids`.
 
-### Check Logz.io for your metrics
+### Check Logz.io for your logs
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).

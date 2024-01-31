@@ -22,6 +22,6 @@ Google Cloud DNS is a high-performance, resilient, global Domain Name System (DN
 
 For this integration, the telemetry list needs to include `dns_managed_zone`, `dns_policy`, `dns_query`.
 
-### Check Logz.io for your metrics
+### Check Logz.io for your logs
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).

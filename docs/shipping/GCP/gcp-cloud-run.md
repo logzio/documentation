@@ -22,6 +22,6 @@ Google Cloud Run is a fully managed platform that takes a Docker container image
 
 For this integration, the telemetry list needs to include `cloud_run_revision`, `serverless_service`.
 
-### Check Logz.io for your metrics
+### Check Logz.io for your logs
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
