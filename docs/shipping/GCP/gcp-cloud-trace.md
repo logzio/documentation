@@ -17,7 +17,7 @@ drop_filter: []
 Google Cloud Trace is a distributed tracing system for Google Cloud Platform that collects latency data from applications and displays it in the Google Cloud Console, enabling you to track and analyze application performance and troubleshoot issues.
 
 
-{@include: ../../_include/general-shipping/gcp-metrics.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}  
 
 
 ### Check Logz.io for your metrics

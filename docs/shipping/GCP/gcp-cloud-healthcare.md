@@ -18,7 +18,7 @@ drop_filter: []
 Google Cloud Healthcare API provides a managed solution for storing and accessing healthcare data in Google Cloud, providing a critical bridge between existing care systems and applications hosted on Google Cloud. 
 
 
-{@include: ../../_include/general-shipping/gcp-metrics.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}  
 
 For this integration, the telemetry list needs to include `gce_health_check`.
 

@@ -18,7 +18,7 @@ drop_filter: []
 Google Cloud Tasks is a fully managed service that allows you to manage the execution, dispatch, and delivery of a large number of distributed tasks. 
 
 
-{@include: ../../_include/general-shipping/gcp-metrics.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}  
 
 For this integration, the telemetry list needs to include `cloud_tasks_queue`.
 

@@ -18,7 +18,7 @@ drop_filter: []
 Google Cloud SQL is a fully-managed database service that is used to set up, maintain, manage, and administer MySQL and PostgreSQL databases in the cloud. 
 
 
-{@include: ../../_include/general-shipping/gcp-metrics.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}  
 
 For this integration, the telemetry list needs to include `cloudsql_database`.
 

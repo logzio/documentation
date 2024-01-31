@@ -19,7 +19,7 @@ drop_filter: []
 Google Contact Center AI Insights helps users detect and visualize patterns in their contact center data. 
 
 
-{@include: ../../_include/general-shipping/gcp-metrics.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}  
 
 
 ### Check Logz.io for your metrics

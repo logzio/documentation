@@ -19,7 +19,7 @@ drop_filter: []
 Google Memorystore for Memcached is a fully managed Memcached service for Google Cloud. 
 
 
-{@include: ../../_include/general-shipping/gcp-metrics.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}  
 
 
 ### Check Logz.io for your metrics

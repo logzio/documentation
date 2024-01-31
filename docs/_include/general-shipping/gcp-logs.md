@@ -2,44 +2,21 @@
 
 **Before you begin, you'll need**:
 
-* GCP project
-* [gcloud CLI](https://cloud.google.com/sdk/docs/install)
-* [jq](https://stedolan.github.io/jq/download/)
+* Login to your GCP account.
 
-## Default configuration
+### Run Google Cloud Shell configuration
 
-### Connect to the relevant GCP project
-
-
-Log in to your GCP account:
+Use the following link, to clone the solution's repo and use it in your Google Cloud Shell:
 
 ```shell
-gcloud auth login
+https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/logzio/logzio-google-pubsub
 ```
 
-Navigate to the relevant project.
+You may encounter a pop up window. Check the `Trust repo` checkbox, and press `Confirm`.
 
-Set the `project id` for the project that you want to send logs from: 
+### Run setup script in Google Cloud Shell
 
-```shell
-gcloud config set project <PROJECT_ID>
-```
-
-Replace `<PROJECT_ID>` with the relevant project Id.
-
-### Run the logzio-google-pubsub
-
-Donwload and unzip the latest release of [logzio-google-pubsub](https://github.com/logzio/logzio-google-pubsub).
-
-Navigate to the builder folder.
-
-Allow the `sh` file to execute code:
-
-```shell
-chmod +x run.sh
-```
-
-Run the code:
+Copy the following snippet and paste in your Google Cloud Shell:
 
 ```shell
 ./run.sh --listener_url=<listener_url> --token=<token> --gcp_region=<region> --log_type=<type> --function_name=<function_name> --telemetry_list=<telemetry_list>
@@ -58,4 +35,4 @@ Replace the variables as per the table below:
 | `gcp_region`     | Region where you want to upload Cloud Function. Requires for Deploy to Cloud option for platform.                                                                                                     |
 | `log_type`       | Log type. Help classify logs into different classifications. (Default:`gcp-pubsub`)                                                                                                                       |
 | `function_name`  | Function name will be using as Google Cloud Function name. (Default:`logzioHandler`)                                                                                                                      |
-| `telemetry_list` | **_Optional_** Will send logs that match the Google resource type. Detailed list you can find [here](https://cloud.google.com/logging/docs/api/v2/resource-list) (ex: `pubsub_topic,pubsub_subscription`) |
+| `telemetry_list` | Will send logs that match the Google resource type. Detailed list you can find [here](https://cloud.google.com/logging/docs/api/v2/resource-list) (ex: `pubsub_topic,pubsub_subscription`). For all services insert `all_services`. |

@@ -19,7 +19,7 @@ drop_filter: []
 BigQuery BI Engine is a fast, in-memory analysis service to analyze data stored in BugQuery. 
 
 
-{@include: ../../_include/general-shipping/gcp-metrics.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}  
 
 For this integration, the telemetry list needs to include `bigquery_biengine_model`.
 

@@ -18,7 +18,7 @@ drop_filter: []
 Google Cloud Internet of Things (IoT) Core is a fully managed service for securely connecting and managing IoT devices. 
 
 
-{@include: ../../_include/general-shipping/gcp-metrics.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}  
 
 For this integration, the telemetry list needs to include `cloudiot_device`, `cloudiot_device_registry`, `cloudiot_group`.
 

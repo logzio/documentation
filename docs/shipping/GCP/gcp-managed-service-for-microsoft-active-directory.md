@@ -18,7 +18,7 @@ drop_filter: []
 Google Managed Service for Microsoft Active Directory is a fully managed, real-time log management with storage, search, analysis and alerting at exabyte scale. 
 
 
-{@include: ../../_include/general-shipping/gcp-metrics.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}  
 
 For this integration, the telemetry list needs to include `microsoft_ad_domain`.
 

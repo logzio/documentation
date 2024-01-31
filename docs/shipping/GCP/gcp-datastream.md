@@ -18,7 +18,7 @@ drop_filter: []
 Google Datastream is a serverless and easy-to-use change data capture (CDC) and replication service. 
 
 
-{@include: ../../_include/general-shipping/gcp-metrics.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}  
 
 For this integration, the telemetry list needs to include `datastream`.
 

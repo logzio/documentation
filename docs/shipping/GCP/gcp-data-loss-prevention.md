@@ -19,7 +19,7 @@ drop_filter: []
 Google Cloud Data Loss Prevention provides tools to classify, mask, tokenize, and transform sensitive elements to help better manage the data that is collected, stored, or used for business or analytics. 
 
 
-{@include: ../../_include/general-shipping/gcp-metrics.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}  
 
 
 ### Check Logz.io for your metrics

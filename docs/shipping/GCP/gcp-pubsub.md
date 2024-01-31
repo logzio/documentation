@@ -19,7 +19,7 @@ drop_filter: []
 Google Pub/Sub is designed to provide reliable, many-to-many, asynchronous messaging between applications. 
 
 
-{@include: ../../_include/general-shipping/gcp-metrics.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}  
 
 For this integration, the telemetry list needs to include `pubsub_snapshot`, `pubsub_subscription`, `pubsub_topic`.
 

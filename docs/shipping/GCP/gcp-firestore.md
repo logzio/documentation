@@ -19,7 +19,7 @@ drop_filter: []
 Google Firestore is a NoSQL document database built for automatic scaling, high performance, and ease of application development. 
 
 
-{@include: ../../_include/general-shipping/gcp-metrics.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}  
 
 For this integration, the telemetry list needs to include `firestore`.
 

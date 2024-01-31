@@ -17,7 +17,7 @@ drop_filter: []
 Google Cloud App Engine is a fully managed platform for building, deploying, and scaling web applications and APIs on Google's infrastructure.
 
 
-{@include: ../../_include/general-shipping/gcp-metrics.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}  
 
 For this integration, the telemetry list needs to include `gae_app`.
 

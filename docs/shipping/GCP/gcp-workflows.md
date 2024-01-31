@@ -18,7 +18,7 @@ drop_filter: []
 
 Google Workflows is a service to orchestrate and automate Google Cloud and HTTP-based API services. 
 
-{@include: ../../_include/general-shipping/gcp-metrics.md}
+{@include: ../../_include/general-shipping/gcp-logs.md}
 
 For this integration, the telemetry list needs to include `workflows`.
 

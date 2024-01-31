@@ -17,7 +17,7 @@ drop_filter: []
 
 Google VM Manager is a suite of tools that can be used to manage operating systems for large virtual machine (VM) fleets. 
 
-{@include: ../../_include/general-shipping/gcp-metrics.md}
+{@include: ../../_include/general-shipping/gcp-logs.md}
 
 For this integration, the telemetry list needs to include `gce_instance`.
 

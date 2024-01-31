@@ -17,7 +17,7 @@ drop_filter: []
 
 Google Cloud VPN provides networking functionality to Compute Engine virtual machine (VM) instances, Google Kubernetes Engine (GKE) clusters, and the App Engine flexible environment. 
 
-{@include: ../../_include/general-shipping/gcp-metrics.md}
+{@include: ../../_include/general-shipping/gcp-logs.md}
 
 For this integration, the telemetry list needs to include `vpn_gateway`, `vpn_tunnel`.
 

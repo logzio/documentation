@@ -18,7 +18,7 @@ drop_filter: []
 Google Recommendations AI is a product that helps retailers deliver highly personalized product recommendations at scale. 
 
 
-{@include: ../../_include/general-shipping/gcp-metrics.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}  
 
 For this integration, the telemetry list needs to include `recommender`, `recommender_insight_type`.
 

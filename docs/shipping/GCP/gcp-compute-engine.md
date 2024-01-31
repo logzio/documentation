@@ -19,7 +19,7 @@ drop_filter: []
 Google Compute Engine is the Infrastructure as a Service component of Google Cloud Platform which is built on Google's global infrastructure. 
 
 
-{@include: ../../_include/general-shipping/gcp-metrics.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}  
 
 For this integration, the telemetry list needs to include `compute`.
 

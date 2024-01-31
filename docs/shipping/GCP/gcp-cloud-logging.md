@@ -19,7 +19,7 @@ drop_filter: []
 Google Cloud Logging is fully managed, real-time log management with storage, search, analysis and alerting at exabyte scale. 
 
 
-{@include: ../../_include/general-shipping/gcp-metrics.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}  
 
 For this integration, the telemetry list needs to include `logging_bucket`, `logging_exclusion`, `logging_log`, `logging_sink`  .
 

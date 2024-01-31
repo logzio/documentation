@@ -18,7 +18,7 @@ drop_filter: []
 Google Cloud Monitoring provides visibility into the performance, uptime, and overall health of cloud-powered applications. 
 
 
-{@include: ../../_include/general-shipping/gcp-metrics.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}  
 
 For this integration, the telemetry list needs to include `metric`.
 

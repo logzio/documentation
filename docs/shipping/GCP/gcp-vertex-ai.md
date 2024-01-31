@@ -17,7 +17,7 @@ drop_filter: []
 
 Google Vertex AI is a unified MLOps platform to help data scientists/ML engineers increase experimentation, deploy faster, and manage models with confidence. 
 
-{@include: ../../_include/general-shipping/gcp-metrics.md}
+{@include: ../../_include/general-shipping/gcp-logs.md}
 
 For this integration, the telemetry list needs to include `visionai`, `aiplatform`.
 

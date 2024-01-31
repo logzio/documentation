@@ -19,7 +19,7 @@ drop_filter: []
 Google Cloud APIs allow you to automate your workflows by using your favorite language. 
 
 
-{@include: ../../_include/general-shipping/gcp-metrics.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}  
 
 For this integration, the telemetry list needs to include `k8s_cluster`, `bigquery_dts_config`, `client_auth_config_brand`, `client_auth_config_client`, `billing_account`, `organization`, `project`, `build`, `cloud_scheduler_job`, `service_account`, `gke_cluster`, `gke_nodepool`, `global`, `logging_exclusion`, `logging_log`, `logging_sink`, `metric`, `spanner_instance`, `security_scanner_scan_config`.
 

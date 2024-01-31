@@ -16,7 +16,7 @@ drop_filter: []
 
 Google AI Platform is a suite of services on Google Cloud specifically targeted at building, deploying, and managing machine learning models in the cloud.
 
-{@include: ../../_include/general-shipping/gcp-metrics.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}  
 
 For this integration, the telemetry list needs to include `aiplatform`.
 

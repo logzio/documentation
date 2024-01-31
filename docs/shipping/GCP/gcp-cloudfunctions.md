@@ -19,7 +19,7 @@ drop_filter: []
 Google Cloud Functions is a serverless execution environment for building and connecting cloud services. 
 
 
-{@include: ../../_include/general-shipping/gcp-metrics.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}  
 
 For this integration, the telemetry list needs to include `cloud_function`.
 

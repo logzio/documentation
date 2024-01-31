@@ -18,7 +18,7 @@ drop_filter: []
 Google Identity and Access Management lets administrators authorize who can take action on specific resources, giving them full control and visibility to manage Google Cloud resources centrally. 
 
 
-{@include: ../../_include/general-shipping/gcp-metrics.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}  
 
 For this integration, the telemetry list needs to include `identitytoolkit_project`, `identitytoolkit_tenant`.
 

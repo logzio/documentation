@@ -19,7 +19,7 @@ drop_filter: []
 Google Filestore is a fully managed Google Cloud service that provides network file storage. 
 
 
-{@include: ../../_include/general-shipping/gcp-metrics.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}  
 
 
 ### Check Logz.io for your metrics
