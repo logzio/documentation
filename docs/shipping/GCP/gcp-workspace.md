@@ -2,7 +2,7 @@
 id: GCP-Workspace
 title: GCP Workspace
 overview: Send Google Cloud Workspace metrics to your Logz.io account.
-product: ['metrics', 'siem']
+product: ['logs', 'metrics', 'siem']
 os: ['windows', 'linux']
 filters: ['GCP', 'Other']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/google-workspace.svg
