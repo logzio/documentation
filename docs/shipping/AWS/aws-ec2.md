@@ -1,7 +1,7 @@
 ---
 id: AWS-EC2
 title: AWS EC2
-overview: Send your Amazon EC2 metrics to Logz.io.
+overview: Send your Amazon EC2 logs and metrics to Logz.io.
 product: ['logs','metrics']
 os: ['windows', 'linux']
 filters: ['AWS', 'Compute']
