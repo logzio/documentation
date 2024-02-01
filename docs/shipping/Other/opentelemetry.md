@@ -42,10 +42,9 @@ In the same configuration file, add the following to the exporters section:
 
 ```yaml
 exporters:
-  logzio-logs:
-    endpoint: https://<<LISTENER-HOST>>:<<PORT>>
-    headers:
-      Authorization: Bearer <<LOGS-SHIPPING-TOKEN>>
+  logzio/logs:
+    account_token: <<LOGS-SHIPPING-TOKEN>>
+    region: <<LOGZIO_ACCOUNT_REGION_CODE>>
 ```
 
 #### Configure the Service Pipeline
