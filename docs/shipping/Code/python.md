@@ -9,7 +9,7 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/pyth
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: []
+metrics_dashboards: ['1B98fgq9MpqTviLUGFMe6Z']
 metrics_alerts: []
 drop_filter: []
 ---
