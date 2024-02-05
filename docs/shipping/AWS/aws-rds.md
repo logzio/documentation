@@ -185,7 +185,7 @@ If you still don’t see your logs, see [log shipping troubleshooting](https://d
 
 
 :::note
-For a much easier and more efficient way to collect and send metrics, consider using the [Logz.io telemetry collector](https://app.logz.io/#/dashboard/send-your-data/agent/new).
+For a much easier and more efficient way to collect and send metrics, consider using the [Logz.io telemetry collector](https://app.logz.io/#/dashboard/integrations/collectors?tags=Quick%20Setup).
 :::
 
 
