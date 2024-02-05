@@ -32,7 +32,7 @@ If the collector is installed, it may not have the correct endpoint configured f
            endpoint: "0.0.0.0:4318"
    ```
 
-2. In the instrumentation code, make sure that the endpoint is specified correctly. Refer to our [tracing documentation](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=tracing-sources) for more on this.
+2. In the instrumentation code, make sure that the endpoint is specified correctly. You can use Logz.io's [integrations hub](https://app.logz.io/#/dashboard/integrations/collectors?tags=Tracing) to ship your data.
 
 
 ##### Possible cause - Traces not genereated
@@ -49,7 +49,7 @@ If the collector is installed and the endpoints are properly configured, the ins
 
 * Replace `<<COLLECTOR-HOST>>` with the address of your collector host, e.g. `localhost`, if the collector is hosted locally.
 
-If the above steps do not work, refer to our [tracing documentation](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=tracing-sources) and re-instrument the application.
+If the above steps do not work, refer to Logz.io's [integrations hub](https://app.logz.io/#/dashboard/integrations/collectors?tags=Tracing) and re-instrument the application.
 
 
 ### Possible cause - Wrong exporter/protocol/endpoint
