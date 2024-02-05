@@ -7,7 +7,7 @@ keywords: [Kubernetes, ship kubernetes data, kubernetes logs, kubernetes metrics
 ---
 
 :::note
-Telemetry Collector is currently **available in all regions** except for Japan. If you're located in these regions, you can use **[Logz.io’s data shippers](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=all)** to send your data.
+Telemetry Collector is currently **available in all regions** except for Japan. If you're located in this region, you can use **[Logz.io’s integrations hub](https://app.logz.io/#/dashboard/integrations/collectors)** to send your data.
 :::
 
 To start sending your Kubernetes data through the Telemetry Collector, you'll need the following:
