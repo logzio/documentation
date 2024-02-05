@@ -146,6 +146,11 @@ And send the following metrics:
 |	node_memory_Cached_bytes	|	p8s_logzio_name, kubernetes_node	|
 |	node_memory_Buffers_bytes	|	p8s_logzio_name, kubernetes_node	| 
 |	kube_statefulset_status_replicas_updated	|	p8s_logzio_name, namespace, statefulset, app_kubernetes_io_instance	| 
+|   kube_deployment_labels | p8s_logzio_name, namespace, deployment |
+|   kube_daemonset_labels | all labels |
+|   kube_statefulset_labels | all labels |
+|   kube_job_labels | all labels |
+|   kube_pod_labels | all labels |
 
 ### Manually configuring Security Risks
 
