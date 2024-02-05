@@ -7,7 +7,7 @@ keywords: [AWS, Amazon Web Service, ship AWS data, AWS logs, AWS metrics, AWS tr
 ---
 
 :::note
-Telemetry Collector is currently **available in all regions** except for Japan and Australia. If you're located in these regions, you can use **[Logz.io’s data shippers](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=all)** to send your data.
+Telemetry Collector is currently **available in all regions** except for Japan. If you're located in these regions, you can use **[Logz.io’s data shippers](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=all)** to send your data.
 :::
 
 To start sending your AWS data through the Telemetry Collector, Log into your **main** Logz.io account, navigate to the [Integration hub](https://app.logz.io/#/dashboard/integrations/collectors) and choose one of the AWS integrations available under the **Quick Setup** option.
