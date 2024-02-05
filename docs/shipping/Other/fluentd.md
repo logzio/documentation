@@ -128,7 +128,6 @@ Fluentd splits multiline logs by default. If your original logs span multiple li
 The Logz.io Docker image comes with a pre-built Fluentd filter plug-in that can be used to concatenate multiline logs. The plug-in is named `fluent-plugin-concat`, and it concatenate multiline log separated in multiple events. You can review the full list of configuration options in the [GitHub project](https://github.com/fluent-plugins-nursery/fluent-plugin-concat).
 
 The `in_tail` Input plugin allows Fluentd to read events from the tail of text files.
- 
 
 Add the following code block to your `in_tail` plugin:
 
