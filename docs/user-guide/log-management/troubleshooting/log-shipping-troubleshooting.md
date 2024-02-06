@@ -115,7 +115,7 @@ in the [account settings](https://app.logz.io/#/dashboard/settings/manage-accoun
 
 Compare your account token
 with the token you're sending to Logz.io with your logs.
-Review the instructions for your [log shipping method](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all)
+Review the instructions for your [log shipping method](https://app.logz.io/#/dashboard/integrations/collectors)
 if you're not sure where to find the token you're sending with your logs.
 
 :::tip

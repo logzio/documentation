@@ -26,7 +26,7 @@ Logz.io provides various tools, integrations, and methods to send data and monit
 
 The fastest and most seamless way to send your data is through our **Telemetry Collector**. It lets you easily configure your data-sending process by executing a single line of code, providing a complete observability platform to monitor and improve your logs, metrics, and traces.
 
-[**Get started with Telemetry Collector**](https://app.logz.io/#/dashboard/send-your-data/agent/new).
+[**Get started with Telemetry Collector**](https://app.logz.io/#/dashboard/integrations/collectors?tags=Quick%20Setup).
 
 If you prefer to send your data manually, Logz.io offers numerous methods to do so, and here are some of the more popular ones based on what you’d like to monitor:
 
