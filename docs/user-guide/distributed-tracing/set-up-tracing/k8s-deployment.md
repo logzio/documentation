@@ -26,7 +26,7 @@ Look up your Distributed Tracing `ACCOUNT TOKEN`.
 
 Logz.io uses a Helm chart to send traces from your Kubernetes cluster via the OpenTelemetry collector. 
 
-Select **[Send your traces](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=tracing-sources) [> Kubernetes](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/otel-traces-helm)** and follow the steps to deploy the chart and trace your data.
+Select **[Send your traces](https://app.logz.io/#/dashboard/integrations/collectors?tags=Tracing) [> Kubernetes](https://app.logz.io/#/dashboard/integrations/Kubernetes)** and follow the steps to deploy the chart and trace your data.
 
 ##### Check the Distributed Tracing tab for your traces.
 

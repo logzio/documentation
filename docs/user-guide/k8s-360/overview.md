@@ -16,7 +16,7 @@ The platform utilizes Kubernetes' numerous advantages for R&D and dev teams, all
 ![Main dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/k360-jul-overview-.png)
 
 
-To activate your Kubernetes 360 dashboard, connect your Kubernetes data quickly and easily through Logz.io's **[Telemetry Collector](https://app.logz.io/#/dashboard/send-your-data/agent/new)**.
+To activate your Kubernetes 360 dashboard, connect your Kubernetes data quickly and easily through Logz.io's **[Telemetry Collector](https://app.logz.io/#/dashboard/integrations/collectors?tags=Quick%20Setup)**.
 
 If you already have Kubernetes 360 data in your Logz.io account or prefer connecting Kubernetes manually, follow our **[Kubernetes 360 Prerequisite](/docs/user-guide/k8s-360/kubernetes-360-pre)** guide.
 
@@ -109,7 +109,7 @@ Each view lets you dive deeper into the data by using the links at the top of th
 ### Quick view tabs
 
 :::note
-To enrich your existing and newly sent data, use the [Telemetry Collector](https://app.logz.io/#/dashboard/send-your-data/agent/new) to configure and send data quickly, followed by the [Easy Connect](https://docs.logz.io/user-guide/log-shipping/ezkonnect.html) platform to effectively instrument Kubernetes applications with OpenTelemetry auto-instrumentation.
+To enrich your existing and newly sent data, use the [Telemetry Collector](https://app.logz.io/#/dashboard/integrations/collectors?tags=Quick%20Setup) to configure and send data quickly, followed by the [Easy Connect](https://docs.logz.io/user-guide/log-shipping/ezkonnect.html) platform to effectively instrument Kubernetes applications with OpenTelemetry auto-instrumentation.
 :::
 
 Each quick view includes several tabs that provide additional information you can act on. For each tab, you can change the time frame chosen by clicking on the date bar at the top.
@@ -473,7 +473,7 @@ The Deployment view includes the **See Traces** button, which opens Jaeger with 
 
 You can enrich your Kubernetes 360 graphs by adding an indication of recent deployments, helping you determine if a deployment has increased response times for end-users, altered your application's memory/CPU footprint, or introduced any other performance-related changes.
 
-To enable deployment tracking ability, run the [**Telemetry Collector**](https://app.logz.io/#/dashboard/send-your-data/agent/new) on your Kubernetes clusters. You can also activate this process **manually** by installing [Logz.io Kubernetes events Helm chart](https://app.logz.io/#/dashboard/integrations/Kubernetes:~:text=user%20guide.-,Send%20your%20deploy%20events%20logs,-This%20integration%20sends). 
+To enable deployment tracking ability, run the [**Telemetry Collector**](https://app.logz.io/#/dashboard/integrations/collectors?tags=Quick%20Setup) on your Kubernetes clusters. You can also activate this process **manually** by installing [Logz.io Kubernetes events Helm chart](https://app.logz.io/#/dashboard/integrations/Kubernetes:~:text=user%20guide.-,Send%20your%20deploy%20events%20logs,-This%20integration%20sends). 
 
 Once enabled, the graphs will include a deployment marker, marked by a dotted vertical line.
 

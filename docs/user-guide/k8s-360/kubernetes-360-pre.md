@@ -17,7 +17,7 @@ Kubernetes 360 application provides an overview of your Kubernetes data, providi
 ### Manually shipping Kubernetes data
 
 
-If you already have Kubernetes 360 data in your Logz.io account or prefer connecting Kubernetes [manually](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=prometheus-sources), you'll need an active **[Infrastructure Monitoring](https://app.logz.io/#/dashboard/metrics)** account, and ensure that your Kubernetes data is [connected to Logz.io](https://app.logz.io/#/dashboard/send-your-data/agent/new).
+If you already have Kubernetes 360 data in your Logz.io account or prefer connecting Kubernetes [manually](https://app.logz.io/#/dashboard/integrations/collectors?tags=Tracing), you'll need an active **[Infrastructure Monitoring](https://app.logz.io/#/dashboard/metrics)** account, and ensure that your Kubernetes data is [connected to Logz.io](https://app.logz.io/#/dashboard/integrations/collectors?tags=Quick%20Setup).
 
 In addition, you'll need to ship your cluster metrics from the following sources:
 
