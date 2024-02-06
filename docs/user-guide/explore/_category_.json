@@ -1,0 +1,8 @@
+{
+  "label": "Explore",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Explore is a new and improved way to view and research logs, metrics, and traces in one unified dashboard."
+  }
+}
