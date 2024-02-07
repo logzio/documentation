@@ -120,9 +120,37 @@ Fluentd can receive and concatenate multiline logs. To do this, you need to add 
 ### Add multiline parser to your input plugin
 
 :::note
-Multiline parsing only works with `in_tail` plugins. Refer to the [Fluentd documentation](https://docs.fluentd.org/parser/multiline) for more on this.
+Multiline parsing only works with `in_tail` plugins. Refer to the [Fluentd documentation](https://docs.fluentd.org/parser/multiline) for more information.
 :::
- 
+
+Fluentd splits multiline logs by default. If your original logs span multiple lines, you may find that they arrive in your Logz.io account split into several partial logs.
+
+The Logz.io Docker image comes with a pre-built Fluentd filter plug-in that can be used to concatenate multiline logs. The plug-in is named `fluent-plugin-concat`, and it concatenate multiline log separated in multiple events. You can review the full list of configuration options in the [GitHub project](https://github.com/fluent-plugins-nursery/fluent-plugin-concat).
+
+The following is an example of a multiline log sent from a deployment on a k8s cluster:
+
+``` shell
+2021-02-08 09:37:51,031 - errorLogger - ERROR - Traceback (most recent call last):
+File "./code.py", line 25, in my_func
+1/0
+ZeroDivisionError: division by zero
+```
+
+Fluentd's default configuration will split the above log into 4 logs, 1 for each line of the original log. In other words, each line break (`\n`) causes a split.
+
+To avoid this, you can use the `fluent-plugin-concat` and customize the configuration to meet your needs. The additional configuration is added to the `values.yml` file.
+
+For the above example, we could use the following regex expressions to demarcate the start and end of our example log:
+
+``` shell
+<filter **>
+  @type concat
+  key message # The key for part of multiline log
+  multiline_start_regexp /^[0-9]{4}-[0-9]{2}-[0-9]{2}/ # This regex expression identifies line starts.
+</filter>
+```
+
+To parse multiline, you'll need the `in_tail` input plugin that allows Fluentd to read events from the tail of text files.
 
 Add the following code block to your `in_tail` plugin:
 
@@ -151,15 +179,12 @@ The indentation of the parse plugin must be one level under the tail function as
 </source>
 ```
 
-
- 
-Fluentd is a data collector, which unifies the data collection and consumption. This integration allows you to use Fluentd to send logs from your Windows system to your Logz.io account. 
-
 :::note
 Fluentd will fetch all existing logs, as it is not able to ignore older logs.
 :::
   
 
+  
 ## Configure Fluentd with td-agent for Windows
 
 **Before you begin, you'll need**:
@@ -249,6 +274,35 @@ Fluentd can receive and concatenate multiline logs. To do this, you need to add 
 Multiline parsing only works with `in_tail` plugins. Refer to the [Fluentd documentation](https://docs.fluentd.org/parser/multiline) for more on this.
 :::
  
+Fluentd splits multiline logs by default. If your original logs span multiple lines, you may find that they arrive in your Logz.io account split into several partial logs.
+
+The Logz.io Docker image comes with a pre-built Fluentd filter plug-in that can be used to concatenate multiline logs. The plug-in is named `fluent-plugin-concat`, and it concatenate multiline log separated in multiple events. You can review the full list of configuration options in the [GitHub project](https://github.com/fluent-plugins-nursery/fluent-plugin-concat).
+
+
+The following is an example of a multiline log sent from a deployment on a k8s cluster:
+
+``` shell
+2021-02-08 09:37:51,031 - errorLogger - ERROR - Traceback (most recent call last):
+File "./code.py", line 25, in my_func
+1/0
+ZeroDivisionError: division by zero
+```
+
+Fluentd's default configuration will split the above log into 4 logs, 1 for each line of the original log. In other words, each line break (`\n`) causes a split.
+
+To avoid this, you can use the `fluent-plugin-concat` and customize the configuration to meet your needs. The additional configuration is added to the `values.yml` file.
+
+For the above example, we could use the following regex expressions to demarcate the start and end of our example log:
+
+``` shell
+<filter **>
+  @type concat
+  key message # The key for part of multiline log
+  multiline_start_regexp /^[0-9]{4}-[0-9]{2}-[0-9]{2}/ # This regex expression identifies line starts.
+</filter>
+```
+
+To parse multiline, you'll need the `in_tail` input plugin that allows Fluentd to read events from the tail of text files.
 
 Add the following code block to your `in_tail` plugin:
 
