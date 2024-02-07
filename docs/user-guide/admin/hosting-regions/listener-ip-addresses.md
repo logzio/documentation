@@ -1,7 +1,6 @@
 ---
 sidebar_position: 3
 title: Listener IP Addresses
-title: Regions
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Configure a listener IP address to ship data to Logz.io
 keywords: [hosting regions, regions, region, ip address, ip, listener, ip listener]
