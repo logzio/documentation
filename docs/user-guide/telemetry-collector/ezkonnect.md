@@ -1,6 +1,9 @@
 ---
 sidebar_position: 5
 title: EasyConnect
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Simplify the process of instrumenting Kubernetes applications
+keywords: [Kubernetes, ship kubernetes data, easyconnect, ezkonnect, kubernetes logs, kubernetes metrics, kubernetes tracing]
 ---
 
 

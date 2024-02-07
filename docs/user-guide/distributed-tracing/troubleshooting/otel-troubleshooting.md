@@ -1,9 +1,10 @@
 ---
 sidebar_position: 2
+title: OpenTelemetry Traces Troubleshooting
+description: Common questions and use cases when setting up OpenTelemetry tracing account
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, traces, tracing, trace dashboard, dashboard, troubleshoot, opentelemetry, logs, observability, distributed tracing]
 ---
-
-
-# OpenTelemetry Traces Troubleshooting
 
 
 This section contains some guidelines for handling errors that you may encounter when trying to collect traces with OpenTelemetry.

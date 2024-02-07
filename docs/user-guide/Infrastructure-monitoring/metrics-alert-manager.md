@@ -1,8 +1,10 @@
 ---
 sidebar_position: 3
 title: Metrics Alert Manager
+description: Use metrics alert manager to monitor your services and operations
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [metrics, infrastructure monitoring, remote write, Prometheus, monitoring, dashboard, observability, logz.io]
 ---
-
 
 Metrics alerts help you monitor your services and operations and notify team members as soon as there's an issue. You can set alerts to detect memory spikes, 3xx-4xx errors, and more. 
 

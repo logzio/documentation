@@ -1,7 +1,9 @@
 ---
 sidebar_position: 7
 title: Audit Trail
-
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Track activity data in your Logz.io accounts
+keywords: [account, manage account, user management, admin controls, admin, user permissions, permissions, access control]
 ---
 
 The Audit trail page offers account activity data tracking for account admins. You can view various actions in the table- including logging, saving a search, creating alerts, adding users, updating dashboards, and more.

@@ -1,9 +1,10 @@
 ---
 sidebar_position: 5
+title: Setting Azure Blob Storage Permissions
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Azure permissions for log archiving
+keywords: [archive, restore, cold data, hot data, restore data, AWS]
 ---
-
-
-# Setting Azure Blob Storage Permissions
 
 
 

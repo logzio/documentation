@@ -145,7 +145,7 @@ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.tain
 You need to use `Helm` client with version `v3.9.0` or above.
 :::
 
-For troubleshooting log shipping, see our [user guide](https://docs.logz.io/user-guide/kubernetes-troubleshooting/).
+For troubleshooting log shipping, see our [user guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-fluentd-for-kubernetes-logs/).
 
 
 ### Sending logs from nodes with taints
@@ -192,7 +192,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
 
 
-For troubleshooting metrics shipping, see our [user guide](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/k8-helm-opentelemetry-troubleshooting.html).
+For troubleshooting metrics shipping, see our [user guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/k8s-troubleshooting/).
  
 
 ### Customize the metrics collected by the Helm chart 
@@ -216,7 +216,7 @@ Give your metrics some time to get from your system to ours.
 {@include: ../../_include/metric-shipping/generic-dashboard.html} 
   
  
-For troubleshooting this solution, see our [EKS troubleshooting guide](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/eks-helm-opentelemetry-troubleshooting.html).
+For troubleshooting this solution, see our [EKS troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/eks-helm/).
  
 ## Send your traces
 
@@ -238,7 +238,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<LOGZIO-REGION>>` | Name of your Logz.io traces region e.g `us`, `eu`... |
 
 
-For troubleshooting traces shipping, see our [user guide]([https://docs.logz.io/user-guide/kubernetes-troubleshooting/](https://docs.logz.io/user-guide/distributed-tracing/tracing-troubleshooting.html)).
+For troubleshooting traces shipping, see our [Distributed Tracing troubleshooting](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/tracing-troubleshooting/).
 
 
 ## Send traces with SPM

@@ -1,6 +1,9 @@
 ---
 sidebar_position: 3
 title: Prometheus Examples and Best Practices
+description: Prometheus and PromQL Use Cases and Examples
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [metrics, infrastructure monitoring, PromQL, Prometheus, monitoring, observability, logz.io]
 ---
 
 

@@ -1,8 +1,9 @@
 ---
 sidebar_position: 2
 title: Log Shipping Tokens
-
-
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Get and manage your log shipping API tokens
+keywords: [api token management, api token, api, token, key creation, token authentication, security, secured login]
 ---
 
 Log shipping tokens are used in shipper configurations to direct data to the relevant Logz.io account.

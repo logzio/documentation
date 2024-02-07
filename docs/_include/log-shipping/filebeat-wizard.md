@@ -5,7 +5,7 @@ For each of the log types you plan to send to Logz.io, fill in the following:
 * Select your operating system - **Linux** or **Windows**.
 * Specify the full **Path** to the logs.
 * Select a log **Type** from the list or select **Other** and give it a name of your choice to specify a custom log type. 
-  * If you select a log type from the list, the logs will be automatically parsed and analyzed. [List of types available for parsing by default](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html).
+  * If you select a log type from the list, the logs will be automatically parsed and analyzed. [List of types available for parsing by default](https://docs.logz.io/docs/user-guide/data-hub/log-parsing/default-parsing/#built-in-log-types).
   * If you select **Other**, contact support to request custom parsing assistance. Don't be shy, it's included in your plan!
 * Select the log format - **Plaintext** or **Json**.
 * (_Optional_) Enable the **Multiline** option if your log messages span

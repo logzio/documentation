@@ -1,9 +1,9 @@
 ---
 sidebar_position: 3
 title: Metrics Shipping Token
-
-
-
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Get and manage your metrics API tokens
+keywords: [api token management, api token, api, token, key creation, token authentication, security, secured login]
 ---
 
 When you're setting up data shipping to your Metrics account, you'll need to include your Metrics shipping token. The token routes your data to the right account in Logz.io.

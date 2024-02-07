@@ -154,7 +154,7 @@ Configure Trend Micro agents to forward event logs to Logz.io.
 
 ### Sample configuration
 
-You can reference the sample configuration used by the Logz.io Security Team in development of this integration. [Exported configuration in XML format.](/user-guide/security/trend-micro-configuration-sample/)
+You can reference the sample configuration used by the Logz.io Security Team in development of this integration. [Exported configuration in XML format.](https://docs.logz.io/docs/shipping/security/trend-micro/#sample-configuration)
 
 The configuration file includes settings for the following services:
 

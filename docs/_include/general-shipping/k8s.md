@@ -33,7 +33,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
 
 
-For log shipping troubleshooting, see our [user guide](https://docs.logz.io/user-guide/kubernetes-troubleshooting/).
+For log shipping troubleshooting, see our [user guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-fluentd-for-kubernetes-logs/).
 
 ## Send your deploy events logs
 
@@ -74,7 +74,7 @@ Commit URL structure: `https://github.com/<account>/<repository>/commit/<commit-
    - Example: `https://github.com/logzio/logzio-k8s-events/commit/069c75c95caeca58dd0776405bb8dfb4eed3acb2`
 
 
-For log shipping troubleshooting, see our [user guide](https://docs.logz.io/user-guide/kubernetes-troubleshooting/).
+For log shipping troubleshooting, see our [user guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-fluentd-for-kubernetes-logs/).
 
 ## Send your metrics
 
@@ -96,7 +96,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
 
 
-For metrics shipping troubleshooting, see our [user guide](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/k8-helm-opentelemetry-troubleshooting.html).
+For metrics shipping troubleshooting, see our [user guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/k8s-troubleshooting/).
 
 
 
@@ -119,7 +119,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<LOGZIO_ACCOUNT_REGION_CODE>>` | Name of your Logz.io traces region e.g `us`, `eu`... |
 
 
-For traces shipping troubleshooting, see our [user guide]([https://docs.logz.io/user-guide/kubernetes-troubleshooting/](https://docs.logz.io/user-guide/distributed-tracing/tracing-troubleshooting.html)).
+For traces shipping troubleshooting, see our [Distributed Tracing troubleshooting](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/tracing-troubleshooting/).
 
 
 ## Send traces with SPM

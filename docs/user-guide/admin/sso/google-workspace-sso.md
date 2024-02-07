@@ -1,6 +1,9 @@
 ---
 sidebar_position: 8
 title: Single Sign-On with Google Workspace
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Configure Single Sign On for Google Workspace and Logz.io
+keywords: [single sign=on, sso, sso setup, sso configuration, secured login, integration, google workspace]
 ---
 
 Logz.io offers a quick integration for SSO with Google Workspace.

@@ -1,6 +1,9 @@
 ---
 sidebar_position: 7
 title: Single Sign-On (SSO) for Auth0
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Configure Single Sign On for Auth0 and Logz.io
+keywords: [single sign=on, sso, sso setup, sso configuration, secured login, integration, auth0]
 ---
 
 The following guide helps account admins set up a Single sign-on connection for Auth0.

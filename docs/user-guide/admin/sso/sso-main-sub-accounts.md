@@ -1,6 +1,9 @@
 ---
 sidebar_position: 2
 title: Configure SSO access for main and sub accounts
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Configure Single Sign On for main and sub accounts at Logz.io
+keywords: [single sign=on, sso, sso setup, sso configuration, secured login, integration]
 ---
 
 
@@ -25,7 +28,7 @@ Admin users can easily create SSO groups for the main account within Logz.io.
 
 To add and assign SSO groups, navigate to [Settings > Manage users](https://app.logz.io/#/dashboard/settings/manage-users) and click the **SSO Groups** tab.
 
-Next, click on **+ New SSO group** button, paste the name of the relevant SSO group created in your SSO provider, and choose the appropriate permissions from the dropdown list. View the detailed list of available permissions and what they include, [here](/user-guide/users/#access-level-per-role).
+Next, click on **+ New SSO group** button, paste the name of the relevant SSO group created in your SSO provider, and choose the appropriate permissions from the dropdown list. View the detailed list of available permissions and what they include, [here](https://docs.logz.io/docs/user-guide/admin/users/#access-level-per-role).
 
 
 :::caution Important
@@ -56,7 +59,7 @@ Admin users can create SSO groups for sub accounts in Logz.io.
 
 To add and assign SSO groups, navigate to [Settings > Manage users](https://app.logz.io/#/dashboard/settings/manage-users) and click on the **SSO Groups** tab.
 
-Scroll down to the second part of the page, **Sub accounts SSO groups**, and click on **+ New SSO group** button. Next, paste the name of the relevant SSO group created in your SSO provider, choose the [appropriate permissions](/user-guide/users/#access-level-per-role) from the dropdown list, and click the dropdown list to view and choose which sub accounts these users will be able to access.
+Scroll down to the second part of the page, **Sub accounts SSO groups**, and click on **+ New SSO group** button. Next, paste the name of the relevant SSO group created in your SSO provider, choose the [appropriate permissions](https://docs.logz.io/docs/user-guide/admin/users/#access-level-per-role) from the dropdown list, and click the dropdown list to view and choose which sub accounts these users will be able to access.
 
 :::tip
 To ensure the correct permissions are transferred, use the **exact SSO group name** as declared in your SSO provider.

@@ -24,7 +24,7 @@ To learn more about this solution, refer to [Microsoft Azure documentation](http
 
 You can use Security Assertion Markup Language (SAML) SSO feature within the Logz.io resource to directly access Logz.io's Cloud-Native Observability Platform in your portal.
 
-To learn more about this solution, refer to [Logz.io documentation on SSO](https://docs.logz.io/user-guide/users/single-sign-on/azure_marketplace_liftr.html) and [Microsoft Azure documentation](https://docs.microsoft.com/en-us/azure/partner-solutions/logzio/setup-sso).
+To learn more about this solution, refer to [Logz.io documentation on SSO](https://docs.logz.io/docs/user-guide/admin/sso/azure_marketplace_liftr/) and [Microsoft Azure documentation](https://docs.microsoft.com/en-us/azure/partner-solutions/logzio/setup-sso).
 
 
 ### Manage the platform options

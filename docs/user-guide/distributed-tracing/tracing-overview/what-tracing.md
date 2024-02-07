@@ -1,6 +1,10 @@
 ---
 sidebar_position: 2
 title: What is Distributed Tracing?
+description: Learn more about Logz.io's Distributed Tracing platform
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, traces, tracing, observability, distributed tracing]
+---
 ---
 
 

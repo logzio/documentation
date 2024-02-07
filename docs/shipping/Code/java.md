@@ -385,7 +385,7 @@ If you want to output `debug` messages, include the `debug` parameter into the c
 |---|---|---|
 | token | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). {@include: ../../_include/log-shipping/log-shipping-token.html} Begin with `$` to use an environment variable or system property with the specified name. For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable. | Required |
 | logzioUrl | Listener URL and port.    {@include: ../../_include/log-shipping/listener-var.html}  | `https://listener.logz.io:8071` |
-| logzioType | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `java` |
+| logzioType | The [log type](https://docs.logz.io/docs/user-guide/data-hub/log-parsing/default-parsing/#built-in-log-types), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `java` |
 | addHostname | Indicates whether to add `hostname` field to logs. This field holds the machine's host name.    Set to `true` to include hostname. Set to `false` to leave it off. If a host name can't be found, this field is not added. | `false` |
 | additionalFields | Adds fields to the JSON message output, formatted as `field1=value1;field2=value2`.    Use `$` to inject an environment variable value, such as `field2=$VAR_NAME`. The environment variable should be the only value in the key-value pair. If the environment variable can't be resolved, the field is omitted. | N/A |
 | bufferDir | Filepath where the appender stores the buffer. | `System.getProperty("java.io.tmpdir")` |
@@ -566,8 +566,8 @@ Replace the placeholders in the code (indicated by the double angle brackets `<<
 
 | Environment variable | Description |Required/Default|
 |---|---|---|
-|`<<LISTENER-HOST>>`|  The full Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic (example: https://listener.logz.io:8053). For more details, see the [regions page](https://docs.logz.io/user-guide/accounts/account-region.html) in logz.io docs | Required|
-|`<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>`| The Logz.io Prometheus Metrics account token. Find it under **Settings > Manage accounts**. [Look up your Metrics account token.](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/)  | Required|
+|`<<LISTENER-HOST>>`|  The full Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic (example: https://listener.logz.io:8053). For more details, see the [regions page](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/) in logz.io docs | Required|
+|`<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>`| The Logz.io Prometheus Metrics account token. Find it under **Settings > Manage accounts**. [Look up your Metrics account token.](https://docs.logz.io/docs/user-guide/admin/authentication-tokens/finding-your-metrics-account-token/)  | Required|
 |interval | The interval in seconds, to push metrics to Logz.io **Note that your program will need to run for at least one interval for the metrics to be sent**  | Required|
 
 #### In your package

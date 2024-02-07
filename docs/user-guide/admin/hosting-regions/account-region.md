@@ -1,6 +1,9 @@
 ---
 sidebar_position: 1
 title: Regions
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Find the available regions in Logz.io
+keywords: [hosting regions, regions, region]
 ---
 
 Logz.io maintains clusters worldwide so that it can host your account in a region that is closest to you.

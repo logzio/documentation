@@ -74,4 +74,4 @@ Leave the default configurations. No sub-selections are required.
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can search or filter for Alcide logs, under `type:alcide-kaudit`.
 
-If you still don't see your logs, see [log shipping troubleshooting](/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).

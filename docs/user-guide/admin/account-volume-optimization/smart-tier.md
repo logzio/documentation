@@ -1,8 +1,9 @@
 ---
 sidebar_position: 2
 title: Smart Tier - Data Management
-
-
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Utilize Logz.io's Smart Tier to reduce costs without increasing query latency or retrieval times
+keywords: [usage, data management, volume, optimization, log management, account optimization]
 ---
 
 Retention is a major factor that impacts the cost of your Log Management plan. If you are looking for ways to extend log retention and maximize cost savings, Logz.io Smart Tier may be a good solution for your needs.
@@ -17,7 +18,7 @@ To help optimize costs, you can choose where to store your logs:
 
 * **Real-time tier** - Offers high performance and high availability to your log storage and critical data. Your most recent data is stored and replicated in Hot instances to guarantee top real-time performance. 
 * **Smart tier** - Offers high-performance and cost-efficient log storage for aging logs. It offers the same real-time querying performance as the Real-time tier for less recent data. Data availability is guaranteed at a 97% SLA.
-* **Historical tier** - Offers long-term storage for logs that age out of your plan’s retention policy by archiving them in S3/Azure Blob. You can restore the logs to Logz.io at any time. [Learn more](/user-guide/archive-and-restore/).
+* **Historical tier** - Offers long-term storage for logs that age out of your plan’s retention policy by archiving them in S3/Azure Blob. You can restore the logs to Logz.io at any time. [Learn more](https://docs.logz.io/docs/user-guide/data-hub/archive-restore/archive-and-restore/).
 
 ### 97% availability - guaranteed
 
