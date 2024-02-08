@@ -1,7 +1,12 @@
 ---
 sidebar_position: 1
+title: Optimize Your Logz.io Data
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Optimize your Logz.io account with tailored recommendations and drop filters. 
+keywords: [Data hub, data optimization, optimization, drop filters, recommendations]
 ---
-# Optimize Your Logz.io Data
+
+
 
 
 

@@ -1,8 +1,9 @@
 ---
 sidebar_position: 2
 title: Multi-Factor Authentication
-
-
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Configure multi-factor authentication in Logz.io
+keywords: [multi-factor authentication, sso, secured login]
 ---
 
 Logz.io supports multi-factor authentication for all users on a main account or sub account.

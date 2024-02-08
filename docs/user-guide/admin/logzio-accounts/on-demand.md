@@ -1,14 +1,16 @@
 ---
 sidebar_position: 9
 title: On Demand Pricing FAQ
-
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: frequently asked questions about On-Demand
+keywords: [account, manage account, on demand, on-demand, admin controls, admin, user permissions, permissions, access control]
 ---
 
 **On Demand** is an expansion of your existing Logz.io plan, allowing you to ingest and analyze data past your daily volume limit. In addition, On Demand makes sure you have access to your logs, metrics, traces and SIEM when you need them, regardless of your daily volume.
 
 ### Q: How will I know when I am using more data than my plan allows?
 
-A: You will have two options to track your On Demand usage. First, you can navigate to the **[Plan and Billing](https://app.logz.io/#/dashboard/settings/plan-and-billing/plan)** page. Under the usage tab you can see your previous usage in the last 30 days. Second, you can use the new [utilization log](https://docs.logz.io/user-guide/accounts/manage-account-usage.html) to track current day consumption, or use the dashboard that is connected to that utilization log. 
+A: You will have two options to track your On Demand usage. First, you can navigate to the **[Plan and Billing](https://app.logz.io/#/dashboard/settings/plan-and-billing/plan)** page. Under the usage tab you can see your previous usage in the last 30 days. Second, you can use the new [utilization log](https://docs.logz.io/docs/user-guide/admin/account-volume-optimization/manage-account-usage/) to track current day consumption, or use the dashboard that is connected to that utilization log. 
 
 ### Q: When will my account start paying for On Demand?
 

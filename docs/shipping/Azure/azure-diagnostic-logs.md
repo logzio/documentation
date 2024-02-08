@@ -79,7 +79,7 @@ You'll be taken to Azure, where you'll configure the resources to be deployed.
 | Resource group (**Required**) | Create a new resource group or select an existing one, and click **OK**. |
 | Region (**Required**) | Select the same region as the Azure services that will stream data to this event hub. |
 | Shipping token (**Required**) | Add the [Log shipping token](https://app.logz.io/#/dashboard/settings/general) for the Logz.io account you want to ship to.  |
-| Logs listener host (Default: `listener.logz.io`)| Use the listener URL specific to the region of your Logz.io account. You can look it up [here](https://docs.logz.io/user-guide/accounts/account-region.html). |
+| Logs listener host (Default: `listener.logz.io`)| Use the listener URL specific to the region of your Logz.io account. You can look it up [here](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/). |
 | buffersize (Default: `100`) | The maximum number of messages the logger will accumulate before sending them in bulk.  |
 
 For all other parameters: To use your existing services, change the parameter to the relevant service name. Otherwise, the template will build the necessary services automatically.
@@ -120,7 +120,7 @@ The selected data will now begin streaming to the event hub.
 Give your data some time to get from your system to ours, and then open your [Logz.io Open Search Dashboards account](https://app.logz.io/#/dashboard/osd/discover?).
 If everything went according to plan, you should see logs of the `type:eventHub` in Open Search Dashboards.
 
-If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
 
 
 ## Updating your parameters after deployment

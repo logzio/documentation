@@ -1,6 +1,9 @@
 ---
 sidebar_position: 1
 title: Getting started with Prometheus
+description: Manage your metrics with Prometheus based metric dashboards
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [metrics, infrastructure monitoring, Prometheus, monitoring, observability, logz.io]
 ---
 
 

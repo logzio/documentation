@@ -2,7 +2,8 @@
 sidebar_position: 1
 title: Getting Started with Kubernetes 360
 tags: ['logs', 'metrics', 'traces', 'siem', 'os']
-
+description: First steps with Logz.io's Kubernetes 360 dashboard
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 ---
 
 <Tags tags={frontMatter.tags} />
@@ -109,7 +110,7 @@ Each view lets you dive deeper into the data by using the links at the top of th
 ### Quick view tabs
 
 :::note
-To enrich your existing and newly sent data, use the [Telemetry Collector](https://app.logz.io/#/dashboard/integrations/collectors?tags=Quick%20Setup) to configure and send data quickly, followed by the [Easy Connect](https://docs.logz.io/user-guide/log-shipping/ezkonnect.html) platform to effectively instrument Kubernetes applications with OpenTelemetry auto-instrumentation.
+To enrich your existing and newly sent data, use the [Telemetry Collector](https://app.logz.io/#/dashboard/integrations/collectors?tags=Quick%20Setup) to configure and send data quickly, followed by the [Easy Connect](https://docs.logz.io/docs/user-guide/telemetry-collector/ezkonnect/) platform to effectively instrument Kubernetes applications with OpenTelemetry auto-instrumentation.
 :::
 
 Each quick view includes several tabs that provide additional information you can act on. For each tab, you can change the time frame chosen by clicking on the date bar at the top.

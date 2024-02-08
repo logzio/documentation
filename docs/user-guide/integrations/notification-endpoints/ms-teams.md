@@ -14,7 +14,7 @@ Integrate with Microsoft Teams using a Logz.io custom webhook to receive Logz.io
  
 ### 1. Allow firewall access
 
-See [Custom Endpoints](https://docs.logz.io/user-guide/integrations/custom-endpoints.html) for general instructions on setting up firewall access for Logz.io notifications.
+See [Custom Endpoints](https://docs.logz.io/docs/user-guide/integrations/notification-endpoints/custom-endpoints/) for general instructions on setting up firewall access for Logz.io notifications.
 
 This may include whitelisting Logz.io IPs and/or creating a verification token.
 

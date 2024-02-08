@@ -1,6 +1,9 @@
 ---
 sidebar_position: 4
 title: Monitor Account Usage
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Track your daily and monthly data usage and consumption
+keywords: [account, manage account, usage, admin controls, admin, user permissions, permissions, access control]
 ---
 
 Logz.io provides you with dashboards to easily track your daily and monthly usage. These dashboards let you monitor your overall usage and understand whether you're about to go over your plan limits.

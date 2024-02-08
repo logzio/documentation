@@ -1,8 +1,9 @@
 ---
 sidebar_position: 1
 title: Single Sign-On
-
-
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Configure Single Sign On for Logz.io
+keywords: [single sign=on, sso, sso setup, sso configuration, secured login, integration]
 ---
 
 Single sign-on (SSO) lets you manage access to your Logz.io account
@@ -80,13 +81,13 @@ Multiple accounts can use the same group, but **the group needs to be added to e
 Logz.io can integrate with a number of SSO providers.
 To get started, follow the instructions for your provider:
 
-* [Single sign-on (SSO) for Auth0](https://docs.logz.io/user-guide/users/single-sign-on/auth0-sso-guide.html)
-* [Single sign-on for Azure pay-as-you-go Portal integration](https://docs.logz.io/user-guide/users/single-sign-on/azure_marketplace_liftr.html)
-* [Single sign-on with AWS](https://docs.logz.io/user-guide/users/single-sign-on/aws-sso.html)
-* [Single sign-on with Azure](https://docs.logz.io/user-guide/users/single-sign-on/azure-sso.html)
-* [Single sign-on with Google Workspace](https://docs.logz.io/user-guide/users/single-sign-on/google-workspace-sso.html)
-* [Single sign-on with Okta](https://docs.logz.io/user-guide/users/single-sign-on/okta-sso.html)
-* [Single sign-on with OneLogin](https://docs.logz.io/user-guide/users/single-sign-on/onelogin-sso.html)
+* [Single sign-on (SSO) for Auth0](https://docs.logz.io/docs/user-guide/admin/sso/auth0-sso-guide/)
+* [Single sign-on for Azure pay-as-you-go Portal integration](https://docs.logz.io/docs/user-guide/admin/sso/azure_marketplace_liftr/)
+* [Single sign-on with AWS](https://docs.logz.io/docs/user-guide/admin/sso/aws-sso/)
+* [Single sign-on with Azure](https://docs.logz.io/docs/user-guide/admin/sso/azure-sso/)
+* [Single sign-on with Google Workspace](https://docs.logz.io/docs/user-guide/admin/sso/google-workspace-sso/)
+* [Single sign-on with Okta](https://docs.logz.io/docs/user-guide/admin/sso/okta-sso/)
+* [Single sign-on with OneLogin](https://docs.logz.io/docs/user-guide/admin/sso/onelogin-sso/)
 
 
 

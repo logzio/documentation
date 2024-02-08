@@ -1,8 +1,10 @@
 ---
 sidebar_position: 3
+title: Log Metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Visualize your log data into insightful graphs and dashboards.
+keywords: [Data hub, data optimization, optimization, log metrics, metrics, recommendations]
 ---
-
-# LogMetrics
 
 
 Create graphs and dashboards directly from your log files.

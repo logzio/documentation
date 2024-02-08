@@ -1,8 +1,9 @@
 ---
 sidebar_position: 2
 title: Migrating Accounts Between Hosting Regions
-
-
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: How to migrate your Logz.io account between different hosting regions
+keywords: [hosting regions, regions, region, migrate, switch region]
 ---
 
 You can migrate your Logz.io Log Management accounts between hosting regions. We'll be frank - it can take a bit of effort, but with the right scripting and API implementation, can be done fairly quickly.
@@ -62,7 +63,7 @@ Export any and all OpenSearch Dashboards objects you want to keep and import the
 
 The process can be performed by API or manually. Export & import guides:
 
-* [Export & import guide](https://docs.logz.io/user-guide/logs/share-import-export)
+* [Export & import guide](https://docs.logz.io/docs/user-guide/log-management/collaboration/share-import-export/)
 * [API guide](https://api-docs.logz.io/docs/logz/import-or-export-kibana-objects/)
 
 
@@ -73,7 +74,7 @@ Retrieve your archive settings and re-create them in your new account. You can d
 1. In your pre-migration account, [retrieve the archive settings](https://api-docs.logz.io/docs/logz/get-settings-for-account/). Repeat for each sub account.
 2. In your post-migration account, [set up log archiving](https://api-docs.logz.io/docs/logz/create-settings/). Repeat for each sub account, as necessary.
 
-If you prefer to perform the process manually, see the [archiving guide](https://docs.logz.io/user-guide/archive-and-restore/configure-archiving.html).
+If you prefer to perform the process manually, see the [archiving guide](https://docs.logz.io/docs/user-guide/data-hub/archive-restore/configure-archiving/).
 
 :::note
 Note that only one archive can be active per account.
@@ -88,7 +89,7 @@ Retrieve all drop filters and re-create them in your new account. You can do so 
 2. In your post-migration account, [create a new drop filter](https://api-docs.logz.io/docs/logz/create/). Repeat for each filter and sub account, as necessary.
 
 
-If you prefer to perform the process manually, see the [drop filters guide](https://docs.logz.io/user-guide/accounts/drop-filters/).
+If you prefer to perform the process manually, see the [drop filters guide](https://docs.logz.io/docs/user-guide/data-hub/drop-fiters/).
 
 :::caution Important
 If the filters were created from the backend, contact your Customer Success Manager for help migrating your drop filters.
@@ -100,7 +101,7 @@ If the filters were created from the backend, contact your Customer Success Mana
 
 In your post-migration account, open your [Manage Accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page, and create your Timeless account/s. [Learn more](/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts#timeless)
 
-Re-create your Optimizers manually in your Logz.io account. [Learn more](/user-guide/optimizers/configure-optimizers.html).
+Re-create your Optimizers manually in your Logz.io account. [Learn more](https://docs.logz.io/docs/user-guide/log-management/long-term-storage/configure-optimizers/).
 
 :::note
 Optimizers are currently not supported by the Logz.io API.
@@ -114,7 +115,7 @@ Retrieve all notification endpoints and re-create them in your new account. You 
 2. In your post-migration account, [create a new endpoint](https://api-docs.logz.io/docs/logz/manage-notification-endpoints). Repeat for each endpoint and account, as necessary.
 
 
-If you prefer to perform the process manually, see the [notification endpoints guide](https://docs.logz.io/user-guide/integrations/endpoints.html).
+If you prefer to perform the process manually, see the [notification endpoints guide](https://docs.logz.io/docs/user-guide/integrations/notification-endpoints/endpoints/).
 
 
 ### Export & import logging alerts
@@ -128,12 +129,12 @@ You can do so using the Logz.io API endpoints as follows:
     2. Update the notification endpoints, if relevant, under the parameter `notificationEndpointIds`.
 3. In your post-migration account, [create a new alert](https://api-docs.logz.io/docs/logz/create-alert/) with the matching settings. Repeat for each alert and account.
 
-If you prefer to perform the process manually, see the [alert guide](https://docs.logz.io/user-guide/alerts/configure-an-alert.html).
+If you prefer to perform the process manually, see the [alert guide](https://docs.logz.io/docs/user-guide/log-management/log-alerts/configure-alert/).
 
 
 ### (Re-)Create your scheduled reports
 
-Re-create your reports manually in your Logz.io account. [Learn more](/user-guide/reports/).
+Re-create your reports manually in your Logz.io account. [Learn more](https://docs.logz.io/docs/user-guide/log-management/reports/).
 
 :::note
 Scheduled reports are currently not supported by the Logz.io API.
@@ -149,10 +150,10 @@ You can do so using the Logz.io API endpoints as follows:
     * If a user appears in multiple accounts, it will be listed separately under each account.
 2. In your post-migration account, [create a new user/admin user](https://api-docs.logz.io/docs/logz/create-user/). Repeat for each user and account.
 
-If you prefer to perform the process manually, see the [user management guide](https://docs.logz.io/user-guide/users/).
+If you prefer to perform the process manually, see the [user management guide](https://docs.logz.io/docs/user-guide/admin/users/).
 
 
 ### Email Support to enable SSO
 
-If you would like to enable your Single-Sign On (SSO) on the new account, [Email Support](mailto:help@logz.io?subject=Requesting%20help%20enabling%20SSO%20following%20an%20account%20migration) for assistance. [Learn more](/user-guide/users/single-sign-on/)
+If you would like to enable your Single-Sign On (SSO) on the new account, [Email Support](mailto:help@logz.io?subject=Requesting%20help%20enabling%20SSO%20following%20an%20account%20migration) for assistance. [Learn more](https://docs.logz.io/docs/user-guide/admin/sso/single-sign-on/)
 

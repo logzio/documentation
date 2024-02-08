@@ -1,7 +1,9 @@
 ---
 sidebar_position: 7
 title: PCI Compliance and Log Redaction
-
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Minimize the risk of exposting sensitive data with Logz.io
+keywords: [manage users, PCI, compliance, log redaction, privacy, admin controls, account administration, access control]
 ---
 
 

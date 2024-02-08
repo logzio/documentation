@@ -1,8 +1,10 @@
 ---
 sidebar_position: 2
+title: Split an Array
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Learn how to split JSON arrays in Logz.io
+keywords: [log, monitoring, parsing, arrays, json, default parsing, built in log types, log types, observability]
 ---
-
-# Split an Array
 
 
 

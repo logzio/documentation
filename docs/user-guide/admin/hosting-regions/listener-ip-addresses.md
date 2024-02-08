@@ -1,6 +1,9 @@
 ---
 sidebar_position: 3
 title: Listener IP Addresses
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Configure a listener IP address to ship data to Logz.io
+keywords: [hosting regions, regions, region, ip address, ip, listener, ip listener]
 ---
 
 If you're having trouble sending your data (logs, metrics, and traces) to Logz.io, you may need to open your firewall to Logz.io listener servers. To see if you need to change your firewall configuration, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).

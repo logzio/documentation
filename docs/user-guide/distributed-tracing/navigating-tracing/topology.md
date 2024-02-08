@@ -1,6 +1,9 @@
 ---
 sidebar_position: 8
 title: Topology Diagrams
+description: Visualize your traces with topology diagrams
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, traces, tracing, topology, diagrams, observability, distributed tracing]
 ---
 
 

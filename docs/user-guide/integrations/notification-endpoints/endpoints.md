@@ -6,7 +6,7 @@ sidebar_position: 1
 
 
 Configure Logz.io to send notifications to your preferred endpoints.
-Notifications are typically sent when alerts are triggered, when a user shares an OpenSearch Dashboards object, or when Logz.io [Insights](https://docs.logz.io/user-guide/insights/ai-insights.html) identifies new exceptions in your logs.
+Notifications are typically sent when alerts are triggered, when a user shares an OpenSearch Dashboards object, or when Logz.io [Insights](https://docs.logz.io/docs/user-guide/log-management/insights/ai-insights/) identifies new exceptions in your logs.
 
 ![Notification endpoints animation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/notification_endpoints_2021.gif)
 
@@ -29,7 +29,7 @@ There are two types of endpoints.
   You'll need to specify the URL, method, and headers,
   and optionally the message body.
 
-  Click for [detailed instructions](https://docs.logz.io/user-guide/integrations/custom-endpoints.html).
+  Click for [detailed instructions](https://docs.logz.io/docs/user-guide/integrations/notification-endpoints/custom-endpoints/).
 
 ## Manage notification endpoints
 
@@ -67,7 +67,7 @@ Note that currently only Opsgenie accounts hosted by the US data center are supp
 
 ![Opsgenie endpoints](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/opsgenie-endpoint07-2021.png)
 
-See [Opsgenie notifications for resolved metrics alerts](https://docs.logz.io/user-guide/integrations/resolved-metrics-alerts.html) for related information.
+See [Opsgenie notifications for resolved metrics alerts](https://docs.logz.io/docs/user-guide/integrations/notification-endpoints/opsgenie/) for related information.
 
 ## Typical use case
 

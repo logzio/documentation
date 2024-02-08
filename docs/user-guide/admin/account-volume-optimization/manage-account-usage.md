@@ -1,6 +1,9 @@
 ---
 sidebar_position: 1
 title: Manage Account Usage
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Learn more about account utilization metrics and drop filters
+keywords: [usage, volume, optimization, log management, account optimization, drop filters]
 ---
 
 If your account is nearing its daily quota,
@@ -149,10 +152,10 @@ However, if you're sending logs that you'll need only sometimes
 (such as debug logs),
 you can set up a drop filter.
 
-Logs caught by [drop filters](/user-guide/accounts/drop-filters/) aren't ingested,
+Logs caught by [drop filters](https://docs.logz.io/docs/user-guide/data-hub/drop-fiters/) aren't ingested,
 so they won't count against your plan limits.
 However, the volume of logs you can filter is based on your plan's quota.
-For more information, see [Some important notes on drop filtering](/user-guide/accounts/drop-filters/#some-important-notes).
+For more information, see [Some important notes on drop filtering](https://docs.logz.io/docs/user-guide/data-hub/drop-fiters/#some-important-notes).
 <!-- This number varies from one account to the next,
 so please <a class="intercom-launch" href="mailto:help@logz.io">contact the Support team</a>
 for more information on your drop filter limits. -->

@@ -1,7 +1,9 @@
 ---
 sidebar_position: 5
 title: Manage Shared Tokens
-
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Get and manage your shared API tokens
+keywords: [api token management, api token, api, token, key creation, token authentication, security, secured login]
 ---
 
 

@@ -598,7 +598,7 @@ Replace the placeholders (indicated by the double angle brackets `<< >>`) to mat
 
 |Environment variable|Description|
 |---|---|
-|`<<LISTENER-HOST>>`|  The Logz.io [Listener URL](https://docs.logz.io/user-guide/accounts/account-region.html) for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. |
+|`<<LISTENER-HOST>>`|  The Logz.io [Listener URL](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/) for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. |
 |`<<PORT>>`| The Logz.io listener port. **8052** for HTTP traffic, or **8053** for HTTPS traffic. |
 |`<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>`| {@include: ../../_include/p8s-shipping/replace-prometheus-token.html}  |
 
@@ -1417,10 +1417,10 @@ helm uninstall logzio-monitoring
 
 
 #### Logz.io Python handler 
-For troubleshooting the Logz.io Python handler, see our [Python logging troubleshooting guide](https://docs.logz.io/user-guide/log-management/troubleshooting/troubleshooting-python.html).
+For troubleshooting the Logz.io Python handler, see our [Python logging troubleshooting guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-python).
  
 #### OpenTelemetry instrumentation 
-For troubleshooting the OpenTelemetry instrumentation, see our [OpenTelemetry troubleshooting guide](https://docs.logz.io/user-guide/distributed-tracing/troubleshooting/otel-troubleshooting.html).
+For troubleshooting the OpenTelemetry instrumentation, see our [OpenTelemetry troubleshooting guide](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/otel-troubleshooting).
 
 #### Distributed Tracing account
-For troubleshooting your Distributed Tracing account, see our [Distributed Tracing troubleshooting guide](https://docs.logz.io/user-guide/distributed-tracing/troubleshooting/tracing-troubleshooting.html)
+For troubleshooting your Distributed Tracing account, see our [Distributed Tracing troubleshooting guide](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/tracing-troubleshooting)

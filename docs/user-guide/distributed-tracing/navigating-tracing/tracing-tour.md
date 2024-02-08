@@ -1,9 +1,10 @@
 ---
 sidebar_position: 1
+title: The Grand Distributed Tracing Tour
+description: Monitor your environment's traces with Logz.io
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, traces, tracing, timeline, observability, distributed tracing]
 ---
-
-
-# The Grand Distributed Tracing Tour
 
 
 Your Distributed Tracing account complements your logging stack. To reach it, log into your Logz.io account and select the **Jaeger** or **Tracing** tab.
