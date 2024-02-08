@@ -24,6 +24,10 @@ To enable group SSO for your main and sub accounts, contact your account manager
 
 ## Manage main account SSO groups
 
+:::tip note
+Changes made in the SSO provider will take effect and be visible only after you **re-login** to your Logz.io account.
+:::
+
 Admin users can easily create SSO groups for the main account within Logz.io.
 
 To add and assign SSO groups, navigate to [Settings > Manage users](https://app.logz.io/#/dashboard/settings/manage-users) and click the **SSO Groups** tab.
