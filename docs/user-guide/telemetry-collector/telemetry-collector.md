@@ -10,7 +10,7 @@ keywords: [Telemetry Collector, Telemetry, ship data, collectors, metrics, traci
 Logz.io’s Telemetry Collector lets you quickly send your data based on the configuration that fits your needs. For example, you can use it to send logs, metrics, and tracing data back to Logz.io’s observability platform.
 
 :::note
-Telemetry Collector is currently **available in all regions** except for Japan and Australia. If you're located in these regions, you can use **[Logz.io’s data shippers](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=all)** to send your data.
+Telemetry Collector is currently **available in all regions** except for Japan. If you're located in this region, you can use **[Logz.io’s integrations hub](https://app.logz.io/#/dashboard/integrations/collectors)** to send your data.
 :::
 
 

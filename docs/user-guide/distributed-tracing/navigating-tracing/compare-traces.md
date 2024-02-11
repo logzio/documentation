@@ -1,9 +1,11 @@
 ---
 sidebar_position: 7
+title: Compare Your Traces with Logz.io
+description: Compare your traces with Logz.io
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, traces, tracing, observability, distributed tracing]
 ---
 
-
-# Compare Your Traces with Logz.io
 
 You can compare traces by their structural aspects. Logz.io condenses each trace into a tree of unique service / operation paths.  
 

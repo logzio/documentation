@@ -1,7 +1,9 @@
 ---
 sidebar_position: 8
 title: Update Your Billing Info
-
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: How to update your billing info on Logz.io
+keywords: [account, manage account, billing, billing info, admin controls, admin, user permissions, permissions, access control]
 ---
 
 Logz.io self-purchase customers can update their billing info and payment method through Stripe's Logz.io portal.

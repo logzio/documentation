@@ -1,6 +1,9 @@
 ---
 sidebar_position: 2
 title: Kubernetes 360 Prerequisite
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Everything you need to get started with Logz.io's Kubernetes 360
+keywords: [kubernetes, k360, ship kubernetes data, kubernetes logs, metrics, labels]
 ---
 
 
@@ -17,7 +20,7 @@ Kubernetes 360 application provides an overview of your Kubernetes data, providi
 ### Manually shipping Kubernetes data
 
 
-If you already have Kubernetes 360 data in your Logz.io account or prefer connecting Kubernetes [manually](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=prometheus-sources), you'll need an active **[Infrastructure Monitoring](https://app.logz.io/#/dashboard/metrics)** account, and ensure that your Kubernetes data is [connected to Logz.io](https://app.logz.io/#/dashboard/send-your-data/agent/new).
+If you already have Kubernetes 360 data in your Logz.io account or prefer connecting Kubernetes [manually](https://app.logz.io/#/dashboard/integrations/collectors?tags=Tracing), you'll need an active **[Infrastructure Monitoring](https://app.logz.io/#/dashboard/metrics)** account, and ensure that your Kubernetes data is [connected to Logz.io](https://app.logz.io/#/dashboard/integrations/collectors?tags=Quick%20Setup).
 
 In addition, you'll need to ship your cluster metrics from the following sources:
 
@@ -146,12 +149,17 @@ And send the following metrics:
 |	node_memory_Cached_bytes	|	p8s_logzio_name, kubernetes_node	|
 |	node_memory_Buffers_bytes	|	p8s_logzio_name, kubernetes_node	| 
 |	kube_statefulset_status_replicas_updated	|	p8s_logzio_name, namespace, statefulset, app_kubernetes_io_instance	| 
+|   kube_deployment_labels | p8s_logzio_name, namespace, deployment |
+|   kube_daemonset_labels | all labels |
+|   kube_statefulset_labels | all labels |
+|   kube_job_labels | all labels |
+|   kube_pod_labels | all labels |
 
 ### Manually configuring Security Risks
 
 To add Security risks view to your existing Kubernetes data, you need to:
 
-* [Ship reports from Trivy operator](/shipping/log-sources/trivy.html).
+* [Ship reports from Trivy operator](/docs/shipping/security/trivy/).
 * Configure and send security logs.
 
 After setting up the Trivy operator, ensure your account receives `type:trivy` logs. 

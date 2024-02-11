@@ -215,7 +215,7 @@ namespace dotnet_log4net
 |---|---|---|
 | token | Your [Logz.io log shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs) securely directs the data to your Logz.io account. {@include: ../../_include/log-shipping/log-shipping-token.html} | Required |
 | listenerUrl  | Listener URL and port. {@include: ../../_include/log-shipping/listener-var.html}  | `https://listener.logz.io:8071` |
-| type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `log4net` |
+| type | The [log type](https://docs.logz.io/docs/user-guide/data-hub/log-parsing/default-parsing/#built-in-log-types), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `log4net` |
 | bufferSize | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
 | bufferTimeout | Maximum time to wait for more log lines, as _hh:mm:ss.fff_. | `00:00:05` |
 | retriesMaxAttempts | Maximum number of attempts to connect to Logz.io. | `3` |
@@ -485,7 +485,7 @@ LogManager.Configuration = config;
 |---|---|---|
 | token | Your [Logz.io log shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs) securely directs the data to your Logz.io account. {@include: ../../_include/log-shipping/log-shipping-token.html} | Required |
 | listenerUrl  | Listener URL and port. {@include: ../../_include/log-shipping/listener-var.html}  | `https://listener.logz.io:8071` |
-| type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `nlog` |
+| type | The [log type](https://docs.logz.io/docs/user-guide/data-hub/log-parsing/default-parsing/#built-in-log-types), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `nlog` |
 | bufferSize | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
 | bufferTimeout | Maximum time to wait for more log lines, as _hh:mm:ss.fff_. | `00:00:05` |
 | retriesMaxAttempts | Maximum number of attempts to connect to Logz.io. | `3` |
@@ -795,7 +795,7 @@ hierarchy.Configured = true;
 |---|---|---|
 | token | [Logz.io log shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs) securely directs the data to your Logz.io account. {@include: ../../_include/log-shipping/log-shipping-token.html} | Required |
 | listenerUrl  | Listener URL and port. {@include: ../../_include/log-shipping/listener-var.html}  | `https://listener.logz.io:8071` |
-| type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `log4net` |
+| type | The [log type](https://docs.logz.io/docs/user-guide/data-hub/log-parsing/default-parsing/#built-in-log-types), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `log4net` |
 | bufferSize | Maximum number of messages the logger will accumulate before sending them all in bulk. | `100` |
 | bufferTimeout | Maximum time to wait for more log lines, as _hh:mm:ss.fff_. | `00:00:05` |
 | retriesMaxAttempts | Maximum number of attempts to connect to Logz.io. | `3` |
@@ -1361,7 +1361,7 @@ To uninstall the `dotnet-monitor-collector` deployment, use the following comman
 helm uninstall dotnet-monitor-collector
 ```
 
-For troubleshooting this solution, see our [.NET with helm troubleshooting guide](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/dotnet-helm-troubleshooting.html).
+For troubleshooting this solution, see our [.NET with helm troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/dotnet-helm-troubleshooting/).
 </TabItem>
   <TabItem value="SDK" label="SDK">
 
@@ -1582,7 +1582,7 @@ Replace [[your_apdex_name]] with the name that you assigned to the timer metric.
 
  
 
-For troubleshooting this solution, see our [.NET core troubleshooting guide](/user-guide/infrastructure-monitoring/troubleshooting/dotnet-core-troubleshooting.html).
+For troubleshooting this solution, see our [.NET core troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/dotnet-core-troubleshooting/).
 
  
 
@@ -1803,7 +1803,7 @@ Replace [[your_apdex_name]] with the name that you assigned to the apdex metric.
 
  
 
-For troubleshooting this solution, see our [.NET core troubleshooting guide](/user-guide/infrastructure-monitoring/troubleshooting/dotnet-core-troubleshooting.html).
+For troubleshooting this solution, see our [.NET core troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/dotnet-core-troubleshooting/).
 
   
 
@@ -1886,7 +1886,7 @@ using (var stream = new MemoryStream())
 }
 ```
 
-For troubleshooting this solution, see our [.NET core troubleshooting guide](/user-guide/infrastructure-monitoring/troubleshooting/dotnet-core-troubleshooting.html).
+For troubleshooting this solution, see our [.NET core troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/dotnet-core-troubleshooting/).
 </TabItem>
 </Tabs>
 

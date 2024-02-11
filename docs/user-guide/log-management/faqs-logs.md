@@ -18,7 +18,7 @@ If you're interested in integrating our logs with a specific service or applicat
 
 ### Can I integrate with a proprietary application or service?
 
-We offer various [Send Your Data integrations](https://app.logz.io/#/dashboard/send-your-data/collection?tag=from-your-code&collection=log-sources) to enable you to ship logs directly from your code, based on the language you're using.
+We offer various [integrations](https://app.logz.io/#/dashboard/integrations/collectors) to enable you to ship logs directly from your code, based on the language you're using.
 
 This information is also available in the Logz.io Docs, via [**Ship data > Logs**](https://docs.logz.io/shipping/#log-sources), when you select the **From your code** filter.
 

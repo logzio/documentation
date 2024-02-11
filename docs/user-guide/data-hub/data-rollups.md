@@ -1,8 +1,10 @@
 ---
 sidebar_position: 6
+title: Metrics Rollups
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Compact and optimize your Logz.io metrics
+keywords: [Data hub, data optimization, optimization, drop filters, rollups, metrics, recommendations]
 ---
-
-# Metrics Rollups
 
 
 

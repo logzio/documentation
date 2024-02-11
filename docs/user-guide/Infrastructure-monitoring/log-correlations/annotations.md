@@ -1,6 +1,9 @@
 ---
 sidebar_position: 2
 title: Annotations
+description: Mark events on your metrics dashboard with annotations
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [metrics, infrastructure monitoring, annotations, Prometheus, monitoring, dashboard, observability, logz.io]
 ---
 
 

@@ -1,6 +1,9 @@
 ---
 sidebar_position: 6
 title: Trace Flamegraph
+description: Visualize your traces with flamegraph
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, traces, tracing, flamegraph, observability, distributed tracing]
 ---
 
 ## What can I do in the Trace Flamegraph?

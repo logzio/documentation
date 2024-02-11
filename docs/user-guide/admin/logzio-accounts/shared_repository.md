@@ -1,6 +1,9 @@
 ---
 sidebar_position: 6
 title: Manage the Shared SIEM Repository
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Learn about shared SIEM Repository and how to manage it 
+keywords: [account, manage account, siem, security, admin controls, admin, user permissions, permissions, access control]
 ---
 
 ## About the shared SIEM Repository 
@@ -71,4 +74,4 @@ To delete your current Repository, you must first reset it to remove the depende
 
 ## Private feeds in the shared Security Repository
 
-Define a [private feed](/user-guide/siem/ioc-types/) once in your SIEM Repository and share it with the relevant Security accounts. You can find more information on how to include private feeds in your Repository in [Adding a private feed](/user-guide/cloud-siem/private-feeds.html).
+Define a [private feed](https://docs.logz.io/docs/user-guide/cloud-siem/threat-intelligence/ioc-types/) once in your SIEM Repository and share it with the relevant Security accounts. You can find more information on how to include private feeds in your Repository in [Adding a private feed](https://docs.logz.io/docs/user-guide/cloud-siem/threat-intelligence/private-feeds/).

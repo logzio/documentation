@@ -127,14 +127,14 @@ Keep to these practices when shipping JSON logs over TCP:
 
 ### Send the logs
 
-Using the certificate you just downloaded, send the logs to TCP port 5052 on your region’s listener host. For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
+Using the certificate you just downloaded, send the logs to TCP port 5052 on your region’s listener host. For more information on finding your account’s region, see [Account region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/).
 
 
 ## Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
 
 </TabItem>
 </Tabs>

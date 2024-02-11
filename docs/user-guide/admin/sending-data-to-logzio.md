@@ -1,8 +1,10 @@
 ---
 sidebar_position: 10
+title: Sending Data to Logz.io
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Important info regarding sending data to Logz.io
+keywords: [send data, terms of use, privacy policy, logz.io]
 ---
-
-# Sending Data to Logz.io
 
 As part of Logz.io's [Terms of Use](https://logz.io/about-us/terms-of-use/), you agree to not interfere with, or attempt to interfere with, the access of any user, host or network, including, without limitation, sending a virus, overloading, flooding, spamming, or mail-bombing the Services, the Website or the Logz.io Platform. 
 

@@ -16,7 +16,7 @@ Within Logz.io, look up the Listener host for your region (URL) and the Logz.io 
 
 + You'll find the correct Region and Listener URL for your region in the [*Regions and Listener Hosts*](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions) table. 
 
-+ Look up your Prometheus Metrics account token in the [Settings > Manage tokens > Data shipping tokens > Metrics](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping) tab of your Operations workspace. For more information, see [Metrics shipping token. ](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/) 
++ Look up your Prometheus Metrics account token in the [Settings > Manage tokens > Data shipping tokens > Metrics](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping) tab of your Operations workspace. For more information, see [Metrics shipping token. ](https://docs.logz.io/docs/user-guide/admin/authentication-tokens/finding-your-metrics-account-token/) 
 
 
 

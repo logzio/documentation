@@ -9,7 +9,7 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/pyth
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: []
+metrics_dashboards: ['1B98fgq9MpqTviLUGFMe6Z']
 metrics_alerts: []
 drop_filter: []
 ---
@@ -598,7 +598,7 @@ Replace the placeholders (indicated by the double angle brackets `<< >>`) to mat
 
 |Environment variable|Description|
 |---|---|
-|`<<LISTENER-HOST>>`|  The Logz.io [Listener URL](https://docs.logz.io/user-guide/accounts/account-region.html) for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. |
+|`<<LISTENER-HOST>>`|  The Logz.io [Listener URL](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/) for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. |
 |`<<PORT>>`| The Logz.io listener port. **8052** for HTTP traffic, or **8053** for HTTPS traffic. |
 |`<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>`| {@include: ../../_include/p8s-shipping/replace-prometheus-token.html}  |
 
@@ -716,6 +716,170 @@ For more information, see the OpenTelemetry [documentation](https://github.com/o
     up_down_counter.add(20,labels)
     up_down_counter.add(-10,labels)
 ```
+
+</TabItem>
+
+  <TabItem value="Prometheus-client-library" label="Setup Metrics with prometheus_client Library">
+
+### Setup Metrics using `prometheus_client` Library
+
+#### Install the prometheus_client library
+
+```python
+pip3 install Prometheus-client
+```
+
+#### Add the prometheus_client library to your application
+
+In your Python script, use the prometheus_client library and expose the built-in metrics to the Prometheus HTTP server. See the code below for an example:
+
+```python
+from prometheus_client import start_http_server
+import time
+
+
+def main():
+   # Start up the server to expose the metrics.
+   start_http_server(8000)
+   # Generate some requests.
+   while True:
+       time.sleep(1)
+
+
+if __name__== '__main__':
+   main() 
+```
+
+#### Add system metrics (if required)
+
+If you are using Linux, the system metrics such as CPU and memory usage are exposed by default.
+
+If you are using an OS other than Linux:
+
+1. Instal the `psutil` library:
+
+   ```python
+   psutil library - pip3 install psutil
+   ```
+
+2. Add the following script to your code:
+
+   ```python
+   from prometheus_client import start_http_server, Gauge
+   import time
+   import psutil
+   import os
+   import resource
+   
+   
+   # Create gauges
+   cpu_seconds_total = Gauge('python_process_cpu_seconds_total', 'Total user and system CPU time spent in seconds.')
+   virtual_memory_bytes = Gauge('python_process_virtual_memory_bytes', 'Virtual memory size in bytes.')
+   resident_memory_bytes = Gauge('python_process_resident_memory_bytes', 'Resident memory size in bytes.')
+   open_fds = Gauge('python_process_open_fds', 'Number of open file descriptors.')
+   max_fds = Gauge('python_process_max_fds', 'Maximum number of open file descriptors.')
+   total_memory = Gauge('python_process_total_memory_bytes', 'Total memory size in bytes.')
+   
+   
+   def collect_metrics():
+      while True:
+          p = psutil.Process(os.getpid())
+          # Collect metrics
+          cpu_seconds_total.set(p.cpu_times().user + p.cpu_times().system)
+          virtual_memory_bytes.set(p.memory_info().vms)
+          resident_memory_bytes.set(p.memory_info().rss)
+          open_fds.set(p.num_fds())
+          max_fds.set(resource.getrlimit(resource.RLIMIT_NOFILE)[1])
+          total_memory.set(psutil.virtual_memory().total)
+          time.sleep(1)
+   
+   
+   if __name__ == '__main__':
+      start_http_server(8000)
+      collect_metrics()
+   ```
+
+
+#### Check the metrics locally
+
+Go to the HTTP server at `localhost:8000` to see the metrics.
+
+#### Download OpenTelemetry collector
+
+:::note
+If you already have OpenTelemetry, proceed to the next step.
+:::
+
+Create a dedicated directory on your host and download the OpenTelemetry collector that is relevant to the operating system of your host.
+
+After downloading the collector, create a configuration file `config.yaml`.
+
+#### Configure the Receivers
+
+Open the configuration file and ensure it contains the receivers required to collect your metrics:
+
+```yaml
+receivers: 
+ prometheus:
+   config:
+     scrape_configs:
+       - job_name: otel-collector-python
+         scrape_interval: 5s
+         static_configs:
+           - targets: ['localhost:8000']
+```
+
+#### Configure the Exporters
+
+In the same configuration file, add the following to the exporters section:
+
+```yaml
+exporters:
+ logging:
+ prometheusremotewrite:
+   resource_to_telemetry_conversion:
+     enabled: true
+   endpoint: https://<<LISTENER-HOST>>:8053
+   headers:
+     Authorization: Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
+```
+
+{@include: ../../_include/log-shipping/listener-var.html}
+
+{@include: ../../_include/p8s-shipping/replace-prometheus-token.html}
+
+#### Configure teh Processors and Service
+
+```yaml
+processors:
+resourcedetection/system:
+  detectors: ["system"]
+  system:
+    hostname_sources: ["os"]
+
+
+service:
+ pipelines:
+   metrics:
+     receivers: [prometheus]
+     processors: [resourcedetection/system]
+     exporters: [prometheusremotewrite, logging]
+```
+
+#### Start the Collector
+
+Run the following command:
+
+```shell
+<path/to>/otelcol-contrib --config ./config.yaml
+```
+
+* Replace `<path/to>` with the path to the directory where you downloaded the collector. If the name of your configuration file is different to config, adjust the name in the command accordingly.
+
+#### Check Logz.io for your metrics
+
+Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
+
 
 </TabItem>
 </Tabs>
@@ -1253,10 +1417,10 @@ helm uninstall logzio-monitoring
 
 
 #### Logz.io Python handler 
-For troubleshooting the Logz.io Python handler, see our [Python logging troubleshooting guide](https://docs.logz.io/user-guide/log-management/troubleshooting/troubleshooting-python.html).
+For troubleshooting the Logz.io Python handler, see our [Python logging troubleshooting guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-python).
  
 #### OpenTelemetry instrumentation 
-For troubleshooting the OpenTelemetry instrumentation, see our [OpenTelemetry troubleshooting guide](https://docs.logz.io/user-guide/distributed-tracing/troubleshooting/otel-troubleshooting.html).
+For troubleshooting the OpenTelemetry instrumentation, see our [OpenTelemetry troubleshooting guide](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/otel-troubleshooting).
 
 #### Distributed Tracing account
-For troubleshooting your Distributed Tracing account, see our [Distributed Tracing troubleshooting guide](https://docs.logz.io/user-guide/distributed-tracing/troubleshooting/tracing-troubleshooting.html)
+For troubleshooting your Distributed Tracing account, see our [Distributed Tracing troubleshooting guide](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/tracing-troubleshooting)

@@ -22,7 +22,7 @@ so you can investigate events in OpenSearch Dashboards that are older than your 
 * Data can be restored from the **root of an S3 bucket**, but not a sub-bucket path.
 
 :::tip
-Starting December 1st, 2022, restored logs will become a part of your daily plan. **Use Power search and Filters to restore critical and needed logs** and minimize the impact on your daily plan. Restoring more than your daily plan **will not** stop your data ingestion, and the additional GB will be added to your On Demand consumption.
+Restored logs count toward your daily quota. Use **Power Search** and **Filters** to restore critical logs and avoid overages, which may lead to additional charges according to your On Demand plan.
 :::
 
 

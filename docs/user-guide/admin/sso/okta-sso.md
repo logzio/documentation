@@ -1,6 +1,9 @@
 ---
 sidebar_position: 5
 title: Single Sign-On with Okta
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Configure Single Sign On for Okta and Logz.io
+keywords: [single sign=on, sso, sso setup, sso configuration, secured login, integration, okta]
 ---
 
 

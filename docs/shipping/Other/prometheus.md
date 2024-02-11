@@ -106,10 +106,10 @@ externalLabels:
 
 ##### Open Metrics Explore
 
-Once you've verified that your data is available in Logz.io, [explore your Prometheus metrics.](https://docs.logz.io/user-guide/infrastructure-monitoring/metrics-explore-prometheus/)
+Once you've verified that your data is available in Logz.io, [explore your Prometheus metrics.](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/introduction-to-prometheus/explore-metrics-prometheus/)
 
 
-After your metrics are flowing, [import your existing Prometheus and Grafana dashboards](https://docs.logz.io/user-guide/infrastructure-monitoring/prometheus-importing-dashbds.html) to Logz.io Infrastructure Monitoring as JSON files.
+After your metrics are flowing, [import your existing Prometheus and Grafana dashboards](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/introduction-to-prometheus/importing-dashboards/) to Logz.io Infrastructure Monitoring as JSON files.
 
 
 

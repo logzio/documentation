@@ -63,10 +63,10 @@ If you wish to use a specific version of the provider, add under `source` the fi
 
 The provider accepts the following arguments:
 
-* **api_token** - (Required) The API token is used for authentication. [Learn more about the API token](/user-guide/tokens/api-tokens.html).
+* **api_token** - (Required) The API token is used for authentication. [Learn more about the API token](https://docs.logz.io/docs/user-guide/admin/authentication-tokens/api-tokens/).
 
 * **region** - (Defaults to null) The 2-letter region code identifies where your Logz.io account is hosted.
-Defaults to null for accounts hosted in the US East - Northern Virginia region. [Learn more about account regions](https://docs.logz.io/user-guide/accounts/account-region.html)
+Defaults to null for accounts hosted in the US East - Northern Virginia region. [Learn more about account regions](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/)
 
 
 <h4 id="#example1">Example - Pass variables</h4>

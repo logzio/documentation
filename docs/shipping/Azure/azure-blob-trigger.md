@@ -88,7 +88,7 @@ In the **Custom deployment** screen, fill in all the parameters as per table bel
 | Storage Account Name | The storage account (general purpose v2) name | Required | - |
 | Container Name | The name of the container inside the storage account | Required | - |
 | Format | The format of the log files | Required | - |
-| Logzio URL | The Logz.io listener URL fot your region. For more details, see the [Regions page](https://docs.logz.io/user-guide/accounts/account-region.html). | Required | - |
+| Logzio URL | The Logz.io listener URL fot your region. For more details, see the [Regions page](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/). | Required | - |
 | Logzio Token | Your Logz.io Logs token (Available in the **Manage Tokens** page) | Required | - |
 | Logs Path | The path from where blob files will trigger the Logz.io function (including subdirectories in that path). Leave empty if you want every blob file in the container to trigger the Logz.io function. | Not Required | `<<ContainerLogsPath>>/{name}` |
 | Multiline Regex | The regex that matches the multiline logs in text blob files. Leave empty if you do not use multiline logs in your text blob files. | Not Required | NO_REGEX |
@@ -113,7 +113,7 @@ Click **Go to resource group** to go to your resource group with all the created
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for logs of `type` `azure_blob_trigger` to see the incoming logs.
 
-If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting).
 
 
  
@@ -155,7 +155,7 @@ In the **Custom deployment** screen, fill in all the parameters as per table bel
 | Storage Account Resource Name | The resource name that contains the storage account. Required only for the Logz.io Function Auto-Deployment. | Required | - |
 | Container Name | The name of the container inside the storage account | Required | - |
 | Format | The log files format | Required | - |
-| Logzio URL | The Logz.io listener URL for your region. For more details, see the [Regions page.](https://docs.logz.io/user-guide/accounts/account-region.html) | Required | - |
+| Logzio URL | The Logz.io listener URL for your region. For more details, see the [Regions page.](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/) | Required | - |
 | Logzio Token | Your Logz.io logs token. You can retrieve the token from the [**Manage tokens** page](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). | Required | - |
 | Logs Path | The path from where blob files will trigger the Logz.io function (including subdirectories in that path). Leave empty if you want every blob file in the container to trigger the Logz.io function. | Not Required | `<<ContainerLogsPath>>/{name}` |
 | Multiline Regex | The regex that matches the multiline logs in text blob files. Leave empty if you do not use multiline logs in your text blob files. | Not Required | NO_REGEX |
@@ -187,7 +187,7 @@ Click **Go to resource group** to go to your resource group with all the created
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for logs of `type` `azure_blob_trigger` to see the incoming logs.
   
-If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
 
   
 

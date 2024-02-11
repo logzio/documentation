@@ -1,6 +1,9 @@
 ---
 sidebar_position: 1
 title: Why Metrics?
+description: Monitor your Infrastructure Metrics with Logz.io
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [metrics, infrastructure monitoring, monitoring, observability, logz.io]
 ---
 
 

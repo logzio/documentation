@@ -1,14 +1,15 @@
 ---
 sidebar_position: 5
-title: Easy Connect
+title: EasyConnect
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Simplify the process of instrumenting Kubernetes applications
+keywords: [Kubernetes, ship kubernetes data, easyconnect, ezkonnect, kubernetes logs, kubernetes metrics, kubernetes tracing]
 ---
 
 
-Easy Connect is a deployment and configuration tool designed to assist you in effectively instrumenting Kubernetes applications with OpenTelemetry auto-instrumentation and configurable log types.
+The EasyConnect is a tool that simplifies the process of instrumenting Kubernetes applications with OpenTelemetry auto-instrumentation and adding configurable log types. The EasyConnect is based on the `easy-connect` Helm chart that works in conjunction with the `logzio-monitoring` Helm chart.
 
-At the heart of Easy Connect is the `logzio-ezkonnect` Helm chart, which functions synergistically with the `logzio-monitoring` Helm chart.
-
-Easy Connect comprises three principal components:
+EasyConnect comprises three principal components:
 
 * **Kubernetes Instrumentor** - Provides auto-instrumentation and manages log type control for Kubernetes applications.
 * **Easy Connect Server** - Facilitates communication between the user and the Kubernetes Instrumentor.
@@ -22,14 +23,17 @@ Easy Connect supports several programming languages, including:
 * Python
 * .NET
 
-### Before you start you will need:
-- Opentelemetry collector installed on your cluster
-  - works out of the box with [logzio-monitoring](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-monitoring) chart installed with traces and logs enabled (version `0.5.8` or higher for log_type)
-  - to send the data to a custom collector change the `kubernetesInstrumentor.env.monitoringServiceEndpoint` value
+### Before you start, you will need:
 
-## Install Easy Connect
+Opentelemetry collector installed on your cluster. The collector works out of the box with [logzio-monitoring](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-monitoring) chart installed with traces and logs enabled (version `0.5.8` or higher for log_type). 
 
-To install the Easy Connect Helm chart, run the following commands:
+:::note
+To send data to a custom collector, change the `kubernetesInstrumentor.env.monitoringServiceEndpoint` value.
+:::
+
+## Install EasyConnect
+
+To install the EasyConnect Helm chart, run the following commands:
 
 ```shell
 helm repo add logzio-helm https://logzio.github.io/logzio-helm
@@ -37,70 +41,67 @@ helm repo update
 helm install logzio-easy-connect logzio-helm/easy-connect -n monitoring --create-namespace
 ```
 
-Afterwards, use `kubectl port-forward` to access the user interface in your browser:
+After installing, run `kubectl port-forward` to access the user interface in your browser:
 
 ```shell
 kubectl port-forward svc/easy-connect-ui -n monitoring 31032:31032
 ```
 
-Go to http://localhost:31032 
+The EasyConnect UI is available at http://localhost:31032 
 
-## Using Easy Connect UI
+## Using EasyConnect UI
 
-
-The Easy Connect UI shows when you access the deployment at `http://localhost:8080`.
-
+The EasyConnect UI shows a list of all workloads in your account. You can filter the worloads by name, namespace, workload type or language.
 
 ### Logs
 
-![UI](https://dytvr9ot2sszz.cloudfront.net/logz-docs/ezkonnect/ezkonnect-logs.png)
+#### Edit the log type for a workload
 
-#### Edit a log type of a log
+If you need to change the log type for a workload:
 
-If you need to change a log type of a log collected by Easy Connect:
+1. In the row of the required workload, click **Edit**.
+2. Click the **Log Type** dropdown.
+3. Select the required log type. If the required log type is not available from the selection, manually enter the log type and press **Enter**.
+4. Click **Deploy**.
 
-1. In the row of the required log, click the **Log Type** dropdown.
-2. Select the required log type.
-3. Click **Deploy**.
+#### Add a log type to a workload
 
-#### Add a log type
+If you need to add a log type to a workload:
 
-If you need to add a log type to a log collected by Easy Connect:
+1. In the row of the required workload, click the **Log Type** dropdown.
+2. Enter the required log type definition.
+3. Press **Enter**.
+4. Click **Deploy**.
 
-1. In the row of the required log, click the **Log Type** dropdown.
-2. Type in the required log type definition.
-3. Press Enter.
-4. Click **Add log type**.
-
-#### Remove a log type from a log
-
-If you need to change a log type of a log collected by Easy Connect:
-
-1. In the row of the required log, click the **Remove log type**.
 
 ### Traces
 
-![UI](https://dytvr9ot2sszz.cloudfront.net/logz-docs/ezkonnect/ezkonnect-traces.png)
+#### Add instrumentation to a workload
 
-#### Add instrumentation to a pod
+To add OpenTelemetry instrumentation to a workload:
 
-To add OpenTelemetry instrumentation to a pod:
+1. In the row of the required workload, click **Edit**.
+2. Enable the selector of **Traces (Service name)**.
+3. Click the **Select service name** dropdown.
+4. Select the required service name. If the required service name is not available from the selection, manually enter the service name and press **Enter**.
+5. Click **Deploy**.
 
-1. Select the required pod. The source code detected on the pod will be shown on the UI. THe instrumentation will be installed for this code.
-2. Click **Add instrumentation**. 
-3. Click **Deploy**.
+#### Remove instrumentation from a workload
 
-#### Remove instrumentation from a pod
+To remove OpenTelemetry instrumentation from a workload:
 
-To remove OpenTelemetry instrumentation from a pod:
+1. In the row of the required workload, click **Edit**.
+2. Disable the toggle switch of **Traces (Service name)**.
 
-1. Select the required pod.
-2. Click **Rollback**. 
 
+:::note
+If Opentelemetry is already integrated into your workload, EasyConnect will identify its presence and notify you, preventing any addition or removal of Opentelemetry through EasyConnect.
+If your workload's telemetry language is unsupported, EasyConnect will display a notification indicating that auto-instrumentation is not available.
+::: 
 
 ## Parameters configuration
 
-The Easy Connect chart has several configurable parameters and their default values. Below is a table detailing these parameters:
+The EasyConnect chart has several configurable parameters and their default values.
 
 | Parameter | Description | Default |
 | --- | --- | --- |
@@ -151,3 +152,16 @@ helm install logzio-easy-connect logzio-helm/easy-connect -n easy-connect --crea
 ```
 
 Here, `my_values.yaml` is your custom configuration file.
+
+## Manual actions
+
+The `logzio-instrumetor` microservice can be deployed to your cluster to discover applications, inject opentelemetry instrumentation, add log types and more. You can manually control the discovery process with annotations:
+- `logz.io/traces_instrument = true` - to instrument the application with OpenTelemetry
+- `logz.io/traces_instrument = rollback` - to delete the OpenTelemetry instrumentation
+- `logz.io/service-name = <string>` - to set an active service name for your OpenTelemetry instrumentation
+- `logz.io/application_type = <string>` - to set the log type to send to logz.io (**dependent on logz.io fluentd helm chart**)
+- `logz.io/skip = true` - to skip the application from instrumentation or app detection
+
+## Alternative images
+
+You can find alternative to `dockerhub` images in `public.ecr.aws/logzio/` with the same image name. For example, `public.ecr.aws/logzio/instrumentor`.

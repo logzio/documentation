@@ -1,6 +1,9 @@
 ---
 sidebar_position: 2
 title: Kubernetes Deployment Reference to Send Traces
+description: Ship Kubernetes traces to Logz.io with a Helm chart
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, traces, tracing, helm chart, helm, kubernetes, ship data, observability, distributed tracing]
 ---
 
 If you're working with Kubernetes, you can ship your traces to Logz.io using a Helm chart, via the OpenTelemetry collector.
@@ -26,7 +29,7 @@ Look up your Distributed Tracing `ACCOUNT TOKEN`.
 
 Logz.io uses a Helm chart to send traces from your Kubernetes cluster via the OpenTelemetry collector. 
 
-Select **[Send your traces](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=tracing-sources) [> Kubernetes](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/otel-traces-helm)** and follow the steps to deploy the chart and trace your data.
+Select **[Send your traces](https://app.logz.io/#/dashboard/integrations/collectors?tags=Tracing) [> Kubernetes](https://app.logz.io/#/dashboard/integrations/Kubernetes)** and follow the steps to deploy the chart and trace your data.
 
 ##### Check the Distributed Tracing tab for your traces.
 
