@@ -1,4 +1,7 @@
 
+:::note
+This integration is based on [`logzio-google-metrics`](https://github.com/logzio/logzio-google-metrics).
+:::
 
 **Before you begin, you'll need**:
 

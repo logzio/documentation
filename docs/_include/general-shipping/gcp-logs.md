@@ -1,4 +1,7 @@
 
+:::note
+This integration is based on [`logzio-google-pubsub`](https://github.com/logzio/logzio-google-pubsub).
+:::
 
 **Before you begin, you'll need**:
 
