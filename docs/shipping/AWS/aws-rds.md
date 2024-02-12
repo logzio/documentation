@@ -6,10 +6,10 @@ product: ['logs', 'metrics']
 os: ['windows', 'linux']
 filters: ['AWS', 'Database']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-rds.svg
-logs_dashboards: []
+logs_dashboards: ['2IzSk7ZLwhRFwaqAQg4e2U']
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: []
+metrics_dashboards: ['5azSSei1AhiJPCV7yptVI7']
 metrics_alerts: []
 drop_filter: []
 ---
@@ -197,7 +197,7 @@ This integration creates a Kinesis Data Firehose delivery stream that links to y
 
 {@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["3IBMDDcDOYQjEHj6gmalvO"] -->
+<!-- logzio-inject:install:grafana:dashboards ids=["5azSSei1AhiJPCV7yptVI7"] -->
 
 {@include: ../../_include/metric-shipping/generic-dashboard.html}
 
@@ -207,6 +207,6 @@ This integration creates a Kinesis Data Firehose delivery stream that links to y
 
 {@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["3IBMDDcDOYQjEHj6gmalvO"] -->
+<!-- logzio-inject:install:grafana:dashboards ids=["5azSSei1AhiJPCV7yptVI7"] -->
 
 {@include: ../../_include/metric-shipping/generic-dashboard.html}
