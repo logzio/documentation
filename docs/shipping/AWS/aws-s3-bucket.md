@@ -25,7 +25,7 @@ Some AWS services can be configured to ship their logs to an S3 bucket, where Lo
 
 ### Which shipping method is right for you
 
-* If your data is organized in alphabetical order, you should opt for the [S3 fetcher](#shipping-logs-via-s3-fetcher). Logz.io operates this fetcher on our end, directly accessing your S3 to retrieve the data.
+* If your data is organized in alphabetical order, you should opt for the [S3 fetcher](https://docs.logz.io/docs/shipping/aws/aws-s3-bucket/#shipping-logs-via-s3-fetcher). Logz.io operates this fetcher on our end, directly accessing your S3 to retrieve the data.
 
 
 * If your data is not organized in alphabetical order, use the [S3 hook](#shipping-logs-via-s3-hook). This approach requires deploying a Lambda function within your environment to manage the process.
