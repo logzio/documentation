@@ -17,6 +17,56 @@ drop_filter: []
 Microsoft Graph is a RESTful web API that enables you to access Microsoft Cloud service resources. This integration allows you to collect data from Microsoft Graph API and send it to your Logz.io account.
 
 
+To integrate Microsoft Graph and Logz.io:
+
+ 
+
+### Register a new app in Azure Active Directory
+
+In the Azure portal, go to [App registration](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) and select **New registration** from the top menu.
+
+Name your app and click **Register**.
+
+### Create a client secret
+
+Choose **Certificates & secrets** from the side menu, and click on **New client secret**.
+
+Add a **Description**.
+We recommend something specific, such as "secret for Logzio-MSGraph integration".
+
+In the **Expires** list, choose **Never**.
+
+Click **Add**.
+
+Copy the value of the generated secret to your text editor.
+You'll need this later.
+
+:::note
+You won't be able to retrieve the secret's value after you leave this page.
+:::
+ 
+
+### Set the app's permissions
+
+Choose **API permissions** from the side menu, and click **Add a permission**.
+
+Select **Microsoft Graph > Application permissions**.
+
+Select the following items:
+
+* **AuditLog.Read.All**
+* **Directory.Read.All**
+
+
+Click **Add permissions**.
+
+Click **Grant admin consent for Default Directory**, and then click **Yes** to confirm.
+
+:::note
+Only Azure administrators can grant consent for Default Directory. If the _Grant admin consent_ button is disabled, ask your Azure admin to update the setting for you.
+:::
+
+
 ### Pull the Docker image of the Logz.io API fetcher
 
 ```shell
