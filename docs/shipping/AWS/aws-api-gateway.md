@@ -73,7 +73,6 @@ AWS limits every log group to have up to 2 subscription filters. If your chosen 
 
 
 
-
 #### Send logs
 
 Give the stack a few minutes to be deployed.

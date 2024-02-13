@@ -81,4 +81,3 @@ This integration creates a Kinesis Data Firehose delivery stream that links to y
 <!-- logzio-inject:install:grafana:dashboards ids=["5oFBj0BIKo4M5XLZpwjSgl"] -->
 
 {@include: ../../_include/metric-shipping/generic-dashboard.html}
-
