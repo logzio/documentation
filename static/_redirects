@@ -314,7 +314,7 @@
 /docs/logz/suspend-user-recursively /docs/user-guide/admin/users/
 /docs/logz/create-user  /docs/user-guide/admin/users/
 /docs/logz/get-annotations/ /docs/user-guide/infrastructure-monitoring/log-correlations/annotations/
-/user-guide/archive-and-restore/set-s3-permissions.html/1000
+/user-guide/archive-and-restore/set-s3-permissions.html/1000    /docs/user-guide/data-hub/archive-restore/set-s3-permissions
 /docs/logz/create-victorops /docs/user-guide/data-hub/archive-restore/set-s3-permissions/
 /user-guide/insights/exceptions/    /docs/user-guide/log-management/insights/exceptions/
 /docs/logz/manage-time-based-log-accounts/  /docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts
@@ -1046,7 +1046,7 @@
 /shipping/metrics-sources/aws-dynamodb.html /docs/shipping/aws/aws-dynamodb/
 /shipping/metrics-sources/aws-rds.html  /docs/shipping/aws/aws-rds/
 /shipping/log-sources/gsuite.html   /docs/shipping/GCP/GCP-Workspace
-/shipping/prometheus-sources/actions.html ???
+/shipping/prometheus-sources/actions.html /
 /docs/shipping/containers/kubernetes.md /docs/shipping/Containers/Kubernetes
 /shipping/prometheus-sources/vpc.html   /docs/shipping/network/vpc-network/
 /shipping/log-sources/sonicwall.html    /docs/shipping/security/sonicwall/
