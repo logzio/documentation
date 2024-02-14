@@ -104,4 +104,3 @@ This integration creates a Kinesis Data Firehose delivery stream that links to y
 
 {@include: ../../_include/metric-shipping/aws-metrics.md}
 
-
