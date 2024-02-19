@@ -22,6 +22,10 @@ To configure the Telemetry Collector, you must be logged into your **main** Logz
 
 ## Send Localhost data
 
+:::note
+This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
+:::
+
 <!-- 
 ### Select your environment
 
