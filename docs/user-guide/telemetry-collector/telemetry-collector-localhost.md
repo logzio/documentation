@@ -77,6 +77,10 @@ If you encounter issues in installing or running your Telemetry Collector, [cont
 
 To manage a Localhost Telemetry Collector on your **Linux** machine, you can use the following commands:
 
+:::tip Note
+To run these commands, make sure you're using SystemD.
+:::
+
 |Description|Command|
 |-|-|
 |**Collector Binary:** |`/opt/logzio-agent/logzio-otel-collector/otelcol-logzio-linux_amd64`|
