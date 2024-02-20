@@ -33,7 +33,7 @@ curl -X GET \
 ```
 
 :::note Read More
-This API endpoint is documented in [Retrieve this account](https://api-docs.logz.io/docs/category/logz-api) in the API docs.
+This API endpoint is documented in [Retrieve this account](https://api-docs.logz.io/docs/category/logz-api/) in the API docs.
 :::
 
  

@@ -390,7 +390,7 @@ If you need to send the logs via a proxy server:
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for data of type `docker-fluentd` to see the incoming container logs.
   
-If you still don’t see your data, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting).
+If you still don’t see your data, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
   
  
 
@@ -416,4 +416,4 @@ If you need to customize the default settings of the configuration parameters, a
 
  ## Ship Kubernetes logs with Fluentd
 
- See the full documentation for shipping your Kubernetes logs with Fluentd [here](https://docs.logz.io/docs/shipping/Containers/Kubernetes).
+ See the full documentation for shipping your Kubernetes logs with Fluentd [here](https://docs.logz.io/docs/shipping/containers/kubernetes/).

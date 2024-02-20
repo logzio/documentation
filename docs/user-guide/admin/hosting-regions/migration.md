@@ -50,10 +50,10 @@ If you have custom parsing, ask your Logz.io Customer Success Manager or Account
 
 Retrieve all sub-accounts and re-create them in your new account. You can do so using the Logz.io API endpoints as follows:
 
-1. In your pre-migration account, [retrieve the settings for all of your Log Management accounts](https://api-docs.logz.io/docs/logz/get-all-detailed-time-based-account).
+1. In your pre-migration account, [retrieve the settings for all of your Log Management accounts](https://api-docs.logz.io/docs/logz/get-all-detailed-time-based-account/).
 2. In your post-migration account:
-    1. [Create a new sub-account](https://api-docs.logz.io/docs/logz/create-time-based-account) with the matching settings. Repeat for each sub account.
-    2. [Update your main account](https://api-docs.logz.io/docs/logz/update-time-based-account) with the appropriate settings and daily capacity.
+    1. [Create a new sub-account](https://api-docs.logz.io/docs/logz/create-time-based-account/) with the matching settings. Repeat for each sub account.
+    2. [Update your main account](https://api-docs.logz.io/docs/logz/update-time-based-account/) with the appropriate settings and daily capacity.
 
 
 
@@ -99,7 +99,7 @@ If the filters were created from the backend, contact your Customer Success Mana
 
 ### (Re-)Create your Optimizers
 
-In your post-migration account, open your [Manage Accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page, and create your Timeless account/s. [Learn more](/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts#timeless)
+In your post-migration account, open your [Manage Accounts](https://app.logz.io/#/dashboard/settings/manage-accounts/) page, and create your Timeless account/s. [Learn more](/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts#timeless)
 
 Re-create your Optimizers manually in your Logz.io account. [Learn more](https://docs.logz.io/docs/user-guide/log-management/long-term-storage/configure-optimizers/).
 
@@ -112,7 +112,7 @@ Optimizers are currently not supported by the Logz.io API.
 Retrieve all notification endpoints and re-create them in your new account. You can do so using the Logz.io API endpoints as follows:
 
 1. In your pre-migration account, [retrieve all notification endpoints for your main Log Management account](https://api-docs.logz.io/docs/logz/get-all-endpoints/). Repeat for each sub account.
-2. In your post-migration account, [create a new endpoint](https://api-docs.logz.io/docs/logz/manage-notification-endpoints). Repeat for each endpoint and account, as necessary.
+2. In your post-migration account, [create a new endpoint](https://api-docs.logz.io/docs/logz/manage-notification-endpoints/). Repeat for each endpoint and account, as necessary.
 
 
 If you prefer to perform the process manually, see the [notification endpoints guide](https://docs.logz.io/docs/user-guide/integrations/notification-endpoints/endpoints/).

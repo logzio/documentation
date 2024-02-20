@@ -133,6 +133,6 @@ The selected logs will now stream to the event hub.
 Give your logs some time to get from your system to ours, and then open Open Search Dashboards.
 If everything went according to plan, you should see logs with the type `eventHub` in Open Search Dashboards.
 
-If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting).
+If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
 
  
