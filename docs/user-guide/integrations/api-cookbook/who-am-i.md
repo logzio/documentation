@@ -5,7 +5,6 @@ sidebar_position: 2
 # Meet the Logz.io API
 
 
-
 If you've never used the Logz.io API before—or any API, for that matter—the `whoami` endpoint is a great way to dip your toes in.
 
 Unfortunately, Logz.io can't respond to `whoami` with existential answers, like who you _really_ are and your purpose in life.
