@@ -22,8 +22,7 @@ so you can investigate events in OpenSearch Dashboards that are older than your 
 * Data can be restored from the **root of an S3 bucket**, but not a sub-bucket path.
 
 :::tip
-Restored logs count toward your daily quota. Use **Power Search** and **Filters** to restore critical logs and avoid overages, which may lead to additional charges according to your On Demand plan.
-:::
+Restored logs count towards your daily quota but won't affect the ingestion of regular logs. Use **Power Search** and **Filters** to restore critical logs without worrying about overages, as these are counted against your [On-Demand](https://docs.logz.io/docs/user-guide/admin/logzio-accounts/on-demand/) quota, ensuring continuous data ingestion for your account.:::
 
 
 ## Restore and view archived logs
