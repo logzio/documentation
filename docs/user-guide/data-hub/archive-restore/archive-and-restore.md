@@ -31,7 +31,7 @@ To get to the **Archive and restore** page, select **Data Hub > Archive and rest
 : You can configure Logz.io to archive your logs to either an AWS S3 bucket or a Microsoft Azure Storage container. [Learn more](https://docs.logz.io/docs/user-guide/data-hub/archive-restore/configure-archiving/).
 
 * **Restore data**
-: Re-ingest up to 24 hours of archived logs. Restoring data might require additional permissions. [Learn more](https://docs.logz.io/docs/user-guide/data-hub/archive-restore/restore-archived-logs).
+: Re-ingest up to 24 hours of archived logs. Restoring data might require additional permissions. [Learn more](https://docs.logz.io/docs/user-guide/data-hub/archive-restore/restore-archived-logs/).
 
 * **Restored accounts**
 : Data is restored to a temporary account. The list of Restored accounts includes information about who made the request and its status. [Learn more](https://docs.logz.io/docs/user-guide/data-hub/archive-restore/restore-archived-logs/)

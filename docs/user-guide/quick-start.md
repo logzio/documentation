@@ -38,7 +38,7 @@ If you prefer to send your data manually, Logz.io offers numerous methods to do 
 |[JSON uploads](https://app.logz.io/#/dashboard/integrations/JSON)|[Google Kubernetes Engine over OpenTelemetry](https://app.logz.io/#/dashboard/integrations/Kubernetes)|[Kubernetes](https://app.logz.io/#/dashboard/integrations/Kubernetes)|[CloudTrail](https://app.logz.io/#/dashboard/integrations/AWS-CloudTrail)
 |[Docker container](https://app.logz.io/#/dashboard/integrations/Docker)|[Amazon EC2](https://app.logz.io/#/dashboard/integrations/AWS-EC2)|[Go instrumentation](https://app.logz.io/#/dashboard/integrations/GO)|[Auditbeat](https://app.logz.io/#/dashboard/integrations/auditbeat) |
 
-Browse the complete list of available shipping methods [here](https://docs.logz.io/docs/category/send-your-data).
+Browse the complete list of available shipping methods [here](https://docs.logz.io/docs/category/send-your-data/).
 
 To learn more about shipping your data, check out **Shipping Log Data to Logz.io**:
 
@@ -99,7 +99,7 @@ Once you've sent your metrics to Logz.io, you can:
 
 You can also:
 
-* **[Create Metrics related alerts](https://docs.logz.io/docs/user-guide/Infrastructure-monitoring/metrics-alert-manager)**
+* **[Create Metrics related alerts](https://docs.logz.io/docs/user-guide/Infrastructure-monitoring/metrics-alert-manager/)**
 * Work with **[Dashboard variable](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/variables/)** to apply filters on your dashboards and drilldown links
 * Mark events on your Metrics dashboard based on data from a logging account, with **[Annotations](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/log-correlations/annotations/)**
 
@@ -130,7 +130,7 @@ Logz.io **[Cloud SIEM](https://app.logz.io/#/dashboard/security/summary)** (Secu
 
 Here are some popular Cloud SIEM resources to help you get started:
 
-* **[Cloud SIEM quick start guide](https://docs.logz.io/docs/category/cloud-siem-quick-start-guide)** 
+* **[Cloud SIEM quick start guide](https://docs.logz.io/docs/category/cloud-siem-quick-start-guide/)** 
 * **[Investigate security events](https://docs.logz.io/docs/user-guide/cloud-siem/investigate-events/security-events/)**
 * **[Threat Intelligence feeds](https://docs.logz.io/docs/user-guide/cloud-siem/threat-intelligence/)**
 * **[Configure a security rule](https://docs.logz.io/docs/user-guide/cloud-siem/security-rules/manage-security-rules/)**
@@ -150,12 +150,12 @@ The following list explores the more common use cases for Logz.io's account admi
 
 In addition, Logz.io's Data Hub helps you manage and optimize your Logz.io products by offering tailored recommendations and a quick and easy way to control your logs and metrics usage. You can use Data Hub to:
 
-* **[Analyze and optimize logs and metrics usage](/docs/user-guide/data-hub/cost-optimization)**
-* **[Create graphs and dashboards from your logs](/docs/user-guide/data-hub/logstometrics)**
-* **[Index and monitor your traces](/docs/user-guide/data-hub/sampling-rules)**
-* **[Archive and restore your data](/docs/category/archive--restore)**
+* **[Analyze and optimize logs and metrics usage](/docs/user-guide/data-hub/cost-optimization/)**
+* **[Create graphs and dashboards from your logs](/docs/user-guide/data-hub/logstometrics/)**
+* **[Index and monitor your traces](/docs/user-guide/data-hub/sampling-rules/)**
+* **[Archive and restore your data](/docs/category/archive--restore/)**
 
-[And more](/docs/category/data-hub).
+[And more](/docs/category/data-hub/).
 
 
 ## Get a detailed overview with the Home Dashboard 
@@ -164,7 +164,7 @@ Home Dashboard includes your account’s data, logs, metrics, traces, alerts, ex
 
 You can quickly access the Home Dashboard by clicking on the **Home** icon in the navigation. 
 
-[Learn how to utilize your Home Dashboard](/docs/user-guide/home-dashboard).
+[Learn how to utilize your Home Dashboard](/docs/user-guide/home-dashboard/).
 
 ![Home dashboard Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/home-dashboard/dashboard-overview-.png)
 
