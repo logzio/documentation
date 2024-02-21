@@ -1417,10 +1417,10 @@ helm uninstall logzio-monitoring
 
 
 #### Logz.io Python handler 
-For troubleshooting the Logz.io Python handler, see our [Python logging troubleshooting guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-python).
+For troubleshooting the Logz.io Python handler, see our [Python logging troubleshooting guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-python/).
  
 #### OpenTelemetry instrumentation 
-For troubleshooting the OpenTelemetry instrumentation, see our [OpenTelemetry troubleshooting guide](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/otel-troubleshooting).
+For troubleshooting the OpenTelemetry instrumentation, see our [OpenTelemetry troubleshooting guide](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/otel-troubleshooting/).
 
 #### Distributed Tracing account
-For troubleshooting your Distributed Tracing account, see our [Distributed Tracing troubleshooting guide](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/tracing-troubleshooting)
+For troubleshooting your Distributed Tracing account, see our [Distributed Tracing troubleshooting guide](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/tracing-troubleshooting/)

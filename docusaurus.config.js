@@ -196,7 +196,7 @@ const config = {
               },
               {
                 label: 'Report a security issue',
-                to: 'https://docs.logz.io/report-a-security-issue/',
+                to: '/docs/user-guide/report-security-issue/',
               },
             ],
           },
@@ -213,16 +213,16 @@ const config = {
               },
               {
                 label: 'Sending Data to Logz.io',
-                href: '/docs/user-guide/admin/sending-data-to-logzio',
+                href: '/docs/user-guide/admin/sending-data-to-logzio/',
               },
               {
                 label: 'Trademark Legal Notice',
                 href: 'https://logz.io/about-us/trademarks-legal-notice/',
               },
-              {
-                label: 'Contributers',
-                to: 'https://docs.logz.io/credits.html',
-              },
+              //{
+              //  label: 'Contributers',
+              //  to: 'https://docs.logz.io/credits.html',
+              //},
             ],
           },
           {

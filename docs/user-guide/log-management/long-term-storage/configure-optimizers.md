@@ -10,7 +10,7 @@ Configure optimizers to store logs and aggregations to a timeless account for ex
 
 
 :::info note
-You need a timeless account to configure optimizers. [Learn more](https://docs.logz.io/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts) about timeless accounts. A log can take up to **2 hours** to appear in your timeless account.
+You need a timeless account to configure optimizers. [Learn more](https://docs.logz.io/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts/) about timeless accounts. A log can take up to **2 hours** to appear in your timeless account.
 :::
 
 Open OpenSearch Dashboards and run your query of choice. 
