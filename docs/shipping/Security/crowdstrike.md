@@ -130,7 +130,7 @@ Upon deployment, the Crowdstrike connector connects to your Crowdstrike account 
 
    If you change `type` in the `@type record_transformer` section, the data is not parsed into the relevant fields for the Crowdstrike integration.
    
-   {@include: ../../_include/log-shipping/listener-var.html}
+   {@include: ../../_include/log-shipping/listener-url.html}
    {@include: ../../_include/log-shipping/log-shipping-token.html}
    
 4. Save the changes.
