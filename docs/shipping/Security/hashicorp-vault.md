@@ -53,7 +53,7 @@ to keep Vault logs compatible with Logz.io.
 
 {@include: ../../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-url.html} 
 
 {@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
