@@ -291,6 +291,26 @@ LOGGING = {
 }
 ```
 
+### Truncating logs
+
+If you want to create a Python logging filter to truncate log messages to a set number of characters before they are processed, add the following code:
+
+```python
+class TruncationLoggerFilter(logging.Filter):
+    def __init__(self):
+        super(TruncationLoggerFilter, self).__init__()
+
+    def filter(self, record):
+        record.msg = record.msg[:32700]
+        print(record.msg)
+        return True
+
+logger = logging.getLogger("logzio")
+logger.addFilter(TruncationLoggerFilter())
+```
+
+Th edefault limit is 32700, but you can adjust this value as required.
+
 
 ## Metrics
 
