@@ -214,6 +214,8 @@ helm install -n monitoring \
 --set logzio-fluentd.secrets.logzioShippingToken="<<LOG-SHIPPING-TOKEN>>" \
 --set logzio-fluentd.secrets.logzioListener="<<LISTENER-HOST>>" \
 --set metricsOrTraces.enabled=true \
+--set logzio-k8s-telemetry.collector.mode=standalone \
+--set logzio-k8s-telemetry.enableMetricsFilter.eks=true \
 --set logzio-k8s-telemetry.metrics.enabled=true \
 --set logzio-k8s-telemetry.secrets.MetricsToken="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>" \
 --set logzio-k8s-telemetry.secrets.ListenerHost="https://<<LISTENER-HOST>>:8053" \
