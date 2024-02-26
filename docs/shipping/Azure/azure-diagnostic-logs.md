@@ -142,3 +142,15 @@ Give your data some time to get from your system to ours, and then open your [Lo
 If everything went according to plan, you should see logs of the `type:eventHub` in Open Search Dashboards.
 
 If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
+
+### Migration to Log Analytics Workspace-Based Model
+
+For users currently on the Classic Application Insights, it's essential to migrate to the Log Analytics workspace-based model. To do this:
+
+1. Navigate to your Application Insights resource that hasn't been migrated yet.
+2. Click on the notification that states "Classic Application Insights is deprecated."
+3. A "Migrate to Workspace-based" dialog will appear. Here, confirm your preferred Log Analytics Workspace and click 'Apply'.
+
+:::important
+Be aware that once you migrate to a workspace-based model, the process cannot be reversed.
+:::
