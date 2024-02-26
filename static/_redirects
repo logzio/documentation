@@ -826,6 +826,10 @@
 /docs/logz/update-cloud-trail/				/docs/shipping/aws/aws-cloudtrail/
 /docs/logz/update-cloud-trail				/docs/shipping/aws/aws-cloudtrail/
 /docs/logz/create-annotations-graphite				/docs/shipping/containers/kubernetes/
+/docs/shipping/gcp/gpc-bigtable/				/docs/shipping/gcp/gcp-bigtable/
+/docs/shipping/gcp/gpc-bigquery/				/docs/shipping/gcp/gcp-bigquery/
+/docs/shipping/gcp/gpc-bigquery-data-transfer-service/				/docs/shipping/gcp/gcp-bigquery-data-transfer-service/
+/docs/shipping/gcp/gpc-bigquery-bi-engine/				/docs/shipping/gcp/gcp-bigquery-bi-engine/
 # API				
 /docs/logz/logz-io-api				https://api-docs.logz.io/docs/logz/logz-io-api/
 /api/index.html				https://api-docs.logz.io/docs/logz/logz-io-api/
