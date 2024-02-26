@@ -327,6 +327,7 @@
 /user-guide/kibana/exceptions-deployments				/
 /user-guide/security-analytics				/
 /docs/category/cloud-siem-quick-start-guide				/docs/category/cloud-siem-quick-start-guide/
+/contributors/savidov				/
 # Shippers				
 /shipping/				/docs/category/send-your-data/
 /user-guide/log-shipping/				/docs/category/send-your-data/
@@ -1105,3 +1106,9 @@
 /beta-api/				https://api-docs.logz.io/docs/logz/logz-io-api/
 /docs/logz/create-new-log-shipping-token				https://api-docs.logz.io/docs/logz/create-new-log-shipping-token/
 /docs/logz/update-log-shipping-token				https://api-docs.logz.io/docs/logz/update-log-shipping-token/
+/docs/logz/search-log-shipping-tokens				https://api-docs.logz.io/docs/logz/search-log-shipping-tokens/
+/docs/logz/get-filter				https://api-docs.logz.io/docs/logz/get-filter/
+/docs/logz/delete-log-shipping-token				https://api-docs.logz.io/docs/logz/delete-log-shipping-token/			
+/docs/logz/get-log-shipping-token-by-id				https://api-docs.logz.io/docs/logz/get-log-shipping-token-by-id/
+/docs/logz/create-cloud-trail				https://api-docs.logz.io/docs/logz/create-cloud-trail/
+/docs/logz/get-alert-rules				https://api-docs.logz.io/docs/logz/get-alert-rules/
