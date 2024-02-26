@@ -291,6 +291,26 @@ LOGGING = {
 }
 ```
 
+### Truncating logs
+
+If you want to create a Python logging filter to truncate log messages to a set number of characters before they are processed, add the following code:
+
+```python
+class TruncationLoggerFilter(logging.Filter):
+    def __init__(self):
+        super(TruncationLoggerFilter, self).__init__()
+
+    def filter(self, record):
+        record.msg = record.msg[:32700]
+        print(record.msg)
+        return True
+
+logger = logging.getLogger("logzio")
+logger.addFilter(TruncationLoggerFilter())
+```
+
+Th edefault limit is 32700, but you can adjust this value as required.
+
 
 ## Metrics
 
@@ -1417,10 +1437,10 @@ helm uninstall logzio-monitoring
 
 
 #### Logz.io Python handler 
-For troubleshooting the Logz.io Python handler, see our [Python logging troubleshooting guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-python).
+For troubleshooting the Logz.io Python handler, see our [Python logging troubleshooting guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-python/).
  
 #### OpenTelemetry instrumentation 
-For troubleshooting the OpenTelemetry instrumentation, see our [OpenTelemetry troubleshooting guide](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/otel-troubleshooting).
+For troubleshooting the OpenTelemetry instrumentation, see our [OpenTelemetry troubleshooting guide](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/otel-troubleshooting/).
 
 #### Distributed Tracing account
-For troubleshooting your Distributed Tracing account, see our [Distributed Tracing troubleshooting guide](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/tracing-troubleshooting)
+For troubleshooting your Distributed Tracing account, see our [Distributed Tracing troubleshooting guide](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/tracing-troubleshooting/)

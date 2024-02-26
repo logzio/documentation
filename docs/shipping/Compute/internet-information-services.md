@@ -31,7 +31,7 @@ Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\
 
 {@include: ../../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-url.html} 
 
 ```conf
 define ROOT C:\\Program Files (x86)\\nxlog

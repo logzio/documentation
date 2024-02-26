@@ -52,7 +52,7 @@ Make sure the `mutate` block is the last item in the `filters` block.
 
 {@include: ../../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../../_include/log-shipping/listener-var.html}
+{@include: ../../_include/log-shipping/listener-url.html}
 
 * For MacOS and Linux:
 
@@ -122,7 +122,7 @@ Make sure the `mutate` block is the last item in the `filters` block.
 
 {@include: ../../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../../_include/log-shipping/listener-var.html}
+{@include: ../../_include/log-shipping/listener-url.html}
 
 ```conf
 filter {

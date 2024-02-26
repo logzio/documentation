@@ -160,7 +160,7 @@ Puppet produces lots of different logs. [Learn more from Puppet Labs Docs 🔗](
 If Logz.io is not an output, add it now.
 Remove all other outputs.
 
-{@include: ../../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-url.html} 
 
 ```yaml
 # ...
