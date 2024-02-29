@@ -42,6 +42,7 @@ This deployment will create the following services:
   - Function's logs containers
   - Failed shipments logs container
 * App Service Plan
+* Log Analytics Workspace
 * Application Insights
 
 #### Configure the Template
