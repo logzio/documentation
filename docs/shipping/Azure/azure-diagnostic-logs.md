@@ -19,7 +19,7 @@ Ship your Azure diagnostic logs using an automated deployment process.
 At the end of this process, your Azure function will forward logs from an Azure Event Hub to your Logz.io account.
 
 
-![Overview of Azure Diagnostic Logz.io integration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/azure-diagnostic-logs-overview.png)
+![Overview of Azure Diagnostic Logz.io integration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure-diagnostic-logs/logzio-eventhub-diagram.svg)s
 
 :::note
 [Project's GitHub repo](https://github.com/logzio/azure-serverless/)
