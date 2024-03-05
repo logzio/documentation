@@ -51,9 +51,9 @@ pip install logzio-python-handler[opentelemetry-logging]
 Use the samples in the code block below as a starting point, and replace the sample with a configuration that matches your needs.
 
 Replace:
-* << LOG-SHIPPING-TOKEN >> - Your Logz.io account log shipping token.
-* << LISTENER-HOST >> - Logz.io listener host, as described [here](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#regions-and-urls).
-* << LOG-TYPE >> - Log type, for searching in logz.io (defaults to "python")
+* `<< LOG-SHIPPING-TOKEN >>` - Your Logz.io account log shipping token.
+* `<< LISTENER-HOST >>` - Logz.io listener host, as described [here](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#regions-and-urls).
+* `<< LOG-TYPE >>` - Log type, for searching in logz.io (defaults to "python")
 
 For a complete list of options, see the configuration parameters below the code block.👇
 
@@ -178,17 +178,21 @@ LOGGING = {
 
 ```
 
-
-
 ### Serverless platforms
 
-If you're using a serverless function, you'll need to import and add the LogzioFlusher annotation before your sender function. To do this, in the code sample below, uncomment the `import` statement and the `@LogzioFlusher(logger)` annotation line.  
-**Note:** For the LogzioFlusher to work properly, you'll need to make sure that the Logz.io. handler is added to the root logger. See the configuration above for an example.
-
-### Dynamic Extra Fields
-If you prefer, you can add extra fields to your logs dynamically, and not pre-defining them in the configuration.
-This way, you can allow different logs to have different extra fields.
-Example in the code below. 
+If you're using a serverless function, you'll need to:
+1. Import and add the LogzioFlusher annotation before your sender function. To do this, in the [Code Example](#code-example) below, uncomment the `import` statement and the `@LogzioFlusher(logger)` annotation line.
+2. Make sure that the Logz.io handler is added to the root logger in your Configuration:
+```python
+'loggers': {
+     'superAwesomeLogzioLogger': {
+         'level': 'DEBUG',
+         'handlers': ['logzio'],
+         'propagate': True
+     }
+ }
+```
+**Note:** replace `superAwesomeLogzioLoggers` with the name you used for your logger in the code (see [Code Example](#code-example) below).
 
 ### Code Example
 
@@ -198,8 +202,8 @@ import logging.config
 # If you're using a serverless function, uncomment.
 # from logzio.flusher import LogzioFlusher
 
-# If you don't utilize the dynamic extra fields feature, please comment.
-from logzio.handler import ExtraFieldsLogFilter
+# If you'd like to leverage the dynamic extra fields feature, uncomment.
+# from logzio.handler import ExtraFieldsLogFilter
 
 # Say I have saved my configuration as a dictionary in a variable named 'LOGGING' - see 'Dict Config' sample section
 logging.config.dictConfig(LOGGING)
@@ -215,27 +219,32 @@ def my_func():
         1/0
     except:
         logger.exception("Supporting exceptions too!")
+```
 
+### Dynamic Extra Fields
+If you prefer, you can add extra fields to your logs dynamically, and not pre-defining them in the configuration.
+This way, you can allow different logs to have different extra fields.
+Example in the code below. 
+
+``` python
 # Example additional code that demonstrates how to dynamically add/remove fields within the code, make sure class is imported.
 
-    logger.info("Test log")  # Outputs: {"message":"Test log"}
-    
-    extra_fields = {"foo":"bar","counter":1}
-    logger.addFilter(ExtraFieldsLogFilter(extra_fields))
-    logger.warning("Warning test log")  # Outputs: {"message":"Warning test log","foo":"bar","counter":1}
-    
-    error_fields = {"err_msg":"Failed to run due to exception.","status_code":500}
-    logger.addFilter(ExtraFieldsLogFilter(error_fields))
-    logger.error("Error test log")  # Outputs: {"message":"Error test log","foo":"bar","counter":1,"err_msg":"Failed to run due to exception.","status_code":500}
-    
-    # If you'd like to remove filters from future logs using the logger.removeFilter option:
-    logger.removeFilter(ExtraFieldsLogFilter(error_fields))
-    logger.debug("Debug test log") # Outputs: {"message":"Debug test log","foo":"bar","counter":1}
+logger.info("Test log")  # Outputs: {"message":"Test log"}
 
+extra_fields = {"foo":"bar","counter":1}
+logger.addFilter(ExtraFieldsLogFilter(extra_fields))
+logger.warning("Warning test log")  # Outputs: {"message":"Warning test log","foo":"bar","counter":1}
+
+error_fields = {"err_msg":"Failed to run due to exception.","status_code":500}
+logger.addFilter(ExtraFieldsLogFilter(error_fields))
+logger.error("Error test log")  # Outputs: {"message":"Error test log","foo":"bar","counter":1,"err_msg":"Failed to run due to exception.","status_code":500}
+
+# If you'd like to remove filters from future logs using the logger.removeFilter option:
+logger.removeFilter(ExtraFieldsLogFilter(error_fields))
+logger.debug("Debug test log") # Outputs: {"message":"Debug test log","foo":"bar","counter":1}
 ```
 
 ### Extra Fields
-
 In case you need to dynamic metadata to a specific log and not [dynamically to the logger](#dynamic-extra-fields), other than the constant metadata from the formatter, you can use the "extra" parameter.
 All key values in the dictionary passed in "extra" will be presented in Logz.io as new fields in the log you are sending.
 Please note, that you cannot override default fields by the python logger (i.e. lineno, thread, etc..)
