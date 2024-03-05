@@ -198,8 +198,8 @@ import logging.config
 # If you're using a serverless function, uncomment.
 # from logzio.flusher import LogzioFlusher
 
-# If you'd like to leverage the dynamic extra fields feature, uncomment.
-# from logzio.handler import ExtraFieldsLogFilter
+# If you don't utilize the dynamic extra fields feature, please comment.
+from logzio.handler import ExtraFieldsLogFilter
 
 # Say I have saved my configuration as a dictionary in a variable named 'LOGGING' - see 'Dict Config' sample section
 logging.config.dictConfig(LOGGING)
@@ -209,7 +209,7 @@ logger = logging.getLogger('superAwesomeLogzioLogger')
 # @LogzioFlusher(logger)
 def my_func():
     logger.info('Test log')
-    logger.warn('Warning')
+    logger.warning('Warning')
 
     try:
         1/0
