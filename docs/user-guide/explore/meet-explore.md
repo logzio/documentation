@@ -19,9 +19,13 @@ Explore is designed to investigate and analyze massive volumes of data quickly a
 
 ### Smart Search / Lucene
 
-Smart Search offers an intuitive search experience with auto-complete functionality, streamlining your search process and enabling faster access to data. Start typing to find your values and fields, add them to your search, and find what you’re looking for.
+Smart Search is the default query option, offering an intuitive experience with auto-complete functionality. It streamlines your search process and enables faster access to data.
 
-You can click on the title box to switch between Smart Search and Lucene query-based search.
+Start typing to see all of the available fields you can use in your query. Select the operator you want to apply and the available list of values will appear.
+
+![Smart Search gif](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/smart-search.gif)
+
+Click on the dropdown menu to switch between Smart Search and Lucene query-based search.
 
 ![Smart Search](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/smart-search-bar.png)
 
