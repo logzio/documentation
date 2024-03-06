@@ -1,9 +1,11 @@
 ---
 sidebar_position: 1
+title: Archive & Restore
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Learn about long term log archiving to an AWS S3 bucket or a Microsoft Azure Storage account
+keywords: [archive, restore, cold data, hot data, restore data, AWS]
 ---
 
-
-# Archive & Restore
 
 
 
@@ -26,13 +28,13 @@ To get to the **Archive and restore** page, select **Data Hub > Archive and rest
 ![Archive and restore](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-and-restore/azure-aws-archive.png)
 
 * **Archive configuration**
-: You can configure Logz.io to archive your logs to either an AWS S3 bucket or a Microsoft Azure Storage container. [Learn more](/user-guide/archive-and-restore/configure-archiving.html).
+: You can configure Logz.io to archive your logs to either an AWS S3 bucket or a Microsoft Azure Storage container. [Learn more](https://docs.logz.io/docs/user-guide/data-hub/archive-restore/configure-archiving/).
 
 * **Restore data**
-: Re-ingest up to 24 hours of archived logs. Restoring data might require additional permissions. [Learn more](/user-guide/archive-and-restore/configure-archiving.html).
+: Re-ingest up to 24 hours of archived logs. Restoring data might require additional permissions. [Learn more](https://docs.logz.io/docs/user-guide/data-hub/archive-restore/restore-archived-logs/).
 
 * **Restored accounts**
-: Data is restored to a temporary account. The list of Restored accounts includes information about who made the request and its status. [Learn more](/user-guide/archive-and-restore/restore-archived-logs.html)
+: Data is restored to a temporary account. The list of Restored accounts includes information about who made the request and its status. [Learn more](https://docs.logz.io/docs/user-guide/data-hub/archive-restore/restore-archived-logs/)
 
 
 

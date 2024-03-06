@@ -1,8 +1,10 @@
 ---
 sidebar_position: 1
+title: Default Parsing
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Learn about the different log parsing types in Logz.io
+keywords: [log, monitoring, parsing, default parsing, built in log types, log types, observability]
 ---
-
-# Default Parsing
 
 
 Logz.io automatically parses logs shipped from many platforms, services, containers, servers, and more.

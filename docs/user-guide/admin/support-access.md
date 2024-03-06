@@ -1,7 +1,10 @@
 ---
 sidebar_position: 8
+title: Granting Access to Logz.io Support
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Enable Support access into your Logz.io account
+keywords: [send data, support access, help, logz.io]
 ---
-# Granting Access to Logz.io Support
 
 
 If you need help in your account that we can't resolve over chat or email, the Logz.io Support team may access your account to investigate and troubleshoot further.

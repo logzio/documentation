@@ -1,6 +1,9 @@
 ---
 sidebar_position: 5
 title: Explore Your Prometheus Metrics
+description: Research Prometheus data and discover metadata with Explore
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [metrics, infrastructure monitoring, PromQL, Prometheus, monitoring, dashboard, observability, logz.io]
 ---
 
 
@@ -103,4 +106,4 @@ Logz.io offers an easy and efficient way to manage and enhance your Logs and Met
 
 Data Hub offers tailored recommendations that help you improve usage and reduce costs, and you can compact and discard some of your metrics as it ages to focus on the data that matters with a few clicks.
 
-[Learn more about managing Metrics with Data Hub](https://docs.logz.io/user-guide/infrastructure-monitoring/data-rollups.html). 
+[Learn more about managing Metrics with Data Hub](https://docs.logz.io/docs/user-guide/data-hub/data-rollups/). 

@@ -1,9 +1,10 @@
 ---
 sidebar_position: 4
+title: AWS S3 Bucket Permissions & Storage Class Required for Archiving
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Configure your AWS S3 bucket to support Logz.op archiving and restoring data
+keywords: [archive, restore, cold data, hot data, restore data, AWS, s3 bucket]
 ---
-
-
-# AWS S3 Bucket Permissions & Storage Class Required for Archiving
 
 
 

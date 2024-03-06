@@ -1,6 +1,9 @@
 ---
 sidebar_position: 4
 title: Dashboard Variables
+description: Configuring Metrics drilldown links
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [metrics, infrastructure monitoring, drilldown, Prometheus, monitoring, dashboard, observability, logz.io]
 ---
 
 Variables will allow you to apply filters on your dashboards and drilldown links.
@@ -58,5 +61,5 @@ You're now ready to use the variable in your new dashboard.
 
 ###### Additional resources
 
-* To learn more about Prometheus and PromQL, check out our [examples and best practices guide](https://docs.logz.io/user-guide/infrastructure-monitoring/prometheus-promql-queries.html). 
-* Looking to configure **Explore in OpenSearch Dashboards** drilldown links? [Read our guide](/docs/user-guide/infrastructure-monitoring/log-correlations/explore-in-logs-drilldown-links/).
+* To learn more about Prometheus and PromQL, check out our [examples and best practices guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/introduction-to-prometheus/promql-query/). 
+* Looking to configure **Explore in OpenSearch Dashboards** drilldown links? [Read our guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/log-correlations/explore-in-logs-drilldown-links/).

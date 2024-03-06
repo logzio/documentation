@@ -1,8 +1,10 @@
 ---
 sidebar_position: 5
+title: Getting Started with Service Performance Monitoring
+description: Get a high-level monitoring dashboard with Service Performance Monitoring 
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, traces, tracing, spm, service performance monitoring, observability, distributed tracing]
 ---
-
-# Getting Started with Service Performance Monitoring
 
 
 
@@ -36,5 +38,5 @@ To get a deeper view into the traces of each operation, click on the **View trac
 
 ###### Additional Tracing resources: 
 
-* [Configure your Service Performance Monitoring dashboard](https://docs.logz.io/user-guide/distributed-tracing/service-performance-monitoring-setup)
-* [What is Distributed Tracing](https://docs.logz.io/user-guide/distributed-tracing/what-is-tracing)
+* [Configure your Service Performance Monitoring dashboard](/docs/user-guide/distributed-tracing/setup-spm/)
+* [What is Distributed Tracing](/docs/user-guide/distributed-tracing/tracing-overview/what-tracing/)

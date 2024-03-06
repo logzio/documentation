@@ -106,7 +106,7 @@ sudo service rsyslog restart
 
 Give your logs some time to get from your system to ours, and then [open Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see our [Rsyslog troubleshooting guide](https://docs.logz.io/user-guide/log-shipping/rsyslog-selinux-troubleshooting.html).
+If you still don't see your logs, see our [Rsyslog troubleshooting guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-rsyslog-selinux/).
 
   
 
@@ -209,7 +209,7 @@ $ sudo semanage port -m -t syslogd_port_t -p tcp 5000
 
 Give your logs some time to get from your system to ours, and then [open Open Search Dashboards](https://app.logz.io/#/dashboard/osd)
 
-If you still don't see your logs, see our [Rsyslog troubleshooting guide](https://docs.logz.io/user-guide/log-shipping/rsyslog-selinux-troubleshooting.html).
+If you still don't see your logs, see our [Rsyslog troubleshooting guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-rsyslog-selinux/).
 
  
 ## Automatic configuration
@@ -340,7 +340,7 @@ sudo service rsyslog restart
 
 Give your logs some time to get from your system to ours, and then [open Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see our [Rsyslog troubleshooting guide](https://docs.logz.io/user-guide/log-shipping/rsyslog-selinux-troubleshooting.html).
+If you still don't see your logs, see our [Rsyslog troubleshooting guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-rsyslog-selinux/).
 
  
   

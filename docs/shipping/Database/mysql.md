@@ -186,7 +186,7 @@ The log type is used to apply the appropriate Logz.io preconfigured parsing pipe
 If Logz.io is not an output, add it now.
 Remove all other outputs.
 
-{@include: ../../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-url.html} 
 
 ```yaml
 # ...

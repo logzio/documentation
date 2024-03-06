@@ -1,9 +1,11 @@
 ---
 sidebar_position: 3
+title: Logz.io DIY Parsing
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Learn how to parse your logs in Logz.io
+keywords: [log, monitoring, parsing, default parsing, built in log types, log types, observability]
 ---
 
-
-# Logz.io DIY Parsing
 
 
 
@@ -117,7 +119,7 @@ In the **Editor setup** screen:
 1. Enter your API token and region information. 
 2. Choose a log type from the list of log types that have been ingested into your Logz.io account or create a new log type. 
    + New log type: This option lets you add a custom string for a log type and enables you to assign parsing rules for future logs that are associated with the log type you add.  
-   + Pre-built parsing: These log types are documented in the [Default parsing](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html) topic. You can select a pre-built parsing type and create additional rules that run _after_ the default rules for these types are executed. 
+   + Pre-built parsing: These log types are documented in the [Default parsing](https://docs.logz.io/docs/user-guide/data-hub/log-parsing/default-parsing/) topic. You can select a pre-built parsing type and create additional rules that run _after_ the default rules for these types are executed. 
 
 :::note
 When you select a pre-built parsing rule, the original rule configuration is not displayed in the **Parsing rules workspace**. The log types list displays log types ingested by Logz.io in the last 24 hours.

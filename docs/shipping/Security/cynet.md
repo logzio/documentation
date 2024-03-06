@@ -89,7 +89,7 @@ These instructions are based on UDP. If you want to use TCP, make sure your sysl
  
    * 9000 is the port we suggest. If you use a different port, replace the default values with your parameters.
    * {@include: ../../_include/log-shipping/log-shipping-token.md}
-   * {@include: ../../_include/log-shipping/listener-var.md}
+   * {@include: ../../_include/log-shipping/listener-url.html}
 
 2. Run Filebeat with the new configuration.
 

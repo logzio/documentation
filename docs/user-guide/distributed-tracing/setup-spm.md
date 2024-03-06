@@ -1,7 +1,10 @@
 ---
 sidebar_position: 6
+title: Setup Your Service Performance Monitoring Dashboard
+description: Configure your SPM dashboard
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, traces, tracing, spm, service performance monitoring, observability, distributed tracing]
 ---
-# Setup Your Service Performance Monitoring Dashboard
 
 
 Logz.io Service Performance Monitoring dashboard (SPM) provides an overview of your systems' health by aggregating **Request**, **Error**, and **Duration** (R.E.D) metrics from span data. The dashboard helps you to pinpoint and isolate incidents in your system quickly.

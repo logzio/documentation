@@ -1,7 +1,7 @@
 ---
-id: azure-graph-mail-reports
-title: Microsoft Azure Graph API (mail reports)
-overview: You can ship mail report logs available from the Microsoft Graph APIs with Logzio-api-fetcher.
+id: azure-office365-message-trace-reports
+title: Microsoft Azure Office365 Message Trace Reports (mail reports)
+overview: You can ship mail report logs available from the Microsoft Office365 Message Trace API with Logzio-api-fetcher.
 product: ['logs']
 os: ['windows', 'linux']
 filters: ['Azure', 'Access Management']
@@ -62,12 +62,9 @@ You won't be able to retrieve the secret's value after you leave this page.
 Choose **API permissions** from the side menu,
 and click **Add a permission**.
 
-Select **Microsoft Graph > Application permissions**.
+Select **Office 365 exchange online > Application permissions**.
 
-Select the relevant permissions for your API, for AAD audit logs and AAD sign-ins enable these items:
-
-* **AuditLog.Read.All**
-* **Directory.Read.All**
+Search for the following permssion: **ReportingWebService.Read.All**
 
 Click **Add permissions**.
 
@@ -76,7 +73,13 @@ Click **Grant admin consent for Default Directory**, and then click **Yes** to c
 :::note
 Only Azure administrators can grant consent for Default Directory. If the _Grant admin consent_ button is disabled, ask your Azure admin to update the setting for you.
 :::
- 
+
+## Configure application to have one of the following IAM roles:
+IAM roles are showen in least permissive order:
+* Global Reader role
+* Exchange Administrator
+* Global Administrator
+
 
 ## Pull the Docker image of the Logz.io API fetcher
 

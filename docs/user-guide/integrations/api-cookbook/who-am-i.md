@@ -22,7 +22,7 @@ You can access the `whoami` endpoint with a simple curl request.
 In the code block below:
 
 * Replace `<<API-TOKEN>>` with an [API token](https://app.logz.io/#/dashboard/settings/manage-tokens/api) from the account you want to use
-* Replace `<<API-URL>>` with your region’s base API URL. For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
+* Replace `<<API-URL>>` with your region’s base API URL. For more information on finding your account’s region, see [Account region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/).
 
  
 ```shell
@@ -33,7 +33,7 @@ curl -X GET \
 ```
 
 :::note Read More
-This API endpoint is documented in [Retrieve this account](https://api-docs.logz.io/docs/category/logz-api) in the API docs.
+This API endpoint is documented in [Retrieve this account](https://api-docs.logz.io/docs/category/logz-api/) in the API docs.
 :::
 
  

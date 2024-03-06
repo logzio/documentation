@@ -1,8 +1,10 @@
 ---
 sidebar_position: 7
+title: Correlate Logs and Traces
+description: Connect your traces and logs into a unified dashboard with Logz.io
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, traces, tracing, trace dashboard, dashboard, logs, observability, distributed tracing]
 ---
-
-# Correlate Logs and Traces
 
 
 ## What can I do with my trace and span data in OpenSearch Dashboards?
@@ -19,7 +21,7 @@ To search for the logs related to a specific trace or the request transaction wh
 
 Enriching logs with trace ID and span ID must be performed before or during the data collection process, and before sending the data to Logz.io.
 
-The enrichment process depends on the language and log type: You will have to [configure your deployment](/user-guide/distributed-tracing/deploying-components) to perform these actions _before_ the data is ingested into Logz.io, because retroactive correlation is not available.  
+<!--The enrichment process depends on the language and log type: You will have to [configure your deployment](/user-guide/distributed-tracing/deploying-components) to perform these actions _before_ the data is ingested into Logz.io, because retroactive correlation is not available.  -->
 
 Contact <a class="intercom-launch" href="mailto:help@logz.io">the Support team for additional information on enriching your logs. </a>
 

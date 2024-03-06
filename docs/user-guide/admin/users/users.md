@@ -1,6 +1,9 @@
 ---
 sidebar_position: 1
 title: Manage Users and Roles
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Manage the different users and roles in your Logz.io account
+keywords: [manage users, admin controls, account administration, access control]
 ---
 
 User permissions are determined by their role and the account to which they belong.
@@ -22,12 +25,6 @@ Community plans have a maximum of 50 users.
 You can assign **Read Only**, **User**, **SIEM**, or **Admin** roles. Each role has different access that helps you limit the data, visibility, and abilities shared with other users.
 
 Logz.io observability platform offers several features, each with its own set of permission and access levels:
-
-* [View Log Management permissions and access levels](/user-guide/users/#user-role-permissions-for-log-management)
-* [View Metrics permissions and access levels](/user-guide/users/#user-role-permissions-for-metrics-instrastructe-monitoring)
-* [View Tracing permissions and access levels](/user-guide/users/#user-role-permissions-for-tracing)
-* [View Cloud SIEM permissions and access levels](/user-guide/users/#user-role-permissions-for-cloud-siem)
-* [View General settings permissions and access levels](/user-guide/users/#user-role-permissions-for-general-account-settings)
 
 ### User role permissions for Log Management
 

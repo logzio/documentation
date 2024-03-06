@@ -1,7 +1,9 @@
 ---
 sidebar_position: 6
 title: Manage API Tokens
-
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Get and manage your API tokens
+keywords: [api token management, api token, api, token, key creation, token authentication, security, secured login]
 ---
 
 If you're an Enterprise or Pro plan subscriber (or during your trial period),

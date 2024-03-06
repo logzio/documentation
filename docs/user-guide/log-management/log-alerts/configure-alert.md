@@ -186,7 +186,7 @@ If the alert includes any aggregation or group by field, the notification output
 
 ![Output format](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/output_aggregated_aug2021.png)
 
-To be selective about the output, click **<i class="li li-plus"></i> Add a field** and select a field from the dropdown list. If you want, you can also add a sorting rule and a regex filter. [Learn more about regex filters for alert notifications](/user-guide/alerts/regex-filters.html).
+To be selective about the output, click **<i class="li li-plus"></i> Add a field** and select a field from the dropdown list. If you want, you can also add a sorting rule and a regex filter. [Learn more about regex filters for alert notifications](https://docs.logz.io/docs/user-guide/log-management/log-alerts/regex-filters/).
 
   * If you select **JSON** format, you can send the full log (with all fields) or select as many as 7 fields.
   * If you select **Table**, you can send as many as 7 fields.

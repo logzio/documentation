@@ -16,7 +16,7 @@ Within Logz.io, look up the Listener host for your region (URL) and the Logz.io 
 
 + You'll find the correct Region and Listener URL for your region in the [*Regions and Listener Hosts*](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions) table. 
 
-+ Look up your Prometheus Metrics account token in the [Settings > Manage tokens > Data shipping tokens > Metrics](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping) tab of your Operations workspace. For more information, see [Metrics shipping token. ](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/) 
++ Look up your Prometheus Metrics account token in the [Settings > Manage tokens > Data shipping tokens > Metrics](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping) tab of your Operations workspace. For more information, see [Metrics shipping token. ](https://docs.logz.io/docs/user-guide/admin/authentication-tokens/finding-your-metrics-account-token/) 
 
 
 
@@ -130,10 +130,10 @@ externalLabels:
 
 ##### Open Metrics Explore
 
-Once you've verified that your data is available in Logz.io, [explore your Prometheus metrics.](https://docs.logz.io/docs/user-guide/Infrastructure-monitoring/introduction-to-prometheus/explore-metrics-prometheus)
+Once you've verified that your data is available in Logz.io, [explore your Prometheus metrics.](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/introduction-to-prometheus/explore-metrics-prometheus/)
 
 
-After your metrics are flowing, [import your existing Prometheus and Grafana dashboards](https://docs.logz.io/docs/user-guide/Infrastructure-monitoring/introduction-to-prometheus/importing-dashboards) to Logz.io Infrastructure Monitoring as JSON files.
+After your metrics are flowing, [import your existing Prometheus and Grafana dashboards](https://docs.logz.io/docs/user-guide/Infrastructure-monitoring/introduction-to-prometheus/importing-dashboards/) to Logz.io Infrastructure Monitoring as JSON files.
 
 
 

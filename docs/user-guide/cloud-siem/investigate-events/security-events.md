@@ -45,6 +45,6 @@ Log retention typically spans between 3-30 days. If you are an admin of the main
 
 If you would like to investigate logs after they have expired from the logging database, you have the following options:
 
-1. Set up [archiving](/user-guide/archive-and-restore/). Once logs are no longer in retention, they can be restored from the archive.
+1. Set up [archiving](https://docs.logz.io/docs/user-guide/data-hub/archive-restore/archive-and-restore/). Once logs are no longer in retention, they can be restored from the archive.
 
-2. Set up [Optimizers](/user-guide/optimizers/configure-optimizers.html) to capture logs and save them to a [Timeless account](/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts/#timeless).
+2. Set up [Optimizers](https://docs.logz.io/docs/user-guide/log-management/long-term-storage/configure-optimizers/) to capture logs and save them to a [Timeless account](/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts/#timeless).

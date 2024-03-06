@@ -18,7 +18,7 @@ One important thing to know: When you're managing sub account settings, you'll n
 
 * Replace `<<API-TOKEN>>` with an [API token](https://app.logz.io/#/dashboard/settings/manage-tokens/api) from the account you want to use
 * Replace `<<API-URL>>` with your region's base API URL.
-  For more information on finding your account's region, see [Account region](/user-guide/accounts/account-region.html).
+  For more information on finding your account's region, see [Account region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/).
  
 ## Making a new sub account {#making-a-new-sub-account}
 
@@ -49,7 +49,7 @@ curl -X POST \
 The email address has to belong to an existing Logz.io user, and that user has to be an admin user on your main account.
 
 :::note Read more
-This API endpoint is documented in [Create a sub account](https://api-docs.logz.io/docs/logz/manage-time-based-log-accounts) in the API docs.
+This API endpoint is documented in [Create a sub account](https://api-docs.logz.io/docs/logz/manage-time-based-log-accounts/) in the API docs.
 :::
  
 ### ...and the response
@@ -81,7 +81,7 @@ curl -X GET \
 ```
 
 :::note Read more
-This API endpoint is documented in [Retrieve all sub accounts](https://api-docs.logz.io/docs/logz/manage-users) in the API docs.
+This API endpoint is documented in [Retrieve all sub accounts](https://api-docs.logz.io/docs/logz/manage-users/) in the API docs.
 :::
  
 ### ...and the response

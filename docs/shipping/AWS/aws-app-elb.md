@@ -23,7 +23,7 @@ When you set Logz.io to fetch Elastic Load Balancing (ELB) logs, Logz.io will pe
 
 
 **Before you begin, you'll need**:
-`s3:ListBucket` and `s3:GetObject` [permissions](https://docs.logz.io/docs/user-guide/admin/give-aws-access-with-iam-roles) for the required S3 bucket (one bucket per region)
+`s3:ListBucket` and `s3:GetObject` [permissions](https://docs.logz.io/docs/user-guide/admin/give-aws-access-with-iam-roles/) for the required S3 bucket (one bucket per region)
 
  
 
@@ -71,3 +71,4 @@ This integration creates a Kinesis Data Firehose delivery stream that links to y
 <!-- logzio-inject:install:grafana:dashboards ids=["5BZ6El3juQkCKCIuGm1oyC"] -->
 
 {@include: ../../_include/metric-shipping/generic-dashboard.html}
+

@@ -1,7 +1,10 @@
 ---
 sidebar_position: 1
+title: Why Distributed Tracing
+description: Meet Logz.io's Distributed Tracing platform
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, traces, tracing, observability, distributed tracing]
 ---
-# Why Distributed Tracing
 
 
 <!-- ### Fast track shortcuts: Oh, the Traces You'll Go! -->

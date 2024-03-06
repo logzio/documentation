@@ -215,7 +215,7 @@ namespace dotnet_log4net
 |---|---|---|
 | token | Your [Logz.io log shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs) securely directs the data to your Logz.io account. {@include: ../../_include/log-shipping/log-shipping-token.html} | Required |
 | listenerUrl  | Listener URL and port. {@include: ../../_include/log-shipping/listener-var.html}  | `https://listener.logz.io:8071` |
-| type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `log4net` |
+| type | The [log type](https://docs.logz.io/docs/user-guide/data-hub/log-parsing/default-parsing/#built-in-log-types), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `log4net` |
 | bufferSize | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
 | bufferTimeout | Maximum time to wait for more log lines, as _hh:mm:ss.fff_. | `00:00:05` |
 | retriesMaxAttempts | Maximum number of attempts to connect to Logz.io. | `3` |
@@ -485,7 +485,7 @@ LogManager.Configuration = config;
 |---|---|---|
 | token | Your [Logz.io log shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs) securely directs the data to your Logz.io account. {@include: ../../_include/log-shipping/log-shipping-token.html} | Required |
 | listenerUrl  | Listener URL and port. {@include: ../../_include/log-shipping/listener-var.html}  | `https://listener.logz.io:8071` |
-| type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `nlog` |
+| type | The [log type](https://docs.logz.io/docs/user-guide/data-hub/log-parsing/default-parsing/#built-in-log-types), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `nlog` |
 | bufferSize | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
 | bufferTimeout | Maximum time to wait for more log lines, as _hh:mm:ss.fff_. | `00:00:05` |
 | retriesMaxAttempts | Maximum number of attempts to connect to Logz.io. | `3` |
@@ -795,7 +795,7 @@ hierarchy.Configured = true;
 |---|---|---|
 | token | [Logz.io log shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs) securely directs the data to your Logz.io account. {@include: ../../_include/log-shipping/log-shipping-token.html} | Required |
 | listenerUrl  | Listener URL and port. {@include: ../../_include/log-shipping/listener-var.html}  | `https://listener.logz.io:8071` |
-| type | The [log type](https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `log4net` |
+| type | The [log type](https://docs.logz.io/docs/user-guide/data-hub/log-parsing/default-parsing/#built-in-log-types), shipped as `type` field. Used by Logz.io for consistent parsing. Can't contain spaces. | `log4net` |
 | bufferSize | Maximum number of messages the logger will accumulate before sending them all in bulk. | `100` |
 | bufferTimeout | Maximum time to wait for more log lines, as _hh:mm:ss.fff_. | `00:00:05` |
 | retriesMaxAttempts | Maximum number of attempts to connect to Logz.io. | `3` |
@@ -1290,7 +1290,7 @@ logzio-dotnet-monitor logzio-helm/logzio-dotnet-monitor
 ```
 
 * Replace `<<NAMESPACE>>` with the namespace you selected for this integration. The default value is `default`.
-{@include: ../../_include/log-shipping/listener-var.html} {@include: ../../_include/log-shipping/log-shipping-token.html}
+{@include: ../../_include/log-shipping/listener-url.html} {@include: ../../_include/log-shipping/log-shipping-token.html}
 * Replace `<<DOTNET_APP_CONTAINERS_FILE>>` with your .NET application containers file. Make sure your main .NET application container has the following volumeMount:
 
 ```yaml
@@ -1361,7 +1361,7 @@ To uninstall the `dotnet-monitor-collector` deployment, use the following comman
 helm uninstall dotnet-monitor-collector
 ```
 
-For troubleshooting this solution, see our [.NET with helm troubleshooting guide](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/dotnet-helm-troubleshooting.html).
+For troubleshooting this solution, see our [.NET with helm troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/dotnet-helm-troubleshooting/).
 </TabItem>
   <TabItem value="SDK" label="SDK">
 
@@ -1582,7 +1582,7 @@ Replace [[your_apdex_name]] with the name that you assigned to the timer metric.
 
  
 
-For troubleshooting this solution, see our [.NET core troubleshooting guide](/user-guide/infrastructure-monitoring/troubleshooting/dotnet-core-troubleshooting.html).
+For troubleshooting this solution, see our [.NET core troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/dotnet-core-troubleshooting/).
 
  
 
@@ -1803,7 +1803,7 @@ Replace [[your_apdex_name]] with the name that you assigned to the apdex metric.
 
  
 
-For troubleshooting this solution, see our [.NET core troubleshooting guide](/user-guide/infrastructure-monitoring/troubleshooting/dotnet-core-troubleshooting.html).
+For troubleshooting this solution, see our [.NET core troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/dotnet-core-troubleshooting/).
 
   
 
@@ -1886,7 +1886,7 @@ using (var stream = new MemoryStream())
 }
 ```
 
-For troubleshooting this solution, see our [.NET core troubleshooting guide](/user-guide/infrastructure-monitoring/troubleshooting/dotnet-core-troubleshooting.html).
+For troubleshooting this solution, see our [.NET core troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/dotnet-core-troubleshooting/).
 </TabItem>
 </Tabs>
 
@@ -2087,7 +2087,7 @@ Give your traces some time to get from your system to ours, and then open [Traci
 
 #### OpenTelemetry instrumentation 
 
-For troubleshooting the OpenTelemetry instrumentation, see our [OpenTelemetry troubleshooting guide](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/otel-troubleshooting).
+For troubleshooting the OpenTelemetry instrumentation, see our [OpenTelemetry troubleshooting guide](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/otel-troubleshooting/).
 
 </TabItem>
 </Tabs>

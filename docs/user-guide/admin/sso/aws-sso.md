@@ -1,6 +1,9 @@
 ---
 sidebar_position: 9
 title: Single Sign-On with AWS
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Configure Single Sign On for AWS and Logz.io
+keywords: [single sign=on, sso, sso setup, sso configuration, secured login, integration, AWS]
 ---
 
 Logz.io offers a quick integration for SSO with AWS.

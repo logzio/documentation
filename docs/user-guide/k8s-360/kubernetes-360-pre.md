@@ -1,6 +1,9 @@
 ---
 sidebar_position: 2
 title: Kubernetes 360 Prerequisite
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Everything you need to get started with Logz.io's Kubernetes 360
+keywords: [kubernetes, k360, ship kubernetes data, kubernetes logs, metrics, labels]
 ---
 
 
@@ -156,7 +159,7 @@ And send the following metrics:
 
 To add Security risks view to your existing Kubernetes data, you need to:
 
-* [Ship reports from Trivy operator](/shipping/log-sources/trivy.html).
+* [Ship reports from Trivy operator](/docs/shipping/security/trivy/).
 * Configure and send security logs.
 
 After setting up the Trivy operator, ensure your account receives `type:trivy` logs. 

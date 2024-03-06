@@ -1,7 +1,9 @@
 ---
 sidebar_position: 10
 title: Set Your Landing Page
-
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Configure a custom landing page in your Logz.io account
+keywords: [account, manage account, optimization, landing page, admin controls, admin, user permissions, permissions, access control]
 ---
 
 You can set a custom landing page to view when logging into your Logz.io account.

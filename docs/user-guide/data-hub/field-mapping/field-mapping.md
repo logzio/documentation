@@ -1,7 +1,10 @@
 ---
 sidebar_position: 1
+title: Field Mapping
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Define custom fields for your Logz.io values
+keywords: [archive, restore, cold data, hot data, restore data, AWS, s3 bucket]
 ---
-# Field Mapping
 
 
 
@@ -86,7 +89,7 @@ If you find that many of the fields you are interested in exploring aren't mappe
 
 ### Add specific fields to your default mapping
 
-Instead of refreshing the mapping in bulk, you can add specific fields to your default mapping. Click **Field not indexed** on an unmapped field. [Learn more](/user-guide/logs/mapping/field-not-indexed/)
+Instead of refreshing the mapping in bulk, you can add specific fields to your default mapping. Click **Field not indexed** on an unmapped field. [Learn more](https://docs.logz.io/docs/user-guide/data-hub/field-mapping/field-not-indexed/)
 
 ### Explicitly map a field 
 
@@ -100,4 +103,4 @@ To change the field mapping type, hover over the field, click **edit** <i class=
 
 ## Resolving mapping errors 
 
-If you encounter an issue or an error when mapping your fields, check out the **[common mapping errors and why they happen](https://docs.logz.io/user-guide/invalid_logs/#mapping-errors)**.
+If you encounter an issue or an error when mapping your fields, check out the **[common mapping errors and why they happen](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/understanding-invalid-log-errors/#mapping-errors)**.

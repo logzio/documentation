@@ -340,7 +340,7 @@ and then click **Create**.
 | Parameter | Description |
 |---|---|
 | image | Replace `<<YOUR-APP-IMAGE>>` with the name of the image you want to ship logs from. |
-| logConfiguration.options.Host | {@include: ../../_include/log-shipping/listener-var.md} Replace `<<LISTENER-HOST>>` with the host for your region. For example, listener.logz.io if your account is hosted on AWS US East, or listener-nl.logz.io if hosted on Azure West Europe. The required port depends whether HTTP or HTTPS is used: HTTP = 8070, HTTPS = 8071.|
+| logConfiguration.options.Host | The host [for your region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). For example, `listener.logz.io` if your account is hosted on AWS US East, or `listener-nl.logz.io` if hosted on Azure West Europe. |
 | logConfiguration.options.URI | Your Logz.io account token. {@include: ../../_include/log-shipping/log-shipping-token.html} |
 
 
@@ -393,13 +393,16 @@ Create an `extra.conf` file with the extra configuration. For example:
     Record app-version ${APP_VERSION}
 ```
 
-### Upload the extra.conf file to S3 (if your Fluent Bit is on EC2)
+### Upload the extra.conf file
 
-Upload the `extra.conf` file to the S3 bucket.
+* Upload the `extra.conf` file to S3 (if your Fluent Bit is on EC2).
+* Upload the `extra.conf` file to the container image or on a volume that's mounted in the container.
 
 ### Update the task definition file
 
-Add the path to the extra.conf file to the task definition file as follows:
+Add the path to the extra.conf file to the task definition file as follows.
+
+For the configuration file on S3:
 
 ```json
 "firelensConfiguration": {
@@ -411,5 +414,17 @@ Add the path to the extra.conf file to the task definition file as follows:
 			}
 ```
 
-Replace `<<PATH-TO-YOUR-EXTRA-CONF>>` with the path to the extra.conf file in your S3 bucket. For example, `yourbucket/yourdirectory/extra.conf`.
+For the configuration file on the container image or on a volume mounted in the container:
+
+```json
+"firelensConfiguration": {
+				"type": "fluentbit",
+				"options": {
+					"config-file-type": "file",
+					"config-file-value": "<<PATH-TO-YOUR-EXTRA-CONF>>/extra.conf"
+				}
+			}
+```
+
+Replace `<<PATH-TO-YOUR-EXTRA-CONF>>` with the path to the extra.conf file. For example, for S3, `yourbucket/yourdirectory/extra.conf`.
 

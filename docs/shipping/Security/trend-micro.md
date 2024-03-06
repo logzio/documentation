@@ -94,7 +94,7 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-{@include: ../../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-url.html} 
 
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.
@@ -154,7 +154,7 @@ Configure Trend Micro agents to forward event logs to Logz.io.
 
 ### Sample configuration
 
-You can reference the sample configuration used by the Logz.io Security Team in development of this integration. [Exported configuration in XML format.](/user-guide/security/trend-micro-configuration-sample/)
+You can reference the sample configuration used by the Logz.io Security Team in development of this integration. [Exported configuration in XML format.](https://docs.logz.io/docs/shipping/security/trend-micro/#sample-configuration)
 
 The configuration file includes settings for the following services:
 

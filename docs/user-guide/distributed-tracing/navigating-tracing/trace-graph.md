@@ -1,6 +1,9 @@
 ---
 sidebar_position: 3
 title: Trace Graph
+description: Visualize your traces with trace graph
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, traces, tracing, trace graph, observability, distributed tracing]
 ---
 
 
