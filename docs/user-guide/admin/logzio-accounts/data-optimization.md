@@ -57,7 +57,7 @@ To import the dashboard to your account, navigate to [Logs](https://app.logz.io/
 
 ![Upload saved JSON](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/data-optimization/indexedobjects.gif)
 
-After uploading the file, you might be asked to choose a new index pattern. Select **logzioCustomerIndex** from the drop-down menu.
+After uploading the file, you might be asked to choose a new index pattern. Select **logzioCustomerIndex** from the dropdown menu.
 
 ![Choose index pattern](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/data-optimization/import-saved-object.png)
 

@@ -83,7 +83,7 @@ To fine tune an event, you can edit the rule that triggered it. Find the event y
 
 ### Investigate an event
 
-Click the **Investigate** button to open the quick view panel with additional details about the event and when it was triggered. The quick view allows you to assign the event to a team member by choosing the relevant member from the drop-down list. You can dive deeper into each trigger by clicking the **Investigate** button next to it and opening the relevant logs for each event.
+Click the **Investigate** button to open the quick view panel with additional details about the event and when it was triggered. The quick view allows you to assign the event to a team member by choosing the relevant member from the dropdown list. You can dive deeper into each trigger by clicking the **Investigate** button next to it and opening the relevant logs for each event.
 
 ![investigate events](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/siem-events-quick-view-jan.png)
 

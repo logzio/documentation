@@ -30,7 +30,7 @@ Creating a separate set of rules per each tracing account allows you to control 
 
 To create Sampling rules, click the **New rule** button at the top right corner.
 
-Next, choose the services to which you'd like to apply this rule. To manually add your services, check the **These services** option and select the relevant services from the drop down menu.
+Next, choose the services to which you'd like to apply this rule. To manually add your services, check the **These services** option and select the relevant services from the dropdown menu.
 
 Finally, choose the sampling action. Each rule can only have one of the following actions:
 

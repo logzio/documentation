@@ -147,7 +147,7 @@ After completing a scan in OpenVAS, perform the following steps to generate a CS
 
 1. Click the **Scans tab**, then select **Reports**.
 2. Select a report from the list of results.
-3. The report summary will open. Select **CSV Results** from the drop-down menu (top left corner) and click the download option (It's the green arrow ⬇️.
+3. The report summary will open. Select **CSV Results** from the dropdown menu (top left corner) and click the download option (It's the green arrow ⬇️.
 
     ![OpenVAS image](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-analytics/openvas.png)
 

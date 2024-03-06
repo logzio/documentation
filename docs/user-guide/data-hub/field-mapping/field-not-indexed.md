@@ -21,7 +21,7 @@ Whenever you see the message **Field not indexed**, this is simply an indication
 If a field is not mapped in your logs, there are a few actions you won't be able to perform on it:
 
 1. You can't visualize it.
-2. You can't filter on it. It simply won’t appear in the drop-down filter list.
+2. You can't filter on it. It simply won’t appear in the dropdown filter list.
 
 ### Add a field to OpenSearch Dashboards' default mapping
 

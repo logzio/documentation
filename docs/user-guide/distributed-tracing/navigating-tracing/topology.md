@@ -21,7 +21,7 @@ From the <a href="https://www.jaegertracing.io/docs/latest/features/#deep-depend
 Use the deep dependency graph to view a partial graph relevant to your service of interest. 
 This ability is genuinely useful when it’s not possible to view that service in a system architecture graph, especially if you have hundreds of services (or many more), where hovering to find a specific service isn’t feasible. 
 
-1. In the top right of the search results, click **Deep Dependency Graph** (next to the **Sort** drop-down).
+1. In the top right of the search results, click **Deep Dependency Graph** (next to the **Sort** dropdown).
      ![Open DDG](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/open-ddg.png) You can set which service to focus on as origin (in pink) and expand and collapse the levels in the diagram.![Layout DDG](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/deep_depend_graph-layout2.png)
 
 2. Enter a service or operation in the search box to highlight it in the deep dependency graph.

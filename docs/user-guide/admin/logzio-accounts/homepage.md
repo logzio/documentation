@@ -16,7 +16,7 @@ Your default landing page is the [OpenSearch Dashboards](https://app.logz.io/#/d
 
 To change it, navigate to **[Settings > General Settings](https://app.logz.io/#/dashboard/settings/general)**.
 
-Open the drop down list to view all of the available options you can choose from. You can either scroll through the various options or type to search a specific page or dashboard. 
+Open the dropdown list to view all of the available options you can choose from. You can either scroll through the various options or type to search a specific page or dashboard. 
 
 
 ![Search for landing page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/landing-page-dropdown.png)
