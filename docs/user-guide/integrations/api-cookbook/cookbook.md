@@ -1,8 +1,16 @@
 ---
 sidebar_position: 1
+title: API cookbook
+description: API Cookbook
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [Kibana, OpenSearch Dashboards, GitHub, Backup, kibana object, object]
+X-Robots-Tag: noindex
 ---
 
-# API cookbook
+
+<head>
+  <meta name="robots" content="noindex, nofollow" />
+</head>
 
 Welcome!
 

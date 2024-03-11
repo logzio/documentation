@@ -1,8 +1,10 @@
 ---
 sidebar_position: 20
+title: Report a Security Issue
+description: Report a vulnerability, perceived security issue or potential exposure to Logz.io
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [security, report, logz.io, vulnerability, exposure]
 ---
-
-# Report a Security Issue
 
 Logz.io cares about the security of our customers’ data. It’s our top priority.
 
