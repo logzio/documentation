@@ -1,8 +1,10 @@
 ---
 sidebar_position: 3
+title: Managing Sub Account Capacity
+description: Use the Logz.io API to manage your accounts
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [sub account, logz.io, OpenSearch Dashboards, GitHub, Backup, search, object]
 ---
-
-# Managing Sub Account Capacity
 
 
 

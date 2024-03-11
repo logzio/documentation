@@ -1,8 +1,11 @@
 ---
 sidebar_position: 5
+title: Using Inspect Feature on OpenSearch Dashboards UI
+description: Search logs with Search API and OpenSearch Dashboards API
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [API, OpenSearch Dashboards, GitHub, Backup, search, object]
 ---
 
-# Using Inspect Feature on OpenSearch Dashboards UI
 
 
 

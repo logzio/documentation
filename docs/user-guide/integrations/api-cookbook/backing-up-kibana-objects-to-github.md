@@ -1,8 +1,10 @@
 ---
 sidebar_position: 4
+title: Backing Up Kibana Objects to GitHub
+description: Make automated recurring backup of your Kibana objects to GitHub
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [Kibana, OpenSearch Dashboards, GitHub, Backup, kibana object, object]
 ---
-
-# Backing Up Kibana Objects to GitHub
 
 
 

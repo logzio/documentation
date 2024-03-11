@@ -79,15 +79,15 @@
 /user-guide/cloud-siem/				/docs/user-guide/cloud-siem/
 /user-guide/cloud-siem/mssp-accounts.html				/docs/user-guide/cloud-siem/mssp-accounts/
 /user-guide/cloud-siem/send-data-options.html				/docs/category/cloud-siem-quick-start-guide/
-/user-guide/cloud-siem/summary-dashboard.html				/docs/user-guide/cloud-siem/quick-guide/summary-dashboard/
+/user-guide/cloud-siem/summary-dashboard.html				/docs/user-guide/cloud-siem/
 /user-guide/cloud-siem/investigate-events.html				/docs/category/investigate-events/
 /user-guide/cloud-siem/create-rules.html				/docs/user-guide/cloud-siem/security-rules/manage-security-rules/
 /user-guide/cloud-siem/add-endpoints.html				/docs/user-guide/cloud-siem/integrations/add-endpoints/
 /user-guide/cloud-siem/create-jira-ticket-alert.html				/docs/user-guide/cloud-siem/integrations/create-jira-ticket-alert/
 /user-guide/cloud-siem/edit-rules.html				/docs/user-guide/cloud-siem/security-rules/intro-security-rules/
-/user-guide/cloud-siem/manage-security-events.html				/docs/user-guide/cloud-siem/quick-guide/manage-security-events/
-/user-guide/cloud-siem/manage-feeds.html				/docs/user-guide/cloud-siem/quick-guide/manage-feeds/
-/user-guide/cloud-siem/select-dashboards.html				/docs/user-guide/cloud-siem/quick-guide/select-dashboards/
+/user-guide/cloud-siem/manage-security-events.html				/docs/user-guide/cloud-siem/investigate-events/security-events
+/user-guide/cloud-siem/manage-feeds.html				/docs/user-guide/cloud-siem/threat-intelligence/
+/user-guide/cloud-siem/select-dashboards.html				/docs/user-guide/cloud-siem/dashboards
 /user-guide/cloud-siem/security-events.html				/docs/user-guide/cloud-siem/investigate-events/security-events/
 /user-guide/cloud-siem/understanding-your-security-logs.html				/docs/user-guide/cloud-siem/investigate-events/understanding-your-security-logs/
 /user-guide/cloud-siem/drilldown-links/				/docs/user-guide/cloud-siem/investigate-events/drilldown-links/
@@ -335,6 +335,9 @@
 /contributors/savidov				/
 /user-guide/logs/share-import-export/1000				/docs/user-guide/log-management/collaboration/share-import-export/
 /user-guide/accounts/drop-filters//1000				/docs/user-guide/data-hub/drop-fiters/
+/user-guide/distributed-tracing/tracing-highlights				/docs/user-guide/distributed-tracing/navigating-tracing/tracing-tour
+/user-guide/infrastructure-monitoring/prometheus-importing-dashbds-manual-only.html				/docs/user-guide/Infrastructure-monitoring/introduction-to-prometheus/importing-dashboards
+/user-guide/users/single-sign-on/azure-sso.html/1000				/docs/user-guide/admin/sso/azure-sso/
 # Shippers				
 /shipping/				/docs/category/send-your-data/
 /user-guide/log-shipping/				/docs/category/send-your-data/
@@ -855,6 +858,7 @@
 /shipping/log-sources/guardduty.html				/docs/shipping/aws/guardduty/
 /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-route-53.html/1000				/docs/shipping/aws/aws-route-53/
 /user-guide/infrastructure-monitoring/metrics-dashboards/redis.html/1000				/docs/shipping/database/redis/
+docs/shipping/Other/App360				/docs/shipping/Other/Service-Performance-Monitoring-App360
 # API				
 /docs/logz/logz-io-api				https://api-docs.logz.io/docs/logz/logz-io-api/
 /api/index.html				https://api-docs.logz.io/docs/logz/logz-io-api/
