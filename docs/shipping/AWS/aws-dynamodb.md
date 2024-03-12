@@ -24,7 +24,7 @@ Amazon DynamoDB is a NoSQL database used to run high-performance applications. I
 
 **Before you begin**:
 
-* If you plan on using an access key to authenticate your connection, you'll need to set the `s3:ListBucket` and `s3:GetObject` [permissions](https://docs.logz.io/docs/user-guide/admin/give-aws-access-with-iam-roles) for the required S3 bucket.
+* If you plan on using an access key to authenticate your connection, you'll need to set the `s3:ListBucket` and `s3:GetObject` [permissions](https://docs.logz.io/docs/user-guide/admin/give-aws-access-with-iam-roles/) for the required S3 bucket.
 
 * If you plan on using an IAM role to authenticate your connection, you can get the role policy by filling out the bucket information and clicking the "Get the role policy" button.
 

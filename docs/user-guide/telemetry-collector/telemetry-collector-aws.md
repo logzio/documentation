@@ -82,6 +82,10 @@ It might take a while for the Telemetry Collector to get up and running, after w
 
 To manage an AWS EC2 Telemetry Collector on your **Linux** machine, you can use the following commands:
 
+:::tip Note
+To run these commands, make sure you're using SystemD.
+:::
+
 |Description|Command|
 |--|--|
 |**Collector Binary:** |`/opt/logzio-agent/logzio-otel-collector/otelcol-logzio-linux_amd64`|

@@ -169,7 +169,7 @@ If the timeframe for your search exceeds 48 hours, the search is only applied to
 
 ### Logzio-get-logs-by-event-id
 
-Fetches the logs that triggered a security event using the [Logz.io Cloud SIEM API](https://api-docs.logz.io/docs/logz/security-rules). Upon success, returns the logs that match the query as a paginated list in JSON format.
+Fetches the logs that triggered a security event using the [Logz.io Cloud SIEM API](https://api-docs.logz.io/docs/logz/security-rules/). Upon success, returns the logs that match the query as a paginated list in JSON format.
 
 ```
 {

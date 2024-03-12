@@ -117,8 +117,7 @@ If you're running Filebeat 7 to 8.1, paste the code block below instead:
 
 
   
-   * Your Logz.io log shipping token directs the data securely to your Logz.io Log Management account. [Manage your tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/shared).
-   * {@include: ../../_include/log-shipping/listener-var.md}
+   * Your Logz.io log shipping token directs the data securely to your Logz.io Log Management account. [Manage your tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/shared). {@include: ../../_include/log-shipping/listener-url.html}
 
 ##### Restart Filebeat to run it with the new configuration.
   

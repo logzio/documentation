@@ -208,7 +208,7 @@ drop_filter: []
   
   
    * {@include: ../../_include/log-shipping/log-shipping-token.md}
-   * {@include: ../../_include/log-shipping/listener-var.md}
+   * {@include: ../../_include/log-shipping/listener-url.html}
 
 2. Run Filebeat with the new configuration.
 
