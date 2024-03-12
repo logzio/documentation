@@ -205,7 +205,7 @@ For instance, if there is a parameter called `someField` in the `logzio-telemetr
 
 ## Sending telemetry data from eks on fargate
 
-To ship logs from pods running on Fargate, set the `fargateLogRouter.enabled` value to `true`. Doing so will deploy a dedicated `aws-observability` namespace and a `configmap` for the Fargate log router. For more information on EKS Fargate logging, please refer to the [official AWS documentation]((https://docs.aws.amazon.com/eks/latest/userguide/fargate-logging.html).
+To ship logs from pods running on Fargate, set the `fargateLogRouter.enabled` value to `true`. Doing so will deploy a dedicated `aws-observability` namespace and a `configmap` for the Fargate log router. For more information on EKS Fargate logging, please refer to the [official AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/fargate-logging.html).
 
 ```shell
 helm install -n monitoring \
@@ -214,6 +214,8 @@ helm install -n monitoring \
 --set logzio-fluentd.secrets.logzioShippingToken="<<LOG-SHIPPING-TOKEN>>" \
 --set logzio-fluentd.secrets.logzioListener="<<LISTENER-HOST>>" \
 --set metricsOrTraces.enabled=true \
+--set logzio-k8s-telemetry.collector.mode=standalone \
+--set logzio-k8s-telemetry.enableMetricsFilter.eks=true \
 --set logzio-k8s-telemetry.metrics.enabled=true \
 --set logzio-k8s-telemetry.secrets.MetricsToken="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>" \
 --set logzio-k8s-telemetry.secrets.ListenerHost="https://<<LISTENER-HOST>>:8053" \
@@ -233,7 +235,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<CLUSTER-NAME>>` | The name for your environment's identifier, to easily identify the telemetry data for each environment. |
 | `<<ENV-TAG>>` | Your custom name for the environment's metrics, to easily identify the metrics for each environment. |
 | `<<TRACING-SHIPPING-TOKEN>>` | Replace `<<TRACING-SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=tracing) of the account you want to ship to. |
-| `<<LOGZIO_ACCOUNT_REGION_CODE>>` | Name of your Logz.io traces region e.g `us` or `eu`. You can find your region code in the [Regions and URLs](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#regions-and-urls) table. |
+| `<<LOGZIO_ACCOUNT_REGION_CODE>>` | Name of your Logz.io traces region e.g `us` or `eu`. You can find your region code in the [Regions and URLs](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#regions-and-urls/) table. |
 
 ## Handling image pull rate limit
 

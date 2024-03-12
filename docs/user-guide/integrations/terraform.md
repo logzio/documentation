@@ -1,8 +1,10 @@
 ---
 sidebar_position: 7
+title: Terraform Logz.io Provider
+description: Build Logz.io integrations with Terraform 
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [integrations, Terraform, API, logz.io, OpenSearch Dashboards, GitHub]
 ---
-
-# Terraform Logz.io Provider
 
 :::note
 [Project's GitHub repo](https://github.com/logzio/logzio_terraform_provider/)

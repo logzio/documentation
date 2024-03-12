@@ -82,7 +82,7 @@ Set your threshold and severity levels. You can base your trigger on a number of
 You can add multiple conditions for the trigger by clicking **+ Add threshold**. You can add up to 5 threshold conditions, each with its own severity tag.
 
 :::note
-You can set the trigger condition time frame between 5 minutes and up to 24 hours (1 day). To set a trigger condition longer than 24 hours, use [Logz.io’s API](https://api-docs.logz.io/docs/logz/create-security-rule) to create your rule.
+You can set the trigger condition time frame between 5 minutes and up to 24 hours (1 day). To set a trigger condition longer than 24 hours, use [Logz.io’s API](https://api-docs.logz.io/docs/logz/create-security-rule/) to create your rule.
 :::
 
 
@@ -144,7 +144,7 @@ Set a period between notifications to limit how frequently recipients are notifi
 The system combines the **Trigger if** time interval with the **Wait time** interval to calculate how long it should snooze notifications and chooses the more extended time duration available. For example, if your trigger condition is 1 hour and the wait time is 15 Minutes, the system will snooze notifications for 1 hour before triggering them again.
 :::
 
-*If you need help adding a new endpoint, see [Notification endpoints](https://docs.logz.io/docs/user-guide/integrations/notification-endpoints/endpoints).*
+*If you need help adding a new endpoint, see [Notification endpoints](https://docs.logz.io/docs/user-guide/integrations/notification-endpoints/endpoints/).*
 
 
 #### Select rule output format & content

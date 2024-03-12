@@ -1,8 +1,10 @@
 ---
 sidebar_position: 4
+title: Backing Up Kibana Objects to GitHub
+description: Make automated recurring backup of your Kibana objects to GitHub
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [Kibana, OpenSearch Dashboards, GitHub, Backup, kibana object, object]
 ---
-
-# Backing Up Kibana Objects to GitHub
 
 
 
@@ -69,7 +71,7 @@ curl -X POST \
 ```
 
 :::note Read more
-This API endpoint is documented in [Export Kibana objects](https://api-docs.logz.io/docs/logz/import-or-export-kibana-objects) in the API docs.
+This API endpoint is documented in [Export Kibana objects](https://api-docs.logz.io/docs/logz/import-or-export-kibana-objects/) in the API docs.
 :::
 
  
