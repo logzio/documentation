@@ -817,6 +817,151 @@ Run your application to start sending metrics to Logz.io.
 Give your metrics some time to get from your system to ours, and then open [Metrics dashboard](https://app.logz.io/#/dashboard/metrics/discover?).
 
 
+### Monitoring Java applications with Prometheus
+
+#### Build the JMX Exporter
+
+1. Clone the JMX Exporter repository from GitHub:
+
+   ```bash
+   git clone https://github.com/prometheus/jmx_exporter.git
+   ```
+
+2. Navigate to the `jmx_exporter` directory:
+
+   ```bash
+   cd jmx_exporter
+   ```
+
+3. Build the JMX Exporter using Maven:
+
+   ```bash
+   mvn package
+   ```
+
+4. Identify the built JAR file name:
+
+   ```bash
+   Identify the built JAR file name:
+   ```
+
+Note the name of the JAR file for later use.
+
+#### Run Kafka
+
+1. Ensure Zookeeper is running:
+
+   ```bash
+   kafka_2.12-2.4.1/bin/zookeeper-server-start.sh kafka_2.12-2.4.1/config/zookeeper.properties &
+   ```
+
+Make sure to use the correct path for your Kafka version.
+
+2. Set up your Java environment for Kafka:
+
+   Export the required environment variables and include the JMX Exporter JAR file using the full path identified earlier. Replace `<JAR_PATH>` with the path to your JAR file and adjust the port if necessary (default is 8090):
+
+   ```bash
+   export EXTRA_ARGS="-Dcom.sun.management.jmxremote \
+   -Dcom.sun.management.jmxremote.authenticate=false \
+   -Dcom.sun.management.jmxremote.ssl=false \
+   -Djava.util.logging.config.file=logging.properties \
+   -javaagent:<JAR_PATH>=8090:jmx_exporter/example_configs/kafka-2_0_0.yml"
+   ```
+
+3. Start Kafka with the specified Java environment:
+
+   ```bash
+   kafka_2.12-2.4.1/bin/kafka-server-start.sh kafka_2.12-2.4.1/config/server.properties &
+   ```
+
+This step assumes the environment variables and the JMX Exporter have been set up correctly.
+
+4. View Metrics
+
+Access the exposed metrics by navigating to http://localhost:8080 (or the port you specified).
+
+#### Configure OpenTelemetry to Send Metrics to Logz.io
+
+1. Configure the Prometheus receiver in the OpenTelemetry Collector to scrape metrics from Kafka:
+
+```yaml
+receivers:
+  prometheus:
+    config:
+      scrape_configs:
+        - job_name: 'otel-collector-kafka'
+          scrape_interval: 5s
+          static_configs:
+            - targets: ['127.0.0.1:8090']
+```
+
+2. Set up processors for resource detection and attribute modification:
+
+```yaml
+processors:
+  resourcedetection/system:
+    detectors: ["system"]
+    system:
+      hostname_sources: ["os"]
+  attributes/agent:
+    actions:
+      - key: logzio_agent_version
+        value: v1.0.36
+        action: insert
+      - key: cloudservice
+        value: _CloudService_
+        action: insert
+      - key: role
+        value: _role_
+        action: insert
+```
+
+3. Configure exporters for logging and sending metrics to Logz.io:
+
+```yaml
+exporters:
+  logging:
+  logzio/logs:
+    account_token: **********************
+    region: us
+  prometheusremotewrite:
+    endpoint: https://listener.logz.io:8053
+    headers:
+      Authorization: "Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>"
+    resource_to_telemetry_conversion:
+      enabled: true
+```
+{@include: ../../_include/general-shipping/replace-prometheus-token.html}
+
+
+4. Define the service pipelines to use the configured receivers, processors, and exporters:
+
+```yaml
+service:
+  pipelines:
+    metrics:
+      receivers:
+        - prometheus
+      exporters: [prometheusremotewrite]
+      processors: [resourcedetection/system]
+```
+
+##### Start the collector
+
+Run the following command:
+
+```shell
+<path/to>/otelcol-contrib --config ./config.yaml
+```
+
+* Replace `<path/to>` with the path to the directory where you downloaded the collector. If the name of your configuration file is different to `config`, adjust name in the command accordingly.
+
+### Check Logz.io for your metrics
+
+Give your metrics some time to get from your system to ours, and then open [Metrics dashboard](https://app.logz.io/#/dashboard/metrics/discover?).
+
+
 ## Traces
 
 Deploy this integration to enable automatic instrumentation of your Java application using OpenTelemetry.
