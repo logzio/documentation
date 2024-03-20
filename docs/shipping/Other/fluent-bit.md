@@ -81,6 +81,9 @@ For a list of options, see the configuration parameters below the code block. ðŸ
 | logzio_type   | {@include: ../../_include/log-shipping/type.md} | `logzio-fluent-bit` |
 | logzio_debug    | Set to `true` to print debug messages to stdout. | `false` |
 | workers | Enables dedicated thread(s) for this output. | Default value is 1. To support more traffic, adjust this value accordingly. |
+| proxy_host | Support HTTP proxy processing. | Optional, supported format: `<PROXY_HOST>:<PROXY_PORT>` |
+| proxy_user | Support HTTP proxy user authentication. | Optional, default is `""` |
+| proxy_pass | Support HTTP proxy password authentication. | Optional, default is `""` |
 
 
 ### Run Fluent Bit with the Logz.io plugin
