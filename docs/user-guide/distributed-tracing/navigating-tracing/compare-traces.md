@@ -1,5 +1,6 @@
 ---
 sidebar_position: 7
+unlisted: true
 title: Compare Your Traces with Logz.io
 description: Compare your traces with Logz.io
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
