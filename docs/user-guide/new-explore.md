@@ -1,6 +1,7 @@
 ---
 sidebar_position: 30
 unlisted: true
+draft: true
 title: Intro to Explore
 description: Getting started with Logz.io's Explore dashboard
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
