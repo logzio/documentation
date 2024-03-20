@@ -16,10 +16,6 @@
   }
 }
 
-.hidden {
-  display: none !important;
-  }
-
 .buttons {
   display: flex;
   align-items: center;

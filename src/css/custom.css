@@ -161,6 +161,10 @@ div[class^='announcementBar_'] {
   font-weight: bold;
 }
 
+.hidden {
+  display: none !important;
+  }
+
 .screen-reader-only {
   border: 0;
   clip: rect(0 0 0 0);
