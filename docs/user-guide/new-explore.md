@@ -10,7 +10,7 @@ slug: /user-guide/explore/meet-explore
 
 Explore lets you monitor your logs, metrics, and traces in one unified dashboard. It offers a quick and easy way to identify and debug issues quickly and effectively.
 
-To get started, navigate to [Explore](https://app.logz.io/).
+Enable the new Explore dashboard by navigating to [Settings](https://app.logz.io/#/dashboard/settings/general) and toggling the Explore option. This will add the icon to your navigation menu, and you can access the [**Explore dashboard**](https://app.logz.io/) with a single click.
 
 
 ## Explore Dashboards Overview
