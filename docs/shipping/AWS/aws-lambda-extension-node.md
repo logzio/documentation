@@ -1,7 +1,7 @@
 ---
 id: Lambda-extension-node
-title: Traces from Node.js on AWS Lambda using OpenTelemetry
-overview: This integration to auto-instrument your Node.js application running on AWS Lambda and send the traces to your Logz.io account.
+title: Traces from Node.js, Go on AWS Lambda using OpenTelemetry
+overview: This integration to auto-instrument your Node.js Or Go application running on AWS Lambda and send the traces to your Logz.io account.
 product: ['tracing']
 os: ['windows', 'linux']
 filters: ['AWS', 'Compute']
@@ -14,7 +14,7 @@ metrics_alerts: []
 drop_filter: []
 ---
 
-Deploy this integration to auto-instrument your Node.js application running on AWS Lambda and send the traces to your Logz.io account. This is done by adding a dedicated layer for OpenTelemetry collector, a dedicated layer for Node.js auto-instrumentation and configuring environment variables of these layers. This integration will require no change to your application code.
+To seamlessly send traces from your AWS Lambda-based Node.js or Go application to Logz.io, integrate by deploying a specialized OpenTelemetry collector layer. For Node.js applications, an extra layer is required for auto-instrumentation, ensuring traces are captured without modifying your application code. Go applications, conversely, only require the collector layer. Set environment variables for these layers to enable the integration, facilitating a code-free approach to monitoring your application's performance.
 
 :::note
 This integration only works for the following AWS regions: `us-east-1`, `us-east-2`, `us-west-1`, `us-west-2`,
@@ -28,7 +28,11 @@ This integration only works for the following AWS regions: `us-east-1`, `us-east
   
 * [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
 * Configured [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
-* A Lambda function with a Node.js application that is not yet instrumented.
+* A Lambda function with a Node.js or Go application that is not yet instrumented.
+
+:::note
+Using `aws lambda update-function-configuration` with `--layers` replaces all existing layers with the specified ARN(s). To add a new layer without removing existing ones, include all desired layer ARNs in the command, both new and previously attached.
+:::
 
 :::note
 Adding environmental variables using the AWS CLI commands below, will overwrite all existing variables for your Lambda function.
@@ -44,33 +48,14 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 This layer contains the OpenTelemetry collector that will capture data from your application.
 
 ```shell
-aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers arn:aws:lambda:<<YOUR-AWS-REGION>>:486140753397:layer:logzio-opentelemetry-collector-layer:<<LAYER_VERSION>>
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers arn:aws:lambda:<<YOUR-AWS-REGION>>:486140753397:layer:logzio-opentelemetry-collector-<<ARCHITECHTURE>>-0_1_0:1
 ```
 
 Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Node.js application.
 
 Replace `<<YOUR-AWS-REGION>>` with the code of your AWS regions, e.g. `us-east-1`.
 
-Replace `<<LAYER_VERSION>>` with the latest stable version for your region.
-
-|Region|logzio-opentelemetry-collector-layer|
-|--- |--- |
-|us-east-1|14|
-|us-east-2|3|
-|us-west-1|2|
-|us-west-2|2|
-|eu-north-1|2|
-|eu-west-1|3|
-|eu-west-2|3|
-|eu-west-3|2|
-|ca-central-1|3|
-|ap-northeast-1|3|
-|ap-northeast-2|3|
-|ap-northeast-3|2|
-|ap-south-1|2|
-|ap-southeast-1|2|
-|ap-southeast-2|2|
-|sa-east-1|2|
+Replace `<<ARCHITECTURE>>` with the target architecture for your Lambda function, either `arm64` for ARM-based applications or `amd64` (also known as x86_64) for traditional 64-bit Intel/AMD applications.
 
 
 #### Create a configuration file for the OpenTelemetry collector
@@ -117,7 +102,8 @@ aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_
 
 Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Node.js application.
 
-Replace `<<PATH_TO_YOUR_COLLECTOR.YAML>>` with the actual path to your `collector.yaml` file.
+Replace `<<PATH_TO_YOUR_COLLECTOR.YAML>>` with the actual path to your `collector.yaml` file. 
+(If `collector.yaml` is located in the root directory of your application, use the path `/var/task/collector.yaml`.)
 
 
 #### Activate tracing for your Lambda function
@@ -128,41 +114,21 @@ aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_
 
 Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Node.js application.
 
+## Extra steps to Node.js Lambda Integration
+
 #### Add the OpenTelemetry Node.js wrapper layer to your Lambda function
 
 The OpenTelemetry Node.js wrapper layer automatically instruments the Node.js application in your Lambda function.
 
 ```shell
-aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers arn:aws:lambda:<<YOUR-AWS-REGION>>:486140753397:layer:logzio-opentelemetry-nodejs-wrapper:<<LAYER_VERSION>>
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers arn:aws:lambda:<<YOUR-AWS-REGION>>:486140753397:layer:opentelemetry-nodejs-0_1_0:1
 ```
 
 Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Node.js application.
 
 Replace `<<YOUR-AWS-REGION>>` with the code of your AWS regions, e.g. `us-east-1`.
-
-Replace `<<LAYER_VERSION>>` with the latest stable version for your region.
-
-|Region|logzio-opentelemetry-nodejs-wrapper|
-|--- |--- |
-|us-east-1|11|
-|us-east-2|3|
-|us-west-1|2|
-|us-west-2|2|
-|eu-north-1|2|
-|eu-west-1|3|
-|eu-west-2|3|
-|eu-west-3|2|
-|ca-central-1|3|
-|ap-northeast-1|3|
-|ap-northeast-2|3|
-|ap-northeast-3|2|
-|ap-south-1|2|
-|ap-southeast-1|2|
-|ap-southeast-2|2|
-|sa-east-1|2|
-
   
-#### Add environment variable for the wrapper
+#### Add environment variable for the wrapper layer
   
 Add the `AWS_LAMBDA_EXEC_WRAPPER` environment variable to point to the `otel-handler` executable:
 
