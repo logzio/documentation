@@ -29,7 +29,9 @@ With LogMetrics, you can create the following types of metrics:
 
 ## Configure LogMetrics
 
-
+:::warning note
+Log Metrics rules should be configured in the account storing the relevant logs.
+:::
 
 
 ### 1. Find the relevant logs
