@@ -22,7 +22,7 @@ Explore is designed to investigate and analyze massive volumes of data quickly a
 
 Smart Search is the default query option, offering an intuitive experience with auto-complete functionality. It streamlines your search process and enables faster access to data.
 
-Start typing to see all of the available fields you can use in your query. Select the operator you want to apply and the available list of values will appear.
+Start typing to see all of the available fields you can use in your query. Select the operator you want to apply, and the available values will appear.
 
 ![Smart Search gif](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/new-explore-smart-mar26.gif)
 
@@ -40,11 +40,11 @@ Decide which accounts you want to monitor, and easily add or remove fields to re
 
 ### 4. Graph View
 
-Visualize trends over time and group data based on your preferred categories. You can hover over the graph for additional details about each data point.
+Visualize trends over time and group data based on your preferred categories. Hover over the graph for additional details about each data point.
 
 ### 5. Logs Table
 
-Use the Logs Table to view and analyze logs. Easily access relevant logs and their details, and customize the table by adding or removing columns.
+Use the Logs Table to view and analyze logs. Access relevant logs and their details quickly, and customize the table by adding or removing columns.
 
 ### Quick View
 
