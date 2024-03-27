@@ -54,9 +54,7 @@ You can also zoom in and out of the map, move the elements around, and click on 
 
 You can adjust the data according to your monitoring needs. The filters at the top let you choose the **time frame** you want to view, **compare** your view to a previous time frame, and choose which **environments, services, and operations** you want to display.
 
-![service map view filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/services-filters-mar18.png)
-
-You can **drill down** into each service or **[edit the Anomaly Detector](/docs/user-guide/app360/service-list/#detect-anomalies)** by clicking on the relevant service.
+You can **drill down** or **[edit the Anomaly Detector](/docs/user-guide/app360/service-list/#detect-anomalies)** by clicking on the relevant service.
 
 
 ## Dive deeper into your services
@@ -117,7 +115,7 @@ Hovering over the graphs provides values for the specific time point, allowing y
 
 ![hovering graph](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/infra-mar27.png)
 
-You can toggle your view between pods and nodes inside the service.
+You can toggle your view between encironemts, nodes, and pods inside the service.
 
 ## Track Deployment Data
 
@@ -127,14 +125,14 @@ Run the [**Telemetry Collector**](https://app.logz.io/#/dashboard/integrations/c
 
 Once enabled, navigate to [Services](https://app.logz.io/#/dashboard/spm/service-list/table?timeFrame=2h&compareTo=1d) and choose one of your running services. A vertical line marks the deployment marker in your graphs.
 
-![deployment popup](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/deplyment-popup-mar27.png)
+![deployment popup](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/deployment-mar27.png)
 
-Clicking on the line allows you to view additional deployment data. This data includes the deployment time, the associated service and environment, and a quick link to view the commit in your logs.
+Clicking on the line allows you to view additional deployment data. This data includes the deployment time, the associated service, environment, and version, and a quick link to view the commit in your logs.
 
-Click **Go to commit** to access and view your own code related to this deployment, allowing you to probe deeper into the relevant data.
+Click **View commit** to access and view your own code related to this deployment, allowing you to probe deeper into the relevant data.
 
 :::caution Important
-To activate the **Go to Commit** button, go to **your app or service** and add the following annotation to the metadata of each resource's versioning you want to track: `logzio/commit_url: ""`, and the URL structure should be: "`https://github.com/<account>/<repository>/commit/<commit-hash>`". [Learn more](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-k8s-events#deployment-events-versioning).
+To activate the **View commit** button, go to **your app or service** and add the following annotation to the metadata of each resource's versioning you want to track: `logzio/commit_url: ""`, and the URL structure should be: "`https://github.com/<account>/<repository>/commit/<commit-hash>`". [Learn more](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-k8s-events#deployment-events-versioning).
 :::
 
 ## Detect Anomalies
@@ -145,7 +143,7 @@ To get started with the Anomaly Detector, you'll need to set up the anomaly you 
 
 In List view, select the service you wish to monitor, click the three dots, then choose **Edit Anomaly Detector**. In Map view, click on the operation you want to monitor and select Edit Anomaly Detector.
 
-![anomaly detector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/new-anomaly-detector.png)
+![anomaly detector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/edit-anomaly-mar27.png)
 
 The Anomaly Detector automatically selects the service, and you can choose to monitor all operations, which will aggregate the anomalies by service, or select up to five specific operations from which to aggregate anomalies.
 
