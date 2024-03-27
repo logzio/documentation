@@ -10,7 +10,7 @@ keywords: [traces, logs, metrics, services, service overview, logz.io]
 
 The **Services** dashboard centralizes all of your running services, allowing you to quickly detect if and when issues occur.  You can use the dashboard to investigate the different services, operations, and logs inside each one.
 
-![Services](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/astronomy-services-main.png)
+![Services](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/services-mar18.png)
 
 ## Services overview
 
@@ -21,32 +21,22 @@ You can choose how you want to view your services: a table view or a map view. S
 The table view contains the following details:
 
 * **Name** of each service
+* **Account** related to the service
 * **Impact** level - Determines the severity of each event, calculated based on the latency and request rate
 * The **Environment** in which this service is located
 * **Request rate** - Number of requests per second, in numeral and graph view
 * **Latency** - The duration it takes data to travel in the environment, presented in milliseconds and graph view
-* **Error ratio** - Both percentage and graph view
+* **Errors** ratio - Both percentage and graph view
 
-At the top of the chart, you can adjust the view to match your monitoring needs.
+You can **drill down** into each service or **[edit the Anomaly Detector](/docs/user-guide/app360/service-list/#detect-anomalies)** by clicking the three dots at the end of each table row. 
 
-You can **compare** your view to a previous time frame and view the differences in the graphs and trends.
+The data shown in the table can be adjusted according to your monitoring needs. You can change the time frame based on a list of frequently used time frames, including the last 1 hour, 15 minutes, 6 hours, etc. 
 
-![service compare](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/compare-services1.png)
+![service time frame](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/services-timeframe-mar18.png)
 
-**Change the time frame** to range from 2 hours to 2 days ago.
+You can adjust the data according to your monitoring needs. The filters at the top let you choose the **time frame** you want to view, **compare** your view to a previous time frame, and choose which **environments, services, and operations** you want to display, or clear all filters. If you're looking for a specific service, use the **search** to see all the matching results.
 
-![service time](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/services-last1.png)
-
-Choose which **environments and operations** you want to display in the chart.
-
-![service filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/services-filters1.png)
-
-Or, if you're looking for a specific service, use the **search** to see all the matching results.
-
-![service search](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/services-search.png)
-
-Clicking on the **Clear filters** will remove all of the filters.
-
+![service filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/services-filters-mar18.png)
 
 ### Map view
 
@@ -60,16 +50,20 @@ The filters change the time frame, service, environment, and operations. You can
 
 You can also zoom in and out of the map, move the elements around, and click on them to get additional info in graph form. Clicking on the button will take you to the service overview screen.
 
-![service map overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/service-map-astronomy.gif)
+![service map overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/service-map-view-mar18.gif)
+
+You can adjust the data according to your monitoring needs. The filters at the top let you choose the **time frame** you want to view, **compare** your view to a previous time frame, and choose which **environments, services, and operations** you want to display.
+
+You can **drill down** or **[edit the Anomaly Detector](/docs/user-guide/app360/service-list/#detect-anomalies)** by clicking on the relevant service.
 
 
 ## Dive deeper into your services
 
-Clicking on one of the services opens a new page with additional info, including a visual representation of the service’s current error ratio, request rate, latency, and a breakdown of the service’s operations, infrastructure, and logs. Each data point is compared to the time frame of your choice (last day or last week), helping you understand the trends and know which area you should focus on. 
+Clicking on one of the services or clicking on drill down opens a dashboard with additional info, including a visual representation of the service’s current request rate, latency, error ratio, and HTTP status code. You can also view a breakdown of the service’s operations, infrastructure, memory, and logs. Each data point is compared to the time frame of your choice, helping you understand the trends and know which area you should focus on. 
 
-At the top of the page, you can change the time frame, choose which nodes or pods to focus on, or manually update the data by clicking the refresh icon. 
+You can change the time frame and add additional filters, including comparing the data to a previous period or choose an environment, nodes, and pods. Clicking the refresh button will manually update the data.
 
-![service deeper](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/astronomy-services-service.png)
+![service deeper](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/services-service-drilldown-mar18.png)
 
 
 Hovering over the graphs provides additional info for the time point you've chosen:
@@ -79,7 +73,7 @@ Hovering over the graphs provides additional info for the time point you've chos
 * The **Errors** graph analyzes the percentage of errors that occurred
 * The **HTTP status code** graph measures the distribution of various HTTP status codes
 
-![graphs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/astronomy-shop-graphs.png)
+![graphs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/service-drilldown-graphs-mar27.png)
 
 ### Operations overview
 
@@ -89,7 +83,7 @@ This table includes all of the operations running inside the chosen service with
 * The operation’s **Impact** level, calculated based on the latency and request rate
 * **Request rate** - Number of requests per second, in numeral and graph view
 * **Latency** - The duration it takes data to travel in the environment, presented in milliseconds and graph view
-* **Error ratio** - Both percentage and graph view
+* **Errors** ratio - Both percentage and graph view
 
 Use the search bar to find a specific operation or the arrows at the bottom of the table to navigate the operations.
 
@@ -109,9 +103,9 @@ You can also view the operation's spans with these additional details:
 * **Duration**
 * **Status code**
 
-Clicking on any span will direct you to its trace view, helping you pinpoint where failures occur and find the leading contributors to slow transaction performance.
+Clicking on any span will direct you to its trace view, which will help you pinpoint where failures occur and identify the leading contributors to slow transaction performance.
 
-![operation spans view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/astronomy-service-inside.png)
+![operation spans view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/inner-service-map-mar27.png)
 
 ### Infrastructure overview
 
@@ -119,26 +113,26 @@ View the CPU and memory consumption inside the service. The graphs represent a b
 
 Hovering over the graphs provides values for the specific time point, allowing you to see how much CPU was used by the deployment at this specific time or how much memory this deployment used.
 
-![hovering graph](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/hover-infra-small.png)
+![hovering graph](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/infra-mar27.png)
 
-You can toggle your view between pods and nodes inside the service.
+You can toggle your view between the service's environments, nodes, and pods.
 
 ## Track Deployment Data
 
 You can enrich your Service Overview graphs by indicating recent deployments, helping you determine if a deployment has increased response times for end-users, altered your application's memory/CPU footprint, or introduced any other performance-related changes.
 
-To enable deployment tracking ability, run the [**Telemetry Collector**](https://app.logz.io/#/dashboard/integrations/collectors?tags=Quick%20Setup) on your Kubernetes clusters. You can also activate this process **manually** by installing [Logz.io Kubernetes events Helm chart](https://app.logz.io/#/dashboard/integrations/Kubernetes:~:text=user%20guide.-,Send%20your%20deploy%20events%20logs,-This%20integration%20sends) and sending Kubernetes deploy events logs.
+Run the [**Telemetry Collector**](https://app.logz.io/#/dashboard/integrations/collectors?tags=Quick%20Setup) on your Kubernetes clusters to enable deployment tracking ability. You can also activate this process **manually** by installing [Logz.io Kubernetes events Helm chart](https://app.logz.io/#/dashboard/integrations/Kubernetes:~:text=user%20guide.-,Send%20your%20deploy%20events%20logs,-This%20integration%20sends) and sending Kubernetes deploy events logs.
 
-Once enabled, navigate to [Services](https://app.logz.io/#/dashboard/spm/service-list/table?timeFrame=2h&compareTo=1d) and choose one of your running services. The deployment marker will appear in your graphs, marked by a vertical line.
+Once enabled, navigate to [Services](https://app.logz.io/#/dashboard/spm/service-list/table?timeFrame=2h&compareTo=1d) and choose one of your running services. A vertical line marks the deployment marker in your graphs.
 
-![deployment popup](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/deplyment-popup.png)
+![deployment popup](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/deployment-mar27.png)
 
-You can view additional deployment data by clicking on the line. This data includes the deployment time, the associated service and environment, and a quick link to view the commit in your logs.
+Clicking on the line allows you to view additional deployment data. This data includes the deployment time, the associated service, environment, and version, and a quick link to view the commit in your logs.
 
-Click **Go to commit** to access and view your own code related to this deployment, allowing you to probe deeper into the relevant data.
+Click **View commit** to access and view your own code related to this deployment, allowing you to probe deeper into the relevant data.
 
 :::caution Important
-To activate the **Go to Commit** button, go to **your app or service** and add the following annotation to the metadata of each resource's versioning you want to track: `logzio/commit_url: ""`, and the URL structure should be: "`https://github.com/<account>/<repository>/commit/<commit-hash>`". [Learn more](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-k8s-events#deployment-events-versioning).
+To activate the **View commit** button, go to **your app or service** and add the following annotation to the metadata of each resource's versioning you want to track: `logzio/commit_url: ""`, and the URL structure should be: "`https://github.com/<account>/<repository>/commit/<commit-hash>`". [Learn more](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-k8s-events#deployment-events-versioning).
 :::
 
 ## Detect Anomalies
@@ -149,7 +143,7 @@ To get started with the Anomaly Detector, you'll need to set up the anomaly you 
 
 In List view, select the service you wish to monitor, click the three dots, then choose **Edit Anomaly Detector**. In Map view, click on the operation you want to monitor and select Edit Anomaly Detector.
 
-![anomaly detector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/new-anomaly-detector.png)
+![anomaly detector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/edit-anomaly-mar27.png)
 
 The Anomaly Detector automatically selects the service, and you can choose to monitor all operations, which will aggregate the anomalies by service, or select up to five specific operations from which to aggregate anomalies.
 
