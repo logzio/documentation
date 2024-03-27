@@ -115,7 +115,7 @@ Hovering over the graphs provides values for the specific time point, allowing y
 
 ![hovering graph](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/infra-mar27.png)
 
-You can toggle your view between encironemts, nodes, and pods inside the service.
+You can toggle your view between the service's environments, nodes, and pods.
 
 ## Track Deployment Data
 
