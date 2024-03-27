@@ -87,7 +87,7 @@ format={"additional_field": "value"}
  - Your logz.io token
  - Log type, for searching in logz.io (defaults to "python")
  - Time to sleep between draining attempts (defaults to "3")
- - Logz.io Listener address (defaults to "https://listener.logz.io:8071")
+ - Logz.io Listener address (defaults to `https://listener.logz.io:8071`)
  - Debug flag. Set to True, will print debug messages to stdout. (defaults to "False")
  - Backup logs flag. Set to False, will disable the local backup of logs in case of failure. (defaults to "True")
  - Network timeout, in seconds, int or float, for sending the logs to logz.io. (defaults to 10)
