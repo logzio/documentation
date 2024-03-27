@@ -75,7 +75,7 @@ Hovering over the graphs provides additional info for the time point you've chos
 * The **Errors** graph analyzes the percentage of errors that occurred
 * The **HTTP status code** graph measures the distribution of various HTTP status codes
 
-![graphs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/service-drilldown-graphs-mar18.png)
+![graphs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/service-drilldown-graphs-mar27.png)
 
 ### Operations overview
 
@@ -107,7 +107,7 @@ You can also view the operation's spans with these additional details:
 
 Clicking on any span will direct you to its trace view, which will help you pinpoint where failures occur and identify the leading contributors to slow transaction performance.
 
-![operation spans view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/astronomy-service-inside.png)
+![operation spans view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/inner-service-map-mar27.png)
 
 ### Infrastructure overview
 
@@ -115,7 +115,7 @@ View the CPU and memory consumption inside the service. The graphs represent a b
 
 Hovering over the graphs provides values for the specific time point, allowing you to see how much CPU was used by the deployment at this specific time or how much memory this deployment used.
 
-![hovering graph](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/hover-infra-small.png)
+![hovering graph](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/infra-mar27.png)
 
 You can toggle your view between pods and nodes inside the service.
 
@@ -127,7 +127,7 @@ Run the [**Telemetry Collector**](https://app.logz.io/#/dashboard/integrations/c
 
 Once enabled, navigate to [Services](https://app.logz.io/#/dashboard/spm/service-list/table?timeFrame=2h&compareTo=1d) and choose one of your running services. A vertical line marks the deployment marker in your graphs.
 
-![deployment popup](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/deplyment-popup.png)
+![deployment popup](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/deplyment-popup-mar27.png)
 
 Clicking on the line allows you to view additional deployment data. This data includes the deployment time, the associated service and environment, and a quick link to view the commit in your logs.
 
