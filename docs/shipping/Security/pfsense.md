@@ -94,7 +94,7 @@ By default, syslog will be forwarded over port 514. Feel free to adjust this, ba
   
    * Replace `<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>` with the address of your server running Filebeat.
    * {@include: ../../_include/log-shipping/log-shipping-token.md}
-   * {@include: ../../_include/log-shipping/listener-var.md}
+   * {@include: ../../_include/log-shipping/listener-url.html}
 
 2. Run Filebeat with the new configuration.
 

@@ -25,14 +25,11 @@ Microsoft Graph is a RESTful web API that enables you to access Microsoft Cloud 
 
 
 ### Pull the Docker image of the Logz.io API fetcher
-
 ```shell
 docker pull logzio/logzio-api-fetcher
 ```
 
-
 ### Create a local directory for this integration
-
 You will need a dedicated directory to use it as mounted directory for the Docker container of the Logz.io API fetcher.
 
 ```shell
@@ -101,9 +98,25 @@ oauth_apis:
 
 Create an empty text file named last_start_dates.txt in the same directory as the config file:
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+ <TabItem value="Linux-or-Mac" label="Linux or Mac" default>
+
+  #### Linux or Mac
 ```shell
 $ touch last_start_dates.txt
 ```
+  </TabItem>
+  <TabItem value="Windows" label="Windows" default>
+
+#### Windows
+```shell
+echo.> last_start_dates.txt
+```
+  </TabItem>
+</Tabs>
 
 After every successful iteration of an API, the last start date of the next iteration will be written to last_start_dates.txt. Each line starts with the API name and ends with the last start date.
 

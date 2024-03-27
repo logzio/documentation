@@ -21,7 +21,7 @@ In **Static lookups**, you define fields and values that do not change during th
 
 
 :::tip
-To create an extensive lookup list with up to 200 elements, we recommend using a CSV file to upload values. The [lookup lists API endpoints](https://api-docs.logz.io/docs/logz/update-lookup-list/) also let you independently manage lookup lists: To create a new list, you'd use the [Create lookup lists API](https://api-docs.logz.io/docs/logz/create-lookup-list), and add elements via CSV file or the [Add element to a lookup list API](https://api-docs.logz.io/docs/logz/create-lookup-list).
+To create an extensive lookup list with up to 200 elements, we recommend using a CSV file to upload values. The [lookup lists API endpoints](https://api-docs.logz.io/docs/logz/update-lookup-list/) also let you independently manage lookup lists: To create a new list, you'd use the [Create lookup lists API](https://api-docs.logz.io/docs/logz/create-lookup-list/), and add elements via CSV file or the [Add element to a lookup list API](https://api-docs.logz.io/docs/logz/create-lookup-list-element/).
 :::
 
 

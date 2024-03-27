@@ -1,8 +1,10 @@
 ---
 sidebar_position: 2
+title: Meet the Logz.io API
+description: Using whoami in Logz.io's API
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [whoami, API, logz.io, OpenSearch Dashboards, GitHub, Backup, search, object]
 ---
-
-# Meet the Logz.io API
 
 
 
@@ -33,7 +35,7 @@ curl -X GET \
 ```
 
 :::note Read More
-This API endpoint is documented in [Retrieve this account](https://api-docs.logz.io/docs/category/logz-api) in the API docs.
+This API endpoint is documented in [Retrieve this account](https://api-docs.logz.io/docs/category/logz-api/) in the API docs.
 :::
 
  

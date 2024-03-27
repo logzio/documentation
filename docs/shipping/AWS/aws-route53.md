@@ -23,7 +23,7 @@ Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web 
 
 **Before you begin**:
 
-* If you plan on using an access key to authenticate your connection, you'll need to set the `s3:ListBucket` and `s3:GetObject` [permissions](https://docs.logz.io/docs/user-guide/admin/give-aws-access-with-iam-roles) for the required S3 bucket.
+* If you plan on using an access key to authenticate your connection, you'll need to set the `s3:ListBucket` and `s3:GetObject` [permissions](https://docs.logz.io/docs/user-guide/admin/give-aws-access-with-iam-roles/) for the required S3 bucket.
 
 * If you plan on using an IAM role to authenticate your connection, you can get the role policy by filling out the bucket information and clicking the "Get the role policy" button.
 
@@ -166,7 +166,7 @@ This integration creates a Kinesis Data Firehose delivery stream that links to y
 
 
 
-{@include: ../../_include/metric-shipping/aws-metrics.md}
+{@include: ../../_include/metric-shipping/aws-metrics-new.md}
 
 
 {@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.

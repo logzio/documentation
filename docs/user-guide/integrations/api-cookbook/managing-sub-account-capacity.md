@@ -1,8 +1,10 @@
 ---
 sidebar_position: 3
+title: Managing Sub Account Capacity
+description: Use the Logz.io API to manage your accounts
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [sub account, logz.io, OpenSearch Dashboards, GitHub, Backup, search, object]
 ---
-
-# Managing Sub Account Capacity
 
 
 
@@ -49,7 +51,7 @@ curl -X POST \
 The email address has to belong to an existing Logz.io user, and that user has to be an admin user on your main account.
 
 :::note Read more
-This API endpoint is documented in [Create a sub account](https://api-docs.logz.io/docs/logz/manage-time-based-log-accounts) in the API docs.
+This API endpoint is documented in [Create a sub account](https://api-docs.logz.io/docs/logz/manage-time-based-log-accounts/) in the API docs.
 :::
  
 ### ...and the response
@@ -81,7 +83,7 @@ curl -X GET \
 ```
 
 :::note Read more
-This API endpoint is documented in [Retrieve all sub accounts](https://api-docs.logz.io/docs/logz/manage-users) in the API docs.
+This API endpoint is documented in [Retrieve all sub accounts](https://api-docs.logz.io/docs/logz/manage-users/) in the API docs.
 :::
  
 ### ...and the response

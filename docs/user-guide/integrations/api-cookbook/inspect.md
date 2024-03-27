@@ -1,12 +1,15 @@
 ---
 sidebar_position: 5
+title: Using Inspect Feature on OpenSearch Dashboards UI
+description: Search logs with Search API and OpenSearch Dashboards API
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [API, OpenSearch Dashboards, GitHub, Backup, search, object]
 ---
 
-# Using Inspect Feature on OpenSearch Dashboards UI
 
 
 
-If you want to search logs using our [Search API](https://api-docs.logz.io/docs/category/logz-api), an easy way to construct your query is to use the OpenSearch Dashboards UI.
+If you want to search logs using our [Search API](https://api-docs.logz.io/docs/category/logz-api/), an easy way to construct your query is to use the OpenSearch Dashboards UI.
 
 
  
@@ -31,7 +34,7 @@ In the inspection window, select **Request**.
 
 ### Copy the query object
 
-The `query` object of the JSON file displayed, contains the query that you can use in your request via our [Search API](https://api-docs.logz.io/docs/category/logz-api).
+The `query` object of the JSON file displayed, contains the query that you can use in your request via our [Search API](https://api-docs.logz.io/docs/category/logz-api/).
 
 ![JSON object](https://dytvr9ot2sszz.cloudfront.net/logz-docs/api-cookbook/query-osd.png)
 
