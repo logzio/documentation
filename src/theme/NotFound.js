@@ -19,24 +19,30 @@ export default function NotFound() {
                 <Translate
                   id="theme.NotFound.title"
                   description="The title of the 404 page">
-                  Oh, snap!
+                  Page Not Found
                 </Translate>
               </h1>
               <p>
-              <img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/astronomy-services-main.png" alt="Italian Trulli"></img>
                 <Translate
                   id="theme.NotFound.p1"
                   description="The first paragraph of the 404 page">
-                  We could not find what you were looking for.
+                  The page you're searching for is playing hide-and-seek and winning.
                 </Translate>
               </p>
               <p>
                 <Translate
-                  id="theme.NotFound.p2"
-                  description="The 2nd paragraph of the 404 page">
-                  Please contact the owner of the site that linked you to the
-                  original URL and let them know their link is broken. 
+                id="theme.NotFound.p2"
+                description='The second paragraph of the 404 page'>
+                  While we're looking for it, here are some useful alternatives you can browse:
                 </Translate>
+              </p>
+              <p>
+              <ul>
+                    <li><a href="/docs/user-guide/quick-start">Getting Started with Logz.io</a></li>
+                    <li><a href="/docs/category/send-your-data/">Send Your Data</a></li>
+                    <li><a href="https://api-docs.logz.io/docs/logz/logz-io-api/">Logz.io API</a></li>
+                    <li><a href="/">Docs Homepage</a></li>
+                  </ul>
               </p>
             </div>
           </div>
