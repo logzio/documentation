@@ -4,7 +4,6 @@ title: Observability IQ
 description: Enhance data insights with Observability IQ's AI-powered, chat-based analysis.
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [AI, observability, iq, logs, metrics, traces, siem, insights, analysis, services, logz.io]
-sidebar_class_name: hidden
 ---
 
 Observability IQ is an AI-powered, chat-based interface that lets you engage in a dynamic conversation with your data.

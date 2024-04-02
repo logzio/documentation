@@ -1,6 +1,6 @@
 {
   "label": "Data Hub",
-  "position": 10,
+  "position": 11,
   "link": {
     "type": "generated-index",
     "description": "Logz.io Data Hub helps you manage and optimize your Logz.io products by offering tailored recommendations and a quick and easy way to control your logs and metrics usage."
