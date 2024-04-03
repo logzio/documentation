@@ -3,6 +3,7 @@ sidebar_position: 1
 title: Integrations for Logz.io Cloud SIEM
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Cloud SIEM security rules and dashboards
+sidebar_class_name: hidden
 keywords: [SIEM, security analysis, security, research, security rules, Security information]
 ---
 

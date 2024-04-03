@@ -1,7 +1,7 @@
 ---
-id: Lambda-extension-node
-title: Traces from Node.js on AWS Lambda using OpenTelemetry
-overview: This integration to auto-instrument your Node.js application running on AWS Lambda and send the traces to your Logz.io account.
+id: Lambda-extension-go
+title: Traces from Go on AWS Lambda using OpenTelemetry
+overview: This integration to auto-instrument your Go application running on AWS Lambda and send the traces to your Logz.io account.
 product: ['tracing']
 os: ['windows', 'linux']
 filters: ['AWS', 'Compute']
@@ -14,7 +14,7 @@ metrics_alerts: []
 drop_filter: []
 ---
 
-Deploy this integration to auto-instrument your Node.js application running on AWS Lambda and send the traces to your Logz.io account. This is done by adding a dedicated layer for OpenTelemetry collector, a dedicated layer for Node.js auto-instrumentation and configuring environment variables of these layers. This integration will require no change to your application code.
+Deploy this integration to auto-instrument your Go application running on AWS Lambda and send the traces to your Logz.io account. This is done by adding a dedicated layer for OpenTelemetry collector and configuring environment variables of these layer. This integration will require no change to your application code.
 
 :::note
 This integration only works for the following AWS regions: `us-east-1`, `us-east-2`, `us-west-1`, `us-west-2`,
@@ -28,7 +28,7 @@ This integration only works for the following AWS regions: `us-east-1`, `us-east
   
 * [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
 * Configured [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
-* A Lambda function with a Node.js application that is not yet instrumented.
+* A Lambda function with Go application that is not yet instrumented.
 
 :::note
 Using `aws lambda update-function-configuration` with `--layers` replaces all existing layers with the specified ARN(s). To add a new layer without removing existing ones, include all desired layer ARNs in the command, both new and previously attached.
@@ -51,7 +51,7 @@ This layer contains the OpenTelemetry collector that will capture data from your
 aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers arn:aws:lambda:<<YOUR-AWS-REGION>>:486140753397:layer:logzio-opentelemetry-collector-<<ARCHITECHTURE>>-0_1_0:1
 ```
 
-Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Node.js application.
+Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Go application.
 
 Replace `<<YOUR-AWS-REGION>>` with the code of your AWS regions, e.g. `us-east-1`.
 
@@ -100,9 +100,9 @@ Add `OPENTELEMETRY_COLLECTOR_CONFIG_FILE` variable to direct the OpenTelemetry c
 aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --environment Variables={OPENTELEMETRY_COLLECTOR_CONFIG_FILE=<<PATH_TO_YOUR_COLLECTOR.YAML>>}
 ```
 
-Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Node.js application.
+Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Go application.
 
-Replace `<<PATH_TO_YOUR_COLLECTOR.YAML>>` with the actual path to your `collector.yaml` file.
+Replace `<<PATH_TO_YOUR_COLLECTOR.YAML>>` with the actual path to your `collector.yaml` file. 
 (If `collector.yaml` is located in the root directory of your application, use the path `/var/task/collector.yaml`.)
 
 
@@ -112,27 +112,57 @@ Replace `<<PATH_TO_YOUR_COLLECTOR.YAML>>` with the actual path to your `collecto
 aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --tracing-config Mode=Active
 ```
 
-Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Node.js application.
+Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Go application.
 
-#### Add the OpenTelemetry Node.js wrapper layer to your Lambda function
+## Example: Manual Instrumentation for Go Lambda Functions
+Below is a simple example that demonstrates how to instrument a Go-based AWS Lambda function using OpenTelemetry:
 
-The OpenTelemetry Node.js wrapper layer automatically instruments the Node.js application in your Lambda function.
+```go
+package main
 
-```shell
-aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers arn:aws:lambda:<<YOUR-AWS-REGION>>:486140753397:layer:opentelemetry-nodejs-0_1_0:1
+import (
+	"context"
+	"github.com/aws/aws-lambda-go/lambda"
+	"go.opentelemetry.io/otel"
+	"go.opentelemetry.io/otel/exporters/otlp/otlptrace"
+	"go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc"
+	sdktrace "go.opentelemetry.io/otel/sdk/trace"
+	"log"
+)
+
+// handler is your Lambda function handler
+func handler(ctx context.Context, event any) (string, error) {
+	log.Println("Starting function")
+	// Configure the OTLP exporter to send traces to an OpenTelemetry Collector
+	exporter, err := otlptrace.New(ctx, otlptracegrpc.NewClient(
+		otlptracegrpc.WithEndpoint("localhost:4317"), // Replace with your collector endpoint
+		otlptracegrpc.WithInsecure(),
+	))
+	if err != nil {
+		log.Fatalf("Failed to create OTLP trace exporter: %v", err)
+	}
+
+	// Set up a trace provider with a batch span processor and the OTLP exporter
+	tp := sdktrace.NewTracerProvider(
+		sdktrace.WithBatcher(exporter),
+	)
+	otel.SetTracerProvider(tp)
+	// Create a tracer
+	tracer := tp.Tracer("example-tracer")
+
+	// Start a span
+	_, span := tracer.Start(ctx, "lambda-example-span")
+	// Your Lambda logic here
+	log.Println("Handling event", span)
+	span.End()
+	tp.ForceFlush(ctx)
+	return "Event handled successfully", nil
+}
+
+func main() {
+	lambda.Start(handler)
+}
 ```
+This example manually sets up OpenTelemetry tracing within a Go Lambda function, configuring the OTLP exporter to send traces to an OpenTelemetry Collector. Remember to replace `localhost:4317` with the actual endpoint of your collector.
 
-Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Node.js application.
-
-Replace `<<YOUR-AWS-REGION>>` with the code of your AWS regions, e.g. `us-east-1`.
-
-  
-#### Add environment variable for the wrapper
-  
-Add the `AWS_LAMBDA_EXEC_WRAPPER` environment variable to point to the `otel-handler` executable:
-
-```shell
-aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --environment Variables={AWS_LAMBDA_EXEC_WRAPPER=/opt/otel-handler}
-```
-
-Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Node.js application.
+For additional information and best practices on instrumenting your Go applications with OpenTelemetry, refer to the [OpenTelemetry Go documentation](https://opentelemetry.io/docs/languages/go/instrumentation/#traces)
