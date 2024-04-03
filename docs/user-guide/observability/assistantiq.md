@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3
-title: Observability IQ Assistant
-description: Enhance data insights with Observability IQ Assistant and get AI-powered analysis of your data.
+title: Observability Assistant
+description: Enhance data insights with Observability Assistant and get AI-powered analysis of your data.
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [AI, observability, Assistant, iq, logs, metrics, traces, siem, insights, analysis, services, logz.io]
 ---
