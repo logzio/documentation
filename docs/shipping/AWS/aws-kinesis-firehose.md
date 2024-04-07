@@ -23,6 +23,9 @@ This project deploys instrumentation that allows shipping Cloudwatch logs to Log
 * Lambda function that adds Subscription Filters to Cloudwatch Log Groups, as defined by user's input.
 * Roles, log groups, and other resources that are necessary for this instrumentation.
 
+:::important
+This service sends all logs, regardless of custom log groups.
+:::
 
 ##### Auto-deploy the Stack
 
