@@ -12,7 +12,7 @@ Observability Assistant is Logz.io's chat-driven, AI-enhanced platform, enabling
 
 ## Is Observability Assistant available to all users?
 
-Observability Assistant is available to Logz.io users whose data is hosted in the US East (N. Virginia) and US West (Oregon) regions and who are actively sending data to Logz.io.
+Observability Assistant is available to Logz.io users whose data is hosted in the US East (N. Virginia) region.
 
 ## How do I activate the Observability Assistant?
 
