@@ -338,6 +338,7 @@
 /user-guide/distributed-tracing/tracing-highlights				/docs/user-guide/distributed-tracing/navigating-tracing/tracing-tour
 /user-guide/infrastructure-monitoring/prometheus-importing-dashbds-manual-only.html				/docs/user-guide/Infrastructure-monitoring/introduction-to-prometheus/importing-dashboards
 /user-guide/users/single-sign-on/azure-sso.html/1000				/docs/user-guide/admin/sso/azure-sso/
+/user-guide/user-permissions/				/docs/user-guide/admin/users/
 # Shippers				
 /shipping/				/docs/category/send-your-data/
 /user-guide/log-shipping/				/docs/category/send-your-data/
@@ -1144,3 +1145,11 @@ docs/shipping/Other/App360				/docs/shipping/Other/Service-Performance-Monitorin
 /docs/logz/get-alert-rules				https://api-docs.logz.io/docs/logz/get-alert-rules/
 /docs/logz/get-all-folders				https://api-docs.logz.io/docs/logz/get-all-folders/
 /docs/logz/post-grafana-snapshot				https://api-docs.logz.io/docs/logz/post-grafana-snapshot/
+/docs/logz/get-log-shipping-tokens-limits/				https://api-docs.logz.io/docs/logz/get-log-shipping-tokens-limits/
+/docs/logz/get-log-shipping-tokens-limits				https://api-docs.logz.io/docs/logz/get-log-shipping-tokens-limits/
+/docs/logz/search-logs				https://api-docs.logz.io/docs/logz/search-logs/
+/docs/logz/search-logs/				https://api-docs.logz.io/docs/logz/search-logs/
+/docs/logz/get-cloud-trail/				https://api-docs.logz.io/docs/logz/get-cloud-trail/
+/docs/logz/get-cloud-trail				https://api-docs.logz.io/docs/logz/get-cloud-trail/
+/docs/logz/put-alert-rules-by-uid				https://api-docs.logz.io/docs/logz/put-alert-rules-by-uid/
+/docs/logz/put-alert-rules-by-uid/				https://api-docs.logz.io/docs/logz/put-alert-rules-by-uid/
