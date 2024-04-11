@@ -57,6 +57,10 @@ JDK 8:
     </dependency>
 ```
 
+:::note
+In case of issues, consider using version 1.0.12 or other earlier versions as a potential solution.
+:::
+
 JDK 11 and above:
 ```xml
     <dependency>
