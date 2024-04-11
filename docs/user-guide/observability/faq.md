@@ -1,7 +1,6 @@
 ---
 sidebar_position: 3
 title: Observability IQ Assistant FAQ
-sidebar_class_name: hidden
 description: Frequently asked questions about Observability IQ Assistant
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [AI, observability, Assistant, iq, logs, metrics, traces, siem, insights, analysis, services, logz.io]
