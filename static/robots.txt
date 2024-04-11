@@ -1,0 +1,5 @@
+User-Agent: *
+Disallow:
+
+Sitemap: https://docs.logz.io/sitemap.xml
+
