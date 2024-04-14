@@ -200,6 +200,12 @@ To determine if a node uses taints as well as to display the taint keys, run:
 kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
 ```
 
+For example:
+
+```
+--set logzio-fluentd.daemonset.tolerations[0].key=node-role.kubernetes.io/master --set logzio-fluentd.daemonset.tolerations[0].effect=NoSchedule
+```
+
 :::node
 You need to use `Helm` client with version `v3.9.0` or above.
 :::

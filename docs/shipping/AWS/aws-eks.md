@@ -141,6 +141,12 @@ To determine if a node uses taints as well as to display the taint keys, run:
 kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
 ```
 
+For example:
+
+```
+--set logzio-fluentd.daemonset.tolerations[0].key=node-role.kubernetes.io/master --set logzio-fluentd.daemonset.tolerations[0].effect=NoSchedule
+```
+
 :::node
 You need to use `Helm` client with version `v3.9.0` or above.
 :::
@@ -148,27 +154,6 @@ You need to use `Helm` client with version `v3.9.0` or above.
 For troubleshooting log shipping, see our [user guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-fluentd-for-kubernetes-logs/).
 
 
-### Sending logs from nodes with taints
-
-If you want to ship logs from any of the nodes that have a taint, make sure that the taint key values are listed in your in your daemonset/deployment configuration as follows:
-  
-```yaml
-tolerations:
-- key: 
-  operator: 
-  value: 
-  effect: 
-```
-  
-To determine if a node uses taints as well as to display the taint keys, run:
-  
-```
-kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
-```
-
-:::node
-You need to use `Helm` client with version `v3.9.0` or above.
-:::
 
 ## Send your Metrics
 
