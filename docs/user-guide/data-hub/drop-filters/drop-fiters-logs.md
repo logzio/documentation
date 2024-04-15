@@ -16,7 +16,7 @@ To get started with Drop Log Filters, navigate to [Data Hub > Drop Filters > Log
 
 ![Drop filters logs overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/drop-filters/drop-filter-log-main.png)
 
-The drop filters table lists all your filters, whether they are active or not. You can see the rule, description, and status for each filter. You can easily switch any filter on or off whenever you like, and the changes will take effect in just about a minute.
+The drop filters table lists all your filters, whether they are active or not. You can see the rule, description, threshold, and status for each filter. You can easily switch any filter on or off whenever you like, and the changes will take effect in just about a minute.
 
 ## Add a new Drop Log Filter
 
@@ -33,6 +33,14 @@ For example, if logs from a Docker container include the pair:
 
 
 You would set the Field to `docker.container.name` and the **Value** to `system-logs`. Logs will not be filtered if the **Value** is set differently, such as to `system`.
+
+You can set a **threshold** for the drop filter to control when logs are excluded. Choose any limit from 1GB to 1,000GB. Once this threshold is reached, the filter will remain active for the rest of the day, and resets daily. If no threshold is set, the filter activates immediately.
+
+
+
+:::tip note
+Setting a threshold automatically appends a `LogSize` field to your logs.
+:::
 
 Confirm the settings by checking the acknowledgment box and clicking **Apply filter** to activate.
 
