@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Drop Filters
+title: Drop Filters Overview
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Filter out logs from your account with drop filters
 keywords: [Data hub, data optimization, optimization, drop filters, rollups, metrics, recommendations]
