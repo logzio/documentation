@@ -9,7 +9,7 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/kube
 logs_dashboards: ['3D1grGcEYB5Oe2feUPImak','qryn7oYYoeaBBGMFRvm67']
 logs_alerts: ['1AZRkKc64I12yxAMf2Wyny','6H7dfFOPUaHVMIjxdOMASx','1F6zSL5me5XJt9Lrjw3vxU','2dQHLx0WxmKmLk1kc67Ags','3dyFejyivMaZFdudbwKGRG']
 logs2metrics: []
-metrics_dashboards: ['7nILXHYFZbThgTSMObUxkw','5TGD77ZKuTiZUXtiM51m6V','6pY6DKD0oQJL4sO7bW728','5kkUAuEwA0Ygvlgm9iXTHY','53g5kSILqoj1T10U1jnvKV','5e1xRaDdQnOvs5LCuwKCh5','7Cy6DUN78jlKUtMCsbt6GC','29HGYsE3kgFEdgJbalTqeY','1Hij49FKdnAKVJTjOmpDbH']
+metrics_dashboards: ['7nILXHYFZbThgTSMObUxkw','5TGD77ZKuTiZUXtiM51m6V','6pY6DKD0oQJL4sO7bW728','5kkUAuEwA0Ygvlgm9iXTHY','53g5kSILqoj1T10U1jnvKV','5e1xRaDdQnOvs5LCuwKCh5','7Cy6DUN78jlKUtMCsbt6GC','29HGYsE3kgFEdgJbalTqeY','1Hij49FKdnAKVJTjOmpDbH', '6ThbRK67ZxBGeYwp8n74D0']
 metrics_alerts: ['5Ng398K19vXP9197bRV1If']
 drop_filter: []
 ---
