@@ -1,9 +1,10 @@
 ---
 sidebar_position: 2
-title: Kubernetes 360 Prerequisite
+title: Kubernetes 360 Prerequisites
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Everything you need to get started with Logz.io's Kubernetes 360
 keywords: [kubernetes, k360, ship kubernetes data, kubernetes logs, metrics, labels]
+slug: /user-guide/k8s-360/kubernetes-360-pre
 ---
 
 
@@ -17,7 +18,7 @@ Kubernetes 360 application provides an overview of your Kubernetes data, providi
 
 
 
-### Manually shipping Kubernetes data
+## Manually shipping Kubernetes data
 
 
 If you already have Kubernetes 360 data in your Logz.io account or prefer connecting Kubernetes [manually](https://app.logz.io/#/dashboard/integrations/collectors?tags=Tracing), you'll need an active **[Infrastructure Monitoring](https://app.logz.io/#/dashboard/metrics)** account, and ensure that your Kubernetes data is [connected to Logz.io](https://app.logz.io/#/dashboard/integrations/collectors?tags=Quick%20Setup).
@@ -28,7 +29,42 @@ In addition, you'll need to ship your cluster metrics from the following sources
 * CAdvisor.
 * Kube-state-metrics version 2.1 or higher.
 
-And send the following metrics:
+To ensure your Kubernetes 360 dashboard is up and running, you'll need to send the following metrics:
+
+|**Metric name**|**Labels**|
+| --- | --- |
+|*|p8s_logzio_name `// Equivalent to a Cluster's name`|
+|	kube_pod_status_phase	|	p8s_logzio_name, namespace, pod, phase, uid 	|
+|	kube_pod_info	|	p8s_logzio_name, namespace, host_ip, node, pod	|  
+|	container_cpu_usage_seconds_total	|	p8s_logzio_name, namespace, pod, region, topology_kubernetes_io_region, container |
+|	kube_pod_container_resource_limits	|	p8s_logzio_name, namespace, pod, resource	|
+|	container_memory_working_set_bytes	|	p8s_logzio_name, namespace, pod, container	| 
+|	kube_pod_container_info	|	p8s_logzio_name, namespace, pod	| 
+|	container_network_transmit_bytes_total	|	p8s_logzio_name, namespace, pod	|
+|	container_network_receive_bytes_total	|	p8s_logzio_name, namespace, pod	| 
+|	kube_pod_created	|	p8s_logzio_name, namespace, pod	| 
+|	kube_pod_owner	|	p8s_logzio_name, namespace, pod, owner_kind, owner_name | 
+|	kube_pod_container_status_restarts_total	|	p8s_logzio_name, namespace, pod | 
+|	kube_pod_status_reason	|	p8s_logzio_name, namespace, pod, reason	|
+|	kube_pod_container_status_waiting_reason	|	p8s_logzio_name, namespace, pod, reason	| 
+|	node_cpu_seconds_total	|	p8s_logzio_name, instance, kubernetes_node	| 
+|	kube_node_status_allocatable	|	p8s_logzio_name, node, resource	|
+|	node_memory_MemAvailable_bytes	|	p8s_logzio_name, instance, kubernetes_node	| 
+|	node_memory_MemTotal_bytes	|	p8s_logzio_name, instance, kubernetes_node	| 
+|	kube_node_role	|	p8s_logzio_name, status, role, node	| 
+|	kube_node_status_condition	|	p8s_logzio_name, status, role, node	|
+|	kube_node_created	|	p8s_logzio_name, node	| 
+|	node_filesystem_avail_bytes	|	p8s_logzio_name, instance, kubernetes_node	| 
+|	node_filesystem_size_bytes	|	p8s_logzio_name, instance, kubernetes_node	|
+|	kube_replicaset_owner	|	p8s_logzio_name, namespace, owner_kind, owner_name, replicaset	| 
+|	kube_deployment_created	|	p8s_logzio_name, namespace, deployment	| 
+|	kube_deployment_status_condition	|	p8s_logzio_name, namespace, deployment, status	| 
+
+
+### Additional Kubernetes metrics
+
+To enrich your services and infrastructure data **even further**, we recommend sending the following metrics as well:
+
 
 <!--
 |**Metric name**|**Labels**|
@@ -91,36 +127,11 @@ And send the following metrics:
 | **Metric name** | **Labels** |
 |--|--|
 |*|p8s_logzio_name `// Equivalent to a Cluster's name`|
-|	kube_pod_status_phase	|	p8s_logzio_name, namespace, pod, phase, uid 	|
-|	kube_pod_info	|	p8s_logzio_name, namespace, host_ip, node, pod	|  
-|	container_cpu_usage_seconds_total	|	p8s_logzio_name, namespace, pod, region, topology_kubernetes_io_region, container, instance, node |
-|	kube_pod_container_resource_limits	|	p8s_logzio_name, namespace, pod, resource, container	|
-|	container_memory_working_set_bytes	|	p8s_logzio_name, namespace, pod, container	| 
-|	kube_pod_container_info	|	p8s_logzio_name, namespace, pod	| 
-|	container_network_transmit_bytes_total	|	p8s_logzio_name, namespace, pod	|
-|	container_network_receive_bytes_total	|	p8s_logzio_name, namespace, pod	| 
-|	kube_pod_created	|	p8s_logzio_name, namespace, pod	| 
-|	kube_pod_owner	|	p8s_logzio_name, namespace, pod, owner_kind, owner_name | 
-|	kube_pod_container_status_restarts_total	|	p8s_logzio_name, namespace, pod, container | 
-|	kube_pod_status_reason	|	p8s_logzio_name, namespace, pod, reason	|
-|	kube_pod_container_status_waiting_reason	|	p8s_logzio_name, namespace, pod, reason	| 
-|	node_cpu_seconds_total	|	p8s_logzio_name, instance, kubernetes_node, mode	| 
-|	kube_node_status_allocatable	|	p8s_logzio_name, node, resource	|
-|	node_memory_MemAvailable_bytes	|	p8s_logzio_name, instance, kubernetes_node	| 
-|	kube_node_role	|	p8s_logzio_name, status, role, node	| 
-|	kube_node_status_condition	|	p8s_logzio_name, status, role, condition, node	|
-|	kube_node_created	|	p8s_logzio_name, node	| 
-|	node_filesystem_avail_bytes	|	p8s_logzio_name, instance	| 
-|	node_filesystem_size_bytes	|	p8s_logzio_name, instance	|
-|	kube_replicaset_owner	|	p8s_logzio_name, namespace, owner_kind, owner_name, replicaset	| 
-|	kube_deployment_created	|	p8s_logzio_name, namespace, deployment	| 
-|	kube_deployment_status_condition	|	p8s_logzio_name, namespace, deployment, status, condition	| 
 |	kube_pod_container_resource_requests	|	p8s_logzio_name, namespace, pod, container, resource	| 
 |	container_memory_usage_bytes	|	p8s_logzio_name, namespace, pod, container, instance, node	|
 |	kube_pod_container_status_waiting	|	p8s_logzio_name, pod, container	| 
 |	kube_pod_container_status_terminated	|	p8s_logzio_name, pod, container	| 
 |	kube_pod_container_status_running	|	p8s_logzio_name, pod	|
-|	node_memory_MemTotal_bytes	|	p8s_logzio_name, instance, kubernetes_node	| 
 |	kube_node_status_capacity	|	p8s_logzio_name, node, resource	| 
 |	node_disk_reads_completed_total	|	p8s_logzio_name, kubernetes_node	| 
 |	node_disk_read_bytes_total	|	p8s_logzio_name, kubernetes_node	| 
@@ -155,9 +166,9 @@ And send the following metrics:
 |   kube_job_labels | all labels |
 |   kube_pod_labels | all labels |
 
-### Manually configuring Security Risks
+## Manually configuring Security Risks
 
-To add Security risks view to your existing Kubernetes data, you need to:
+To add a Security risks view to your existing Kubernetes data, you need to:
 
 * [Ship reports from Trivy operator](/docs/shipping/security/trivy/).
 * Configure and send security logs.
