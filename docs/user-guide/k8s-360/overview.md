@@ -29,9 +29,6 @@ Once everything is up and running, you can use your Kubernetes 360 application.
 
 
 
-<!-- The **node view** includes a summary of each node's physical CPU, memory, and disk. It also has a rundown of the inner pods’ status similar to the deployments view, including how many pods are failing, whether they’re using a high CPU or memory, the number of restarts, and the log error rate.
-
-![deployments card](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/focus-on-nodes.png) -->
 
 You can dive deeper into each card by clicking on it and opening the **[Quick view](#quick-view)** menu.
 
@@ -85,6 +82,13 @@ By default, Kubernetes 360 provides an overview of your current environment. Use
 * **Restarts** - Get a numeric overview of how many restarts occurred in each pod: 0, 1-10, 11-20, or over 20 restarts.
 * **Log Error Rate** - Analyze the percentage of log errors that occurred and how many pods were affected. [_How do we calculate the log error rate?_](/docs/user-guide/k8s-360/overview#calculating-log-error-rate)
 * **Security risks** - Presents how many potential security risks are in each of your pods. 
+
+///
+In addition, there are custom labels 
+You can filter resources such as deployments, dameonsets, nodes, jobs, and stateful sets based on their custom labels
+See Kubernetes custom labels to efficiently manage and monitor workloads
+As a DevOps engineer, I want to view YAML configurations directly within Kubernetes 360 quickviews, So that I can quickly understand and verify the configuration of Kubernetes resources without leaving the context of the quickview.
+///
 
 
 ## Quick view
@@ -146,300 +150,20 @@ The **Traces** tab includes all of the spans in this deployment, including the f
 
 ![Quick menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/deployment-quick-view-sep.png)
 
+///
+<h3 id="#yaml-tab">YAML tab</h3>
 
-<!-- 
-At the bottom of the quick view menu's **Pods** tab, you'll find a list of all pods related to this node. The table includes each pod's status, the number of containers they’re in, and how much CPU and memory they use. Clicking on one of the pods will lead you to that pod's quick view menu. 
+For each node, you can view its YAML configurations within Logz.io's interface, allowing easier troubleshooting and configuration verification.
 
-In addition, you can browse through the following tabs:
 
-### Deployment Logs View
+By offering direct access to YAML files, users can quickly understand and audit the underlying settings and setups of their Kubernetes deployments, ensuring configurations align with their operational requirements and best practices. This addition is designed to simplify the complexities of Kubernetes management, enhancing user experience by providing a more integrated and holistic view of system operations.
 
 
-**Logs** include the time, log level, and message for each log in this deployment. You can search for specific logs using the search bar, which supports free text and Lucene queries. 
 
-### Deployment Metrics View
 
 
-The **Metrics** tab presents useful data in graph form, including:
+///
 
-* Replicas Over Time
-* CPU Usage (cores) per pod
-* Memory Usage Per Pod
-* CPU Usage
-* Requests and Limits (Cores)
-* Memory Usage
-* Requests and Limits
-* Received & Transmitted Bytes
-
-### Deployment Traces View
-
-
-The **Traces** tab includes all of the spans in this deployment, including the following:
-
-* Time
-* Trace ID
-* The Service related to the span
-* Which Operation ran
-* The Duration of the run, represented in milliseconds
-* Status code indicating whether a specific HTTP request has been successfully completed
-
-For each tab, you can change the time frame chosen by clicking on the date bar at the top.
--->
-
-
-<!-- 
-### Deployment quick view
-
-
-A **deployment** quick view includes the following fields:
-
-* **Cluster** - The cluster that this deployment is a part of.
-* **Region**- Your deployment's region.
-* **Namespace** - The deployment's unique namespace.
-* **Status** - An indicator of the deployment's status. It can be **True**, **False**, or **Unknown**. 
-* **CPU** - Amount of CPU used by this deployment. If the CPU is not capped, you'll see an indicator stating **no limit**.
-* **Memory** - An average calculation of how much memory this deployment uses.
-* **Uptime** - The duration of how long this deployment has been running.
-* **Security risks** - The number of potential security risks in this deployment. 
-
--->
-
-<!-- * **Disk** - The amount of disk space taken up by this node. -->
-
-
-<!--
-### Deployment Pods View
-
-
-At the bottom of the quick view menu's **Pods** tab, you'll find a list of all pods related to this node. The table includes each pod's status, the number of containers they’re in, and how much CPU and memory they use. Clicking on one of the pods will lead you to that pod's quick view menu. 
-
-In addition, you can browse through the following tabs:
-
-### Deployment Logs View
-
-
-**Logs** include the time, log level, and message for each log in this deployment. You can search for specific logs using the search bar, which supports free text and Lucene queries. 
-
-### Deployment Metrics View
-
-
-The **Metrics** tab presents useful data in graph form, including:
-
-* Replicas Over Time
-* CPU Usage (cores) per pod
-* Memory Usage Per Pod
-* CPU Usage
-* Requests and Limits (Cores)
-* Memory Usage
-* Requests and Limits
-* Received & Transmitted Bytes
-
-### Deployment Traces View
-
-
-The **Traces** tab includes all of the spans in this deployment, including the following:
-
-* Time
-* Trace ID
-* The Service related to the span
-* Which Operation ran
-* The Duration of the run, represented in milliseconds
-* Status code indicating whether a specific HTTP request has been successfully completed
-
-For each tab, you can change the time frame chosen by clicking on the date bar at the top.
-
-
-### Node quick view
-
-
-A node quick view menu includes the following fields: 
-
-* **Role** - Master or worker.
-* **Status** - Indicates whether that condition is applicable, with possible values **True**, **False**, or **Unknown**.
-* **Cluster** - The cluster to which this node belongs.
-* **Region** - The node's region.
-* **Uptime** - The number of hours this node has been running.
-* **CPU** - A percentile average of how much CPU has been used.
-* **Memory** - An average percentage of how much memory was consumed.
-* **Disk** - The amount of disk space this node takes, and how much is left.
-* **Security risks** - Number of potential security risks in this node.
-
-![Node menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/node-quick-view-sep.png)
-
-At the top of the quick view menu, there are links that can take you directly to the relevant logs (**See Logs**), open Logz.io's Livetail for quick troubleshooting (**Open Livetail**), or see the relevant metrics (**See Metrics**).
-
-### Node Pods View
-
-
-At the bottom of the quick view menu's **Pods** tab, you'll find a list of all pods related to this node. The table includes each pod's status, the number of containers they’re in, and how much CPU and memory they use. Clicking on one of the pods will lead you to that pod's quick view menu. 
-
-In addition, you can browse through the following tabs:
-
-### Node Logs View
-
-
-**Logs** include the time, log level, and message for each log in this node. You can search for specific logs using the search bar, which supports free text and Lucene queries. 
-
-### Node Metrics View
-
-
-The third tab, **Metrics**, presents useful data in graph form, including:
-
-* CPU Utilization Over Time (%)
-* Node Memory (%)
-* Node CPU Absolute
-* Node memory
-* Node disk reads
-* Node disk writes
-* Network Bytes
-* CPU usage per pod
-* Memory usage per pod
-
-### Node Traces View
-
-
-The **Traces** tab includes all of the spans in this deployment, including the following:
-
-* Time
-* Trace ID
-* The Service related to the span
-* Which Operation ran
-* The Duration of the run, represented in milliseconds
-* Status code indicating whether a specific HTTP request has been successfully completed
-
-For each tab, you can change the time frame chosen by clicking on the date bar at the top.
-
-
-### Pod quick view
-
-
-Click on a pod to access its quick view menu and gain access to this additional information:
-
-* **Status** - Indicates whether that condition is applicable, with possible values **True**, **False**, or **Unknown**.
-* **Node** - The node that this pod is a part of.
-* **Workload type** - The configuration of this pod.
-* **Workload name** - The name of the pod.
-* **Cluster** - The cluster in which this pod resided. 
-* **Containers number** - Number of containers inside the pod.
-* **Namespace** - The pod's unique namespace.
-* **Uptime** - The duration of how long this pod has been up and running.
-* **Restarts** - The number of restarts in this pod.
-* **CPU** - A percentile average of how much CPU has been used.
-* **Memory** - An average percentage of how much memory was consumed.
-* **Security event count** - The number of security events in this pod.
--->
-
-<!-- * **Deployment** - The deployment related to this pod. -->
-<!-- 
-![Pod menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/pod-quick-view-sep.png)
-
-At the top of the quick view menu, there are links that can take you directly to the relevant logs (**See Logs**), open Logz.io's Livetail for quick troubleshooting (**Open Livetail**), or see the relevant metrics (**See Metrics**).
-
-### Pod Logs View
-
-
-At the bottom of the quick view menu's **Logs** tab you can review all relevant logs with their timestamp, log level, and message for each one. You can search for specific logs using the search bar, which supports free text and Lucene queries. 
-
-### Pod Metrics View
-
-
-The **Metrics** tab presents useful data in graph form, including:
-
-* Pod CPU
-* Pod Memory
-* Container status
-* Container restarts
-* Pod traffic bytes
-* Pod traffic packets
-* Pod dropped packets
-
-### Pod Traces View
-
-
-And the **Traces** tab includes all of the spans in this deployment, including the following:
-
-* Time
-* Trace ID
-* The Service related to the span
-* Which Operation ran
-* The Duration of the run, represented in milliseconds
-* Status code indicating whether a specific HTTP request has been successfully completed
-
-For each tab, you can change the time frame chosen by clicking on the date bar at the top.
-
-### Dameonset, Statefulset, and Job quick view
-
-All 3 views include the following information as part of their quick view menu:
-
-* **Cluster** - The cluster in which this element resided. 
-* **Region** - This element's region.
-* **Namespace** - The element's unique namespace.
-* **CPU** - A percentile average of how much CPU has been used.
-* **Memory** - An average percentage of how much memory was consumed.
-* **Security risks** - The number of security events in this element.
-
-![Stateful menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/daemon-quick-view-sep.png)
-
-At the top of the quick view menu, there are links that can take you directly to the relevant metrics (**See Metrics**).
-
-### Dameonset, Statefulset, and Job Pods View
-
-
-At the bottom of the quick view menu's **Pods** tab, you'll find a list of all pods related to this node. The table includes each pod's status, the number of containers they’re in, and how much CPU and memory they use. Clicking on one of the pods will lead you to that pod's quick view menu. 
-
-In addition, you can browse through the following tabs:
-
-### Dameonset, Statefulset, and Job Logs View
-
-
-**Logs** include the time, log level, and message for each log in this node. You can search for specific logs using the search bar, which supports free text and Lucene queries. 
-
-### Dameonset, Statefulset, and Job Metrics View
-
-
-The **Metrics** tab presents useful data in graph form, including:
-
-* Nodes Available & Unavailable Over Time
-* Nodes Schedule Over Time
-* CPU Usage (cores) per pod
-* Memory Usage per pod
-* CPU Usage, Requests and Limits (Cores)
-* Memory Usage, Requests and Limits
-* Received & Transmitted Bytes
-
-### Dameonset, Statefulset, and Job Traces View
-
-
-The **Traces** tab includes all of the spans in this deployment, including the following:
-
-* Time
-* Trace ID
-* The Service related to the span
-* Which Operation ran
-* The Duration of the run, represented in milliseconds
-* Status code indicating whether a specific HTTP request has been successfully completed
-
-
-For each tab, you can change the time frame chosen by clicking on the date bar at the top.
--->
-
-
-
-<!-- ###### Cluster quick view
-
-To access a cluster quick view, click the cluster's name in a deployment, node, or pod quick view menu. A cluster quick view menu includes the following:
-
-* **Name** - The name of the cluster you're focusing on. 
-* **Region** - This cluster's region.
-* **Cores** - The number of cores used inside the cluster.
-* **Pods** - The number of pods that are part of this cluster.
-* **Nodes** - The number of nods that are part of this cluster.
-* **CPU** - A percentile average of how much CPU has been used.
-* **Memory** - An average percentage of how much memory was consumed.
-
-
-![Cluster menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/deployment-to-cluster.gif)
--->
 
 ### Investigate through quick view 
 
@@ -490,25 +214,6 @@ To activate the **Go to Commit** button, go to **your app or service** and add t
 ![deployment menu](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/k360-deploy.png)
 
 
-
-
-<!-- ##### Locate
-
-
-To re-focus your view, click the **Locate** button at the top of the quick view menu. This will scroll back to the specific deployment, node, or pod you're investigating.
-
-![Locate button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/k360-locate.png) -->
-
-<!-- ![Locate button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/locate-button.gif)-->
-
-<!-- ##### Logs tab
-
-
-Nodes and pods quick view menu has an additional **Logs** tab containing a table with all the logs related to the chosen node or pod. The table includes the total number of logs, the time they were ingested, the log level, and its message.
-
-![Logs inside nodes](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/logs-inside-nodes.png)
-
-You can sort the table by clicking on each header: **Time**, **Log level**, or **Message**. Click on the same header again to change your view to ascending/descending. -->
 
 ## Additional information
 
