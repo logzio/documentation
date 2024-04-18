@@ -12,7 +12,7 @@ Observability IQ Assistant is Logz.io's chat-driven, AI-enhanced platform, enabl
 
 ## Is Observability IQ Assistant available to all users?
 
-Observability IQ Assistant is available to all Logz.io users, except for users whose data is hosted in the United Kingdom and Canada regions.
+Observability IQ Assistant is currently available to all Logz.io users, whose data is hosted in the EU and in the US regions.
 
 ## How do I activate the Observability IQ Assistant?
 
@@ -27,6 +27,6 @@ No. To access Observability IQ Assistant, you must use Logz.io's app.
 
 No. Account admins or any other users within your organization cannot view or access any queries or chat history from the Observability IQ Assistant. Logz.io does not retain your query or chat history. 
 
-## Does Observability IQ Assistant share information with Claude3?
+## Will the input and the model output served through the Observability IQ Assistant be available to Claude3?
 
-No. The data is processed and contained within Logz.io's private instance within AWS, similar to the current setup of your Logz.io data. 
+No, they are not shared with any model provider. The data is processed and contained within Logz.io's private instance within AWS, similar to the current setup of your Logz.io data. 
