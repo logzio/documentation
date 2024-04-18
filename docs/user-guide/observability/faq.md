@@ -12,7 +12,7 @@ Observability IQ Assistant is Logz.io's chat-driven, AI-enhanced platform, enabl
 
 ## Is Observability IQ Assistant available to all users?
 
-Observability IQ Assistant is currently available to all Logz.io users, whose data is hosted in the EU and in the US regions.
+Observability IQ Assistant is currently available to all Logz.io users, whose data is hosted in the EU, Australia, and in the US regions.
 
 ## How do I activate the Observability IQ Assistant?
 
