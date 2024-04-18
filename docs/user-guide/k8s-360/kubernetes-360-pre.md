@@ -65,65 +65,6 @@ To ensure your Kubernetes 360 dashboard is up and running, you'll need to send t
 
 To enrich your services and infrastructure data **even further**, we recommend sending the following metrics as well:
 
-
-<!--
-|**Metric name**|**Labels**|
-| --- | --- |
-|*|p8s_logzio_name `// Equivalent to a Cluster's name`|
-|kube_pod_status_phase|pod, uid, node, host_ip, phase, namespace|
-|kube_pod_info|pod,namespace,p8s_logzio_name,region|
-|container_cpu_usage_seconds_total|pod, region, topology_kubernetes_io_region, container|
-|container_memory_working_set_bytes|pod, container, resource|
-|kube_pod_container_resource_limits|pod|
-|kube_pod_container_info|pod|
-|container_network_transmit_bytes_total|pod|
-|container_network_receive_bytes_total|pod|
-|kube_pod_created|pod|
-|kube_pod_owner|pod, owner_kind, owner_name|
-|kube_pod_container_status_restarts_total|pod|
-|kube_pod_status_reason|pod, reason|
-|kube_pod_container_status_waiting_reason|pod, reason|
-|||
-|node_cpu_seconds_total|instance, mode|
-|node_memory_MemAvailable_bytes|instance|
-|node_memory_MemTotal_bytes|instance|
-|kube_node_role|node,role|
-|kube_node_status_condition|node, status, condition|
-|kube_node_created|node|
-|node_filesystem_avail_bytes|instance|
-|node_filesystem_size_bytes|instance|
-|kube_node_status_allocatable|resource, resource|
-|kube_node_labels|logzio_p8s_name|
-|||
-|kube_replicaset_owner|owner_kind, owner_name,replicaset|
-|kube_deployment_created|deployment|
-|kube_deployment_status_condition|deployment,status|
-|||
-|kube_daemonset_labels|all labels|
-|kube_daemonset_status_number_ready|all labels|
-|kube_daemonset_status_number_available|all labels|
-|kube_daemonset_status_number_unavailable|all labels|
-|kube_daemonset_status_current_number_scheduled|all labels|
-|kube_daemonset_status_number_misscheduled|all labels|
-|kube_daemonset_status_desired_number_scheduled|all labels|
-|kube_job_labels|all labels|
-|kube_job_complete|all labels|
-|kube_job_status_failed|all labels|
-|kube_job_status_succeeded|all labels|
-|kube_job_complete|all labels|
-|kube_job_status_failed|all labels|
-|kube_job_status_completion_time|all labels|
-|kube_replicaset_labels|all labels|
-|kube_replicaset_spec_replicas|all labels|
-|kube_replicaset_status_replicas|all labels|
-|kube_replicaset_status_ready_replicas|all labels|
-|kube_statefulset_replicas|all labels|
-|kube_statefulset_status_replicas|all labels|
-|kube_statefulset_status_replicas_updated|all labels|
-|kube_statefulset_status_replicas_available|all labels|
-|kube_job_owner|all labels|
--->
-
 | **Metric name** | **Labels** |
 |--|--|
 |*|p8s_logzio_name `// Equivalent to a Cluster's name`|
@@ -161,10 +102,44 @@ To enrich your services and infrastructure data **even further**, we recommend s
 |	node_memory_Buffers_bytes	|	p8s_logzio_name, kubernetes_node	| 
 |	kube_statefulset_status_replicas_updated	|	p8s_logzio_name, namespace, statefulset, app_kubernetes_io_instance	| 
 |   kube_deployment_labels | p8s_logzio_name, namespace, deployment |
+|   kube_replicaset_status_replicas | p8s_logzio_name, status, namespace, deployment, owner_kind, owner_name, replicaset |
+|   kube_replicaset_status_ready_replicas | p8s_logzio_name, status, namespace, deployment, owner_kind, owner_name, replicaset |
+|   kube_pod_container_status_terminated_reason | p8s_logzio_name, pod, container, reason |
+|   kube_node_spec_unschedulable | p8s_logzio_name, node, resource, status, reason |
+|   kube_node_labels | p8s_logzio_name, node, resource |
+|   kube_pod_status_ready | p8s_logzio_name, namespace, pod, phase, uid |
+|   kube_pod_container_status_ready | p8s_logzio_name, namespace, pod, container |
+|   kube_replicaset_labels | p8s_logzio_name, namespace, deployment, owner_kind, owner_name, replicaset |
+|   kube_replicaset_spec_replicas | p8s_logzio_name, namespace, deployment, owner_kind, owner_name, replicaset |
+|   kube_deployment_status_replicas_available | p8s_logzio_name, namespace, deployment |
+|   kube_deployment_status_replicas_unavailable | p8s_logzio_name, namespace, deployment |
+|   kube_statefulset_status_replicas_available | p8s_logzio_name, namespace, app_kubernetes_io_instance, statefulset |
+|   node_disk_io_time_seconds_total | p8s_logzio_name, kubernetes_node |
+|   node_network_receive_bytes_total | p8s_logzio_name, kubernetes_node |
+|   node_network_transmit_packets_total | p8s_logzio_name, kubernetes_node |
+|   node_network_receive_packets_total | p8s_logzio_name, kubernetes_node |
+|   node_network_transmit_drop_total | p8s_logzio_name, kubernetes_node |
+|   node_network_receive_drop_total | p8s_logzio_name, kubernetes_node |
+|   node_filesystem_free_bytes | p8s_logzio_name, instance |
+|   kube_daemonset_status_number_ready | p8s_logzio_name, daemonset |
 |   kube_daemonset_labels | all labels |
 |   kube_statefulset_labels | all labels |
 |   kube_job_labels | all labels |
 |   kube_pod_labels | all labels |
+|   kube_job_status_succeeded | all labels |
+|   kube_job_complete | all labels |
+|   kube_job_status_failed | all labels |
+|   kube_job_status_completion_time | all labels |
+|   machine_cpu_cores | all labels |
+|   node_boot_time_seconds | all labels |
+|   node_time_seconds | all labels |
+|   kube_namespace_status_phase | all labels |
+|   kubelet_volume_stats_inodes | all labels |
+|   kubelet_volume_stats_inodes_used | all labels |
+|   kubelet_volume_stats_used_bytes | all labels |
+|   kube_persistentvolumeclaim_info | all labels |
+|   kube_persistentvolumeclaim_resource_requests_storage_bytes | all labels |
+|   kube_job_owner | all labels |
 
 ## Manually configuring Security Risks
 
