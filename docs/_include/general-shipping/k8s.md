@@ -16,6 +16,28 @@ helm repo add logzio-helm https://logzio.github.io/logzio-helm && helm repo upda
 
 ## Send your logs
 
+`logzio-monitoring` supports the following subcharts for log collection agent:
+- `logzio-logs-collector`: Based on opentelemetry collector
+- `logzio-fluentd`: Based on fluentd
+
+### Log collection with `logzio-logs-collector`
+Deploy `logzio-logs-collector`, by adding the following `--set` flags:
+
+```sh
+helm install -n monitoring \
+--set logs.enabled=true \  
+--set logzio-fluentd.enabled=false \  
+--set logzio-logs-collector.enabled=true \  
+--set logzio-logs-collector.secrets.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \  
+--set logzio-logs-collector.secrets.logzioRegion="<<LOGZIO-REGION>>" \  
+--set logzio-logs-collector.secrets.env_id="<<CLUSTER-NAME>>" \  
+logzio-monitoring logzio-helm/logzio-monitoring
+```
+
+### Log collection with `logzio-fluentd`
+The `logzio-fluentd` chart will be disabled by default in favor of the `logzio-logs-collector` chart for log collection in upcoming releases.
+Deploy `logzio-fluentd`, by adding the following `--set` flags:
+
 ```sh
 helm install -n monitoring \
 --set logs.enabled=true \
@@ -31,6 +53,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<LOG-SHIPPING-TOKEN>>` | Your [logs shipping token](https://app.logz.io/#/dashboard/settings/general). |
 | `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
+| `<<LOGZIO-REGION>>` | Logzio region. |
 
 
 For log shipping troubleshooting, see our [user guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-fluentd-for-kubernetes-logs/).
