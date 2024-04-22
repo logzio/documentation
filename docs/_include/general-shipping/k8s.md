@@ -159,6 +159,21 @@ helm install -n monitoring \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
+#### Deploy metrics chart with Kuberenetes object logs correlation
+**Note** `k8sObjectsConfig.enabled=true` will have no effect unless `metrics.enabled` is also set to `true`
+```sh
+helm install  \
+--set metrics.enabled=true \
+--set k8sObjectsConfig.enabled=true \
+--set secrets.LogzioRegion=<<LOGZIO-REGION>> \
+--set secrets.k8sObjectsLogsToken=<<LOGZIO-LOG-SHIPPING-TOKEN>> \
+--set secrets.MetricsToken=<<PROMETHEUS-METRICS-SHIPPING-TOKEN>> \
+--set secrets.ListenerHost=<<LISTENER-HOST>> \
+--set secrets.p8s_logzio_name=<<P8S-LOGZIO-NAME>> \
+--set secrets.env_id=<<ENV-ID>> \
+logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
+```
+
 ## Scan your cluster for security vulnerabilities
 
 ```sh
