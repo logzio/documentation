@@ -83,14 +83,6 @@ By default, Kubernetes 360 provides an overview of your current environment. Use
 * **Log Error Rate** - Analyze the percentage of log errors that occurred and how many pods were affected. [_How do we calculate the log error rate?_](/docs/user-guide/k8s-360/overview#calculating-log-error-rate)
 * **Security risks** - Presents how many potential security risks are in each of your pods. 
 
-///
-In addition, there are custom labels 
-You can filter resources such as deployments, dameonsets, nodes, jobs, and stateful sets based on their custom labels
-See Kubernetes custom labels to efficiently manage and monitor workloads
-As a DevOps engineer, I want to view YAML configurations directly within Kubernetes 360 quickviews, So that I can quickly understand and verify the configuration of Kubernetes resources without leaving the context of the quickview.
-///
-
-
 ## Quick view
 
 Clicking on one of the cards or rows opens the quick view menu. This menu provides additional information about each element, allowing you to investigate and understand what’s happening inside your Kubernetes environment.
@@ -100,24 +92,24 @@ For each available view -  Deployment, Pod, Node, Dameonset, Statefulset, and Jo
 * **Cluster** - The cluster associated with the chosen view.
 * **Namespace** - The unique namespace.
 * **Status** - Indicates whether that condition is applicable, with possible values **True**, **False**, or **Unknown**.
-* **CPU** - Amount of CPU used. If the CPU is not capped, you'll see an indicator stating **no limit**.
+* **CPU** - Amount of CPU used. You'll see an indicator stating **no limit** if the CPU is not capped.
 * **Memory** - An average calculation of how much memory is in use.
 * **Uptime** - The duration of how long the chosen view has been running.
 * **Security risks** - The number of potential security risks. 
 
-And more. 
+Nodes include a **Kubernetes custom labels** section, where you can quickly understand and verify the configuration of Kubernetes resources without leaving the context of the quick view.
 
 ![Pod upper menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/pod-upper-overview-sep.png)
 
-Each view lets you dive deeper into the data by using the links at the top of the quick view. Click on **See Metrics**, **See Traces**, or **See Logs** to navigate directly to the relevant view.
+Dive deeper into the data by using the links at the top of the quick view. Click on **See Metrics**, **See Traces**, or **See Logs** to navigate directly to the relevant view.
 
 ### Quick view tabs
 
 :::note
-To enrich your existing and newly sent data, use the [Telemetry Collector](https://app.logz.io/#/dashboard/integrations/collectors?tags=Quick%20Setup) to configure and send data quickly, followed by the [Easy Connect](https://docs.logz.io/docs/user-guide/telemetry-collector/ezkonnect/) platform to effectively instrument Kubernetes applications with OpenTelemetry auto-instrumentation.
+Use the [Telemetry Collector](https://app.logz.io/#/dashboard/integrations/collectors?tags=Quick%20Setup) to configure and send data quickly to enrich your existing and newly sent data.
 :::
 
-Each quick view includes several tabs that provide additional information you can act on. For each tab, you can change the time frame chosen by clicking on the date bar at the top.
+Each quick view includes several tabs that provide additional information you can act on. For each tab, you can choose the time frame by clicking on the date bar at the top.
 
 <h3 id="#pods-tab">Pods tab</h3>
 
@@ -127,13 +119,13 @@ The Pods tab provides a list of all pods related to this node. The table include
 
 <h3 id="#logs-tab">Logs tab</h3>
 
-In the Logs tab you can view the time, log level, and message for each log line. You can search for specific logs using the search bar, which supports free text and Lucene queries. 
+The Logs tab shows the time, log level, and message for each log line. The search bar supports free text and Lucene queries, so you can search for specific logs.
 
 ![Pod menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/pod-quick-view-sep.png)
 
 <h3 id="#metrics-tab">Metrics tab</h3>
 
-The **Metrics** tab presents useful data in graph form. These graphs provides a view of Replicas Over Time, CPU Usage (cores) per pod, Memory Usage Per Pod, CPU Usage, Requests and Limits (Cores), Memory Usage, Requests and Limits, and Received & Transmitted Bytes.
+The **Metrics** tab presents useful data in graph form. These graphs provide a view of Replicas Over Time, CPU Usage (cores) per pod, Memory Usage Per Pod, CPU Usage, Requests and Limits (Cores), Memory Usage, Requests and Limits, and Received & Transmitted Bytes.
 
 ![Stateful menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/metrics-quick-view.png)
 
@@ -145,35 +137,30 @@ The **Traces** tab includes all of the spans in this deployment, including the f
 * Trace ID
 * The Service related to the span
 * Which Operation ran
-* The Duration of the run, represented in milliseconds
+* The duration of the run, represented in milliseconds
 * Status code indicating whether a specific HTTP request has been successfully completed
 
 ![Quick menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/deployment-quick-view-sep.png)
 
-///
+
 <h3 id="#yaml-tab">YAML tab</h3>
 
-For each node, you can view its YAML configurations within Logz.io's interface, allowing easier troubleshooting and configuration verification.
+You can view each node's YAML configuration, allowing easier troubleshooting and configuration verification.
 
+Open the node you want to investigate and click the YAML tab. With direct access to YAML files, you can quickly understand and audit the underlying settings and setups of Kubernetes deployments, ensuring configurations align with operational requirements and best practices.
 
-By offering direct access to YAML files, users can quickly understand and audit the underlying settings and setups of their Kubernetes deployments, ensuring configurations align with their operational requirements and best practices. This addition is designed to simplify the complexities of Kubernetes management, enhancing user experience by providing a more integrated and holistic view of system operations.
-
-
-
-
-
-///
+![YAML tab](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/yaml-k8s-tab-apr28.png)
 
 
 ### Investigate through quick view 
 
-<h4 id="#see-metrics">See Metrics</h4>
+<h3 id="#see-metrics">See Metrics</h3>
 
 You can easily investigate the different issues you might encounter. 
 
 Each quick view menu contains the **View Metrics** button, allowing you to view the relevant information in a Grafana application. This can provide a focused overview of the chosen element, allowing you to pinpoint what happened and when it started quickly.
 
-<h4 id="#see-logs">See Logs</h4>
+<h3 id="#see-logs">See Logs</h3>
 
 
 Node and pod views include the **See Logs** button, which opens an OpenSearch Dashboards screen with the relevant query to display the log information.
@@ -184,25 +171,25 @@ Click on **Add filter** at the top of the screen. The fields vary according to y
 
 Next, choose the operator. For example, you can select **exists** to view all related logs.
 
-<h4 id="#open-livetail">Open Livetail</h4>
+<h3 id="#open-livetail">Open Livetail</h3>
 
 
 Node and pod views include the **Open Livetail** button, which opens Logz.io's Livetail filtered with the selected Kubernetes host. Live tail gives you a live view of your logs as they come into Logz.io, allowing you to view and troubleshoot in real time.
 
-<h4 id="#open-traces">Open Traces</h4>
+<h3 id="#open-traces">Open Traces</h3>
 
 
 The Deployment view includes the **See Traces** button, which opens Jaeger with the relevant data needed to deep dive into it. Gain a system-wide view of your distributed architecture, detect failed or high latency requests, and quickly drill into end-to-end call sequences of selected requests of intercommunicating microservices. 
 
 ## Track Deployment Data
 
-You can enrich your Kubernetes 360 graphs by adding an indication of recent deployments, helping you determine if a deployment has increased response times for end-users, altered your application's memory/CPU footprint, or introduced any other performance-related changes.
+You can enrich your Kubernetes 360 graphs by adding an indication of recent deployments. This will help you determine whether a deployment has increased end-user response times, altered your application's memory/CPU footprint, or introduced any other performance-related changes.
 
 To enable deployment tracking ability, run the [**Telemetry Collector**](https://app.logz.io/#/dashboard/integrations/collectors?tags=Quick%20Setup) on your Kubernetes clusters. You can also activate this process **manually** by installing [Logz.io Kubernetes events Helm chart](https://app.logz.io/#/dashboard/integrations/Kubernetes:~:text=user%20guide.-,Send%20your%20deploy%20events%20logs,-This%20integration%20sends). 
 
 Once enabled, the graphs will include a deployment marker, marked by a dotted vertical line.
 
-You can view additional deployment data by clicking on the line. This data includes the deployment time, the associated service and environment, and a quick link to view the commit in your logs.
+Clicking on the line allows you to view additional deployment data. This data includes the deployment time, the associated service and environment, and a quick link to view the commit in your logs.
 
 Click **Go to commit** to access and view your own code related to this deployment, allowing you to probe deeper into the relevant data.
 
