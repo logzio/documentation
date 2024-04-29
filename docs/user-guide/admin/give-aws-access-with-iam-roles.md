@@ -323,3 +323,56 @@ If there are other S3 fetcher or Archive & restore configurations in this accoun
 For configurations in other Logz.io accounts,
 repeat this procedure from the beginning.
 
+## Minimum IAM permissions required for metric shipping
+
+To ship metrics from AWS services to Logz.io, you need to configure the minimum required permissions as follows:
+
+* **Amazon S3**:
+   - `s3:CreateBucket`
+   - `s3:DeleteBucket`
+   - `s3:PutObject`
+   - `s3:GetObject`
+   - `s3:DeleteObject`
+   - `s3:ListBucket`
+   - `s3:AbortMultipartUpload`
+   - `s3:GetBucketLocation`
+* **AWS Lambda**:
+   - `lambda:CreateFunction`
+   - `lambda:DeleteFunction`
+   - `lambda:InvokeFunction`
+   - `lambda:GetFunction`
+   - `lambda:UpdateFunctionCode`
+   - `lambda:UpdateFunctionConfiguration`
+   - `lambda:AddPermission`
+   - `lambda:RemovePermission`
+   - `lambda:ListFunctions`
+* **Amazon CloudWatch**:
+   - `cloudwatch:PutMetricData`
+   - `cloudwatch:PutMetricStream`
+   - `logs:CreateLogGroup`
+   - `logs:CreateLogStream`
+   - `logs:PutLogEvents`
+   - `logs:DeleteLogGroup`
+   - `logs:DeleteLogStream`
+* **AWS Kinesis Firehose**:
+   - `firehose:CreateDeliveryStream`
+   - `firehose:DeleteDeliveryStream`
+   - `firehose:PutRecord`
+   - `firehose:PutRecordBatch`
+* **IAM**:
+   - `iam:PassRole`
+   - `iam:CreateRole`
+   - `iam:DeleteRole`
+   - `iam:AttachRolePolicy`
+   - `iam:DetachRolePolicy`
+   - `iam:GetRole`
+   - `iam:CreatePolicy`
+   - `iam:DeletePolicy`
+   - `iam:GetPolicy`
+* **Amazon CloudFormation**:
+   - `cloudformation:CreateStack`
+   - `cloudformation:DeleteStack`
+   - `cloudformation:UpdateStack`
+   - `cloudformation:DescribeStacks`
+   - `cloudformation:DescribeStackEvents`
+   - `cloudformation:ListStackResources`
