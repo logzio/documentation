@@ -159,6 +159,21 @@ helm install -n monitoring \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
+#### Deploy metrics chart with Kuberenetes object logs correlation
+**Note** `k8sObjectsConfig.enabled=true` will have no effect unless `metrics.enabled` is also set to `true`
+```sh
+helm install  \
+--set logzio-k8s-telemetry.metrics.enabled=true \
+--set logzio-k8s-telemetry.k8sObjectsConfig.enabled=true \
+--set logzio-k8s-telemetry.secrets.LogzioRegion=<<LOGZIO-REGION>> \
+--set logzio-k8s-telemetry.secrets.k8sObjectsLogsToken=<<LOGZIO-LOG-SHIPPING-TOKEN>> \
+--set logzio-k8s-telemetry.secrets.MetricsToken=<<PROMETHEUS-METRICS-SHIPPING-TOKEN>> \
+--set logzio-k8s-telemetry.secrets.ListenerHost=<<LISTENER-HOST>> \
+--set logzio-k8s-telemetry.secrets.p8s_logzio_name=<<P8S-LOGZIO-NAME>> \
+--set logzio-k8s-telemetry.secrets.env_id=<<ENV-ID>> \
+logzio-monitoring logzio-helm/logzio-monitoring
+```
+
 ## Scan your cluster for security vulnerabilities
 
 ```sh
@@ -251,7 +266,7 @@ To address this issue, you can use the `--set` commands provided below in order 
 --set logzio-trivy.image=public.ecr.aws/logzio/trivy-to-logzio
 ```
 
-## Upgrade logzio-monitoring to v3.0.0
+## Upgrading logzio-monitoring to v3.0.0
 
 Before upgrading your logzio-monitoring Chart to v3.0.0 with `helm upgrade`, note that you may encounter an error for some of the logzio-telemetry sub-charts.
 
@@ -259,7 +274,7 @@ There are two possible approaches to the upgrade you can choose from:
 - Reinstall the chart.
 - Before running the `helm upgrade` command, delete the old subcharts resources: `logzio-monitoring-prometheus-pushgateway` deployment and the `logzio-monitoring-prometheus-node-exporter` daemonset.
 
-## Configure logs in JSON format
+## Configuring logs in JSON format
 
 This configuration sets up a log processor to parse, restructure, and clean JSON-formatted log messages for streamlined analysis and monitoring:
 
@@ -274,3 +289,24 @@ This configuration sets up a log processor to parse, restructure, and clean JSON
   </parse>
 </filter>
 ```
+
+## Adding metric names to K8S 360 filter
+
+To customize the metrics collected by Prometheus in your Kubernetes environment, you need to modify the `prometheusFilters` configuration in your Helm chart.
+
+### Identify metrics to keep
+
+Decide which metrics you need to add to your collection, formatted as a regex string (e.g., `new_metric_1|new_metric_2`).
+
+### Set filters
+
+Run the following command:
+
+```shell
+helm upgrade <RELEASE_NAME> logzio-helm/logzio-monitoring \
+--set prometheusFilters.metrics.infrastructure.keep.aks="existing_metric_1|existing_metric_2|new_metric_1|new_metric_2" \
+--set logzio-k8s-telemetry.enableMetricsFilter.<SERVICE>=true
+```
+
+* Replace `<RELEASE_NAME>` with the name of your Helm release.
+* Replace `<SERVICE>` with the appropriate service name: `ask`, `eks` or `gke`.
