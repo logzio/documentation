@@ -5,6 +5,62 @@
  
 
 ## Configure AWS to forward metrics to Logz.io
+
+### Set the required minimum IAM permissions
+
+Make sure you have configured the minimum required IAM permissions as follows:
+
+* **Amazon S3**:
+   - `s3:CreateBucket`
+   - `s3:DeleteBucket`
+   - `s3:PutObject`
+   - `s3:GetObject`
+   - `s3:DeleteObject`
+   - `s3:ListBucket`
+   - `s3:AbortMultipartUpload`
+   - `s3:GetBucketLocation`
+* **AWS Lambda**:
+   - `lambda:CreateFunction`
+   - `lambda:DeleteFunction`
+   - `lambda:InvokeFunction`
+   - `lambda:GetFunction`
+   - `lambda:UpdateFunctionCode`
+   - `lambda:UpdateFunctionConfiguration`
+   - `lambda:AddPermission`
+   - `lambda:RemovePermission`
+   - `lambda:ListFunctions`
+* **Amazon CloudWatch**:
+   - `cloudwatch:PutMetricData`
+   - `cloudwatch:PutMetricStream`
+   - `logs:CreateLogGroup`
+   - `logs:CreateLogStream`
+   - `logs:PutLogEvents`
+   - `logs:DeleteLogGroup`
+   - `logs:DeleteLogStream`
+* **AWS Kinesis Firehose**:
+   - `firehose:CreateDeliveryStream`
+   - `firehose:DeleteDeliveryStream`
+   - `firehose:PutRecord`
+   - `firehose:PutRecordBatch`
+* **IAM**:
+   - `iam:PassRole`
+   - `iam:CreateRole`
+   - `iam:DeleteRole`
+   - `iam:AttachRolePolicy`
+   - `iam:DetachRolePolicy`
+   - `iam:GetRole`
+   - `iam:CreatePolicy`
+   - `iam:DeletePolicy`
+   - `iam:GetPolicy`
+* **Amazon CloudFormation**:
+   - `cloudformation:CreateStack`
+   - `cloudformation:DeleteStack`
+   - `cloudformation:UpdateStack`
+   - `cloudformation:DescribeStacks`
+   - `cloudformation:DescribeStackEvents`
+   - `cloudformation:ListStackResources`
+
+
 ### Create Stack in the relevant region
 
 To deploy this project, click the button that matches the region you wish to deploy your Stack to:
