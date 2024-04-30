@@ -9,8 +9,8 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/dotn
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: []
-metrics_alerts: []
+metrics_dashboards: ['3lGo7AE5839jDfkAYU8r21']
+metrics_alerts: ['1ALFpmGPygXKWi18TDoO5C']
 drop_filter: []
 ---
 
@@ -1304,6 +1304,11 @@ volumeMounts:
 
 Give your metrics some time to get from your system to ours, then open [Logz.io](https://app.logz.io/). You can search for your metrics in Logz.io by searching `{job="dotnet-monitor-collector"}`
 
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["3lGo7AE5839jDfkAYU8r21"] -->
+
+{@include: ../../_include/metric-shipping/generic-dashboard.html}
  
 
 

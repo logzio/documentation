@@ -9,8 +9,8 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/go.s
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: []
-metrics_alerts: []
+metrics_dashboards: ['2cm0FZu4VK4vzH0We6SrJb']
+metrics_alerts: ['1UqjU2gqNAKht1f62jBC9Q']
 drop_filter: []
 ---
 
@@ -375,6 +375,13 @@ _ = metric.Must(meter).NewFloat64UpDownCounterObserver(
 ### Check Logz.io for your metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
+
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["2cm0FZu4VK4vzH0We6SrJb"] -->
+
+{@include: ../../_include/metric-shipping/generic-dashboard.html}
+
 
 
 ## Traces

@@ -9,8 +9,8 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/node
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: []
-metrics_alerts: []
+metrics_dashboards: ['2zAdXztEedvoRJzWTR2dY0']
+metrics_alerts: ['14UC8nC6PZmuJ0lqOeHnhv']
 drop_filter: []
 ---
 
@@ -513,6 +513,11 @@ Run your application to start sending metrics to Logz.io.
 
 Give your metrics some time to get from your system to ours, and then open [Metrics dashboard](https://app.logz.io/#/dashboard/metrics/discover?).
 
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["2zAdXztEedvoRJzWTR2dY0"] -->
+
+{@include: ../../_include/metric-shipping/generic-dashboard.html}
 
 
 
