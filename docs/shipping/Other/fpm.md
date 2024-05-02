@@ -1,7 +1,7 @@
 ---
 id: FPM-data
 title: FPM
-overview: This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon S3 metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
+overview: This integration sends Prometheus-format PHP-FPM metrics to Logz.io.
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['Other']
@@ -9,13 +9,126 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/phpf
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: []
-metrics_alerts: []
+metrics_dashboards: ['55uVoiaFwAreNAf7DojQZN']
+metrics_alerts: ['1A2NfkQQprZqbtzQOVrcO7']
 drop_filter: []
 ---
 
 
-FPM (FastCGI Process Manager) is an alternative PHP FastCGI implementation with some additional features (mostly) useful for heavy-loaded sites. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
+FPM (FastCGI Process Manager) is an alternative PHP FastCGI implementation with some additional features (mostly) useful for heavy-loaded sites. 
+
+## Send FPM metrics with Prometheus
+
+### Run the containerized exporter
+
+```shell
+git clone git@github.com:hipages/php-fpm_exporter.git
+cd php-fpm_exporter/test
+docker-compose -p php-fpm_exporter up
+```
+
+### Download OpenTelemetry collector
+
+:::note
+If you already have OpenTelemetry, proceed to the next step.
+:::
+
+Create a dedicated directory on your host and download the OpenTelemetry collector that is relevant to the operating system of your host.
+
+After downloading the collector, create a configuration file `config.yaml`.
+
+### Configure the Receivers
+
+Open the configuration file and ensure it contains the required configuration to collect your metrics:
+
+```yaml
+receivers:
+ prometheus:
+   config:
+     scrape_configs:
+       - job_name: 'otel-collector-php'
+         scrape_interval: 5s
+         static_configs:
+           - targets: ['localhost:9253']
+
+
+processors:
+ resourcedetection/system:
+   detectors: ["system"]
+   system:
+     hostname_sources: ["os"]
+ attributes/agent:
+   actions:
+     - key: logzio_agent_version
+       value: v1.0.36
+       action: insert
+     - key: cloudservice
+       value: _CloudService_
+       action: insert
+     - key: role
+       value: _role_
+       action: insert
+
+
+exporters:
+ logging:
+ logzio/logs:
+   account_token: <<LOG-SHIPPING-TOKEN>>
+   region: us
+ prometheusremotewrite:
+   endpoint: https://<<LISTENER-HOST>>:8053
+   headers:
+     Authorization: Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
+   resource_to_telemetry_conversion:
+     enabled: true
+
+
+service:
+ pipelines:
+   metrics:
+     receivers:
+       - prometheus
+     exporters: [prometheusremotewrite]
+     processors: [resourcedetection/system]
+ telemetry:
+   logs:
+     level: debug
+   metrics:
+     address: localhost:8899
+```
+
+@include: ../../_include/log-shipping/log-shipping-token.html}
+
+{@include: ../../_include/log-shipping/listener-var.html}
+
+{@include: ../../_include/p8s-shipping/replace-prometheus-token.html}
+
+
+### Start the Collector
+
+Run the following command:
+
+```shell
+<path/to>/otelcol-contrib --config ./config.yaml
+```
+
+* Replace `<path/to>` with the path to the directory where you downloaded the collector. If the name of your configuration file is different to config, adjust the name in the command accordingly.
+
+### Check Logz.io for your metrics
+
+Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
+
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["55uVoiaFwAreNAf7DojQZN"] -->
+
+{@include: ../../_include/metric-shipping/generic-dashboard.html}
+
+
+## Send FPM metrics with Telegraf
+
+
+Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 
 To send your Prometheus-format PHP-FPM metrics to Logz.io, you need to add the **inputs.phpfpm** and **outputs.http** plug-ins to your Telegraf configuration file.
 
@@ -85,5 +198,10 @@ The full list of data scraping and configuring options can be found [here](https
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["55uVoiaFwAreNAf7DojQZN"] -->
+
+{@include: ../../_include/metric-shipping/generic-dashboard.html}
 
  
