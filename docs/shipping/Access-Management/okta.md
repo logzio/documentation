@@ -128,6 +128,7 @@ For more information about mounting files from root directory click [here](https
 |---|---|
 | LOGZIO_TOKEN (Required) | {@include: ../../_include/log-shipping/log-shipping-token.html} |
 | LOGZIO_LISTENER_HOST (Required) | {@include: ../../_include/log-shipping/listener-var.html}  |
+| LOG_LEVEL (Optional)                                      | Logstash Log Level (deafult: `info`)                                                                                                      |
 
 
 ### Check Logz.io for your logs
