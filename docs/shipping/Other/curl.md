@@ -41,7 +41,9 @@ If you want to ship logs from your code but don't have a library in place,
 you can send them directly to the Logz.io listener as a minified JSON file.
 
 ```shell
-cat /path/to/log/file | curl -X POST "https://<<LISTENER-HOST>>:8071?token=<<LOG-SHIPPING-TOKEN>>&type=<LOG-TYPE>" -v --data-binary @-
+cat /path/to/log/file | curl -X POST "https://<<LISTENER-HOST>>:8071?token=<<LOG-SHIPPING-TOKEN>>&type=<LOG-TYPE>" \
+-H "user-agent:logzio-curl-logs" \
+-v --data-binary @-
 ```
 
 {@include: ../../_include/general-shipping/replace-placeholders.html}
@@ -79,7 +81,8 @@ You can upload JSON or plain text files.
 
 
 ```shell
-curl -T /path/to/log/file https://<<LISTENER-HOST>>:8022/file_upload/<<LOG-SHIPPING-TOKEN>>/<<LOG-TYPE>>
+curl -T /path/to/log/file https://<<LISTENER-HOST>>:8022/file_upload/<<LOG-SHIPPING-TOKEN>>/<<LOG-TYPE>> \
+-H "user-agent: logzio-curl-logs"
 ```
 
 Replace the placeholders to match your specifics. (They are indicated by the double angle brackets `<< >>`):

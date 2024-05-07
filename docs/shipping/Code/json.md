@@ -66,7 +66,9 @@ For example:
 
 ```shell
 echo $'{"message":"hello there", "counter": 1}\n{"message":"hello again", "counter": 2}' \
-  | curl -X POST "http://<<LISTENER-HOST>>:8070?token=<<LOG-SHIPPING-TOKEN>>&type=test_http_bulk" -v --data-binary @-
+| curl -X POST "http://<<LISTENER-HOST>>:8070?token=<<LOG-SHIPPING-TOKEN>>&type=test_http_bulk" \
+-H "user-agent:logzio-json-logs" \
+-v --data-binary @-
 ```
 
 ### Possible responses
