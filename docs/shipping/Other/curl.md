@@ -81,7 +81,8 @@ You can upload JSON or plain text files.
 
 
 ```shell
-curl -T /path/to/log/file https://<<LISTENER-HOST>>:8022/file_upload/<<LOG-SHIPPING-TOKEN>>/<<LOG-TYPE>>
+curl -T /path/to/log/file https://<<LISTENER-HOST>>:8022/file_upload/<<LOG-SHIPPING-TOKEN>>/<<LOG-TYPE>> \
+-H "user-agent: logzio-curl-logs"
 ```
 
 Replace the placeholders to match your specifics. (They are indicated by the double angle brackets `<< >>`):
