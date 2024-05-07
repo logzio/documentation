@@ -6,6 +6,7 @@ product: ['logs','metrics']
 recommendedFor: ['DevOps Engineer']
 os: ['windows', 'linux']
 filters: ['Containers', 'Most Popular']
+recommendedFor: ['DevOps Engineer']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/docker.png
 logs_dashboards: []
 logs_alerts: []

@@ -5,6 +5,7 @@ overview: Memcached is a general-purpose distributed memory-caching system. Tele
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['Memory Caching']
+recommendedFor: ['Software Engineer']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/memcached.png
 logs_dashboards: []
 logs_alerts: []

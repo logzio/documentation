@@ -5,6 +5,7 @@ overview: Apache Kafka is a distributed event store and stream-processing platfo
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['Distributed Messaging']
+recommendedFor: ['Software Engineer']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/kafka.svg
 logs_dashboards: []
 logs_alerts: []
