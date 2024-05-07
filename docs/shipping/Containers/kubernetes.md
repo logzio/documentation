@@ -3,6 +3,7 @@ id: Kubernetes
 title: Kubernetes
 overview: Kubernetes, also known as K8s, is an open-source system for automating deployments, scaling, and managing containerized applications. Integrate your Kubernetes system with Logz.io to monitor your logs, metrics, and traces, gain observability into your environment, and be able to identify and resolve issues with just a few clicks. 
 product: ['logs', 'metrics', 'tracing']
+recommendedFor: ['DevOps Engineer']
 os: ['windows', 'linux']
 filters: ['Containers', 'Most Popular']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/kubernetes.svg
@@ -14,6 +15,6 @@ metrics_alerts: ['5Ng398K19vXP9197bRV1If']
 drop_filter: []
 ---
 
-Integrate your Kubernetes system with Logz.io to monitor your logs, metrics, and traces, gain observability into your environment, and be able to identify and resolve issues with just a few clicks. 
+Integrate your Kubernetes system with Logz.io to monitor your logs, metrics, and traces, gain observability into your environment, and be able to identify and resolve issues with just a few clicks.  
 
 {@include: ../../_include/general-shipping/k8s.md}
