@@ -3,6 +3,7 @@ id: Docker
 title: Docker
 overview: Docker lets you work in standardized environments using local containers, promoting continuous integration and continuous delivery (CI/CD) workflows. With Logz.io you can collect logs and metrics from your Docker environment to gain observability and know if and when issues occur.
 product: ['logs','metrics']
+recommendedFor: ['DevOps Engineer']
 os: ['windows', 'linux']
 filters: ['Containers', 'Most Popular']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/docker.png
