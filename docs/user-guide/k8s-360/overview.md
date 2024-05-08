@@ -148,7 +148,7 @@ The **Traces** tab includes all of the spans in this deployment, including the f
 
 <h3 id="trace-quickview"> Trace quickview </h3>
 
-Click on one of the **Trace Group** items to open the Trace quick view. This view includes additional data such as Trace ID, group name, timestamp marking the beginning of a trace being monitored, and the originating service.
+Click on one of the **Trace ID** items to open the Trace quick view. This view includes additional data such as Trace ID, group name, timestamp marking the beginning of a trace being monitored, and the originating service.
 
 This detailed view of the operation includes their names and associated services, along with a visual representation of the time taken to complete a specific operation within a span. Use the search bar to highlight a specific operation or service you want to examine.
 
