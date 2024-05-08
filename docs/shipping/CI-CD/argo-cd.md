@@ -5,6 +5,7 @@ overview: Argo CD is a declarative, GitOps continuous delivery tool for Kubernet
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['CI/CD']
+recommendedFor: ['DevOps Engineer']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/argo.png
 logs_dashboards: []
 logs_alerts: []
