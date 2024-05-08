@@ -5,6 +5,7 @@ overview: Logz.io's Python integration allows you to send custom logs, custom me
 product: ['metrics','logs','tracing']
 os: ['windows', 'linux', 'mac']
 filters: ['Code', 'Most Popular']
+recommendedFor: ['Software Engineer']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/python.svg
 logs_dashboards: []
 logs_alerts: []
