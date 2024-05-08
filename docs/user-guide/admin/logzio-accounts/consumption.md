@@ -24,34 +24,34 @@ You can contact your Logz.io account manager or [Logz.io's support team](mailto:
 In this example, the user's **budget is $1,000**, and the individual unit prices are:
 
 
-|Data type                             | Description       | Price |
-|--------------------------------------|-------------------|-------|
-| Logs                                | Per 1GB per day   | $0.10 |
-| Log index + 7 days retention         | Per 1GB per day   | $0.82 |
-| Log index retention extension per day| Per 1GB per day   | $0.03 |
-| Log cold retention                   | Per 1GB per day   | $0.001 |
-| Metrics                              | 1,000 UTM per day | $0.40 |
-| Traces                               | Per 1GB per day   | $0.92 |
-| Security Monitoring                  | Per 1GB per day   | $0.35 |
+|Data type                                      | Description       | Price |
+|-----------------------------------------------|-------------------|-------|
+| Open 360 logging ingestion                    | Per 1GB per day   | $0.10 |
+| Open 360 logging index + 7 days hot retention | Per 1GB per day   | $0.82 |
+| Open 360 logging hot retention extension      | Per 1GB per day   | $0.03 |
+| Open 360 logging cold tier retention          | Per 1GB per day   | $0.001 |
+| Open 360 metrics + 18 months retention        | 1,000 UTM per day | $0.40 |
+| Open 360 traces                               | Per 1GB per day   | $0.92 |
+| Open 360 security addon                       | Per 1GB per day   | $0.35 |
 
-Based on these prices, the user will pay $0.92 per 1GB per day for Logs with a 7-day retention period.
+Based on these prices, the user will pay $0.92 per 1GB per day for Open 360 logging index + 7 days hot retention period.
 
-For logs with 30 days retention, the user will pay $1.61 per 1GB per day:
+For Open 360 logging index + 30 days hot retention, the user will pay $1.61 per 1GB per day:
 
 `$0.10 + $0.82 + ($0.03 * 23) = $1.61`
 
-$0.10 for Logs, $0.82 for 7 days retention, and $0.69 for the additional 23 days retention.
+$0.10 for logs, $0.82 for 7 days retention, and $0.69 for the additional 23 days retention.
 
 After one day of use, the user's budget will be updated accordingly:
 
 Budget used per 1 day:
 
-|Data type                             | Data sent      | Price per unit | Budget used per day |
-|--------------------------------------|----------------|----------------|---------------------|
-| Logs - 7 days retention              | 2GB            | $0.92          | $1.84               |
-| Logs - 30 days retention             | 3GB            | $1.61          | $4.83               |
-| Metrics                              | 7,000 UTM      | $0.40          | $2.8                |
-| Tracing                              | 4GB            | $0.92          | $3.68               |
-| Security Monitoring                  | 5GB            | $0.35          | $1.75               | 
+|Data type                                        | Data sent      | Price per unit | Budget used per day |
+|-------------------------------------------------|----------------|----------------|---------------------|
+| Open 360 logging index + 7 days hot retention   | 2GB            | $0.92          | $1.84               |
+| Open 360 logging index + 30 days hot retention  | 3GB            | $1.61          | $4.83               |
+| Open 360 metrics                                | 7,000 UTM      | $0.40          | $2.8                |
+| Open 360 tracing                                | 4GB            | $0.92          | $3.68               |
+| Open 360 security addon                         | 5GB            | $0.35          | $1.75               | 
 
 At the end of the day, the user spent $14.9, and has the remaining budget of $985.1.
