@@ -5,6 +5,7 @@ overview: Integrate your Java applications with Logz.io to gain observability ne
 product: ['logs','metrics','tracing']
 os: ['windows', 'linux']
 filters: ['Code', 'Most Popular']
+recommendedFor: ['Software Engineer']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/java.svg
 logs_dashboards: []
 logs_alerts: []
