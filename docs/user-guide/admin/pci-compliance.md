@@ -24,6 +24,10 @@ For more information on PCI compliance and DDS (Data Security Standard), see the
 
 ## Enable PCI compliance
 
+:::info note
+Only Enterprise accounts can enable their PCI compliance level.
+:::
+
 To ensure that we redact the necessary details, your organization is responsible for providing Logz.io with the required cardholder information guidelines in writing, including but not limited to:
 
 1.  The relevant log types and accounts to mask
@@ -39,7 +43,7 @@ In addition, you must notify Logz.io of any relevant changes in relation to the 
 
 You can control PCI compliance from [**<i class="li li-gear"></i> > Settings > General**](https://app.logz.io/#/dashboard/settings/general) in the navigation menu.
 
-![Account settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/pci-activate_aug2021.png)
+![Account settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/pci-level-account-may12.png)
 
 
 If you have more than one account or a combination of sub accounts, you'll need to repeat this process for each of them.
@@ -48,7 +52,10 @@ If you have more than one account or a combination of sub accounts, you'll need 
 
 Once you accept the legal terms and click `activate`, Logz.io Support will be automatically notified and your ticket will be created.
 
-![Account settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/pci_aug2021.png)
+<!-- ![Account settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/pci_aug2021.png) -->
+
+
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/pci-terms-may12.png" alt="terms" width="700"/>
 
 ### 3. Vetting the regex pattern
 
