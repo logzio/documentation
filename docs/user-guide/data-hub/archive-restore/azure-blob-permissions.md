@@ -139,4 +139,4 @@ az storage account network-rule add --subnet /subscriptions/ac7ee52c-3b51-43b5-b
 az storage account network-rule add --subnet /subscriptions/ac7ee52c-3b51-43b5-b667-2498be58418b/resourceGroups/logzio-<REGION>-prod/providers/Microsoft.Network/virtualNetworks/logzio-<REGION>-prod-vnet/subnets/logzio-<REGION>-prod-vnet-subnet-aks-services --account-name <CUSTOMER_STORAGE_ACCOUNT_NAME>
 ```
 
-Replace `<REGION>` with the region of your account and `<CUSTOMER_STORAGE_ACCOUNT_NAME>` with the name of your storage account.
+Replace `<REGION>` with the region of your **Logz.io account** and `<CUSTOMER_STORAGE_ACCOUNT_NAME>` with the name of your storage account.
