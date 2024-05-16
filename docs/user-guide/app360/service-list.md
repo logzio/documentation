@@ -107,6 +107,21 @@ Clicking on any span will direct you to its trace view, which will help you pinp
 
 ![operation spans view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/inner-service-map-mar27.png)
 
+<h3 id="trace-quickview"> Trace quickview </h3>
+
+Click on one of the **Trace Group** items to open the Trace quick view. This view includes additional data such as Trace ID, group name, timestamp marking the beginning of a trace being monitored, and the originating service. 
+
+You get a detailed view of the operations, including their names and each operation's service, and a visual representation of the time taken to complete a specific operation within a span. Use the search bar to find a specific operation or service.
+
+**Collapse or expand spans** at this depth by clicking the three dots on the left side of each operation. This can help focus on specific layers or components of your system by reducing visual clutter and making the trace data easier to analyze. You can also click the number to expand or collapse your view. 
+
+The link icon next to each operation and service opens the service overview for a deeper dive into the data. Click anywhere else inside the operation to open the quick view menu with additional details, including environment ID, span kind, and more.
+
+<!-- If an error occurs, the operation will be marked with a red exclamation point.-->
+
+![Trace quick view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/trace-quick-view-apr24.gif)
+
+
 ### Infrastructure overview
 
 View the CPU and memory consumption inside the service. The graphs represent a breakdown of consumption by the hour.
