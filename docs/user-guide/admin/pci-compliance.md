@@ -6,6 +6,9 @@ description: Minimize the risk of exposting sensitive data with Logz.io
 keywords: [manage users, PCI, compliance, log redaction, privacy, admin controls, account administration, access control]
 ---
 
+:::note
+The PCI feature is only available for the Enterprise plan.
+:::
 
 Minimize the risk of exposing sensitive customer data with Logz.io's log redaction function and benefit from a logging management solution that offers
 automated sensitive-data scrubbing.
