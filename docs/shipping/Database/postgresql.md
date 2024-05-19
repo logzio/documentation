@@ -5,6 +5,7 @@ overview: PostgreSQL is a free and open-source relational database management sy
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['Database']
+recommendedFor: ['Software Engineer']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/postgresql-logo.png
 logs_dashboards: []
 logs_alerts: []

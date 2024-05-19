@@ -5,6 +5,7 @@ overview: Send your Amazon EC2 logs and metrics to Logz.io.
 product: ['logs','metrics']
 os: ['windows', 'linux']
 filters: ['AWS', 'Compute']
+recommendedFor: ['DevOps Engineer']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-ec2.svg
 logs_dashboards: []
 logs_alerts: []

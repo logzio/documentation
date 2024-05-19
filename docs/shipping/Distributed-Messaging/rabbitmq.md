@@ -5,6 +5,7 @@ overview: RabbitMQ is an open-source message-broker software that originally imp
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['Distributed Messaging']
+recommendedFor: ['Software Engineer']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/rabbitmq-logo.png
 logs_dashboards: []
 logs_alerts: []
