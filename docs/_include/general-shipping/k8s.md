@@ -310,3 +310,35 @@ helm upgrade <RELEASE_NAME> logzio-helm/logzio-monitoring \
 
 * Replace `<RELEASE_NAME>` with the name of your Helm release.
 * Replace `<SERVICE>` with the appropriate service name: `ask`, `eks` or `gke`.
+
+## Applying Labels to Helm Chart Components
+
+You can apply labels to your pods to help organize and manage the components of your deployment more effectively. Below are examples of how to apply labels to different components within the `logzio-k8s-telemetry` chart.
+
+### Standalone Collector
+
+To apply labels to the `standaloneCollector`, add the `podLabels` under the `standaloneCollector` section:
+
+```yaml
+logzio-k8s-telemetry:
+  standaloneCollector:
+    enabled: true
+    podLabels:
+      team: devops-tooling
+```
+
+Ensure that the `enabled` flag is set to `true` to activate the standalone collector with the specified labels.
+
+### Other Components
+
+Similarly, you can apply labels to other components such as kube-state-metrics and prometheus-node-exporter:
+
+```yaml
+logzio-k8s-telemetry:
+  kube-state-metrics:
+    podLabels:
+      team: devops-tooling
+  prometheus-node-exporter:
+    podLabels:
+      team: devops-tooling
+```
