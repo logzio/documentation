@@ -22,6 +22,10 @@ You can see the condition and state of each filter. You can easily switch any fi
 
 ## Add a new Drop Metric Filter
 
+:::tip note
+You can add up to 1,000 Drop Metric Filters.
+:::
+
 Click on **+ Add metric drop filter**.
 
 Select the metric account you want to use for this filter and the metric name you wish to filter.
