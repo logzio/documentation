@@ -109,7 +109,7 @@ exporters:
     endpoint: https://<<LISTENER-HOST>>:8053
     headers:
       Authorization: Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
-      User-Agent: logzio-opentelemetry-logs
+      User-Agent: logzio-opentelemetry-metrics
     target_info:
         enabled: false
 ```
