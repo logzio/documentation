@@ -9,7 +9,7 @@ slug: /user-guide/new-explore/
 
 Explore lets you monitor your logs, metrics, and traces in one unified dashboard. It offers a quick and easy way to identify and debug issues quickly and effectively.
 
-Enable the new Explore dashboard by navigating to [Settings](https://app.logz.io/#/dashboard/settings/general) and toggling the Explore option. This will add the icon to your navigation menu, and you can access the [**Explore dashboard**](https://app.logz.io/) with a single click.
+Enable the new Explore dashboard by navigating to [Settings](https://app.logz.io/#/dashboard/settings/general) and toggling the Explore option. This will add the icon to your navigation menu, and you can access the [**Explore dashboard**](https://app.logz.io/#/dashboard/explore/) with a single click.
 
 
 ## Explore Dashboards Overview
@@ -17,6 +17,12 @@ Enable the new Explore dashboard by navigating to [Settings](https://app.logz.io
 Explore is designed to investigate and analyze massive volumes of data quickly and easily. Use filters or the auto-complete syntax tool to find the logs you need, and drill into them using the quick view panel.
 
 ![Explore dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-apr8.png)
+
+
+
+
+
+
 
 ### 1. Smart Search / Lucene
 
