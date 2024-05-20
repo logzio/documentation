@@ -26,7 +26,7 @@ For this integration, the telemetry list needs to include `gce_operation`.
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-**Integration via Google Vloud Pub/Sub**
+**Integration via Google Cloud Pub/Sub**
 
 
 Google Cloud Platform (GCP) Stackdriver collects logs from your cloud services.
