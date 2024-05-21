@@ -14,7 +14,7 @@ const FeatureList = [
     title: 'Explore Dashboard',
     link: "/docs/user-guide/new-explore/",
     Svg: require('@site/static/img/explore.svg').default,
-    description: <>Explore.</>,
+    description: <>A unified dashboard to monitor and quickly troubleshoot your data.</>,
   },
   {
     title: 'Telemetry Collector',
