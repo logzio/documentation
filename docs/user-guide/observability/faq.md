@@ -16,7 +16,9 @@ Observability IQ Assistant is currently available to all Logz.io users, whose da
 
 ## How do I activate the Observability IQ Assistant?
 
-Activate the Observability IQ Assistant by navigating to your [Services](https://app.logz.io/#/dashboard/spm/services/table?start=now-1h&end=now) dashboard. Once you choose a service, click the **Observability IQ** button to open the assistant. Once you provide input to the assistant, the dashboard's data will be shared with Claude3.
+Observability IQ Assistant is available in the **[Explore](https://app.logz.io/#/dashboard/explore)**, **[Kubernetes 360](https://app.logz.io/#/dashboard/observability/k8s360)**, and **[App 360](https://app.logz.io/#/dashboard/spm/services/table)** dashboards. Click the Observability IQ button at the top to open the interface.
+
+Once you provide input to the assistant, the dashboard's data will be shared with Claude3.
 
 
 ## Is Observability IQ Assistant accessible via API?

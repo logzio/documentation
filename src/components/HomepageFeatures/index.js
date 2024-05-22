@@ -11,6 +11,12 @@ const FeatureList = [
     description: <>Learn how to make the most out of the Logz.io platform.</>,
   },
   {
+    title: 'Explore Dashboard',
+    link: "/docs/user-guide/new-explore/",
+    Svg: require('@site/static/img/explore.svg').default,
+    description: <>A unified dashboard to monitor and quickly troubleshoot your data.</>,
+  },
+  {
     title: 'Telemetry Collector',
     link: "/docs/user-guide/telemetry-collector/",
     Svg: require('@site/static/img/telemetry-collector.svg').default,
@@ -21,12 +27,6 @@ const FeatureList = [
     link: "/docs/user-guide/k8s-360/overview",
     Svg: require('@site/static/img/k8s.svg').default,
     description: <>Monitor and troubleshoot applications deployed in Kubernetes environments.</>,
-  },
-  {
-    title: 'OpenSearch Dashboards',
-    link: "/docs/user-guide/log-management/opensearch-dashboards/",
-    Svg: require('@site/static/img/opensearch.svg').default,
-    description: <>Stay on top of your logs with rich visualizations.</>,
   },
   {
     title: 'Logz.io integrations',
