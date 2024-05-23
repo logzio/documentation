@@ -27,6 +27,11 @@ Once you provide input to the assistant, the dashboard's data will be shared wit
 
 ## What data can Observability IQ Assistant access upon activation?
 
+
+The Observability IQ Assistant activates when you input a prompt in its interface and operates within the same region in which your Logz.io data is hosted. It is designed to access only the data currently visible in your browser, including your current query, the graphs visible on the screen, and a limited number of logs due to size constraints. This setup ensures that the IQ Assistant interacts exclusively with the data you're actively analyzing.
+
+
+
 Observability IQ Assistant activates when you input a prompt in its interface. It is designed to access only the data currently visible on the browser, your current query, and a limited number of logs due to size constrictions and limits. This setup ensures the IQ Assistant only interacts with the data you're currently analyzing.
 
 ## Can account admins see my queries and chat history?
@@ -35,7 +40,7 @@ No. Account admins or any other users within your organization cannot view or ac
 
 ## Will the input and the model output served through the Observability IQ Assistant be available to Claude3?
 
-No, they are not shared with any model provider. The data is processed and contained within Logz.io's private instance within AWS, similar to the current setup of your Logz.io data. 
+No, they are not shared with any model provider. The data is processed and stored in Logz.io's private instance within AWS, similar to the current setup of your Logz.io data.
 
 ## Will the input and the model output served through the Observability IQ Assistant be used to train the AI Model? ​
 
