@@ -20,8 +20,8 @@ helm repo add logzio-helm https://logzio.github.io/logzio-helm && helm repo upda
 - `logzio-logs-collector`: Based on opentelemetry collector
 - `logzio-fluentd`: Based on fluentd
 
-### Log collection with `logzio-logs-collector`
-Deploy `logzio-logs-collector`, by adding the following `--set` flags:
+### Log collection with `logzio-logs-collector` Migrating to `logzio-monitoring` >=6.0.0 
+Deploy `logzio-logs-collector`, by replacing `logzio-fluentd` flags with the following `--set` flags:
 
 ```sh
 helm install -n monitoring \
