@@ -25,9 +25,7 @@ Deploy `logzio-logs-collector`, by adding the following `--set` flags:
 
 ```sh
 helm install -n monitoring \
---set logs.enabled=true \  
---set logzio-fluentd.enabled=false \  
---set logzio-logs-collector.enabled=true \  
+--set logs.enabled=true \
 --set logzio-logs-collector.secrets.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \  
 --set logzio-logs-collector.secrets.logzioRegion="<<LOGZIO-REGION>>" \  
 --set logzio-logs-collector.secrets.env_id="<<CLUSTER-NAME>>" \  
@@ -35,12 +33,14 @@ logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
 ### Log collection with `logzio-fluentd`
-The `logzio-fluentd` chart will be disabled by default in favor of the `logzio-logs-collector` chart for log collection in upcoming releases.
+The `logzio-fluentd` chart is disabled by default in favor of the `logzio-logs-collector` chart for log collection.
 Deploy `logzio-fluentd`, by adding the following `--set` flags:
 
 ```sh
 helm install -n monitoring \
 --set logs.enabled=true \
+--set logzio-fluentd.enabled=true \
+--set logzio-logs-collector.enabled=false \
 --set logzio-fluentd.secrets.logzioShippingToken="<<LOG-SHIPPING-TOKEN>>" \
 --set logzio-fluentd.secrets.logzioListener="<<LISTENER-HOST>>" \
 --set logzio-fluentd.env_id="<<CLUSTER-NAME>>" \
