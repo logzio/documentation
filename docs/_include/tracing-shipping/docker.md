@@ -22,6 +22,8 @@ exporters:
   logzio/traces:
     account_token: "<<TRACING-SHIPPING-TOKEN>>"
     region: "<<LOGZIO_ACCOUNT_REGION_CODE>>"
+    headers:
+      user-agent: logzio-opentelemetry-traces
 
   logging:
 
@@ -80,6 +82,8 @@ If you already have an OpenTelemetry installation, add the following parameters 
   logzio/traces:
     account_token: <<TRACING-SHIPPING-TOKEN>>
     region: <<LOGZIO_ACCOUNT_REGION_CODE>>
+    headers:
+      user-agent: logzio-opentelemetry-traces
 ```
 
 * Under the `service` list:
@@ -109,6 +113,8 @@ exporters:
   logzio/traces:
     account_token: "<<TRACING-SHIPPING-TOKEN>>"
     region: "<<LOGZIO_ACCOUNT_REGION_CODE>>"
+    headers:
+      user-agent: logzio-opentelemetry-traces
 
 processors:
   batch:

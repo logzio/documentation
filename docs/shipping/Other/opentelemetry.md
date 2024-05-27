@@ -45,6 +45,8 @@ exporters:
   logzio/logs:
     account_token: <<LOGS-SHIPPING-TOKEN>>
     region: <<LOGZIO_ACCOUNT_REGION_CODE>>
+    headers:
+      user-agent: logzio-opentelemetry-logs
 ```
 
 #### Configure the Service Pipeline
@@ -107,6 +109,7 @@ exporters:
     endpoint: https://<<LISTENER-HOST>>:8053
     headers:
       Authorization: Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
+      user-agent: logzio-opentelemetry-metrics
     target_info:
         enabled: false
 ```
@@ -189,6 +192,8 @@ If you already have an OpenTelemetry installation, add the following parameters 
   logzio/traces:
     account_token: <<TRACING-SHIPPING-TOKEN>>
     region: <<LOGZIO_ACCOUNT_REGION_CODE>>
+    headers:
+      user-agent: logzio-opentelemetry-traces
 ```
 
 * Under the `service` list:

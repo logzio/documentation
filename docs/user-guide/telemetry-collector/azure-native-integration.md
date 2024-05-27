@@ -140,6 +140,10 @@ Click **Generate collector** to continue.
 
 To get started with Azure Native Integration, toggle the **Enable Connection** on. You might have to wait a few minutes to see your data.
 
+:::note
+There is a limitation of three connections.
+:::
+
 ![Toggle fetcher](https://dytvr9ot2sszz.cloudfront.net/logz-docs/fetcher/azure-telemetry-finalize-dec.png)
 
 If you encounter an error and can't enable the connection, click **Advanced settings** to return to the configuration screen and verify the values you've entered are correct.

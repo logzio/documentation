@@ -35,6 +35,12 @@ The following Logz.io API endpoints are supported by this provider:
 * [Authentication groups](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/authentication_groups)
 * [OpenSearch Dashboards objects](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/kibana_object)
 * [S3 Fetcher](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/s3_fetcher)
+* [Grafana Dashboards](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/grafana_dashoboard)
+* [Grafana folders](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/grafana_folder)
+* [Grafana Alert Rules](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/grafana_alert_rule)
+* [Grafana Contact Point](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/grafana_contact_point)
+* [Grafana Notification Policy](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/grafana_notification_policy)
+* [Metrics Accounts](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/metrics_account)
 
 ## Working with Terraform
 
