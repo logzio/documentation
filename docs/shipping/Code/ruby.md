@@ -174,13 +174,13 @@ helm repo update
 
 ```
 helm install  \
---set config.exporters.logzio.region=<<logzio_account_region_code>> \
+--set config.exporters.logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
 --set config.exporters.logzio.account_token=<<TRACING-SHIPPING-TOKEN>> \
 logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 ```
 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
-`<<logzio_account_region_code>>` - Your Logz.io account region code. [Available regions](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
+`<<LOGZIO_ACCOUNT_REGION_CODE>>` - Your Logz.io account region code. [Available regions](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
 
 
 ### Define the logzio-k8s-telemetry service dns
@@ -342,7 +342,7 @@ baseCollectorConfig:
 
 ```
 helm install -f <PATH-TO>/my_values.yaml \
---set logzio.region=<<logzio_account_region_code>> \
+--set logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
 --set logzio.tracing_token=<<TRACING-SHIPPING-TOKEN>> \
 --set traces.enabled=true \
 logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry

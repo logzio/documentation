@@ -1064,7 +1064,7 @@ receivers:
 exporters:
   logzio/traces:
     account_token: "<<TRACING-SHIPPING-TOKEN>>"
-    region: "<<logzio_account_region_code>>"
+    region: "<<LOGZIO_ACCOUNT_REGION_CODE>>"
 
   logging:
 
@@ -1120,7 +1120,7 @@ If you already have an OpenTelemetry installation, add the following parameters 
 ```yaml
   logzio/traces:
     account_token: <<TRACING-SHIPPING-TOKEN>>
-    region: <<logzio_account_region_code>>
+    region: <<LOGZIO_ACCOUNT_REGION_CODE>>
 ```
 
 * Under the `service` list:
@@ -1149,7 +1149,7 @@ receivers:
 exporters:
   logzio/traces:
     account_token: "<<TRACING-SHIPPING-TOKEN>>"
-    region: "<<logzio_account_region_code>>"
+    region: "<<LOGZIO_ACCOUNT_REGION_CODE>>"
 
 processors:
   batch:
@@ -1289,13 +1289,13 @@ helm repo update
 
 ```
 helm install  \
---set logzio-k8s-telemetry.secrets.LogzioRegion=<<logzio_account_region_code>> \
+--set logzio-k8s-telemetry.secrets.LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>> \
 --set logzio-k8s-telemetry.secrets.TracesToken=<<TRACING-SHIPPING-TOKEN>> \
 logzio-monitoring logzio-helm/logzio-monitoring -n monitoring
 ```
 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
-`<<logzio_account_region_code>>` - Your Logz.io account region code. [Available regions](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
+`<<LOGZIO_ACCOUNT_REGION_CODE>>` - Your Logz.io account region code. [Available regions](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
 
 
 ##### Define the logzio-k8s-telemetry service DNS
@@ -1421,7 +1421,7 @@ Command:
 ```
 helm install -f <PATH-TO>/my_values.yaml \
 --set logzio-k8s-telemetry.secrets.TracesToken=<<TRACES-SHIPPING-TOKEN>> \
---set logzio-k8s-telemetry.secrets.LogzioRegion=<<logzio_account_region_code>> \
+--set logzio-k8s-telemetry.secrets.LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>> \
 --set metricsOrTraces=true \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
