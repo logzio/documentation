@@ -28,7 +28,7 @@ Add Logzio-helm repository
 {@include: ../../_include/general-shipping/k8s-all-data.md}
 
 
-## Send your logs
+## Send your logs 
  
 
 Send your logs
