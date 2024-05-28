@@ -77,7 +77,7 @@ receivers:
 exporters:
   logzio/traces:
     account_token: "<<TRACING-SHIPPING-TOKEN>>"
-    region: "<<LOGZIO_ACCOUNT_REGION_CODE>>"
+    region: "<<logzio_account_region_code>>"
 
 service:
   pipelines:

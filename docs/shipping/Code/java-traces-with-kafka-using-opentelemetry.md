@@ -298,7 +298,7 @@ logzio-k8s-telemetry:
 
 ```
 helm install -f <PATH-TO>/my_values.yaml -n monitoring \
---set logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
+--set logzio.region=<<logzio_account_region_code>> \
 --set logzio.tracing_token={@include: ../../_include/tracing-shipping/replace-tracing-token.html} \
 --set traces.enabled=true \
 logzio-monitoring logzio-helm/logzio-monitoring
