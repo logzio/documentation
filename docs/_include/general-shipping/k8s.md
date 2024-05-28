@@ -14,13 +14,16 @@ helm repo add logzio-helm https://logzio.github.io/logzio-helm && helm repo upda
 ```
 {@include: ../../_include/general-shipping/k8s-all-data.md}
 
-## Send your logs
+## Send your logs 
 
 `logzio-monitoring` supports the following subcharts for log collection agent:
 - `logzio-logs-collector`: Based on opentelemetry collector
 - `logzio-fluentd`: Based on fluentd
 
-### Log collection with `logzio-logs-collector` Migrating to `logzio-monitoring` >=6.0.0 
+### Log collection with logzio-logs-collector
+
+_Migrating to `logzio-monitoring` >=6.0.0_
+
 Deploy `logzio-logs-collector`, by replacing `logzio-fluentd` flags with the following `--set` flags:
 
 ```sh
@@ -32,7 +35,7 @@ helm install -n monitoring \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
-### Log collection with `logzio-fluentd`
+### Log collection with logzio-fluentd
 The `logzio-fluentd` chart is disabled by default in favor of the `logzio-logs-collector` chart for log collection.
 Deploy `logzio-fluentd`, by adding the following `--set` flags:
 
@@ -58,7 +61,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 
 For log shipping troubleshooting, see our [user guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-fluentd-for-kubernetes-logs/).
 
-## Send your deploy events logs
+## Send your deploy events logs 
 
 This integration sends data about deployment events in the cluster, and how they affect the cluster's resources. 
 Currently supported resource kinds are `Deployment`, `Daemonset`, `Statefulset`, `ConfigMap`, `Secret`, `Service Account`, `Cluster Role` and `Cluster Role Binding`.
