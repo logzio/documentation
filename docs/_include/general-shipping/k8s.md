@@ -107,7 +107,7 @@ helm install -n monitoring \
 --set metricsOrTraces.enabled=true \
 --set logzio-k8s-telemetry.traces.enabled=true \
 --set logzio-k8s-telemetry.secrets.TracesToken="<<TRACING-SHIPPING-TOKEN>>" \
---set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set logzio-k8s-telemetry.secrets.LogzioRegion="<<logzio_account_region_code>>" \
 --set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
@@ -116,7 +116,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | --- | --- |
 | `<<TRACING-SHIPPING-TOKEN>>` | Your [traces shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=tracing). |
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
-| `<<LOGZIO_ACCOUNT_REGION_CODE>>` | Name of your Logz.io traces region e.g `us`, `eu`... |
+| `<<logzio_account_region_code>>` | Name of your Logz.io traces region e.g `us`, `eu`... |
 
 
 For traces shipping troubleshooting, see our [Distributed Tracing troubleshooting](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/tracing-troubleshooting/).
@@ -129,7 +129,7 @@ helm install -n monitoring \
 --set metricsOrTraces.enabled=true \
 --set logzio-k8s-telemetry.traces.enabled=true \
 --set logzio-k8s-telemetry.secrets.TracesToken="<<TRACING-SHIPPING-TOKEN>>" \
---set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set logzio-k8s-telemetry.secrets.LogzioRegion="<<logzio_account_region_code>>" \
 --set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
 --set logzio-k8s-telemetry.spm.enabled=true \
 --set logzio-k8s-telemetry.secrets.SpmToken=<<SPM-METRICS-SHIPPING-TOKEN>> \
@@ -141,7 +141,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<TRACING-SHIPPING-TOKEN>>` | Your [traces shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
 | `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
-| `<<LOGZIO_ACCOUNT_REGION_CODE>>` | Name of your Logz.io traces region e.g `us`, `eu`... |
+| `<<logzio_account_region_code>>` | Name of your Logz.io traces region e.g `us`, `eu`... |
 | `<<SPM-METRICS-SHIPPING-TOKEN>>` | Your [span metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
 
 ## Deploy both charts with span metrics and service graph
@@ -151,7 +151,7 @@ helm install -n monitoring \
 --set metricsOrTraces.enabled=true \
 --set logzio-k8s-telemetry.traces.enabled=true \
 --set logzio-k8s-telemetry.secrets.TracesToken="<<TRACING-SHIPPING-TOKEN>>" \
---set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set logzio-k8s-telemetry.secrets.LogzioRegion="<<logzio_account_region_code>>" \
 --set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
 --set logzio-k8s-telemetry.spm.enabled=true \
 --set logzio-k8s-telemetry.secrets.SpmToken=<<SPM-METRICS-SHIPPING-TOKEN>> \
@@ -237,7 +237,7 @@ helm install -n monitoring \
 --set logzio-k8s-telemetry.secrets.p8s_logzio_name="<<CLUSTER-NAME>>" \
 --set logzio-k8s-telemetry.traces.enabled=true \
 --set logzio-k8s-telemetry.secrets.TracesToken="<<TRACING-SHIPPING-TOKEN>>" \
---set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set logzio-k8s-telemetry.secrets.LogzioRegion="<<logzio_account_region_code>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
@@ -250,7 +250,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<CLUSTER-NAME>>` | The name for your environment's identifier, to easily identify the telemetry data for each environment. |
 | `<<ENV-TAG>>` | Your custom name for the environment's metrics, to easily identify the metrics for each environment. |
 | `<<TRACING-SHIPPING-TOKEN>>` | Replace `<<TRACING-SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=tracing) of the account you want to ship to. |
-| `<<LOGZIO_ACCOUNT_REGION_CODE>>` | Name of your Logz.io traces region e.g `us` or `eu`. You can find your region code in the [Regions and URLs](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#regions-and-urls/) table. |
+| `<<logzio_account_region_code>>` | Name of your Logz.io traces region e.g `us` or `eu`. You can find your region code in the [Regions and URLs](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#regions-and-urls/) table. |
 
 ## Handling image pull rate limit
 

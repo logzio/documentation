@@ -46,7 +46,7 @@ helm install -n monitoring \
 --set metricsOrTraces.enabled=true \
 --set logzio-k8s-telemetry.traces.enabled=true \
 --set logzio-k8s-telemetry.secrets.TracesToken="<<TRACING-SHIPPING-TOKEN>>" \
---set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set logzio-k8s-telemetry.secrets.LogzioRegion="<<logzio_account_region_code>>" \
 --set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```

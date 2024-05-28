@@ -44,7 +44,7 @@ In the same configuration file, add the following to the exporters section:
 exporters:
   logzio/logs:
     account_token: <<LOGS-SHIPPING-TOKEN>>
-    region: <<LOGZIO_ACCOUNT_REGION_CODE>>
+    region: <<logzio_account_region_code>>
 ```
 
 #### Configure the Service Pipeline
@@ -188,7 +188,7 @@ If you already have an OpenTelemetry installation, add the following parameters 
 ```yaml
   logzio/traces:
     account_token: <<TRACING-SHIPPING-TOKEN>>
-    region: <<LOGZIO_ACCOUNT_REGION_CODE>>
+    region: <<logzio_account_region_code>>
 ```
 
 * Under the `service` list:
