@@ -2,7 +2,7 @@
 receivers:
   otlp:
     protocols:
-      grpc:
+      http/protobuf:
         endpoint: "0.0.0.0:4317"
       http:
         endpoint: "0.0.0.0:4318"

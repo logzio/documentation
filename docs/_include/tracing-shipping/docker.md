@@ -12,7 +12,7 @@ Create a file `config.yaml` with the following content:
 receivers:
   otlp:
     protocols:
-      grpc:
+      http/protobuf:
         endpoint: "0.0.0.0:4317"
       http:
         endpoint: "0.0.0.0:4318"
@@ -106,7 +106,7 @@ An example configuration file looks as follows:
 receivers:  
   otlp:
     protocols:
-      grpc:
+      http/protobuf:
       http:
 
 exporters:

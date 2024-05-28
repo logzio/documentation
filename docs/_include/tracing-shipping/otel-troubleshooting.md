@@ -26,7 +26,7 @@ If the collector is installed, it may not have the correct endpoint configured f
    receivers:
      otlp:
        protocols:
-         grpc:
+         http/protobuf:
            endpoint: "0.0.0.0:4317"
          http:
            endpoint: "0.0.0.0:4318"
@@ -62,7 +62,7 @@ The correct endpoints are:
    receivers:
      otlp:
        protocols:
-         grpc:
+         http/protobuf:
            endpoint: "<<COLLECTOR-URL>>:4317"
          http:
            endpoint: "<<COLLECTOR-URL>>:4318/v1/traces"
