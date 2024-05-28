@@ -61,6 +61,18 @@ logzio-monitoring logzio-helm/logzio-monitoring
 
 For log shipping troubleshooting, see our [user guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-fluentd-for-kubernetes-logs/).
 
+
+### Adding pod labels
+
+To ensure that labels are applied correctly to the pods managed by the Logz.io collector, add the following section to your Helm chart configuration:
+
+```yaml
+logzio-k8s-telemetry:
+  standaloneCollector:
+    podLabels:
+      team: devops-tooling
+```
+
 ## Send your deploy events logs 
 
 This integration sends data about deployment events in the cluster, and how they affect the cluster's resources. 
