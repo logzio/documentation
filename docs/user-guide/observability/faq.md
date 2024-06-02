@@ -32,7 +32,7 @@ Once you provide input to the assistant, the dashboard's data will be shared wit
 
 ### How do I provide feedback or report issues with the Observability IQ Assistant? 
 
-You can provide feedback or report issues using the **Share Your Feedback** button located at the top of the Observability IQ Assistant interface.
+Use the **Share Your Feedback** button at the top of the Observability IQ Assistant interface to provide feedback or report issues.
 
 
 
