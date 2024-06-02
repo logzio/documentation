@@ -10,7 +10,7 @@ keywords: [AI, observability, Assistant, iq, logs, metrics, traces, siem, insigh
 
 ### What is Observability IQ Assistant?
 
-Observability IQ Assistant (IQ) is Logz.io's chat-driven, AI-enhanced platform, enabling active dialogue with your data. You can access it from your Explore, App 360, and Kubernetes dashboards, where you can transition from merely observing data to actively acquiring immediate insights on your metrics, identifying anomalies, discerning trends, and assessing the well-being of your ecosystem in real-time.
+Observability IQ Assistant (IQ) is Logz.io's chat-driven, AI-enhanced platform, enabling active dialogue with your data. You can access it from your **[Explore](https://app.logz.io/#/dashboard/explore)**, **[Kubernetes 360](https://app.logz.io/#/dashboard/observability/k8s360)**, and **[App 360](https://app.logz.io/#/dashboard/spm/services/table)** dashboards, where you can transition from merely observing data to actively acquiring immediate insights on your metrics, identifying anomalies, discerning trends, and assessing the well-being of your ecosystem in real-time.
 
 ### What kind of information can I get from the Observability IQ Assistant? 
 
@@ -28,7 +28,14 @@ No. To access Observability IQ Assistant, you must use Logz.io's app.
 
 Observability IQ Assistant is available in the **[Explore](https://app.logz.io/#/dashboard/explore)**, **[Kubernetes 360](https://app.logz.io/#/dashboard/observability/k8s360)**, and **[App 360](https://app.logz.io/#/dashboard/spm/services/table)** dashboards. Click the Observability IQ button at the top to open the interface.
 
-Once you provide input to the assistant, the dashboard's data will be shared with Claude3.
+Once you provide input to the assistant, the **dashboard's data** will be shared with Claude3.
+
+### What data can Observability IQ Assistant access upon activation?
+
+The Observability IQ Assistant activates when you input a prompt in its interface. It is designed to access only the data currently visible in your browser, including your current query, the graphs visible on the screen, and a limited number of logs due to size constraints. 
+
+This setup ensures that the IQ Assistant interacts exclusively with the data you're actively analyzing.
+
 
 ### How do I provide feedback or report issues with the Observability IQ Assistant? 
 
@@ -37,12 +44,6 @@ Use the **Share Your Feedback** button at the top of the Observability IQ Assist
 
 
 ## Privacy and Security
-
-### What data can Observability IQ Assistant access upon activation?
-
-The Observability IQ Assistant activates when you input a prompt in its interface. It is designed to access only the data currently visible in your browser, including your current query, the graphs visible on the screen, and a limited number of logs due to size constraints. 
-
-This setup ensures that the IQ Assistant interacts exclusively with the data you're actively analyzing.
 
 ### Where is the model hosted?
 
