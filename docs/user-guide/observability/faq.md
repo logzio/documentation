@@ -39,7 +39,7 @@ This setup ensures that the IQ Assistant interacts exclusively with the data you
 
 ### How do I provide feedback or report issues with the Observability IQ Assistant? 
 
-Use the **Share Your Feedback** button at the top of the Observability IQ Assistant interface to provide feedback or report issues.
+To provide feedback or report issues, click the **Share Your Feedback** button at the top of the Observability IQ Assistant interface.
 
 
 
