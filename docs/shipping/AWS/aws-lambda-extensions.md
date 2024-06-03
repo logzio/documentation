@@ -262,7 +262,7 @@ The `GROK_PATTERNS` variable contains definitions of custom grok patterns and sh
 
 In our example:
 - `timestamp` - matching the regex `\w+ \d{2} \d{4} \d{2}:\d{2}:\d{2}\.\d{3}`.
-- `app_name` - always a not space, so matching `\S+`.
+- `app_name` - always non-space character sequence, so matching `\S+`.
 - `message` -  have strings containing whitespaces, letters and numbers. So matching `.*`.
 
 For the regex that matches `app_name` and `message` there are built in grok patterns (we'll see in `LOGS_FORMAT` explanation), so we only need to define custom pattern for our `timestamp`.  
@@ -273,12 +273,15 @@ Meaning we can set `GROK_PATTERNS` as:
 
 ##### LOGS_FORMAT
 
-The `LOGS_FORMAT` variable contains the full grok patternt that will match the format of the logs, using known patterns and the custom patterns that were defined in `GROK_PATTERNS` (if defined).  
+The `LOGS_FORMAT` variable contains the full grok pattern that will match the format of the logs, using known patterns and the custom patterns that were defined in `GROK_PATTERNS` (if defined).  
 The variable should be in a grok format: 
 ```
 %{GROK_PATTERN_NAME:WANTED_FIELD_NAME}
 ```
-**Note**: the `WANTED_FIELD_NAME` cannot contain a dot (`.`) in it.
+
+:::note
+The `WANTED_FIELD_NAME` cannot contain a dot (`.`).
+:::
 
 In our example: 
 - `timestamp` - matching the custom pattern we defined previously `MY_CUSTOM_TIMESTAMP`.
