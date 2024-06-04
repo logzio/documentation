@@ -67,14 +67,12 @@ You can split your Explore mode screen to work faster and make quick comparisons
 Splitting the screen is especially effective for checking how queries behave in different time ranges and even for different data sources (in the Logz.io world, a data source = a different metrics or logs account or subaccount).
 
 To split the screen, click the **<i class="fas fa-columns"></i> Split** button.
-If you want to sync both views so they both cover the same time range, click the **<i class="fas fa-link"></i>** button to link the views.
 
-<div>
-    <video width="100%" height="auto" controls autoplay loop muted>
-      <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/p8s-xplore-split-sync.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-</div>
+<img width="1722" alt="image" src="https://github.com/sethmichaelking/documentation/assets/96846742/cc158216-cca2-4fec-a092-2425dddc014c">
+
+If you want to sync both views so they both cover the same time range, click the **<i class="fas fa-link"></i>** **Sync all views to this time range** button to link the views.
+
+<img width="1720" alt="image" src="https://github.com/sethmichaelking/documentation/assets/96846742/df39b292-8beb-4a75-a967-a8b37f2627d8">
 
 ## Calculating Infrastructure Monitoring usage
 
@@ -99,10 +97,11 @@ To easily find relevant metrics, type Logz in the metrics bar, and select the me
 
 ![Data Volume Dashboard ELK app](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/explore-cpu-usage.png)
 
-
 ## Using Data Hub to manage Metrics usage
 
-Logz.io offers an easy and efficient way to manage and enhance your Logs and Metrics plans through [Data Hub](https://app.logz.io/#/dashboard/cost).
+Logz.io offers an easy and efficient way to manage and enhance your Logs and Metrics plans through [Data Hub](https://app.logz.io/#/dashboard/cost). Only Admin users are able to view the Data Hub.
+
+<img width="1721" alt="image" src="https://github.com/sethmichaelking/documentation/assets/96846742/1c34a6a7-a1e0-4de5-a4b8-b98353ffbae2">
 
 Data Hub offers tailored recommendations that help you improve usage and reduce costs, and you can compact and discard some of your metrics as it ages to focus on the data that matters with a few clicks.
 
