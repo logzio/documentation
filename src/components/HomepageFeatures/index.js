@@ -11,16 +11,16 @@ const FeatureList = [
     description: <>Learn how to make the most out of the Logz.io platform.</>,
   },
   {
+    title: 'Observability IQ',
+    link: "/docs/user-guide/observability/assistantiq",
+    Svg: require('@site/static/img/obsiq.svg').default,
+    description: <>Engage in a dynamic conversation with your data.</>,
+  },
+  {
     title: 'Explore Dashboard',
     link: "/docs/user-guide/new-explore/",
     Svg: require('@site/static/img/explore.svg').default,
     description: <>A unified dashboard to monitor and quickly troubleshoot your data.</>,
-  },
-  {
-    title: 'Telemetry Collector',
-    link: "/docs/user-guide/telemetry-collector/",
-    Svg: require('@site/static/img/telemetry-collector.svg').default,
-    description: <>Send logs, metrics, and traces data quickly and easily.</>,
   },
   {
     title: 'Kubernetes 360',
@@ -41,10 +41,10 @@ const FeatureList = [
     description: <>Grow your own integration.</>,
   },
   {
-    title: 'Alerting',
-    link: "/docs/user-guide/log-management/log-alerts/intro",
-    Svg: require('@site/static/img/alert.svg').default,
-    description: <>Set up alerts to get notified of critical events in your logs.</>,
+    title: 'Telemetry Collector',
+    link: "/docs/user-guide/telemetry-collector/",
+    Svg: require('@site/static/img/telemetry-collector.svg').default,
+    description: <>Send logs, metrics, and traces data quickly and easily.</>,
   },
   {
     title: 'Log troubleshooting',
