@@ -16,7 +16,7 @@ Whether you just started sending metrics for the first time, or you want to chec
 
 To go to Metrics Explore, click the **Explore icon <i class="far fa-compass"></i>** in the left menu.
 
-
+<img width="872" alt="image" src="https://github.com/sethmichaelking/documentation/assets/96846742/dd874190-60f6-4000-908a-72efa4853099">
 
 ## Exploring your metrics
 
