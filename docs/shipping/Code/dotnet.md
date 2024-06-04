@@ -134,7 +134,7 @@ hierarchy.Root.Level = Level.All;
 hierarchy.Configured = true;
 ```
 
-You can customize your code by adding the following:
+Customize your code by adding the following:
 
 
 | Why? | What? |
@@ -487,7 +487,7 @@ namespace LogzioNLogSampleApplication
 
 ### Include context properties
 
-You can configure the target to include your custom values when forwarding logs to Logz.io. For example:
+Configure the target to include your custom values when forwarding logs to Logz.io. For example:
 
 ```xml
 <nlog>
@@ -726,7 +726,7 @@ hierarchy.Root.Level = Level.All;
 hierarchy.Configured = true;
 ```
 
-You can customize your code by adding the following:
+Customize your code by adding the following:
 
 
 | Why? | What? |
@@ -896,7 +896,7 @@ hierarchy.Root.Level = Level.All;
 hierarchy.Configured = true;
 ```
 
-You can customize your code by adding the following:
+Customize your code by adding the following:
 
 
 | Why? | What? |
@@ -1259,7 +1259,7 @@ volumeMounts:
 
 ##### Check Logz.io for your metrics
 
-Give your metrics some time to get from your system to ours, then open [Logz.io](https://app.logz.io/). You can search for your metrics in Logz.io by searching `{job="dotnet-monitor-collector"}`
+Give your metrics some time to get from your system to ours, then open [Logz.io](https://app.logz.io/). Search for your metrics in Logz.io by searching `{job="dotnet-monitor-collector"}`
 
 {@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
@@ -1274,7 +1274,7 @@ Give your metrics some time to get from your system to ours, then open [Logz.io]
 
 ##### Configure customization options
 
-You can use the following options to update the Helm chart parameters: 
+Use the following options to update the Helm chart parameters: 
 
 * Specify parameters using the `--set key=value[,key=value]` argument to `helm install` or `--set-file key=value[,key=value]`
 
@@ -1327,7 +1327,7 @@ For troubleshooting this solution, see our [.NET with helm troubleshooting guide
 </TabItem>
   <TabItem value="SDK" label="SDK">
 
-You can send custom metrics from your .NET Core application using Logzio.App.Metrics. Logzio.App.Metrics is an open-source and cross-platform .NET library used to record metrics within an application and forward the data to Logz.io.
+Send custom metrics from your .NET Core application using Logzio.App.Metrics. Logzio.App.Metrics is an open-source and cross-platform .NET library used to record metrics within an application and forward the data to Logz.io.
 
 These instructions show you how to:
 
