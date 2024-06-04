@@ -37,44 +37,29 @@ import TabItem from '@theme/TabItem';
 :::
 
 
-#### Add the dependency to your project
+### Add the dependency to your project
 
-If you're on Windows, navigate to your project's folder in the command line, and run this command to install the dependency.
+On Windows, open the command line, go to your project folder, and run this command to install the dependency.
 
 ```
 Install-Package Logzio.DotNet.Log4net
 ```
 
-If you're on a Mac or Linux machine, you can install the package using Visual Studio. Select **Project > Add NuGet Packages...**, and then search for `Logzio.DotNet.Log4net`.
+On Mac or Linux, install the package using Visual Studio. **Project > Add NuGet Packages...**, and search for `Logzio.DotNet.Log4net`.
 
-#### Configure the appender
+### Configure the appender
 
-You can configure the appender in a configuration file or directly in the code.
-Use the samples in the code blocks below as a starting point, and replace them with a configuration that matches your needs. See [log4net documentation 🔗](https://github.com/apache/logging-log4net) to learn more about configuration options.
+Configure the appender in a configuration file or in the code. Use the samples below as a starting point and adjust them to fit your needs. For more options, see the [log4net documentation](https://github.com/apache/logging-log4net). For a complete list of options, see the configuration parameters listed below.
 
-For a complete list of options, see the configuration parameters below the code blocks.👇
 
-##### Option 1: In a configuration file
+### Configure the appender in a configuration file
 
 ```xml
 <log4net>
     <appender name="LogzioAppender" type="Logzio.DotNet.Log4net.LogzioAppender, Logzio.DotNet.Log4net">
-    	<!--
-		Required fields
-	-->
-	<!-- Your Logz.io log shipping token -->
 	<token><<LOG-SHIPPING-TOKEN>></token>
-
-	<!--
-		Optional fields (with their default values)
-	-->
-	<!-- The type field will be added to each log message, making it
-	easier for you to differ between different types of logs. -->
     	<type>log4net</type>
-	<!-- The URL of the Logz.io listener -->
     	<listenerUrl>https://<<LISTENER-HOST>>:8071</listenerUrl>
-        <!--Optional proxy server address:
-        proxyAddress = "http://your.proxy.com:port" -->
 	<!-- The maximum number of log lines to send in each bulk -->
     	<bufferSize>100</bufferSize>
 	<!-- The maximum time to wait for more log lines, in a hh:mm:ss.fff format -->
@@ -85,8 +70,6 @@ For a complete list of options, see the configuration parameters below the code 
 	<retriesInterval>00:00:02</retriesInterval>
 	<!-- Set the appender to compress the message before sending it -->
 	<gzip>true</gzip>
-	<!-- Uncomment this to enable sending logs in Json format -->
-	<!--<parseJsonMessage>true</parseJsonMessage>-->
 	<!-- Enable the appender's internal debug logger (sent to the console output and trace log) -->
 	<debug>false</debug>
 	<!-- If you have custom fields keys that start with capital letter and want to see the fields
@@ -107,9 +90,29 @@ For a complete list of options, see the configuration parameters below the code 
 </log4net>
 ```
 
+
+| Values | Explanation |
+| -- | --- |
+| token 
+|
+|
+|
+|
+|
+|
+
+
+
+
+To enable sending logs in JSON format, add the following to the code:
+
+`<parseJsonMessage>true</parseJsonMessage>-->`
+	
+
 Add a reference to the configuration file in your code, as shown in the example [here](https://github.com/logzio/logzio-dotnet/blob/master/sample-applications/LogzioLog4netSampleApplication/Program.cs).
 
-###### Code sample
+<!-- Henn -->
+###### Code sample -- Why? 
 
 ```csharp
 using System.IO;
@@ -140,30 +143,32 @@ namespace dotnet_log4net
 ```
 
 
-##### Option 2: In the code
+### Configure the appender in the code
 
 ```csharp
 var hierarchy = (Hierarchy)LogManager.GetRepository();
 var logzioAppender = new LogzioAppender();
 logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
 logzioAppender.AddListenerUrl("<<LISTENER-HOST>>");
-// <-- Uncomment and edit this line to enable proxy routing: -->
-// logzioAppender.AddProxyAddress("http://your.proxy.com:port");
-// <-- Uncomment this to enable sending logs in Json format -->
-// logzioAppender.ParseJsonMessage(true);
-// <-- Uncomment these lines to enable gzip compression -->
-// logzioAppender.AddGzip(true);
-// logzioAppender.ActivateOptions();
-// logzioAppender.JsonKeysCamelCase(false);
-// logzioAppender.AddTraceContext(false);
-// logzioAppender.UseStaticHttpClient(false);
 logzioAppender.ActivateOptions();
 hierarchy.Root.AddAppender(logzioAppender);
 hierarchy.Root.Level = Level.All;
 hierarchy.Configured = true;
 ```
 
+You can customize your code by adding the following:
 
+
+| Why? | What? |
+|------|-------|
+| Enable proxy routing | `logzioAppender.AddProxyAddress("http://your.proxy.com:port");` |
+| Enable sending logs in JSON format | `logzioAppender.ParseJsonMessage(true);` |
+| Enable gzip compression | `logzioAppender.AddGzip(true);` , `logzioAppender.ActivateOptions();` , `logzioAppender.JsonKeysCamelCase(false);` , `logzioAppender.AddTraceContext(false);` , `logzioAppender.UseStaticHttpClient(false);` |
+
+
+
+
+<!--Henn -->
 ###### Code sample
 
 ```csharp
@@ -184,16 +189,6 @@ namespace dotnet_log4net
 
             logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
             logzioAppender.AddListenerUrl("https://<<LISTENER-HOST>>:8071");
-            // <-- Uncomment and edit this line to enable proxy routing: -->
-            // logzioAppender.AddProxyAddress("http://your.proxy.com:port");
-            // <-- Uncomment this to enable sending logs in Json format -->
-            // logzioAppender.ParseJsonMessage(true);
-            // <-- Uncomment these lines to enable gzip compression -->
-            // logzioAppender.AddGzip(true);
-            // logzioAppender.ActivateOptions();
-            // logzioAppender.JsonKeysCamelCase(false)
-            // logzioAppender.AddTraceContext(false);
-            // logzioAppender.UseStaticHttpClient(false);
             logzioAppender.ActivateOptions();
 
             hierarchy.Root.AddAppender(logzioAppender);
@@ -210,7 +205,7 @@ namespace dotnet_log4net
 }
 ```
 
-###### Parameters
+### Parameters
 
 | Parameter | Description | Default/Required |
 |---|---|---|
@@ -231,10 +226,10 @@ namespace dotnet_log4net
 
 
 
-##### Custom fields
+### Custom fields
 
-You can add static keys and values to be added to all log messages.
-These custom fields must be children of `<appender>`, as shown here.
+Add static keys and values to all log messages by including these custom fields under `<appender>`, as shown:
+
 
 ```xml
 <appender name="LogzioAppender" type="Logzio.DotNet.Log4net.LogzioAppender, Logzio.DotNet.Log4net">
@@ -249,7 +244,7 @@ These custom fields must be children of `<appender>`, as shown here.
 </appender>
 ```
 
-##### Extending the appender
+### Extending the appender
 
 To change or add fields to your logs, inherit the appender and override the `ExtendValues` method.
 
@@ -264,16 +259,16 @@ public class MyAppLogzioAppender : LogzioAppender
 }
 ```
 
-Change your configuration to use your new appender name.
-For the example above, you'd use `MyAppLogzioAppender`.
+Update your configuration to use the new appender name, such as `MyAppLogzioAppender`.
 
-##### Add trace context
+### Add trace context
 
 :::note
 The Trace Context feature does not support .NET Standard 1.3.
 :::
 
-If you’re sending traces with OpenTelemetry instrumentation (auto or manual), you can correlate your logs with the trace context. In this way, your logs will have traces data in it: `span id` and `trace id`. To enable this feature, set `<addTraceContext>true</addTraceContext>` in your configuration file or `logzioAppender.AddTraceContext(true);` in your code. For example:
+To correlate logs with trace context in OpenTelemetry, set `<addTraceContext>true</addTraceContext>` in your configuration file or use `logzioAppender.AddTraceContext(true);` in your code. This adds `span id` and `trace id` to your logs. For example:
+
 
 ```csharp
 using log4net;
@@ -293,14 +288,6 @@ namespace dotnet_log4net
 
             logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
             logzioAppender.AddListenerUrl("https://<<LISTENER-HOST>>:8071");
-            // <-- Uncomment and edit this line to enable proxy routing: -->
-            // logzioAppender.AddProxyAddress("http://your.proxy.com:port");
-            // <-- Uncomment this to enable sending logs in Json format -->
-            // logzioAppender.ParseJsonMessage(true);
-            // <-- Uncomment these lines to enable gzip compression -->
-            // logzioAppender.AddGzip(true);
-            // logzioAppender.ActivateOptions();
-            // logzioAppender.JsonKeysCamelCase(false)
             logzioAppender.AddTraceContext(true);
             logzioAppender.ActivateOptions();
 
@@ -318,11 +305,19 @@ namespace dotnet_log4net
 }
 ```
 
-##### Serverless platforms
-If you’re using a serverless function, you’ll need to call the appender's flush method at the end of the function run to make sure the logs are sent before the function finishes its execution. You’ll also need to create a static appender in the Startup.cs file so each invocation will use the same appender. The appender should have the `UseStaticHttpClient` flag set to `true`.
+#### Serverless platforms
+
+For serverless functions, call the appender's flush method at the end to ensure logs are sent before execution finishes. Create a static appender in Startup.cs with `UseStaticHttpClient` set to `true` for consistent invocations.
 
 
-###### Azure serverless function code sample
+
+
+
+
+
+
+
+#### Azure serverless function code sample
 *Startup.cs*
 ```csharp
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
