@@ -23,6 +23,10 @@ drop_filter: []
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+:::note
+[Project's GitHub repo](https://github.com/logzio/logzio-dotnet/)
+:::
+
 <Tabs>
   <TabItem value="log4net" label="log4net" default>
 
@@ -32,9 +36,7 @@ import TabItem from '@theme/TabItem';
 * .NET Core SDK version 2.0 or higher
 * .NET Framework version 4.6.1 or higher
 
-:::note
-[Project's GitHub repo](https://github.com/logzio/logzio-dotnet/)
-:::
+
 
 
 ### Add the dependency to your project
@@ -47,12 +49,10 @@ Install-Package Logzio.DotNet.Log4net
 
 On Mac or Linux, install the package using Visual Studio. **Project > Add NuGet Packages...**, and search for `Logzio.DotNet.Log4net`.
 
-### Configure the appender
-
-Configure the appender in a configuration file or in the code. Use the samples below as a starting point and adjust them to fit your needs. For more options, see the [log4net documentation](https://github.com/apache/logging-log4net). For a complete list of options, see the configuration parameters listed below.
-
 
 ### Configure the appender in a configuration file
+
+Use the samples below as a starting point and adjust them to fit your needs. For more options, see the [log4net documentation](https://github.com/apache/logging-log4net). For a complete list of options, see the configuration parameters listed below.
 
 ```xml
 <log4net>
@@ -60,25 +60,14 @@ Configure the appender in a configuration file or in the code. Use the samples b
 	<token><<LOG-SHIPPING-TOKEN>></token>
     	<type>log4net</type>
     	<listenerUrl>https://<<LISTENER-HOST>>:8071</listenerUrl>
-	<!-- The maximum number of log lines to send in each bulk -->
     	<bufferSize>100</bufferSize>
-	<!-- The maximum time to wait for more log lines, in a hh:mm:ss.fff format -->
     	<bufferTimeout>00:00:05</bufferTimeout>
-	<!-- If connection to Logz.io API fails, how many times to retry -->
     	<retriesMaxAttempts>3</retriesMaxAttempts>
-    	<!-- Time to wait between retries, in a hh:mm:ss.fff format -->
 	<retriesInterval>00:00:02</retriesInterval>
-	<!-- Set the appender to compress the message before sending it -->
 	<gzip>true</gzip>
-	<!-- Enable the appender's internal debug logger (sent to the console output and trace log) -->
 	<debug>false</debug>
-	<!-- If you have custom fields keys that start with capital letter and want to see the fields
-	with capital letter in Logz.io, set this field to true. The default is false
-	(first letter will be small letter). -->
 	<jsonKeysCamelCase>false</jsonKeysCamelCase>
-	<!-- Add trace context (traceId and spanId) to each log. The default is false -->
 	<addTraceContext>false</addTraceContext>
-    <!-- Use the same static HTTP/s client for sending logs. The default is false -->
 	<useStaticHttpClient>false</useStaticHttpClient>
 
     </appender>
@@ -91,28 +80,14 @@ Configure the appender in a configuration file or in the code. Use the samples b
 ```
 
 
-| Values | Explanation |
-| -- | --- |
-| token 
-|
-|
-|
-|
-|
-|
+To enable sending logs in JSON format, add the following to the configuration file:
 
-
-
-
-To enable sending logs in JSON format, add the following to the code:
-
-`<parseJsonMessage>true</parseJsonMessage>-->`
+`<parseJsonMessage>true</parseJsonMessage>`
 	
 
-Add a reference to the configuration file in your code, as shown in the example [here](https://github.com/logzio/logzio-dotnet/blob/master/sample-applications/LogzioLog4netSampleApplication/Program.cs).
+Next, add a reference to the configuration file in your code, as shown in the example [here](https://github.com/logzio/logzio-dotnet/blob/master/sample-applications/LogzioLog4netSampleApplication/Program.cs).
 
-<!-- Henn -->
-###### Code sample -- Why? 
+#### Run the code:
 
 ```csharp
 using System.IO;
@@ -145,6 +120,9 @@ namespace dotnet_log4net
 
 ### Configure the appender in the code
 
+Use the samples below as a starting point and adjust them to fit your needs. For more options, see the [log4net documentation](https://github.com/apache/logging-log4net). For a complete list of options, see the configuration parameters listed below.
+
+
 ```csharp
 var hierarchy = (Hierarchy)LogManager.GetRepository();
 var logzioAppender = new LogzioAppender();
@@ -166,10 +144,7 @@ You can customize your code by adding the following:
 | Enable gzip compression | `logzioAppender.AddGzip(true);` , `logzioAppender.ActivateOptions();` , `logzioAppender.JsonKeysCamelCase(false);` , `logzioAppender.AddTraceContext(false);` , `logzioAppender.UseStaticHttpClient(false);` |
 
 
-
-
-<!--Henn -->
-###### Code sample
+<!-- #### Run the code
 
 ```csharp
 using log4net;
@@ -204,6 +179,7 @@ namespace dotnet_log4net
     }
 }
 ```
+-->
 
 ### Parameters
 
@@ -305,19 +281,12 @@ namespace dotnet_log4net
 }
 ```
 
-#### Serverless platforms
+### Serverless platforms
 
 For serverless functions, call the appender's flush method at the end to ensure logs are sent before execution finishes. Create a static appender in Startup.cs with `UseStaticHttpClient` set to `true` for consistent invocations.
 
+For example: 
 
-
-
-
-
-
-
-
-#### Azure serverless function code sample
 *Startup.cs*
 ```csharp
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
@@ -387,73 +356,65 @@ namespace LogzioLog4NetSampleApplication
 * .NET Core SDK version 2.0 or higher
 * .NET Framework version 4.6.1 or higher
 
-:::note
-[Project's GitHub repo](https://github.com/logzio/logzio-dotnet/)
-:::
 
-#### Add the dependency to your project
 
-If you're on Windows, navigate to your project's folder in the command line, and run this command to install the dependency.
+### Add the dependency to your project
+
+On Windows, open the command line, go to your project folder, and run this command to install the dependency.
 
 ```
 Install-Package Logzio.DotNet.NLog
 ```
 
-If you’re on a Mac or Linux machine, you can install the package using Visual Studio. **Select Project > Add NuGet Packages...**, and then search for `Logzio.DotNet.NLog`.
+On Mac or Linux, install the package using Visual Studio. Project > Add NuGet Packages..., and search for `Logzio.DotNet.NLog`.
 
-#### Configure the appender
 
-You can configure the appender in a configuration file or directly in the code.
-Use the samples in the code blocks below as a starting point, and replace them with a configuration that matches your needs. See [NLog documentation 🔗](https://github.com/NLog/NLog/wiki/Configuration-file) to learn more about configuration options.
 
-For a complete list of options, see the configuration parameters below the code blocks.👇
+### Configure the appender in a configuration file
 
-##### Option 1: In a configuration file
+Use the samples below as a starting point and adjust them to fit your needs. For more options, see the [NLog documentation](https://github.com/NLog/NLog/wiki/Configuration-file). For a complete list of options, see the configuration parameters listed below.
 
 ```xml
 <nlog>
     <extensions>
-	<add assembly="Logzio.DotNet.NLog"/>
+        <add assembly="Logzio.DotNet.NLog"/>
     </extensions>
     <targets>
-	<!-- parameters are shown here with their default values.
-	Other than the token, all of the fields are optional and can be safely omitted.
-        -->
-
-	<target name="logzio" type="Logzio"
-		token="<<LOG-SHIPPING-TOKEN>>"
-		logzioType="nlog"
-		listenerUrl="<<LISTENER-HOST>>:8071"
-    <!--Optional proxy server address:
-                proxyAddress = "http://your.proxy.com:port" -->
-		bufferSize="100"
-		bufferTimeout="00:00:05"
-		retriesMaxAttempts="3"
-		retriesInterval="00:00:02"
-		includeEventProperties="true"
-		useGzip="false"
-		debug="false"
-		jsonKeysCamelCase="false"
-		addTraceContext="false"
-		<!-- parseJsonMessage="true"-->
-        <!-- useStaticHttpClient="true"-->
-	>
-		<contextproperty name="host" layout="${machinename}" />
-		<contextproperty name="threadid" layout="${threadid}" />
-	</target>
+        <!-- Parameters are shown with their default values. 
+        Except for the token, all fields are optional and can be omitted. -->
+        <target name="logzio" type="Logzio"
+            token="<<LOG-SHIPPING-TOKEN>>"
+            logzioType="nlog"
+            listenerUrl="<<LISTENER-HOST>>:8071"
+            bufferSize="100"
+            bufferTimeout="00:00:05"
+            retriesMaxAttempts="3"
+            retriesInterval="00:00:02"
+            includeEventProperties="true"
+            useGzip="false"
+            debug="false"
+            jsonKeysCamelCase="false"
+            addTraceContext="false">
+            <!-- Optional proxy server address:
+                 proxyAddress="http://your.proxy.com:port" -->
+            <!-- parseJsonMessage="true" -->
+            <!-- useStaticHttpClient="true" -->
+            <contextproperty name="host" layout="${machinename}" />
+            <contextproperty name="threadid" layout="${threadid}" />
+        </target>
     </targets>
     <rules>
-	<logger name="*" minlevel="Info" writeTo="logzio" />
+        <logger name="*" minlevel="Info" writeTo="logzio" />
     </rules>
 </nlog>
 ```
 
-##### Option 2: In the code
+### Configure the appender in the code
+
+Use the samples below as a starting point and adjust them to fit your needs.
 
 ```csharp
 var config = new LoggingConfiguration();
-
-// Replace these parameters with your configuration
 var logzioTarget = new LogzioTarget {
     Name = "Logzio",
     Token = "<<LOG-SHIPPING-TOKEN>>",
@@ -475,7 +436,7 @@ config.AddRule(LogLevel.Debug, LogLevel.Fatal, logzioTarget);
 LogManager.Configuration = config;
 ```
 
-###### Parameters
+### Parameters
 
 | Parameter | Description | Default/Required |
 |---|---|---|
@@ -493,7 +454,7 @@ LogManager.Configuration = config;
 | addTraceContext | If want to add trace context to each log, set this field to true. | `false` |
 | useStaticHttpClient | If want to use the same static HTTP/s client for sending logs, set this field to true. | `false` |
 
-###### Code sample
+### Code sample
 
 ```csharp
 using System;
@@ -524,9 +485,9 @@ namespace LogzioNLogSampleApplication
 }
 ```
 
-##### Include context properties
+### Include context properties
 
-You can configure the target to include your own custom values when forwarding logs to Logz.io. For example:
+You can configure the target to include your custom values when forwarding logs to Logz.io. For example:
 
 ```xml
 <nlog>
@@ -539,9 +500,10 @@ You can configure the target to include your own custom values when forwarding l
 </nlog>
 ```
 
-##### Extending the appender
+### Extending the appender
 
 To change or add fields to your logs, inherit the appender and override the `ExtendValues` method.
+
 
 ```csharp
 [Target("MyAppLogzio")]
@@ -555,11 +517,15 @@ public class MyAppLogzioTarget : LogzioTarget
 }
 ```
 
-Change your configuration to use your new target. For the example above, you'd use `MyAppLogzio`.
+Update your configuration to use the new appender name, such as `MyAppLogzio`.
 
-##### Json Layout
 
-When using 'JsonLayout' set the name of the attribute to **other than** 'message'. for example:
+
+### JSON Layout
+
+When using `JsonLayout`, set the attribute name to something **other than** 'message'. For example:
+
+
 
 ```xml
 <layout type="JsonLayout" includeAllProperties="true">
@@ -567,13 +533,15 @@ When using 'JsonLayout' set the name of the attribute to **other than** 'message
 </layout>
 ```
 
-##### Add trace context
+### Add trace context
 
 :::note
 The Trace Context feature does not support .NET Standard 1.3.
 :::
 
-If you’re sending traces with OpenTelemetry instrumentation (auto or manual), you can correlate your logs with the trace context. In this way, your logs will have traces data in it: `span id` and `trace id`. To enable this feature, set `addTraceContext="true"` in your configuration file or `AddTraceContext = true` in your code. For example:
+To correlate logs with trace context in OpenTelemetry (auto or manual), set `addTraceContext="true"` in your configuration file or `AddTraceContext = true` in your code. This adds `span id` and `trace id` to your logs. For example:
+
+
 
 ```csharp
 var config = new LoggingConfiguration();
@@ -599,11 +567,14 @@ config.AddRule(LogLevel.Debug, LogLevel.Fatal, logzioTarget);
 LogManager.Configuration = config;
 ```
 
-##### Serverless platforms
-If you’re using a serverless function, you’ll need to call the appender's flush method at the end of the function run to make sure the logs are sent before the function finishes its execution. You’ll also need to create a static appender in the Startup.cs file so each invocation will use the same appender. The appender should have the `UseStaticHttpClient` flag set to `true`.
+### Serverless platforms
+
+For serverless functions, call the appender's flush method at the end to ensure logs are sent before execution finishes. Create a static appender in Startup.cs with `UseStaticHttpClient` flag set to `true` for consistent invocations.
 
 
-###### Azure serverless function code sample
+
+
+#### Azure serverless function code sample
 
 *Startup.cs*
 
@@ -690,13 +661,12 @@ namespace LogzioNLogSampleApplication
 * .NET Core SDK version 2.0 or higher
 * .NET Framework version 4.6.1 or higher
 
-:::note
-[Project's GitHub repo](https://github.com/logzio/logzio-dotnet/)
-:::
 
-#### Add the dependency to your project
 
-If you're on Windows, navigate to your project's folder in the command line, and run these commands to install the dependencies.
+### Add the dependency to your project
+
+
+On Windows, open the command line, go to your project folder, and run this command to install the dependency.
 
 ```
 Install-Package Logzio.DotNet.Log4net
@@ -706,53 +676,29 @@ Install-Package Logzio.DotNet.Log4net
 Install-Package Microsoft.Extensions.Logging.Log4Net.AspNetCore
 ```
 
-If you're on a Mac or Linux machine, you can install the package using Visual Studio. Select **Project > Add NuGet Packages...**, and then search for `Logzio.DotNet.Log4net` and `Microsoft.Extensions.Logging.Log4Net.AspNetCore`.
+On Mac or Linux, install the package using Visual Studio. **Project > Add NuGet Packages...**, and search for `Logzio.DotNet.Log4net` and `Microsoft.Extensions.Logging.Log4Net.AspNetCore`.
 
-#### Configure the appender
 
-You can configure the appender in a configuration file or directly in the code.
-Use the samples in the code blocks below as a starting point, and replace them with a configuration that matches your needs. See [log4net documentation 🔗](https://github.com/apache/logging-log4net) to learn more about configuration options.
 
-For a complete list of options, see the configuration parameters below the code blocks.👇
+### Configure the appender in a configuration file
 
-###### Option 1: In a configuration file
+Use the samples below as a starting point and adjust them to fit your needs. For more options, see the [log4net documentation](https://github.com/apache/logging-log4net). For a complete list of options, see the configuration parameters listed below.
+
 
 ```xml
 <log4net>
     <appender name="LogzioAppender" type="Logzio.DotNet.Log4net.LogzioAppender, Logzio.DotNet.Log4net">
-    	<!--
-		Required fields
-	-->
-	<!-- Your Logz.io log shipping token -->
 	<token><<LOG-SHIPPING-TOKEN>></token>
-
-	<!--
-		Optional fields (with their default values)
-	-->
-	<!-- The type field will be added to each log message, making it
-	easier for you to differ between different types of logs. -->
     	<type>log4net</type>
-	<!-- The URL of the Logz.io listener -->
     	<listenerUrl>https://<<LISTENER-HOST>>:8071</listenerUrl>
-        <!--Optional proxy server address:
-        proxyAddress = "http://your.proxy.com:port" -->
-	<!-- The maximum number of log lines to send in each bulk -->
     	<bufferSize>100</bufferSize>
-	<!-- The maximum time to wait for more log lines, in a hh:mm:ss.fff format -->
     	<bufferTimeout>00:00:05</bufferTimeout>
-	<!-- If connection to Logz.io API fails, how many times to retry -->
     	<retriesMaxAttempts>3</retriesMaxAttempts>
-    	<!-- Time to wait between retries, in a hh:mm:ss.fff format -->
 	<retriesInterval>00:00:02</retriesInterval>
-	<!-- Set the appender to compress the message before sending it -->
 	<gzip>true</gzip>
-	<!-- Enable the appender's internal debug logger (sent to the console output and trace log) -->
 	<debug>false</debug>
-        <!-- Set to true if you want json keys in Logz.io to be in camel case. The default is false. -->
         <jsonKeysCamelCase>false</jsonKeysCamelCase>
-        <!-- Add trace context (traceId and spanId) to each log. The default is false -->
         <addTraceContext>false</addTraceContext>
-        <!-- Use the same static HTTP/s client for sending logs. The default is false -->
 	    <useStaticHttpClient>false</useStaticHttpClient>
 
     </appender>
@@ -764,28 +710,32 @@ For a complete list of options, see the configuration parameters below the code 
 </log4net>
 ```
 
-###### Option 2: In the code
+### Configure the appender in the code
+
+Use the samples below as a starting point and adjust them to fit your needs. For more options, see the [log4net documentation](https://github.com/apache/logging-log4net). For a complete list of options, see the configuration parameters listed below.
+
 
 ```csharp
 var hierarchy = (Hierarchy)LogManager.GetRepository();
 var logzioAppender = new LogzioAppender();
 logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
 logzioAppender.AddListenerUrl("<<LISTENER-HOST>>");
-// Uncomment and edit this line to enable proxy routing:
-// logzioAppender.AddProxyAddress("http://your.proxy.com:port");
-// Uncomment these lines to enable gzip compression
-// logzioAppender.AddGzip(true);
-// logzioAppender.ActivateOptions();
-// logzioAppender.JsonKeysCamelCase(false);
-// logzioAppender.AddTraceContext(false);
-// logzioAppender.UseStaticHttpClient(false);
 logzioAppender.ActivateOptions();
 hierarchy.Root.AddAppender(logzioAppender);
 hierarchy.Root.Level = Level.All;
 hierarchy.Configured = true;
 ```
 
-###### Parameters
+You can customize your code by adding the following:
+
+
+| Why? | What? |
+|------|-------|
+| Enable proxy routing | `logzioAppender.AddProxyAddress("http://your.proxy.com:port");` |
+| Enable gzip compression | `logzioAppender.AddGzip(true);` , `logzioAppender.ActivateOptions();` , `logzioAppender.JsonKeysCamelCase(false);` , `logzioAppender.AddTraceContext(false);` , `logzioAppender.UseStaticHttpClient(false);` |
+
+
+### Parameters
 
 | Parameter | Description | Default/Required |
 |---|---|---|
@@ -804,9 +754,8 @@ hierarchy.Configured = true;
 | addTraceContext | If want to add trace context to each log, set this field to true. | `false` |
 | useStaticHttpClient | If want to use the same static HTTP/s client for sending logs, set this field to true. | `false` |
 
-###### Code sample
 
-###### ASP.NET Core
+### ASP.NET Core
 
 Update Startup.cs file in Configure method to include the Log4Net middleware as in the code below.
 
@@ -855,7 +804,7 @@ In the Controller methods:
     }
 ```
 
-###### .NET Core Desktop Application
+### .NET Core Desktop Application
 
 ```csharp
     using System.IO;
@@ -889,10 +838,10 @@ In the Controller methods:
 ```
 
 
-##### Custom fields
+### Custom fields
 
-You can add static keys and values to all log messages.
-These custom fields must be children of `<appender>`, as shown in the code below.
+Add static keys and values to all log messages by including these custom fields under `<appender>`, as shown:
+
 
 ```xml
 <appender name="LogzioAppender" type="Logzio.DotNet.Log4net.LogzioAppender, Logzio.DotNet.Log4net">
@@ -907,9 +856,10 @@ These custom fields must be children of `<appender>`, as shown in the code below
 </appender>
 ```
 
-#### Extending the appender
+### Extending the appender
 
 To change or add fields to your logs, inherit the appender and override the `ExtendValues` method.
+
 
 ```csharp
 public class MyAppLogzioAppender : LogzioAppender
@@ -922,28 +872,23 @@ public class MyAppLogzioAppender : LogzioAppender
 }
 ```
 
-Change your configuration to use your new appender name.
-For the example above, you'd use `MyAppLogzioAppender`.
+Update your configuration to use the new appender name, such as `MyAppLogzioAppender`.
 
-##### Add trace context
+
+### Add trace context
 
 :::note
 The Trace Context feature does not support .NET Standard 1.3.
 :::
 
-If you’re sending traces with OpenTelemetry instrumentation (auto or manual), you can correlate your logs with the trace context. In this way, your logs will have traces data in it: `span id` and `trace id`. To enable this feature, set `addTraceContext="true"` in your configuration file or `AddTraceContext = true` in your code. For example:
+To correlate logs with trace context in OpenTelemetry (auto or manual), set `addTraceContext="true"` in your configuration file or `AddTraceContext = true` in your code. This adds `span id` and `trace id` to your logs. For example:
+
 
 ```csharp
 var hierarchy = (Hierarchy)LogManager.GetRepository();
 var logzioAppender = new LogzioAppender();
 logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
 logzioAppender.AddListenerUrl("<<LISTENER-HOST>>");
-// Uncomment and edit this line to enable proxy routing:
-// logzioAppender.AddProxyAddress("http://your.proxy.com:port");
-// Uncomment these lines to enable gzip compression
-// logzioAppender.AddGzip(true);
-// logzioAppender.ActivateOptions();
-// logzioAppender.JsonKeysCamelCase(false);
 logzioAppender.AddTraceContext(true);
 logzioAppender.ActivateOptions();
 hierarchy.Root.AddAppender(logzioAppender);
@@ -951,11 +896,24 @@ hierarchy.Root.Level = Level.All;
 hierarchy.Configured = true;
 ```
 
-##### Serverless platforms
-If you’re using a serverless function, you’ll need to call the appender's flush method at the end of the function run to make sure the logs are sent before the function finishes its execution. You’ll also need to create a static appender in the Startup.cs file so each invocation will use the same appender. The appender should have the `UseStaticHttpClient` flag set to `true`.
+You can customize your code by adding the following:
 
 
-###### Azure serverless function code sample
+| Why? | What? |
+|------|-------|
+| Enable proxy routing | `logzioAppender.AddProxyAddress("http://your.proxy.com:port");` |
+| Enable sending logs in JSON format | `logzioAppender.ParseJsonMessage(true);` |
+| Enable gzip compression | `logzioAppender.AddGzip(true);` , `logzioAppender.ActivateOptions();` , `logzioAppender.JsonKeysCamelCase(false);` |
+
+
+
+### Serverless platforms
+
+For serverless functions, call the appender's flush method at the end to ensure logs are sent before execution finishes. Create a static appender in Startup.cs with `UseStaticHttpClient` set to `true` for consistent invocations.
+
+
+
+#### Azure serverless function code sample
 *Startup.cs*
 
 ```csharp
@@ -1034,11 +992,9 @@ This integration is based on [Serilog.Sinks.Logz.Io repository](https://github.c
 * .NET Core SDK version 2.0 or higher
 * .NET Framework version 4.6.1 or higher
 
-:::note
-[Project's GitHub repo](https://github.com/logzio/logzio-dotnet/)
-:::
 
-#### Install the Logz.io Serilog sink
+
+### Install the Logz.io Serilog sink
 
 Install `Serilog.Sinks.Logz.Io` using Nuget or by running the following command in the Package Manager Console:
 
@@ -1046,16 +1002,11 @@ Install `Serilog.Sinks.Logz.Io` using Nuget or by running the following command 
 PM> Install-Package Serilog.Sinks.Logz.Io
 ```
 
-#### Configure the sink
 
-There are 2 ways to use Serilog:
+### Configure the sink in a configuration file
 
-1. Using a configuration file
-2. In the code
+Create an `appsettings.json` file and copy this configuration:
 
-###### Using a configuration file
-
-Create `appsettings.json` file and copy the following configuration:
 
 ```json
 {
@@ -1077,11 +1028,10 @@ Create `appsettings.json` file and copy the following configuration:
 
 {@include: ../../_include/log-shipping/listener-var.html}
 
-Replace `<<TYPE>` with the type that you want to assign to your logs. You will use this value to identify these logs in Logz.io.
+Replace `<<TYPE>>` with the log type to identify these logs in Logz.io.
 
-Add the following code to use the configuration and create logs:
+Add the following code to use the configuration and create logs with `Serilog.Settings.Configuration` and `Microsoft.Extensions.Configuration.Json` packages:
 
-* Using Serilog.Settings.Configuration and Microsoft.Extensions.Configuration.Json packages
 
 ```csharp
 using System.IO;
@@ -1112,7 +1062,7 @@ namespace Example
 ```
 
 
-###### In the code
+#### Run the code: 
 
 
 ```csharp
@@ -1147,11 +1097,11 @@ namespace Example
 }
 ```
 
-##### Serverless platforms
-If you’re using a serverless function, you’ll need to create a static appender in the Startup.cs file so each invocation will use the same appender.
-In the Serilog integration, you should use the 'WriteTo.LogzIo()' instad of 'WriteTo.LogzIoDurableHttp()' method as it uses in-memory buffering which is best practice for serverless functions. 
+### Serverless platforms
+For serverless function, create a static appender in Startup.cs to ensure each invocation uses the same appender. For Serilog integration, use `WriteTo.LogzIo()` instead of `WriteTo.LogzIoDurableHttp()` for in-memory buffering, which is best for serverless functions.
 
-###### Azure serverless function code sample
+
+#### Azure serverless function code sample
 
 *Startup.cs*
 ```csharp
@@ -1211,7 +1161,18 @@ namespace LogzioSerilogSampleApplication
 
 {@include: ../../_include/log-shipping/listener-var.html}
 
-Replace `<<TYPE>` with the type that you want to assign to your logs. You will use this value to identify these logs in Logz.io.
+Replace `<<TYPE>>` with the log type to identify these logs in Logz.io.
+
+
+
+
+
+
+
+
+
+
+
 </TabItem>
 </Tabs>
 
