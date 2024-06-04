@@ -11,6 +11,12 @@ const FeatureList = [
     description: <>Learn how to make the most out of the Logz.io platform.</>,
   },
   {
+    title: 'Observability IQ',
+    link: "/docs/user-guide/observability/assistantiq",
+    Svg: require('@site/static/img/obsiq.svg').default,
+    description: <>Engage in a dynamic conversation with your data.</>,
+  },
+  {
     title: 'Explore Dashboard',
     link: "/docs/user-guide/new-explore/",
     Svg: require('@site/static/img/explore.svg').default,
@@ -39,12 +45,6 @@ const FeatureList = [
     link: "https://api-docs.logz.io/docs/category/logz-api",
     Svg: require('@site/static/img/api.svg').default,
     description: <>Grow your own integration.</>,
-  },
-  {
-    title: 'Alerting',
-    link: "/docs/user-guide/log-management/log-alerts/intro",
-    Svg: require('@site/static/img/alert.svg').default,
-    description: <>Set up alerts to get notified of critical events in your logs.</>,
   },
   {
     title: 'Log troubleshooting',
