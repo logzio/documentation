@@ -23,12 +23,6 @@ const FeatureList = [
     description: <>A unified dashboard to monitor and quickly troubleshoot your data.</>,
   },
   {
-    title: 'Telemetry Collector',
-    link: "/docs/user-guide/telemetry-collector/",
-    Svg: require('@site/static/img/telemetry-collector.svg').default,
-    description: <>Send logs, metrics, and traces data quickly and easily.</>,
-  },
-  {
     title: 'Kubernetes 360',
     link: "/docs/user-guide/k8s-360/overview",
     Svg: require('@site/static/img/k8s.svg').default,
@@ -45,6 +39,12 @@ const FeatureList = [
     link: "https://api-docs.logz.io/docs/category/logz-api",
     Svg: require('@site/static/img/api.svg').default,
     description: <>Grow your own integration.</>,
+  },
+  {
+    title: 'Telemetry Collector',
+    link: "/docs/user-guide/telemetry-collector/",
+    Svg: require('@site/static/img/telemetry-collector.svg').default,
+    description: <>Send logs, metrics, and traces data quickly and easily.</>,
   },
   {
     title: 'Log troubleshooting',
