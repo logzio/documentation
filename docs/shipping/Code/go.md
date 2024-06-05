@@ -81,7 +81,9 @@ func main() {
 }
 ```
 
-#### Parameters
+<details>
+    <summary>Parameters.</summary>
+
 
 | Parameter | Description | Required/Default |
 |---|---|---|
@@ -93,8 +95,9 @@ func main() {
 | SetCheckDiskSpace  | To enable `SetDrainDiskThreshold`, set to `true`. Otherwise, `false`. | `true` |
 | SetDrainDiskThreshold  | Maximum file system usage, in percent. Used only if `SetCheckDiskSpace` is set to `true`. If the file system storage exceeds this threshold, buffering stops and new logs are dropped. Buffering resumes if used space drops below the threshold. | `70.0` |
 
+</details>
 
-#### Code sample
+<h4 id="code-sample">Code sample</h4>
 
 ```go
 msg := fmt.Sprintf("{\"%s\": \"%d\"}", "message", time.Now().UnixNano())
