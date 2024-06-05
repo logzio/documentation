@@ -324,6 +324,20 @@ message_nested.foo: bar
 message_nested.field2: val2
 ```
 
+As of v0.3.3, to have the fields nested under the root (instead of under `message_nested`), set the `JSON_FIELDS_UNDER_ROOT` environment variable as `true`.  
+It is useful in cases where the passed object is in fact meant to be that of a message plus metadata fields.  
+For example, the following log:
+
+```
+{ "message": "hello", "foo": "bar" }
+```
+
+Will appear under the fields:
+```
+message: hello
+foo: bar
+```
+
 **Note:** The user must insert a valid JSON. Sending a dictionary or any key-value data structure that is not in a JSON format will cause the log to be sent as a string.
 
 ## Upgrading from v0.0.1 to v0.1.0
