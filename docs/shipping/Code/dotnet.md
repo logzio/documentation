@@ -134,14 +134,18 @@ hierarchy.Root.Level = Level.All;
 hierarchy.Configured = true;
 ```
 
-Customize your code by adding the following:
+<details>
+  <summary>Customize your code:</summary>
 
+Add the following to your code to customize it:
 
 | Why? | What? |
 |------|-------|
 | Enable proxy routing | `logzioAppender.AddProxyAddress("http://your.proxy.com:port");` |
 | Enable sending logs in JSON format | `logzioAppender.ParseJsonMessage(true);` |
 | Enable gzip compression | `logzioAppender.AddGzip(true);` , `logzioAppender.ActivateOptions();` , `logzioAppender.JsonKeysCamelCase(false);` , `logzioAppender.AddTraceContext(false);` , `logzioAppender.UseStaticHttpClient(false);` |
+
+</details>
 
 
 <!-- #### Run the code
