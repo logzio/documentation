@@ -6,11 +6,12 @@ image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.
 keywords: [metrics, infrastructure monitoring, remote write, Prometheus, monitoring, dashboard, observability, logz.io]
 ---
 
-Metrics alerts help you monitor your services and operations and notify team members as soon as there's an issue. You can set alerts to detect memory spikes, 3xx-4xx errors, and more. 
+Metrics alerts enable you to monitor your services and operations, notifying team members immediately when an issue arises. You can configure alerts to detect memory spikes, 3xx-4xx errors, and more.
 
-Metrics alert manager is fully compatible with the Prometheus Alert Manager, making it fast and easy to migrate existing Prometheus alerts to Logz.io - offering you an enhanced Prometheus-based monitoring experience.
+Our Metrics Alert Manager is fully compatible with Prometheus Alert Manager, allowing for quick and easy migration of existing Prometheus alerts to Logz.io, providing an enhanced Prometheus-based monitoring experience.
 
-There are 2 main ways for you to create a metric alert:
+There are two main ways to create a metric alert:
+
 
 ## Create an alert from an existing panel
 
@@ -19,57 +20,53 @@ Navigate to your **[Metrics account](https://app.logz.io/#/dashboard/metrics/)**
 
 
 :::note
-You can't create an alert from a **Gauge** type visualization.
+Alerts cannot be created from **Gauge** type visualizations.
 :::
 
 
-Click on the name of the panel and choose **Edit**. 
+Click the panel's name and choose **Edit**.
 
-![Edit a panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metric-alert-edit.png)
+![Edit a panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/edit-metric-table-jun5.png)
 
-Then, navigate to the **Alert** tab and click on the **Create alert rule from this panel** button. This will automatically pull the query and variables to the Create alert rule page.
+
+Go to the **Alert** tab and click **Create alert rule from this panel**. This action will automatically transfer the query and variables to the Create alert rule page.
+
 
 ![Create alert flow](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/create-an-alert-flow.gif)
 
 
+### Configure your alert
 
+Name your alert rule and select the folder to store it. Optionally, you can enter a group name to organize the alert within a specific group inside the folder.
 
-### 1. Choose rule type
+Next, review and edit the queries pulled from the panel you chose.
 
-
-Name your alert and choose the folder you’d like to associate it with. By entering a group name, you can also choose whether to add the alert to a group inside the folder.
-
-![Name your alert](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metrics-rule-type.png)
-
-
-### 2. Create a query to be alerted on
-
-Next, review and edit the queries pulled from the panel you chose:
-
-![Review query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metric-review-query.png)
+![Review query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/new-alert-metrics-jun5.png)
 
 
 To create a multi-dimensional rule, you can generate a separate alert for each series using Math, Reduce, or Resample expressions.
 
-Click on the **Operation** dropdown menu and choose the condition you'd like to apply. In this example, choose **Reduce** to reduce the time series to one data point (this is required for the alert to run).
+Click on the **Operation** dropdown menu and select the condition you'd like to apply. For example, choose **Reduce** to condense the time series to a single data point, which is necessary for the alert to function.
 
-Then, choose **Last** to get the most relevant data point. Since the threshold is defined in the previous section, this function will only affect what will be presented in the notification rather than an actual condition.
+Select **Last** to get the most recent data point. This function influences what is presented in the notification, not the actual condition, as the threshold is defined in the previous section.
 
 ![Set multi rule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metrics-reduce-expr.png)
 
-You can also use the **Math** operation to create time series or number data formulas. Math operations take numbers and time series as input and change them to different numbers and time series. For example, `$D > X`, $D being the Reduce expression, and X the series you want to compare it to.
+You can also use the **Math** operation to create formulas with time series or numerical data. Math operations transform these inputs into new numbers or time series. For example, `$D > X`, where $D is the Reduce expression and X is the series you want to compare it to.
 
 
-### 3. Define alert conditions
+<h3 id="define-alert">Define alert conditions</h3>
+
+Define the alert's condition by selecting the query or expression to trigger the alert rule from the **Condition** dropdown.
+
+In the **Evaluate for** field, specify the pending duration, which delays the alert from firing if the query briefly crosses the threshold.
+
+Click **Configure no data and error handling** to set up notifications for instances when no data or errors occur, ensuring the alert functions correctly.
+
+You can now preview the alert to verify its functionality. Click the **Preview alerts** button, and Logz.io will run the query and display the relevant results.
 
 
-Next, define the alert's condition. In the **Condition** dropdown, select the query or expression to trigger the alert rule.
 
-In Evaluate **for**, specify the pending duration value, after which the alert will fire again. This prevents the alert from triggering if the query briefly crosses the alerting threshold.
-
-Click on **Configure no data and error handling** to configure a notification trigger if no data or errors appear. This lets you fix any issues that can prevent the alert from operating correctly.
-
-At this point, you can preview the alert and verify it's successfully monitoring your data. When clicking the **Preview alerts** button, Logz.io runs the query and provides the relevant results. 
 
 ![Preview alerts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metric-define-alert-condition.png)
 
