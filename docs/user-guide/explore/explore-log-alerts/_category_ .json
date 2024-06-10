@@ -1,5 +1,5 @@
 {
-  "label": "Log Alerts",
+  "label": "Explore Log Alerts",
   "position": 2,
   "link": {
     "type": "generated-index",
