@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-title: Log Alerts in Explore Dashboard
+title: Log Alerts in Explore
 description: Monitor your environment with log alerts
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [logz.io, alerts, log alerts, log analysis, explore, observability]
