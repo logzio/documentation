@@ -1,358 +1,196 @@
 ---
 sidebar_position: 3
-title: Logz.io DIY Parsing
+title: Configure an Alert
+description: Create and configure alerts in Logz.io Explore Dashboards
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: Learn how to parse your logs in Logz.io
-keywords: [log, monitoring, parsing, default parsing, built in log types, log types, observability]
+keywords: [logz.io, alerts, explore, log alerts, log analysis, observability]
 ---
 
-
-
-
-Parsing is the process of breaking down your log message into smaller chunks of data,
-placing each chunk into its own specific named field,
-and enriching data with additional information such as geolocation.
-Parsed logs can be more easily analyzed than raw data,
-allowing you to create rich visualizations and helpful alerts.
-
-Parsing is not necessary for all types of logs,
-but if you use a custom or uncommon log type,
-parsing can be an invaluable tool.
-
-
-
-
-### Customize your log parsing with Logz.io Data Parsing
-
-Create your own parsing rule sets for logs that are being ingested to your Logz.io account. Once validated on your end and on ours, your rule sets will be applied to your Logz.io account to transform your logs. 
-
- 
-:::note
-You must be an account admin to apply a parsing rule set to an account.
-**Logz.io Data Parsing requires access to the Logz.io public API** If your API access is disabled, contact Support for help. 
-Community (free) accounts do not have access to Logz.io Data Parsing because the Logz.io public API is not available for Community accounts.
-:::
-
-### What is Sawmill and what is the Logz.io Data Parsing Editor?
-
-The [Sawmill open source library](https://github.com/logzio/sawmill) is used for text transformations. 
-
-A Sawmill rule set is composed of a series of steps that are applied to a specific log type. Each step is a Sawmill processor that performs an action, a transformation, or includes some logic to enrich your logs. You set the processor step order according to the transformations and changes you need to apply to meet your parsing requirements.
-
-The collection of Sawmill processors can be found in the [Github wiki for the project.](https://github.com/logzio/sawmill/wiki)  
+You can set up Logz.io log alerts to automatically receive notifications about critical issues that require your attention.
 
 :::note
-The syntax requirements for the Logz.io Data Parsing Editor differ from the examples provided in the Sawmil wiki: The Data Parsing Editor requires that all attributes and values within the JSON be surrounded by double quotes.
+Community plans limit the number of alerts that may be enabled. See the official [pricing page](https://logz.io/pricing/) for details.
 :::
 
-
-### The Logz.io Data Parsing Editor
-
-The Logz.io Data Parsing Editor tool works with the Logz.io public API and lets you: 
-
-1. Create, access, and edit custom parsing rules for a log type, using Sawmill processors.
-2. Build a parsing rule set for your logs from the available Sawmill processor options.
-2. Test and validate the rule set to examine how it impacts your logs.
-3. Submit the rule set to Logz.io so that it can be reviewed, validated, and then applied to your ingested logs.
-
-**Logz.io Data Parsing** is available [**here**](https://parsing.logz.io/).
+## Configuring an alert
 
 :::caution Important
-Logz.io's Data Parsing tool has strict guidelines and requires additional fields that are `optional` in GitHub. For example, when using the Date Processor, you must specify the timezone parameter with the relevant time zone; `"timeZone": "Europe/Paris"`.
+You cannot configure alerts using the `logzio-alert` log type. This type is ignored by the alerts engine.
 :::
 
+### Name the alert
 
-### Field mapping data types
-
-Field data type determines how each field is indexed and shown in OpenSearch Dashboards. Account admins can change the data types according to a predefined set of options:
-
-![Choose field data type](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-mapping/mapping-fields-main-.png)
-
-Changing a field's data type may affect any dashboards, visualizations, searches, alerts, optimizers, and integrations using that field.
-
-#### Date data fields
+Give your alert a meaningful name. When your alert triggers, its name is used as the email subject or notification heading.
 
 :::note
-Before changing, editing, and sending date data fields, contact **[Logz.io Support team](mailto:help@logz.io)**.
+Your alert name can contain letters, numbers, spaces, and special characters. It **can't** contain emojis or any other elements.
 :::
 
-There are additional restrictions for **date data field** types:
 
-* Automatic date detection is disabled by default in dynamic mapping, which detects values as `string` instead of `date`.
-* To avoid conflict between the mapping of date fields, the data type **must** be identical across all indices.
+### Define search parameters
 
-Therefore, to change the mapping of any field to a date field, contact **[Logz.io Support team](mailto:help@logz.io)** before sending the fields.
+Next, set the search components. This determines which logs to look for and in which accounts.
 
-
-### Create a parsing rule set with Sawmill
-
-This process creates a parsing rule set for the specified log type. The log type is a field used to differentiate the source of each log. You need to select one of your existing log types (or create a new log type) for the parsing rules. When you submit a rule set to be applied on the backend, only the logs of the selected log type are processed.
-
-
-
-#### 1. Prerequisites
-
-
-To use the Data Parsing Editor you need a Logz.io API token. To get an API token, you must be an admin of a Logz.io account and follow the instructions below: 
-
-1. To work with the Logz.io public API, obtain or create an API token in the [Manage tokens page](https://app.logz.io/#/dashboard/settings/manage-tokens/api). We recommend that you create a dedicated API token for parsing tasks. 
-   
-    ![Manage API Tokens](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/manage-api-tokens3.png)
-
-2. Select your region. You can look up your Logz.io account region in [**Settings > General settings > Account settings > Region**](https://app.logz.io/#/dashboard/settings/general).  
-
-
-#### 2. Set up the Data parsing editor
-
-In the [Data parsing editor](https://parsing.logz.io), click **Editor setup**.  
-
-![Sample log process](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/editor_setup-sept2021.png)
-The **Editor setup** screen opens.
-
-![credentials and log info](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/parsing_cred-sept2021.png)
-
-#### 3. Set up your credentials and sample log information
-
-
-In the **Editor setup** screen:
-
-1. Enter your API token and region information. 
-2. Choose a log type from the list of log types that have been ingested into your Logz.io account or create a new log type. 
-   + New log type: This option lets you add a custom string for a log type and enables you to assign parsing rules for future logs that are associated with the log type you add.  
-   + Pre-built parsing: These log types are documented in the [Default parsing](https://docs.logz.io/docs/user-guide/data-hub/log-parsing/default-parsing/) topic. You can select a pre-built parsing type and create additional rules that run _after_ the default rules for these types are executed. 
-
-:::note
-When you select a pre-built parsing rule, the original rule configuration is not displayed in the **Parsing rules workspace**. The log types list displays log types ingested by Logz.io in the last 24 hours.
-:::
-
-   ![Custom log type](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/new_logtype2.gif)
-
-3. Add a sample log to use to validate your parsing rules.  The sample log can be a text or JSON string. To test different log formats, you can change the sample at any time. The **Load latest sample** option lets you use the previous log sample you entered.
-   ![Load latest sample](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/load_latest-sept2021.png)  
-4. Click **Start parsing** to save your changes and start building your rule set.
-
-
-
-#### 4. Write parsing rules
-
-
-You create your Sawmill rule set in the left panel of the editor screen, either by writing a new rule set or by editing a predefined rule set loaded to the panel. The created rule set must be a valid JSON file.
-
-The editor supports autocomplete for existing Sawmill processors: Enter the start of a processor name, scroll through the options, and select the relevant option to load the full processor template.  
-
-![Processor autocomplete](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/parse_autocomplete-sept2021.png)
-
-Use **Auto re-format** to clean up your indentations. 
-
-![Processor autoreformat](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/reformat_parsing-sept2021.png) 
-
-
-#### 5. Validate your rule set
-
-
-Once you're satisfied with your draft rule set, click **Validate your rules** to execute your rule set against the log sample you provided. 
-
-:::note
-The Logz.io backend has a sequence of rule sets that run on your logs: Some of the rule sets are system wide and may affect the final result you see.   Once validation is complete, you'll  be able to see the results in the **PARSED LOG** tab of the right panel. Use the display in the right panel to verify that your results reflect the parsed logs you expect to see.
-:::
-
-#### 6. Test parsing rules
-
-
-The right panel is where you view and modify your log sample, and test how your rules are applied. 
-![Testing parsing rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/test_parsing-sept2021.gif)
-   
-#### 7. Submit your rule set for review
-
-
-To ensure that your parsing works properly, our Support team reviews your rule set for consistency and then either applies the rule set or contacts you if there are issues that need to be addressed.
-
-**To send your rule set to Logz.io:** When you're done editing the parsing rules, add the email for the admin user associated with your Logz.io account, along with information about the parsing mechanism you created, and click **Submit**.
+<!-- If you intend to create a correlated alert with 2 queries, see [this guide](/docs/user-guide/log-management/log-alerts/correlated-alert). -->
 
 
 :::note
-The parsing rules you create can only be applied to the Logz.io account that matches your API token, and are only valid for the log type you chose. To apply the parsing rules you create, you must be an admin for the account. 
+To perform date range filtering on the `@timestamp` field, include the field as part of a query, 
+rather than by adding it as a filter: `@timestamp` filters are overwritten.
 :::
 
-### Parsing rule examples
 
-The goal of log parsing is to transform your log text into useable data fields so you can then run queries and refine query performance, and to extend the text in your logs to create data visualizations and dashboards. 
+<h3 id="query-filters"> Build your query and apply filters</h3>
 
+You can use any combination of filters and a search query. Note the following:
 
-#### Example 1: Grok transformation
+* Use a Lucene search query.
+  * You have the option to use wildcards.
 
-
-Grok parsing leverages regular expressions to enable you to name existing patterns or combine them into more complex patterns, or both.
-
-Use grok parsing to transform a *regex* (regular expression) into human-friendly patterns. 
-In this example, for the log sample: `2021-06-21T20:19:40.45+01:00 DEBUG This should be a log sample`, the resulting transformation is:  ![Grok parsing example](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/grok-parse-example_sept2021.gif)
+* All filters are accepted, including: **is, is not, is one of, is not one of, exists, does not exist**.
 
 
-###### Log sample
+Once you're done refining your search query and filters, you can
+click **Preview** to open Explore Dashboard in another tab. It can help review the returned logs and ensure you get the expected results.
+
+<h3 id="groupby"> Utilize Group-by for aggregated results</h3>
+
+:::caution Important
+Alerts won't trigger if the field added to the Group-by doesn't exist in the logs. The logs must include **both** the field you have in group-by and the field you use in your query/filter to trigger the alert. 
+:::
 
 
-```js
-2021-06-21T20:19:40.45+01:00 DEBUG This should be a log sample
+You can apply **group by** operators to up to 3 fields. If you use this option, the alert will return the aggregated results.
 
-```
+The order in which you add group-by fields matters. Results are grouped in the order in which the group-by fields are added. (The fields are shown from first to last from Left-To-Right.)
 
-###### Applied parsing rules
+For example, the following will group results by continent, then country, then city:
 
+![Ordered group by field functions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/ordered-group-by_aug2021.png)
 
-```json
-{
-    "steps": [
-        {
-            "grok": {
-                "config": {
-                    "field": "message",
-                    "patterns": [
-                        "^%{TIMESTAMP_ISO8601:time} %{LOGLEVEL:logLevel} %{GREEDYDATA:logMessage}$"
-                    ]
-                }
-            }
-        }
-    ]
-}
-```
- 
-###### Parsed sample
+If we reverse the order (city, then country, then continent), it will likely generate unintended results.
+
+You can use the group-by to create a visualization of your triggered alerts. The visualization will show the logs caught by the alert, letting you see which group-by values existed when the alert was triggered and which group-by values matched the condition. 
 
 
-```json
-{
-        "@timestamp": "2021-06-30T08:40:57.684+0000",
-        "logLevel": "DEBUG",
-        "logMessage": "This should be a log sample\n\n",
-        "time": "2021-06-21T20:19:40.45+01:00",
-        "message": "2021-06-21T20:19:40.45+01:00 DEBUG This should be a log sample\n\n",
-        "type": "All-Prod-Health"
-}
-```
+<h3 id="relevant-accounts"> Choose accounts to monitor</h3>
 
-###### **Click here for additional [Grok pattern examples for log parsing](https://logz.io/blog/grok-pattern-examples-for-log-parsing/).**
+Next, select the **Accounts to search**. 
 
+* If you select **All accounts**, the alert will query the logs in all the accounts it has access to. It will automatically include any accounts added in the future.
 
-#### Example 2: Conditional parsing 
+* You can select specific accounts. Select **Just these accounts** and add the relevant accounts from the dropdown list.
 
+<h3 id="thresholds"> Set threshold and severity levels</h3>
 
-Logz.io parsing lets you apply conditional logic, based on your original logs. 
+Set your threshold and severity levels.
 
-In this example, the field is renamed based on the result of the _IF_ statment used to check specific conditions.
-The resulting transformation is:  ![Conditional parsing example](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/conditional-parse-example_sept2021.gif)
+In the _Trigger if..._ section, click **+ Add a threshold** to set up to 5 threshold conditions, each with its own severity tag.
 
-###### Log sample
+:::note
+You can set the trigger condition time frame between 5 minutes and up to 24 hours (1 day). To set a trigger condition longer than 24 hours, use [Logz.io’s API](https://api-docs.logz.io/docs/logz/create-alert) to create your alert.
+:::
 
 
-``` java
-{
-    "date": "02/May/2021:15:27:05 +0000",
-      "userAgent": "aws-sdk-java/1.9.35 Linux/3.13.0-36-generic Java_HotSpot(TM)_64-Bit_Server_VM/25.40-b25/1.8.0_40",
-    "requestURI": "PUT /1019/150921/150921T152904.log.gz HTTP/1.1",
-    "message": "7455bc43ad9c06bf1a5dcd3a1c7a30acfe2ff1bdc028bbfed6ccc8817927767b backups-logzio-prod [02/May/2021:15:27:05 +0000] 54.86.133.203 arn:aws:iam::406095609952:user/backups-logzio-prod-user 7E37FD23C998A4E6 REST.PUT.OBJECT 1019/150921/150921T152904.log.gz \"PUT /1019/150921/150921T152904.log.gz HTTP/1.1\" 200 - - 37325 39 22 \"-\" \"aws-sdk-java/1.9.35 Linux/3.13.0-36-generic Java_HotSpot(TM)_64-Bit_Server_VM/25.40-b25/1.8.0_40\" -",
-    "UA-os_patch": "0",
-       "@timestamp": "2021-05-02T15:27:05.000Z",
-    "requestID": "7E37FD23C998A4E6",
-    "http_status": 200,
-  "fragment": "test",
-    "UA-device": "Other"
-}
-```
+![Alert trigger thresholds](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--trigger-settings_aug2021.png)
 
-###### Applied parsing rules
+### Configure alert scheduling
+
+You can use the scheduling mechanism to manage the trigger condition frequency.
+
+Scheduling defines the frequency and the time frame for the alerts. To define a schedule, select **On Schedule** and use a [cron expression](https://www.freeformatter.com/cron-expression-generator-quartz.html) to specify when to trigger the alert.
 
 
-```json
-{
-  "steps": [
-    {
-      "if": {
-        "condition": {
-          "fieldType": {
-            "path": "fragment",
-            "type": "string"
-          }
-        },
-        "then": [
-          {
-            "rename": {
-              "config": {
-                "from": "fragment",
-                "to": "fragment_str"
-              }
-            }
-          }
-        ]
-      }
-    }
-  ]
-}
-```
-
-###### Parsed sample
-
-```json
-{
-        "date": "02/May/2021:15:27:05 +0000",
-        "userAgent": "aws-sdk-java/1.9.35 Linux/3.13.0-36-generic Java_HotSpot(TM)_64-Bit_Server_VM/25.40-b25/1.8.0_40",
-        "requestURI": "PUT /1019/150921/150921T152904.log.gz HTTP/1.1",
-        "message": "7455bc43ad9c06bf1a5dcd3a1c7a30acfe2ff1bdc028bbfed6ccc8817927767b backups-logzio-prod [02/May/2021:15:27:05 +0000] 54.86.133.203 arn:aws:iam::406095609952:user/backups-logzio-prod-user 7E37FD23C998A4E6 REST.PUT.OBJECT 1019/150921/150921T152904.log.gz \"PUT /1019/150921/150921T152904.log.gz HTTP/1.1\" 200 - - 37325 39 22 \"-\" \"aws-sdk-java/1.9.35 Linux/3.13.0-36-generic Java_HotSpot(TM)_64-Bit_Server_VM/25.40-b25/1.8.0_40\" -",
-        "type": "All-Prod-Health",
-        "UA-os_patch": "0",
-        "@timestamp": "2021-05-02T15:27:05.000Z",
-        "fragment_str": "test",
-        "requestID": "7E37FD23C998A4E6",
-        "http_status": 200,
-        "UA-device": "Other"
-}
-```
+:::note
+The cron expression can only be set in increments rounded to the nearest minute.
+:::
 
 
-#### Example 3: Template parsing
+![Schedule alert screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/schedule-alert.png)
+
+For example, you can apply the following schedule to your alerts:
+
+| Cron expression                         | Alert trigger schedule |
+|-----------------------------------------|------|
+| 0 0/10 * ? * * *                        | Every 10 minutes |
+| 0 0 0/1 ? * * *                         | Rounded to the nearest hour |
+| 0 * 8-17 ? * MON,TUE,WED,THU,FRI *  | Every minute between 8 am to 5 pm, Monday through Friday |
+| 0 5 0 ? * * *                           | Every day at exactly 12:05 am |
+
+By default, trigger conditions run approximately every minute. If there's a lag, the alert is not checked until all data is received. In addition, once an alert has met its condition and is triggered, it won't be checked again for the remainder of the alert trigger condition time range.
+
+<h3 id="notification"> Optional: Customize notification settings </h3>
+
+<h3 id="description"> Add description and tags</h3>
+
+![Alert description and tags](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/description-and-tags_aug2021.png)
+
+The **Description** is visible on the _Alert definitions_ page, and it's part of the emails and Slack messages sent when the alert is triggered. 
+
+We recommend making your description helpful to recipients, like telling them how to fix the issues that led to the alert.
+
+The **Tags** are useful for filtering. For example, they can be used to create filtered visualizations and dashboards or to filter the _Alert definitions_ page.
+
+<h3 id="recipients"> Select alert recipients</h3>
+
+![Recipients and wait between notifications](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/recipients-and-wait_aug2021.png)
+
+Choose notification endpoints if you want to send notifications or emails when the alert is triggered. This isn't required, though—triggered alerts are still logged and searchable in the Explore Dashboard.
+
+Choose the endpoints or email addresses to notify under _Who to send it to_.
+
+<h3 id="additional"> Add extra email recipients</h3>
 
 
-In Logz.io parsing, templating lets you include your original field values with various transformations, wherever you decide it's relevant. 
-
-You can also use the templating option to consolidate or transform separate field strings into a single, aggregated field. 
-In this example, the resulting transformation consolidates several fields and timestamps: ![Template parsing example](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/template-parse-example_oct2021.gif)
-
-###### Log sample 
+:::note
+Notification emails include up to 10 sample events. If your alert triggers more than 10 events, you can view the complete list in your logs.
+:::
 
 
-```java
-{
-"the_date": "20/6/2021",
-"the_time": "17:34"
-}
-```
+To use an **email** as your endpoint, you need to type the email in the Recipients table and click enter.
 
-###### Applied parsing rule 
-
-```json
-{
-    "steps": [
-        {
-            "addField": {
-                "config": {
-                    "path": "timestamp",
-                    "value": "{% raw %}{{the_date}} {{the_time}}{% endraw %}"
-                }
-            }
-        }
-    ]
-}
-```
+![Enter custom email](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/add-custom-email.gif)
 
 
-###### Parsed example 
+If you need help adding a new endpoint,
+see [_Notification endpoints_](/docs/user-guide/integrations/notification-endpoints/endpoints).
+
+Set a time period between notifications to limit how frequently recipients are notified. Logz.io will continue to log triggered alerts without sending notifications, and you can [review these alerts](/docs/user-guide/log-management/log-alerts/alerts-event-management/) directly from the Logz.io platform at any time.
+
+:::note
+The system combines the **Trigger if** time interval with the **Wait time** interval to calculate how long it should snooze notifications and chooses the more extended time duration available. For example, if your trigger condition is 1 hour and the wait time is 15 Minutes, the system will snooze notifications for 1 hour before triggering them again.
+:::
+
+<h3 id="output"> Select alert's output format & content</h3>
+
+When triggered, the alert will send out a notification with sample data.
+
+Sample data can be sent in either **JSON** or **Table** formats. Toggle the button to select your preferred format.
+
+If the alert includes any aggregation or group by field, the notification output will send the aggregated results by default.
+
+![Output format](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/output_aggregated_aug2021.png)
+
+To be selective about the output, click **<i class="li li-plus"></i> Add a field** and select a field from the dropdown list. If you want, you can also add a sorting rule and a regex filter. [Learn more about regex filters for alert notifications](https://docs.logz.io/docs/user-guide/log-management/log-alerts/regex-filters/).
+
+  * If you select **JSON** format, you can send the full log (with all fields) or select as many as 7 fields.
+  * If you select **Table**, you can send as many as 7 fields.
+
+![Output table](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/output-formats_aug2021.gif)
+
+### Save your alert
+
+Click **Save** to save your alert.
+If the thresholds are passed and the alert is triggered,
+Logz.io will log the alert and send the configured notifications.
+
+### Get alert's ID
 
 
-```json
-{
-        "the_time": "17:34",
-        "@timestamp": "2021-06-21T14:29:08.369+0000",
-        "type": "All-Prod-Health",
-        "the_date": "20/6/2021",
-        "timestamp": "20/6/2021 17:34"
-}
-```
+Each alert has a unique ID to help you find and share it with your teammates. Once your alert is configured, click the Edit button next to it. Then, the URL will update to include a set of numbers that represents your alert’s ID.
+
+The URL will look like this:
+
+`https://app.logz.io/#/dashboard/alerts/v2019/<<ALERT_ID>>`
+
+![Alert ID](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alert-id.png)

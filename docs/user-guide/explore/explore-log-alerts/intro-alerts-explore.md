@@ -1,89 +1,88 @@
 ---
-sidebar_position: 1
-title: Default Parsing
+sidebar_position: 2
+title: Understanding Log Alerts
+description: Monitor your environment with log alerts
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: Learn about the different log parsing types in Logz.io
-keywords: [log, monitoring, parsing, default parsing, built in log types, log types, observability]
+keywords: [logz.io, alerts, log alerts, log analysis, explore, observability]
 ---
 
 
-Logz.io automatically parses logs shipped from many platforms, services, containers, servers, and more.
+Log alerts are essential for ensuring you’re notified of critical events. Setting up the right alerts is a cornerstone of proactive development, DevOps, and validation practices.
 
-The shipping configuration includes a log **type** parameter that determines which pipeline is used to parse the data. In OpenSearch Dashboards, it is indicated by a field named `type`.
+Logz.io alerts leverage the Explore Dashboard search queries to continuously monitor your logs and notify you when specific conditions are met. Alerts can range from simple searches or filters to complex queries with multiple conditions and varying thresholds.
 
-Logz.io offers many pre-built parsing pipelines for a large number of log sources, as shown below. If you need a new pipeline created or want a customized version of an existing pipeline, contact [Logz.io Support](mailto:help@logz.io). Parsing-as-a-service is included in your package and we're happy to offer it.
+### Create a log alert
 
-:::tip
-You can replace the `@timestamp` field, which is the Time column in your Log analytics discover view, by sending it in a different format. The available formats are: ISO8601 - `2023-05-21T12:45:10+00:00`, UNIX - `1684662310`, and UNIX_MS - `1684673200471`.
-![timestamp](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/timestamp.png)
+You can create an alert directly from your [Explore Dashboard](https://app.logz.io/#/dashboard/explore), or [build it manually](https://app.logz.io/#/dashboard/alerts/v2019/new) according to your desired configuration.
+
+Open the Explore Dashboard, create a query or smart search to trigger your alert, and click the **Create Alert** button in the top right corner.
+
+You'll be redirected to the Create an alert page, where you can continue configuring your alert.
+
+![Alert from dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/alerts/alert-dashboard-button.png)
+
+To manually build an alert, navigate to **[Alerts > + New alert](https://app.logz.io/#/dashboard/alerts/v2019/new)** to configure and create an alert.
+
+![Alert from dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/alerts/alert-button.png)
+
+### Review existing alerts
+
+To view a paginated list of all alerts configured for your account, navigate to the [Alerts](https://app.logz.io/#/dashboard/triggers/alert-definitions) section.
+
+You can sort the list by clicking on the column headers or using the top filters. Sort by severity, creator, tags, or alert status.
+
+Use the search bar to quickly find a specific alert.
+
+To filter alerts chronologically by **name**, **severity**, **creation date**, or **update date**, click on the corresponding column header.
+
+![Alert definitions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts-updated-by-screenshot.png)
+
+### Manage Log alerts
+
+You can manage alerts individually or in bulk.
+
+Use search terms and filters to locate the alerts you want to edit. Select them by clicking the checkbox next to each alert or select all visible alerts on the page (up to 25) by checking the top box.
+
+![Select alerts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/select-alerts.gif)
+
+If you need to edit more than 25 alerts, you can select all alerts that match your search criteria by clicking the hypertext link located at the top right of the table.
+
+![Alert bulk actions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/select-all-alerts.png)
+
+
+:::note
+You can act on **up to 1,000** alerts simultaneously.
 :::
 
-## Built-in log types
 
-This table shows the log types that Logz.io parses automatically.
+<h3 id="individual">Individual alerts</h3>
 
-| Description           | Type                                       | Prebuilt parsing pipeline unless marked |
-|-----------------------|--------------------------------------------|---|
-| Alcide kAudit         | `alcide-kaudit` | ✖️ Auto-parsed as part of platform integration. |
-| Apache access         | `apache`, `apache_access`, `apache-access` | ✔ |
-| Auditd                | `auditd`                                   | ✔ |
-| Avast                 | `avast`                                    | ✔ |
-| AWS CloudFront        | `cloudfront`                               | ✔ |
-| AWS CloudTrail        | `cloudtrail`                               | ✔ |
-| AWS ELB               | `elb`                                      | ✔ |
-| AWS Fargate           | `fargate`                                  | ✖️ Auto-parsed as part of platform integration. |
-| AWS GuardDuty         | `guardduty`                                | ✔ |
-| AWS Route 53          | `route_53`                                 | ✔ |
-| AWS S3 access         | `S3Access`                                 | ✔ |
-| AWS VPC Flow          | `vpcflow`                                  | ✔ |
-| AWS WAF               | `awswaf`                                   | ✖️ Auto-parsed as part of platform integration. |
-| Checkpoint            | `checkpoint`                               | ✔ |
-| Cisco ASA             | `cisco-asa`                                | ✔ |
-| Cisco Meraki          | `cisco-meraki`                             | ✔ |
-| Collectl tab          | `collectl-tab`                             | ✔ |
-| Crowdstrike           | `crowdstrike`                              | ✔ |
-| Docker                | `docker_logs`                              | ✔ |
-| Docker Collector Logs | `docker-collector-logs`                    | ✔ |
-| Elasticsearch         | `elasticsearch`                            | ✔ |
-| ESET                  | `eset`                                     | ✔ |
-| EventHub              | `eventHub`                                 | ✔ |
-| Fail2ban              | `fail2ban`                                 | ✔ |
-| Falco                 | `falco`                                    | ✔ |
-| Fargate               | `fargate`                                  | ✖️ Auto-parsed as part of platform integration. |
-| Fortigate             | `fortigate`                                | ✔ |
-| GitHub                | `github`                                   | ✖️ Auto-parsed as part of platform integration. |
-| GPFS                  | `gpfs`                                     | ✔ |
-| HAProxy Load Balancer | `haproxy`                                  | ✔ |
-| Jenkins               | `jenkins`                                  | ✔ |
-| Juniper               | `juniper`                                  | ✔ |
-| Kafka                 | `kafka_server`                             | ✔ |
-| Kubernetes            | `k8s`                                      | ✖️ Auto-parsed as part of platform integration. |
-| Mcafee EPO            | `mcafee_epo`                               | ✔ |
-| Microsoft IIS         | `iis`                                      | ✔ |
-| ModSecurity           | `modsecurity`                              | ✖️ Auto-parsed as part of platform integration. |
-| MongoDB               | `mongodb`                                  | ✔ |
-| Monit                 | `monit`                                    | ✔ |
-| MySQL                 | `mysql`                                    | ✔ |
-| MySQL error           | `mysql_error`                              | ✔ |
-| MySQL monitor         | `mysql_monitor`                            | ✔ |
-| MySQL slow query      | `mysql_slow_query`                         | ✔ |
-| Nagios                | `nagios`                                   | ✔ |
-| NGINX access          | `nginx`, `nginx_access`, `nginx-access`    | ✔ |
-| NGINX error           | `nginx-error`                              | ✔ |
-| NGINX error           | `nginx_error`                              | ✔ |
-| o365                  | `o365`                                     | ✔ |
-| OpenVAS               | `openvas`                                  | ✔ |
-| OpenVPN               | `openvpn`                                  | ✔ |
-| OSSEC                 | `ossec`                                    | ✔ |
-| Trend Micro           | `trendmicro_deep`                          | ✔ |
-| Palo Alto Networks    | `paloalto`                                 | ✔ |
-| Performance-tab       | `performance-tab`                          | ✔ |
-| pfSense               | `pfsense`                                  | ✔ |
-| Sentinel One          | `sentinel_one`                             | ✔ |
-| Sonicwall             | `sonicwall`                                | ✔ |
-| Sophos Intercept X    | `sophos-ep`                                | ✖️ Auto-parsed as part of platform integration. |
-| Stormshield           | `stormshield`                              | ✔ |
-| Sysmon                | `wineventlog`                              | ✔ |
-| Windows WinEventLog   | `wineventlog`                              | ✔ |
-| Zeek                  | `zeek`                                     | ✔ |
-| Zipkin span           | `zipkinSpan`                               | ✔ |
+Each alert features a **State** button that you can toggle to enable or disable the alert as needed.
+
+To edit, duplicate, or delete an alert, hover over its row to reveal the **Delete** and **Edit** buttons.
+
+Click the **Menu button (:)** to access additional options such as **duplicating** the alert or **viewing the latest events**. Selecting the latter will display the alert query and the number of hits in the Explore Dashboard.
+
+![Alert additional options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/alerts/hover-menu-items.png)
+
+
+
+
+<h3 id="multiple"> Multiple alerts</h3>
+
+Choosing one or more alerts opens a top menu with the following actions:
+
+* **Delete** - Delete all selected alerts
+* **Activate** - Set all selected alerts to active
+* **Deactivate** - Set all selected alerts to inactive
+* **Recipient** - Add or replace recipients and notification points
+
+![Alert edit menu](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alert-edit-menu.png)
+
+Clicking on the **Recipient** option opens a pop-up with two options:
+
+**Add** - Add new recipients and notification points to the existing ones. This can include Slack channels, email addresses, and more.
+
+**Replace** - Remove existing notification points and recipients, and replace them with new settings. Note that you **won't be able to review** the current notification settings **or revert** this action once saved.
+
+![Alert recepients edit](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/add-replace-alerts.png)
