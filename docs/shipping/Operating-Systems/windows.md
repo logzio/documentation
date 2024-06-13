@@ -103,10 +103,13 @@ exporters:
   logzio/logs:
     account_token: <<LOG-SHIPPING-TOKEN>>
     region: us
+    headers:
+      user-agent: logzio-windows-logs
   prometheusremotewrite:
     endpoint: https://<<LISTENER-HOST>>:8053
     headers:
       Authorization: Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
+      user-agent: logzio-windows-metrics
     resource_to_telemetry_conversion:
       enabled: true
     target_info:

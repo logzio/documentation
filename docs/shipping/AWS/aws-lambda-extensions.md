@@ -173,55 +173,57 @@ Give your logs some time to get from your system to ours.
 | `GROK_PATTERNS` | Must be set with `LOGS_FORMAT`. Use this if you want to parse your logs into fields. A minified JSON list that contains the field name and the regex that will match the field. To understand more see the [parsing logs](https://docs.logz.io/docs/shipping/aws/lambda-extensions/#parsing-logs) section. | - |
 | `LOGS_FORMAT` | Must be set with `GROK_PATTERNS`. Use this if you want to parse your logs into fields. The format in which the logs will appear, in accordance to grok conventions. To understand more see the [parsing logs](https://docs.logz.io/docs/shipping/aws/lambda-extensions/#parsing-logs) section. | - |
 | `CUSTOM_FIELDS` | Include additional fields with every message sent, formatted as `fieldName1=fieldValue1,fieldName2=fieldValue2` (**NO SPACES**). A custom key that clashes with a key from the log itself will be ignored. | - |
+| `JSON_FIELDS_UNDER_ROOT` | If you log Json messages and would like the fields to be nested at the root of the log, instead of under `message_nested`. | Default: `False` |
 
 ## ARNs
-## AMD64 Architecture
+### AMD64 Architecture
 | Region Name               | Region Code      | AWS ARN                                                                        |
 |---------------------------|------------------|--------------------------------------------------------------------------------|
-| US East (N. Virginia)     | `us-east-1`      | `arn:aws:lambda:us-east-1:486140753397:layer:LogzioLambdaExtensionLogs:6`      |
-| US East (Ohio)            | `us-east-2`      | `arn:aws:lambda:us-east-2:486140753397:layer:LogzioLambdaExtensionLogs:6`      |
-| US West (N. California)   | `us-west-1`      | `arn:aws:lambda:us-west-1:486140753397:layer:LogzioLambdaExtensionLogs:6`      |
-| US West (Oregon)          | `us-west-2`      | `arn:aws:lambda:us-west-2:486140753397:layer:LogzioLambdaExtensionLogs:6`      |
-| Europe (Frankfurt)        | `eu-central-1`   | `arn:aws:lambda:eu-central-1:486140753397:layer:LogzioLambdaExtensionLogs:6`   |
-| Europe (Ireland)          | `eu-west-1`      | `arn:aws:lambda:eu-west-1:486140753397:layer:LogzioLambdaExtensionLogs:6`      |
-| Europe (Stockholm)        | `eu-north-1`     | `arn:aws:lambda:eu-north-1:486140753397:layer:LogzioLambdaExtensionLogs:6`     |
-| Asia Pacific (Sydney)     | `ap-southeast-2` | `arn:aws:lambda:ap-southeast-2:486140753397:layer:LogzioLambdaExtensionLogs:6` |
-| Canada (Central)          | `ca-central-1`   | `arn:aws:lambda:ca-central-1:486140753397:layer:LogzioLambdaExtensionLogs:6`   |
-| South America (São Paulo) | `sa-east-1`      | `arn:aws:lambda:sa-east-1:486140753397:layer:LogzioLambdaExtensionLogs:7`      |
-| Asia Pacific (Tokyo)      | `ap-northeast-1` | `arn:aws:lambda:ap-northeast-1:486140753397:layer:LogzioLambdaExtensionLogs:2` |
-| Asia Pacific (Singapore)  | `ap-southeast-1` | `arn:aws:lambda:ap-southeast-1:486140753397:layer:LogzioLambdaExtensionLogs:2` |
-| Asia Pacific (Mumbai)     | `ap-south-1`     | `arn:aws:lambda:ap-south-1:486140753397:layer:LogzioLambdaExtensionLogs:2`     |
-| Asia Pacific (Osaka)      | `ap-northeast-3` | `arn:aws:lambda:ap-northeast-3:486140753397:layer:LogzioLambdaExtensionLogs:2` |
-| Asia Pacific (Seoul)      | `ap-northeast-2` | `arn:aws:lambda:ap-northeast-2:486140753397:layer:LogzioLambdaExtensionLogs:2` |
-| Europe (London)           | `eu-west-2`      | `arn:aws:lambda:eu-west-2:486140753397:layer:LogzioLambdaExtensionLogs:3`      |
-| Europe (Paris)            | `eu-west-3`      | `arn:aws:lambda:eu-west-3:486140753397:layer:LogzioLambdaExtensionLogs:2`      |
+| US East (N. Virginia)     | `us-east-1`      | `arn:aws:lambda:us-east-1:486140753397:layer:LogzioLambdaExtensionLogs:9`      |
+| US East (Ohio)            | `us-east-2`      | `arn:aws:lambda:us-east-2:486140753397:layer:LogzioLambdaExtensionLogs:8`      |
+| US West (N. California)   | `us-west-1`      | `arn:aws:lambda:us-west-1:486140753397:layer:LogzioLambdaExtensionLogs:8`      |
+| US West (Oregon)          | `us-west-2`      | `arn:aws:lambda:us-west-2:486140753397:layer:LogzioLambdaExtensionLogs:8`      |
+| Europe (Frankfurt)        | `eu-central-1`   | `arn:aws:lambda:eu-central-1:486140753397:layer:LogzioLambdaExtensionLogs:8`   |
+| Europe (Ireland)          | `eu-west-1`      | `arn:aws:lambda:eu-west-1:486140753397:layer:LogzioLambdaExtensionLogs:8`      |
+| Europe (Stockholm)        | `eu-north-1`     | `arn:aws:lambda:eu-north-1:486140753397:layer:LogzioLambdaExtensionLogs:8`     |
+| Asia Pacific (Sydney)     | `ap-southeast-2` | `arn:aws:lambda:ap-southeast-2:486140753397:layer:LogzioLambdaExtensionLogs:8` |
+| Canada (Central)          | `ca-central-1`   | `arn:aws:lambda:ca-central-1:486140753397:layer:LogzioLambdaExtensionLogs:8`   |
+| South America (São Paulo) | `sa-east-1`      | `arn:aws:lambda:sa-east-1:486140753397:layer:LogzioLambdaExtensionLogs:9`      |
+| Asia Pacific (Tokyo)      | `ap-northeast-1` | `arn:aws:lambda:ap-northeast-1:486140753397:layer:LogzioLambdaExtensionLogs:4` |
+| Asia Pacific (Singapore)  | `ap-southeast-1` | `arn:aws:lambda:ap-southeast-1:486140753397:layer:LogzioLambdaExtensionLogs:4` |
+| Asia Pacific (Mumbai)     | `ap-south-1`     | `arn:aws:lambda:ap-south-1:486140753397:layer:LogzioLambdaExtensionLogs:4`     |
+| Asia Pacific (Osaka)      | `ap-northeast-3` | `arn:aws:lambda:ap-northeast-3:486140753397:layer:LogzioLambdaExtensionLogs:4` |
+| Asia Pacific (Seoul)      | `ap-northeast-2` | `arn:aws:lambda:ap-northeast-2:486140753397:layer:LogzioLambdaExtensionLogs:4` |
+| Europe (London)           | `eu-west-2`      | `arn:aws:lambda:eu-west-2:486140753397:layer:LogzioLambdaExtensionLogs:5`      |
+| Europe (Paris)            | `eu-west-3`      | `arn:aws:lambda:eu-west-3:486140753397:layer:LogzioLambdaExtensionLogs:4`      |
 
-## ARM64 Architecture
+### ARM64 Architecture
 | Region Name               | Region Code      | AWS ARN                                                                        |
 |---------------------------|------------------|--------------------------------------------------------------------------------|
-| US East (N. Virginia)     | `us-east-1`      | `arn:aws:lambda:us-east-1:486140753397:layer:LogzioLambdaExtensionLogsArm:1`      |
-| US East (Ohio)            | `us-east-2`      | `arn:aws:lambda:us-east-2:486140753397:layer:LogzioLambdaExtensionLogsArm:1`      |
-| US West (N. California)   | `us-west-1`      | `arn:aws:lambda:us-west-1:486140753397:layer:LogzioLambdaExtensionLogsArm:1`      |
-| US West (Oregon)          | `us-west-2`      | `arn:aws:lambda:us-west-2:486140753397:layer:LogzioLambdaExtensionLogsArm:1`      |
-| Europe (Frankfurt)        | `eu-central-1`   | `arn:aws:lambda:eu-central-1:486140753397:layer:LogzioLambdaExtensionLogsArm:1`   |
-| Europe (Ireland)          | `eu-west-1`      | `arn:aws:lambda:eu-west-1:486140753397:layer:LogzioLambdaExtensionLogsArm:1`      |
-| Europe (Stockholm)        | `eu-north-1`     | `arn:aws:lambda:eu-north-1:486140753397:layer:LogzioLambdaExtensionLogsArm:1`     |
-| Asia Pacific (Sydney)     | `ap-southeast-2` | `arn:aws:lambda:ap-southeast-2:486140753397:layer:LogzioLambdaExtensionLogsArm:1` |
-| Canada (Central)          | `ca-central-1`   | `arn:aws:lambda:ca-central-1:486140753397:layer:LogzioLambdaExtensionLogsArm:1`   |
-| South America (São Paulo) | `sa-east-1`      | `arn:aws:lambda:sa-east-1:486140753397:layer:LogzioLambdaExtensionLogsArm:1`      |
-| Asia Pacific (Tokyo)      | `ap-northeast-1` | `arn:aws:lambda:ap-northeast-1:486140753397:layer:LogzioLambdaExtensionLogsArm:1` |
-| Asia Pacific (Singapore)  | `ap-southeast-1` | `arn:aws:lambda:ap-southeast-1:486140753397:layer:LogzioLambdaExtensionLogsArm:1` |
-| Asia Pacific (Mumbai)     | `ap-south-1`     | `arn:aws:lambda:ap-south-1:486140753397:layer:LogzioLambdaExtensionLogsArm:1`     |
-| Asia Pacific (Osaka)      | `ap-northeast-3` | `arn:aws:lambda:ap-northeast-3:486140753397:layer:LogzioLambdaExtensionLogsArm:1` |
-| Asia Pacific (Seoul)      | `ap-northeast-2` | `arn:aws:lambda:ap-northeast-2:486140753397:layer:LogzioLambdaExtensionLogsArm:1` |
-| Europe (London)           | `eu-west-2`      | `arn:aws:lambda:eu-west-2:486140753397:layer:LogzioLambdaExtensionLogsArm:1`      |
-| Europe (Paris)            | `eu-west-3`      | `arn:aws:lambda:eu-west-3:486140753397:layer:LogzioLambdaExtensionLogsArm:1`      |
+| US East (N. Virginia)     | `us-east-1`      | `arn:aws:lambda:us-east-1:486140753397:layer:LogzioLambdaExtensionLogsArm:2`      |
+| US East (Ohio)            | `us-east-2`      | `arn:aws:lambda:us-east-2:486140753397:layer:LogzioLambdaExtensionLogsArm:2`      |
+| US West (N. California)   | `us-west-1`      | `arn:aws:lambda:us-west-1:486140753397:layer:LogzioLambdaExtensionLogsArm:2`      |
+| US West (Oregon)          | `us-west-2`      | `arn:aws:lambda:us-west-2:486140753397:layer:LogzioLambdaExtensionLogsArm:2`      |
+| Europe (Frankfurt)        | `eu-central-1`   | `arn:aws:lambda:eu-central-1:486140753397:layer:LogzioLambdaExtensionLogsArm:2`   |
+| Europe (Ireland)          | `eu-west-1`      | `arn:aws:lambda:eu-west-1:486140753397:layer:LogzioLambdaExtensionLogsArm:2`      |
+| Europe (Stockholm)        | `eu-north-1`     | `arn:aws:lambda:eu-north-1:486140753397:layer:LogzioLambdaExtensionLogsArm:2`     |
+| Asia Pacific (Sydney)     | `ap-southeast-2` | `arn:aws:lambda:ap-southeast-2:486140753397:layer:LogzioLambdaExtensionLogsArm:2` |
+| Canada (Central)          | `ca-central-1`   | `arn:aws:lambda:ca-central-1:486140753397:layer:LogzioLambdaExtensionLogsArm:2`   |
+| South America (São Paulo) | `sa-east-1`      | `arn:aws:lambda:sa-east-1:486140753397:layer:LogzioLambdaExtensionLogsArm:2`      |
+| Asia Pacific (Tokyo)      | `ap-northeast-1` | `arn:aws:lambda:ap-northeast-1:486140753397:layer:LogzioLambdaExtensionLogsArm:2` |
+| Asia Pacific (Singapore)  | `ap-southeast-1` | `arn:aws:lambda:ap-southeast-1:486140753397:layer:LogzioLambdaExtensionLogsArm:2` |
+| Asia Pacific (Mumbai)     | `ap-south-1`     | `arn:aws:lambda:ap-south-1:486140753397:layer:LogzioLambdaExtensionLogsArm:2`     |
+| Asia Pacific (Osaka)      | `ap-northeast-3` | `arn:aws:lambda:ap-northeast-3:486140753397:layer:LogzioLambdaExtensionLogsArm:2` |
+| Asia Pacific (Seoul)      | `ap-northeast-2` | `arn:aws:lambda:ap-northeast-2:486140753397:layer:LogzioLambdaExtensionLogsArm:2` |
+| Europe (London)           | `eu-west-2`      | `arn:aws:lambda:eu-west-2:486140753397:layer:LogzioLambdaExtensionLogsArm:2`      |
+| Europe (Paris)            | `eu-west-3`      | `arn:aws:lambda:eu-west-3:486140753397:layer:LogzioLambdaExtensionLogsArm:2`      |
 
 
 ## Lambda extension versions
 
 | Version | Supported Runtimes                                                                                                                                                                 |
 |---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 0.3.3   | `.NET 6`, `.NET 8`, `provided.al2`, `provided.al2023`, `Java 8`, `Java 11`, `Java 17`, `Node.js 16`, `Node.js 18`, `Python 3.8`, `Python 3.9`, `Python 3.10`, `Python 3.11`, `Python 3.12`, `Ruby 3.2`, `Custom Runtime` |
 | 0.3.2   | `.NET 6`, `Go 1.x`, `Java 17`, `Node.js 18`, `Python 3.11`, `Ruby 3.2`, `Java 11`, `Java 8`, `Node.js 16`, `Python 3.10`, `Python 3.9`, `Python 3.8`, `Ruby 2.7`, `Custom Runtime` |
 | 0.3.1   | All runtimes                                                                                                                                                                       |
 | 0.3.0   | `.NET Core 3.1`, `Java 11`, `Java 8`, `Node.js 14.x`, `Node.js 12.x`, `Python 3.9`, `Python 3.8`, `Python 3.7`, `Ruby 2.7`, `Custom runtime`                                       |
@@ -245,32 +247,64 @@ If you need to use a custom pattern, you can use the environment variables `GROK
 For logs that are formatted like this:
 
 ```python
-%(app_name)s : %(message)s
+<<timestamp>> <<app_name>>: <<message>>
+# Examples
+May 04 2024 10:48:34.244 my_app: an awesome message
+May 04 2024 10:50:46.532 logzio_sender: Successfully sent bulk to logz.io, size: 472
 ```
 
-we will use `cool app` as the `app_name` and the `message` will have strings containing whitespaces, letters and numbers.
-
-In Logz.io we wish to have `app_name`, `message` in their own fields, named `my_app` and `my_message`, respectively.
+In Logz.io we wish to have `timestamp`, `app_name` and `message` in their own fields.  
 To do so, we'll set the environment variables as follows:
 
-### GROK_PATTERNS
+##### GROK_PATTERNS
 
-The `GROK_PATTERNS` variable should be in a JSON format.
-The key is used as the pattern name, and the value should be the regex that captures the pattern.
-In our case, while `app_name` always stays `cool app`, we don't know what `message` will be, so we need to set `GROK_PATTERNS` as: `{"app_name":"cool app","message":".*"}`
+The `GROK_PATTERNS` variable contains definitions of custom grok patterns and should be in a JSON format.   
+- key - is the custom pattern name. 
+- value - the regex that captures the pattern.
 
-### LOGS_FORMAT
+In our example:
+- `timestamp` - matching the regex `\w+ \d{2} \d{4} \d{2}:\d{2}:\d{2}\.\d{3}`.
+- `app_name` - always non-space character sequence, so matching `\S+`.
+- `message` -  have strings containing whitespaces, letters and numbers. So matching `.*`.
 
-The `LOGS_FORMAT` variable will contain the same format as the logs, according to the pattern names that we used in `GROK_PATTERNS`.
-The variable should be in a grok format for each pattern name: `${PATTERN_NAME:FIELD_NAME}` where `PATTERN_NAME` is the pattern name from `GROK_PATTERNS`, and `FIELD_NAME` is the name of the field you want the pattern to be parsed to.
-**Note** that the `FIELD_NAME` cannot contain a dot (`.`) in it.
-In our case, we want `app_name` to appear under the field `my_app`, and `message` to appear under the field `my_message`. Since we know that the logs format is as mentioned above, we will set `LOGS_FORMAT` as: `%{app_name:my_app} : %{message:my_message}`.
-
-The logs that match the configuration above will appear in Logz.io with the fields `lambda.record.my_app`, `lambda.record.my_message`.
-The log: `"cool app : The sky is so blue"`, will be parsed to look like this:
+For the regex that matches `app_name` and `message` there are built in grok patterns (we'll see in `LOGS_FORMAT` explanation), so we only need to define custom pattern for our `timestamp`.  
+Meaning we can set `GROK_PATTERNS` as: 
+``` json
+{"MY_CUSTOM_TIMESTAMP":"\\w+ \\d{2} \\d{4} \\d{2}:\\d{2}:\\d{2}\\.\\d{3}"}
 ```
-my_app: cool app
-my_message: The sky is so blue
+
+##### LOGS_FORMAT
+
+The `LOGS_FORMAT` variable contains the full grok pattern that will match the format of the logs, using known patterns and the custom patterns that were defined in `GROK_PATTERNS` (if defined).  
+The variable should be in a grok format: 
+```
+%{GROK_PATTERN_NAME:WANTED_FIELD_NAME}
+```
+
+:::note
+The `WANTED_FIELD_NAME` cannot contain a dot (`.`).
+:::
+
+In our example: 
+- `timestamp` - matching the custom pattern we defined previously `MY_CUSTOM_TIMESTAMP`.
+- `app_name` - is matching the known grok pattern `NOTSPACE`.
+- `message` -  is matching the known grok pattern `GREEDYDATA`.
+
+So we will set `LOGS_FORMAT` as: 
+```
+^%{MY_CUSTOM_TIMESTAMP:timestamp} %{NOTSPACE:app_name}: %{GREEDYDATA:message}
+```
+
+The log example from above: 
+```
+May 04 2024 10:48:34.244 my_app: an awesome message
+```
+Will be parsed to look like this:
+
+```
+timestamp: May 04 2024 10:48:34.244
+app_name: my_app
+message: an awesome message
 ```
 
 This project uses an external module for its grok parsing. To learn more about it, see the [grok library repo](https://github.com/vjeantet/grok).
@@ -288,6 +322,20 @@ Will appear under the fields:
 ```
 message_nested.foo: bar
 message_nested.field2: val2
+```
+
+As of v0.3.3, to have the fields nested under the root (instead of under `message_nested`), set the `JSON_FIELDS_UNDER_ROOT` environment variable as `true`.  
+It is useful in cases where the passed object is in fact meant to be that of a message plus metadata fields.  
+For example, the following log:
+
+```
+{ "message": "hello", "foo": "bar" }
+```
+
+Will appear under the fields:
+```
+message: hello
+foo: bar
 ```
 
 **Note:** The user must insert a valid JSON. Sending a dictionary or any key-value data structure that is not in a JSON format will cause the log to be sent as a string.
