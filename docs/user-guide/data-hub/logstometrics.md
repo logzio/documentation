@@ -36,8 +36,8 @@ Log Metrics rules should be configured in the account storing the relevant logs.
 
 ### 1. Find the relevant logs
 
+You can create a LogMetric from OpenSearch Dashboards by clicking the **Create Metric** button at the top. This button becomes enabled whenever you apply a filter to your search. Note that Lucene queries, free text search, "is between" filters, and regular expressions (regex) **are not supported**. Filters must use exact values only.
 
-You can create a LogMetric from OpenSearch Dashboards by clicking the **Create Metric** button at the top. This button is enabled whenever you apply a filter to your search, and currently, it does not support Lucene queries, free text search, or "is between" filters.
 
 ![OSD to metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/logs2metrics/osd-to-metric.png)
 
