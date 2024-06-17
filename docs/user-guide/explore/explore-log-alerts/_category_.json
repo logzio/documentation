@@ -1,0 +1,8 @@
+{
+  "label": "Log Alerts in Explore",
+  "position": 7,
+  "link": {
+    "type": "generated-index",
+    "description": "Log alerts ensure you're promptly notified of critical events, enabling swift action, improved response times, enhanced security, and better system health monitoring."
+  }
+}
