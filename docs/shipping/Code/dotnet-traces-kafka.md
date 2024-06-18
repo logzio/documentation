@@ -1,7 +1,7 @@
 ---
 id: dotnet-traces-with-kafka-using-opentelemetry
 title: .NET Kafka Tracing with OpenTelemetry
-overview: Deploy this integration to enable kafka instrumentation of your dotnet application using OpenTelemetry.
+overview: Deploy this integration to enable kafka instrumentation of your .NET application using OpenTelemetry.
 product: ['tracing']
 os: ['windows', 'linux']
 filters: ['Code', 'Distributed Messaging']
@@ -48,9 +48,9 @@ Install-Package OpenTelemetry
 Install-Package OpenTelemetry.Exporter.OpenTelemetryProtocol
 ```
 
-### Kafka OpenTelemery dotnet Application
+### Kafka OpenTelemery .NET Application
 You can download the (example)[https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/dotnet-kafka.zip
-] of a instrumented dotnet application with kafka producer and consumer
+] of a instrumented .NET application with a Kafka producer and consumer.
 
 #### Configure OpenTelemetry in .NET
 Add the following OpenTelemetry configuration to your .NET application's `Program.cs`:
@@ -79,7 +79,7 @@ You can configure the otlp endpoint and protocol using envurinment variables:
   - OTEL_EXPORTER_OTLP_PROTOCOL (`grpc` or `http/protubuf`)
 
 #### Instrument Kafka Producer
-Build your producer using `.BuildWithInstrumentation()` method, to add instrumentation to your kafka producer
+Build your producer using `.BuildWithInstrumentation()` method, to add instrumentation to your Kafka producer:
 ```csharp
 using Confluent.Kafka;
 using Confluent.Kafka.Extensions.Diagnostics;
@@ -94,7 +94,7 @@ await producer.ProduceAsync("topic", new Message<Null, string> { Value = "Hello 
 ```
 
 #### Instrument Kafka Consumer
-Use `ConsumeWithInstrumentation()` method to add instrumentation to your kafka consumer
+Use `ConsumeWithInstrumentation()` method to add instrumentation to your Kafka consumer:
 ```csharp
 using Confluent.Kafka;
 using Confluent.Kafka.Extensions.Diagnostics;
@@ -132,7 +132,7 @@ Give your traces some time to get from your system to ours, and then open [Traci
 
 ## Configuration via Helm
 
-You can use a Helm chart to ship Traces to Logz.io via the OpenTelemetry collector. The Helm tool is used to manage packages of preconfigured Kubernetes resources that use charts.
+You can use a Helm chart to ship traces to Logz.io via the OpenTelemetry collector. The Helm tool is used to manage packages of preconfigured Kubernetes resources that use charts.
 
 **logzio-monitoring** allows you to ship traces from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
 
@@ -180,13 +180,13 @@ sh -c 'nslookup kubernetes.<<namespace>> | grep Name | sed "s/Name:\skubernetes.
   
 It will deploy a small pod that extracts your cluster domain name from your Kubernetes environment. You can remove this pod after it has returned the cluster domain name.
 
-### Configure your dotnet kafka application to send spans to `logzio-monitoring`
+### Configure your .NET Kafka application to send spans to `logzio-monitoring`
 
 You can configure the otlp endpoint and protocol using envurinment variables:
   - OTEL_EXPORTER_OTLP_ENDPOINT (The destination of your otel collector `<<logzio-monitoring-service-dns>>`)
   - OTEL_EXPORTER_OTLP_PROTOCOL (`grpc` or `http/protubuf`)
 
-* Replace `<<logzio-monitoring-service-dns>>` with the OpenTelemetry collector service dns obtained previously (service IP is also allowed here).
+* Replace `<<logzio-monitoring-service-dns>>` with the OpenTelemetry collector service DNS obtained previously (service IP is also allowed here).
 
 ### Check Logz.io for your traces
 
