@@ -155,7 +155,7 @@ To use an **email** as your endpoint, you need to type the email in the Recipien
 If you need help adding a new endpoint,
 see [_Notification endpoints_](/docs/user-guide/integrations/notification-endpoints/endpoints).
 
-Set a time period between notifications to limit how frequently recipients are notified. Logz.io will continue to log triggered alerts without sending notifications, and you can [review these alerts](/docs/user-guide/log-management/log-alerts/alerts-event-management/) directly from the Logz.io platform at any time.
+Set a time period between notifications to limit how frequently recipients are notified. Logz.io will continue to log triggered alerts without sending notifications, and you can [review these alerts](/docs/user-guide/explore/explore-log-alerts/alerts-event-management/) directly from the Logz.io platform at any time.
 
 :::note
 The system combines the **Trigger if** time interval with the **Wait time** interval to calculate how long it should snooze notifications and chooses the more extended time duration available. For example, if your trigger condition is 1 hour and the wait time is 15 Minutes, the system will snooze notifications for 1 hour before triggering them again.
@@ -171,7 +171,7 @@ If the alert includes any aggregation or group by field, the notification output
 
 ![Output format](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/output_aggregated_aug2021.png)
 
-To be selective about the output, click **<i class="li li-plus"></i> Add a field** and select a field from the dropdown list. If you want, you can also add a sorting rule and a regex filter. [Learn more about regex filters for alert notifications](https://docs.logz.io/docs/user-guide/log-management/log-alerts/regex-filters/).
+To be selective about the output, click **<i class="li li-plus"></i> Add a field** and select a field from the dropdown list. If you want, you can also add a sorting rule and a regex filter. [Learn more about regex filters for alert notifications](https://docs.logz.io/docs/user-guide/explore/explore-log-alerts/regex-filters/).
 
   * If you select **JSON** format, you can send the full log (with all fields) or select as many as 7 fields.
   * If you select **Table**, you can send as many as 7 fields.
