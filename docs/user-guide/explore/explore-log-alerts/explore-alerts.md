@@ -27,11 +27,14 @@ Your alert name can contain letters, numbers, spaces, and special characters. It
 :::
 
 
-### Define search parameters
+### Set search components
 
 Next, set the search components. This determines which logs to look for and in which accounts.
 
-<!-- If you intend to create a correlated alert with 2 queries, see [this guide](/docs/user-guide/log-management/log-alerts/correlated-alert). -->
+If you intend to create a correlated alert with 2 queries, see [this guide](/docs/user-guide/log-management/log-alerts/correlated-alert).
+
+
+--![Alert group by settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alert-filter-component.gif)
 
 
 :::note
@@ -40,7 +43,7 @@ rather than by adding it as a filter: `@timestamp` filters are overwritten.
 :::
 
 
-<h3 id="query-filters"> Build your query and apply filters</h3>
+<h3 id="query-filters"> Enter query and filters</h3>
 
 You can use any combination of filters and a search query. Note the following:
 
@@ -53,7 +56,7 @@ You can use any combination of filters and a search query. Note the following:
 Once you're done refining your search query and filters, you can
 click **Preview** to open Explore Dashboard in another tab. It can help review the returned logs and ensure you get the expected results.
 
-<h3 id="groupby"> Utilize Group-by for aggregated results</h3>
+<h3 id="groupby"> Using Group-by (order matters!)</h3>
 
 :::caution Important
 Alerts won't trigger if the field added to the Group-by doesn't exist in the logs. The logs must include **both** the field you have in group-by and the field you use in your query/filter to trigger the alert. 
@@ -72,8 +75,19 @@ If we reverse the order (city, then country, then continent), it will likely gen
 
 You can use the group-by to create a visualization of your triggered alerts. The visualization will show the logs caught by the alert, letting you see which group-by values existed when the alert was triggered and which group-by values matched the condition. 
 
+For example, if you set an alert to:
 
-<h3 id="relevant-accounts"> Choose accounts to monitor</h3>
+* Look at the last 15 minutes
+* Trigger if there are more than 3 logs
+* Group the results by account_name
+
+You’ll be able to use these fields to create the following chart:
+
+![Alerts to visualization](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/group-by-visualize.png)
+
+
+
+<h3 id="relevant-accounts"> Select relevant accounts</h3>
 
 Next, select the **Accounts to search**. 
 
@@ -94,7 +108,7 @@ You can set the trigger condition time frame between 5 minutes and up to 24 hour
 
 ![Alert trigger thresholds](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--trigger-settings_aug2021.png)
 
-### Configure alert scheduling
+### Set alert schedule
 
 You can use the scheduling mechanism to manage the trigger condition frequency.
 
@@ -119,7 +133,7 @@ For example, you can apply the following schedule to your alerts:
 
 By default, trigger conditions run approximately every minute. If there's a lag, the alert is not checked until all data is received. In addition, once an alert has met its condition and is triggered, it won't be checked again for the remainder of the alert trigger condition time range.
 
-<h3 id="notification"> Optional: Customize notification settings </h3>
+<h3 id="notification"> _(Optional)_ Set notification details </h3>
 
 <h3 id="description"> Add description and tags</h3>
 
@@ -139,7 +153,7 @@ Choose notification endpoints if you want to send notifications or emails when t
 
 Choose the endpoints or email addresses to notify under _Who to send it to_.
 
-<h3 id="additional"> Add extra email recipients</h3>
+<h3 id="additional"> Add an additional email address as a recipient</h3>
 
 
 :::note
