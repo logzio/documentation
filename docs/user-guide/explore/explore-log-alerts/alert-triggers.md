@@ -21,7 +21,7 @@ If you have multiple thresholds with different severities configured for an aler
 
 
 
-![Recipients and wait between notifications](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/multiple-thresholds.png)
+![Recipients and wait between notifications](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/trigger-if-jun18.png)
 
 ### Grouping alert triggers by fields
 
