@@ -42,7 +42,7 @@ Special fields are located at the top of the list. These fields cannot be filter
 
 Additionally, you can pin up to three custom fields to the top of the list by hovering over them and clicking the star icon.
 
-![Explore fields](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-fields.gif)
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-fields.gif" alt="explore-fields" width="700"/>
 
 ### 3. Graph View
 
