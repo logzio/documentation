@@ -16,7 +16,7 @@ Enable the new Explore dashboard by navigating to [Settings](https://app.logz.io
 
 Explore is designed to investigate and analyze massive volumes of data quickly and easily. Use filters or the auto-complete syntax tool to find the logs you need, and drill into them using the quick view panel.
 
-![Explore dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-dashboard-may21.png)
+![Explore dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-main-jun19.png)
 
 
 ### 1. Smart Search / Lucene
