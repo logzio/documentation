@@ -35,9 +35,17 @@ Click on the dropdown menu to switch between Smart Search and Lucene query-based
 
 ### 2. Filters
 
-Filters can help you refine your search with just a few clicks. Choose one of the accounts you want to apply the filters on and click on each filter to open its view and add or exclude it from your view. Use the search bar to find a specific field. Click **Clear all** to remove all filters from your view.
+Filters help you refine your search with ease. Choose the accounts you want to filter and click on a field to view its available parameters. 
 
-Special fields (that appear at the top of the list) cannot be filtered but can be added to the table or added as a **field exists** filter.
+Select the values you want to include in your view, or uncheck them to remove them. 
+
+Use the search bar to find specific fields. To clear all filters, click the **Clear all** button.
+
+At the top of the list, you'll find special fields that cannot be filtered. However, they can be added to the table or used as a **field exists** filter.
+
+You can pin up to 3 custom fields to the top of the list by hovering over them and clicking the star icon.
+
+![Explore fields](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/leftsidepane.gif)
 
 ### 3. Graph View
 
