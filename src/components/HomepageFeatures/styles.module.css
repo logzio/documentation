@@ -41,3 +41,28 @@
 .smallCard {
   height: 60%; /* Adjust this value as per your requirement */
 }
+
+
+.search-header {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.search-header .DocSearch-Container {
+  width: 100%;
+  max-width: 600px; /* Adjust the max width as needed */
+}
+
+.DocSearch-Form {
+  display: flex;
+  width: 100%;
+}
+
+.DocSearch-Input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
