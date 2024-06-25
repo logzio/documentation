@@ -339,6 +339,7 @@
 /user-guide/infrastructure-monitoring/prometheus-importing-dashbds-manual-only.html				/docs/user-guide/Infrastructure-monitoring/introduction-to-prometheus/importing-dashboards
 /user-guide/users/single-sign-on/azure-sso.html/1000				/docs/user-guide/admin/sso/azure-sso/
 /user-guide/user-permissions/				/docs/user-guide/admin/users/
+/docs/user-guide/data-hub/log-parsing/sawmill-parsing/				/
 # Shippers				
 /shipping/				/docs/category/send-your-data/
 /user-guide/log-shipping/				/docs/category/send-your-data/

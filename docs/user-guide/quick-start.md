@@ -53,8 +53,6 @@ Logz.io offers automatic parsing [for over 50 log types](https://docs.logz.io/do
 
 If you can't find your log type, or if you're interested in sending custom logs, Logz.io will parse the logs for you. Parsing-as-a-service is included in your Logz.io subscription; just open a chat with our **Support team** with your request, you can also email us at [help@logz.io](mailto:help@logz.io).
 
-If you prefer to parse the logs yourself, you can use our [DIY Data Parsing Editor](https://docs.logz.io/docs/user-guide/data-hub/log-parsing/sawmill-parsing/).
-
 ###### Additional resources
 
 

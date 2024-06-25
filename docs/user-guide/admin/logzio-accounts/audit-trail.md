@@ -45,8 +45,6 @@ Admin deleted a sub account|User deleted an alert|
 ||User created S3 archiving|
 ||User updated S3 archiving|
 ||User deleted S3 archiving|
-||User created a sawmill configuration with Data Parsing|
-||User updated a sawmill configuration with Data Parsing|
 ||User updated field mapping|
 
 
