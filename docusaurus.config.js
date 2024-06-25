@@ -117,30 +117,28 @@ const config = {
       // Replace with your project's social card
       image: 'https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg',
       navbar: {
-        title: 'Docs',
         logo: {
           alt: 'Logz.io Docs',
           src: 'img/logz-logo.svg',
         },
         items: [
 
-          {to: '/docs/category/send-your-data/', label: 'Ship data', position: 'left'},
-          {to: 'https://api-docs.logz.io/docs/logz/logz-io-api', label: 'API', position: 'left'},
-          {to: 'https://status.logz.io/', label: 'System status', position: 'left'},
+          {to: '/docs/category/user-guide/', label: 'Docs', position: 'left'},
           {to: 'https://logz.io/blog/', label: 'Blog', position: 'left'},
+          {to: '/docs/category/send-your-data/', label: 'Ship data', position: 'left'},
+          {to: 'https://status.logz.io/', label: 'System status', position: 'left'},
+          {to: 'https://api-docs.logz.io/docs/logz/logz-io-api', label: 'API', position: 'left'},
+          
+
+          
           {
-            href: 'https://logz.io/freetrial/?utm_medium=referral&utm_source=api-portal&utm_campaign=api_trial&utm_content=lp&utm_term=free+trial',
-            label: 'Get a Demo',
+            href: 'https://app.logz.io/',
+            label: 'Login',
             position: 'right',
           },
           {
             href: 'https://logz.io/freetrial/?utm_medium=referral&utm_source=docs-portal&utm_campaign=docs_trial&utm_content=lp&utm_term=free+trial',
             label: 'Free Trial',
-            position: 'right',
-          },
-          {
-            href: 'https://app.logz.io/',
-            label: 'Login',
             position: 'right',
           },
         ],
