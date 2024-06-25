@@ -15,8 +15,8 @@ Variables will allow you to apply filters on your dashboards and drilldown links
 
 ### Add a new dashboard and variable
 
-* In the Metrics left menu, click <i class="fas fa-plus"></i>.
-* Click <i class="fas fa-cog"></i> in the dashboard toolbar (upper right corner).
+* In the Metrics left menu, click <i class="fas fa-plus"></i> Dashboard Settings (upper right corner).
+  <img width="1784" alt="image" src="https://github.com/logzio/documentation/assets/96846742/e4ac5996-0904-45a4-ac55-780baa7c2a06">
 * Select **Variables** > **Add variable**.
 
 ![Add Metrics interface variables](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metrics-variables.png)
