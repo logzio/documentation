@@ -8,6 +8,13 @@ keywords: [log, monitoring, parsing, default parsing, built in log types, log ty
 
 
 
+:::danger INFO
+Logz.io DIY Parsing is now deprecated. To parse your logs, contact [Logz.io's support team](mailto:help@logz.io).
+:::
+
+
+
+
 
 Parsing is the process of breaking down your log message into smaller chunks of data,
 placing each chunk into its own specific named field,
