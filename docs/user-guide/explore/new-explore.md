@@ -16,7 +16,7 @@ Enable the new Explore dashboard by navigating to [Settings](https://app.logz.io
 
 Explore is designed to investigate and analyze massive volumes of data quickly and easily. Use filters or the auto-complete syntax tool to find the logs you need, and drill into them using the quick view panel.
 
-![Explore dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-dashboard-may21.png)
+![Explore dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-main-jun19.png)
 
 
 ### 1. Smart Search / Lucene
@@ -35,9 +35,14 @@ Click on the dropdown menu to switch between Smart Search and Lucene query-based
 
 ### 2. Filters
 
-Filters can help you refine your search with just a few clicks. Choose one of the accounts you want to apply the filters on and click on each filter to open its view and add or exclude it from your view. Use the search bar to find a specific field. Click **Clear all** to remove all filters from your view.
 
-Special fields (that appear at the top of the list) cannot be filtered but can be added to the table or added as a **field exists** filter.
+Filters make it easy to refine and narrow your search. First, select the accounts you want to filter. Then, click on a field to see its available parameters. Choose the values you want to include in your view, or uncheck them to remove them. You can use the search bar to quickly find specific fields.
+
+Special fields are located at the top of the list. These fields cannot be filtered but can be added to the table or used as a **field exists** filter.
+
+Additionally, you can pin up to three custom fields to the top of the list by hovering over them and clicking the star icon.
+
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-fields.gif" alt="explore-fields" width="700"/>
 
 ### 3. Graph View
 
