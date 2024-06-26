@@ -16,7 +16,7 @@ drop_filter: []
 
  
 
-This integration ships events from AWS Security Hub to Logz.io. It will automatically deploy [resources](#resources) to your AWS Account.
+This integration ships events from AWS Security Hub to Logz.io. It will automatically deploy resources to your AWS Account.
 
 A new event triggers a designated EventBridge rule, which invokes a Lambda function. The function processes the event and sends it to Logz.io.
 
