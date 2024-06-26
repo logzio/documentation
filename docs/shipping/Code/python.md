@@ -41,7 +41,7 @@ Navigate to your project's folder in the command line, and run this command to i
 pip install logzio-python-handler
 ```
 
-If you'd like to use [Trace context](#trace-context), you need to install the OpenTelemetry logging instrumentation dependency by running the following command:
+If you'd like to use Trace context, you need to install the OpenTelemetry logging instrumentation dependency by running the following command:
 
 ```shell
 pip install logzio-python-handler[opentelemetry-logging]
@@ -182,7 +182,7 @@ LOGGING = {
 ### Serverless platforms
 
 If you're using a serverless function, you'll need to:
-1. Import and add the LogzioFlusher annotation before your sender function. To do this, in the [Code Example](#code-example) below, uncomment the `import` statement and the `@LogzioFlusher(logger)` annotation line.
+1. Import and add the LogzioFlusher annotation before your sender function. To do this, in the Code Example below, uncomment the `import` statement and the `@LogzioFlusher(logger)` annotation line.
 2. Make sure that the Logz.io handler is added to the root logger in your Configuration:
 ```python
 'loggers': {
@@ -193,7 +193,7 @@ If you're using a serverless function, you'll need to:
      }
  }
 ```
-**Note:** replace `superAwesomeLogzioLoggers` with the name you used for your logger in the code (see [Code Example](#code-example) below).
+**Note:** replace `superAwesomeLogzioLoggers` with the name you used for your logger in the code (see Code Example below).
 
 ### Code Example
 
@@ -246,7 +246,7 @@ logger.debug("Debug test log") # Outputs: {"message":"Debug test log","foo":"bar
 ```
 
 ### Extra Fields
-In case you need to dynamic metadata to a specific log and not [dynamically to the logger](#dynamic-extra-fields), other than the constant metadata from the formatter, you can use the "extra" parameter.
+In case you need to dynamic metadata to a specific log and not dynamically to the logger, other than the constant metadata from the formatter, you can use the "extra" parameter.
 All key values in the dictionary passed in "extra" will be presented in Logz.io as new fields in the log you are sending.
 Please note, that you cannot override default fields by the python logger (i.e. lineno, thread, etc..)
 For example:
