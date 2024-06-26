@@ -7,7 +7,7 @@ keywords: [metrics, infrastructure monitoring, PromQL, Prometheus, monitoring, o
 ---
 
 
-Logz.io Metrics solution is powered by Prometheus. This topic will help you get started with PromQL on Logz.io, and presents some examples and use cases for your environment.
+Logz.io Metrics solution is powered by Prometheus. This topic will help you get started with [(https://promlabs.com/promql-cheat-sheet/)]PromQL on Logz.io, and presents some examples and use cases for your environment.
 
 :::note
 PromQL does not support the `*` wildcard that Lucene queries use.
