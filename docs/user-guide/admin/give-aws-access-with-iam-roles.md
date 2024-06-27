@@ -168,14 +168,12 @@ In case your S3 bucket is encrypted, you need to add `kms:Decrypt` to the policy
   You can update the external ID
   and replace current Logz.io configurations.
   See
-  [_Migrate to the Logz.io external ID in the same role_](#migrate-with-same-role)
-  (below).
+  _Migrate to the Logz.io external ID in the same role_.
 * **If the role is used with multiple Logz.io accounts**:
   You'll need to create a new role for each account
   and replace current Logz.io configurations.
   See
-  [_Migrate to new IAM roles_](#migrate-to-new-roles)
-  (below).
+  _Migrate to new IAM roles_.
 
 ## Migrate to the Logz.io external ID in the same role {#migrate-with-same-role}
 
@@ -311,8 +309,7 @@ and copy the **External ID** (you'll paste it in AWS later).
 
 Using the information you copied to your text editor,
 follow the steps in
-[_Grant access to an S3 bucket_](#grant-access-to-an-s3-bucket)
-(near the top of this page).
+_Grant access to an S3 bucket_.
 
 Continue with this procedure when you're done.
 

@@ -5,6 +5,10 @@
 
 ## Prerequisites 
 
+:::note
+You can find your Logz.io configuration tokens, environment IDs, regions, and other required details [here](https://app.logz.io/#/dashboard/integrations/aws-eks).
+:::
+
 1. [Helm](https://helm.sh/)
 
 Add Logzio-helm repository
