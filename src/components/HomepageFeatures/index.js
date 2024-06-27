@@ -2,6 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
+import SearchHeader from '../../components/SearchHeader';  // Already imported
 
 const FeatureList = [
   {
@@ -75,7 +76,6 @@ const FeatureList = [
   },
 ];
 
-
 function Feature({Svg, title, description, link}, index) {
   return (
     <Link to={link} className={clsx('col col--3', styles.featureCard, index >= 9 ? styles.smallCard : '')}>
@@ -95,6 +95,7 @@ export default function HomepageFeatures() {
   return (
     <section className={styles.features}>
       <div className={clsx('container', styles.featuresContainer)}>
+        <SearchHeader /> {/* Added SearchHeader component here */}
         <div className={clsx('row', styles.centeredRow)}>
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
@@ -104,4 +105,3 @@ export default function HomepageFeatures() {
     </section>
   );
 }
-

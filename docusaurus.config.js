@@ -104,31 +104,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      algolia: {
-        // The application ID provided by Algolia
-        appId: 'GAVMESY4FI',
-  
-        // Public API key: it is safe to commit it
-        apiKey: '7f9d22d433c66f1a108b092d02c8d034',
-  
-        indexName: 'shiny-alfajores-ede8d8',
-  
-        // Optional: see doc section below
-        contextualSearch: true,
-  
-        // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
-        externalUrlRegex: 'external\\.com|domain\\.com',
-  
-
-  
-        // Optional: Algolia search parameters
-        searchParameters: {},
-  
-        // Optional: path for search page that enabled by default (`false` to disable it)
-        searchPagePath: 'search',
-  
-        //... other Algolia params
-      },
+      
       hotjar: {
         applicationId: "3812613",
       },
@@ -141,33 +117,28 @@ const config = {
       // Replace with your project's social card
       image: 'https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg',
       navbar: {
-        title: 'Docs',
         logo: {
           alt: 'Logz.io Docs',
           src: 'img/logz-logo.svg',
         },
         items: [
-          {
-            type: 'search',
-            position: 'right',
-          },
-          {to: '/docs/category/send-your-data/', label: 'Ship data', position: 'left'},
-          {to: 'https://api-docs.logz.io/docs/logz/logz-io-api', label: 'API', position: 'left'},
-          {to: 'https://status.logz.io/', label: 'System status', position: 'left'},
+
+          {to: '/docs/category/user-guide/', label: 'Docs', position: 'left'},
           {to: 'https://logz.io/blog/', label: 'Blog', position: 'left'},
+          {to: '/docs/category/send-your-data/', label: 'Ship data', position: 'left'},
+          {to: 'https://status.logz.io/', label: 'System status', position: 'left'},
+          {to: 'https://api-docs.logz.io/docs/logz/logz-io-api', label: 'API', position: 'left'},
+          
+
+          
           {
-            href: 'https://logz.io/freetrial/?utm_medium=referral&utm_source=api-portal&utm_campaign=api_trial&utm_content=lp&utm_term=free+trial',
-            label: 'Get a Demo',
+            href: 'https://app.logz.io/',
+            label: 'Login',
             position: 'right',
           },
           {
             href: 'https://logz.io/freetrial/?utm_medium=referral&utm_source=docs-portal&utm_campaign=docs_trial&utm_content=lp&utm_term=free+trial',
             label: 'Free Trial',
-            position: 'right',
-          },
-          {
-            href: 'https://app.logz.io/',
-            label: 'Login',
             position: 'right',
           },
         ],
