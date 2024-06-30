@@ -14,27 +14,23 @@ metrics_alerts: []
 drop_filter: []
 ---
 
-These instructions support collecting logs and metrics from S3 bucket
-* [Collect logs from S3 Bucket](#logs)
-* [Collect S3 metrics](#metrics)
 
-## Logs
+## Logs 
 
-Some AWS services can be configured to ship their logs to an S3 bucket, where Logz.io can fetch those logs directly.
+Some AWS services can be configured to send their logs to an S3 bucket, where Logz.io can directly retrieve them.
 
 
-### Which shipping method is right for you
 
-* If your data is organized in alphabetical order, you should opt for the [S3 fetcher](#shipping-logs-via-s3-fetcher). Logz.io operates this fetcher on our end, directly accessing your S3 to retrieve the data.
+### Choosing the Right Shipping Method
 
-
-* If your data is not organized in alphabetical order, use the [S3 hook](#shipping-logs-via-s3-hook). This approach requires deploying a Lambda function within your environment to manage the process.
+* **S3 Fetcher**: If your data is organized alphabetically, opt for the S3 Fetcher. Logz.io operates this fetcher on their end, directly accessing your S3 to retrieve the data.
+* **S3 Hook**: If your data is not alphabetically organized, use the S3 Hook. This requires deploying a Lambda function within your environment to manage the log shipping process.
 
 
 ### Shipping logs via S3 Fetcher
 
 :::note
-In case your S3 bucket is encrypted, you need to add `kms:Decrypt` to the policy on the ARN of the KMS key used to encrypt the bucket.
+If your S3 bucket is encrypted, add `kms:Decrypt` to the policy on the ARN of the KMS key used to encrypt the bucket.
 :::
 
 #### Best practices
@@ -58,7 +54,7 @@ Please keep these notes in mind when configuring logging.
 #### Configure Logz.io to fetch logs from an S3 bucket
 
 
-##### Add a new S3 bucket using the dedicated Logz.io configuration wizard
+#### Add a new S3 bucket using the dedicated Logz.io configuration wizard
 
 {@include: ../../_include/log-shipping/s3-bucket-snippet.html}
 
@@ -398,14 +394,12 @@ configurations that use the existing role.
   You can update the external ID
   and replace current Logz.io configurations.
   See
-  [_Migrate to the Logz.io external ID in the same role_](#migrate-with-same-role)
-  (below).
+  _Migrate to the Logz.io external ID in the same role_.
 * **If the role is used with multiple Logz.io accounts**:
   You'll need to create a new role for each account
   and replace current Logz.io configurations.
   See
-  [_Migrate to new IAM roles_](#migrate-to-new-roles)
-  (below).
+  _Migrate to new IAM roles_.
 
 ##### Migrate to the Logz.io external ID in the same role {#migrate-with-same-role}
 
@@ -546,8 +540,7 @@ and copy the **External ID** (you'll paste it in AWS later).
 
 Using the information you copied in step 1,
 follow the steps in
-[_Grant access to an S3 bucket_](#grant-access-to-an-s3-bucket)
-(near the top of this page).
+_Grant access to an S3 bucket_.
 
 Continue with this procedure when you're done.
 

@@ -63,20 +63,19 @@ git clone https://github.com/logzio/logzio_aws_serverless.git \
 
 | Parameter                                      | Description                                                                                                                                                                                                                                                                                                                                                 |
 | ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| TOKEN (Required)                               | The [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.                                                                                                                                                                                                                                                           |
+| TOKEN (Required)                               | The [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to. Only Admin users have access to the token.                                                                                                                                                                                                                                                          |
 | LISTENER_URL (Required)                        | Determines protocol, listener host, and port. For example, `https://<<LISTENER-HOST>>:8071`. <br /> Replace `<<LISTENER-HOST>>` with your region's listener host (for example, `https://listener.logz.io:8071`). Use port 8070 for HTTP or 8071 for HTTPS. For more information on finding your account's region, see [Account region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/) . |
-| AMPLIFY_DOMAIN (Required)                      | Amplify domain URL can be found in the Amplify admin dashboard in **General** under **Production branch URL**.                                                                                                                                                                                                                                             |
+| AMPLIFY_DOMAIN (Required)                      | Amplify domain URL can be found in the Amplify admin dashboard in **General** under **Production branch URL**.  This URL will be available after your application has been deployed.                                                                                                                                                                                                                                           |
 | TYPE (Default: `logzio_amplify_access_lambda`) | The log type you'll use with this Lambda. This can be a [type that supports default parsing](https://docs.logz.io/docs/user-guide/data-hub/log-parsing/default-parsing/#built-in-log-types), or a custom log type. <br /> You'll need to create a new Lambda for each log type you use.                                                                                                |
 | AMPLIFY_APP_ID (Required)                      | You can find the app ID in your Amplify admin dashboard in **General** under the **App ARN** field arn:aws:amplify:`REGION`:`AWS_ID`:apps/`APP_ID`.                                                                                                                                                                                                         |
 | TIMEOUT                                        | Period in minutes, over which the Lambda function fetches Amplify logs.                                                                                                                                                                                                                                                 |
 
 ### Set the EventBridge (CloudWatch Events) trigger
 
-1. Find the **Add triggers** list (left side of the Designer panel) and choose **EventBridge (CloudWatch Events)** from this list.
-2. If you don't have a pre-defined schedule type (e.g., 1min), click **Create new rule** in **Rule**.
-3. In **Rule name**, enter a name to uniquely identify your rule.
-4. In **Rule description**, if required, provide an optional description for your rule.
-
+1. Navigate to the Amazon EventBridge homepage.
+2. If you don't have a pre-defined schedule type (e.g., 1min), click **Rules** > **Create rule**.
+3. In **Name**, enter a name to uniquely identify your rule.
+4. In **Description**, provide a description for your rule. This step is optional. 
 5. In **Rule type**, choose the schedule expression that is equal to the TIMEOUT of the environment variable (e.g., 5 minutes).
 
 ### Update Permissions for Lambda Function
