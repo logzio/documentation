@@ -62,8 +62,8 @@ and get the right permissions.
 
 You can build it through:
 
-* [The command line](#credentials-cmd)
-* [The Cloud console](#credentials-console)
+* The command line
+* The Cloud console
 
 
 ### Option 1: Build the credentials file from the command line
@@ -83,7 +83,7 @@ wget https://raw.githubusercontent.com/logzio/logzio-pubsub/master/create-creden
 && python create-credentials.py <<project_id>>
 ```
 
-If you rename the file, follow [these steps](#cred-info) as well.
+If you rename the file, follow these steps as well.
 
 
 
@@ -110,7 +110,7 @@ Move it to the `/etc/logzio-pubsub` folder you've created at the beginning of th
 
 #### Variation
 
-* If your credentials file name isn't of the default format `<<project_id>>-credentials.json`, follow [the steps below](#cred-info) as well.
+* If your credentials file name isn't of the default format `<<project_id>>-credentials.json`, follow the steps below as well.
 
 
 ### Build your Pub/Sub input YAML file
@@ -191,7 +191,7 @@ logzio/logzio-pubsub
     ```
 
 
-* If your credentials file name isn't of the default format `<<project_id>>-credentials.json`, follow [the steps below](#cred-info) as well.
+* If your credentials file name isn't of the default format `<<project_id>>-credentials.json`, follow the steps below as well.
 
 * If you're using a Mac, you'll need to fix issues with mounting files from root directory.
 Add the path '/etc/logzio-pubsub' to your Docker File Sharing. Click [here](https://medium.com/effy-tech/fixing-the-var-folders-error-in-docker-for-mac-v2-2-3-2a40e776132d) for a guide on how to fix this issue - you can use docker desktop or manually edit your Docker configuration file.
@@ -209,9 +209,9 @@ and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
 The default naming convention for the credentials file is: `<<project_id>>-credentials.json`.
 
-When you create the credentials file through the [command line](#credentials-cmd), it is automatically named as per the default.
+When you create the credentials file through the command line, it is automatically named as per the default.
 
-If you create the credentials file using the [GCP Console](#credentials-console), you'll have the option to select the file name. We strongly recommend that you stick to the default format: `<<project_id>>-credentials.json`.
+If you create the credentials file using the GCP Console, you'll have the option to select the file name. We strongly recommend that you stick to the default format: `<<project_id>>-credentials.json`.
 
 If you decide to give the credentials file another name, please follow these instructions:
 
