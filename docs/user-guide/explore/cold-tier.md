@@ -13,7 +13,7 @@ Archived data often contains a wealth of information, making it time-consuming a
 ![cold Tier fetched logs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cold-search/cold-search-close-up.png)
 
 
-:::caution Important 
+:::info note 
 Cold Tier is currently available for users with **Amazon S3 archives**. To get started, contact your account manager or [Logz.io's support team](mailto:help@logz.io).
 :::
 
