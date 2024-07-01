@@ -43,9 +43,11 @@ Log Management lets you search and query logs, create alerts, investigate issues
 | Reports                                 |           | ✓    | ✓     | ✓     | ✓   |
 | Data parsing                            |           |      |       |       | ✓   |
 | Field mapping                           |           |      |       |       | ✓   |
-| Archive and restore                     |           |      | ✓     |       | ✓   |
+| Archive and restore + Cold Tier                     |           |      | ✓     |       | ✓   |
 | Drop filters                            |           |      |       |       | ✓   |
 | Incident reports                        |           | ✓    | ✓     | ✓     | ✓   |
+
+All users can fetch raw logs from Cold Tier, but only **Admin** and **Expert** users have the ability to re-ingest logs into the account.
 
 ###### Additional restrictions
 
