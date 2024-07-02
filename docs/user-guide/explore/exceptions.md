@@ -39,13 +39,14 @@ You can find and view all exceptions by using the following query:
 
 ![Find exceptions in Explore](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/logzio-insights.png)
 
+Click the **Exceptions** button to see all exceptions related to your current query.
+
 
 ### Investigating an exception
 
 Exceptions may recur in different log lines with slight variations or as duplicates. Logz.io tracks each exception over time, retaining its first occurrence for up to 6 months.
 
-Click the **Exceptions** button to see all exceptions related to your current query. The counter shows the total number of exceptions found. You can filter the list by **Most frequent** or **Most recent** exceptions. Use the toggle to view only new exceptions.
-
+Click the **Exceptions** button to see all exceptions related to your current query, up to 1,000 exceptions. You can filter the list by **Most frequent** or **Most recent** exceptions. Use the toggle to view only new exceptions.
 
 Hover over an exception to open a menu where you can filter it in or out of your view. 
 
