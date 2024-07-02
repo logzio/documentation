@@ -111,7 +111,7 @@ When comparing smaller timeframes (up to 1 hour), using the same interval in bot
 
 ![Comparing logs to metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/logs2metrics/apple-to-apple.png)
 
-### Higher values in Log Metrics vs. OpenSearvh Dashboards
+### Higher values in Log Metrics vs. OpenSearch Dashboards
 
 Log Metrics (or API) shows higher values than OpenSearch Dashboards aggregation.
 
