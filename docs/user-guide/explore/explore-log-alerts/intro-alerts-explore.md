@@ -15,7 +15,7 @@ Logz.io alerts leverage the Explore Dashboard search queries to continuously mon
 
 You can create an alert directly from your [Explore Dashboard](https://app.logz.io/#/dashboard/explore), or [build it manually](https://app.logz.io/#/dashboard/alerts/v2019/new) according to your desired configuration.
 
-Open the Explore Dashboard, create a query or smart search to trigger your alert, and click the **Create Alert** button in the top right corner.
+Open the Explore Dashboard, create a query or simple search to trigger your alert, and click the **Create Alert** button in the top right corner.
 
 You'll be redirected to the Create an alert page, where you can continue configuring your alert.
 

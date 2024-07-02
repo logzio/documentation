@@ -19,9 +19,9 @@ Explore is designed to investigate and analyze massive volumes of data quickly a
 ![Explore dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-main-jun19.png)
 
 
-### 1. Smart Search / Lucene
+### 1. Simple Search / Advanced (Lucene)
 
-Smart Search is the default query option, offering an intuitive experience with auto-complete functionality. It streamlines your search process and enables faster access to data.
+Simple Search is the default query option, offering an intuitive experience with auto-complete functionality. It streamlines your search process and enables faster access to data.
 
 Start typing to see all of the available fields you can use in your query. Select the operator you want to apply, and the available values will appear.
 
@@ -31,7 +31,7 @@ To add a value that doesn't appear in your logs, type its name and click on the 
 
 <img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/new-value-apr8.png" alt="add-value" width="700"/>
 
-Click on the dropdown menu to switch between Smart Search and Lucene query-based search.
+Click on the dropdown menu to switch between Simple Search and Advanced Search, which is Lucene query-based search.
 
 ### 2. Filters
 

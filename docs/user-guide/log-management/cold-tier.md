@@ -36,7 +36,7 @@ To get started with Cold Tier, contact your account manager or [Logz.io's suppor
 
 
 :::caution Important
-All users can fetch raw logs from Cold Tier. However, only **account admins** can re-ingest logs into the account.
+All users can fetch raw logs from Cold Tier. However, only **account admins** and **Expert users** can re-ingest logs into the account.
 :::
 
 To use Cold Tier, navigate to [Log analytics](https://app.logz.io/#/dashboard/osd/discover/), choose Cold Tier from the navigation menu, or click the **Cold Tier** button.
