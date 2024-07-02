@@ -41,7 +41,7 @@ You can also set a **threshold** for the drop filter to manage when logs are exc
 When you set a threshold, a `LogSize` field is automatically added to your logs.
 
 :::tip note
-The threshold task runs every 15 minutes and will not catch short spikes in log ingestion.
+Threshold rules run every 15 minutes. Short interval spikes may not be caught and logs won’t be dropped during these short intervals.
 :::
 
 Confirm the settings by checking the acknowledgment box and clicking **Apply filter** to activate.
