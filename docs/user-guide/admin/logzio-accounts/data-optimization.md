@@ -30,7 +30,7 @@ Enabling this option lets you save utilization metrics on a set schedule (every 
 
 **[Drop filters](https://docs.logz.io/docs/user-guide/data-hub/drop-fiters/)** offer a great and easy way to filter out logs you don’t regularly need from your account, which can help reduce the account’s volume and costs.
 
-Once you set up your drop filters, incoming logs that match your account’s active drop filters will not be indexed and will not appear in your OpenSource Dashboards account. 
+Once you set up your drop filters, incoming logs that match your account’s active drop filters will not be indexed and will not appear in your OpenSearch Dashboards account. 
 
 Dropped logs are not searchable, cannot trigger alerts, and will not appear in dashboards, reports, or anything else. However, if the Archive and restore option is enabled on your account, it will also include the dropped logs.
 
