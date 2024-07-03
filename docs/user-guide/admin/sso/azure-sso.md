@@ -27,14 +27,14 @@ The Support team will respond with the connection information you'll need to giv
 
 ### Add Logz.io as a gallery application in Azure
 
-Log into your [Azure Portal](https://portal.azure.com/) and follow the instructions in [Azure's docs](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/logzio-cloud-observability-for-engineers-tutorial) for adding the **Logz.io-Microsoft Entra Integration** from the  Gallery.
+Log into your [Azure Portal](https://portal.azure.com/) and follow the instructions in [Azure's docs](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/logzio-cloud-observability-for-engineers-tutorial) for adding the **Logz.io - Microsoft Entra Integration** from the  Gallery.
 
 When you get to the step **Set up single sign-on with SAML**, you'll need the SAML information you received from Logz.io Support's email.
 
 * **Identifier (Entity ID)**.
 * **Reply URL (Assertion Consumer Service URL)**.
 
-![information](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/single-sign-in-jul.png)
+![information](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/basic-saml-configuration.png)
 
 ### Zip the SAML certificate
 
@@ -42,7 +42,7 @@ In your new Azure app, navigate to **Manage > Single sign-on** and select the SA
 
 In the next step, you'll need to email this zip file to the [Logz.io Support team](mailto:help@logz.io).
 
-![SAML Certificate](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/azure-saml-download.png)
+![SAML Certificate](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/download-saml-jul3.png)
 
 Save your configuration.
 
@@ -54,7 +54,7 @@ Draft a new [email to Support](mailto:help@logz.io), and include these items:
 * Your SAML-P SIGN-ON ENDPOINT.
   This is your Azure **Login URL**.
 
-  ![Azure SAML-P SIGN-ON ENDPOINT](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/setup-azure-mar24.png)
+  ![Azure SAML-P SIGN-ON ENDPOINT](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/setup-app-name-jul3.png)
 
 
 ### Configure Azure to send user groups
@@ -66,7 +66,7 @@ Open the **App registrations** service, choose the relevant application from the
 In the manifest JSON, set groupMembershipClaims to `"All"`.
 Click **Save** (at the top of the page).
 
-![groupMembershipClaims Editor](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/azure-sso-app-json-mar.png)
+![groupMembershipClaims Editor](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/manifest-jul3.png)
 
 ### Additional configuration for users who are in over 150 groups
 
@@ -80,23 +80,23 @@ In your Azure Portal, navigate to **[Microsoft Entra ID](https://portal.azure.co
 
 Next, navigate to **API Permissions**, and click **Add a permission**.
 
-![Add permission](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/add-permission-mar.png)
+![Add permission](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/app-permission-jul3.png)
 
 Add the three following permissions to your account:
 
   1. Select the **APIs my organization uses** tab on the right side menu, and click on **Windows Azure Active Directory**. Next, choose **Application permissions** > **Directory.Read.All** and add the permission.
 
-  ![Add read all permission](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/directory-read-all-mar.png)
+  ![Add read all permission](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/add-permission-jul3.png)
   
   2. Click **Add a permission**. Under **Microsoft APIs** select **Microsoft Graph**.
   Choose **Application permissions**, and search for **Group**. Choose **Group:ReadAll**, and click Add permissions.
 
-  ![Add group read all permission](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/group-read-all-mar.png)
+  ![Add group read all permission](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/add-pemission-2-jul3.png)
   
   3. Click **Add a permission**, select **Microsoft APIs** tab and click on **Microsoft Graph** again.
   Choose **Application permissions**, search for **Application**, choose **Application.Read.All**, and click Add permissions.
 
-  ![Add application read all permission](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/application-read-all-mar.png)
+  ![Add application read all permission](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/add-permission-group-jul3.png)
 
 Next, navigate to **Certificates & secrets** on the left side menu, and add a **New client secret**. Name the secret, for example, Logz.io Group Access, set the expiration date to the farthest option available, 24 months, and click the **Add** button.
 
@@ -117,7 +117,7 @@ Click **Add group**, and paste the group's **Object ID** for each group that sho
 
 To find your **Object ID**, navigate to [your Azure app](https://portal.azure.com/) > [Groups](https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups). Open the relevant group and copy the Object ID string.
 
-![ObjectID](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/group-object-id.png)
+![ObjectID](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/security-jul3.png)
 
 
 ### Receive confirmation from Support
