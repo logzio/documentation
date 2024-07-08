@@ -19,6 +19,7 @@ The drop filters table lists all filters, whether active or not. Each filter has
 
 ## Add a new Drop Log Filter
 
+
 Click on **+ Add drop filter**.
 
 Select a specific log type to filter, or choose **All** to apply the filter across all log types.
@@ -37,8 +38,10 @@ Your filter can contain up to 3 fields.
 
 You can also set a **threshold** for the drop filter to manage when logs are excluded. Select any limit between 1GB and 1,000GB. Once this threshold is reached, the filter remains active for the remainder of the day and resets daily. If no threshold is set, the filter activates immediately.
 
-:::tip note
 When you set a threshold, a `LogSize` field is automatically added to your logs.
+
+:::tip note
+Threshold rules run every 15 minutes.
 :::
 
 Confirm the settings by checking the acknowledgment box and clicking **Apply filter** to activate.
