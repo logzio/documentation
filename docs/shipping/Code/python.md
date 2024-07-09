@@ -1355,7 +1355,7 @@ Optional parameters can be added as environment variables:
   
 | Parameter | Description | Default |
 |---|---|---|
-| secrets.SamplingLatency | Threshold for the spand latency - all traces slower than the threshold value will be filtered in. | `500` |
+| secrets.SamplingLatency | Threshold for the span latency - all traces slower than the threshold value will be filtered in. | `500` |
 | secrets.SamplingProbability | Sampling percentage for the probabilistic policy. | `10` |
 
 ##### Example

@@ -6,5 +6,5 @@ The configurable parameters in the Logz.io default configuration are:
 
 | Parameter | Description | Default |
 |---|---|---|
-| threshold_ms | Threshold for the spand latency - all traces slower than the threshold value will be filtered in. | 1000 |
+| threshold_ms | Threshold for the span latency - all traces slower than the threshold value will be filtered in. | 1000 |
 | sampling_percentage | Sampling percentage for the probabilistic policy. | 10 |
