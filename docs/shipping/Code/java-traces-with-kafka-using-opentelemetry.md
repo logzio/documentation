@@ -225,7 +225,7 @@ You can use the following options to update the Helm chart parameters:
 
 * Edit the `values.yaml`.
 
-* Overide default values with your own `my_values.yaml` and apply it in the `helm install` command. 
+* Override default values with your own `my_values.yaml` and apply it in the `helm install` command. 
 
 If required, you can add the following optional parameters as environment variables:
   
