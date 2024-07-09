@@ -167,7 +167,7 @@ For more details, see the [Log4j documentation](https://logging.apache.org/log4j
 | **queueDir**          | *System.getProperty("java.io.tmpdir")* | Directory for storing the queue. |
 
 
-### Code Example
+Code Example:
 
 ```java
 import org.apache.logging.log4j.LogManager;

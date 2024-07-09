@@ -234,8 +234,6 @@ logger.removeFilter(ExtraFieldsLogFilter(error_fields))
 logger.debug("Debug test log") 
 ```
 
-### Extra Fields
-
 To add dynamic metadata to a specific log rather than to the logger, use the "extra" parameter. All key-value pairs in the dictionary passed to "extra" will appear as new fields in Logz.io. Note that you cannot override default fields set by the Python logger (e.g., lineno, thread).
 
 For example:
