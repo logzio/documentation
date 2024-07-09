@@ -476,7 +476,7 @@ requestCounter.add(1,labels);
 ```javascript
 // Create UpDownCounter metric
 const upDownCounter = meter.createUpDownCounter('UpDownCounter', {
-    description: 'Example of a UpDownCounter',
+    description: 'Example of an UpDownCounter',
 });
 // Define some labels for your metrics
 const labels = { environment: 'prod' };
