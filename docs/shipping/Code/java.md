@@ -230,7 +230,7 @@ Which produces the following output:
 
 #### Using Markers
 
-Markers are used to tag and enrich log statements. Add this:
+Markers are used to tag and enrich log statements. Add them by running this:
 
 
 ```java
@@ -248,7 +248,7 @@ public class LogzioLog4j2Example {
 }
 ```
 
-To produce the following:
+Which produces the following output:
 
 ```json
 {
@@ -406,9 +406,7 @@ public class LogzioLogbackExample {
 
 #### Add MDC to your logs
 
-Each key-value pair you define will be included in log lines while the thread is active.
-
-This code:
+Each key-value pair you define will be included in log lines while the thread is active. Add it by running the following:
 
 ```java
 import org.slf4j.Logger;
@@ -425,7 +423,7 @@ public class LogzioLogbackExample {
 }
 ```
 
-Produces this log output:
+Which produces this output:
 
 ```json
 {
@@ -437,10 +435,8 @@ Produces this log output:
 
 #### Add Markers to your logs
 
-Markers are used to tag and enrich log statements.
+Markers are used to tag and enrich log statements. Add it by running:
 
-
-This code:
 
 ```java
 import org.slf4j.Logger;
@@ -458,7 +454,7 @@ public class LogzioLogbackExample {
 }
 ```
 
-Produces this log output:
+Which produces this output:
 
 ```json
 {
