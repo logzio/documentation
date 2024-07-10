@@ -16,7 +16,7 @@ drop_filter: []
 ---
 
 :::tip
-For Kubernetes, use the Kubernetes integration to collect various telemetry types.
+For Kubernetes data, use the [dedicated integration](https://docs.logz.io/docs/shipping/containers/kubernetes/).
 :::
 
 ## Logs
