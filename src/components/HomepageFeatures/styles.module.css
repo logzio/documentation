@@ -1,68 +1,110 @@
 .features {
-  display: flex;
-  align-items: center;
-  padding: 2rem 0;
-  width: 100%;
-}
-
-.featureSvg {
-  height: 50px;
-  width: 50px;
-}
-
-.featureCard {
-  display: block;
-  padding: 20px;
-  margin: 10px;
-  background-color: var(--ifm-background-color);
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  text-decoration: none;
-  color: inherit;
-}
-
-.featureCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  margin-top: 20px;
 }
 
 .featuresContainer {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .centeredRow {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* Centers the row */
+  justify-content: center;
 }
 
-.smallCard {
-  height: 60%; /* Adjust this value as per your requirement */
-}
-
-
-.search-header {
+.featureCard {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  align-items: center;
+  height: 80px; /* Adjust the height as needed */
+  width: 80px; /* Adjust the width to be narrower */
 }
 
-.search-header .DocSearch-Container {
-  width: 100%;
-  max-width: 600px; /* Adjust the max width as needed */
-}
-
-.DocSearch-Form {
-  display: flex;
-  width: 100%;
-}
-
-.DocSearch-Input {
-  width: 100%;
+.featureCardWithDetails {
+  margin-bottom: 10px;
   padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto; /* Adjust the height as needed */
+  width: 100%; /* Adjust the width to be narrower */
+}
+
+.staticCard {
+  margin-bottom: 20px;
+}
+
+.featureSvg {
+  width: 40px;
+  height: 40px;
+}
+
+.searchContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.searchContainer .docusaurus-search-container {
+  width: 100%;
+  max-width: 600px; /* Make the search bar wider */
+}
+
+.searchContainer input {
+  width: 100%;
+}
+
+.mainTitle {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.stepTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.stepSubtitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.popularLinks {
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.popularLinks a {
+  margin: 0 10px;
+}
+
+.separator {
+  margin: 0 10px;
+}
+
+.seeAllLink {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #007bff;
+  border-radius: 30px; /* Oval shape */
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.seeAllLink:hover {
+  background-color: #007bff;
+  color: #fff;
 }
