@@ -121,9 +121,91 @@ const ObservabilitySuiteFeatures = [
   },
 ];
 
+const WhatsNewFeatures = [
+  {
+    title: 'New Feature 1',
+    link: "/docs/new-feature-1",
+    Svg: require('@site/static/img/quick-start.svg').default, // Use existing image as placeholder
+    description: <>Check out the latest feature 1.</>,
+  },
+  {
+    title: 'New Feature 2',
+    link: "/docs/new-feature-2",
+    Svg: require('@site/static/img/obsiq.svg').default, // Use existing image as placeholder
+    description: <>Discover what's new in feature 2.</>,
+  },
+  {
+    title: 'New Feature 3',
+    link: "/docs/new-feature-3",
+    Svg: require('@site/static/img/explore.svg').default, // Use existing image as placeholder
+    description: <>Learn about the new feature 3.</>,
+  },
+  {
+    title: 'New Feature 4',
+    link: "/docs/new-feature-4",
+    Svg: require('@site/static/img/k8s.svg').default, // Use existing image as placeholder
+    description: <>Learn about the new feature 4.</>,
+  },
+  {
+    title: 'New Feature 5',
+    link: "/docs/new-feature-5",
+    Svg: require('@site/static/img/integrations.svg').default, // Use existing image as placeholder
+    description: <>Learn about the new feature 5.</>,
+  },
+  {
+    title: 'New Feature 6',
+    link: "/docs/new-feature-6",
+    Svg: require('@site/static/img/api.svg').default, // Use existing image as placeholder
+    description: <>Learn about the new feature 6.</>,
+  },
+];
+
+const BestPracticesAndTools = [
+  {
+    Svg: require('@site/static/img/quick-start.svg').default,
+    title: 'Best Practice 1',
+    links: [
+      { text: 'Link 1', url: '/docs/link1' },
+      { text: 'Link 2', url: '/docs/link2' },
+      { text: 'Link 3', url: '/docs/link3' },
+      { text: 'Link 4', url: '/docs/link4' },
+    ],
+  },
+  {
+    Svg: require('@site/static/img/quick-start.svg').default,
+    title: 'Best Practice 2',
+    links: [
+      { text: 'Link 1', url: '/docs/link1' },
+      { text: 'Link 2', url: '/docs/link2' },
+      { text: 'Link 3', url: '/docs/link3' },
+      { text: 'Link 4', url: '/docs/link4' },
+    ],
+  },
+  {
+    Svg: require('@site/static/img/quick-start.svg').default,
+    title: 'Best Practice 3',
+    links: [
+      { text: 'Link 1', url: '/docs/link1' },
+      { text: 'Link 2', url: '/docs/link2' },
+      { text: 'Link 3', url: '/docs/link3' },
+      { text: 'Link 4', url: '/docs/link4' },
+    ],
+  },
+  {
+    Svg: require('@site/static/img/quick-start.svg').default,
+    title: 'Best Practice 4',
+    links: [
+      { text: 'Link 1', url: '/docs/link1' },
+      { text: 'Link 2', url: '/docs/link2' },
+      { text: 'Link 3', url: '/docs/link3' },
+      { text: 'Link 4', url: '/docs/link4' },
+    ],
+  },
+];
+
 function Feature({Svg, link}) {
   return (
-    <Link to={link} className={clsx('col col--4', styles.featureCard)}>
+    <Link to={link} className={styles.featureCard}>
       <div className="text--center">
         {Svg && <Svg className={styles.featureSvg} role="img" />}
       </div>
@@ -133,7 +215,7 @@ function Feature({Svg, link}) {
 
 function FeatureWithDetails({Svg, link, title, description}) {
   return (
-    <Link to={link} className={clsx('col col--4', styles.featureCardWithDetails)}>
+    <Link to={link} className={styles.featureCardWithDetails}>
       <div className="text--center">
         {Svg && <Svg className={styles.featureSvg} role="img" />}
       </div>
@@ -157,14 +239,27 @@ function StaticCard({ title, description }) {
 }
 
 function FeatureSection({header, features, showLink, isDetailed}) {
+  const firstRowFeatures = features.slice(0, 3);
+  const secondRowFeatures = features.slice(3, 6);
   return (
     <div className="col col--4">
       <h3 className="text--center">{header}</h3>
       <div className="row">
-        {features.map((props, idx) => (
-          isDetailed ? 
-          <FeatureWithDetails key={idx} {...props} /> :
-          <Feature key={idx} {...props} />
+        {firstRowFeatures.map((props, idx) => (
+          <div className="col col--4" key={idx}>
+            {isDetailed ? 
+            <FeatureWithDetails {...props} /> :
+            <Feature {...props} />}
+          </div>
+        ))}
+      </div>
+      <div className="row">
+        {secondRowFeatures.map((props, idx) => (
+          <div className="col col--4" key={idx}>
+            {isDetailed ? 
+            <FeatureWithDetails {...props} /> :
+            <Feature {...props} />}
+          </div>
         ))}
       </div>
       {showLink && (
@@ -191,6 +286,65 @@ function PopularLinks() {
       <Link to="/docs/category/send-your-data">Integration setup</Link>
       <span className={styles.separator}>|</span>
       <Link to="https://api-docs.logz.io/docs/category/logz-api">API</Link>
+    </div>
+  );
+}
+
+function WhatsNewHorizontalScroll() {
+  return (
+    <div className={styles.whatsNewHorizontalScroll}>
+      <h2 className="text--center">What's New</h2>
+      <div className={styles.scrollContainer}>
+        {WhatsNewFeatures.map((props, idx) => (
+          <div key={idx} className={styles.scrollCard}>
+            <Link to={props.link} className={styles.carouselCard}>
+              <div className="text--center">
+                {props.Svg && <props.Svg className={styles.featureSvg} role="img" />}
+              </div>
+              <div className="text--center padding-horiz--md">
+                <h3>{props.title}</h3>
+                <p>{props.description}</p>
+              </div>
+            </Link>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function BestPracticesAndToolsSection() {
+  return (
+    <div className={styles.bestPracticesAndTools}>
+      <h2 className="text--center">Best Practices and Tools</h2>
+      <div className="row">
+        {BestPracticesAndTools.map((column, idx) => (
+          <div className="col col--3" key={idx}>
+            <div className={styles.bestPracticesColumn}>
+              <img src={column.Svg} alt={column.title} className={styles.bestPracticesImage} />
+              <h3 className="text--center">{column.title}</h3>
+              <ul>
+                {column.links.map((link, linkIdx) => (
+                  <li key={linkIdx}>
+                    <Link to={link.url}>{link.text}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ContactSupportSection() {
+  return (
+    <div className={styles.contactSupportSection}>
+      <h2 className="text--center">Not finding the help you need?</h2>
+      <div className="text--center">
+        <Link to="/contact-support" className={styles.contactSupportButton}>Contact Support</Link>
+      </div>
     </div>
   );
 }
@@ -230,10 +384,21 @@ export default function HomepageFeatures() {
           <div className="col col--12">
             <div className="row">
               {ObservabilitySuiteFeatures.map((props, idx) => (
-                <FeatureWithDetails key={idx} {...props} />
+                <div className="col col--4" key={idx}>
+                  <FeatureWithDetails {...props} />
+                </div>
               ))}
             </div>
           </div>
+        </div>
+        <div className="row" style={{ marginTop: '40px' }}>
+          <WhatsNewHorizontalScroll />
+        </div>
+        <div className="row" style={{ marginTop: '40px' }}>
+          <BestPracticesAndToolsSection />
+        </div>
+        <div className="row" style={{ marginTop: '40px' }}>
+          <ContactSupportSection />
         </div>
       </div>
     </section>

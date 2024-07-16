@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .centeredRow {
@@ -107,4 +108,124 @@
 .seeAllLink:hover {
   background-color: #007bff;
   color: #fff;
+}
+
+.features {
+  background-color: var(--ifm-background-color);
+  padding: var(--ifm-spacing-vertical) 0;
+}
+
+.featuresContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.featureCard {
+  border: 1px solid var(--ifm-color-gray-200);
+  border-radius: var(--ifm-radius);
+  padding: var(--ifm-spacing-vertical) var(--ifm-spacing-horizontal);
+  margin: var(--ifm-spacing-vertical) var(--ifm-spacing-horizontal);
+  text-align: center;
+}
+
+.featureSvg {
+  width: 100%;
+  height: auto;
+}
+
+.featureCardWithDetails {
+  border: 1px solid var(--ifm-color-gray-200);
+  border-radius: var(--ifm-radius);
+  padding: var(--ifm-spacing-vertical) var(--ifm-spacing-horizontal);
+  margin: var(--ifm-spacing-vertical) var(--ifm-spacing-horizontal);
+  text-align: center;
+}
+
+.staticCard {
+  border: 1px solid var(--ifm-color-gray-200);
+  border-radius: var(--ifm-radius);
+  padding: var(--ifm-spacing-vertical) var(--ifm-spacing-horizontal);
+  margin: var(--ifm-spacing-vertical) var(--ifm-spacing-horizontal);
+  text-align: center;
+}
+
+.whatsNewHorizontalScroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.scrollContainer {
+  display: flex;
+}
+
+.scrollCard {
+  flex: 0 0 auto;
+  width: 30%;
+  margin-right: var(--ifm-spacing-horizontal);
+}
+
+.popularLinks {
+  display: flex;
+  justify-content: center;
+  gap: var(--ifm-spacing-horizontal);
+}
+
+.separator {
+  margin: 0 var(--ifm-spacing-horizontal);
+}
+
+.searchContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.seeAllLink {
+  padding: var(--ifm-spacing-vertical) var(--ifm-spacing-horizontal);
+  background-color: var(--ifm-color-primary);
+  color: white;
+  border-radius: var(--ifm-radius);
+  text-decoration: none;
+}
+
+.bestPracticesAndTools {
+  margin-top: 40px;
+}
+
+.bestPracticesColumn {
+  text-align: center;
+}
+
+.contactSupportButton {
+  padding: var(--ifm-spacing-vertical) var(--ifm-spacing-horizontal);
+  background-color: var(--ifm-color-primary);
+  color: white;
+  border-radius: var(--ifm-radius);
+  text-decoration: none;
+}
+
+.contactSupportSection {
+  margin-top: 40px;
+}
+
+.mainTitle {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.stepTitle {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.stepSubtitle {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.carouselCard {
+  border: 1px solid var(--ifm-color-gray-200);
+  border-radius: var(--ifm-radius);
+  padding: var(--ifm-spacing-vertical) var(--ifm-spacing-horizontal);
+  margin: var(--ifm-spacing-vertical) var(--ifm-spacing-horizontal);
+  text-align: center;
 }

@@ -1,0 +1,63 @@
+/* src/components/CustomFooter.module.css */
+
+.footer {
+  background-color: var(--ifm-footer-background-color);
+  color: var(--ifm-footer-color);
+  padding: var(--ifm-footer-padding-vertical) var(--ifm-footer-padding-horizontal);
+}
+
+.footerLinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footerLinkSection {
+  flex: 1;
+  min-width: 150px;
+}
+
+.footerLogoText {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.footerLogo {
+  width: 50px; /* Adjust the width as needed */
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.footerTitle {
+  font-size: var(--ifm-footer-title-font-size);
+  margin-bottom: var(--ifm-spacing-vertical);
+}
+
+.footerItems {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footerItem {
+  margin-bottom: var(--ifm-spacing-vertical);
+}
+
+.footerLinkItem {
+  color: var(--ifm-footer-link-color);
+  text-decoration: none;
+}
+
+.footerLinkItem:hover {
+  text-decoration: underline;
+}
+
+.footerBottom {
+  border-top: 1px solid var(--ifm-footer-border-color);
+  padding-top: var(--ifm-spacing-vertical);
+  margin-top: var(--ifm-spacing-vertical);
+  text-align: center;
+}
+
+.footerCopyright {
+  margin-top: 10px;
+}
