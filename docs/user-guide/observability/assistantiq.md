@@ -20,17 +20,13 @@ You can now leverage the insights from your dialog and enhance data analysis to 
 
 <h2 id="start"> Using Observability IQ Assistant </h2> 
 
-To start using Observability IQ Assistant in **Explore**, you'll need to enable the new dashboard. Navigate to [Settings > General settings > Explore](https://app.logz.io/#/dashboard/settings/general) and toggle the button to activate your Explore beta.
+Observability IQ Assistant is available in the **[Explore](https://app.logz.io/#/dashboard/explore)**, **[Kubernetes 360](https://app.logz.io/#/dashboard/observability/k8s360)**, and **[App 360](https://app.logz.io/#/dashboard/spm/services/table)** dashboards. Click the Observability IQ button at the top to open the interface.
 
-Next, navigate to the [Explore dashboard](https://app.logz.io/#/dashboard/explore) and click the Observability IQ button at the top to open the interface.
-
-For the **[Kubernetes 360](https://app.logz.io/#/dashboard/observability/k8s360)** dashboard, you can use Observability IQ Assistant as part of a deeper dive into a deployment, node, or pod. To activate it, choose one of the options, open its quick view, and click the Observability IQ button at the top to open the interface.
-
-In the **[App 360](https://app.logz.io/#/dashboard/spm/services/table)** dashboard, the Observability IQ Assistant is part of the services' inner view. Open one of your services and click the Observability IQ button at the top to open the interface.
+Once you provide input to the assistant, the **dashboard's data** will be shared with Claude3.
 
 Use the assistant to analyze trends in latency, throughput, error rate, and HTTP status codes over time to identify patterns or anomalies that may require attention. Additionally, it can be used to compare the performance metrics of different operations and determine if any significant differences need to be addressed.
 
 ![Observability IQ screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/observabilityiq-mar27.png)
 
 
-For further assistance with Observability IQ Assistant, [contact Logz.io's Support Team](mailto:help@logz.io).
+For further assistance with Observability IQ Assistant, read the [FAQ](https://docs.logz.io/docs/user-guide/observability/faq) or [contact Logz.io's Support Team](mailto:help@logz.io).
