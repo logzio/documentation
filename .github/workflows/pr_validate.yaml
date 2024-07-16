@@ -13,11 +13,11 @@ jobs:
       MANIFEST_PATH: '_manifest/validation_manifest.json'
     steps:
       - name: Checkout PR
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
           fetch-depth: 0
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.10'
       - name: install dependencies
@@ -96,7 +96,7 @@ jobs:
           python _manifest/manifest_generator.py
           echo "Copying file into manifest path"
           cp ${{env.MANIFEST_PATH}} static/manifest.json
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - uses: stefanzweifel/git-auto-commit-action@v5
         id: auto_commit_manifest
         if: steps.create_manifest.outputs.skip_next_step != 'true' && steps.create_manifest.outcome == 'success'
         with:
