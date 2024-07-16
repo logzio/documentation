@@ -21,7 +21,7 @@ Another option is to sign in to your Logz.io account and look at the URL in the 
 
 If you see `app.logz.io`, your account is hosted in the US East (Northern Virginia).
 All other regions have a two-letter region code.
-For example, if you see `app-eu.logz.io`, then your account is in the Europe (Frankfurt) region.
+For example, if you see `app-eu.logz.io`, then your account is in the Europe (Frankfurt) region. 
 
 
 ## Available regions
