@@ -10,7 +10,7 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/lamb
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['2YLu810AXPlVwzQen8vff1']
+metrics_dashboards: ['2YLu810AXPlVwzQen8vff1','5tAA2oqe1KZmJqQAKUFYuq']
 metrics_alerts: ['4iuPoRsdogZKww8d0NO7er']
 drop_filter: []
 ---
