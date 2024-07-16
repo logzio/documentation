@@ -6,7 +6,7 @@
 ## Prerequisites 
 
 :::note
-You can find your Logz.io configuration tokens, environment IDs, regions, and other required details [here](https://app.logz.io/#/dashboard/integrations/aws-eks).
+Your Logz.io configuration tokens, environment IDs, regions, and other required details are [here](https://app.logz.io/#/dashboard/integrations/aws-eks).
 :::
 
 * [Helm](https://helm.sh/)
@@ -37,8 +37,8 @@ logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
 ### Log collection with logzio-fluentd
-The `logzio-fluentd` chart is disabled by default in favor of the `logzio-logs-collector` chart for log collection.
-Deploy `logzio-fluentd`, by adding the following `--set` flags:
+The `logzio-fluentd` chart is disabled by default in favor of the `logzio-logs-collector` chart.
+Deploy `logzio-fluentd` by adding the following `--set` flags:
 
 ```sh
 helm install -n monitoring \
@@ -64,7 +64,7 @@ If you encounter an issue, see our [troubleshooting guide](https://docs.logz.io/
 
 ## Send deployment events logs
 
-Send data about deployment events in the cluster, and how they affect it's resources. 
+Send data about deployment events in the cluster, and how they affect its resources. 
 _Supported resource kinds are `Deployment`, `Daemonset`, `Statefulset`, `ConfigMap`, `Secret`, `Service Account`, `Cluster Role` and `Cluster Role Binding`._
 
 ```sh
@@ -87,7 +87,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 
 ### Deployment events versioning
 
-To add a versioning indicator in Kubernetes 360 and Service Overview, include the logzio/commit_url annotation in the resource metadata. The 'View commit' button will link to the commit URL in your version control system (VCS).
+To add a versioning indicator in Kubernetes 360 and Service Overview, include the `logzio/commit_url` annotation in the resource metadata. The 'View commit' button will link to the commit URL in your version control system (VCS).
 
 
 ```yaml
@@ -173,7 +173,9 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<SPM-METRICS-SHIPPING-TOKEN>>` | Your [span metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
 
 ## Deploy both charts with span metrics and service graph
-**Note** `serviceGraph.enabled=true` will have no effect unless `traces.enabled` & `spm.enabled=true` is also set to `true`
+
+**Note:** `serviceGraph.enabled=true` will have no effect unless `traces.enabled` & `spm.enabled=true` is also set to `true`.
+
 ```sh
 helm install -n monitoring \
 --set metricsOrTraces.enabled=true \
@@ -187,8 +189,10 @@ helm install -n monitoring \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
-#### Deploy metrics chart with Kuberenetes object logs correlation
-**Note** `k8sObjectsConfig.enabled=true` will have no effect unless `metrics.enabled` is also set to `true`
+#### Deploy metrics chart with Kubernetes object logs correlation
+
+**Note** `k8sObjectsConfig.enabled=true` will have no effect unless `metrics.enabled` is also set to `true`.
+
 ```sh
 helm install  \
 --set logzio-k8s-telemetry.metrics.enabled=true \
@@ -282,7 +286,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 
 ## Handling image pull rate limit
 
-To avoid Docker Hub pull rate limits, which could result in the following error: `You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limits`, use the `--set` commands below to access an alternative image repository:
+Docker Hub pull rate limits could result in the following error: `You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limits`. To avoid this, use the `--set` commands below to access an alternative image repository:
 
 ```shell
 --set logzio-k8s-telemetry.image.repository=ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib
@@ -296,7 +300,7 @@ To avoid Docker Hub pull rate limits, which could result in the following error:
 
 Before upgrading your logzio-monitoring chart to v3.0.0 with `helm upgrade`, you might encounter errors with some logzio-telemetry sub-charts. 
 
-You have two options to proceed:
+You have two options:
 
 - Reinstall the chart.
 - Before running `helm upgrade`, delete the old subcharts resources: `logzio-monitoring-prometheus-pushgateway` deployment and the `logzio-monitoring-prometheus-node-exporter` daemonset.
@@ -319,7 +323,7 @@ Set up a log processor to parse JSON logs:
 
 ## Adding metric names to Kubernetes 360 filter
 
-To customize Prometheus metrics in your Kubernetes environment, you need to modify the `prometheusFilters` configuration in your Helm chart.
+Customize Prometheus metrics in your Kubernetes environment by modifying the `prometheusFilters` configuration in your Helm chart.
 
 **1. Identify metrics to keep**
 

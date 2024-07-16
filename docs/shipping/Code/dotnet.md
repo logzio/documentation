@@ -37,65 +37,36 @@ import TabItem from '@theme/TabItem';
 :::
 
 
-#### Add the dependency to your project
+### Add the dependency to your project
 
-If you're on Windows, navigate to your project's folder in the command line, and run this command to install the dependency.
+On Windows, open the command line, go to your project folder, and run this command to install the dependency.
 
 ```
 Install-Package Logzio.DotNet.Log4net
 ```
 
-If you're on a Mac or Linux machine, you can install the package using Visual Studio. Select **Project > Add NuGet Packages...**, and then search for `Logzio.DotNet.Log4net`.
+On Mac or Linux, install the package using Visual Studio. **Project > Add NuGet Packages...**, and search for `Logzio.DotNet.Log4net`.
 
-#### Configure the appender
 
-You can configure the appender in a configuration file or directly in the code.
-Use the samples in the code blocks below as a starting point, and replace them with a configuration that matches your needs. See [log4net documentation 🔗](https://github.com/apache/logging-log4net) to learn more about configuration options.
+### Configure the appender in a configuration file
 
-For a complete list of options, see the configuration parameters below the code blocks.👇
+Use the samples below as a starting point and adjust them to fit your needs. For more options, see the [log4net documentation](https://github.com/apache/logging-log4net).
 
-##### Option 1: In a configuration file
 
 ```xml
 <log4net>
     <appender name="LogzioAppender" type="Logzio.DotNet.Log4net.LogzioAppender, Logzio.DotNet.Log4net">
-    	<!--
-		Required fields
-	-->
-	<!-- Your Logz.io log shipping token -->
 	<token><<LOG-SHIPPING-TOKEN>></token>
-
-	<!--
-		Optional fields (with their default values)
-	-->
-	<!-- The type field will be added to each log message, making it
-	easier for you to differ between different types of logs. -->
     	<type>log4net</type>
-	<!-- The URL of the Logz.io listener -->
     	<listenerUrl>https://<<LISTENER-HOST>>:8071</listenerUrl>
-        <!--Optional proxy server address:
-        proxyAddress = "http://your.proxy.com:port" -->
-	<!-- The maximum number of log lines to send in each bulk -->
     	<bufferSize>100</bufferSize>
-	<!-- The maximum time to wait for more log lines, in a hh:mm:ss.fff format -->
     	<bufferTimeout>00:00:05</bufferTimeout>
-	<!-- If connection to Logz.io API fails, how many times to retry -->
     	<retriesMaxAttempts>3</retriesMaxAttempts>
-    	<!-- Time to wait between retries, in a hh:mm:ss.fff format -->
 	<retriesInterval>00:00:02</retriesInterval>
-	<!-- Set the appender to compress the message before sending it -->
 	<gzip>true</gzip>
-	<!-- Uncomment this to enable sending logs in Json format -->
-	<!--<parseJsonMessage>true</parseJsonMessage>-->
-	<!-- Enable the appender's internal debug logger (sent to the console output and trace log) -->
 	<debug>false</debug>
-	<!-- If you have custom fields keys that start with capital letter and want to see the fields
-	with capital letter in Logz.io, set this field to true. The default is false
-	(first letter will be small letter). -->
 	<jsonKeysCamelCase>false</jsonKeysCamelCase>
-	<!-- Add trace context (traceId and spanId) to each log. The default is false -->
 	<addTraceContext>false</addTraceContext>
-    <!-- Use the same static HTTP/s client for sending logs. The default is false -->
 	<useStaticHttpClient>false</useStaticHttpClient>
 
     </appender>
@@ -109,7 +80,7 @@ For a complete list of options, see the configuration parameters below the code 
 
 Add a reference to the configuration file in your code, as shown in the example [here](https://github.com/logzio/logzio-dotnet/blob/master/sample-applications/LogzioLog4netSampleApplication/Program.cs).
 
-###### Code sample
+#### Code sample
 
 ```csharp
 using System.IO;
@@ -140,28 +111,28 @@ namespace dotnet_log4net
 ```
 
 
-##### Option 2: In the code
+##### Configure the appender in the code
 
 ```csharp
 var hierarchy = (Hierarchy)LogManager.GetRepository();
 var logzioAppender = new LogzioAppender();
 logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
 logzioAppender.AddListenerUrl("<<LISTENER-HOST>>");
-// <-- Uncomment and edit this line to enable proxy routing: -->
-// logzioAppender.AddProxyAddress("http://your.proxy.com:port");
-// <-- Uncomment this to enable sending logs in Json format -->
-// logzioAppender.ParseJsonMessage(true);
-// <-- Uncomment these lines to enable gzip compression -->
-// logzioAppender.AddGzip(true);
-// logzioAppender.ActivateOptions();
-// logzioAppender.JsonKeysCamelCase(false);
-// logzioAppender.AddTraceContext(false);
-// logzioAppender.UseStaticHttpClient(false);
 logzioAppender.ActivateOptions();
 hierarchy.Root.AddAppender(logzioAppender);
 hierarchy.Root.Level = Level.All;
 hierarchy.Configured = true;
 ```
+
+Add the following to your code to customize it:
+
+| Why? | What? |
+|------|-------|
+| Enable proxy routing | `logzioAppender.AddProxyAddress("http://your.proxy.com:port");` |
+| Enable sending logs in JSON format | `logzioAppender.ParseJsonMessage(true);` |
+| Enable gzip compression | `logzioAppender.AddGzip(true);` , `logzioAppender.ActivateOptions();` , `logzioAppender.JsonKeysCamelCase(false);` , `logzioAppender.AddTraceContext(false);` , `logzioAppender.UseStaticHttpClient(false);` |
+
+
 
 
 ###### Code sample
@@ -184,16 +155,6 @@ namespace dotnet_log4net
 
             logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
             logzioAppender.AddListenerUrl("https://<<LISTENER-HOST>>:8071");
-            // <-- Uncomment and edit this line to enable proxy routing: -->
-            // logzioAppender.AddProxyAddress("http://your.proxy.com:port");
-            // <-- Uncomment this to enable sending logs in Json format -->
-            // logzioAppender.ParseJsonMessage(true);
-            // <-- Uncomment these lines to enable gzip compression -->
-            // logzioAppender.AddGzip(true);
-            // logzioAppender.ActivateOptions();
-            // logzioAppender.JsonKeysCamelCase(false)
-            // logzioAppender.AddTraceContext(false);
-            // logzioAppender.UseStaticHttpClient(false);
             logzioAppender.ActivateOptions();
 
             hierarchy.Root.AddAppender(logzioAppender);
@@ -210,7 +171,7 @@ namespace dotnet_log4net
 }
 ```
 
-###### Parameters
+### Parameters
 
 | Parameter | Description | Default/Required |
 |---|---|---|
@@ -231,10 +192,10 @@ namespace dotnet_log4net
 
 
 
-##### Custom fields
+### Custom fields
 
-You can add static keys and values to be added to all log messages.
-These custom fields must be children of `<appender>`, as shown here.
+Add static keys and values to all log messages by including these custom fields under `<appender>`, as shown:
+
 
 ```xml
 <appender name="LogzioAppender" type="Logzio.DotNet.Log4net.LogzioAppender, Logzio.DotNet.Log4net">
@@ -249,7 +210,7 @@ These custom fields must be children of `<appender>`, as shown here.
 </appender>
 ```
 
-##### Extending the appender
+### Extending the appender
 
 To change or add fields to your logs, inherit the appender and override the `ExtendValues` method.
 
@@ -267,13 +228,14 @@ public class MyAppLogzioAppender : LogzioAppender
 Change your configuration to use your new appender name.
 For the example above, you'd use `MyAppLogzioAppender`.
 
-##### Add trace context
+### Add trace context
 
 :::note
 The Trace Context feature does not support .NET Standard 1.3.
 :::
 
-If you’re sending traces with OpenTelemetry instrumentation (auto or manual), you can correlate your logs with the trace context. In this way, your logs will have traces data in it: `span id` and `trace id`. To enable this feature, set `<addTraceContext>true</addTraceContext>` in your configuration file or `logzioAppender.AddTraceContext(true);` in your code. For example:
+To correlate logs with trace context in OpenTelemetry, set `<addTraceContext>true</addTraceContext>` in your configuration file or use `logzioAppender.AddTraceContext(true);` in your code. This adds `span id` and `trace id` to your logs. For example:
+
 
 ```csharp
 using log4net;
@@ -293,14 +255,6 @@ namespace dotnet_log4net
 
             logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
             logzioAppender.AddListenerUrl("https://<<LISTENER-HOST>>:8071");
-            // <-- Uncomment and edit this line to enable proxy routing: -->
-            // logzioAppender.AddProxyAddress("http://your.proxy.com:port");
-            // <-- Uncomment this to enable sending logs in Json format -->
-            // logzioAppender.ParseJsonMessage(true);
-            // <-- Uncomment these lines to enable gzip compression -->
-            // logzioAppender.AddGzip(true);
-            // logzioAppender.ActivateOptions();
-            // logzioAppender.JsonKeysCamelCase(false)
             logzioAppender.AddTraceContext(true);
             logzioAppender.ActivateOptions();
 
@@ -318,11 +272,12 @@ namespace dotnet_log4net
 }
 ```
 
-##### Serverless platforms
-If you’re using a serverless function, you’ll need to call the appender's flush method at the end of the function run to make sure the logs are sent before the function finishes its execution. You’ll also need to create a static appender in the Startup.cs file so each invocation will use the same appender. The appender should have the `UseStaticHttpClient` flag set to `true`.
+### Serverless platforms
 
+For serverless functions, call the appender's flush method at the end to ensure logs are sent before execution finishes. Create a static appender in Startup.cs with `UseStaticHttpClient` set to `true` for consistent invocations.
 
-###### Azure serverless function code sample
+For example:
+
 *Startup.cs*
 ```csharp
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
@@ -398,22 +353,19 @@ namespace LogzioLog4NetSampleApplication
 
 #### Add the dependency to your project
 
-If you're on Windows, navigate to your project's folder in the command line, and run this command to install the dependency.
+On Windows, open the command line, go to your project folder, and run this command to install the dependency.
 
 ```
 Install-Package Logzio.DotNet.NLog
 ```
 
-If you’re on a Mac or Linux machine, you can install the package using Visual Studio. **Select Project > Add NuGet Packages...**, and then search for `Logzio.DotNet.NLog`.
+On Mac or Linux, install the package using Visual Studio. Project > Add NuGet Packages..., and search for `Logzio.DotNet.NLog`.
 
-#### Configure the appender
 
-You can configure the appender in a configuration file or directly in the code.
-Use the samples in the code blocks below as a starting point, and replace them with a configuration that matches your needs. See [NLog documentation 🔗](https://github.com/NLog/NLog/wiki/Configuration-file) to learn more about configuration options.
+### Configure the appender in a configuration file
 
-For a complete list of options, see the configuration parameters below the code blocks.👇
+Use the samples below as a starting point and adjust them to fit your needs. For more options, see the [NLog documentation](https://github.com/NLog/NLog/wiki/Configuration-file). For a complete list of options, see the configuration parameters listed below.
 
-##### Option 1: In a configuration file
 
 ```xml
 <nlog>
@@ -421,9 +373,6 @@ For a complete list of options, see the configuration parameters below the code 
 	<add assembly="Logzio.DotNet.NLog"/>
     </extensions>
     <targets>
-	<!-- parameters are shown here with their default values.
-	Other than the token, all of the fields are optional and can be safely omitted.
-        -->
 
 	<target name="logzio" type="Logzio"
 		token="<<LOG-SHIPPING-TOKEN>>"
@@ -440,8 +389,6 @@ For a complete list of options, see the configuration parameters below the code 
 		debug="false"
 		jsonKeysCamelCase="false"
 		addTraceContext="false"
-		<!-- parseJsonMessage="true"-->
-        <!-- useStaticHttpClient="true"-->
 	>
 		<contextproperty name="host" layout="${machinename}" />
 		<contextproperty name="threadid" layout="${threadid}" />
@@ -458,7 +405,6 @@ For a complete list of options, see the configuration parameters below the code 
 ```csharp
 var config = new LoggingConfiguration();
 
-// Replace these parameters with your configuration
 var logzioTarget = new LogzioTarget {
     Name = "Logzio",
     Token = "<<LOG-SHIPPING-TOKEN>>",
@@ -471,16 +417,13 @@ var logzioTarget = new LogzioTarget {
     Debug = false,
     JsonKeysCamelCase = false,
     AddTraceContext = false,
-    // ParseJsonMessage = true,
-    // ProxyAddress = "http://your.proxy.com:port",
-    // UseStaticHttpClient = false,
 };
 
 config.AddRule(LogLevel.Debug, LogLevel.Fatal, logzioTarget);
 LogManager.Configuration = config;
 ```
 
-###### Parameters
+### Parameters
 
 | Parameter | Description | Default/Required |
 |---|---|---|
@@ -498,7 +441,7 @@ LogManager.Configuration = config;
 | addTraceContext | If want to add trace context to each log, set this field to true. | `false` |
 | useStaticHttpClient | If want to use the same static HTTP/s client for sending logs, set this field to true. | `false` |
 
-###### Code sample
+##### Code sample
 
 ```csharp
 using System;
@@ -529,9 +472,9 @@ namespace LogzioNLogSampleApplication
 }
 ```
 
-##### Include context properties
+### Include context properties
 
-You can configure the target to include your own custom values when forwarding logs to Logz.io. For example:
+Configure the target to include your custom values when forwarding logs to Logz.io. For example:
 
 ```xml
 <nlog>
@@ -544,7 +487,7 @@ You can configure the target to include your own custom values when forwarding l
 </nlog>
 ```
 
-##### Extending the appender
+### Extending the appender
 
 To change or add fields to your logs, inherit the appender and override the `ExtendValues` method.
 
@@ -560,11 +503,14 @@ public class MyAppLogzioTarget : LogzioTarget
 }
 ```
 
-Change your configuration to use your new target. For the example above, you'd use `MyAppLogzio`.
+Update your configuration to use the new appender name, such as `MyAppLogzio`.
 
-##### Json Layout
 
-When using 'JsonLayout' set the name of the attribute to **other than** 'message'. for example:
+
+### JSON Layout
+
+When using `JsonLayout`, set the attribute name to something **other than** 'message'. For example:
+
 
 ```xml
 <layout type="JsonLayout" includeAllProperties="true">
@@ -572,13 +518,13 @@ When using 'JsonLayout' set the name of the attribute to **other than** 'message
 </layout>
 ```
 
-##### Add trace context
+### Add trace context
 
 :::note
 The Trace Context feature does not support .NET Standard 1.3.
 :::
 
-If you’re sending traces with OpenTelemetry instrumentation (auto or manual), you can correlate your logs with the trace context. In this way, your logs will have traces data in it: `span id` and `trace id`. To enable this feature, set `addTraceContext="true"` in your configuration file or `AddTraceContext = true` in your code. For example:
+To correlate logs with trace context in OpenTelemetry (auto or manual), set `addTraceContext="true"` in your configuration file or `AddTraceContext = true` in your code. This adds `span id` and `trace id` to your logs. For example:
 
 ```csharp
 var config = new LoggingConfiguration();
@@ -604,11 +550,11 @@ config.AddRule(LogLevel.Debug, LogLevel.Fatal, logzioTarget);
 LogManager.Configuration = config;
 ```
 
-##### Serverless platforms
-If you’re using a serverless function, you’ll need to call the appender's flush method at the end of the function run to make sure the logs are sent before the function finishes its execution. You’ll also need to create a static appender in the Startup.cs file so each invocation will use the same appender. The appender should have the `UseStaticHttpClient` flag set to `true`.
+### Serverless platforms
 
+For serverless functions, call the appender's flush method at the end to ensure logs are sent before execution finishes. Create a static appender in Startup.cs with `UseStaticHttpClient` flag set to `true` for consistent invocations.
 
-###### Azure serverless function code sample
+For example:
 
 *Startup.cs*
 
@@ -629,7 +575,6 @@ namespace LogzioNLogSampleApplication
         {
             var config = new LoggingConfiguration();
 
-            // Replace these parameters with your configuration
             var logzioTarget = new LogzioTarget
             {
                 Name = "Logzio",
@@ -644,8 +589,6 @@ namespace LogzioNLogSampleApplication
                 JsonKeysCamelCase = false,
                 AddTraceContext = false,
                 UseStaticHttpClient = true,
-                // ParseJsonMessage = true,
-                // ProxyAddress = "http://your.proxy.com:port",
             };
 
             config.AddRule(NLog.LogLevel.Debug, NLog.LogLevel.Fatal, logzioTarget);
@@ -701,7 +644,7 @@ namespace LogzioNLogSampleApplication
 
 #### Add the dependency to your project
 
-If you're on Windows, navigate to your project's folder in the command line, and run these commands to install the dependencies.
+On Windows, open the command line, go to your project folder, and run this command to install the dependency.
 
 ```
 Install-Package Logzio.DotNet.Log4net
@@ -711,53 +654,28 @@ Install-Package Logzio.DotNet.Log4net
 Install-Package Microsoft.Extensions.Logging.Log4Net.AspNetCore
 ```
 
-If you're on a Mac or Linux machine, you can install the package using Visual Studio. Select **Project > Add NuGet Packages...**, and then search for `Logzio.DotNet.Log4net` and `Microsoft.Extensions.Logging.Log4Net.AspNetCore`.
+On Mac or Linux, install the package using Visual Studio. **Project > Add NuGet Packages...**, and search for `Logzio.DotNet.Log4net` and `Microsoft.Extensions.Logging.Log4Net.AspNetCore`.
 
-#### Configure the appender
+### Configure the appender in a configuration file
 
-You can configure the appender in a configuration file or directly in the code.
-Use the samples in the code blocks below as a starting point, and replace them with a configuration that matches your needs. See [log4net documentation 🔗](https://github.com/apache/logging-log4net) to learn more about configuration options.
+Use the samples below as a starting point and adjust them to fit your needs. For more options, see the [log4net documentation](https://github.com/apache/logging-log4net). For a complete list of options, see the configuration parameters listed below.
 
-For a complete list of options, see the configuration parameters below the code blocks.👇
-
-###### Option 1: In a configuration file
 
 ```xml
 <log4net>
     <appender name="LogzioAppender" type="Logzio.DotNet.Log4net.LogzioAppender, Logzio.DotNet.Log4net">
-    	<!--
-		Required fields
-	-->
-	<!-- Your Logz.io log shipping token -->
 	<token><<LOG-SHIPPING-TOKEN>></token>
 
-	<!--
-		Optional fields (with their default values)
-	-->
-	<!-- The type field will be added to each log message, making it
-	easier for you to differ between different types of logs. -->
     	<type>log4net</type>
-	<!-- The URL of the Logz.io listener -->
     	<listenerUrl>https://<<LISTENER-HOST>>:8071</listenerUrl>
-        <!--Optional proxy server address:
-        proxyAddress = "http://your.proxy.com:port" -->
-	<!-- The maximum number of log lines to send in each bulk -->
     	<bufferSize>100</bufferSize>
-	<!-- The maximum time to wait for more log lines, in a hh:mm:ss.fff format -->
     	<bufferTimeout>00:00:05</bufferTimeout>
-	<!-- If connection to Logz.io API fails, how many times to retry -->
     	<retriesMaxAttempts>3</retriesMaxAttempts>
-    	<!-- Time to wait between retries, in a hh:mm:ss.fff format -->
 	<retriesInterval>00:00:02</retriesInterval>
-	<!-- Set the appender to compress the message before sending it -->
 	<gzip>true</gzip>
-	<!-- Enable the appender's internal debug logger (sent to the console output and trace log) -->
 	<debug>false</debug>
-        <!-- Set to true if you want json keys in Logz.io to be in camel case. The default is false. -->
         <jsonKeysCamelCase>false</jsonKeysCamelCase>
-        <!-- Add trace context (traceId and spanId) to each log. The default is false -->
         <addTraceContext>false</addTraceContext>
-        <!-- Use the same static HTTP/s client for sending logs. The default is false -->
 	    <useStaticHttpClient>false</useStaticHttpClient>
 
     </appender>
@@ -769,28 +687,32 @@ For a complete list of options, see the configuration parameters below the code 
 </log4net>
 ```
 
-###### Option 2: In the code
+### Configure the appender in the code
+
+Use the samples below as a starting point and adjust them to fit your needs. For more options, see the [log4net documentation](https://github.com/apache/logging-log4net). For a complete list of options, see the configuration parameters listed below.
+
 
 ```csharp
 var hierarchy = (Hierarchy)LogManager.GetRepository();
 var logzioAppender = new LogzioAppender();
 logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
 logzioAppender.AddListenerUrl("<<LISTENER-HOST>>");
-// Uncomment and edit this line to enable proxy routing:
-// logzioAppender.AddProxyAddress("http://your.proxy.com:port");
-// Uncomment these lines to enable gzip compression
-// logzioAppender.AddGzip(true);
-// logzioAppender.ActivateOptions();
-// logzioAppender.JsonKeysCamelCase(false);
-// logzioAppender.AddTraceContext(false);
-// logzioAppender.UseStaticHttpClient(false);
 logzioAppender.ActivateOptions();
 hierarchy.Root.AddAppender(logzioAppender);
 hierarchy.Root.Level = Level.All;
 hierarchy.Configured = true;
 ```
 
-###### Parameters
+Customize your code by adding the following:
+
+
+| Why? | What? |
+|------|-------|
+| Enable proxy routing | `logzioAppender.AddProxyAddress("http://your.proxy.com:port");` |
+| Enable gzip compression | `logzioAppender.AddGzip(true);` , `logzioAppender.ActivateOptions();` , `logzioAppender.JsonKeysCamelCase(false);` , `logzioAppender.AddTraceContext(false);` , `logzioAppender.UseStaticHttpClient(false);` |
+
+
+### Parameters
 
 | Parameter | Description | Default/Required |
 |---|---|---|
@@ -809,9 +731,8 @@ hierarchy.Configured = true;
 | addTraceContext | If want to add trace context to each log, set this field to true. | `false` |
 | useStaticHttpClient | If want to use the same static HTTP/s client for sending logs, set this field to true. | `false` |
 
-###### Code sample
 
-###### ASP.NET Core
+### ASP.NET Core
 
 Update Startup.cs file in Configure method to include the Log4Net middleware as in the code below.
 
@@ -860,7 +781,7 @@ In the Controller methods:
     }
 ```
 
-###### .NET Core Desktop Application
+### .NET Core Desktop Application
 
 ```csharp
     using System.IO;
@@ -894,10 +815,9 @@ In the Controller methods:
 ```
 
 
-##### Custom fields
+### Custom fields
 
-You can add static keys and values to all log messages.
-These custom fields must be children of `<appender>`, as shown in the code below.
+Add static keys and values to all log messages by including these custom fields under `<appender>`, as shown:
 
 ```xml
 <appender name="LogzioAppender" type="Logzio.DotNet.Log4net.LogzioAppender, Logzio.DotNet.Log4net">
@@ -912,7 +832,7 @@ These custom fields must be children of `<appender>`, as shown in the code below
 </appender>
 ```
 
-#### Extending the appender
+### Extending the appender
 
 To change or add fields to your logs, inherit the appender and override the `ExtendValues` method.
 
@@ -927,28 +847,22 @@ public class MyAppLogzioAppender : LogzioAppender
 }
 ```
 
-Change your configuration to use your new appender name.
-For the example above, you'd use `MyAppLogzioAppender`.
+Update your configuration to use the new appender name, such as `MyAppLogzioAppender`.
 
-##### Add trace context
+### Add trace context
 
 :::note
 The Trace Context feature does not support .NET Standard 1.3.
 :::
 
-If you’re sending traces with OpenTelemetry instrumentation (auto or manual), you can correlate your logs with the trace context. In this way, your logs will have traces data in it: `span id` and `trace id`. To enable this feature, set `addTraceContext="true"` in your configuration file or `AddTraceContext = true` in your code. For example:
+To correlate logs with trace context in OpenTelemetry (auto or manual), set `addTraceContext="true"` in your configuration file or `AddTraceContext = true` in your code. This adds `span id` and `trace id` to your logs. For example:
+
 
 ```csharp
 var hierarchy = (Hierarchy)LogManager.GetRepository();
 var logzioAppender = new LogzioAppender();
 logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
 logzioAppender.AddListenerUrl("<<LISTENER-HOST>>");
-// Uncomment and edit this line to enable proxy routing:
-// logzioAppender.AddProxyAddress("http://your.proxy.com:port");
-// Uncomment these lines to enable gzip compression
-// logzioAppender.AddGzip(true);
-// logzioAppender.ActivateOptions();
-// logzioAppender.JsonKeysCamelCase(false);
 logzioAppender.AddTraceContext(true);
 logzioAppender.ActivateOptions();
 hierarchy.Root.AddAppender(logzioAppender);
@@ -956,11 +870,24 @@ hierarchy.Root.Level = Level.All;
 hierarchy.Configured = true;
 ```
 
-##### Serverless platforms
-If you’re using a serverless function, you’ll need to call the appender's flush method at the end of the function run to make sure the logs are sent before the function finishes its execution. You’ll also need to create a static appender in the Startup.cs file so each invocation will use the same appender. The appender should have the `UseStaticHttpClient` flag set to `true`.
+Customize your code by adding the following:
 
 
-###### Azure serverless function code sample
+| Why? | What? |
+|------|-------|
+| Enable proxy routing | `logzioAppender.AddProxyAddress("http://your.proxy.com:port");` |
+| Enable sending logs in JSON format | `logzioAppender.ParseJsonMessage(true);` |
+| Enable gzip compression | `logzioAppender.AddGzip(true);` , `logzioAppender.ActivateOptions();` , `logzioAppender.JsonKeysCamelCase(false);` |
+
+
+
+### Serverless platforms
+
+For serverless functions, call the appender's flush method at the end to ensure logs are sent before execution finishes. Create a static appender in Startup.cs with `UseStaticHttpClient` set to `true` for consistent invocations.
+
+
+#### Azure serverless function code sample
+
 *Startup.cs*
 
 ```csharp
@@ -1043,7 +970,7 @@ This integration is based on [Serilog.Sinks.Logz.Io repository](https://github.c
 [Project's GitHub repo](https://github.com/logzio/logzio-dotnet/)
 :::
 
-#### Install the Logz.io Serilog sink
+### Install the Logz.io Serilog sink
 
 Install `Serilog.Sinks.Logz.Io` using Nuget or by running the following command in the Package Manager Console:
 
@@ -1227,15 +1154,18 @@ Replace `<<TYPE>` with the type that you want to assign to your logs. You will u
 <Tabs>
   <TabItem value="Kubernetes" label="Kubernetes" default>
 
-Helm is a tool for managing packages of preconfigured Kubernetes resources using Charts. This integration allows you to collect and ship diagnostic metrics of your .NET application in Kubernetes to Logz.io, using dotnet-monitor and OpenTelemetry. logzio-dotnet-monitor runs as a sidecar in the same pod as the .NET application.
+
+Helm manages preconfigured Kubernetes resources. This integration collects and ships .NET application metrics from Kubernetes to Logz.io using dotnet-monitor and OpenTelemetry. logzio-dotnet-monitor runs as a sidecar in the same pod as the .NET application.
+
+
 
 :::note
 [Project's GitHub repo](https://github.com/logzio/logzio-helm/)
 :::
 
-###### Sending metrics from nodes with taints
+### Send metrics from nodes with taints
 
-If you want to ship metrics from any of the nodes that have a taint, make sure that the taint key values are listed in your in your daemonset/deployment configuration as follows:
+Ensure that the taint key values are listed in your in your daemonset/deployment configuration as follows:
   
 ```yaml
 tolerations:
@@ -1251,19 +1181,13 @@ To determine if a node uses taints as well as to display the taint keys, run:
 kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
 ```
 
-:::node
+:::note
 You need to use `Helm` client with version `v3.9.0` or above.
 :::
 
-#### Standard configuration
+### Standard configuration
 
- 
-
-##### Select the namespace
-
-This integration will be deployed in the namespace you set in values.yaml. The default namespace for this integration is logzio-dotnet-monitor.
-
-To select a different namespace, run:
+The integrations uses the namespace specified in values.yaml. The default namespace is `logzio-dotnet-monitor`. To select a different namespace, run:
 
 ```shell
 kubectl create namespace <<NAMESPACE>>
@@ -1272,7 +1196,7 @@ kubectl create namespace <<NAMESPACE>>
 * Replace `<<NAMESPACE>>` with the name of your namespace.
 
 
-##### Add `logzio-helm` repo
+#### Add `logzio-helm` repo
   
 ```shell
 helm repo add logzio-helm https://logzio.github.io/logzio-helm
@@ -1280,7 +1204,7 @@ helm repo update
 ```
 
 
-###### Run the Helm deployment code
+#### Run the Helm deployment code
 
 ```shell
 helm install -n <<NAMESPACE>> \
@@ -1301,11 +1225,11 @@ volumeMounts:
 ```
 
 
-##### Check Logz.io for your metrics
+#### View metrics in Logz.io
 
-Give your metrics some time to get from your system to ours, then open [Logz.io](https://app.logz.io/). You can search for your metrics in Logz.io by searching `{job="dotnet-monitor-collector"}`
+Give your metrics some time to process, then open [Logz.io](https://app.logz.io/). Find your metrics in Logz.io by searching `{job="dotnet-monitor-collector"}`.
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance metrics observability.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["3lGo7AE5839jDfkAYU8r21"] -->
 
@@ -1313,12 +1237,9 @@ Give your metrics some time to get from your system to ours, then open [Logz.io]
  
 
 
-####  Customizing Helm chart parameters
+### Customizing Helm chart parameters
 
-
-##### Configure customization options
-
-You can use the following options to update the Helm chart parameters: 
+Use the following to update the Helm chart parameters: 
 
 * Specify parameters using the `--set key=value[,key=value]` argument to `helm install` or `--set-file key=value[,key=value]`
 
@@ -1326,7 +1247,7 @@ You can use the following options to update the Helm chart parameters:
 
 * Override default values with your own `my_values.yaml` and apply it in the `helm install` command. 
 
-##### Customization parameters
+#### Customization parameters
 
 | Parameter | Description | Default |
 |---|---|---|
@@ -1354,12 +1275,12 @@ You can use the following options to update the Helm chart parameters:
 | `configMap.opentelemetry` | The opentelemetry configuration. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/charts/dotnet-monitor/values.yaml). |
 
 
-* To get additional information about dotnet-monitor configuration, click [here](https://github.com/dotnet/dotnet-monitor/blob/main/documentation/api/metrics.md).
-* To see well-known providers and their counters, click [here](https://docs.microsoft.com/en-us/dotnet/core/diagnostics/available-counters).
+* View additional information about [dotnet-monitor configuration](https://github.com/dotnet/dotnet-monitor/blob/main/documentation/api/metrics.md).
+* See [well-known providers and their counters](https://docs.microsoft.com/en-us/dotnet/core/diagnostics/available-counters).
 
 #### Uninstalling the Chart
 
-The Uninstall command is used to remove all the Kubernetes components associated with the chart and to delete the release.  
+Remove all Kubernetes components associated with the chart and to delete the release.
 
 To uninstall the `dotnet-monitor-collector` deployment, use the following command:
 
@@ -1367,11 +1288,14 @@ To uninstall the `dotnet-monitor-collector` deployment, use the following comman
 helm uninstall dotnet-monitor-collector
 ```
 
-For troubleshooting this solution, see our [.NET with helm troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/dotnet-helm-troubleshooting/).
+See [.NET with helm troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/dotnet-helm-troubleshooting/) for additional info.
+
 </TabItem>
   <TabItem value="SDK" label="SDK">
 
-You can send custom metrics from your .NET Core application using Logzio.App.Metrics. Logzio.App.Metrics is an open-source and cross-platform .NET library used to record metrics within an application and forward the data to Logz.io.
+Use Logzio.App.Metrics to send custom metrics from your .NET Core application to Logz.io. This open-source library records and forwards metrics data efficiently.
+
+
 
 These instructions show you how to:
 
@@ -1384,32 +1308,25 @@ These instructions show you how to:
 [Project's GitHub repo](https://github.com/logzio/logzio-app-metrics/)
 :::
 
-#### Send custom metrics to Logz.io with a hardcoded Logz.io exporter
+### Send custom metrics to Logz.io with a hardcoded Logz.io exporter
 
 **Before you begin, you'll need**: 
 
-* An application in .NET Core 3.1 or higher
+* .NET Core 3.1 or higher
 * An active Logz.io account 
 
 
- 
 
-
-##### Install the App.Metrics.Logzio package
-
-
-Install the App.Metrics.Logzio package from the Package Manager Console:
+1. Install the App.Metrics.Logzio package from the Package Manager Console:
 
 ```shell
 Install-Package Logzio.App.Metrics
 ```
 
-If you prefer to install the library manually, download the latest version from the NuGet Gallery.
+To install the library manually, download the latest version from the **NuGet** Gallery.
 
 
-##### Create MetricsBuilder
-
-To create MetricsBuilder, copy and paste the following code into the function of the code that you need to export metrics from:
+2. Create MetricsBuilder by copying and pasting the following code into the function that you need to export metrics from:
 
 ```csharp
 var metrics = new MetricsBuilder()
@@ -1422,7 +1339,7 @@ var metrics = new MetricsBuilder()
 {@include: ../../_include/metric-shipping/replace-metrics-token.html}
 
 
-##### Create Scheduler
+3. Create Scheduler
 
 To create the Scheduler, copy and paste the following code into the same function of the code as the MetricsBuilder:
 
@@ -1433,65 +1350,34 @@ var scheduler = new AppMetricsTaskScheduler(
 scheduler.Start();
 ```
 
-##### Add required metrics to your code
+4. Add required metrics to your code
 
-You can send the following metrics from your code:
+You must have at least one of the following metrics in your code to use the `Logzio.App.Metrics`:
 
-* [Apdex (Application Performance Index)](https://www.app-metrics.io/getting-started/metric-types/apdex/)
-* [Counter](https://www.app-metrics.io/getting-started/metric-types/counters/)
-* [Gauge](https://www.app-metrics.io/getting-started/metric-types/gauges/)
-* [Histogram](https://www.app-metrics.io/getting-started/metric-types/histograms/)
-* [Meter](https://www.app-metrics.io/getting-started/metric-types/meters/)
-* [Timer](https://www.app-metrics.io/getting-started/metric-types/timers/)
+* [Apdex (Application Performance Index)](https://www.app-metrics.io/getting-started/metric-types/apdex/) - monitor end-user satisfaction.
+* [Counter](https://www.app-metrics.io/getting-started/metric-types/counters/) - Tracks event counts.
+* [Gauge](https://www.app-metrics.io/getting-started/metric-types/gauges/) - Measures instantaneous values.
+* [Histogram](https://www.app-metrics.io/getting-started/metric-types/histograms/) - Analyzes value distributions.
+* [Meter](https://www.app-metrics.io/getting-started/metric-types/meters/) - Measures event rates.
+* [Timer](https://www.app-metrics.io/getting-started/metric-types/timers/) - Combines histogram and meter for event duration and rate.
 
-You must have at least one of the above metrics in your code to use the Logzio.App.Metrics. 
-For example, to add a counter metric to your code, copy and paste the following code block into the same function of the code as the MetricsBuilder and Scheduler. 
+For example, to add a **counter** metric to your code, copy and paste the following code block into the same function of the code as the MetricsBuilder and Scheduler. 
 
 ```csharp
 var counter = new CounterOptions {Name = "my_counter", Tags = new MetricTags("test", "my_test")};
 metrics.Measure.Counter.Increment(counter);
 ```
 
-In the example above, the metric has a name ("my_counter"), a tag key ("test") and a tag value ("my_test"): These parameters are used to query data from this metric in your Logz.io dashboard.
+The metric has a name ("my_counter"), a tag key ("test") and a tag value ("my_test"). These parameters are used to query data from this metric in your Logz.io dashboard.
 
 
-###### Apdex
+5. Running and Monitoring
 
-Apdex (Application Performance Index) allows you to monitor end-user satisfaction. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/apdex/).
+Run your application to start sending metrics to Logz.io. Give the data some time to process, and open the [Metrics dashboard](https://app.logz.io/#/dashboard/metrics/discover?) to view it. 
 
-###### Counter
+#### Filter the metrics by labels
 
-Counters are one of the most basic supported metrics types: They enable you to track how many times something has happened. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/counters/).
-
-###### Gauge
-
-A Gauge is an action that returns an instantaneous measurement for a value that abitrarily increases and decreases (for example, CPU usage). For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/gauges/).
-
-###### Histogram
-
-Histograms measure the statistical distribution of a set of values. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/histograms/).
-
-###### Meter
-
-A Meter measures the rate at which an event occurs, along with the total count of the occurences. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/meters/).
-
-###### Timer
-
-A Timer is a combination of a histogram and a meter, which enables you to measure the duration of a type of event, the rate of its occurrence, and provide duration statistics. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/timers/).
-
-
-##### Run your application
-
-Run your application to start sending metrics to Logz.io.
-
-
-##### Check Logz.io for your events
-
-Give your events some time to get from your system to ours, and then open the [Metrics dashboard](https://app.logz.io/#/dashboard/metrics/discover?).
-
-##### Filter the metrics by labels
-
-Once the metrics are in Logz.io, you can query the required metrics using labels. Each metric has the following labels:
+Once the metrics are in Logz.io, you can query them using labels. Each metric includes the following labels:
 
 | App Metrics parameter name | Description | Logz.io parameter name |
 |---|---|---|
@@ -1500,9 +1386,9 @@ Once the metrics are in Logz.io, you can query the required metrics using labels
 | Context | The context which the metric belong to. By default it is `Application`.	 | `context` |
 | Tags | Pairs of key and value of the metric. It is not required to have tags for a metric.| Tags keys |
 
-Some of the metrics have custom labels, as described below.
+Some of the metrics have custom labels:
 
-###### Meter
+##### Meter
 
 | App Metrics label name | Logz.io label name |
 |---|---|
@@ -1518,7 +1404,7 @@ Some of the metrics have custom labels, as described below.
   
 Replace [[your_meter_name]] with the name that you assigned to the meter metric.
 
-###### Histogram
+##### Histogram
 
 | App Metrics label name | Logz.io label name |
 |---|---|
@@ -1545,7 +1431,7 @@ Replace [[your_meter_name]] with the name that you assigned to the meter metric.
   
 Replace [[your_histogram_name]] with the name that you assigned to the histogram metric.
 
-###### Timer
+##### Timer
 
 | App Metrics label name | Logz.io label name |
 |---|---|
@@ -1574,7 +1460,7 @@ Replace [[your_histogram_name]] with the name that you assigned to the histogram
 
 Replace [[your_timer_name]] with the name that you assigned to the timer metric.
   
-###### Apdex
+##### Apdex
 
 | App Metrics parameter name | Logz.io parameter name |
 |---|---|
@@ -1587,37 +1473,29 @@ Replace [[your_timer_name]] with the name that you assigned to the timer metric.
 Replace [[your_apdex_name]] with the name that you assigned to the timer metric.
 
  
-
-For troubleshooting this solution, see our [.NET core troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/dotnet-core-troubleshooting/).
-
+See our [.NET core troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/dotnet-core-troubleshooting/) for additional assistance.
  
 
-#### Send custom metrics to Logz.io with a Logz.io exporter defined by a config file
+### Configuring Logz.io exporter via config file for custom metrics
+
 
 **Before you begin, you'll need**: 
 
-* An application in .NET Core 3.1 or higher
+* .NET Core 3.1 or higher
 * An active Logz.io account
 
 
  
-
-
-##### Install the App.Metrics.Logzio package
-
-
-Install the App.Metrics.Logzio package from the Package Manager Console:
+1. Install the App.Metrics.Logzio package from the Package Manager Console:
 
 ```csharp
 Install-Package Logzio.App.Metrics
 ```
 
-If you prefer to install the library manually, download the latest version from NuGet Gallery.
+If you prefer to install the library manually, download the latest version from **NuGet** Gallery.
 
 
-##### Create MetricsBuilder
-
-To create MetricsBuilder, copy and paste the following code into the function of the code that you need to export metrics from:
+2. Create MetricsBuilder by copying and pasting the following code into the function of the code that you need to export metrics from:
 
 ```csharp
 var metrics = new MetricsBuilder()
@@ -1643,7 +1521,7 @@ Add the following code to the configuration file:
 {@include: ../../_include/metric-shipping/replace-metrics-token.html}
 
 
-##### Create Scheduler
+3. Create Scheduler
 
 To create a Scheduler, copy and paste the following code into the same function of the code as the MetricsBuilder:
 
@@ -1654,63 +1532,33 @@ var scheduler = new AppMetricsTaskScheduler(
 scheduler.Start();
 ```
 
-##### Add the required metrics to your code
+4. Add required metrics to your code
 
-You can send the following metrics from your code:
+You must have at least one of the following metrics in your code to use the `Logzio.App.Metrics`:
 
-* [Apdex (Application Performance Index)](https://www.app-metrics.io/getting-started/metric-types/apdex/)
-* [Counter](https://www.app-metrics.io/getting-started/metric-types/counters/)
-* [Gauge](https://www.app-metrics.io/getting-started/metric-types/gauges/)
-* [Histogram](https://www.app-metrics.io/getting-started/metric-types/histograms/)
-* [Meter](https://www.app-metrics.io/getting-started/metric-types/meters/)
-* [Timer](https://www.app-metrics.io/getting-started/metric-types/timers/)
+* [Apdex (Application Performance Index)](https://www.app-metrics.io/getting-started/metric-types/apdex/) - monitor end-user satisfaction.
+* [Counter](https://www.app-metrics.io/getting-started/metric-types/counters/) - Tracks event counts.
+* [Gauge](https://www.app-metrics.io/getting-started/metric-types/gauges/) - Measures instantaneous values.
+* [Histogram](https://www.app-metrics.io/getting-started/metric-types/histograms/) - Analyzes value distributions.
+* [Meter](https://www.app-metrics.io/getting-started/metric-types/meters/) - Measures event rates.
+* [Timer](https://www.app-metrics.io/getting-started/metric-types/timers/) - Combines histogram and meter for event duration and rate.
 
-You must have at least one of the above metrics in your code to use the Logzio.App.Metrics. For example, to add a counter metric to your code, copy and paste the following code block into the same function of the code as the MetricsBuilder and Scheduler:
+For example, to add a counter metric to your code, copy and paste the following code block into the same function of the code as the MetricsBuilder and Scheduler:
 
 ```csharp
 var counter = new CounterOptions {Name = "my_counter", Tags = new MetricTags("test", "my_test")};
 metrics.Measure.Counter.Increment(counter);
 ```
 
-In the example above, the metric has a name ("my_counter"), a tag key ("test") and a tag value ("my_test"). These parameters are used to query data from this metric in your Logz.io dashboard.
+The metric has a name ("my_counter"), a tag key ("test") and a tag value ("my_test"). These parameters are used to query data from this metric in your Logz.io dashboard.
 
 
-###### Apdex
-
-Apdex (Application Performance Index) allows you to monitor end-user satisfaction. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/apdex/).
-
-###### Counter
-
-Counters are one of the most basic supported metrics types: They enable you to track how many times something has happened. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/counters/).
-
-###### Gauge
-
-A Gauge is an action that returns an instantaneous measurement for a value that abitrarily increases and decreases (for example, CPU usage). For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/gauges/).
-
-###### Histogram
-
-Histograms measure the statistical distribution of a set of values. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/histograms/).
-
-###### Meter
-
-A Meter measures the rate at which an event occurs, along with the total count of the occurences. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/meters/).
-
-###### Timer
-
-A Timer is a combination of a histogram and a meter, which enables you to measure the duration of a type of event, the rate of its occurrence, and provide duration statistics. For more information on this metric, refer to [App Metrics documentation](https://www.app-metrics.io/getting-started/metric-types/timers/).
- 
+5. Running and Monitoring
 
 
-##### Run your application
+Run your application to start sending metrics to Logz.io. Give the data some time to process, and open the [Metrics dashboard](https://app.logz.io/#/dashboard/metrics/discover?) to view it. 
 
-Run your application to start sending metrics to Logz.io.
-
-
-##### Check Logz.io for your events
-
-Give your events some time to get from your system to ours, and then open [Metrics dashboard](https://app.logz.io/#/dashboard/metrics/discover?).
-
-##### Filter the metrics by labels
+#### Filter the metrics by labels
 
 Once the metrics are in Logz.io, you can query the required metrics using labels. Each metric has the following labels:
 
@@ -1723,7 +1571,7 @@ Once the metrics are in Logz.io, you can query the required metrics using labels
 
 Some of the metrics have custom labels as described below.
 
-###### Meter
+##### Meter
 
 | App Metrics label name | Logz.io label name |
 |---|---|
@@ -1739,7 +1587,7 @@ Some of the metrics have custom labels as described below.
 
 Replace [[your_meter_name]] with the name that you assigned to the meter metric.
   
-###### Histogram
+##### Histogram
 
 | App Metrics label name | Logz.io label name |
 |---|---|
@@ -1766,7 +1614,7 @@ Replace [[your_meter_name]] with the name that you assigned to the meter metric.
 
 Replace [[your_histogram_name]] with the name that you assigned to the histogram metric.
 
-###### Timer
+##### Timer
 
 | App Metrics label name | Logz.io label name |
 |---|---|
@@ -1795,7 +1643,7 @@ Replace [[your_histogram_name]] with the name that you assigned to the histogram
   
 Replace [[your_timer_name]] with the name that you assigned to the timer metric.
 
-###### Apdex
+##### Apdex
 
 | App Metrics parameter name | Logz.io parameter name |
 |---|---|
@@ -1815,7 +1663,9 @@ For troubleshooting this solution, see our [.NET core troubleshooting guide](htt
 
 #### Export using ToLogzioHttp exporter
 
-You can configure MetricsBuilder to use ToLogzioHttp exporter, which allows you to export metrics via HTTP using additional export settings. To enable this exporter, add the following code block to define the MetricsBuilder:
+Configure MetricsBuilder to use the ToLogzioHttp exporter to export metrics via HTTP with additional settings. Add the following code block to MetricsBuilder:
+
+
 
 ```csharp
 var metrics = new MetricsBuilder()
@@ -1842,7 +1692,7 @@ var metrics = new MetricsBuilder()
 
 #### .NET Core runtime metrics
 
-The runtime metrics are additional parameters that will be sent from your code. These parameters include:
+The runtime metrics are additional parameters that will be sent from your code, including:
 
 * Garbage collection frequencies and timings by generation/type, pause timings and GC CPU consumption ratio.
 * Heap size by generation.
@@ -1892,7 +1742,7 @@ using (var stream = new MemoryStream())
 }
 ```
 
-For troubleshooting this solution, see our [.NET core troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/dotnet-core-troubleshooting/).
+See our [.NET core troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/dotnet-core-troubleshooting/) for additional assistance.
 </TabItem>
 </Tabs>
 
@@ -1904,8 +1754,6 @@ For troubleshooting this solution, see our [.NET core troubleshooting guide](htt
 
 Deploy this integration to enable automatic instrumentation of your ASP.NET Core application using OpenTelemetry.
 
-### Architecture overview
-
 This integration includes:
 
 * Installing the OpenTelemetry ASP.NET Core instrumentation packages on your application host
@@ -1915,15 +1763,15 @@ This integration includes:
 On deployment, the ASP.NET Core instrumentation automatically captures spans from your application and forwards them to the collector, which exports the data to your Logz.io account.
 
 
-
-### Setup auto-instrumentation for your locally hosted ASP.NET Core application and send traces to Logz.io
+### Auto-instrument ASP.NET Core and send Traces to Logz.io
 
 **Before you begin, you'll need**:
 
 * An ASP.NET Core application without instrumentation
 * An active account with Logz.io
 * Port `4317` available on your host system
-* A name defined for your tracing service. You will need it to identify the traces in Logz.io.
+* Defined tracing service name to identify the traces in Logz.io.
+
 
 :::note
 This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
@@ -1934,10 +1782,10 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 
 #### Download and configure OpenTelemetry collector
 
-Create a dedicated directory on the host of your ASP.NET Core application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.60.0) that is relevant to the operating system of your host.
+Create a dedicated directory on your ASP.NET Core application host. Download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.60.0) relevant to your operating system. 
 
+After downloading, create a file named `config.yaml` in this directory with the following parameters:
 
-After downloading the collector, create a configuration file `config.yaml` with the following parameters:
 
 {@include: ../../_include/tracing-shipping/collector-config.md}
 
@@ -1949,20 +1797,15 @@ After downloading the collector, create a configuration file `config.yaml` with 
 {@include: ../../_include/tracing-shipping/collector-run.md}
 
 
-#### Run the application
+#### Run and monitor
 
-Run the application to generate traces.
-
-
-#### Check Logz.io for your traces
-
-Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
+Run the application to generate traces. Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
 
 
-### Setup auto-instrumentation for your ASP.NET Core application using Docker and send traces to Logz.io
+### Auto-instrument ASP.NET Core with Docker and send Traces to Logz.io
 
-This integration enables you to auto-instrument your ASP.NET Core application and run a containerized OpenTelemetry collector to send your traces to Logz.io. If your application also runs in a Docker container, make sure that both the application and collector containers are on the same network.
 
+This integration auto-instruments your ASP.NET Core application and uses a containerized OpenTelemetry collector to send traces to Logz.io. If your application also runs in a Docker container, ensure that both application and collector containers are on the same network.
 
 **Before you begin, you'll need**:
 
@@ -1978,7 +1821,7 @@ This integration enables you to auto-instrument your ASP.NET Core application an
 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
-#### Run the application
+#### Run and monitor
 
 {@include: ../../_include/tracing-shipping/collector-run-note.md}
 
@@ -1986,18 +1829,14 @@ This integration enables you to auto-instrument your ASP.NET Core application an
 
 Run the application to generate traces.
 
-
-#### Check Logz.io for your traces
-
 Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
 
 
 </TabItem>
   <TabItem value="asp-net" label="ASP.NET or .NET">
 
-Deploy this integration to enable automatic instrumentation of your ASP.NET Core application using OpenTelemetry.
+Enable automatic instrumentation of your ASP.NET Core application using OpenTelemetry.
 
-### Architecture overview
 
 This integration includes:
 
@@ -2008,15 +1847,14 @@ This integration includes:
 On deployment, the ASP.NET Core instrumentation automatically captures spans from your application and forwards them to the collector, which exports the data to your Logz.io account.
 
 
-
-### Setup auto-instrumentation for your locally hosted ASP.NET Core application and send traces to Logz.io
+### Auto-instrument ASP.NET Core and send Traces to Logz.io
 
 **Before you begin, you'll need**:
 
 * An ASP.NET Core application without instrumentation
 * An active account with Logz.io
 * Port `4317` available on your host system
-* A name defined for your tracing service. You will need it to identify the traces in Logz.io.
+* Defined tracing service name to identify the traces in Logz.io.
 
 :::note
 This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
@@ -2026,37 +1864,36 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 {@include: ../../_include/tracing-shipping/dotnet-steps.md}
 
 
-##### Download and configure OpenTelemetry collector
+#### Download and configure OpenTelemetry collector
 
-Create a dedicated directory on the host of your ASP.NET Core application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.60.0) that is relevant to the operating system of your host.
+Create a dedicated directory on your ASP.NET Core application host. Download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.60.0) relevant to your operating system.
 
 
-After downloading the collector, create a configuration file `config.yaml` with the following parameters:
+After downloading, create a configuration file `config.yaml` with the following parameters:
 
 {@include: ../../_include/tracing-shipping/collector-config.md}
 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
 
-##### Start the collector
+#### Start the collector
 
 {@include: ../../_include/tracing-shipping/collector-run.md}
 
 
-##### Run the application
+#### Run and monitor
 
 Run the application to generate traces.
-
-
-##### Check Logz.io for your traces
 
 Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
 
 
 
-### Setup auto-instrumentation for your ASP.NET Core application using Docker and send traces to Logz.io
+### Auto-instrument ASP.NET Core with Docker and send Traces to Logz.io
 
-This integration enables you to auto-instrument your ASP.NET Core application and run a containerized OpenTelemetry collector to send your traces to Logz.io. If your application also runs in a Docker container, make sure that both the application and collector containers are on the same network.
+This integration auto-instruments your ASP.NET Core application and uses a containerized OpenTelemetry collector to send traces to Logz.io. If your application also runs in a Docker container, ensure that both application and collector containers are on the same network.
+
+
 
 
 **Before you begin, you'll need**:
@@ -2074,7 +1911,7 @@ This integration enables you to auto-instrument your ASP.NET Core application an
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
 
-##### Run the application
+#### Run and monitor
 
 {@include: ../../_include/tracing-shipping/collector-run-note.md}
 
@@ -2083,17 +1920,15 @@ This integration enables you to auto-instrument your ASP.NET Core application an
 Run the application to generate traces.
 
 
-##### Check Logz.io for your traces
-
 Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
 
 
 </TabItem>
-  <TabItem value="troubleshooting" label="Troubleshooting">
+</Tabs>
 
 #### OpenTelemetry instrumentation 
 
 For troubleshooting the OpenTelemetry instrumentation, see our [OpenTelemetry troubleshooting guide](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/otel-troubleshooting/).
 
-</TabItem>
-</Tabs>
+
+
