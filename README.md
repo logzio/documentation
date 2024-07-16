@@ -6,6 +6,7 @@ git clone https://<YOUR-PAS>@github.com/logzio/documentation.git
 
 2. Cd to the root folder:
 
+
 ```
 cd documentation
 ```
