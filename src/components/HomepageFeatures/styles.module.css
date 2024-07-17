@@ -110,6 +110,8 @@
   color: #fff;
 }
 
+/* styles.module.css */
+
 .features {
   background-color: var(--ifm-background-color);
   padding: var(--ifm-spacing-vertical) 0;
@@ -120,11 +122,25 @@
   margin: 0 auto;
 }
 
+.featureContainer {
+  text-align: center;
+  margin-bottom: var(--ifm-spacing-vertical);
+}
+
 .featureCard {
-  border: 1px solid var(--ifm-color-gray-200);
   border-radius: var(--ifm-radius);
-  padding: var(--ifm-spacing-vertical) var(--ifm-spacing-horizontal);
-  margin: var(--ifm-spacing-vertical) var(--ifm-spacing-horizontal);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featureCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.featureTitle {
+  margin-top: var(--ifm-spacing-sm);
+  font-weight: normal;
   text-align: center;
 }
 
@@ -149,29 +165,30 @@
   text-align: center;
 }
 
-.whatsNewHorizontalScroll {
+.whatsNew {
   width: 100%;
-  overflow-x: auto;
 }
 
-.scrollContainer {
-  display: flex;
-}
-
-.scrollCard {
-  flex: 0 0 auto;
-  width: 30%;
-  margin-right: var(--ifm-spacing-horizontal);
+.whatsNewCard {
+  border: 1px solid var(--ifm-color-gray-200);
+  border-radius: var(--ifm-radius);
+  padding: var(--ifm-spacing-vertical) var(--ifm-spacing-horizontal);
+  margin: var(--ifm-spacing-vertical);
+  text-align: center;
 }
 
 .popularLinks {
   display: flex;
   justify-content: center;
-  gap: var(--ifm-spacing-horizontal);
+  gap: var(--ifm-spacing-sm); /* Smaller space between elements */
+}
+
+.popularLink {
+  font-weight: bold;
 }
 
 .separator {
-  margin: 0 var(--ifm-spacing-horizontal);
+  margin: 0 var(--ifm-spacing-xs); /* Smaller margin between separators */
 }
 
 .searchContainer {
@@ -209,7 +226,12 @@
 
 .mainTitle {
   font-size: 2.5rem;
-  margin-bottom: 20px;
+  margin: 60px 0; /* Increased margin above and below */
+}
+
+.gettingStartedTitle {
+  font-size: 2rem;
+  margin: 40px 0; /* Increased margin above and below */
 }
 
 .stepTitle {
@@ -222,10 +244,17 @@
   margin-bottom: 20px;
 }
 
-.carouselCard {
-  border: 1px solid var(--ifm-color-gray-200);
-  border-radius: var(--ifm-radius);
-  padding: var(--ifm-spacing-vertical) var(--ifm-spacing-horizontal);
-  margin: var(--ifm-spacing-vertical) var(--ifm-spacing-horizontal);
+.stepCard {
   text-align: center;
+  margin: 20px 0; /* Adjust this value to control the margin above and below the card */
+}
+
+.stepCard .stepTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px; /* Adjust this value to control the space between Step 1: and Ship your data */
+}
+
+.stepCard .stepDescription {
+  font-size: 1rem;
 }

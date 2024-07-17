@@ -2,30 +2,36 @@ import React from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
-import SearchHeader from '../../components/SearchHeader';  // Already imported
+import SearchHeader from '../../components/SearchHeader';
 
 const InfrastructureEnvironmentFeatures = [
   {
+    title: 'Quick Start',
     link: "/docs/user-guide/quick-start",
     Svg: require('@site/static/img/quick-start.svg').default,
   },
   {
+    title: 'Observability IQ',
     link: "/docs/user-guide/observability/assistantiq",
     Svg: require('@site/static/img/obsiq.svg').default,
   },
   {
+    title: 'Explore Dashboard',
     link: "/docs/user-guide/new-explore/",
     Svg: require('@site/static/img/explore.svg').default,
   },
   {
+    title: 'Kubernetes 360',
     link: "/docs/user-guide/k8s-360/overview",
     Svg: require('@site/static/img/k8s.svg').default,
   },
   {
+    title: 'Integrations',
     link: "/docs/category/send-your-data",
     Svg: require('@site/static/img/integrations.svg').default,
   },
   {
+    title: 'API',
     link: "https://api-docs.logz.io/docs/category/logz-api",
     Svg: require('@site/static/img/api.svg').default,
   },
@@ -33,50 +39,62 @@ const InfrastructureEnvironmentFeatures = [
 
 const ApplicationMonitoringFeatures = [
   {
+    title: 'Telemetry Collector',
     link: "/docs/user-guide/telemetry-collector/",
     Svg: require('@site/static/img/telemetry-collector.svg').default,
   },
   {
+    title: 'Troubleshooting',
     link: "/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting",
     Svg: require('@site/static/img/troubleshooting.svg').default,
   },
   {
+    title: 'Accounts',
     link: "/docs/user-guide/admin/logzio-accounts/accounts",
     Svg: require('@site/static/img/accounts.svg').default,
   },
   {
+    title: 'Free Trial',
     link: "https://logz.io/freetrial/",
   },
   {
+    title: 'Webinars',
     link: "https://logz.io/learn/webinar/",
   },
   {
+    title: 'Features',
     link: "https://logz.io/learn/product/",
   },
 ];
 
 const PopularIntegrationsFeatures = [
   {
+    title: 'Quick Start',
     link: "/docs/user-guide/quick-start",
     Svg: require('@site/static/img/quick-start.svg').default,
   },
   {
+    title: 'Observability IQ',
     link: "/docs/user-guide/observability/assistantiq",
     Svg: require('@site/static/img/obsiq.svg').default,
   },
   {
+    title: 'Explore Dashboard',
     link: "/docs/user-guide/new-explore/",
     Svg: require('@site/static/img/explore.svg').default,
   },
   {
+    title: 'Kubernetes 360',
     link: "/docs/user-guide/k8s-360/overview",
     Svg: require('@site/static/img/k8s.svg').default,
   },
   {
+    title: 'Integrations',
     link: "/docs/category/send-your-data",
     Svg: require('@site/static/img/integrations.svg').default,
   },
   {
+    title: 'API',
     link: "https://api-docs.logz.io/docs/category/logz-api",
     Svg: require('@site/static/img/api.svg').default,
   },
@@ -140,24 +158,6 @@ const WhatsNewFeatures = [
     Svg: require('@site/static/img/explore.svg').default, // Use existing image as placeholder
     description: <>Learn about the new feature 3.</>,
   },
-  {
-    title: 'New Feature 4',
-    link: "/docs/new-feature-4",
-    Svg: require('@site/static/img/k8s.svg').default, // Use existing image as placeholder
-    description: <>Learn about the new feature 4.</>,
-  },
-  {
-    title: 'New Feature 5',
-    link: "/docs/new-feature-5",
-    Svg: require('@site/static/img/integrations.svg').default, // Use existing image as placeholder
-    description: <>Learn about the new feature 5.</>,
-  },
-  {
-    title: 'New Feature 6',
-    link: "/docs/new-feature-6",
-    Svg: require('@site/static/img/api.svg').default, // Use existing image as placeholder
-    description: <>Learn about the new feature 6.</>,
-  },
 ];
 
 const BestPracticesAndTools = [
@@ -203,13 +203,18 @@ const BestPracticesAndTools = [
   },
 ];
 
-function Feature({Svg, link}) {
+function Feature({Svg, link, title}) {
   return (
-    <Link to={link} className={styles.featureCard}>
-      <div className="text--center">
-        {Svg && <Svg className={styles.featureSvg} role="img" />}
+    <div className={styles.featureContainer}>
+      <Link to={link} className={styles.featureCard}>
+        <div className="text--center">
+          {Svg && <Svg className={styles.featureSvg} role="img" />}
+        </div>
+      </Link>
+      <div className={styles.featureTitle}>
+        {title}
       </div>
-    </Link>
+    </div>
   );
 }
 
@@ -233,6 +238,19 @@ function StaticCard({ title, description }) {
       <div className="text--center padding-horiz--md">
         <h3>{title}</h3>
         <p>{description}</p>
+      </div>
+    </div>
+  );
+}
+
+function StepCard() {
+  return (
+    <div className={clsx('col col--12', styles.stepCard)}>
+      <div className={styles.stepTitle}>
+        <strong>Step 1:</strong>
+      </div>
+      <div className={styles.stepDescription}>
+        Ship your data
       </div>
     </div>
   );
@@ -277,35 +295,37 @@ function PopularLinks() {
   return (
     <div className={styles.popularLinks}>
       Popular: 
-      <Link to="/docs/user-guide/quick-start">Agent quick setup</Link>
+      <Link to="/docs/user-guide/quick-start" className={styles.popularLink}>Agent quick setup</Link>
       <span className={styles.separator}>|</span>
-      <Link to="/docs/user-guide/k8s-360/overview">K8S</Link>
+      <Link to="/docs/user-guide/k8s-360/overview" className={styles.popularLink}>K8S</Link>
       <span className={styles.separator}>|</span>
-      <Link to="/docs/user-guide/new-explore/">Metrics</Link>
+      <Link to="/docs/user-guide/new-explore/" className={styles.popularLink}>Metrics</Link>
       <span className={styles.separator}>|</span>
-      <Link to="/docs/category/send-your-data">Integration setup</Link>
+      <Link to="/docs/category/send-your-data" className={styles.popularLink}>Integration setup</Link>
       <span className={styles.separator}>|</span>
-      <Link to="https://api-docs.logz.io/docs/category/logz-api">API</Link>
+      <Link to="https://api-docs.logz.io/docs/category/logz-api" className={styles.popularLink}>API</Link>
     </div>
   );
 }
 
-function WhatsNewHorizontalScroll() {
+function WhatsNew() {
   return (
-    <div className={styles.whatsNewHorizontalScroll}>
+    <div className={styles.whatsNew}>
       <h2 className="text--center">What's New</h2>
-      <div className={styles.scrollContainer}>
+      <div className="row">
         {WhatsNewFeatures.map((props, idx) => (
-          <div key={idx} className={styles.scrollCard}>
-            <Link to={props.link} className={styles.carouselCard}>
-              <div className="text--center">
-                {props.Svg && <props.Svg className={styles.featureSvg} role="img" />}
-              </div>
-              <div className="text--center padding-horiz--md">
-                <h3>{props.title}</h3>
-                <p>{props.description}</p>
-              </div>
-            </Link>
+          <div className="col col--4" key={idx}>
+            <div className={styles.whatsNewCard}>
+              <Link to={props.link}>
+                <div className="text--center">
+                  {props.Svg && <props.Svg className={styles.featureSvg} role="img" />}
+                </div>
+                <div className="text--center padding-horiz--md">
+                  <h3>{props.title}</h3>
+                  <p>{props.description}</p>
+                </div>
+              </Link>
+            </div>
           </div>
         ))}
       </div>
@@ -365,11 +385,11 @@ export default function HomepageFeatures() {
           <div className="col col--12 text--center" style={{ marginBottom: '20px' }}>
             <PopularLinks /> {/* Popular links under the search bar */}
           </div>
-          <div className="col col--12 text--center" style={{ marginBottom: '20px' }}>
-            <h1 className={styles.stepTitle}>Getting Started with Logz.io</h1> {/* Centered heading here */}
+          <div className="col col--12 text--center" style={{ marginBottom: '40px' }}>
+            <h1 className={styles.gettingStartedTitle}>Getting Started with Logz.io</h1> {/* Centered heading here */}
           </div>
-          <div className="col col--12 text--center" style={{ marginBottom: '20px' }}>
-            <h2 className={styles.stepSubtitle}>Step 1: Ship your data</h2> {/* Centered heading here */}
+          <div className="col col--12 text--center" style={{ marginBottom: '40px' }}>
+            <StepCard />
           </div>
         </div>
         <div className="row">
@@ -392,7 +412,7 @@ export default function HomepageFeatures() {
           </div>
         </div>
         <div className="row" style={{ marginTop: '40px' }}>
-          <WhatsNewHorizontalScroll />
+          <WhatsNew />
         </div>
         <div className="row" style={{ marginTop: '40px' }}>
           <BestPracticesAndToolsSection />
