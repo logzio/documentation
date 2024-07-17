@@ -113,7 +113,8 @@ The CloudFormation template requires the following parameters:
 | `LogzioListener`                           | Your Logz.io listener URL. for example: `https://aws-firehose-logs-listener.logz.io`                                       |
 | `logzioType`                               | The log type you'll use with this shipping method. This can be a built-in log type, or your custom log type.               |
 | `services`                                 | A comma-separated list of services you want to collect logs from.                                                          |
-| `customLogGroups`                          | A comma-separated list of custom log groups you want to collect logs from.                                                 |
+| `customLogGroups`                          | A comma-separated list of custom log groups to collect logs from, or the ARN of the Secret parameter ([explanation below](https://docs.logz.io/docs/shipping/aws/aws-ecs-fargate/#custom-log-group-list-exceeds-4096-characters-limit)) storing the log groups list if it exceeds 4096 characters.                                                                                                                                                                                | -                 |
+| `useCustomLogGroupsFromSecret`             | If you want to provide list of `customLogGroups` which exceeds 4096 characters, set to `true` and configure your customLogGroups as [defined below](https://docs.logz.io/docs/shipping/aws/aws-ecs-fargate/#custom-log-group-list-exceeds-4096-characters-limit).                                               | `false`           |
 | `triggerLambdaTimeout`                     | The amount of seconds that Lambda allows a function to run before stopping it, for the trigger function.                   |
 | `triggerLambdaMemory`                      | Trigger function's allocated CPU proportional to the memory configured, in MB.                                             |
 | `triggerLambdaLogLevel`                    | Log level for the Lambda function. Can be one of: debug, info, warn, error, fatal, panic.                                  |
@@ -137,7 +138,7 @@ The `CollectorConfigParameter` resource creates an AWS Systems Manager (SSM) par
 ```yaml
 receivers:
   awsxray:
-    endpoint: 0.0.0.2.0000
+    endpoint: 0.0.0.0:2000
     transport: udp
   otlp:
     protocols:
