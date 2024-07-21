@@ -6,7 +6,9 @@ description: Learn how to parse your logs in Logz.io
 keywords: [log, monitoring, parsing, default parsing, built in log types, log types, observability]
 ---
 
-
+:::warning Note
+The Data Parsing editor will be **shut down** on August 30th, 2024. For the foreseeable future, you can contact [support@logz.io](mailto:support@logz.io) to assist with parsing your data.
+:::
 
 
 Parsing is the process of breaking down your log message into smaller chunks of data,
