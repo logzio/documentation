@@ -104,6 +104,8 @@ jobs:
           commit_message: 'auto generated manifest'
           commit_options: "--no-gpg-sign"
           push_options: '--force'
+        permissions:
+          contents: 'write'          
       - name: Manifest update success
         if: steps.create_manifest.outputs.skip_next_step != 'true' && steps.run_validation.outputs.skip_next_step != 'true'
         run: |
