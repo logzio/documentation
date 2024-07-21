@@ -58,7 +58,8 @@ Specify the stack details as per the table below, check the checkboxes and selec
 | `logzioListener`                           | Listener host.                                                                                                                                                                                                                                           | **Required**      |
 | `logzioType`                               | The log type you'll use with this Lambda. This can be a [built-in log type](https://docs.logz.io/docs/user-guide/data-hub/log-parsing/default-parsing/#built-in-log-types), or a custom log type.                                                                                 | `logzio_firehose` |
 | `services`                                 | A comma-seperated list of services you want to collect logs from. Supported options are: `apigateway`, `rds`, `cloudhsm`, `cloudtrail`, `codebuild`, `connect`, `elasticbeanstalk`, `ecs`, `eks`, `aws-glue`, `aws-iot`, `lambda`, `macie`, `amazon-mq`. | -                 |
-| `customLogGroups`                          | A comma-seperated list of custom log groups you want to collect logs from                                                                                                                                                                                | -                 |
+| `customLogGroups`                          | A comma-separated list of custom log groups to collect logs from, or the ARN of the Secret parameter ([explanation below](https://docs.logz.io/docs/shipping/aws/aws-api-gateway/#custom-log-group-list-exceeds-4096-characters-limit)) storing the log groups list if it exceeds 4096 characters.                                                                                                                                                                                | -                 |
+| `useCustomLogGroupsFromSecret`             | If you want to provide list of `customLogGroups` which exceeds 4096 characters, set to `true` and configure your customLogGroups as [defined below](https://docs.logz.io/docs/shipping/aws/aws-api-gateway/#custom-log-group-list-exceeds-4096-characters-limit).                                               | `false`           |
 | `triggerLambdaTimeout`                     | The amount of seconds that Lambda allows a function to run before stopping it, for the trigger function.                                                                                                                                                 | `60`              |
 | `triggerLambdaMemory`                      | Trigger function's allocated CPU proportional to the memory configured, in MB.                                                                                                                                                                           | `512`             |
 | `triggerLambdaLogLevel`                    | Log level for the Lambda function. Can be one of: `debug`, `info`, `warn`, `error`, `fatal`, `panic`                                                                                                                                                     | `info`            |
@@ -70,6 +71,19 @@ Specify the stack details as per the table below, check the checkboxes and selec
 AWS limits every log group to have up to 2 subscription filters. If your chosen log group already has 2 subscription filters, the trigger function won't be able to add another one.
 :::
 
+##### Custom Log Group list exceeds 4096 characters limit
+If your `customLogGroups` list exceeds the 4096 characters limit, follow the below steps:
+
+1. Open AWS [Secret Manager](https://console.aws.amazon.com/secretsmanager/)
+2. Click `Store a new secret`
+   - Choose `Other type of secret`
+   - For `key` use `logzioCustomLogGroups`
+   - In `value` store your comma-separated custom log groups list
+   - Name your secret, for example as `LogzioCustomLogGroups`
+   - Copy the new secret's ARN
+3. In your stack, Set: 
+   - `customLogGroups` to your secret ARN that you copied in step 2
+   - `useCustomLogGroupsFromSecret` to `true`
 
 
 
