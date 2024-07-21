@@ -13,7 +13,6 @@ jobs:
       MANIFEST_PATH: '_manifest/validation_manifest.json'
     permissions:
       contents: 'write'
-      metadata: 'read'
       packages: 'read'
     steps:
       - name: Checkout PR
