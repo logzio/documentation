@@ -140,3 +140,11 @@ az storage account network-rule add --subnet /subscriptions/ac7ee52c-3b51-43b5-b
 ```
 
 Replace `<REGION>` with the region of your **Logz.io account** and `<CUSTOMER_STORAGE_ACCOUNT_NAME>` with the name of your storage account.
+
+
+## Allowlist IPs per region
+
+If your Logz.io account is hosted in AWS regions and you wish to archive to an Azure Cloud Service, you will need to whitelist AWS IP addresses to enable this functionality.
+
+
+{@include: ../../../_include/general-shipping/allowed-ips.md}
