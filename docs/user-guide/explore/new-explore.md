@@ -83,16 +83,11 @@ Click the 1L button to change the table view. Selecting **1 Line** provides a co
 
 The ⋮ menu offers additional options for Explore, including:
 
-* Create Alert - To open the configure an alert page with the values and filters you've searched for that are showing on the screen already added to the configuration
-* Copy Link - Share URL, a snapshot of the current view, you need to be logged in to Logz.io to view it, 
-* Export CSV - Choose the number of logs you want to export to CSV (Up to 50,000 logs will be exported as a CSV), including timestamp and log message
-
-
-The ⋮ menu offers additional options for Explore, including:
-
 * **Create Alert**: Opens the configure alert page with the current values and filters already added to the configuration
 * **Copy Link**: Generates a URL with your current view, which you can share with team members. You need to be logged in to Logz.io to view it
 * **Export CSV**: Exports up to 50,000 logs to a CSV file, including the timestamp and log message
+
+![side menu](side-menu-jul22.png)
 
 ### 9. Logs Table
 
