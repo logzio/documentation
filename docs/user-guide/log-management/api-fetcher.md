@@ -73,6 +73,9 @@ logzio:
 
 ### Configure your APIs
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 <Tabs>
  <TabItem value="General-Settings" label="General API" default>
 
@@ -174,9 +177,8 @@ And in the call after it, it would update again according to the response and th
 | scrape_interval   | Time interval to wait between runs (unit: `minutes`)                                                                          | Optional          | 1 (minute)                  |
 | additional_fields | Additional custom fields to add to the logs before sending to logzio                                                          | Optional          | Add `type` as `api-fetcher` |
 
-  </TabItem>
-  </TabItem>
-  <TabItem value="Azure" label="Azure API" default>
+</TabItem>
+<TabItem value="Azure" label="Azure API" default>
 
 #### Azure API Settings
 Below fields are relevant for **all Azure API types**
@@ -212,9 +214,8 @@ The below fields are relevant **in addition** to the required ones listed under 
 | data_request.url               | The request URL                                                             | Required          | -           |
 | data_request.additional_fields | Additional custom fields to add to the logs before sending to logzio        | Optional          | -           |
 
-  </TabItem>
-  </TabItem>
-  <TabItem value="Cloudflare" label="Cloudflare" default>
+</TabItem>
+<TabItem value="Cloudflare" label="Cloudflare" default>
 
 #### Cloudflare API Settings
 By default `cloudflare` API type has built in pagination settings and sets the `response_data_path` to `result` field.  
@@ -236,7 +237,7 @@ By default `cloudflare` API type has built in pagination settings and sets the `
 </Tabs>
 
 
-### Launch the Docker Container
+## Launch the Docker Container
 
 Use Docker to run the Logz.io API Fetcher with the provided command in the path where you saved your `config.yaml`:
 
