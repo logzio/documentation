@@ -77,22 +77,18 @@ The default graph view is set to group by all fields, but you can choose specifi
 
 Click the 1L button to change the table view. Selecting **1 Line** provides a compact view, **2 Lines** displays two lines from the logs, and **Expanded** offers a full log view, presenting all relevant data for easier viewing.
 
-![Expand view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/expand-table-may21.png)
+
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/expand-table-may21.png" alt="expand-view" width="700"/>
 
 ### 8. Create Alert, Copy Link, Export CSV
-
-The ⋮ menu offers additional options for Explore, including:
-
-* Create Alert - To open the configure an alert page with the values and filters you've searched for that are showing on the screen already added to the configuration
-* Copy Link - Share URL, a snapshot of the current view, you need to be logged in to Logz.io to view it, 
-* Export CSV - Choose the number of logs you want to export to CSV (Up to 50,000 logs will be exported as a CSV), including timestamp and log message
-
 
 The ⋮ menu offers additional options for Explore, including:
 
 * **Create Alert**: Opens the configure alert page with the current values and filters already added to the configuration
 * **Copy Link**: Generates a URL with your current view, which you can share with team members. You need to be logged in to Logz.io to view it
 * **Export CSV**: Exports up to 50,000 logs to a CSV file, including the timestamp and log message
+
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/side-menu-jul22.png" alt="side-menu" width="700"/>
 
 ### 9. Logs Table
 
