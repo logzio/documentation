@@ -33,6 +33,29 @@ apis:
     scrape_interval: 1
     days_back_fetch: 30
 
+  - name: mail reports example
+    type: azure_mail_reports
+    azure_ad_tenant_id: <<AZURE_AD_TENANT_ID>>
+    azure_ad_client_id: <<AZURE_AD_CLIENT_ID>>
+    azure_ad_secret_value: <<AZURE_AD_SECRET_VALUE>>
+    data_request:
+      url: https://login.microsoftonline.com/<<AZURE_AD_TENANT_ID>>/oauth2/v2.0/token
+      additional_fields:
+        type: azure_mail_reports
+    scrape_interval: 60  # for mail reports we suggest no less than 60 minutes
+    days_back_fetch: 8  # for mail reports we suggest up to 8 days
+
+  - name: cloudflare test
+    type: cloudflare
+    cloudflare_account_id: <<CLOUDFLARE_ACCOUNT_ID>>
+    cloudflare_bearer_token: <<CLOUDFLARE_BEARER_TOKEN>>
+    url: https://api.cloudflare.com/client/v4/accounts/{account_id}/alerting/v3/history
+    next_url: https://api.cloudflare.com/client/v4/accounts/{account_id}/alerting/v3/history?since={res.result.[0].sent}
+    days_back_fetch: 7
+    scrape_interval: 5
+    additional_fields:
+      type: cloudflare
+
   - name: general example
     type: general
     url: https://first/request/url
