@@ -10,9 +10,7 @@ The Logz.io API Fetcher supports both auth and OAuth APIs and includes specific 
 
 This guide outlines the steps for configuring the Logz.io API Fetcher to fetch and send data to Logz.io. Our aim is to develop the API Fetcher as a generic tool capable of fetching data from any API endpoint. However, this presents significant challenges. If you encounter difficulties configuring the API Fetcher with a particular API endpoint, please reach out to our support team for assistance.
 
-The configuration example provided focuses on Azure Graph Security Center alerts. However, the same methodology can be applied to other API types.
-
-Below is a sample configuration template for Azure Graph, as found in our documentation and on GitHub:
+Below is a sample configuration template, as found in our documentation and on GitHub:
 
 ```yaml
 logzio:
