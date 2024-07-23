@@ -357,7 +357,7 @@ Replace the placeholders in the `exporter` section code (indicated by the double
 
 |Parameter|Description|
 |---|---|
-|LISTENER-HOST|  The Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. {@include: ../../_include//log-shipping/listener-var.html} and add http/https protocol (https://listener.logz.io:8053) |
+|LISTENER-HOST|  The Logz.io Listener URL for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. {@include: ../../_include//log-shipping/listener-var.html} and add http/https protocol (https://listener.logz.io:8053) |
 |PROMETHEUS-METRICS-SHIPPING-TOKEN| Your Logz.io Prometheus Metrics account token.  {@include: ../../_include//p8s-shipping/replace-prometheus-token.html}  |
 
 
@@ -628,7 +628,7 @@ Replace the placeholders (indicated by the double angle brackets `<< >>`) to mat
 
 |Environment variable|Description|
 |---|---|
-|`<<LISTENER-HOST>>`|  The Logz.io [Listener URL](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/) for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. |
+|`<<LISTENER-HOST>>`|  The Logz.io [Listener URL](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/) for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. |
 |`<<PORT>>`| The Logz.io listener port. **8052** for HTTP traffic, or **8053** for HTTPS traffic. |
 |`<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>`| {@include: ../../_include/p8s-shipping/replace-prometheus-token.html}  |
 
@@ -1348,13 +1348,13 @@ You can use the following options to update the Helm chart parameters:
 
 * Edit the `values.yaml`.
 
-* Overide default values with your own `my_values.yaml` and apply it in the `helm install` command. 
+* Override default values with your own `my_values.yaml` and apply it in the `helm install` command. 
 
 If required, you can add the following optional parameters as environment variables:
   
 | Parameter | Description | 
 |---|---|
-| secrets.SamplingLatency | Threshold for the spand latency - all traces slower than the threshold value will be filtered in. Default 500. | 
+| secrets.SamplingLatency | Threshold for the span latency - all traces slower than the threshold value will be filtered in. Default 500. | 
 | secrets.SamplingProbability | Sampling percentage for the probabilistic policy. Default 10. | 
 
 ##### Example
