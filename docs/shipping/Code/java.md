@@ -571,7 +571,7 @@ Replace the placeholders in the code (indicated by the double angle brackets `<<
 
 | Environment variable | Description |Required/Default|
 |---|---|---|
-|`<<LISTENER-HOST>>`|  The full Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic (example: https://listener.logz.io:8053). For more details, see the [regions page](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/) in logz.io docs | Required|
+|`<<LISTENER-HOST>>`|  The full Logz.io Listener URL for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic (example: https://listener.logz.io:8053). For more details, see the [regions page](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/) in logz.io docs | Required|
 |`<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>`| The Logz.io Prometheus Metrics account token. Find it under **Settings > Manage accounts**. [Look up your Metrics account token.](https://docs.logz.io/docs/user-guide/admin/authentication-tokens/finding-your-metrics-account-token/)  | Required|
 |interval | The interval in seconds, to push metrics to Logz.io **Note that your program will need to run for at least one interval for the metrics to be sent**  | Required|
 
