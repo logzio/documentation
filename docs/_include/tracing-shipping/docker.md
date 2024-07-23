@@ -68,7 +68,7 @@ service:
 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
-##### Tail Sampling 
+### Tail Sampling 
 
 {@include: ../../_include/tracing-shipping/tail-sampling.md}
  
@@ -158,14 +158,11 @@ service:
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
 
-{@include: ../../_include/tracing-shipping/tail-sampling.md}
-
-
-##### Run the container
+#### Run the container
 
 Mount the `config.yaml` as volume to the `docker run` command and run it as follows.
 
-###### Linux
+##### Linux
 
 ```
 docker run  \
@@ -177,7 +174,7 @@ otel/opentelemetry-collector-contrib:0.78.0
 
 Replace `<PATH-TO>` to the path to the `config.yaml` file on your system.
 
-###### Windows
+##### Windows
 
 ```
 docker run  \

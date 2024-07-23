@@ -6,25 +6,23 @@
 ## Prerequisites 
 
 :::note
-You can find your Logz.io configuration tokens, environment IDs, regions, and other required details [here](https://app.logz.io/#/dashboard/integrations/aws-eks).
+Your Logz.io configuration tokens, environment IDs, regions, and other required details are [here](https://app.logz.io/#/dashboard/integrations/aws-eks).
 :::
 
-1. [Helm](https://helm.sh/)
+* [Helm](https://helm.sh/)
 
-Add Logzio-helm repository
+* Add Logzio-helm repository
+
 
 ```sh
 helm repo add logzio-helm https://logzio.github.io/logzio-helm && helm repo update
 ```
+
 {@include: ../../_include/general-shipping/k8s-all-data.md}
 
-## Send your logs 
+## Send your logs
 
-`logzio-monitoring` supports the following subcharts for log collection agent:
-- `logzio-logs-collector`: Based on opentelemetry collector
-- `logzio-fluentd`: Based on fluentd
-
-### Log collection with logzio-logs-collector
+`logzio-monitoring` supports `logzio-logs-collector`, based on OpenTelemetry collector, and `logzio-fluentd`, based on fluentd.
 
 _Migrating to `logzio-monitoring` >=6.0.0_
 
@@ -40,8 +38,8 @@ logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
 ### Log collection with logzio-fluentd
-The `logzio-fluentd` chart is disabled by default in favor of the `logzio-logs-collector` chart for log collection.
-Deploy `logzio-fluentd`, by adding the following `--set` flags:
+The `logzio-fluentd` chart is disabled by default in favor of the `logzio-logs-collector` chart.
+Deploy `logzio-fluentd` by adding the following `--set` flags:
 
 ```sh
 helm install -n monitoring \
@@ -63,12 +61,12 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<LOGZIO-REGION>>` | Logzio region. |
 
 
-For log shipping troubleshooting, see our [user guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-fluentd-for-kubernetes-logs/).
+If you encounter an issue, see our [troubleshooting guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-fluentd-for-kubernetes-logs/).
 
-## Send your deploy events logs 
+## Send deployment events logs
 
-This integration sends data about deployment events in the cluster, and how they affect the cluster's resources. 
-Currently supported resource kinds are `Deployment`, `Daemonset`, `Statefulset`, `ConfigMap`, `Secret`, `Service Account`, `Cluster Role` and `Cluster Role Binding`.
+Send data about deployment events in the cluster, and how they affect its resources. 
+_Supported resource kinds are `Deployment`, `Daemonset`, `Statefulset`, `ConfigMap`, `Secret`, `Service Account`, `Cluster Role` and `Cluster Role Binding`._
 
 ```sh
 helm install --namespace=monitoring \
@@ -90,7 +88,8 @@ logzio-monitoring logzio-helm/logzio-monitoring
 
 ### Deployment events versioning
 
-To add a versioning indicator to our K8S 360 and Service Overview UI, the specified annotation must be included in the metadata of each resource whose versioning you wish to track. The 'View commit' button will link to the commit URL in your version control system (VCS) from the logzio/commit_url annotation value.
+To add a versioning indicator in Kubernetes 360 and Service Overview, include the `logzio/commit_url` annotation in the resource metadata. The 'View commit' button will link to the commit URL in your version control system (VCS).
+
 
 ```yaml
 metadata:
@@ -175,7 +174,9 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<SPM-METRICS-SHIPPING-TOKEN>>` | Your [span metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
 
 ## Deploy both charts with span metrics and service graph
-**Note** `serviceGraph.enabled=true` will have no effect unless `traces.enabled` & `spm.enabled=true` is also set to `true`
+
+**Note:** `serviceGraph.enabled=true` will have no effect unless `traces.enabled` & `spm.enabled=true` is also set to `true`.
+
 ```sh
 helm install -n monitoring \
 --set metricsOrTraces.enabled=true \
@@ -189,8 +190,10 @@ helm install -n monitoring \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
-#### Deploy metrics chart with Kuberenetes object logs correlation
-**Note** `k8sObjectsConfig.enabled=true` will have no effect unless `metrics.enabled` is also set to `true`
+#### Deploy metrics chart with Kubernetes object logs correlation
+
+**Note** `k8sObjectsConfig.enabled=true` will have no effect unless `metrics.enabled` is also set to `true`.
+
 ```sh
 helm install  \
 --set logzio-k8s-telemetry.metrics.enabled=true \
@@ -221,36 +224,36 @@ helm install -n monitoring \
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
 
 
-## Modifying the configuration for logs
+## Modifying log configuration
 
-You can see a full list of the possible configuration values in the [logzio-fluentd Chart folder](https://github.com/logzio/logzio-helm/tree/master/charts/fluentd#configuration).
+View the full list of the possible configuration values in the [logzio-fluentd Chart folder](https://github.com/logzio/logzio-helm/tree/master/charts/fluentd#configuration).
 
-If you would like to modify any of the values found in the `logzio-fluentd` folder, use the `--set` flag with the `logzio-fluentd` prefix.
+To modify values in the `logzio-fluentd` folder, use the `--set` flag with the `logzio-fluentd` prefix.
 
-For instance, if there is a parameter called `someField` in the `logzio-telemetry`'s `values.yaml` file, you can set it by adding the following to the `helm install` command:
+For example, for a parameter called `someField` in the `logzio-telemetry`'s `values.yaml` file, set it by adding the following to the `helm install` command:
 
 ```sh
 --set logzio-fluentd.someField="my new value"
 ```
-You can add `log_type` annotation with a custom value, which will be parsed into a `log_type` field with the same value.
+
+Adding `log_type` annotation with a custom value will be parsed into a `log_type` field with the same value.
 
 
-### Modifying the configuration for metrics and traces
+### Modifying metrics and traces configuration
 
-You can see a full list of the possible configuration values in the [logzio-telemetry Chart folder](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-telemetry).
+View the full list of the possible configuration values in the [logzio-telemetry Chart folder](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-telemetry).
 
-If you would like to modify any of the values found in the `logzio-telemetry` folder, use the `--set` flag with the `logzio-k8s-telemetry` prefix.
+To modify values found in the `logzio-telemetry` folder, use the `--set` flag with the `logzio-k8s-telemetry` prefix.
 
-For instance, if there is a parameter called `someField` in the `logzio-telemetry`'s `values.yaml` file, you can set it by adding the following to the `helm install` command:
-
+For example, for a parameter called `someField` in the `logzio-telemetry`'s `values.yaml` file, set it by adding the following to the `helm install` command:
 
 ```sh
 --set logzio-k8s-telemetry.someField="my new value"
 ```
 
-## Sending telemetry data from eks on fargate
+## Sending telemetry data from EKS on Fargate
 
-To ship logs from pods running on Fargate, set the `fargateLogRouter.enabled` value to `true`. Doing so will deploy a dedicated `aws-observability` namespace and a `configmap` for the Fargate log router. For more information on EKS Fargate logging, please refer to the [official AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/fargate-logging.html).
+Set the `fargateLogRouter.enabled` value to `true`. This deploys a dedicated `aws-observability` namespace and a `configmap` for the Fargate log router. Read more on EKS Fargate logging in the [official AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/fargate-logging.html).
 
 ```shell
 helm install -n monitoring \
@@ -284,9 +287,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 
 ## Handling image pull rate limit
 
-In certain situations, such as with spot clusters where pods/nodes are frequently replaced, you may encounter the pull rate limit for images fetched from Docker Hub. This could result in the following error: `You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limits`.
-
-To address this issue, you can use the `--set` commands provided below in order to access an alternative image repository:
+Docker Hub pull rate limits could result in the following error: `You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limits`. To avoid this, use the `--set` commands below to access an alternative image repository:
 
 ```shell
 --set logzio-k8s-telemetry.image.repository=ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib
@@ -298,15 +299,16 @@ To address this issue, you can use the `--set` commands provided below in order 
 
 ## Upgrading logzio-monitoring to v3.0.0
 
-Before upgrading your logzio-monitoring Chart to v3.0.0 with `helm upgrade`, note that you may encounter an error for some of the logzio-telemetry sub-charts.
+Before upgrading your logzio-monitoring chart to v3.0.0 with `helm upgrade`, you might encounter errors with some logzio-telemetry sub-charts. 
 
-There are two possible approaches to the upgrade you can choose from:
+You have two options:
+
 - Reinstall the chart.
-- Before running the `helm upgrade` command, delete the old subcharts resources: `logzio-monitoring-prometheus-pushgateway` deployment and the `logzio-monitoring-prometheus-node-exporter` daemonset.
+- Before running `helm upgrade`, delete the old subcharts resources: `logzio-monitoring-prometheus-pushgateway` deployment and the `logzio-monitoring-prometheus-node-exporter` daemonset.
 
 ## Configuring logs in JSON format
 
-This configuration sets up a log processor to parse, restructure, and clean JSON-formatted log messages for streamlined analysis and monitoring:
+Set up a log processor to parse JSON logs:
 
 ```json
 <filter **>
@@ -320,17 +322,16 @@ This configuration sets up a log processor to parse, restructure, and clean JSON
 </filter>
 ```
 
-## Adding metric names to K8S 360 filter
+## Adding metric names to Kubernetes 360 filter
 
-To customize the metrics collected by Prometheus in your Kubernetes environment, you need to modify the `prometheusFilters` configuration in your Helm chart.
+Customize Prometheus metrics in your Kubernetes environment by modifying the `prometheusFilters` configuration in your Helm chart.
 
-### Identify metrics to keep
+**1. Identify metrics to keep**
 
 Decide which metrics you need to add to your collection, formatted as a regex string (e.g., `new_metric_1|new_metric_2`).
 
-### Set filters
+**2. Set filters**
 
-Run the following command:
 
 ```shell
 helm upgrade <RELEASE_NAME> logzio-helm/logzio-monitoring \

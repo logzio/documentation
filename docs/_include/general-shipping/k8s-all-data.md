@@ -1,7 +1,8 @@
-## All telemetry (logs, metrics, traces and security reports) at once
+## Send all telemetry Data (logs, metrics, traces and security reports)
 
 
-To enjoy the full Kubernetes 360 experience, you can send all your telemetry data to Logz.io using one single Helm chart:
+Send all of your telemetry data using one single Helm chart:
+
 
 ```sh
 helm repo add logzio-helm https://logzio.github.io/logzio-helm
