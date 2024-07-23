@@ -6,10 +6,10 @@ product: ['metrics']
 os: ['windows', 'linux']
 filters: ['Compute']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/apache-http-logo.png
-logs_dashboards: []
-logs_alerts: []
+logs_dashboards: ['5LWLzuSeGMqXVj5p8cP1NX']
+logs_alerts: ['6b8UfKeSHCc4SWxHphMd0O, 5jTENQYn5PpgiZWvezI0Cp, 6OAv4ozj4eRi7NSHgJawl1, 7EgPOsqIuoBUCwcHpq57L3, 6NmeR0XGMoTTanwU82oCrD']
 logs2metrics: []
-metrics_dashboards: []
+metrics_dashboards: ['28VJXdtDINv7w2T3l8oOO9']
 metrics_alerts: []
 drop_filter: []
 ---
