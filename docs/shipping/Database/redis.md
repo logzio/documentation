@@ -107,7 +107,7 @@ service:
       processors: [resourcedetection/system]
 ```
 
-{@include: ../../_include/general-shipping/replace-prometheus-token.html}
+{@include: ../../_include/p8s-shipping/replace-prometheus-token.html}
 
 Replace `<<job_name>>` with a suitable job name for your setup.
 
@@ -305,7 +305,7 @@ service:
      processors: [resourcedetection/system]
 ```
 
-{@include: ../../_include/general-shipping/replace-prometheus-token.html}
+{@include: ../../_include/p8s-shipping/replace-prometheus-token.html}
 
 {@include: ../../_include/log-shipping/listener-var.html} 
 
