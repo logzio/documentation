@@ -271,13 +271,13 @@ You can use the following options to update the Helm chart parameters:
 
 * Edit the `values.yaml`.
 
-* Overide default values with your own `my_values.yaml` and apply it in the `helm install` command. 
+* Override default values with your own `my_values.yaml` and apply it in the `helm install` command. 
 
 If required, you can add the following optional parameters as environment variables:
   
 | Parameter | Description | 
 |---|---|
-| secrets.SamplingLatency | Threshold for the spand latency - all traces slower than the threshold value will be filtered in. Default 500. | 
+| secrets.SamplingLatency | Threshold for the span latency - all traces slower than the threshold value will be filtered in. Default 500. | 
 | secrets.SamplingProbability | Sampling percentage for the probabilistic policy. Default 10. | 
 
 #### Example
