@@ -69,7 +69,7 @@ With this command, we instruct Helm to create the monitoring namespace if it doe
 |---|---|
 | `<<ENV-ID>>` | A unique name assigned to your environment's identifier, to differentiate telemetry data across various environments. If you're collecting metrics, this should match the env-id/p8s_logzio_name you used for the metrics.
 | `<<LOG-SHIPPING-TOKEN>>` | {@include: ../../_include/log-shipping/log-shipping-token.html} |
-| `<<LISTENER-HOST>>` | Replace `<<LISTENER-HOST>>` with the host for your region, without the `http/https` prefix. For example, `listener.logz.io` if your account is hosted on AWS US East, or `listener-nl.logz.io` if hosted on Azure West Europe.  |
+| `<<LISTENER-HOST>>` | Replace `<<LISTENER-HOST>>` with the host for your region, without the `http/https` prefix. For example, `listener.logz.io` if your account is hosted on AWS US East.  |
 
 
 ### Check Logz.io for your reports
