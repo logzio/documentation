@@ -209,7 +209,7 @@ If you already have an OpenTelemetry installation, add the following parameters 
 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
-An example configuration file looks as follows:
+Here is an example configuration file:
 
 {@include: ../../_include/tracing-shipping/collector-config.md}
 

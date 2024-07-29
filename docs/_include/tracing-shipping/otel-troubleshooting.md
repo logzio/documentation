@@ -1,24 +1,22 @@
-This section contains some guidelines for handling errors that you may encounter when trying to collect traces with OpenTelemetry.
+## Troubleshooting
+
+If the code is instrumented but traces are not being sent, try the following troubleshooting steps:
 
 
-## Problem: No traces are sent
-
-The code has been instrumented, but the traces are not being sent.
-
-##### Possible cause - Collector not installed
+### Collector not installed
 
 The OpenTelemetry collector may not be installed on your system.
 
-###### Suggested remedy
+**Suggested remedy**
 
 Check if you have an OpenTelemetry collector installed and configured to receive traces from your hosts.
 
 
-### Possible cause - Collector path not configured
+### Collector path not configured
 
 If the collector is installed, it may not have the correct endpoint configured for the receiver.
 
-###### Suggested remedy
+**Suggested remedy**
 
 1. Check that the configuration file of the collector lists the following endpoints:
 
@@ -35,12 +33,12 @@ If the collector is installed, it may not have the correct endpoint configured f
 2. In the instrumentation code, make sure that the endpoint is specified correctly. You can use Logz.io's [integrations hub](https://app.logz.io/#/dashboard/integrations/collectors?tags=Tracing) to ship your data.
 
 
-##### Possible cause - Traces not genereated
+### Traces not generated
 
 If the collector is installed and the endpoints are properly configured, the instrumentation code may be incorrect.
 
 
-###### Suggested remedy
+**Suggested remedy**
 
 
 1. Check if the instrumentation can output traces to a console exporter.
@@ -52,7 +50,7 @@ If the collector is installed and the endpoints are properly configured, the ins
 If the above steps do not work, refer to Logz.io's [integrations hub](https://app.logz.io/#/dashboard/integrations/collectors?tags=Tracing) and re-instrument the application.
 
 
-### Possible cause - Wrong exporter/protocol/endpoint
+### Wrong exporter/protocol/endpoint
 
 If traces are generated but not send, the collector may be using incorrect exporter, protocol and/or endpoint.
 
@@ -68,7 +66,7 @@ The correct endpoints are:
            endpoint: "<<COLLECTOR-URL>>:4318/v1/traces"
 ```
 
-###### Suggested remedy
+**Suggested remedy**
 
 1. Activate `debug` logs in the configuration file of the collector as follows:
 
@@ -86,11 +84,11 @@ If the post request is not successful, check if the collector is configured to u
 If the post request is successful, there will be an additional log with the status code 200. If the post request failed for some reason, there would be another log with the reason for the failure.
 
 
-##### Possible cause - Collector failure
+### Collector failure
 
 If the `debug` logs are sent, but the traces are still not generated, the collector logs need to be investigated.
 
-###### Suggested remedy
+**Suggested remedy**
 
 
 1. On Linux and MacOS, see the logs for the collector:
@@ -109,11 +107,11 @@ If the `debug` logs are sent, but the traces are still not generated, the collec
 
 This is the endpoint to access the collector metrics in order to see different events that might happen within the collector - receiving spans, sending spans as well as other errors.
 
-##### Possible cause - Exporter failure
+### Exporter failure
 
 Traces may not be generated if the exporter is not configured properly.
 
-###### Suggested remedy
+**Suggested remedy**
 
 
 If you are unable to export traces to a destination, this may be caused by the following:
@@ -138,19 +136,19 @@ otelcol_exporter_enqueue_failed_metric_points{exporter="logging",service_instanc
 ```
 
 
-##### Possible cause - Receiver failure
+### Receiver failure
 
 Traces may not be generated if the receiver is not configured properly.
 
 
-###### Suggested remedy
+**Suggested remedy**
 
 If you are unable to receive data, this may be caused by the following:
 
-* There is a network configuration issue
-* The receiver configuration is incorrect
-* The receiver is defined in the receivers section, but not enabled in any pipelines
-* The client configuration is incorrect
+* There is a network configuration issue.
+* The receiver configuration is incorrect.
+* The receiver is defined in the receivers section, but not enabled in any pipelines.
+* The client configuration is incorrect.
 
 
 Those metrics can provide about the receiver:

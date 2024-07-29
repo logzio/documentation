@@ -94,7 +94,7 @@ For serverless environments, such as AWS Lambda, Azure Functions, or Google Clou
   logger.sendAndClose();
   ```
 
-### Add custom tags
+### Add custom tags to logzio-nodejs
 
 Add custom tags using the following format: `{ tags : ['tag1']}`, for example:
 
@@ -116,28 +116,21 @@ logger.log(obj);
 [Project's GitHub repo](https://github.com/logzio/winston-logzio/)
 :::
 
-This winston plugin is a wrapper for the logzio-nodejs appender, which basically means it just wraps our nodejs logzio shipper.
-With winston-logzio, you can take advantage of the winston logger framework with your Node.js app.
+This winston plugin is a wrapper for the logzio-nodejs appender, allowing you to use the Logz.io shipper with the winston logger framework in your Node.js app.
 
 
 ### Configure winston-logzio
 
-**Before you begin, you'll need**: Winston 3 (If you're looking for Winston 2, checkout v1.0.8). If you need to run with Typescript, follow the procedure to set up winston with Typescript.
+**Before you begin, you'll need**: Winston 3 (for Winston 2, see version v1.0.8). If you're using Typescript, follow the procedure to set up winston with Typescript.
 
- 
 
-##### Add the dependency to your project
-
-Navigate to your project's folder in the command line, and run this command to install the dependency.
+Install the dependency:
 
 ```shell
 npm install winston-logzio --save
 ```
 
-##### Configure winston-logzio
-
-Here's a sample configuration that you can use as a starting point.
-Use the samples in the code block below or replace the sample with a configuration that matches your needs.
+Use the sample configuration and edit it according to your needs:
 
 ```javascript
 const winston = require('winston');
@@ -159,7 +152,8 @@ const logger = winston.createLogger({
 logger.log('warn', 'Just a test message');
 ```
 
-If winston-logzio is used as part of a serverless service (AWS Lambda, Azure Functions, Google Cloud Functions, etc.), add `await logger.info(“API Called”)` and `logger.close()` at the end of the run, every time you are using the logger.
+If you are using winston-logzio in a serverless service (e.g., AWS Lambda, Azure Functions, Google Cloud Functions), add `await logger.info("API Called")` and `logger.close()` at the end of each run to ensure proper logging.
+
 
 {@include: ../../_include/general-shipping/replace-placeholders.html}
 
@@ -173,41 +167,44 @@ For a complete list of your options, see the configuration parameters below.👇
 
 | Parameter | Description | Required/Default |
 |---|---|---|
-| LogzioWinstonTransport | This variable determines what will be passed to the logzio nodejs logger itself. If you want to configure the nodejs logger, add any parameters you want to send to winston when initializing the transport. | -- |
-| token | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). {@include: ../../_include/log-shipping/log-shipping-token.html} | Required |
-| protocol | `http` or `https`. The value here affects the default of the `port` parameter. | `http` |
+| LogzioWinstonTransport | Determines the settings passed to the logzio-nodejs logger. Configure any parameters you want to send to winston when initializing the transport. | -- |
+| token | Your Logz.io log shipping token securely directs data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). {@include: ../../_include/log-shipping/log-shipping-token.html} | Required |
+| protocol | `http` or `https`, affecting the default `port` parameter. | `http` |
 | host  |  {@include: ../../_include/log-shipping/listener-var.md} {@include: ../../_include/log-shipping/listener-var.html} | `listener.logz.io` |
-| port | Destination port. The default port depends on the `protocol` parameter: `8070` (for HTTP) or `8071` (for HTTPS) | `8070` / `8071` |
+| port | Destination port based on the `protocol` parameter: `8070` (for HTTP) or `8071` (for HTTPS) | `8070` / `8071` |
 | type | {@include: ../../_include/log-shipping/type.md} | `nodejs` |
 | sendIntervalMs  | Time to wait between retry attempts, in milliseconds. | `2000` (2 seconds) |
 | bufferSize  | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
 | numberOfRetries | Maximum number of retry attempts. | `3` |
 | debug | To print debug messsages to the console, `true`. Otherwise, `false`. | `false` |
-| callback | A callback function to call when the logger encounters an unrecoverable error. The function API is `function(err)`, where `err` is the Error object. | -- |
+| callback | Callback function for unrecoverable errors. The function API is `function(err)`, where `err` is the Error object. | -- |
 | timeout | Read/write/connection timeout, in milliseconds. | -- |
-| extraFields | JSON format. Adds your custom fields to each log. Format: `extraFields : { field_1: "val_1", field_2: "val_2" , ... }` | -- |
-| setUserAgent | Set to false to send logs without the user-agent field in the request header. If you want to send data from Firefox browser, set that option to false. | `true` |
+| extraFields | Adds custom fields to each log in JSON format: `extraFields : { field_1: "val_1", field_2: "val_2" , ... }` | -- |
+| setUserAgent | Set to `false` to send logs without the user-agent field in the request header. Set to `false` if sending data from Firefox browser. | `true` |
 
-##### Additional configuration options
+### Additional configuration options
 
-* If winston-logzio is used as part of a serverless service (AWS Lambda, Azure Functions, Google Cloud Functions, etc.), add this line at the end of the configuration code block.
+* If you are using winston-logzio in a serverless service (e.g., AWS Lambda, Azure Functions, Google Cloud Functions), add this line at the end of the configuration code block.
+
+
 
   ```javascript
   logger.close()
   ```
 
-* The winston logger by default sends all logs to the console. You can easily disable this by adding this line to your code:
+
+* By default, the winston logger sends all logs to the console. Disable this by adding the following line to your code:
 
   ```javascript
   winston.remove(winston.transports.Console);
   ```
-* To send a log line:
+* Send a log line:
 
   ```javascript
   winston.log('info', 'winston logger configured with logzio transport');
   ```
 
-* To log the last UncaughtException before Node exits:
+* Log the last UncaughtException before Node exits:
 
   ```javascript
   var logzIOTransport = new (winstonLogzIO)(loggerOptions);
@@ -229,7 +226,7 @@ For a complete list of your options, see the configuration parameters below.👇
   });
   ```
 
-* Another configuration option
+* Additional configuration option
 
   ```javascript
   var winston = require('winston');
@@ -248,7 +245,7 @@ For a complete list of your options, see the configuration parameters below.👇
   ```
 
 
-### Add custom tags
+### Add custom tags to winston-logzio
 
 Add custom tags using the following format: `{ tags : ['tag1']}`, for example:
 
@@ -267,37 +264,30 @@ logger.log(obj);
 
 
 
-  
-
-### winston-logzio setup with Typescript
-
-This winston plugin is a wrapper for the logzio-nodejs appender that runs with Typescript, which basically means it just wraps our nodejs logzio shipper.
-With winston-logzio, you can take advantage of the winston logger framework with your Node.js app.
+### Configure winston-logzio with Typescript
 
 
-#### Configure winston-logzio
+This winston plugin is a TypeScript-compatible wrapper for the logzio-nodejs appender, effectively integrating Logz.io shipper with your Node.js application. With winston-logzio, you can take advantage of the winston logger framework.
 
-**Before you begin, you'll need**: Winston 3 (If you're looking for Winston 2, checkout v1.0.8)
 
- 
 
-##### Add the dependency to your project
+**Before you begin, you'll need**: Winston 3 (for Winston 2, see version v1.0.8).
 
-Navigate to your project's folder in the command line, and run this command to install the dependency.
+
+Install the dependency:
+
 
 ```shell
 npm install winston-logzio --save
 ```
 
-##### Configure winston-logzio with Typescript
-
-If you don't have a `tsconfig.json` file, you'll need to add it first. Start by running:
+Configure winston-logzio with Typescript. If you don't have a `tsconfig.json` file, start by adding one. Run the following command:
 
 ```javascript
 tsc --init
 ```
 
-On your `tsconfig.json` file, under the parameter `compilerOptions` make sure you have the `esModuleInterop` flag set to `true` or add it:
+On your `tsconfig.json` file, under `compilerOptions` ensure you have the `esModuleInterop` flag set to `true` or add it:
 
 ```javascript
 "compilerOptions": {
@@ -306,8 +296,9 @@ On your `tsconfig.json` file, under the parameter `compilerOptions` make sure yo
 }
 ```
 
-Here's a sample configuration that you can use as a starting point.
-Use the samples in the code block below or replace the sample with a configuration that matches your needs.
+
+Use the sample configuration and edit it according to your needs:
+
 
 ```javascript
 import winston from 'winston';
@@ -325,7 +316,9 @@ const logger = winston.createLogger({
 logger.log('warn', 'Just a test message');
 ```
 
-If winston-logzio is used as part of a serverless service (AWS Lambda, Azure Functions, Google Cloud Functions, etc.), add this line at the end of the configuration code block, every time you are using the logger.
+If you are using winston-logzio in a serverless service (e.g., AWS Lambda, Azure Functions, Google Cloud Functions), add this line at the end of each run to ensure proper logging.
+
+
 
 ```javascript
 await logger.info(“API Called”)
@@ -337,8 +330,7 @@ logger.close()
 
 ### Troubleshooting
 
-To fix errors related to `esModuleInterop` flag make sure you run the relevant `tsconfig` file.
-These might help:
+To resolve errors related to the `esModuleInterop` flag, ensure you run the appropriate `tsconfig` file. Use one of the following commands:
 
 ```
 tsc <file-name>.ts --esModuleInterop
@@ -351,7 +343,7 @@ tsc --project tsconfig.json
 ```
 
 
-### Add custom tags
+### Add custom tags to winston-logzio with Typescript
 
 Add custom tags using the following format: `{ tags : ['tag1']}`, for example:
 
@@ -366,12 +358,15 @@ var obj = {
 
 logger.log(obj);
 ```
+
 </TabItem>
 </Tabs>
 
 ## Metrics
 
-These examples uses the [OpenTelemetry JS SDK](https://github.com/open-telemetry/opentelemetry-js) and is based on [OpenTelemetry exporter collector proto](https://github.com/open-telemetry/opentelemetry-js/tree/main/packages/opentelemetry-exporter-collector-proto).
+These examples use the [OpenTelemetry JS SDK](https://github.com/open-telemetry/opentelemetry-js) and are based on the [OpenTelemetry exporter collector proto](https://github.com/open-telemetry/opentelemetry-js/tree/main/packages/opentelemetry-exporter-collector-proto).
+
+
 
 :::note
 [Project's GitHub repo](https://github.com/logzio/js-metrics/)
@@ -385,6 +380,12 @@ Node 8 or higher.
 :::note
 We recommend using this integration with [the Logz.io Metrics backend](https://app.logz.io/#/dashboard/metrics/), though it is compatible with any backend that supports the `prometheusremotewrite` format.
 :::
+
+
+
+
+
+
 
 
 
@@ -423,20 +424,18 @@ const meter = new MeterProvider.MeterProvider({
 
 ### Add required metrics to the code
   
-This integration allows you to use the following metrics:
+Yu can use the following metrics:
 
 | Name | Behavior |
 | ---- | ---------- |
-| Counter           | Metric value can only go up or be reset to 0, calculated per `counter.Add(context,value,labels)` request. |
+| Counter           | Metric value can only increase or reset to 0, calculated per `counter.Add(context,value,labels)` request. |
 | UpDownCounter     | Metric value can arbitrarily increment or decrement, calculated per `updowncounter.Add(context,value,labels)` request. |
-| Histogram         | Metric values captured by the `histogram.Record(context,value,labels)` function, calculated per request. |
+| Histogram         | Metric values are captured by the `histogram.Record(context,value,labels)` function and calculated per request. |
 
   
-For more information on each of these metrics, see the OpenTelemetry [documentation](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md).
+For details on these metrics, refer to the OpenTelemetry [documentation](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/metrics/api.md).
 
-To add a metric, copy and paste the code into your application after the initialization code:
-
-
+Insert the following code after initialization to add a metric:
   
 #### Counter
 
@@ -484,11 +483,11 @@ histogram.record(20,labels);
 // test_histogram_avg{environment: 'prod'} 25.0
 ```
 
-#### View your metrics
+### View your metrics
 
 Run your application to start sending metrics to Logz.io.
 
-Give the data some time to ingest and then check your [Metrics dashboard](https://app.logz.io/#/dashboard/metrics/discover?).
+Allow some time for data ingestion, then check your [Metrics dashboard](https://app.logz.io/#/dashboard/metrics/discover?).
 
 {@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard for enhanced observability.
 
@@ -499,23 +498,22 @@ Give the data some time to ingest and then check your [Metrics dashboard](https:
 
 ## Traces
 
-### Auto-instrument Node.js and Send Traces to Logz.io
+### Auto-instrument Node.js and send Traces to Logz.io
 
 This integration includes:
 
-* Installing the OpenTelemetry Node.js instrumentation packages on your application host
-* Installing the OpenTelemetry collector with Logz.io exporter
-* Running your Node.js application in conjunction with the OpenTelemetry instrumentation
+* Install OpenTelemetry Node.js instrumentation packages on your host.
+* Install the OpenTelemetry collector with Logz.io exporter.
+* Run your Node.js application with OpenTelemetry instrumentation.
 
-On deployment, the Node.js instrumentation automatically captures spans from your application and forwards them to the collector, which exports the data to your Logz.io account.
+The Node.js instrumentation captures spans and forwards them to the collector, which exports the data to your Logz.io account.
 
 **Before you begin, you'll need**:
 
-* A Node.js application without instrumentation
-* An active account with Logz.io
-* Port `4318` available on your host system
-* A name defined for your tracing service. You will need it to identify the traces in Logz.io.
-
+* A Node.js application without instrumentation.
+* An active Logz.io account.
+* Port `4318` available on your host system.
+* A name for your tracing service to identify traces in Logz.io.
  
 :::note
 This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
@@ -527,10 +525,9 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 
 
 
-#### Download and configure the OpenTelemetry collector:
+#### Download and configure the OpenTelemetry collector
 
-Create a directory on your Node.js host and download the appropriate [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases) for your OS. Then, create a `config.yaml` file with the following parameters:
-
+Create a directory on your Node.js host, download the appropriate [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases) for your OS, and create a `config.yaml` file with the following parameters:
 
 
 {@include: ../../_include/tracing-shipping/collector-config.md}
@@ -542,16 +539,13 @@ Create a directory on your Node.js host and download the appropriate [OpenTeleme
 #### Start the collector
 
 
-
-Run this command in your application directory:
-
 ```shell
 <path/to>/otelcontribcol_<VERSION-NAME> --config ./config.yaml
 ```
 * Replace `<path/to>` with the path to the directory where you downloaded the collector.
 * Replace `<VERSION-NAME>` with the version name of the collector applicable to your system, e.g. `otelcontribcol_darwin_amd64`.
 
-##### Run the application
+#### Run the application
 
 Run this command to generate traces:
 
@@ -571,10 +565,10 @@ This integration auto-instruments your Node.js app and runs a containerized Open
 
 **Before you begin, you'll need**:
 
-* A Node.js application without instrumentation
-* An active account with Logz.io
-* Port `4317` available on your host system
-* A name defined for your tracing service. You will need it to identify the traces in Logz.io.
+* A Node.js application without instrumentation.
+* An active Logz.io account.
+* Port `4317` available on your host system.
+* A name for your tracing service to identify traces in Logz.io.
 
 
 {@include: ../../_include/tracing-shipping/node-steps.md}
@@ -600,11 +594,13 @@ node --require './tracer.js' <YOUR-APPLICATION-FILE-NAME>.js
 
 #### Check Logz.io for your traces
 
-Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
+Give your traces some time to ingest, and then open your [Tracing account](https://app.logz.io/#/dashboard/jaeger).
 
-### Configuratiion using Helm
 
-You can use a Helm chart to ship Traces to Logz.io via the OpenTelemetry collector. The Helm tool is used to manage packages of preconfigured Kubernetes resources that use charts.
+
+### Configuration using Helm
+
+You can use a Helm chart to ship traces to Logz.io via the OpenTelemetry collector. Helm is a tool for managing packages of preconfigured Kubernetes resources using charts.
 
 **logzio-k8s-telemetry** allows you to ship traces from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
 
@@ -620,11 +616,8 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 :::
   
 
-#### Standard configuration
 
-
-
-##### 1. Deploy the Helm chart
+#### Deploy the Helm chart
  
 Add `logzio-helm` repo as follows:
  
@@ -633,7 +626,7 @@ helm repo add logzio-helm https://logzio.github.io/logzio-helm
 helm repo update
 ```
 
-##### 2. Run the Helm deployment code
+#### Run the Helm deployment code
 
 ```
 helm install  \
@@ -647,33 +640,36 @@ logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 `<<LOGZIO_ACCOUNT_REGION_CODE>>` - Your Logz.io account region code. [Available regions](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
 
-##### 3. Define the logzio-k8s-telemetry dns name
+#### Define the logzio-k8s-telemetry dns name
 
 In most cases, the service name will be `logzio-k8s-telemetry.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
+
+
   
-If you are not sure what your cluster domain name is, you can run the following command to look it up: 
+To find your cluster domain name, run the following command:
   
 ```shell
 kubectl run -it --image=k8s.gcr.io/e2e-test-images/jessie-dnsutils:1.3 --restart=Never shell -- \
 sh -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.default//"'
 ```
   
-It will deploy a small pod that extracts your cluster domain name from your Kubernetes environment. You can remove this pod after it has returned the cluster domain name.
+This command deploys a temporary pod to extract your cluster domain name. You can remove the pod after retrieving the domain name.
   
 
 {@include: ../../_include/tracing-shipping/node-steps.md}
 
-##### 4. Check Logz.io for your traces
+#### Check Logz.io for your traces
 
-Give your traces some time to get from your system to ours, then open [Logz.io](https://app.logz.io/).
+Give your traces some time to ingest, and then open your [Tracing account](https://app.logz.io/).
 
 
 
-#### Customizing Helm chart parameters
 
-##### Configure customization options
 
-You can use the following options to update the Helm chart parameters: 
+### Customizing Helm chart parameters
+
+
+To customize the Helm chart parameters, you have the following options:
 
 * Specify parameters using the `--set key=value[,key=value]` argument to `helm install`.
 
@@ -681,16 +677,16 @@ You can use the following options to update the Helm chart parameters:
 
 * Override default values with your own `my_values.yaml` and apply it in the `helm install` command. 
 
-If required, you can add the following optional parameters as environment variables:
+You can add the following optional parameters as environment variables if needed:
   
 | Parameter | Description | 
 |---|---|
 | secrets.SamplingLatency | Threshold for the span latency - all traces slower than the threshold value will be filtered in. Default 500. | 
 | secrets.SamplingProbability | Sampling percentage for the probabilistic policy. Default 10. | 
 
-##### Example
+**Code example:**
 
-You can run the logzio-k8s-telemetry chart with your custom configuration file that takes precedence over the `values.yaml` of the chart.
+You can run the logzio-k8s-telemetry chart with your custom configuration file, which will override the default `values.yaml` settings.
 
 For example:
 
@@ -766,11 +762,11 @@ Replace `<PATH-TO>` with the path to your custom `values.yaml` file.
 
 
 
-#### Uninstalling the Chart
+### Uninstalling the Chart 
 
-The uninstall command is used to remove all the Kubernetes components associated with the chart and to delete the release.  
+To remove all Kubernetes components associated with the chart and delete the release, use the uninstall command.
 
-To uninstall the `logzio-k8s-telemetry` deployment, use the following command:
+To uninstall the `logzio-k8s-telemetry` deployment, run:
 
 ```shell
 helm uninstall logzio-k8s-telemetry
