@@ -2,7 +2,7 @@
 id: AWS-Lambda
 title: AWS Lambda
 overview: AWS Lambda serverless compute service runs code in response to events and automatically manages compute resources. Send these events to Logz.io to identify anomalies and issues and quickly solve them.
-product: ['metrics']
+product: ['metrics','traces']
 os: ['windows', 'linux']
 filters: ['AWS', 'Compute']
 recommendedFor: ['DevOps Engineer']
@@ -18,11 +18,7 @@ drop_filter: []
 
 ## Metrics
 
-
-Deploy this integration to send your Amazon Lambda metrics to Logz.io.
-
-
-This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon Lambda metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
+Deploy this integration to send Amazon Lambda metrics to Logz.io. It creates a Kinesis Data Firehose delivery stream to send metrics to your Logz.io account and a Lambda function to add AWS namespaces and collect resource tags.
 
 {@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
 
@@ -34,7 +30,9 @@ This integration creates a Kinesis Data Firehose delivery stream that links to y
 {@include: ../../_include/metric-shipping/aws-metrics-new.md}
 
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+
+
+Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["5tAA2oqe1KZmJqQAKUFYuq"] -->
 
@@ -43,16 +41,12 @@ This integration creates a Kinesis Data Firehose delivery stream that links to y
 
 ## Traces
 
-Deploy this integration for automatic instrumentation of your Node.js or Go applications on AWS Lambda, enabling trace forwarding to your Logz.io account. It involves adding a specialized OpenTelemetry collector layer. Additionally, Node.js applications require an extra layer for auto-instrumentation. Environment variable configurations are necessary for both Node.js and Go integrations. This setup does not require modifications to your existing application code.
+Deploy this integration for automatic instrumentation of Node.js or Go applications on AWS Lambda, forwarding traces to Logz.io. This involves adding an OpenTelemetry collector layer and configuring environment variables for both Node.js and Go integrations without modifying your application code.
+
+These guides offer step-by-step instructions tailored to your application's programming language, ensuring a seamless integration process:
+
+* Traces from **[Go Applications](https://docs.logz.io/docs/shipping/AWS/Lambda-extension-go)** using OpenTelemetry.
+* Traces from [Node.js Applications](https://docs.logz.io/docs/shipping/aws/lambda-extension-node/) using OpenTelemetry.
 
 
-
-
-For detailed instructions on implementing this integration for your specific application, please refer to the following documentation:
-
-- **Go Applications**: For deploying traces from Go applications on AWS Lambda using OpenTelemetry, visit [Traces from Go on AWS Lambda using OpenTelemetry](https://docs.logz.io/docs/shipping/AWS/Lambda-extension-go).
-
-- **Node.js Applications**: For deploying traces from Node.js applications on AWS Lambda using OpenTelemetry, visit [Traces from Node.js on AWS Lambda using OpenTelemetry](https://docs.logz.io/docs/shipping/aws/lambda-extension-node/).
-
-These guides offer step-by-step instructions tailored to your application's programming language, ensuring a seamless integration process.
 

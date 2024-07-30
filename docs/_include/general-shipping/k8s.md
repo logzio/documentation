@@ -13,10 +13,9 @@ Your Logz.io configuration tokens, environment IDs, regions, and other required 
 
 * Add Logzio-helm repository
 
-
-```sh
-helm repo add logzio-helm https://logzio.github.io/logzio-helm && helm repo update
-```
+  ```sh
+  helm repo add logzio-helm https://logzio.github.io/logzio-helm && helm repo update
+  ```
 
 {@include: ../../_include/general-shipping/k8s-all-data.md}
 
