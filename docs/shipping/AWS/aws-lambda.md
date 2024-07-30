@@ -2,7 +2,7 @@
 id: AWS-Lambda
 title: AWS Lambda
 overview: AWS Lambda serverless compute service runs code in response to events and automatically manages compute resources. Send these events to Logz.io to identify anomalies and issues and quickly solve them.
-product: ['metrics','traces']
+product: ['metrics']
 os: ['windows', 'linux']
 filters: ['AWS', 'Compute']
 recommendedFor: ['DevOps Engineer']
