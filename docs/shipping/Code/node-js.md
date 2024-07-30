@@ -489,7 +489,7 @@ Run your application to start sending metrics to Logz.io.
 
 Allow some time for data ingestion, then check your [Metrics dashboard](https://app.logz.io/#/dashboard/metrics/discover?).
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard for enhanced observability.
+Install the pre-built dashboard for enhanced observability.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["2zAdXztEedvoRJzWTR2dY0"] -->
 

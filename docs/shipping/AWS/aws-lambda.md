@@ -20,7 +20,7 @@ drop_filter: []
 
 Deploy this integration to send Amazon Lambda metrics to Logz.io. It creates a Kinesis Data Firehose delivery stream to send metrics to your Logz.io account and a Lambda function to add AWS namespaces and collect resource tags.
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["5tAA2oqe1KZmJqQAKUFYuq"] -->
 

@@ -89,7 +89,7 @@ This command overwrites the existing function configuration. If you already have
 Give your logs some time to get from your system to ours.
 
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your logs.
+Install the pre-built dashboard to enhance the observability of your logs.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["4yDXMhmHwfDYvOO8o0SGon"] -->
 
@@ -145,7 +145,7 @@ Your lambda logs will appear under the type `lambda-extension-logs`.
 Give your logs some time to get from your system to ours.
 
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your logs.
+Install the pre-built dashboard to enhance the observability of your logs.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["4yDXMhmHwfDYvOO8o0SGon"] -->
 

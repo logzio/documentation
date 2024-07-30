@@ -1270,7 +1270,7 @@ volumeMounts:
 
 Allow some time for data ingestion, then open [Logz.io](https://app.logz.io/). Search for your metrics in Logz.io by searching `{job="dotnet-monitor-collector"}`
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["3lGo7AE5839jDfkAYU8r21"] -->
 

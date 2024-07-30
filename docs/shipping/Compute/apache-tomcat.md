@@ -70,7 +70,7 @@ The full list of data scraping and configuring options can be found [here](https
   
 ### Check Logz.io for your metrics
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboards to enhance the observability of your metrics.
+Install the pre-built dashboards to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["1QIverGwIdtlC5ZbKohyvj", "6J2RujMalRK3oC4y0r88ax"] -->
 

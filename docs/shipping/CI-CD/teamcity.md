@@ -61,7 +61,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the T
 
 Give your metrics some time to get from your system to ours.
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["1mdHqslZMi4gXaNCLZo9G1"] -->
 
