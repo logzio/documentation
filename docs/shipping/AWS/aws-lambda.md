@@ -46,7 +46,7 @@ Deploy this integration for automatic instrumentation of Node.js or Go applicati
 These guides offer step-by-step instructions tailored to your application's programming language, ensuring a seamless integration process:
 
 * Traces from **[Go Applications](https://docs.logz.io/docs/shipping/AWS/Lambda-extension-go)** using OpenTelemetry.
-* Traces from [Node.js Applications](https://docs.logz.io/docs/shipping/aws/lambda-extension-node/) using OpenTelemetry.
+* Traces from **[Node.js Applications](https://docs.logz.io/docs/shipping/aws/lambda-extension-node/)** using OpenTelemetry.
 
 
 

@@ -162,7 +162,7 @@ On deployment, your OpenTelemetry instrumentation captures spans from your appli
 
 **Before you begin, you'll need**:
 
-* An active account with Logz.io
+* An active Logz.io account
 
  
 :::note
@@ -241,7 +241,7 @@ Give your traces some time to get from your system to ours, and then open [Traci
 
 **Before you begin, you'll need**:
 
-* An active account with Logz.io
+* An active Logz.io account
 
 
 #### Instrument the application

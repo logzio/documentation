@@ -407,7 +407,7 @@ On deployment, the Go instrumentation automatically captures spans from your app
 **Before you begin, you'll need**:
 
 * A Go application without instrumentation
-* An active account with Logz.io
+* An active Logz.io account
 * Port `4318` available on your host system
 * A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 

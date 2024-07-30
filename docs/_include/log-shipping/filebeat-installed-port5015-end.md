@@ -1,2 +1,2 @@
-While support for [Filebeat 6.3 and later versions](https://www.elastic.co/guide/en/beats/filebeat/6.7/filebeat-installation.html) is available, Logz.io recommends that you use the latest stable version
+* Logz.io recommends using the latest stable version of Filebeat, though versions 6.3 and later are supported.
 * Destination port 5015 open to outgoing traffic

@@ -21,7 +21,7 @@ drop_filter: []
 **Before you begin, you'll need**:
 
 * MySQL database hosted on Amazon RDS
-* An active account with Logz.io
+* An active Logz.io account
 
 
  
@@ -99,7 +99,7 @@ If you still don't see your logs, see [log shipping troubleshooting](https://doc
 
 * MySQL database hosted on Amazon RDS
 * Destination port 5015 open on your firewall for outgoing traffic.
-* An active account with Logz.io
+* An active Logz.io account
 
 :::note
 This is a basic deployment. If you need to apply advanced configurations, adjust and edit the deployment accordingly.

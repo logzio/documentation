@@ -1835,7 +1835,7 @@ On deployment, the ASP.NET Core instrumentation automatically captures spans fro
 **Before you begin, you'll need**:
 
 * An ASP.NET Core application without instrumentation
-* An active account with Logz.io
+* An active Logz.io account
 * Port `4317` available on your host system
 * A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 
@@ -1881,7 +1881,7 @@ This integration enables you to auto-instrument your ASP.NET Core application an
 **Before you begin, you'll need**:
 
 * An ASP.NET Core application without instrumentation
-* An active account with Logz.io
+* An active Logz.io account
 * Port `4317` available on your host system
 * A name defined for your tracing service
 
@@ -1928,7 +1928,7 @@ On deployment, the ASP.NET Core instrumentation automatically captures spans fro
 **Before you begin, you'll need**:
 
 * An ASP.NET Core application without instrumentation
-* An active account with Logz.io
+* An active Logz.io account
 * Port `4317` available on your host system
 * A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 
@@ -1976,7 +1976,7 @@ This integration enables you to auto-instrument your ASP.NET Core application an
 **Before you begin, you'll need**:
 
 * An ASP.NET Core application without instrumentation
-* An active account with Logz.io
+* An active Logz.io account
 * Port `4317` available on your host system
 * A name defined for your tracing service
 

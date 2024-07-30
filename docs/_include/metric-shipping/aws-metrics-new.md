@@ -1,6 +1,6 @@
 **Before you begin, you'll need**:
 
-* An active account with Logz.io
+* An active Logz.io account
 
  
 
