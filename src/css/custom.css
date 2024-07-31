@@ -231,3 +231,37 @@ a, a:hover {
 .hidden {
   display: none !important;
   }
+
+
+  .footer__separator {
+    border-top: 1px solid var(--ifm-footer-border-color); /* Separator line */
+    margin-top: var(--ifm-spacing-vertical);
+    margin-bottom: var(--ifm-spacing-vertical); /* Add space below the separator line */
+  }
+  
+  .footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--ifm-spacing-vertical);
+  }
+  
+  .footer__bottom span {
+    flex: 1;
+    text-align: left;
+  }
+  
+  .footer__links-right {
+    display: flex;
+    gap: var(--ifm-spacing-horizontal);
+    text-align: right;
+  }
+  
+  .footer__links-right a {
+    color: var(--ifm-link-color);
+    text-decoration: none;
+  }
+  
+  .footer__links-right a:hover {
+    text-decoration: underline;
+  }
