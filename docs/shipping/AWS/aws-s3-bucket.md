@@ -20,41 +20,43 @@ drop_filter: []
 Some AWS services can be configured to send their logs to an S3 bucket, where Logz.io can directly retrieve them.
 
 
+### Shipping logs via S3 Hook
 
-### Choosing the Right Shipping Method
+If your data is not alphabetically organized, use the S3 Hook. This requires deploying a Lambda function in your environment to manage the log shipping process.
 
-* **S3 Fetcher**: If your data is organized alphabetically, opt for the S3 Fetcher. Logz.io operates this fetcher on their end, directly accessing your S3 to retrieve the data.
-* **S3 Hook**: If your data is not alphabetically organized, use the S3 Hook. This requires deploying a Lambda function within your environment to manage the log shipping process.
+
+{@include: ../../_include/log-shipping/stack.md}
+
 
 
 ### Shipping logs via S3 Fetcher
+
+If your data is organized alphabetically, use S3 Fetcher. Logz.io operates this fetcher, directly accessing your S3 to retrieve the data.
 
 :::note
 If your S3 bucket is encrypted, add `kms:Decrypt` to the policy on the ARN of the KMS key used to encrypt the bucket.
 :::
 
-#### Best practices
+**Best practices**
 
 The S3 API does not allow retrieval of object timestamps, so Logz.io must collect logs in alphabetical order.
-Please keep these notes in mind when configuring logging.
+Please keep the following in mind when configuring logging:
 
-* **Make the prefix as specific as possible** \\
+* **Make the prefix as specific as possible** - 
   The prefix is the part of your log path that remains constant across all logs.
   This can include folder structure and the beginning of the filename.
 
-* **The log path after the prefix must come in alphabetical order** \\
+* **The log path after the prefix must come in alphabetical order** - 
   We recommend starting the object name (after the prefix) with the Unix epoch time.
   The Unix epoch time is always increasing, ensuring we can always fetch your incoming logs.
 
-* **The size of each log file should not exceed 50 MB** \\
-  To guarantee successful file upload, make sure that the size of each log file does not exceed 50 MB.
+* **The size of each log file should not exceed 50 MB** - 
+  Each log file should be no larger than 50 MB to ensure successful upload.
 
 
 
-#### Configure Logz.io to fetch logs from an S3 bucket
+#### Add a new S3 bucket using the Logz.io configuration wizard
 
-
-#### Add a new S3 bucket using the dedicated Logz.io configuration wizard
 
 {@include: ../../_include/log-shipping/s3-bucket-snippet.html}
 
@@ -587,9 +589,6 @@ Run `s3cmd ls s3://<BUCKET_NAME>/<BUCKET_PREFIX>/`. Replace `<BUCKET_NAME>` with
 Run `s3cmd get s3://<BUCKET_NAME>/<BUCKET_PREFIX>/<OBJECT_NAME>`. Replace `<BUCKET_NAME>` with the name of your s3 bucket, `<BUCKET_PREFIX>` with the bucket prefix and `<OBJECT_NAME>` with the name of the file you want to retrieve.
   
 
-### Shipping logs via S3 Hook
-
-{@include: ../../_include/log-shipping/stack.md}
 
 
 ## Metrics
