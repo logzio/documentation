@@ -1,6 +1,6 @@
 ## Troubleshooting
 
-If the code is instrumented but traces are not being sent, try the following troubleshooting steps:
+If traces are not being sent despite instrumentation, follow these steps:
 
 
 ### Collector not installed
@@ -9,16 +9,16 @@ The OpenTelemetry collector may not be installed on your system.
 
 **Suggested remedy**
 
-Check if you have an OpenTelemetry collector installed and configured to receive traces from your hosts.
+Ensure the OpenTelemetry collector is installed and configured to receive traces from your hosts.
 
 
 ### Collector path not configured
 
-If the collector is installed, it may not have the correct endpoint configured for the receiver.
+The collector may not have the correct endpoint configured for the receiver.
 
 **Suggested remedy**
 
-1. Check that the configuration file of the collector lists the following endpoints:
+1. Verify the configuration file lists the following endpoints:
 
    ```yaml
    receivers:
@@ -30,12 +30,14 @@ If the collector is installed, it may not have the correct endpoint configured f
            endpoint: "0.0.0.0:4318"
    ```
 
-2. In the instrumentation code, make sure that the endpoint is specified correctly. You can use Logz.io's [integrations hub](https://app.logz.io/#/dashboard/integrations/collectors?tags=Tracing) to ship your data.
+2. Ensure the endpoint is correctly specified in the instrumentation code. Use Logz.io's [integrations hub](https://app.logz.io/#/dashboard/integrations/collectors?tags=Tracing) to ship your data.
+
+
 
 
 ### Traces not generated
 
-If the collector is installed and the endpoints are properly configured, the instrumentation code may be incorrect.
+The instrumentation code may be incorrect even if the collector and endpoints are properly configured.
 
 
 **Suggested remedy**
@@ -43,16 +45,14 @@ If the collector is installed and the endpoints are properly configured, the ins
 
 1. Check if the instrumentation can output traces to a console exporter.
 2. Use a web-hook to check if the traces are going to the output.
-3. Use the metrics endpoint of the collector (http://`<<COLLECTOR-HOST>>`:8888/metrics) to see the number of spans received per receiver and the number of spans sent to the Logz.io exporter.
+3. Check the metrics endpoint `(http://<<COLLECTOR-HOST>>:8888/metrics)` to see spans received and sent. Replace `<<COLLECTOR-HOST>>` with your collector's address.
 
-* Replace `<<COLLECTOR-HOST>>` with the address of your collector host, e.g. `localhost`, if the collector is hosted locally.
-
-If the above steps do not work, refer to Logz.io's [integrations hub](https://app.logz.io/#/dashboard/integrations/collectors?tags=Tracing) and re-instrument the application.
+If issues persist, refer to Logz.io's [integrations hub](https://app.logz.io/#/dashboard/integrations/collectors?tags=Tracing) and re-instrument the application.
 
 
 ### Wrong exporter/protocol/endpoint
 
-If traces are generated but not send, the collector may be using incorrect exporter, protocol and/or endpoint.
+Incorrect exporter, protocol, or endpoint configuration.
 
 The correct endpoints are:
 
@@ -68,7 +68,8 @@ The correct endpoints are:
 
 **Suggested remedy**
 
-1. Activate `debug` logs in the configuration file of the collector as follows:
+1. Activate `debug` logs in the collector's configuration
+
 
    ```yaml
    service:
@@ -81,17 +82,17 @@ Debug logs indicate the status code of the http/https post request.
 
 If the post request is not successful, check if the collector is configured to use the correct exporter, protocol, and/or endpoint.
 
-If the post request is successful, there will be an additional log with the status code 200. If the post request failed for some reason, there would be another log with the reason for the failure.
+A successful post request will log status code 200; failure reasons will also be logged.
 
 
 ### Collector failure
 
-If the `debug` logs are sent, but the traces are still not generated, the collector logs need to be investigated.
+The collector may fail to generate traces despite sending `debug` logs.
 
 **Suggested remedy**
 
 
-1. On Linux and MacOS, see the logs for the collector:
+1. On Linux and MacOS, view collector logs:
 
    ```shell
    journalctl | grep otelcol
@@ -109,24 +110,26 @@ This is the endpoint to access the collector metrics in order to see different e
 
 ### Exporter failure
 
-Traces may not be generated if the exporter is not configured properly.
+The exporter configuration may be incorrect, causing trace export issues.
+
 
 **Suggested remedy**
 
 
 If you are unable to export traces to a destination, this may be caused by the following:
 
-* There is a network configuration issue
-* The exporter configuration is incorrect
-* The destination is unavailable
+* There is a network configuration issue.
+* The exporter configuration is incorrect.
+* The destination is unavailable.
 
 To investigate this issue:
 
 1. Make sure that the `exporters` and `service: pipelines` are configured correctly.
-2. Check the collector logs as well as `zpages` for potential issues.
+2. Check the collector logs and `zpages` for potential issues.
 3. Check your network configuration, such as firewall, DNS, or proxy.
 
-For example, those metrics can provide information about the exporter:
+Metrics like the following can provide insights:
+
 
 ```shell
 # HELP otelcol_exporter_enqueue_failed_metric_points Number of metric points failed to be added to the sending queue.
@@ -138,7 +141,7 @@ otelcol_exporter_enqueue_failed_metric_points{exporter="logging",service_instanc
 
 ### Receiver failure
 
-Traces may not be generated if the receiver is not configured properly.
+The receiver may not be configured correctly.
 
 
 **Suggested remedy**
@@ -151,7 +154,8 @@ If you are unable to receive data, this may be caused by the following:
 * The client configuration is incorrect.
 
 
-Those metrics can provide about the receiver:
+Metrics for receivers can help diagnose issues:
+
 
 ```shell
 # HELP otelcol_receiver_accepted_spans Number of spans successfully pushed into the pipeline.
