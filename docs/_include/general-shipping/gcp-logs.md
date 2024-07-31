@@ -9,11 +9,8 @@ This integration is based on [`logzio-google-pubsub`](https://github.com/logzio/
 
 ### Run Google Cloud Shell configuration
 
-Use the following link, to clone the solution's repo and use it in your Google Cloud Shell:
-
-```shell
-https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/logzio/logzio-google-pubsub
-```
+[Click this link](https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/logzio/logzio-google-pubsub
+), to clone the solution's repo and use it in your Google Cloud Shell.
 
 You may encounter a pop up window. Check the `Trust repo` checkbox, and press `Confirm`.
 
