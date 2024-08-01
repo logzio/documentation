@@ -9,13 +9,12 @@ This integration is based on [`logzio-google-metrics`](https://github.com/logzio
 
 ### Run Google Cloud Shell configuration
 
-Use the following link, to clone the solution's repo and use it in your Google Cloud Shell:
+[Click this link](https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/logzio/logzio-google-metrics
+) to clone the solution's repo and use it in your Google Cloud Shell.
 
-```shell
-https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/logzio/logzio-google-metrics
-```
-
+:::note
 You may encounter a pop up window. Check the `Trust repo` checkbox, and press `Confirm`.
+:::
 
 ### Run setup script in Google Cloud Shell
 
