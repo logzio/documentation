@@ -19,7 +19,7 @@ Google Identity and Access Management lets administrators authorize who can take
 
 ## Logs
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 For this integration, the telemetry list needs to include `identitytoolkit_project`, `identitytoolkit_tenant`.
 

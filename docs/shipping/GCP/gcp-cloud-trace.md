@@ -18,7 +18,7 @@ Google Cloud Trace is a distributed tracing system for Google Cloud Platform tha
 
 ## Logs
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 
 ### Check Logz.io for your logs

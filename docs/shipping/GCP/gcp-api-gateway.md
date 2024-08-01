@@ -19,7 +19,7 @@ Google API Gateway allows you to create, secure, and monitor APIs for Google Clo
 
 ## Logs
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}    
 
 For this integration, the telemetry list needs to include `apigateway`.
 
