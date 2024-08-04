@@ -14,7 +14,6 @@ The main repository for Logz.io helm charts are [logzio-helm](https://github.com
 
 Our Helm chart is designed to automatically set up your tracing environment, simplifying the process of sending traces to Logz.io. This feature ensures a hassle-free setup, allowing you to focus on your Kubernetes deployment without worrying about manual configurations.
 
-For a more streamlined connection process, refer to our [Easy Connect guide](/docs/user-guide/telemetry-collector/ezkonnect).
 
 #### _Send traces from Kubernetes_
 

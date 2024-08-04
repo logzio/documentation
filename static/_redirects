@@ -221,7 +221,8 @@
 /user-guide/log-shipping/telemetry-collector.html				/docs/user-guide/telemetry-collector/
 /user-guide/log-shipping/telemetry-collector-k8s.html				/docs/user-guide/telemetry-collector/telemetry-collector-k8s/
 /user-guide/log-shipping/telemetry-collector-localhost.html				/docs/user-guide/telemetry-collector/telemetry-collector-localhost/
-/user-guide/log-shipping/ezkonnect.html				/docs/user-guide/telemetry-collector/ezkonnect/
+/user-guide/log-shipping/ezkonnect.html				/
+/docs/user-guide/telemetry-collector/ezkonnect/				/
 /user-guide/azure-native-integration.html				/docs/user-guide/telemetry-collector/azure-native-integration/
 /user-guide/give-aws-access-with-iam-roles/				/docs/user-guide/admin/give-aws-access-with-iam-roles/
 /user-guide/give-aws-access-with-access-keys/				/docs/user-guide/admin/give-aws-access-with-access-keys/
