@@ -17,18 +17,19 @@ drop_filter: []
 
 Filebeat is an easy way to send logs from your system to Logz.io. Use the dedicated configuration wizard for a simple setup.
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+<TabItem value="macos-or-linux" label="macOS or Linux" default>
 
 ## Configure Filebeat on macOS or Linux
 
-**Before you begin, you'll need**:
-
+### Before you begin, you'll need:
 
 {@include: ../../_include/log-shipping/filebeat-installed-port5015-begin.md} 
 
 {@include: ../../_include/log-shipping/filebeat-installed-port5015-end.md}
-
-
- 
 
 {@include: ../../_include/log-shipping/certificate.md}
 
@@ -50,7 +51,7 @@ Filebeat is an easy way to send logs from your system to Logz.io. Use the dedica
 {@include: ../../_include/log-shipping/validate-yaml.md}
 
 
-### Move the configuration file to the Filebeat folder
+#### Move the configuration file to the Filebeat folder
 
 Move your configuration file to `/etc/filebeat/filebeat.yml`.
 
@@ -63,19 +64,16 @@ Allow some time for data ingestion, then open [Open Search Dashboards](https://a
 
 If you don't see your logs, see [Filebeat's troubleshooting guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-filebeat/).
 
+ </TabItem>
+<TabItem value="windows" label="Windows" default>
 
 ## Configure Filebeat on Windows
 
 **Before you begin, you'll need**: 
 
-
 {@include: ../../_include/log-shipping/filebeat-installed-port5015-begin.md} installed as a Windows service
+
 {@include: ../../_include/log-shipping/filebeat-installed-port5015-end.md}
-
-
-
-
- 
 
 ### Download the Logz.io public certificate
 
@@ -94,7 +92,6 @@ on your machine.
 
 {@include: ../../_include/log-shipping/filebeat-input-extension.md}
 
-
 {@include: ../../_include/log-shipping/filebeat-wizard.html}
 
 
@@ -106,7 +103,7 @@ on your machine.
 
 {@include: ../../_include/log-shipping/validate-yaml.md}
 
-### Move the configuration file to the Filebeat folder
+#### Move the configuration file to the Filebeat folder
 
 Move the configuration file to `C:\Program Files\Filebeat\filebeat.yml`.
 
@@ -124,7 +121,9 @@ Allow some time for data ingestion, then open [Open Search Dashboards](https://a
 
 If you don't see your logs, see [Filebeat's troubleshooting guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-filebeat/).
 
- 
+  </TabItem>
+</Tabs>
+
 ## Supported Modules
 
 Beat shippers make use of modules to ship data from various sources. Refer to the list below to see which modules each shipper supports.
@@ -135,7 +134,3 @@ Beat shippers make use of modules to ship data from various sources. Refer to th
 * [Google Cloud](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-gcp.html)
 * [MySQL](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-mysql.html)
 * [And more](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-modules.html)
-
-
-
-  
