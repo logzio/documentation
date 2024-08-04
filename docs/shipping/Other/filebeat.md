@@ -122,7 +122,7 @@ Give your logs some time to get from your system to ours, and then open [Open Se
 If you still don't see your logs, see [Filebeat's troubleshooting guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-filebeat/).
  
  </TabItem>
-<Tabs>
+</Tabs>
  
 
 Beat shippers make use of modules to ship data from various sources. Refer to the list below to see which modules each shipper supports.
