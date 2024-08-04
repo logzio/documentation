@@ -1,4 +1,4 @@
-##### Download and validate the file
+###### Download and validate the file
 
 When you're done adding your sources, click **Make the config file** to download it.
 

@@ -8,7 +8,6 @@ To ship logs without using SSL in Filebeat:
 
 2. Look for the `output.logstash` section in the configuration file.
 
-3. Uncomment the # character at the beginning of the #ssl.enabled line to disable SSL. The line should now look like this:
-  `#ssl.enabled: false`
+3. Uncomment the # character at the beginning of the #ssl.enabled line to disable SSL. The line should now look like this: `#ssl.enabled: false`
 
 4. Save the changes to the configuration file and restart the Filebeat service to apply the changes.
