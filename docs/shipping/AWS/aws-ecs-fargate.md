@@ -341,7 +341,7 @@ and then click **Create**.
 | Parameter | Description |
 |---|---|
 | image | Replace `<<YOUR-APP-IMAGE>>` with the name of the image you want to ship logs from. |
-| logConfiguration.options.Host | The host [for your region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). For example, `listener.logz.io` if your account is hosted on AWS US East, or `listener-nl.logz.io` if hosted on Azure West Europe. |
+| logConfiguration.options.Host | The host [for your region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). For example, `listener.logz.io` if your account is hosted on AWS US East. |
 | logConfiguration.options.URI | Your Logz.io account token. {@include: ../../_include/log-shipping/log-shipping-token.html} |
 
 
