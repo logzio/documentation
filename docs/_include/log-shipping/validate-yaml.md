@@ -1,4 +1,4 @@
-### Download and validate confiuration
+#### Download and validate confiuration
 
 When you're done adding your sources, click **Make the config file** to download it.
 

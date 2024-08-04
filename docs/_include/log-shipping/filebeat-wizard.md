@@ -1,4 +1,4 @@
-### Adding log sources to the configuration file
+#### Adding log sources to the configuration file
 
 * Select your operating system - **Linux** or **Windows**.
 * Specify the full log **Path**.

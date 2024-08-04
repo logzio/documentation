@@ -25,7 +25,9 @@ import TabItem from '@theme/TabItem';
 
 ## Configure Filebeat on macOS or Linux
 
-### Before you begin, you'll need:
+### Pre Requirements
+
+Before you begin, you'll need:
 
 {@include: ../../_include/log-shipping/filebeat-installed-port5015-begin.md} 
 
@@ -69,7 +71,9 @@ If you don't see your logs, see [Filebeat's troubleshooting guide](https://docs.
 
 ## Configure Filebeat on Windows
 
-**Before you begin, you'll need**: 
+### Pre Requirements
+
+Before you begin, you'll need:
 
 {@include: ../../_include/log-shipping/filebeat-installed-port5015-begin.md} installed as a Windows service
 

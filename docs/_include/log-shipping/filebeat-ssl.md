@@ -1,4 +1,4 @@
-### Disabling SSL
+#### Disabling SSL
 
 Filebeat uses SSL/TLS to secure the communication between Filebeat and Logz.io. To disable SSL, modify the Filebeat configuration accordingly:
 
