@@ -62,14 +62,6 @@ You can review the complete list of parameters and commands Logz.io runs in the 
 
 It might take a while for the Telemetry Collector to get up and running, after which you can view your logs, metrics, or traces and get full observability into your system.
 
-### Auto-instrument and tag your code with Easy Connect
-
-Easy connect helps streamline auto-instrumentation and accurately identify and tag logs and traces. Copy and paste the snippet into your terminal to review and update your logs. 
-
-![Easy Connect](https://dytvr9ot2sszz.cloudfront.net/logz-docs/ezkonnect/ezkonnect-logs.png)
-
-Learn more about [Easy Connect](/docs/user-guide/telemetry-collector/ezkonnect).
-
 ### Optional - Configure data sources
 
 You can configure the data sources collected by the Telemetry Collector. To do so, click on **Advance settings** at the top of the page. You can review and edit the telemetries collected by Logz.io.
