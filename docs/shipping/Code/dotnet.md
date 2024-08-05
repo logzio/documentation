@@ -1339,7 +1339,7 @@ Next we’ll install the instrumentation [NuGet packages from OpenTelemetry](htt
             .AddOtlpExporter(otlpOptions =>
             {
                 otlpOptions.Endpoint = new Uri(logzioEndpoint);
-                otlpOptions.Headers = $"Authorization=Bearer {logzioToken}";
+                otlpOptions.Headers = $"Authorization=Bearer {logzioToken}, user-agent=logzio-dotnet-logs";
                 otlpOptions.Protocol = OtlpExportProtocol.HttpProtobuf;
             });
     });
