@@ -1180,6 +1180,152 @@ Replace `<<TYPE>>` with the log type to identify these logs in Logz.io.
 
 
 </TabItem>
+  <TabItem value="OpenTelemetry" label="OpenTelemetry">
+
+### Prerequisites
+    
+Ensure that you have the following installed locally:
+- [.NET SDK](https://dotnet.microsoft.com/download/dotnet) 6+
+
+### Example Application
+The following example uses a basic [Minimal API with ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/tutorials/min-web-api?view=aspnetcore-8.0&tabs=visual-studio) application.
+
+### Create and launch an HTTP Server
+
+To begin, set up an environment in a new directory called `dotnet-simple`. Within that directory, execute following command:
+
+```
+dotnet new web
+```
+In the same directory, replace the content of Program.cs with the following code:
+
+```
+using System.Globalization;
+
+using Microsoft.AspNetCore.Mvc;
+
+var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
+
+string HandleRollDice([FromServices]ILogger<Program> logger, string? player)
+{
+    var result = RollDice();
+
+    if (string.IsNullOrEmpty(player))
+    {
+        logger.LogInformation("Anonymous player is rolling the dice: {result}", result);
+    }
+    else
+    {
+        logger.LogInformation("{player} is rolling the dice: {result}", player, result);
+    }
+
+    return result.ToString(CultureInfo.InvariantCulture);
+}
+
+int RollDice()
+{
+    return Random.Shared.Next(1, 7);
+}
+
+app.MapGet("/rolldice/{player?}", HandleRollDice);
+
+app.Run();
+
+```
+
+In the Properties subdirectory, replace the content of launchSettings.json with the following:
+
+```
+{
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "http": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "http://localhost:8080",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
+
+```
+
+Build and run the application with the following command, then open http://localhost:8080/rolldice in your web browser to ensure it is working.
+
+```
+dotnet build
+dotnet run
+```
+### Instrumentation
+
+Next we’ll install the instrumentation [NuGet packages from OpenTelemetry](https://www.nuget.org/profiles/OpenTelemetry) that will generate the telemetry, and set them up.
+
+1. Add the packages
+    ```
+    dotnet add package OpenTelemetry.Extensions.Hosting
+    dotnet add package OpenTelemetry.Instrumentation.AspNetCore
+    dotnet add package OpenTelemetry.Exporter.OpenTelemetryProtocol
+    ```
+
+2. Setup the OpenTelemetry code
+
+    In Program.cs, replace the following lines:
+
+    ```
+    var builder = WebApplication.CreateBuilder(args);
+    var app = builder.Build();
+    ```
+    With:
+    ```
+    using OpenTelemetry;
+    using OpenTelemetry.Logs;
+    using OpenTelemetry.Resources;
+    using OpenTelemetry.Exporter;
+
+    var builder = WebApplication.CreateBuilder(args);
+
+    const string serviceName = "roll-dice";
+    const string logzioEndpoint = "https://otlp-listener.logz.io/v1/logs";
+    const string logzioToken = "<LOG-SHIPPING-TOKEN>";
+
+    builder.Logging.AddOpenTelemetry(options =>
+    {
+        options
+            .SetResourceBuilder(
+                ResourceBuilder.CreateDefault()
+                    .AddService(serviceName))
+            .AddOtlpExporter(otlpOptions =>
+            {
+                otlpOptions.Endpoint = new Uri(logzioEndpoint);
+                otlpOptions.Headers = $"Authorization=Bearer {logzioToken}, user-agent=logzio-dotnet-logs";
+                otlpOptions.Protocol = OtlpExportProtocol.HttpProtobuf;
+            });
+    });
+
+    var app = builder.Build();
+    ```
+3. Run your **application** once again:
+
+    ```
+    dotnet run
+    ```
+    Note the output from the dotnet run.
+
+4. From another terminal, send a request using curl:
+
+    ```
+    curl localhost:8080/rolldice
+    ```
+5. After about 30 sec, stop the server process.
+
+At this point, you should see log output from the server and client on your Logzio account.
+
+
+  </TabItem>
 </Tabs>
 
 ## Metrics

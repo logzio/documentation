@@ -12,6 +12,7 @@ helm install  -n monitoring --create-namespace \
 --set logzio-logs-collector.secrets.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \  
 --set logzio-logs-collector.secrets.logzioRegion="<<LOGZIO-REGION>>" \  
 --set logzio-logs-collector.secrets.env_id="<<CLUSTER-NAME>>" \  
+--set logzio-fluentd.enabled=false \
 --set metricsOrTraces.enabled=true \
 --set logzio-k8s-telemetry.metrics.enabled=true \
 --set logzio-k8s-telemetry.secrets.MetricsToken="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>" \

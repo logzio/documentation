@@ -28,8 +28,10 @@ _Migrating to `logzio-monitoring` >=6.0.0_
 Deploy `logzio-logs-collector`, by replacing `logzio-fluentd` flags with the following `--set` flags:
 
 ```sh
-helm install -n monitoring \
+helm install -n monitoring --create-namespace \
 --set logs.enabled=true \
+--set logzio-logs-collector.enabled=true \
+--set logzio-fluentd.enabled=false \
 --set logzio-logs-collector.secrets.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \  
 --set logzio-logs-collector.secrets.logzioRegion="<<LOGZIO-REGION>>" \  
 --set logzio-logs-collector.secrets.env_id="<<CLUSTER-NAME>>" \  
@@ -41,7 +43,7 @@ The `logzio-fluentd` chart is disabled by default in favor of the `logzio-logs-c
 Deploy `logzio-fluentd` by adding the following `--set` flags:
 
 ```sh
-helm install -n monitoring \
+helm install -n monitoring --create-namespace \
 --set logs.enabled=true \
 --set logzio-fluentd.enabled=true \
 --set logzio-logs-collector.enabled=false \
@@ -68,7 +70,7 @@ Send data about deployment events in the cluster, and how they affect its resour
 _Supported resource kinds are `Deployment`, `Daemonset`, `Statefulset`, `ConfigMap`, `Secret`, `Service Account`, `Cluster Role` and `Cluster Role Binding`._
 
 ```sh
-helm install --namespace=monitoring \
+helm install -n monitoring --create-namespace \
 --set logzio-k8s-events.secrets.logzioShippingToken='<<LOG-SHIPPING-TOKEN>>' \
 --set logzio-k8s-events.secrets.logzioListener='<<LISTENER-HOST>>' \
 --set logzio-k8s-events.secrets.env_id='<<CLUSTER-NAME>>' \
@@ -107,7 +109,7 @@ For log shipping troubleshooting, see our [user guide](https://docs.logz.io/docs
 ## Send your metrics
 
 ```sh
-helm install -n monitoring \
+helm install -n monitoring --create-namespace \
 --set metricsOrTraces.enabled=true \
 --set logzio-k8s-telemetry.metrics.enabled=true \
 --set logzio-k8s-telemetry.secrets.MetricsToken="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>" \
@@ -131,7 +133,7 @@ For metrics shipping troubleshooting, see our [user guide](https://docs.logz.io/
 ## Send your traces
 
 ```sh
-helm install -n monitoring \
+helm install -n monitoring --create-namespace \
 --set metricsOrTraces.enabled=true \
 --set logzio-k8s-telemetry.traces.enabled=true \
 --set logzio-k8s-telemetry.secrets.TracesToken="<<TRACING-SHIPPING-TOKEN>>" \
@@ -153,7 +155,7 @@ For traces shipping troubleshooting, see our [Distributed Tracing troubleshootin
 ## Send traces with SPM
 
 ```sh
-helm install -n monitoring \
+helm install -n monitoring --create-namespace \
 --set metricsOrTraces.enabled=true \
 --set logzio-k8s-telemetry.traces.enabled=true \
 --set logzio-k8s-telemetry.secrets.TracesToken="<<TRACING-SHIPPING-TOKEN>>" \
@@ -177,7 +179,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 **Note:** `serviceGraph.enabled=true` will have no effect unless `traces.enabled` & `spm.enabled=true` is also set to `true`.
 
 ```sh
-helm install -n monitoring \
+helm install -n monitoring --create-namespace \
 --set metricsOrTraces.enabled=true \
 --set logzio-k8s-telemetry.traces.enabled=true \
 --set logzio-k8s-telemetry.secrets.TracesToken="<<TRACING-SHIPPING-TOKEN>>" \
@@ -209,7 +211,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 ## Scan your cluster for security vulnerabilities
 
 ```sh
-helm install -n monitoring \
+helm install -n monitoring --create-namespace \
 --set securityReport.enabled=true \
 --set logzio-trivy.env_id="<<CLUSTER-NAME>>" \
 --set logzio-trivy.secrets.logzioShippingToken="<<LOG-SHIPPING-TOKEN>>" \
@@ -255,7 +257,7 @@ For example, for a parameter called `someField` in the `logzio-telemetry`'s `val
 Set the `fargateLogRouter.enabled` value to `true`. This deploys a dedicated `aws-observability` namespace and a `configmap` for the Fargate log router. Read more on EKS Fargate logging in the [official AWS documentation](https://docs.aws.amazon.com/eks/latest/userguide/fargate-logging.html).
 
 ```shell
-helm install -n monitoring \
+helm install -n monitoring --create-namespace \
 --set logs.enabled=true \
 --set logzio-fluentd.fargateLogRouter.enabled=true \
 --set logzio-fluentd.secrets.logzioShippingToken="<<LOG-SHIPPING-TOKEN>>" \
