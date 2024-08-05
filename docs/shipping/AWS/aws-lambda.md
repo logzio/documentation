@@ -22,14 +22,8 @@ Deploy this integration to send Amazon Lambda metrics to Logz.io. It creates a K
 
 Install the pre-built dashboard to enhance the observability of your metrics.
 
-<!-- logzio-inject:install:grafana:dashboards ids=["5tAA2oqe1KZmJqQAKUFYuq"] -->
-
-{@include: ../../_include/metric-shipping/generic-dashboard.html}
-
 
 {@include: ../../_include/metric-shipping/aws-metrics-new.md}
-
-
 
 
 Install the pre-built dashboard to enhance the observability of your metrics.
@@ -47,6 +41,3 @@ These guides offer step-by-step instructions tailored to your application's prog
 
 * Traces from **[Go Applications](https://docs.logz.io/docs/shipping/AWS/Lambda-extension-go)** using OpenTelemetry.
 * Traces from **[Node.js Applications](https://docs.logz.io/docs/shipping/aws/lambda-extension-node/)** using OpenTelemetry.
-
-
-

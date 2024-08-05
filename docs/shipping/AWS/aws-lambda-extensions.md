@@ -90,7 +90,7 @@ aws lambda update-function-configuration \
     --environment "Variables={}"
 ```
 
-:::note
+:::info
 This command overwrites the existing function configuration. If you already have your own layers and environment variables for your function, include them in the list: 
 
 ```shell
@@ -137,7 +137,7 @@ Add environment variables to the function, according to the [**Environment varia
 
 Give your logs some time to get from your system to ours. It may take more than one run of the function for the logs to start shipping to your Logz.io account.
 
-:::note
+:::info
 Your lambda logs will appear under the type `lambda-extension-logs`.
 :::
 
@@ -205,7 +205,7 @@ Log in to your Logz.io account and navigate to the [current instructions page](h
 | Europe (Paris)            | `eu-west-3`      | `arn:aws:lambda:eu-west-3:486140753397:layer:LogzioLambdaExtensionLogsArm:5`      |
                                              |
 
-:::note
+:::info
 If your AWS region is not in the list, please reach out to Logz.io's support or open an issue in the [project's Github repo](https://github.com/logzio/logzio-lambda-extensions).
 :::
 
@@ -255,7 +255,7 @@ The variable should be in a grok format:
 %{GROK_PATTERN_NAME:WANTED_FIELD_NAME}
 ```
 
-:::note
+:::warning
 The `WANTED_FIELD_NAME` cannot contain a dot (`.`).
 :::
 
