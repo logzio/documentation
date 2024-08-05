@@ -123,11 +123,6 @@ aws lambda update-function-configuration \
 Add environment variables to the function, according to the [**Environment variables** table]{@include: ../../_include/log-shipping/lambda-xtension-tablink-indox.html}.
 
 
-##### Run the function
-
-Run the function. It may take more than one run of the function for the logs to start shipping to your Logz.io account.
-Your lambda logs will appear under the type `lambda-extension-logs`.
-
 #### Deleting the extension
 
 - To delete the **extension layer**: In your function page, go to the **layers** panel. Click `edit`, select the extension layer, and click `save`.
@@ -140,18 +135,17 @@ Your lambda logs will appear under the type `lambda-extension-logs`.
 
 ### Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours.
+Give your logs some time to get from your system to ours. It may take more than one run of the function for the logs to start shipping to your Logz.io account.
 
-::: note
+:::note
 Your lambda logs will appear under the type `lambda-extension-logs`.
 :::
+
+#### Pre-Built content
 
 Install the pre-built dashboard to enhance the observability of your logs.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["4yDXMhmHwfDYvOO8o0SGon"] -->
-
-{@include: ../../_include/metric-shipping/generic-dashboard.html}
-
 
 
 ## Environment Variables
@@ -159,7 +153,7 @@ Install the pre-built dashboard to enhance the observability of your logs.
 | Name | Description |Required/Default|
 | --- | --- | --- |
 | `LOGZIO_LOGS_TOKEN` | Your Logz.io log shipping [token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). | Required |
-| `LOGZIO_LISTENER` |  Your  Logz.io listener address, with port 8070 (http) or 8071 (https). For example: `https://listener.logz.io:8071`. {@include: ../../_include/log-shipping/listener-var.md} | Required |
+| `LOGZIO_LISTENER` | {@include: ../../_include/log-shipping/listener-var.md} For example: `https://listener.logz.io:8071`. | Required |
 | `LOGS_EXT_LOG_LEVEL` |  Log level of the extension. Can be set to one of the following: `debug`, `info`, `warn`, `error`, `fatal`, `panic`. |Default: `info` |
 | `ENABLE_PLATFORM_LOGS` | The platform log captures runtime or execution environment errors. Set to `true` if you wish the platform logs will be shipped to your Logz.io account. | Default: `false` |
 | `GROK_PATTERNS` | Must be set with `LOGS_FORMAT`. Use this if you want to parse your logs into fields. A minified JSON list that contains the field name and the regex that will match the field. To understand more see the [parsing logs](https://docs.logz.io/docs/shipping/aws/lambda-extensions/#parsing-logs) section. | - |
@@ -236,7 +230,7 @@ May 04 2024 10:50:46.532 logzio_sender: Successfully sent bulk to logz.io, size:
 In Logz.io we wish to have `timestamp`, `app_name` and `message` in their own fields.  
 To do so, we'll set the environment variables as follows:
 
-##### GROK_PATTERNS
+#### GROK_PATTERNS
 
 The `GROK_PATTERNS` variable contains definitions of custom grok patterns and should be in a JSON format.   
 - key - is the custom pattern name. 
@@ -253,7 +247,7 @@ Meaning we can set `GROK_PATTERNS` as:
 {"MY_CUSTOM_TIMESTAMP":"\\w+ \\d{2} \\d{4} \\d{2}:\\d{2}:\\d{2}\\.\\d{3}"}
 ```
 
-##### LOGS_FORMAT
+#### LOGS_FORMAT
 
 The `LOGS_FORMAT` variable contains the full grok pattern that will match the format of the logs, using known patterns and the custom patterns that were defined in `GROK_PATTERNS` (if defined).  
 The variable should be in a grok format: 
@@ -291,10 +285,10 @@ This project uses an external module for its grok parsing. To learn more about i
 
 ### Nested fields
 
-As of v0.2.0 the extension can detect if a log is in a JSON format, and to parse the fields to appear as nested fields in the Logz.io app.
+**As of v0.2.0** the extension can detect if a log is in a JSON format, and to parse the fields to appear as nested fields in the Logz.io app.
 For example, the following log:
 
-```
+```json
 { "foo": "bar", "field2": "val2" }
 ```
 
@@ -304,11 +298,11 @@ message_nested.foo: bar
 message_nested.field2: val2
 ```
 
-As of v0.3.3, to have the fields nested under the root (instead of under `message_nested`), set the `JSON_FIELDS_UNDER_ROOT` environment variable as `true`.  
+**As of v0.3.3**, to have the fields nested under the root (instead of under `message_nested`), set the `JSON_FIELDS_UNDER_ROOT` environment variable as `true`.  
 It is useful in cases where the passed object is in fact meant to be that of a message plus metadata fields.  
 For example, the following log:
 
-```
+```json
 { "message": "hello", "foo": "bar" }
 ```
 
