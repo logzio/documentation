@@ -4,9 +4,9 @@
 
  
 
-## Configure AWS to forward metrics to Logz.io
+### Configure AWS to forward metrics to Logz.io
 
-### Set the required minimum IAM permissions
+**1. Set the required minimum IAM permissions**
 
 configured the minimum required IAM permissions as follows:
 
@@ -61,7 +61,7 @@ configured the minimum required IAM permissions as follows:
    - `cloudformation:ListStackResources`
 
 
-### Create Stack in the relevant region
+**2. Create Stack in the relevant region**
 
 To deploy this project, click the button that matches the region you wish to deploy your Stack to:
 
@@ -98,7 +98,7 @@ To deploy this project, click the button that matches the region you wish to dep
 | `il-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=il-central-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-il-central-1.s3.amazonaws.com/metric-stream-helpers/aws/1.3.4/sam-template.yaml&stackName=logzio-metric-stream&param_logzioToken=<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8053)         |
 
 
-### Specify stack details
+**3. Specify stack details**
 
 Specify the stack details as per the table below, check the checkboxes and select **Create stack**.
 
@@ -118,7 +118,7 @@ Specify the stack details as per the table below, check the checkboxes and selec
 
 
 
-### View your metrics
+**4. View your metrics**
 
 
 Allow some time for data ingestion, then open your [Logz.io metrics account](https://app.logz.io/#/dashboard/metrics/).
