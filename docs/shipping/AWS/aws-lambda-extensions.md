@@ -133,7 +133,8 @@ Your lambda logs will appear under the type `lambda-extension-logs`.
 - To delete the **extension layer**: In your function page, go to the **layers** panel. Click `edit`, select the extension layer, and click `save`.
 - To delete the extension's **environment variables**: In your function page, select the `Configuration` tab, select `Environment variables`, click `edit`, and remove the variables that you added for the extension.
 
-  </TabItem>
+
+</TabItem>
 </Tabs>
 
 
