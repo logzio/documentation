@@ -143,7 +143,7 @@ Your lambda logs will appear under the type `lambda-extension-logs`.
 
 #### Pre-Built content
 
-Install the pre-built dashboard to enhance the observability of your logs.
+Log in to your Logz.io account and navigate to the [current instructions page](https://app.logz.io/#/dashboard/integrations/Lambda-extensions) to install the pre-built dashboard to enhance the observability of your logs.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["4yDXMhmHwfDYvOO8o0SGon"] -->
 

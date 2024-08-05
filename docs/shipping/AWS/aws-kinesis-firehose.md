@@ -16,18 +16,15 @@ drop_filter: []
 
 ## Logs
 
-:::important
-The `services` and `customLogGroups` configurations do not work together. If you specify services, it will automatically send all logs from those services, regardless of any custom log groups you define. To collect logs only from specific log groups, do not use the `services` field. Instead, configure the desired log groups directly without adding services.
-:::
-
 This project deploys instrumentation that allows shipping Cloudwatch logs to Logz.io, with a Firehose Delivery Stream. It uses a Cloudformation template to create a Stack that deploys:
 
 * Firehose Delivery Stream with Logz.io as the stream's destination.
 * Lambda function that adds Subscription Filters to Cloudwatch Log Groups, as defined by user's input.
 * Roles, log groups, and other resources that are necessary for this instrumentation.
 
-:::important
-This service sends all logs, regardless of custom log groups. When setting up a service, it automatically sends all logs from that service, even if you specify a particular log group. To solve this, directly configure the specific log group without adding a new service.
+
+:::info
+If you want to send logs from specific log groups, use `customLogGroups` instead of `services`. Since specifying `services` will automatically send all logs from those services, regardless of any custom log groups you define.
 :::
 
 ##### Auto-deploy the Stack
