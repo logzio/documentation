@@ -1,3 +1,7 @@
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 ## Prerequisites 
 
 * [Helm](https://helm.sh/)
@@ -13,10 +17,6 @@
 
 ## Manual Setup
 Below are instructions for configuring each type of telemetry data individually.
-
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 
 <Tabs>
