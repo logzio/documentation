@@ -380,7 +380,7 @@ Docker Hub pull rate limits could result in the following error: `You have reach
 
 ## Configuring logs in JSON format
 
-To parse JSON Logs using the fluentd chart, configure the following processor:
+To parse JSON Logs using the fluentd chart, configure the following processor using the `configmap.extraConfig` configuration option:
 
 ```json
 <filter **>
@@ -393,6 +393,10 @@ To parse JSON Logs using the fluentd chart, configure the following processor:
   </parse>
 </filter>
 ```
+
+:::info
+Instructions of using `configmap.extraConfig` can be found [here](https://github.com/logzio/logzio-helm/tree/master/charts/fluentd#configuration).
+:::
 
 
  </TabItem>
