@@ -2,7 +2,7 @@
 id: Logstash-data
 title: Logstash
 overview: Logstash is an open-source server-side data processing pipeline. This integration can ingest data from multiple  sources. With Logz.io, you can monitor Logstash instances and quickly identify if and when issues arise.
-product: ['metrics']
+product: ['logs']
 os: ['windows', 'linux']
 filters: ['Other']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/logstash_temp.png
