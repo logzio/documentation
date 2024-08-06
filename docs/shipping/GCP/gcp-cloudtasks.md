@@ -19,7 +19,7 @@ Google Cloud Tasks is a fully managed service that allows you to manage the exec
 
 ## Logs
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 For this integration, the telemetry list needs to include `cloud_tasks_queue`.
 
