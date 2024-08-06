@@ -21,7 +21,7 @@ These instructions only apply to Linux and MacOS systems.
 
 **Before you begin, you'll need**: 
 
-* An active account with Logz.io
+* An active Logz.io account
 * OpenVPN Access Server installed
 * [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) installed on the same machine as OpenVPN Access Server
 * Root priveleges on your machines 

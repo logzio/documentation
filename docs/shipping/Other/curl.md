@@ -16,29 +16,21 @@ drop_filter: []
 
 
  
-cURL is a command line utility for transferring data. cURL is a quick and easy way to test your configuration or troubleshoot your connectivity to Logz.io.
 
-You can upload JSON or plain text files.
+cURL is a command line utility for transferring data, useful for testing configurations or troubleshooting connectivity to Logz.io. You can upload JSON or plain text files.
 
 ## Upload a JSON log file
 
-### Limitations
+**Limitations**
 
-* Max body size is 10 MB (10,485,760 bytes)
-* Each log line must be 500,000 bytes or less
-* If you include a `type` field in the log, it overrides `type` in the request header
+* Max body size: 10 MB (10,485,760 bytes).
+* Max log line size: 500,000 bytes.
+* Type field in the log overrides the `type` in the request header.
 
+1. Download [cURL](https://curl.haxx.se/download.html).
 
-**Before you begin, you'll need**:
-[cURL](https://curl.haxx.se/download.html)
+2. Upload the file:
 
-
- 
-
-### Upload the file
-
-If you want to ship logs from your code but don't have a library in place,
-you can send them directly to the Logz.io listener as a minified JSON file.
 
 ```shell
 cat /path/to/log/file | curl -X POST "https://<<LISTENER-HOST>>:8071?token=<<LOG-SHIPPING-TOKEN>>&type=<LOG-TYPE>" \
@@ -50,34 +42,26 @@ cat /path/to/log/file | curl -X POST "https://<<LISTENER-HOST>>:8071?token=<<LOG
 
 * {@include: ../../_include/log-shipping/type.md} Otherwise, the default `type` is `http-bulk`.
 
-### Check Logz.io for your logs
+3. View your logs
 
-Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
+Allow some time for data ingestion, then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
+For troubleshooting, refer to our [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/) guide.
 
  
 ## Upload a plain text log file
 
 
-cURL is a command line utility for transferring data. cURL is a quick and easy way to test your configuration or troubleshoot your connectivity to Logz.io.
 
-You can upload JSON or plain text files.
+**Limitations**
 
-
-###### Limitations
-
-* Max body size is 30 MB (31,457,280 bytes)
-* Please note that if you include a `type` field in the log, it will be overridden by the type written in the request header
+* Max body size: 30 MB (31,457,280 bytes).
+* Type field in the log overrides the `type` in the request header.
 
 
+1. Download [cURL](https://curl.haxx.se/download.html).
 
-**Before you begin, you'll need**:
-[cURL](https://curl.haxx.se/download.html)
-
- 
-
-### Upload the file
+2. Upload the file:
 
 
 ```shell
@@ -91,11 +75,11 @@ Replace the placeholders to match your specifics. (They are indicated by the dou
 
 * {@include: ../../_include/log-shipping/type.md} Otherwise, the default `type` is `http-bulk`.
 
-### Check Logz.io for your logs
+3. View your logs
 
-Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
+Allow some time for data ingestion, then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
+For troubleshooting, refer to our [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/) guide.
 
  
 

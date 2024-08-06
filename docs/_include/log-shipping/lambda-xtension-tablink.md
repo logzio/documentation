@@ -1,1 +1,1 @@
-(https://app.logz.io/#/dashboard/send-your-data/log-sources/lambda-extensions?type=tables)
+(https://docs.logz.io/docs/shipping/aws/lambda-extensions/#arns)

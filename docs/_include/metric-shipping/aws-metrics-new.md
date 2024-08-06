@@ -1,14 +1,14 @@
 **Before you begin, you'll need**:
 
-* An active account with Logz.io
+* An active Logz.io account
 
  
 
-## Configure AWS to forward metrics to Logz.io
+### Configure AWS to forward metrics to Logz.io
 
-### Set the required minimum IAM permissions
+**1. Set the required minimum IAM permissions**
 
-Make sure you have configured the minimum required IAM permissions as follows:
+configured the minimum required IAM permissions as follows:
 
 * **Amazon S3**:
    - `s3:CreateBucket`
@@ -61,7 +61,7 @@ Make sure you have configured the minimum required IAM permissions as follows:
    - `cloudformation:ListStackResources`
 
 
-### Create Stack in the relevant region
+**2. Create Stack in the relevant region**
 
 To deploy this project, click the button that matches the region you wish to deploy your Stack to:
 
@@ -98,25 +98,29 @@ To deploy this project, click the button that matches the region you wish to dep
 | `il-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=il-central-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-il-central-1.s3.amazonaws.com/metric-stream-helpers/aws/1.3.4/sam-template.yaml&stackName=logzio-metric-stream&param_logzioToken=<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8053)         |
 
 
-### Specify stack details
+**3. Specify stack details**
 
 Specify the stack details as per the table below, check the checkboxes and select **Create stack**.
 
 | Parameter                                  | Description                                                                                                                                                                                          | Required/Default |
 |--------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------|
-| `logzioListener`                           | The Logz.io listener URL for your region. (For more details, see the [regions page](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/). For example - `https://listener.logz.io:8053`     | **Required**     |
+| `logzioListener`                           | Logz.io listener URL for your region. (For more details, see the [regions page](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/). e.g., `https://listener.logz.io:8053`     | **Required**     |
 | `logzioToken`                              | Your Logz.io metrics shipping token.                                                                                                                                                                 | **Required**     |
-| `awsNamespaces`                            | Comma-separated list of the AWS namespaces you want to monitor. See [this list](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) of namespaces. If you want to automatically add all namespaces, use value `all-namespaces`. | At least one of `awsNamespaces` or `customNamespace` is required    |
-| `customNamespace`                          | A custom namespace for CloudWatch metrics. This is used to specify a namespace unique to your setup, separate from the standard AWS namespaces.                                                                                                                                   | At least one of `awsNamespaces` or `customNamespace` is required  |
-| `logzioDestination`                        | Your Logz.io destination URL.                                                                                                                                                                        | **Required**     |
-| `httpEndpointDestinationIntervalInSeconds` | The length of time, in seconds, that Kinesis Data Firehose buffers incoming data before delivering it to the destination.                                                                            | `60`             |
-| `httpEndpointDestinationSizeInMBs`         | The size of the buffer, in MBs, that Kinesis Data Firehose uses for incoming data before delivering it to the destination.                                                                           | `5`              |
+| `awsNamespaces`                            | Comma-separated list of AWS namespaces to monitor. See [this list](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) of namespaces. Use value `all-namespaces` to automatically add all namespaces. | At least one of `awsNamespaces` or `customNamespace` is required    |
+| `customNamespace`                          | A custom namespace for CloudWatch metrics. Used to specify a namespace unique to your setup, separate from the standard AWS namespaces.                                                                                                                                   | At least one of `awsNamespaces` or `customNamespace` is required  |
+| `logzioDestination`                        | Your Logz.io destination URL. Choose the relevant endpoint from the drop down list based on your Logz.io account region.                                                                                                                                                                         | **Required**     |
+| `httpEndpointDestinationIntervalInSeconds` | Buffer time in seconds before Kinesis Data Firehose delivers data.                                                                            | `60`             |
+| `httpEndpointDestinationSizeInMBs`         | Buffer size in MBs before Kinesis Data Firehose delivers data.                                                                           | `5`              |
 | `debugMode` |	Enable debug mode for detailed logging (true/false).	| false |
 
 
 
 
-### Check Logz.io for your metrics
 
-Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
+
+**4. View your metrics**
+
+
+Allow some time for data ingestion, then open your [Logz.io metrics account](https://app.logz.io/#/dashboard/metrics/).
+
 

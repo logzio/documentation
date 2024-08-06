@@ -377,7 +377,7 @@ _ = metric.Must(meter).NewFloat64UpDownCounterObserver(
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["2cm0FZu4VK4vzH0We6SrJb"] -->
 
@@ -407,7 +407,7 @@ On deployment, the Go instrumentation automatically captures spans from your app
 **Before you begin, you'll need**:
 
 * A Go application without instrumentation
-* An active account with Logz.io
+* An active Logz.io account
 * Port `4318` available on your host system
 * A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 

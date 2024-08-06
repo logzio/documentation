@@ -36,7 +36,7 @@ This integration is presently in its beta phase and may be subject to modificati
 
 **Before you begin, you'll need**: 
 
-* an active account with Logz.io
+* An active Logz.io account
 * Kubernetes cluster to send reports from
 
  

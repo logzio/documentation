@@ -16,7 +16,7 @@ Single Sign-On (SSO) allows you to manage access to your Logz.io account using a
 
 ## How is access managed with SSO?
 
-:::important
+:::caution important
 To use the ‘Sign in with SSO’ button on Logz.io’s login page, **your initial login** must be performed through the SSO identity service provider.
 :::
 

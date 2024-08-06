@@ -51,6 +51,6 @@ Confirm the settings by checking the acknowledgment box and clicking **Apply fil
 
 You can create and manage up to 10 drop filters per account.
 
-:::important Note
+:::caution note
 When restoring logs from an archive, consider temporarily deactivating some filters. This ensures that all logs are indexed and visible in your OpenSearch Dashboards.
 :::
