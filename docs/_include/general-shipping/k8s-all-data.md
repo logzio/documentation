@@ -4,7 +4,7 @@
 Send all of your telemetry data using one single Helm chart:
 
 
-```sh
+```shell
 helm install  -n monitoring --create-namespace \
 --set logs.enabled=true \
 --set logzio-logs-collector.secrets.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
