@@ -38,7 +38,7 @@ Upon deployment, the Crowdstrike connector connects to your Crowdstrike account 
 **Before you begin, you'll need**: 
 
 * an active account with Crowdstrike
-* an active account with Logz.io
+* An active Logz.io account
 * FluentD agent on your machine
 * Crowdstrike connector installed on your machine
 

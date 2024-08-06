@@ -16,7 +16,7 @@ drop_filter: []
 
 Lambda Extensions enable tools to integrate deeply into the Lambda execution environment to control and participate in Lambda’s lifecycle.
 To read more about Lambda Extensions, [click here](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-extensions-api.html).
-The Logz.io Lambda extension for logs, uses the AWS Extensions API and [AWS Logs API](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-logs-api.html), and sends your Lambda Function Logs directly to your Logz.io account.
+The Logz.io Lambda extension for logs, uses the AWS Extensions API and [AWS Logs API](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported), and sends your Lambda Function Logs directly to your Logz.io account.
 
 This repo is based on the [AWS lambda extensions sample](https://github.com/aws-samples/aws-lambda-extensions).
 This extension is written in Go, but can be run with runtimes that support [extensions](https://docs.aws.amazon.com/lambda/latest/dg/using-extensions.html).
@@ -35,11 +35,17 @@ If you want to send all the logs by the time your Lambda function stops running,
 This means that if your Lambda function goes into the `SHUTDOWN` phase, the extension will start running and send all logs that are in the queue.
 
 
-## Extension deployment options
+## Deploying Logz.io logs extension
 
 You can deploy the extension via the AWS CLI or via the AWS Management Console.
 
-## Deploying Logz.io logs extension via the AWS CLI
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+<TabItem value="aws-cli" label="AWS CLI" default>
+
+## Deploying via the AWS CLI
 
 ### Deploy the extension and configuration
 
@@ -55,7 +61,7 @@ aws lambda update-function-configuration \
 ```
 
 :::note
-This command overwrites the existing function configuration. If you already have your own layers and environment variables for your function, list them as well.
+This command overwrites the existing function configuration. If you already have your own layers and environment variables for your function, include them in the list.
 :::
 
 
@@ -63,37 +69,15 @@ This command overwrites the existing function configuration. If you already have
 |---|---|---|
 | `<<FUNCTION-NAME>>` |  Name of the Lambda Function you want to monitor. |Required|
 | `<<LAYERS>>` | A space-separated list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.  For the ARN, see the [**ARNs** table]({@include: ../../_include/log-shipping/lambda-xtension-tablink.md}) |  |
-| `<<ENV-VARS>>`  | Key-value pairs containing environment variables that are accessible from function code during execution. Should appear in the following format: `KeyName1=string,KeyName2=string`.  For a list of all the environment variables for the extension, see the [**Lambda environment variables** table]{@include: ../../_include/log-shipping/lambda-xtension-tablink.md} |  |
+| `<<ENV-VARS>>`  | Key-value pairs containing environment variables that are accessible from function code during execution. Should appear in the following format: `KeyName1=string,KeyName2=string`.  For a list of all the environment variables for the extension, see the [**Lambda environment variables** table]{@include: ../../_include/log-shipping/lambda-xtension-tablink-indox.html} |  |
 
-### Run the function
-
-Use the following command. It may take more than one run of the function for the logs to start shipping to your Logz.io account.
-
+#### Command example
 ```shell
 aws lambda update-function-configuration \
-    --function-name <<FUNCTION-NAME>> \
-    --layers [] \
-    --environment "Variables={}"
+    --function-name exampleFunction \
+    --layers arn:aws:lambda:us-east-1:486140753397:layer:LogzioLambdaExtensionLogs:14 \
+    --environment "Variables={LOGZIO_LOGS_TOKEN=<<LOGZIO_SHIPPING_TOKEN>>,LOGZIO_LISTENER=<<LOGZIO_LISTENER_ADDRESS>>,ENABLE_PLATFORM_LOGS=true,GROK_PATTERNS='{}',LOGS_FORMAT='^\[%{NUMBER:logId}\] %{GREEDYDATA:message}',CUSTOM_FIELDS='fieldName1=fieldValue1,fieldName2=fieldValue2',JSON_FIELDS_UNDER_ROOT=true}"
 ```
-
-Your lambda logs will appear under the type `lambda-extension-logs`.
-
-
-:::note
-This command overwrites the existing function configuration. If you already have your own layers and environment variables for your function, include them in the list.
-:::
-
-
-### Check Logz.io for your logs
-
-Give your logs some time to get from your system to ours.
-
-
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your logs.
-
-<!-- logzio-inject:install:grafana:dashboards ids=["4yDXMhmHwfDYvOO8o0SGon"] -->
-
-{@include: ../../_include/metric-shipping/generic-dashboard.html}
 
 #### Deleting the extension
 
@@ -101,22 +85,26 @@ To delete the extension and its environment variables, use the following command
 
 ```shell
 aws lambda update-function-configuration \
-    --function-name some-func \
-    --layers [] \
+    --function-name <<FUNCTION-NAME>> \
+    --layers \
     --environment "Variables={}"
 ```
 
-:::note
-This command overwrites the existing function configuration. If you already have your own layers and environment variables for your function, include them in the list.
+:::info
+This command overwrites the existing function configuration. If you already have your own layers and environment variables for your function, include them in the list: 
+
+```shell
+aws lambda update-function-configuration \
+    --function-name <<FUNCTION-NAME>> \
+    --layers [<<LAYERS_TO_KEEP>>] \
+    --environment "Variables={<<ENV_VARIABLES_TO_KEEP>>}"
+```
 :::
 
+ </TabItem>
+<TabItem value="aws-console" label="AWS Management Console" default>
 
-
-## Deploying Logz.io log extensions via the AWS Management Console
-
-You'll have to add the extension.
-
-
+## Deploying via the AWS Management Console
 
 ### Add the extension to your Lambda Function
 
@@ -126,32 +114,13 @@ You'll have to add the extension.
 2. In the page for the function, scroll down to the `Layers` section and choose `Add Layer`.
 ![Add layer](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lambda_extensions/lambda-x_1-2.jpg)
 
-3. Select the `Specify an ARN` option, then choose the ARN of the extension with the region code that matches your Lambda Function region from the [**ARNs** table]{@include: ../../_include/log-shipping/lambda-xtension-tablink.md} {@include: ../../_include/log-shipping/lambda-xtension-tablink-indox.html}, and click the `Add` button.
+3. Select the `Specify an ARN` option, then choose the ARN of the extension with the region code that matches your Lambda Function region from the [**ARNs** table]{@include: ../../_include/log-shipping/lambda-xtension-tablink.md}, and click the `Add` button.
 
 ![Add ARN extension](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lambda_extensions/lambda-x_1-3.jpg)
 
 ### Configure the extension parameters
 
-Add the environment variables to the function, according to the [**Environment variables** table]{@include: ../../_include/log-shipping/lambda-xtension-tablink.md} {@include: ../../_include/log-shipping/lambda-xtension-tablink-indox.html}.
-
-
-##### Run the function
-
-Run the function. It may take more than one run of the function for the logs to start shipping to your Logz.io account.
-Your lambda logs will appear under the type `lambda-extension-logs`.
-
-### Check Logz.io for your logs
-
-Give your logs some time to get from your system to ours.
-
-
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your logs.
-
-<!-- logzio-inject:install:grafana:dashboards ids=["4yDXMhmHwfDYvOO8o0SGon"] -->
-
-{@include: ../../_include/metric-shipping/generic-dashboard.html}
-
-
+Add environment variables to the function, according to the [**Environment variables** table]{@include: ../../_include/log-shipping/lambda-xtension-tablink-indox.html}.
 
 
 #### Deleting the extension
@@ -160,6 +129,23 @@ Give your logs some time to get from your system to ours.
 - To delete the extension's **environment variables**: In your function page, select the `Configuration` tab, select `Environment variables`, click `edit`, and remove the variables that you added for the extension.
 
 
+</TabItem>
+</Tabs>
+
+
+### Check Logz.io for your logs
+
+Give your logs some time to get from your system to ours. It may take more than one run of the function for the logs to start shipping to your Logz.io account.
+
+:::info
+Your lambda logs will appear under the type `lambda-extension-logs`.
+:::
+
+#### Pre-Built content
+
+Log in to your Logz.io account and navigate to the [current instructions page](https://app.logz.io/#/dashboard/integrations/Lambda-extensions) to install the pre-built dashboard to enhance the observability of your logs.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["4yDXMhmHwfDYvOO8o0SGon"] -->
 
 
 ## Environment Variables
@@ -167,7 +153,7 @@ Give your logs some time to get from your system to ours.
 | Name | Description |Required/Default|
 | --- | --- | --- |
 | `LOGZIO_LOGS_TOKEN` | Your Logz.io log shipping [token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). | Required |
-| `LOGZIO_LISTENER` |  Your  Logz.io listener address, with port 8070 (http) or 8071 (https). For example: `https://listener.logz.io:8071`. {@include: ../../_include/log-shipping/listener-var.md} | Required |
+| `LOGZIO_LISTENER` | {@include: ../../_include/log-shipping/listener-var.md} For example: `https://listener.logz.io:8071`. | Required |
 | `LOGS_EXT_LOG_LEVEL` |  Log level of the extension. Can be set to one of the following: `debug`, `info`, `warn`, `error`, `fatal`, `panic`. |Default: `info` |
 | `ENABLE_PLATFORM_LOGS` | The platform log captures runtime or execution environment errors. Set to `true` if you wish the platform logs will be shipped to your Logz.io account. | Default: `false` |
 | `GROK_PATTERNS` | Must be set with `LOGS_FORMAT`. Use this if you want to parse your logs into fields. A minified JSON list that contains the field name and the regex that will match the field. To understand more see the [parsing logs](https://docs.logz.io/docs/shipping/aws/lambda-extensions/#parsing-logs) section. | - |
@@ -217,21 +203,9 @@ Give your logs some time to get from your system to ours.
 | Asia Pacific (Seoul)      | `ap-northeast-2` | `arn:aws:lambda:ap-northeast-2:486140753397:layer:LogzioLambdaExtensionLogsArm:5` |
 | Europe (London)           | `eu-west-2`      | `arn:aws:lambda:eu-west-2:486140753397:layer:LogzioLambdaExtensionLogsArm:4`      |
 | Europe (Paris)            | `eu-west-3`      | `arn:aws:lambda:eu-west-3:486140753397:layer:LogzioLambdaExtensionLogsArm:5`      |
+                                             |
 
-
-## Lambda extension versions
-
-| Version | Supported Runtimes                                                                                                                                                                 |
-|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 0.3.3   | `.NET 6`, `.NET 8`, `provided.al2`, `provided.al2023`, `Java 8`, `Java 11`, `Java 17`, `Node.js 16`, `Node.js 18`, `Python 3.8`, `Python 3.9`, `Python 3.10`, `Python 3.11`, `Python 3.12`, `Ruby 3.2`, `Custom Runtime` |
-| 0.3.2   | `.NET 6`, `Go 1.x`, `Java 17`, `Node.js 18`, `Python 3.11`, `Ruby 3.2`, `Java 11`, `Java 8`, `Node.js 16`, `Python 3.10`, `Python 3.9`, `Python 3.8`, `Ruby 2.7`, `Custom Runtime` |
-| 0.3.1   | All runtimes                                                                                                                                                                       |
-| 0.3.0   | `.NET Core 3.1`, `Java 11`, `Java 8`, `Node.js 14.x`, `Node.js 12.x`, `Python 3.9`, `Python 3.8`, `Python 3.7`, `Ruby 2.7`, `Custom runtime`                                       |
-| 0.2.0   | `.NET Core 3.1`, `Java 11`, `Java 8`, `Node.js 14.x`, `Node.js 12.x`, `Python 3.9`, `Python 3.8`, `Python 3.7`, `Ruby 2.7`, `Custom runtime`                                       |
-| 0.1.0   | `.NET Core 3.1`, `Java 11`, `Java 8`, `Node.js 14.x`, `Node.js 12.x`, `Node.js 10.x`, `Python 3.8`, `Python 3.7`, `Ruby 2.7`, `Ruby 2.5`, `Custom runtime`                         |
-| 0.0.1   | `Python 3.7`, `Python 3.8`                                                                                                                                                         |
-
-:::note
+:::info
 If your AWS region is not in the list, please reach out to Logz.io's support or open an issue in the [project's Github repo](https://github.com/logzio/logzio-lambda-extensions).
 :::
 
@@ -256,7 +230,7 @@ May 04 2024 10:50:46.532 logzio_sender: Successfully sent bulk to logz.io, size:
 In Logz.io we wish to have `timestamp`, `app_name` and `message` in their own fields.  
 To do so, we'll set the environment variables as follows:
 
-##### GROK_PATTERNS
+#### GROK_PATTERNS
 
 The `GROK_PATTERNS` variable contains definitions of custom grok patterns and should be in a JSON format.   
 - key - is the custom pattern name. 
@@ -273,7 +247,7 @@ Meaning we can set `GROK_PATTERNS` as:
 {"MY_CUSTOM_TIMESTAMP":"\\w+ \\d{2} \\d{4} \\d{2}:\\d{2}:\\d{2}\\.\\d{3}"}
 ```
 
-##### LOGS_FORMAT
+#### LOGS_FORMAT
 
 The `LOGS_FORMAT` variable contains the full grok pattern that will match the format of the logs, using known patterns and the custom patterns that were defined in `GROK_PATTERNS` (if defined).  
 The variable should be in a grok format: 
@@ -281,7 +255,7 @@ The variable should be in a grok format:
 %{GROK_PATTERN_NAME:WANTED_FIELD_NAME}
 ```
 
-:::note
+:::warning
 The `WANTED_FIELD_NAME` cannot contain a dot (`.`).
 :::
 
@@ -311,10 +285,10 @@ This project uses an external module for its grok parsing. To learn more about i
 
 ### Nested fields
 
-As of v0.2.0 the extension can detect if a log is in a JSON format, and to parse the fields to appear as nested fields in the Logz.io app.
+**As of v0.2.0** the extension can detect if a log is in a JSON format, and to parse the fields to appear as nested fields in the Logz.io app.
 For example, the following log:
 
-```
+```json
 { "foo": "bar", "field2": "val2" }
 ```
 
@@ -324,11 +298,11 @@ message_nested.foo: bar
 message_nested.field2: val2
 ```
 
-As of v0.3.3, to have the fields nested under the root (instead of under `message_nested`), set the `JSON_FIELDS_UNDER_ROOT` environment variable as `true`.  
+**As of v0.3.3**, to have the fields nested under the root (instead of under `message_nested`), set the `JSON_FIELDS_UNDER_ROOT` environment variable as `true`.  
 It is useful in cases where the passed object is in fact meant to be that of a message plus metadata fields.  
 For example, the following log:
 
-```
+```json
 { "message": "hello", "foo": "bar" }
 ```
 
@@ -339,10 +313,3 @@ foo: bar
 ```
 
 **Note:** The user must insert a valid JSON. Sending a dictionary or any key-value data structure that is not in a JSON format will cause the log to be sent as a string.
-
-## Upgrading from v0.0.1 to v0.1.0
-
-If you have Lambda extension v0.0.1 and you want to upgrade to v0.1.0+, to ensure that your logs are correctly sent to Logz.io:
-
-1. Delete the existing extension layer, its dependencies, and environment variables as decribed below in this topic.
-2. Deploy the new extension, its dependencies, and configuration as described below in this topic.

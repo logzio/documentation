@@ -35,7 +35,7 @@ On deployment, the Ruby instrumentation automatically captures spans from your a
 **Before you begin, you'll need**:
 
 * A Ruby application without instrumentation
-* An active account with Logz.io
+* An active Logz.io account
 * Port `4318` available on your host system
 * A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 
@@ -103,7 +103,7 @@ This integration enables you to auto-instrument your Ruby application and run a 
 **Before you begin, you'll need**:
 
 * A Ruby application without instrumentation
-* An active account with Logz.io
+* An active Logz.io account
 * Port `4318` available on your host system
 * A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 

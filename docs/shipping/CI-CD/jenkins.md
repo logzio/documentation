@@ -161,7 +161,7 @@ Now you need to configure the input plug-in to enable Telegraf to scrape the Jen
 
 #### Check Logz.io for your metrics
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboards to enhance the observability of your metrics.
+Install the pre-built dashboards to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["7bmikAb2xNPTy7PESlBqXY"] -->
 

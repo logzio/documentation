@@ -286,7 +286,7 @@ Below is a list of all environment variables available with this integration. If
 
 #### Check Logz.io metrics
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboards to enhance the observability of your metrics.
+Install the pre-built dashboards to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["5Wbud46hwzhpFeokC69j0Z"] -->
 

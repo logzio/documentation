@@ -144,6 +144,7 @@ For users currently on the Classic Application Insights, it's essential to migra
 2. Click on the notification that states "Classic Application Insights is deprecated."
 3. A "Migrate to Workspace-based" dialog will appear. Here, confirm your preferred Log Analytics Workspace and click 'Apply'.
 
+
 :::caution important
 Be aware that once you migrate to a workspace-based model, the process cannot be reversed.
 :::

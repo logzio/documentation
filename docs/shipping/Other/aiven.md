@@ -18,7 +18,7 @@ drop_filter: []
 
 **Before you begin, you'll need**: 
 
-* an active account with Logz.io
+* An active Logz.io account
 * an Aiven project with the service enabled 
 
 
