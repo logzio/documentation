@@ -73,7 +73,7 @@ Click the ✨ Observability IQ button to activate Observability IQ Assistant, an
 
 The default graph view is set to group by all fields, and you can choose specific fields to focus on from the dropdown menu. 
 
-![Smart Search group by](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/groupby-aug6.png)
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/groupby-aug6.png" alt="smart-search-groupby" width="700"/>
 
 
 
@@ -102,4 +102,4 @@ Expand each log to view additional details, see the log in JSON format, and add 
 
 In the top right corner, choose to view a single log in a new window, view surrounding logs for context, and share the URL of the specific log you're viewing.
 
-![Smart Search menu](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/log-inner-view-aug6.png)
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/log-inner-view-aug6.png" alt="smart-search" width="700"/>
