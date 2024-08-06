@@ -3,12 +3,9 @@
 * [Helm](https://helm.sh/)
 * Add Logzio-helm repository
 
-  ```sh
+  ```shell
   helm repo add logzio-helm https://logzio.github.io/logzio-helm && helm repo update
   ```
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 
 {@include: ../../_include/general-shipping/k8s-all-data.md}
@@ -16,6 +13,11 @@ import TabItem from '@theme/TabItem';
 
 ## Manual Setup
 Below are instructions for configuring each type of telemetry data individually.
+
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 <Tabs>
 <TabItem value="log-data" label="Logs" default>

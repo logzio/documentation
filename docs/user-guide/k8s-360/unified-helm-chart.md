@@ -10,4 +10,3 @@ The logzio-monitoring Helm Chart ships your Kubernetes telemetry (logs, metrics,
 
 
 {@include: ../../_include/general-shipping/k8s.md}
-
