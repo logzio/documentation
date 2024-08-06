@@ -1,7 +1,3 @@
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 ## Prerequisites 
 
 * [Helm](https://helm.sh/)
@@ -19,11 +15,14 @@ import TabItem from '@theme/TabItem';
 Below are instructions for configuring each type of telemetry data individually.
 
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 <Tabs>
 <TabItem value="log-data" label="Logs" default>
 
 
-## Send your logs
+## Logs
 
 To send your logs, our chart`logzio-monitoring` offers two methods:
 
