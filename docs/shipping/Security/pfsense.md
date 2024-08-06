@@ -19,7 +19,7 @@ drop_filter: []
 **Before you begin, you'll need**: 
 
 * pfSense installed and configured on your machine
-* an active account with Logz.io
+* An active Logz.io account
 * [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) installed on your machine
 * Root priveleges on your machines 
 

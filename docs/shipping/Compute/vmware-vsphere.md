@@ -120,7 +120,7 @@ Here is an example of the configuration file that will enable Telegraf to scrape
 
 ### Check Logz.io for your metrics
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboards to enhance the observability of your metrics.
+Install the pre-built dashboards to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["VpeHVDlhfo1mF22Lc0UKf", "6CpW1YzdonmTQ8uIXAN5OL", "3AvORCMPVJd8948i9oKaBO"] -->
 

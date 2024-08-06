@@ -20,7 +20,7 @@ drop_filter: []
 
 * An active Cynet license
 * Cynet login credentials 
-* An active account with Logz.io
+* An active Logz.io account
 * [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) installed on a dedicated machine (acting as a syslog server)
 * Root priveleges on your machines 
 

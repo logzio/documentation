@@ -32,7 +32,7 @@ On deployment, your Jaeger instrumentation captures spans from your application 
 **Before you begin, you'll need**:
 
 * An application instrumented with Jaeger
-* An active account with Logz.io
+* An active Logz.io account
 
 
 #### Download and configure OpenTelemetry collector

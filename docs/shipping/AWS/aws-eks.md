@@ -19,10 +19,10 @@ The logzio-monitoring Helm Chart ships your EKS Fargate telemetry (logs, metrics
 
 ## Prerequisites 
 
-1. [Helm](https://helm.sh/)
+* [Helm](https://helm.sh/)
 
 
-Add Logzio-helm repository
+* Add Logzio-helm repository
 `helm repo add logzio-helm https://logzio.github.io/logzio-helm && helm repo update`
 
 {@include: ../../_include/general-shipping/k8s-all-data.md}
@@ -194,7 +194,7 @@ To customize your configuration, edit the `config` section in the `values.yaml` 
 Give your metrics some time to get from your system to ours.
 
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["1aO3NWtPAtVwO5Ipmc3Deh", "6KQUyksnNT2E40PifmCHR5", "X6YYCFajD56zayxcQOG2H", "M06b1BjTSGsSNZBWeiLnR"] -->
 
