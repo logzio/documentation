@@ -8,6 +8,4 @@ keywords: [logz.io, helm, Kybernetes, k8s, helm chart]
 
 The logzio-monitoring Helm Chart ships your Kubernetes telemetry (logs, metrics, traces and security reports) to your Logz.io account.
 
-
 {@include: ../../_include/general-shipping/k8s.md}
-

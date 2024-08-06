@@ -3,12 +3,9 @@
 * [Helm](https://helm.sh/)
 * Add Logzio-helm repository
 
-  ```sh
+  ```shell
   helm repo add logzio-helm https://logzio.github.io/logzio-helm && helm repo update
   ```
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 
 {@include: ../../_include/general-shipping/k8s-all-data.md}
@@ -16,6 +13,11 @@ import TabItem from '@theme/TabItem';
 
 ## Manual Setup
 Below are instructions for configuring each type of telemetry data individually.
+
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 
 <Tabs>
 <TabItem value="log-data" label="Logs" default>
@@ -31,7 +33,7 @@ To send your logs, our chart`logzio-monitoring` offers two methods:
 
 ### Log collection with OpenTelemetry collector
 
-```sh
+```shell
 helm install -n monitoring --create-namespace \
 --set logs.enabled=true \
 --set logzio-logs-collector.secrets.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
@@ -44,7 +46,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 The `logzio-fluentd` chart is disabled by default in favor of the `logzio-logs-collector` chart.
 Deploy `logzio-fluentd` by adding the following `--set` flags:
 
-```sh
+```shell
 helm install -n monitoring --create-namespace \
 --set logs.enabled=true \
 --set logzio-fluentd.enabled=true \
@@ -80,7 +82,7 @@ To modify values, use the `--set` flag with the chart name as a prefix.
 **Example:** 
 For a parameter called `someField` in the `logzio-logs-collector`'s `values.yaml` file, set it by adding the following to the `helm install` command:
 
-```sh
+```shell
 --set logzio-logs-collector.someField="my new value"
 ```
 
@@ -101,7 +103,7 @@ Send data about deployment events in the cluster, and how they affect its resour
 Supported resource kinds are `Deployment`, `Daemonset`, `Statefulset`, `ConfigMap`, `Secret`, `Service Account`, `Cluster Role` and `Cluster Role Binding`.
 :::
 
-```sh
+```shell
 helm install -n monitoring --create-namespace \
 --set logzio-k8s-events.secrets.logzioShippingToken='<<LOG-SHIPPING-TOKEN>>' \
 --set logzio-k8s-events.secrets.logzioListener='<<LISTENER-HOST>>' \
@@ -146,7 +148,7 @@ If you encounter an issue, see our [troubleshooting guide](https://docs.logz.io/
 
 ## Send your metrics
 
-```sh
+```shell
 helm install -n monitoring --create-namespace \
 --set metricsOrTraces.enabled=true \
 --set logzio-k8s-telemetry.metrics.enabled=true \
@@ -176,7 +178,7 @@ To modify values found in the `logzio-telemetry` folder, use the `--set` flag wi
 
 For example, for a parameter called `someField` in the `logzio-k8s-telemetry`'s `values.yaml` file, set it by adding the following to the `helm install` command:
 
-```sh
+```shell
 --set logzio-k8s-telemetry.someField="my new value"
 ```
 
@@ -192,7 +194,7 @@ We offer three options for sending send your traces:
 * Send Traces and SPM 
 * Send Traces, SPM and Service Graph data
 
-```sh
+```shell
 helm install -n monitoring --create-namespace \
 --set metricsOrTraces.enabled=true \
 --set logzio-k8s-telemetry.traces.enabled=true \
@@ -204,7 +206,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 
 ## Send traces with SPM
 
-```sh
+```shell
 helm install -n monitoring --create-namespace \
 --set metricsOrTraces.enabled=true \
 --set logzio-k8s-telemetry.traces.enabled=true \
@@ -218,11 +220,11 @@ logzio-monitoring logzio-helm/logzio-monitoring
 
 ## Send Service Graph data
 
-:::warning Important
+:::caution Important
 `serviceGraph.enabled=true` will have no effect unless `traces.enabled` and `spm.enabled=true` is set to `true`.
 :::
 
-```sh
+```shell
 helm install -n monitoring --create-namespace \
 --set metricsOrTraces.enabled=true \
 --set logzio-k8s-telemetry.traces.enabled=true \
@@ -255,7 +257,7 @@ To modify values found in the `logzio-telemetry` folder, use the `--set` flag wi
 
 For example, for a parameter called `someField` in the `logzio-k8s-telemetry`'s `values.yaml` file, set it by adding the following to the `helm install` command:
 
-```sh
+```shell
 --set logzio-k8s-telemetry.someField="my new value"
 ```
 
@@ -266,11 +268,11 @@ For example, for a parameter called `someField` in the `logzio-k8s-telemetry`'s 
 
 ## Send Metrics with Kubernetes object logs
 
-:::warning Important
+:::caution Important
 `k8sObjectsConfig.enabled=true` will have no effect unless `metrics.enabled` is also set to `true`.
 :::
 
-```sh
+```shell
 helm install  \
 --set logzio-k8s-telemetry.metrics.enabled=true \
 --set logzio-k8s-telemetry.k8sObjectsConfig.enabled=true \
@@ -298,7 +300,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 
 ## Scan your cluster for security vulnerabilities
 
-```sh
+```shell
 helm install -n monitoring --create-namespace \
 --set securityReport.enabled=true \
 --set logzio-trivy.env_id="<<CLUSTER-NAME>>" \
