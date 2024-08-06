@@ -1,3 +1,5 @@
+Before you integrate Kubernetes you'll need:
+
 ## Prerequisites 
 
 * [Helm](https://helm.sh/)
