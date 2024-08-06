@@ -18,9 +18,9 @@ drop_filter: []
 
 Google Cloud Datastore is a highly scalable, fully managed NoSQL database service. 
 
-## Logs
+## Logs 
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 For this integration, the telemetry list needs to include `datastore_database`, `datastore_index`.
 

@@ -19,7 +19,7 @@ Google Datastream is a serverless and easy-to-use change data capture (CDC) and 
 
 ## Logs
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 For this integration, the telemetry list needs to include `datastream`.
 

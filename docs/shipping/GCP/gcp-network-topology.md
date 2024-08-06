@@ -20,7 +20,7 @@ Google Network Topology is a visualization tool that shows the topology of your 
 
 ## Logs
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 For this integration, the telemetry list needs to include `gce_network`, `gce_network_endpoint_group`, `gce_network_region`.
 

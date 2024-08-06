@@ -19,7 +19,7 @@ Google Cloud TPU is the custom-designed machine learning ASIC that powers Google
 
 ## Logs
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 For this integration, the telemetry list needs to include `tpu_worker`.
 
