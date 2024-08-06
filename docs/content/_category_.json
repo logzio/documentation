@@ -1,0 +1,9 @@
+{
+  "label": "Content",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Content, Dashboards, and Alerts."
+  },
+  className: 'section-title.tutorial'
+}
