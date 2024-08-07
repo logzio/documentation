@@ -24,7 +24,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="log-data" label="Logs" default>
 
 
-## Logs
+## Send your Logs
 
 To send your logs, our chart`logzio-monitoring` offers two methods:
 
