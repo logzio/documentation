@@ -151,7 +151,7 @@ For example:
 You need to use `Helm` client with version `v3.9.0` or above.
 :::
 
-For troubleshooting log shipping, see our [user guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-fluentd-for-kubernetes-logs/).
+Encounter an issue? See our [user guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-fluentd-for-kubernetes-logs/).
 
 
 
@@ -177,7 +177,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
 
 
-For troubleshooting metrics shipping, see our [user guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/k8s-troubleshooting/).
+Encounter an issue? See our [user guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/k8s-troubleshooting/).
  
 
 ### Customize the metrics collected by the Helm chart 
@@ -201,7 +201,7 @@ Install the pre-built dashboard to enhance the observability of your metrics.
 {@include: ../../_include/metric-shipping/generic-dashboard.html} 
   
  
-For troubleshooting this solution, see our [EKS troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/eks-helm/).
+Encounter an issue? See our [EKS troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/eks-helm/).
  
 ## Send your traces
 
@@ -223,7 +223,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<LOGZIO-REGION>>` | Name of your Logz.io traces region e.g `us`, `eu`... |
 
 
-For troubleshooting traces shipping, see our [Distributed Tracing troubleshooting](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/tracing-troubleshooting/).
+Encounter an issue? See our [Distributed Tracing troubleshooting](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/tracing-troubleshooting/).
 
 
 ## Send traces with SPM

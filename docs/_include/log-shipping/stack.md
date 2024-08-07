@@ -64,4 +64,4 @@ The S3 Hook will automatically parse logs if the object's path contains the phra
 
 Allow some time for data ingestion, then check your [OpenSearch Dashboards](https://app.logz.io/#/dashboard/osd/discover/).
 
-For troubleshooting, refer to our [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/) guide.
+Encounter an issue? See our [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/) guide.
