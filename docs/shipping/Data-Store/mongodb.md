@@ -208,7 +208,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the M
 * Replace `<<ADDRESS>>` with the address of your MongoDB database host. This is `localhost` if installed locally.
 * Replace `<<PORT>>` with the address of your host port allocated to MongoDB database.
 
-:::note
+:::note 
 The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/blob/release-1.18/plugins/inputs/mongodb/README.md).
 :::
 

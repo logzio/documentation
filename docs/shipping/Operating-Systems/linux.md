@@ -185,7 +185,7 @@ Manage OpenTelemetry on your machine using the following commands:
 **Before you begin, you'll need**:
 
 * Root access
-* Port 5000 open
+* Port 5000 open 
 
 ### Run the rsyslog configuration script
 

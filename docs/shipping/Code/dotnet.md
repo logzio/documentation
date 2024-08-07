@@ -1398,7 +1398,7 @@ helm install -n <<NAMESPACE>> \
 --set secrets.logzioURL='<<LISTENER-HOST>>:8053' \
 --set secrets.logzioToken='<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>' \
 --set-file dotnetAppContainers='<<DOTNET_APP_CONTAINERS_FILE>>' \
-logzio-dotnet-monitor logzio-helm/logzio-dotnet-monitor
+logzio-dotnet-monitor logzio-helm/logzio-dotnet-monitor 
 ```
 
 * Replace `<<NAMESPACE>>` with the namespace you selected for this integration. The default value is `default`.

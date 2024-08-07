@@ -87,7 +87,7 @@ By default, syslog will be forwarded over port 514. Feel free to adjust this, ba
          to: "source"
        ignore_missing: true
    output.logstash:
-     hosts: ["<<LISTENER-HOST>>:5015"]
+     hosts: ["<<LISTENER-HOST>>:5015"] 
      ssl:
        certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
    ```

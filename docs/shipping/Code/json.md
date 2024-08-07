@@ -32,7 +32,7 @@ For HTTPS _(recommended)_:
 https://<<LISTENER-HOST>>:8071?token=<<LOG-SHIPPING-TOKEN>>&type=<<MY-TYPE>>
 ```
 
-For HTTP:
+For HTTP: 
 
 ```
 http://<<LISTENER-HOST>>:8070?token=<<LOG-SHIPPING-TOKEN>>&type=<<MY-TYPE>>

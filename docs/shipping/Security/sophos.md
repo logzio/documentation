@@ -106,7 +106,7 @@ processors:
 #... Output
 output:
   logstash:
-    hosts: ["<<LISTENER-HOST>>"]
+    hosts: ["<<LISTENER-HOST>>"] 
     ssl:
       certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```

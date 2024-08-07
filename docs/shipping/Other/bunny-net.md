@@ -103,7 +103,7 @@ sudo openssl req -newkey rsa:2048 -nodes \
    output.logstash:
      hosts: ["<<LISTENER-HOST>>:5015"]
      ssl:
-       certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+       certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt'] 
    ```
   
    * Replace `<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>` with the address of your server running Filebeat.

@@ -104,7 +104,7 @@ The above assumes the following defaults:
 * Log locations (plain text format) - `/var/ossec/logs/alerts/alerts.log`
 
 ##### Set Logz.io as the output
-
+ 
 If Logz.io is not an output, add it now.
 Remove all other outputs.
 

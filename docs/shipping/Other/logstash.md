@@ -47,7 +47,7 @@ Download the [Logz.io public certificate]({@include: ../../_include/log-shipping
 ### Add Logz.io to your configuration file
 
 Add these code blocks to the end of your existing Logstash configuration file.
-
+ 
 Make sure the `mutate` block is the last item in the `filters` block.
 
 {@include: ../../_include/log-shipping/log-shipping-token.html}

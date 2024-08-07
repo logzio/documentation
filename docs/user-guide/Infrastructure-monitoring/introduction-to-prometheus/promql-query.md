@@ -36,7 +36,7 @@ Instead, use `"~"` before the value you want to search, and `".+"` at the end of
     * pod
     * user
 
-    To search for a namespace label that starts with **kub**, run the following query:<br />
+    To search for a namespace label that starts with **kub**, run the following query:
     `container_memory_working_set_bytes{namespace=~"kub.+"}`
 
 ![PromQL search labels and values](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Infrastructure-monitoring/promql-search-values.png)

@@ -201,7 +201,7 @@ drop_filter: []
    output:
      logstash:
        hosts: ["<<LISTENER-HOST>>:5015"]  
-       ssl:
+       ssl: 
          certificate_authorities: ['C:\ProgramData\Elastic\Beats\filebeat\Logzio.crt']
 
    ```

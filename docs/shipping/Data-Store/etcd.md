@@ -124,7 +124,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the e
   # tls_key = /path/to/keyfile
   
   ## Use TLS but skip chain & host verification
-  # insecure_skip_verify = false
+  # insecure_skip_verify = false 
 
 ```
 

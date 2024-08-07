@@ -40,7 +40,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the T
 
   ## Optional HTTP Basic Auth Credentials
   username = “<YOUR-USERNAME>”
-  password = “<YOUR-PASSWORD>”
+  password = “<YOUR-PASSWORD>” 
 ```
 
 * Replace `<TeamCity_server_URL>` with the URL of your TeamCity server.

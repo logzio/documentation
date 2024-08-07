@@ -32,7 +32,7 @@ cURL is a command line utility for transferring data, useful for testing configu
 2. Upload the file:
 
 
-```shell
+```shell 
 cat /path/to/log/file | curl -X POST "https://<<LISTENER-HOST>>:8071?token=<<LOG-SHIPPING-TOKEN>>&type=<LOG-TYPE>" \
 -H "user-agent:logzio-curl-logs" \
 -v --data-binary @-

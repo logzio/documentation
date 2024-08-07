@@ -184,7 +184,7 @@ The log type is used to apply the appropriate Logz.io preconfigured parsing pipe
 
 #### Set Logz.io as the output
 
-If Logz.io is not an output, add it now.
+If Logz.io is not an output, add it now. 
 Remove all other outputs.
 
 {@include: ../../_include/log-shipping/listener-url.html} 

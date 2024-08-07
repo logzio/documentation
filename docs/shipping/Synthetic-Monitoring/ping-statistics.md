@@ -49,7 +49,7 @@ Keep the defaults and click **Next**.
 
 ![Specify stack details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/ping_statistics/Stack_details1.png)
 
-Specify the stack details as per the table below and select **Next**.
+Specify the stack details as per the table below and select **Next**. 
 
 
 | Parameter | Description | Required/Optional | Default |

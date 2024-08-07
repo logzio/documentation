@@ -261,7 +261,7 @@ docker service create --name telegraf-docker-collector-metrics \
  --env METRICS_TOKEN="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>" \
  --env LOGZIO_LISTENER="https://<<LISTENER-HOST>>:8053" \
  --mount type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock \
- --mode global logzio/docker-metrics-collector:latest
+ --mode global logzio/docker-metrics-collector:latest 
  ```
 
 {@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}

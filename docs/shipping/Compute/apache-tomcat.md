@@ -51,7 +51,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the A
   # tls_cert = "/etc/telegraf/cert.pem"
   # tls_key = "/etc/telegraf/key.pem"
   ## Use TLS but skip chain & host verification
-  # insecure_skip_verify = false
+  # insecure_skip_verify = false 
 ```
 
 :::note

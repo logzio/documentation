@@ -124,7 +124,7 @@ Upon deployment, the Crowdstrike connector connects to your Crowdstrike account 
    <label @FLUENT_LOG>
      <match **>
        @type null
-     </match>
+     </match> 
    </label>
    ```
 

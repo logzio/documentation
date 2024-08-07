@@ -130,7 +130,7 @@ rootLogger.appenderRef.logzioAppender.ref = logzioAppender
 
 :::note
 For more details, see the [Log4j documentation](https://logging.apache.org/log4j/2.x/manual/configuration.html).
-:::
+::: 
  
 
 ### Appender parameters

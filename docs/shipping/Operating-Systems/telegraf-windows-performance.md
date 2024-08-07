@@ -150,7 +150,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the W
     Instances = ["_Total"]
     Measurement = "win_swap"
 ```
-
+ 
 
 #### Add the outputs.http plug-in
   

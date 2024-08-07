@@ -105,7 +105,7 @@ Here is an example of the configuration file that will enable Telegraf to scrape
   # datacenter_exclude = [] # Inventory paths to exclude
   # datacenter_metric_include = [] ## if omitted or empty, all metrics are collected
   datacenter_metric_exclude = [ "*" ] ## Datacenters are not collected by default.
-  # datacenter_instances = false ## false by default
+  # datacenter_instances = false ## false by default 
   
 ```
 
