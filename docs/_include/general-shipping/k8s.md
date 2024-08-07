@@ -88,7 +88,9 @@ For a parameter called `someField` in the `logzio-logs-collector`'s `values.yaml
 ```
 
 :::info
+
 Adding `log_type` annotation with a custom value will be parsed into a `log_type` field with the same value.
+
 :::
 
 
@@ -101,7 +103,9 @@ Adding `log_type` annotation with a custom value will be parsed into a `log_type
 Send data about deployment events in the cluster, and how they affect its resources.
 
 :::info
+
 Supported resource kinds are `Deployment`, `Daemonset`, `Statefulset`, `ConfigMap`, `Secret`, `Service Account`, `Cluster Role` and `Cluster Role Binding`.
+
 :::
 
 ```shell
@@ -137,9 +141,10 @@ metadata:
 Commit URL structure: `https://github.com/<account>/<repository>/commit/<commit-hash>`
    - Example: `https://github.com/logzio/logzio-k8s-events/commit/069c75c95caeca58dd0776405bb8dfb4eed3acb2`
 
-
 :::note
+
 If you encounter an issue, see our [troubleshooting guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-fluentd-for-kubernetes-logs/).
+
 :::
 
 
@@ -398,7 +403,9 @@ To parse JSON Logs using the fluentd chart, configure the following processor us
 ```
 
 :::info
+
 Instructions of using `configmap.extraConfig` can be found [here](https://github.com/logzio/logzio-helm/tree/master/charts/fluentd#configuration).
+
 :::
 
 
