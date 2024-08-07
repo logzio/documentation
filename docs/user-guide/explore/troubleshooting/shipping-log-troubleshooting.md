@@ -28,10 +28,10 @@ Visit our [status page](http://status.logz.io/) to confirm everything is working
 
 ## Check your shipper's connectivity
 
-For macOS and Linux, use `telnet` to ensure your log shipper can connect to Logz.io listeners.
+For MacOS and Linux, use `telnet` to ensure your log shipper can connect to Logz.io listeners.
 
 :::note
-As of macOS High Sierra (10.13), telnet is not installed by default. You can install it using Homebrew by running `brew install telnet`.
+As of MacOS High Sierra (10.13), telnet is not installed by default. You can install it using Homebrew by running `brew install telnet`.
 :::
 
 Run this command from your environment, adding the appropriate port number:

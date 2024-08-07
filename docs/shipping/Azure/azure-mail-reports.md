@@ -141,7 +141,7 @@ docker run --name logzio-api-fetcher \
 logzio/logzio-api-fetcher
 ```
 
-:::info
+:::note
 To run in Debug mode add `--level` flag to the command:
 ```shell
 docker run --name logzio-api-fetcher \

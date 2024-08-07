@@ -23,7 +23,7 @@ import TabItem from '@theme/TabItem';
 <Tabs>
 <TabItem value="macos-or-linux" label="macOS or Linux" default>
 
-## Configure Filebeat on macOS or Linux
+## Configure Filebeat on MacOS or Linux
 
 ### Pre Requirements
 
