@@ -72,7 +72,7 @@ For a list of options, see the configuration parameters below the code block. ðŸ
     logzio_url   https://<<LISTENER-HOST>>:8071
 ```
 
-### Parameters
+### Parameters 
 
 | Parameter | Description | Required/Default |
 |---|---|---|

@@ -56,7 +56,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the s
 [[inputs.procstat]]
     pattern = ".*"
     fieldpass = ["cpu_usage", "memory_rss"]
-```
+``` 
 
 :::note
 The full list of data scraping and configuring options can be found [here](https://docs.influxdata.com/telegraf/v1.18/plugins/).

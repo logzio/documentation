@@ -74,7 +74,7 @@ After you create a config file for Telegraf, configure the output plug-in to ena
      Content-Encoding = "snappy"
      X-Prometheus-Remote-Write-Version = "0.1.0"
      Authorization = "Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>"
-```
+``` 
 
 {@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
 

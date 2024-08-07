@@ -112,7 +112,7 @@ exporters:
       Authorization: Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
     target_info:
         enabled: false
-```
+``` 
 
 {@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
 

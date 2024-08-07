@@ -118,7 +118,7 @@ exporters:
       user-agent: logzio-opentelemetry-metrics
     target_info:
         enabled: false
-```
+``` 
   
 {@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
 

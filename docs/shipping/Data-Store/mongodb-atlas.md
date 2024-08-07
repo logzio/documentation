@@ -57,7 +57,7 @@ extensions:
   pprof:
     endpoint: :1777
   zpages:
-    endpoint: :55679
+    endpoint: :55679 
   health_check:
 
 service:

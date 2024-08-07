@@ -40,7 +40,7 @@ First, you need to [expose Argo CD Prometheus-format metrics](https://argo-cd.re
 Now you need to configure the input plug-in to enable Telegraf to scrape the Argo CD data from your hosts. To do this, add the following code to the configuration file:
 
 
-``` ini
+``` ini 
 [[inputs.prometheus]]
   ## An array of urls to scrape metrics from.
   urls = ["http://<<ARGOCD_HOST_URL>>:<<PORT>>/metrics"]

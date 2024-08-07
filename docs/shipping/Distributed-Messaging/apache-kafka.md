@@ -309,7 +309,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape data 
 [[inputs.prometheus]]
  urls = ["http://localhost:9100/metrics"]
  response_timeout = "10s"
-```
+``` 
 
 
 ### Add the outputs.http plug-in

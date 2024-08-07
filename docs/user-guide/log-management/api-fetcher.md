@@ -85,7 +85,7 @@ Insert your Logz.io listener URL and token into the config to begin the setup pr
 
 ```yaml
 logzio:
-  url: https://<<LISTENER-HOST>>:8071
+  url: https://<<LISTENER-HOST>>:8071 
   token: <<LOG-SHIPPING-TOKEN>>
 ```
 

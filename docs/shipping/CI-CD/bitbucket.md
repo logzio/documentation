@@ -29,7 +29,7 @@ Bitbucket is a Git-based source code repository hosting service. This integratio
 
 Log in to your Bitbucket account and navigate to the repository that you need to send logs from.
 
-### Open the **Add new webhook** page
+### Open the **Add new webhook** page 
 
 Navigate to **Repository Settings > Webhooks > Add webhook**.
 

@@ -27,7 +27,7 @@ Internet Information Services (IIS) for Windows® Server is a flexible, secure a
 
 ### Configure NXLog
 
-Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\nxlog.conf` by default).
+Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\nxlog.conf` by default). 
 
 {@include: ../../_include/log-shipping/log-shipping-token.html}
 

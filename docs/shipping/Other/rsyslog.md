@@ -249,7 +249,7 @@ curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslo
 Run the following command to configure your rsyslog daemon to monitor JSON log files.  Each log should be formatted as a single JSON line that ends with a newline character.
 
 
-```
+``` 
 curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t file -a "<<LOG-SHIPPING-TOKEN>>" -l "<<LISTENER-HOST>>" --filepath "<<PATH_TO_FILE>>" -tag "<<TYPE>>" -c json
 ```
 

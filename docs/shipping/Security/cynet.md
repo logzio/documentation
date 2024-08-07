@@ -81,7 +81,7 @@ These instructions are based on UDP. If you want to use TCP, make sure your sysl
        - from: "log.file.path"
          to: "source"
        ignore_missing: true
-   output.logstash:
+   output.logstash: 
      hosts: ["<<LISTENER-HOST>>:5015"]
      ssl:
        certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
