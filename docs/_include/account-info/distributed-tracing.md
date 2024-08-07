@@ -6,7 +6,6 @@ You can view your Distributed Tracing account plan and the specific details and 
 
 :::note
 If you don't have a Distributed Tracing account yet, start a trial in the Distributed Tracing tab.
-<!-- reach out to your account manager or email [the Sales team](mailto:sales@logz.io).-->
 :::
 
 

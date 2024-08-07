@@ -42,7 +42,7 @@ systemLog:
 
 Make sure Fluend can read from the MongoDB log file. You can set this as follows:
 
-#### On macOS and Linux
+#### On MacOS and Linux
 
 ```shell
 sudo chmod 604 <<MONGODB-FILE-PATH>>

@@ -23,7 +23,7 @@ This project deploys instrumentation that allows shipping Cloudwatch logs to Log
 * Roles, log groups, and other resources that are necessary for this instrumentation.
 
 
-:::info
+:::note
 If you want to send logs from specific log groups, use `customLogGroups` instead of `services`. Since specifying `services` will automatically send all logs from those services, regardless of any custom log groups you define.
 :::
 
