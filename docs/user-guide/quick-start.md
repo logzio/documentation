@@ -146,7 +146,7 @@ The following list explores the more common use cases for Logz.io's account admi
 * **[Setting up SSO access](https://docs.logz.io/docs/user-guide/admin/sso/single-sign-on/)**
 * **[Archiving and restoring data](https://docs.logz.io/docs/user-guide/data-hub/archive-restore/archive-and-restore/)**
 
-In addition, Logz.io's Data Hub helps you manage and optimize your Logz.io products by offering tailored recommendations and a quick and easy way to control your logs and metrics usage. You can use Data Hub to:
+In addition, Logz.io's Data Hub helps you manage and optimize your Logz.io products by offering tailored recommendations and a quick and easy way to control your logs and metrics usage. Account Admins can use Data Hub to:
 
 * **[Analyze and optimize logs and metrics usage](/docs/user-guide/data-hub/cost-optimization/)**
 * **[Create graphs and dashboards from your logs](/docs/user-guide/data-hub/logstometrics/)**
