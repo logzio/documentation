@@ -67,9 +67,9 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<LOGZIO-REGION>>` | Your Logz.io [region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). |
 
 
-:::note
-If you encounter an issue, see our [troubleshooting guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-fluentd-for-kubernetes-logs/).
-:::
+
+Encounter an issue? See our [troubleshooting guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-fluentd-for-kubernetes-logs/).
+
 
 
 ### Custom Configuration
@@ -87,12 +87,12 @@ For a parameter called `someField` in the `logzio-logs-collector`'s `values.yaml
 --set logzio-logs-collector.someField="my new value"
 ```
 
-:::note
+
 Adding `log_type` annotation with a custom value will be parsed into a `log_type` field with the same value.
-:::
 
 
- </TabItem>
+
+</TabItem>
 <TabItem value="deployment-data" label="Deployment Events" default>
 
 
@@ -137,12 +137,12 @@ metadata:
 Commit URL structure: `https://github.com/<account>/<repository>/commit/<commit-hash>`
    - Example: `https://github.com/logzio/logzio-k8s-events/commit/069c75c95caeca58dd0776405bb8dfb4eed3acb2`
 
-:::note
-If you encounter an issue, see our [troubleshooting guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-fluentd-for-kubernetes-logs/).
-:::
+
+Encounter an issue? See our [troubleshooting guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-fluentd-for-kubernetes-logs/).
 
 
- </TabItem>
+
+</TabItem>
 <TabItem value="metrics-data" label="Metrics" default>
 
 
@@ -165,9 +165,10 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
 | `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
 
-:::note
-If you encounter an issue, see our [troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/k8s-troubleshooting/).
-:::
+
+Encounter an issue? See our [troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/k8s-troubleshooting/).
+
+
 
 
 ### Custom Configuration
@@ -246,7 +247,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<SPM-METRICS-SHIPPING-TOKEN>>` | Your [span metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
 
 :::note
-For traces shipping troubleshooting, see our [Distributed Tracing troubleshooting](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/tracing-troubleshooting/).
+Encounter an issue? See our [Distributed Tracing troubleshooting](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/tracing-troubleshooting/).
 :::
 
 ### Custom Configuration
@@ -396,12 +397,10 @@ To parse JSON Logs using the fluentd chart, configure the following processor us
 </filter>
 ```
 
-:::note
 Instructions of using `configmap.extraConfig` can be found [here](https://github.com/logzio/logzio-helm/tree/master/charts/fluentd#configuration).
-:::
 
 
- </TabItem>
+</TabItem>
  <TabItem value="filter-metrics" label="Filter Metrics" default>
 
 

@@ -1479,7 +1479,7 @@ helm uninstall dotnet-monitor-collector
 ```
 
 
-For troubleshooting, refer to our [.NET with helm troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/dotnet-helm-troubleshooting/).
+Encounter an issue? See our [.NET with helm troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/dotnet-helm-troubleshooting/).
 
 
 
@@ -1678,7 +1678,7 @@ Replace [[your_apdex_name]] with the name that you assigned to the timer metric.
 
  
 
-For troubleshooting this solution, see our [.NET core troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/dotnet-core-troubleshooting/).
+Encounter an issue? See our [.NET core troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/dotnet-core-troubleshooting/).
 
  
 
@@ -1867,7 +1867,7 @@ Replace [[your_apdex_name]] with the name that you assigned to the apdex metric.
 
  
 
-For troubleshooting this solution, see our [.NET core troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/dotnet-core-troubleshooting/).
+Encounter an issue? See our [.NET core troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/dotnet-core-troubleshooting/).
 
   
 
@@ -1952,7 +1952,7 @@ using (var stream = new MemoryStream())
 }
 ```
 
-For troubleshooting this solution, see our [.NET core troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/dotnet-core-troubleshooting/).
+Encounter an issue? See our [.NET core troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/dotnet-core-troubleshooting/).
 </TabItem>
 </Tabs>
 
@@ -2153,7 +2153,7 @@ Give your traces some time to get from your system to ours, and then open [Traci
 
 #### OpenTelemetry instrumentation 
 
-For troubleshooting the OpenTelemetry instrumentation, see our [OpenTelemetry troubleshooting guide](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/otel-troubleshooting/).
+Encounter an issue? See our [OpenTelemetry troubleshooting guide](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/otel-troubleshooting/).
 
 </TabItem>
 </Tabs>

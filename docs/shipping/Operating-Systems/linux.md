@@ -209,7 +209,7 @@ The above assumes the following defaults:
 
 Allow some time for data ingestion, then open your [metrics dashboard](https://app.logz.io/#/dashboard/metrics).
 
-For troubleshooting, refer to our [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/) guide.
+Encounter an issue? See our [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/) guide.
 
  
  
