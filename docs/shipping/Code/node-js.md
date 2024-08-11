@@ -360,7 +360,173 @@ logger.log(obj);
 ```
 
 </TabItem>
+  <TabItem value="OpenTelemetry" label="OpenTelemetry">
+
+### Prerequisites
+    
+Ensure that you have the following installed locally:
+- [Node.js](https://nodejs.org/) (latest LTS version recommended)
+
+### Example Application
+The following example uses a basic Express application in Node.js
+
+### Create and launch an HTTP Server
+
+To begin, set up an environment in a new directory called nodejs-simple. Within that directory, execute the following commands:
+
+```bash
+npm init -y
+```
+
+```bash
+npm install express
+```
+
+In the same directory, Ccreate a file named app.js and add the following code:
+
+```javascript
+const express = require('express');
+
+const PORT = parseInt(process.env.PORT || '8080');
+const app = express();
+
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+app.get('/rolldice', (req, res) => {
+  res.send(getRandomNumber(1, 6).toString());
+});
+
+app.listen(PORT, () => {
+  console.log(`Listening for requests on http://localhost:${PORT}`);
+});
+
+```
+
+Run the application with the following command:
+
+```bash
+node app.js
+```
+
+Open http://localhost:8080/rolldice in your web browser to ensure it is working.
+
+
+### Instrumentation
+
+Next, we’ll install the necessary packages for logging telemetry data to Logz.io using OpenTelemetry.
+
+
+1. Add the packages
+    ```bash
+    npm install winston axios
+    ```
+
+2. Create a custom Logz.io transport for Winston
+
+    Create a file named logzio-transport.js and add the following code:
+
+    ```javascript
+    const Transport = require('winston-transport');
+    const axios = require('axios');
+    
+    class LogzIoTransport extends Transport {
+      constructor(opts) {
+        super(opts);
+        this.endpoint = opts.endpoint;
+        this.token = opts.token;
+        this.serviceName = opts.serviceName;
+      }
+    
+      log(info, callback) {
+        setImmediate(() => this.emit('logged', info));
+    
+        const logEntry = {
+          message: info.message,
+          level: info.level,
+          service: this.serviceName,
+          ...info.meta,
+        };
+    
+        axios.post(this.endpoint, logEntry, {
+          headers: {
+            'Authorization': `Bearer ${this.token}`,
+            'Content-Type': 'application/json',
+          },
+        })
+        .then(() => callback())
+        .catch(err => {
+          console.error('Error sending log to Logz.io:', err);
+          callback();
+        });
+      }
+    }
+    
+    module.exports = LogzIoTransport;
+
+    ```
+    
+3. Set up the logging configuration:
+
+   In your app.js, replace the content with the following:
+
+   ```javascript
+   const express = require('express');
+   const winston = require('winston');
+   const LogzIoTransport = require('./logzio-transport');
+   
+   const PORT = process.env.PORT || 8080;
+   const app = express();
+   
+   const logger = winston.createLogger({
+     level: 'info',
+     format: winston.format.json(),
+     transports: [
+       new LogzIoTransport({
+         endpoint: 'https://listener.logz.io:8071',
+         token: '<LOG-SHIPPING-TOKEN>',
+         serviceName: 'nodejs-roll-dice',
+       }),
+     ],
+   });
+   
+   function getRandomNumber(min, max) {
+     return Math.floor(Math.random() * (max - min + 1)) + min;
+   }
+   
+   app.get('/rolldice', (req, res) => {
+     const result = getRandomNumber(1, 6);
+     logger.info(`Rolled dice: ${result}`);
+     res.send(result.toString());
+   });
+   
+   app.listen(PORT, () => {
+     logger.info(`Listening for requests on http://localhost:${PORT}`);
+     console.log(`Listening for requests on http://localhost:${PORT}`);
+   });
+   ```
+   
+4. Run your **application** once again:
+
+    ```bash
+    node app.js
+    ```
+    Note the output from the dotnet run.
+
+4. From another terminal, send a request using curl:
+
+    ```
+    curl localhost:8080/rolldice
+    ```
+5. After about 30 sec, stop the server process.
+
+At this point, you should see log output from the server and client on your Logz.io account.
+
+
+  </TabItem>
 </Tabs>
+
 
 ## Metrics
 
