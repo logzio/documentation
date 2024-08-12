@@ -27,27 +27,54 @@ Use our dashboards and alerts to maintain Kubernetes health and performance, mak
 
 <h3 id="cluster-stats">Cluster Stats</h3>
 
-Get a comprehensive view of the cluster's resource utilization, including total CPU, memory, and disk usage, along with detailed metrics for pods, nodes, deployments, and namespaces. Visualize key utilization patterns and network traffic
+Get a comprehensive view of the cluster's resource utilization, including total CPU, memory, and disk usage, along with detailed metrics for pods, nodes, deployments, and namespaces. Includes network traffic insights and integrated alerts for efficient Kubernetes management.
 
-his dashboard displays a comprehensive view of the cluster's resource utilization, including total CPU, memory, and disk usage, along with detailed metrics for pods, nodes, deployments, and namespaces. It visualizes key utilization patterns and network traffic, ensuring efficient monitoring and management. Alerts and notifications integrate seamlessly, helping maintain a healthy and performant Kubernetes environment
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/content/dashmock.png" alt="cluster-stats" width="700"/>
 
-Monitor CPU, memory, disk usage, and key metrics for pods, nodes, deployments, and namespaces. Includes network traffic insights and integrated alerts for efficient Kubernetes management.
+<h3 id="node-stats">Node Stats</h3>
 
-* Cluster stats —-   monitoring Kubernetes cluster resources
-* Node stats —-   monitoring individual Kubernetes node
-* Pod Stats —--  monitoring Kubernetes pod, including container resource usage
-* Deployment stats — monitoring Kubernetes deployment 
-* DaemonSet stats — monitoring Kubernetes DaemonSet 
-* ReplicaSet stats — monitoring Kubernetes ReplicaSet 
-* StatefulSet stats —- monitoring Kubernetes StatefulSet 
-* CronJob&Job — monitoring Kubernetes CronJob and Job, including job status, success rate, and resource usage.
-* Capacity Management -  dashboard for k8s metrics to achieve effective observability, optimize resource utilization, and reduce costs by identifying wasted resources and misconfigurations.
-* OSD Dashboard Cluster Overview - Monitor your logs you and give you the ability to see your logs activity errors end container restart and e
+Get in-depth insights into each node's status, including uptime, running pods, and total CPU, memory, and disk resources. Monitor per-pod CPU and memory usage, overall resource utilization, and disk I/O metrics. Track network performance with real-time data on received and transmitted bytes and latency.
+
+<h3 id="pod-stats">Pod Stats</h3>
+
+The Pod Stats dashboard provides a focused view of each pod's health, showing ready state, container restarts, current phase, memory, CPU usage, and network activity.
+
+<h3 id="deployment-stats">Deployment Stats</h3>
+
+Monitor deployment health and performance with detailed views of desired vs. running replicas and replica trends over time. This dashboard offers insights into pod status, including total, terminated, and waiting pods, along with per-pod CPU, memory usage, container restarts, terminations, and network activity.
+
+<h3 id="daemonset-stats">DaemonSet Stats</h3>
+
+Get detailed DaemonSet performance metrics, including ready and unavailable replicas, scheduling trends, per-pod CPU and memory usage, container restarts, terminations, and network activity to ensure optimal operation.
+
+<h3 id="replicaset-stats">ReplicaSet Stats</h3>
+
+The ReplicaSet Stats dashboard offers an overview of performance, displaying desired, running, and ready replicas. It tracks pod status, including total, terminated, and waiting pods, as well as per-pod CPU, memory usage, container restarts, terminations, and network activity for reliable operations.
+
+<h3 id="statefulset-stats">StatefulSet Stats</h3>
+
+Get in-depth monitoring of StatefulSet performance, displaying desired and ready replicas and tracking trends over time. It offers detailed pod information, including phase, per-pod CPU and memory usage, container restarts, and comprehensive network monitoring to ensure optimal operations.
+
+<h3 id="cronjobjob">CronJob&Job</h3>
+
+Monitor Kubernetes CronJob and Job, including job status, success rate, and resource usage.
+
+<h3 id="capacity-management">Capacity Management</h3>
+
+This dashboard provides valuable insights into resource utilization across your clusters. It monitors CPU and memory usage, identifies under or over-utilized resources, and ensures efficient operation of your Kubernetes environment. This visibility enables proactive capacity planning, prevents bottlenecks, and optimizes costs by aligning resource allocations with actual needs, enhancing application performance and stability.
+
+<h3 id="osd-overview">OSD Dashboard Cluster Overview</h3>
+
+Get detailed insights into your cluster's logging activity. Filter logs by cluster, namespace, pod, and container for precise analysis. It displays counts of clusters, namespaces, nodes, pods, containers, and jobs, along with trends and activity by namespace. Visualize log levels, rates, sources, and top log volumes, errors, warnings, and debug messages to identify critical events and issues in your Kubernetes environment.
+
+
 
 [Install and view dashboards](https://app.logz.io/#/dashboard)
 
 
-## Metric alerts
+## Metric Alerts
+
+<h3 id="osd-overview">OSD Dashboard Cluster Overview</h3>
 
 * Cluster CPU Overcommit - Cluster has overcommitted cpu resource requests
 * Cluster CPU usage - Your cluster cpu usage is over 95% of the capacity
@@ -80,7 +107,7 @@ Monitor CPU, memory, disk usage, and key metrics for pods, nodes, deployments, a
 [Install and view metrics alerts](https://app.logz.io/#/dashboard)
 
 
-## Log alerts
+## Log Alerts
 
 * Internal Error - The "INTERNAL_ERROR" indicates an internal error within the system or service responsible for the UAS exporter. It suggests that something went wrong during the export process, which resulted in the stream being terminated.
 * Warning - "WARNING" log level logs, please refer to message to inspect

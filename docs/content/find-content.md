@@ -6,7 +6,7 @@ image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.
 keywords: [content, dashboard, alerts, observability]
 ---
 
-You pre-configured and custom dashboards and metrics alerts are located in your [Metrics dasbhaord](https://app.logz.io/#/dashboard/metrics), where you can monitor and edit them.
+Your pre-configured and custom dashboards and metrics alerts are located in your [Metrics dasbhaord](https://app.logz.io/#/dashboard/metrics), where you can monitor and edit them.
 
 ## View dashboards
 
