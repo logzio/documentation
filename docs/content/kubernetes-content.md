@@ -25,6 +25,14 @@ Use our dashboards and alerts to maintain Kubernetes health and performance, mak
 
 ## Dashboards
 
+<h3 id="cluster-stats">Cluster Stats</h3>
+
+Get a comprehensive view of the cluster's resource utilization, including total CPU, memory, and disk usage, along with detailed metrics for pods, nodes, deployments, and namespaces. Visualize key utilization patterns and network traffic
+
+his dashboard displays a comprehensive view of the cluster's resource utilization, including total CPU, memory, and disk usage, along with detailed metrics for pods, nodes, deployments, and namespaces. It visualizes key utilization patterns and network traffic, ensuring efficient monitoring and management. Alerts and notifications integrate seamlessly, helping maintain a healthy and performant Kubernetes environment
+
+Monitor CPU, memory, disk usage, and key metrics for pods, nodes, deployments, and namespaces. Includes network traffic insights and integrated alerts for efficient Kubernetes management.
+
 * Cluster stats —-   monitoring Kubernetes cluster resources
 * Node stats —-   monitoring individual Kubernetes node
 * Pod Stats —--  monitoring Kubernetes pod, including container resource usage
