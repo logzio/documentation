@@ -18,7 +18,7 @@ The Observability IQ Assistant can help you with queries related to log analysis
 
 ### Is Observability IQ Assistant available to all users?
 
-Observability IQ Assistant is currently available to all Logz.io users whose data is hosted in the EU, Australia, and the US regions.
+Observability IQ Assistant is currently available to all Logz.io users whose data is hosted in the EU, UK, Canada, Australia, and the US regions.
 
 ### Is Observability IQ Assistant accessible via API?
 
