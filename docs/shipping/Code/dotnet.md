@@ -27,7 +27,8 @@ import TabItem from '@theme/TabItem';
 [Project's GitHub repo](https://github.com/logzio/logzio-dotnet/)
 :::
 
-<Tabs>
+
+<Tabs queryString="current-lib">
   <TabItem value="log4net" label="log4net" default>
 
 **Before you begin, you'll need**:
@@ -1181,6 +1182,8 @@ Replace `<<TYPE>>` with the log type to identify these logs in Logz.io.
 
 </TabItem>
   <TabItem value="OpenTelemetry" label="OpenTelemetry">
+
+
 
 ### Prerequisites
     
