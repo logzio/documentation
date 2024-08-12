@@ -67,7 +67,7 @@ processors:
         to: "log_information"
       ignore_missing: true
 output.logstash:
-  hosts: ["<<LISTENER-HOST>>:5015"]
+  hosts: ["<<LISTENER-HOST>>:5015"] 
   ssl:
     certificate_authorities: ['C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt']
 ```

@@ -49,7 +49,7 @@ remote_write:
       min_shards: 1
       max_samples_per_send: 500
       capacity: 10000
-```
+``` 
 
 {@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
 

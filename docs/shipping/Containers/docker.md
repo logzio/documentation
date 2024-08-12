@@ -261,7 +261,7 @@ docker service create --name telegraf-docker-collector-metrics \
  --env METRICS_TOKEN="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>" \
  --env LOGZIO_LISTENER="https://<<LISTENER-HOST>>:8053" \
  --mount type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock \
- --mode global logzio/docker-metrics-collector:latest
+ --mode global logzio/docker-metrics-collector:latest 
  ```
 
 {@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
@@ -286,7 +286,7 @@ Below is a list of all environment variables available with this integration. If
 
 #### Check Logz.io metrics
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboards to enhance the observability of your metrics.
+Install the pre-built dashboards to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["5Wbud46hwzhpFeokC69j0Z"] -->
 

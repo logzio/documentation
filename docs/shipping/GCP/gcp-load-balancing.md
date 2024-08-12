@@ -18,7 +18,7 @@ Google Cloud Load Balancing is a fully distributed, software-defined, managed se
 
 ## Logs
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 For this integration, the telemetry list needs to include `aws_alb_load_balancer`.
 

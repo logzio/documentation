@@ -34,7 +34,7 @@ Add the following parameters to your Prometheus yaml file:
 | external_labels | Parameters to tag the metrics from this specific Prometheus server. | |
 | p8s_logzio_name |Use the value of the parameter `p8s_logzio_name` to identify from which Prometheus environment the metrics are arriving to Logz.io. Replace the `<labelvalue>` placeholder with a label that will be added to all the metrics that are sent from this specific Prometheus server. |  |
 | remote_write | The remote write section configuration sets Logz.io as the endpoint for your Prometheus metrics data. Place this section at the same indentation level as the `global` section. ||
-|url|  The Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. For more details, see the [Prometheus configuration file remote write reference. ](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) | Required|
+|url|  The Logz.io Listener URL for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. For more details, see the [Prometheus configuration file remote write reference. ](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) | Required|
 |bearer_token|The Logz.io Prometheus Metrics account token.  | Required|
 
 
@@ -64,7 +64,7 @@ If you want to use a `bearer_token_file` to configure your Prometheus account, c
 | external_labels | Parameters to tag the metrics from this specific Prometheus server. |
 | p8s_logzio_name |Use the value of the parameter `p8s_logzio_name` to identify from which Prometheus environment the metrics are arriving to Logz.io. Replace the `<labelvalue>` placeholder with a label that will be added to all the metrics that are sent from this specific Prometheus server. |
 | remote_write | The remote write section configuration sets Logz.io as the endpoint for your Prometheus metrics data. Place this section at the same indentation level as the `global` section. |
-|url|  The Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. For more details, see the [Prometheus configuration file remote write reference. ](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) | Required|
+|url|  The Logz.io Listener URL for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. For more details, see the [Prometheus configuration file remote write reference. ](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) | Required|
 |bearer_token_file|The file path that holds Logz.io Prometheus Metrics account token.  | Required|
 
 ```yaml
@@ -124,7 +124,7 @@ externalLabels:
 + **Check via Metrics Explore**: To verify that metrics are arriving to Logz,io:
   1. Open Metrics **Explore** via the compass icon in the left menu bar.
 
-  2. Examine the **Metrics** dropdown list below the **Explore** heading in the upper left of the pane. <br />
+  2. Examine the **Metrics** dropdown list below the **Explore** heading in the upper left of the pane.
     An empty list or the text _no metrics_ indicates that the remote write configuration is not working properly.
     ![Verify Prometheus metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/select-metric-query.png)
 

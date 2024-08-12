@@ -6,7 +6,7 @@ image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.
 keywords: [metrics, infrastructure monitoring, remote write, Prometheus, monitoring, dashboard, observability, logz.io]
 ---
 
-To send your Prometheus application metrics to a Logz.io Infrastructure Monitoring account, use remote write to connect to Logz.io as the endpoint. Your data is formatted as JSON documents by the Logz.io listener. 
+To send your Prometheus application metrics to a Logz.io Infrastructure Monitoring account, use remote write to connect to Logz.io as the endpoint. Your data is formatted as JSON documents by the Logz.io listener.  
 
 
 :::note

@@ -109,7 +109,7 @@ If you’re sending data to listener-eu.logz.io, open your firewall to these AWS
 * 52.57.23.254
 * 52.57.24.166
 
-## listener-nl.logz.io — West Europe (Netherlands), Azure
+<!-- ## listener-nl.logz.io — West Europe (Netherlands), Azure
 
 If you’re sending data to listener-nl.logz.io, open your firewall to these Azure IP addresses:
 
@@ -145,6 +145,7 @@ If you’re sending data to listener-nl.logz.io, open your firewall to these Azu
 * 34.253.57.152
 * 54.170.210.210
 * 99.81.174.27
+-->
 
 ## listener-uk.logz.io — Europe (London), AWS
 
@@ -155,7 +156,7 @@ If you’re sending data to listener-uk.logz.io, open your firewall to these AWS
 * 35.178.96.162
 * 35.179.57.204
 
-## listener-wa.logz.io — West US 2 (Washington), Azure
+<!-- ## listener-wa.logz.io — West US 2 (Washington), Azure
 
 If you’re sending data to listener-wa.logz.io, open your firewall to these Azure IP addresses:
 
@@ -190,4 +191,4 @@ If you’re sending data to listener-wa.logz.io, open your firewall to these Azu
 * 3.139.200.44
 * 3.17.236.87
 * 18.219.147.234
-* 3.17.192.62
+* 3.17.192.62 -->

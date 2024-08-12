@@ -20,7 +20,7 @@ Google Filestore is a fully managed Google Cloud service that provides network f
 
 ## Logs
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 
 ### Check Logz.io for your logs

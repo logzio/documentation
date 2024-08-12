@@ -81,7 +81,7 @@ func main() {
 }
 ```
 
-#### Parameters
+#### Parameters 
 
 | Parameter | Description | Required/Default |
 |---|---|---|
@@ -145,7 +145,7 @@ Replace the placeholders in the code to match your specifics.
 
 | Parameter | Description | Required | Default|
 |---|---|---|---|
-|`<<LISTENER-HOST>>`|  The full Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic (example: https://listener.logz.io:8053). For more details, see the [regions page](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/) in logz.io docs | Required | https://listener.logz.io:8053 |
+|`<<LISTENER-HOST>>`|  The full Logz.io Listener URL for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic (example: https://listener.logz.io:8053). For more details, see the [regions page](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/) in logz.io docs | Required | https://listener.logz.io:8053 |
 |`<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>`| The Logz.io Prometheus Metrics account token. Find it under **Settings > Manage accounts**. [Look up your Metrics account token.](https://docs.logz.io/docs/user-guide/admin/authentication-tokens/finding-your-metrics-account-token/)  | Required | - |
 | RemoteTimeout | The timeout for requests to the remote write Logz.io metrics listener endpoint. | Required | 30 (seconds) |
 | PushInterval | The time interval for sending the metrics to Logz.io. | Required | 10 (seconds) |
@@ -377,7 +377,7 @@ _ = metric.Must(meter).NewFloat64UpDownCounterObserver(
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["2cm0FZu4VK4vzH0We6SrJb"] -->
 
@@ -407,7 +407,7 @@ On deployment, the Go instrumentation automatically captures spans from your app
 **Before you begin, you'll need**:
 
 * A Go application without instrumentation
-* An active account with Logz.io
+* An active Logz.io account
 * Port `4318` available on your host system
 * A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 

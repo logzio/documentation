@@ -10,6 +10,10 @@ keywords: [Data hub, data optimization, optimization, drop filters, rollups, met
 
 You can compact and discard some of your metrics as it ages to focus on the data that matters. **Rollups** let you aggregate many time series by excluding labels, optimizing your costs and performance.
 
+:::info note
+Only Account Admins can access the Data Hub and utilize Metric rollups.
+:::
+
 
 
 ## Create a Rollup

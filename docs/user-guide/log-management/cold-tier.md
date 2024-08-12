@@ -72,8 +72,7 @@ And more.
 
 To investigate the logs further, you can re-ingest them to your Logz.io account by clicking the **Re-ingest** button.
 
-
-**Note that the re-ingested data will count against your daily quota and may result in an additional charge if you exceed your account's limit.**
+**Note that the re-ingested data will count against your daily quota and may result in an additional charge if you exceed your account's limit. Additionally, be aware that the maximum restore duration is limited to 24 hours.**
 
 You can check your account usage and daily limit by navigating to [**Settings > Manage accounts**](https://app.logz.io/#/dashboard/settings/manage-accounts).
 

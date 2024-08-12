@@ -20,7 +20,7 @@ Google Memorystore for Memcached is a fully managed Memcached service for Google
 
 ## Logs
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 
 ### Check Logz.io for your logs

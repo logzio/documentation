@@ -62,7 +62,7 @@ listen INPUT_NAME_TCP
 
 ### Configure rsyslog
 
-Copy this text to your rsyslog configuration (`/etc/rsyslog.conf` by default).
+Copy this text to your rsyslog configuration (`/etc/rsyslog.conf` by default). 
 
 {@include: ../../_include/log-shipping/log-shipping-token.html}
 

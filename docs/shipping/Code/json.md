@@ -21,19 +21,18 @@ import TabItem from '@theme/TabItem';
 <Tabs>
   <TabItem value="http" label="Bulk uploads over HTTP/HTTPS" default>
 
-If you want to ship logs from your code but don't have a library in place, you can send them directly to the Logz.io listener as a minified JSON file.
+To ship logs directly to the Logz.io listener, send them as minified JSON files over an HTTP/HTTPS connection.
 
-The listeners accept bulk uploads over an HTTP/HTTPS connection or TLS/SSL streams over TCP.
 
-### The request path and header
+### Request path and header
 
-For HTTPS shipping _(recommended)_, use this URL configuration:
+For HTTPS _(recommended)_:
 
 ```
 https://<<LISTENER-HOST>>:8071?token=<<LOG-SHIPPING-TOKEN>>&type=<<MY-TYPE>>
 ```
 
-Otherwise, for HTTP shipping, use this configuration:
+For HTTP: 
 
 ```
 http://<<LISTENER-HOST>>:8070?token=<<LOG-SHIPPING-TOKEN>>&type=<<MY-TYPE>>
@@ -44,11 +43,13 @@ http://<<LISTENER-HOST>>:8070?token=<<LOG-SHIPPING-TOKEN>>&type=<<MY-TYPE>>
 * {@include: ../../_include/log-shipping/type.md} Otherwise, the default `type` is `http-bulk`.
 
 
-### The request body
+### Request body
 
-Your request's body is a list of logs in minified JSON format. Also, each log must be separated by a new line. You can escape newlines in a JSON string with `\n`.
+The request body is a list of logs in minified JSON format, with each log separated by a newline `(\n)`.
 
-For example:
+
+
+Example:
 
 ```json
 {"message": "Hello there", "counter": 1}
@@ -57,12 +58,11 @@ For example:
 
 ### Limitations
 
-* Max body size is 10 MB (10,485,760 bytes)
-* Each log line must be 500,000 bytes or less
-* If you include a `type` field in the log, it overrides `type` in the request header
+* Max body size: 10 MB (10,485,760 bytes).
+* Max log line size: 500,000 bytes.
+* Type field in the log overrides the `type` in the request header.
 
-
-### Code sample
+For example:
 
 ```shell
 echo $'{"message":"hello there", "counter": 1}\n{"message":"hello again", "counter": 2}' \
@@ -75,13 +75,13 @@ echo $'{"message":"hello there", "counter": 1}\n{"message":"hello again", "count
 
 #### 200 OK
 
-All logs were received and validated. Give your logs some time to get from your system to ours, and then check your [Logz.io Log Management account](https://app.logz.io/#/dashboard/osd) for your logs.
+All logs received and validated. Allow some time for data ingestion, then open [Logz.io Log Management account](https://app.logz.io/#/dashboard/osd).
 
 The response body is empty.
 
 #### 400 BAD REQUEST
 
-The input wasn't valid. The response message will look like this:
+Invalid input. Response example:
 
 
 ```
@@ -95,32 +95,31 @@ The input wasn't valid. The response message will look like this:
 
 #### 401 UNAUTHORIZED
 
-The token query string parameter is missing or not valid.
-Make sure you're using the right account token.
+Missing or invalid token query string parameter. Ensure you're using the correct account token.
 
-In the response body, you'll see either "Logging token is missing" or "Logging token is not valid" as the reason for the response.
+Response: "Logging token is missing" or "Logging token is not valid".
+
 
 #### 413 REQUEST ENTITY TOO LARGE
 
-The request body size is larger than 10 MB.
+Request body size exceeds 10 MB.
  
 </TabItem>
   <TabItem value="tcp" label="Bulk uploads over TCP">
 
-If you want to ship logs from your code but don't have a library in place, you can send them directly to the Logz.io listener as a minified JSON file.
-
-The listeners accept bulk uploads over an HTTP/HTTPS connection or TLS/SSL streams over TCP.
-
+To ship logs directly to the Logz.io listener, send them as minified JSON files over an HTTP/HTTPS connection.
 
 ### JSON log structure
 
 
-Keep to these practices when shipping JSON logs over TCP:
+Follow these practices when shipping JSON logs over TCP:
 
-* Each log must be a single-line JSON object
-* Each log line must be 500,000 bytes or less
-* Each log line must be followed by a `\n` (even the last log)
-* Include your account token as a top-level property: `{ ... "token": "<<LOG-SHIPPING-TOKEN>>" , ... }`
+
+* Each log must be a single-line JSON object.
+* Each log line must be 500,000 bytes or less.
+* Each log line must be followed by a `\n` (even the last log).
+* Include your account token as a top-level property: `{ ... "token": "<<LOG-SHIPPING-TOKEN>>" , ... }`.
+
 ### Send TLS/SSL streams over TCP
 
 
@@ -129,14 +128,15 @@ Keep to these practices when shipping JSON logs over TCP:
 
 ### Send the logs
 
-Using the certificate you just downloaded, send the logs to TCP port 5052 on your region’s listener host. For more information on finding your account’s region, see [Account region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/).
+Using the downloaded certificate, send logs to TCP port 5052 on your region's listener host. For details on finding your account's region, refer to the [Account region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/) section.
 
 
 ## Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
+Allow some time for data ingestion, then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
+
+Encounter an issue? See our [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/) guide.
 
 </TabItem>
 </Tabs>

@@ -17,9 +17,9 @@ drop_filter: []
 
 Google Cloud Bigtable is a high performance NoSQL database service for large analytical and operational workloads. 
 
-## Logs
+## Logs 
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 For this integration, the telemetry list needs to include `bigquery_table`.
 

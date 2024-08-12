@@ -40,7 +40,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the S
 :::note
 The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/blob/release-1.18/plugins/inputs/synproxy/README.md)
 :::
- 
+  
 
 ##### Add the outputs.http plug-in
   

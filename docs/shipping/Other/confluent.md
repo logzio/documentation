@@ -46,7 +46,7 @@ Choose the Kafka topic(s) you want to collect data from.
 
 ### Set up authentication for Logz.io
 
-1. In the **HTTP URL** field, enter:
+1. In the **HTTP URL** field, enter: 
 
    ```
    https://<<LOGZIO-LISTENER-HOST>>:8071/?token=<<LOGZIO-SHIPPING-TOKEN>>&type=<<YOUR-TYPE>>

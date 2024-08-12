@@ -119,7 +119,7 @@ Defaults for Error logs:
 
 #### Set Logz.io as the output
 
-If Logz.io is not an output, add it now.
+If Logz.io is not an output, add it now. 
 Remove all other outputs.
 
 {@include: ../../_include/log-shipping/listener-url.html} 
@@ -233,7 +233,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the N
 
 #### Check Logz.io for your metrics
   
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboards to enhance the observability of your metrics.
+Install the pre-built dashboards to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["3HKho6pQhCmEYmwMc4xCeY"] -->
 

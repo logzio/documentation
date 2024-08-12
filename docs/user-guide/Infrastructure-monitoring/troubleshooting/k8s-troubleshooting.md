@@ -6,6 +6,6 @@ image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.
 keywords: [logz.io, troubleshooting, kubernetes, k8s, opentelemetry, helm, helm chart]
 ---
 
-This section contains some guidelines for troubleshooting and handling errors that you may encounter when trying to collect Kubernetes metrics.
+This section contains some guidelines for troubleshooting and handling errors that you may encounter when trying to collect Kubernetes metrics. 
 
 {@include: ../../../_include/p8s-shipping/k8s-troubleshooting.md}

@@ -146,11 +146,11 @@ This error can occur due to a connectivity issue, an issue with your TLS, or the
 
 First, check your shipper's connectivity as follows:
 
-For macOS and Linux, use telnet to ensure your log shipper can connect to Logz.io listeners.
+For MacOS and Linux, use telnet to ensure your log shipper can connect to Logz.io listeners.
 
 
 :::info note
-As of macOS High Sierra (10.13),
+As of MacOS High Sierra (10.13),
 telnet is not installed by default.
 You can install telnet with Homebrew
 by running `brew install telnet`.
