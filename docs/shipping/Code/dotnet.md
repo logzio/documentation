@@ -13,6 +13,8 @@ logs2metrics: []
 metrics_dashboards: ['3lGo7AE5839jDfkAYU8r21']
 metrics_alerts: ['1ALFpmGPygXKWi18TDoO5C']
 drop_filter: []
+toc_min_heading_level: 2
+toc_max_heading_level: 3
 ---
 
 
