@@ -820,6 +820,7 @@
 /shipping/log-sources/modsecurity.html				/docs/shipping/security/modsecurity/
 /shipping/log-sources/nginx.html				/docs/shipping/load-balancer/nginx-load/
 /shipping/log-sources/json-uploads				/docs/shipping/code/json/
+/shipping/code/json                             /docs/shipping/code/http/
 /shipping/log-sources/cisco-meraki.html				/docs/shipping/security/cisco-meraki/
 /shipping/log-sources/active-directory-winserver.html				/docs/shipping/azure/azure-active-directory/
 /shipping/log-sources/microsoft-graph.html				/docs/shipping/other/microsoft-graph-data/
