@@ -185,6 +185,74 @@ For example, for a parameter called `someField` in the `logzio-k8s-telemetry`'s 
 
 
  </TabItem>
+
+<TabItem value="opentelemetry-metrics-data" label="OpenTelemetry Metrics" default>
+
+## Send your metrics
+
+Sends infrastructure and applications metrics using the OpenTelemetry collector.
+
+```shell
+helm install -n monitoring --create-namespace \
+--set metricsOrTraces.enabled=true \
+--set logzio-k8s-telemetry.metrics.enabled=false \
+--set logzio-metrics-collector.enabled=true \
+--set logzio-metrics-collector.secrets.logzioMetricsToken="<<METRICS-SHIPPING-TOKEN>>" \
+--set logzio-metrics-collector.secrets.logzioRegion="<<LOGZIO-REGION>>" \
+--set logzio-metrics-collector.secrets.env_id="<<CLUSTER-NAME>>" \
+logzio-monitoring logzio-helm/logzio-monitoring
+```
+
+| Parameter | Description |
+| --- | --- |
+| `<<METRICS-SHIPPING-TOKEN>>` | Your [ Logz.io metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
+| `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
+| `<<LOGZIO-REGION>>` | Your account's [Logz.io region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). |
+
+
+Encounter an issue? See our [troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/k8s-troubleshooting/).
+
+### Send Metrics with Kubernetes object logs
+
+:::caution Important
+`logzio-metrics-collector.k8sObjectsConfig.enabled=true` will have no effect unless `logzio-metrics-collector.enabled` is also set to `true`.
+:::
+
+```shell
+helm install -n monitoring --create-namespace \
+--set metricsOrTraces.enabled=true \
+--set logzio-k8s-telemetry.metrics.enabled=false \
+--set logzio-metrics-collector.enabled=true \
+--set logzio-metrics-collector.secrets.logzioMetricsToken="<<METRICS-SHIPPING-TOKEN>>" \
+--set logzio-metrics-collector.k8sObjectsLogs.enabled=true \
+--set logzio-metrics-collector.secrets.k8sObjectsLogsToken="<<LOGS-SHIPPING-TOKEN>>" \
+--set logzio-metrics-collector.secrets.logzioRegion="<<LOGZIO-REGION>>" \
+--set logzio-metrics-collector.secrets.env_id="<<CLUSTER-NAME>>" \
+logzio-monitoring logzio-helm/logzio-monitoring
+```
+
+| Parameter | Description |
+| --- | --- |
+| `<<METRICS-SHIPPING-TOKEN>>` | Your [ Logz.io metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
+| `<<LOGS-SHIPPING-TOKEN>>` | Your [ Logz.io logs shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
+| `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
+| `<<LOGZIO-REGION>>` | Your account's [Logz.io region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). |
+
+
+### Configure customization options
+
+You can use the following options to update the `logzio-metrics-collector` Helm chart values [parameters](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-metrics-collector/VALUES.md): 
+
+To modify values found in the `logzio-metrics-collector` sub chart, use the `--set` flag with the `logzio-metrics-collector` prefix.
+
+For example, for a parameter called `someField` in the `logzio-metrics-collector`'s `values.yaml` file, set it by adding the following to the `helm install` / `helm upgrade`  command:
+
+```shell
+--set logzio-metrics-collector.someField="my new value"
+```
+
+  </TabItem>
+
 <TabItem value="tracing-data" label="Tracing and SPM" default>
 
 
