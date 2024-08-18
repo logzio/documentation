@@ -4,6 +4,10 @@ sidebar_position: 5
 
 # Configure an Endpoint for Microsoft Teams
 
+:::warning note
+Starting August 15th, 2024, new Microsoft Teams endpoints must be configured using the **Workflows** app. [Read more on Microsoft's blog](https://devblogs.microsoft.com/microsoft365dev/retirement-of-office-365-connectors-within-microsoft-teams/).
+:::
+
 
 
 Integrate with Microsoft Teams using a Logz.io custom webhook to receive Logz.io notifications in your Microsoft Teams workspace.
