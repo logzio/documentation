@@ -148,7 +148,7 @@ Encounter an issue? See our [troubleshooting guide](https://docs.logz.io/docs/us
 
 ## Send your metrics
 
-To send your infrastructure metrics, our  `logzio-monitoring` chart offers two methods:
+To send your metrics, our  `logzio-monitoring` chart offers two methods:
 
 * `logzio-metrics-collector`, sub chart based on OpenTelemetry collector's native receivers.
 * `logzio-k8s-telemetry`, sub chart based on OpenTelemetry collector's prometheus receivers.
