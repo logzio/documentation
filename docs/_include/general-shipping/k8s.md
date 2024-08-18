@@ -251,9 +251,9 @@ For example, for a parameter called `someField` in the `logzio-metrics-collector
 --set logzio-metrics-collector.someField="my new value"
 ```
 
-  </TabItem>
+ </TabItem>
 
-<TabItem value="tracing-data" label="Tracing and SPM" default>
+<TabItem  value="tracing-data" label="Tracing and SPM" default>
 
 
 ## Send your traces
