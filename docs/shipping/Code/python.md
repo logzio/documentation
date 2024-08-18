@@ -17,6 +17,12 @@ drop_filter: []
 
 ## Logs
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="logzio-python-handler" label="Logz.io Python Handler" default>
+
 :::note
 [Project's GitHub repo](https://github.com/logzio/logzio-python-handler/)
 :::
@@ -310,6 +316,185 @@ logger.addFilter(TruncationLoggerFilter())
 ```
 
 The default limit is 32,700, but you can adjust this value as required.
+
+</TabItem>
+  <TabItem value="OpenTelemetry" label="OpenTelemetry">
+
+### Prerequisites
+    
+Ensure that you have the following installed locally:
+
+* Python 3.7 or newer
+* pip (Python package installer)
+
+### Example Application
+
+The following example uses a basic Flask application.
+
+
+### Create and launch an HTTP Server
+
+To begin, set up an environment in a new directory called `otel-getting-started`. Within that directory, follow these steps:
+
+
+1. Create and activate a virtual environment:
+
+   ```bash
+   mkdir otel-getting-started
+   cd otel-getting-started
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+
+2. Install Flask and OpenTelemetry dependencies:
+
+   ```bash
+   pip install flask opentelemetry-api opentelemetry-sdk opentelemetry-exporter-otlp
+   ```
+
+3. Create a Flask application in a file named app.py and add the following code:
+
+   ```python
+   from flask import Flask
+   import random
+   import logging
+   
+   # Basic Flask application setup
+   app = Flask(__name__)
+   
+   # Set up basic logging to console
+   logging.basicConfig(level=logging.INFO)
+   logger = logging.getLogger("app")
+   
+   @app.route("/rolldice/<player>", methods=["GET"])
+   @app.route("/rolldice/", methods=["GET"])
+   def handle_roll_dice(player=None):
+       result = roll_dice()
+   
+       if player:
+           logger.info(f"{player} is rolling the dice: {result}")
+       else:
+           logger.info(f"Anonymous player is rolling the dice: {result}")
+   
+       return str(result)
+   
+   def roll_dice():
+       return random.randint(1, 6)
+   
+   if __name__ == "__main__":
+       app.run(host="0.0.0.0", port=8080)
+   ```
+
+
+4. Run the application:
+
+   ``` bash
+   python app.py
+   ```
+
+Open http://localhost:8080/rolldice in your web browser to ensure it is working.
+
+
+### Instrumentation
+
+Next, we'll configure the OpenTelemetry logging exporter to send logs to Logz.io.
+
+1. Install OpenTelemetry dependencies:
+
+    ```bash
+    pip install opentelemetry-api opentelemetry-sdk opentelemetry-exporter-otlp
+    ```
+
+2. Update the Flask Application to Include OpenTelemetry:
+
+    Modify the existing app.py file to include OpenTelemetry logging:
+
+    ```python
+    from flask import Flask
+    import random
+    import logging
+    
+    from opentelemetry._logs import set_logger_provider
+    from opentelemetry.exporter.otlp.proto.http._log_exporter import OTLPLogExporter
+    from opentelemetry.sdk.resources import Resource
+    from opentelemetry.sdk._logs import LoggerProvider, LoggingHandler
+    from opentelemetry.sdk._logs.export import BatchLogRecordProcessor
+    
+    # Configuration
+    service_name = "roll-dice"
+    logzio_endpoint = "https://otlp-listener.logz.io/v1/logs"
+    logzio_token = "<<LOG-SHIPPING-TOKEN>>"
+    
+    # Set up OpenTelemetry resources
+    resource = Resource.create({"service.name": service_name})
+    
+    # Set up Logger Provider and OTLP Log Exporter (HTTP/JSON)
+    logger_provider = LoggerProvider(resource=resource)
+    set_logger_provider(logger_provider)
+    log_exporter = OTLPLogExporter(
+        endpoint=logzio_endpoint,
+        headers={"Authorization": f"Bearer {logzio_token}"}
+    )
+    logger_provider.add_log_record_processor(BatchLogRecordProcessor(log_exporter))
+    
+    # Set up a specific logger for the application
+    logger = logging.getLogger("app")
+    logger.setLevel(logging.INFO)
+    
+    # Attach OTLP handler to the specific logger
+    otlp_handler = LoggingHandler(logger_provider=logger_provider)
+    logger.addHandler(otlp_handler)
+    
+    # Attach a StreamHandler to log to the console
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(logging.INFO)
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    console_handler.setFormatter(formatter)
+    logger.addHandler(console_handler)
+    
+    # Flask application setup
+    app = Flask(__name__)
+    
+    @app.route("/rolldice/<player>", methods=["GET"])
+    @app.route("/rolldice/", methods=["GET"])
+    def handle_roll_dice(player=None):
+        result = roll_dice()
+    
+        if player:
+            logger.info(f"{player} is rolling the dice: {result}")
+        else:
+            logger.info(f"Anonymous player is rolling the dice: {result}")
+    
+        return str(result)
+    
+    def roll_dice():
+        return random.randint(1, 6)
+    
+    if __name__ == "__main__":
+        app.run(host="0.0.0.0", port=8080)
+    ```
+
+    {@include: ../../_include/log-shipping/log-shipping-token.md}
+
+
+3. Run your **application** once again:
+
+    ```bash
+    python app.py
+    ```
+
+4. From another terminal, send a request using curl:
+
+    ```bash
+    curl localhost:8080/rolldice
+    ```
+5. After about 30 sec, stop the server process.
+
+At this point, you should see log output from the server and client on your Logz.io account.
+
+
+  </TabItem>
+</Tabs>
 
 
 ## Metrics
