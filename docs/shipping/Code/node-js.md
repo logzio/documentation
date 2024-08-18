@@ -424,7 +424,7 @@ const meter = new MeterProvider.MeterProvider({
 
 ### Add required metrics to the code
   
-Yu can use the following metrics:
+You can use the following metrics:
 
 | Name | Behavior |
 | ---- | ---------- |
