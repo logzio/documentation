@@ -664,7 +664,7 @@
 /shipping/log-sources/file-upload.html				/docs/shipping/other/invoke-restmethod-data/
 /shipping/log-sources/java.html				/docs/shipping/code/java/
 /shipping/log-sources/jenkins.html				/docs/shipping/ci-cd/jenkins/
-/shipping/log-sources/json-uploads.html				/docs/shipping/code/json/
+/shipping/log-sources/json-uploads.html				/docs/shipping/Code/HTTP
 /shipping/log-sources/kinesis.html				/docs/shipping/aws/kinesis/
 /shipping/log-sources/lambda-extensions.html				/docs/shipping/aws/lambda-extensions/
 /shipping/log-sources/linux.html				/docs/shipping/operating-systems/linux-data/
@@ -819,7 +819,7 @@
 /shipping/log-sources/check-point.html				/docs/shipping/security/check-point/
 /shipping/log-sources/modsecurity.html				/docs/shipping/security/modsecurity/
 /shipping/log-sources/nginx.html				/docs/shipping/load-balancer/nginx-load/
-/shipping/log-sources/json-uploads				/docs/shipping/code/json/
+/shipping/log-sources/json-uploads				/docs/shipping/Code/HTTP
 /shipping/code/json                             /docs/shipping/code/http/
 /shipping/log-sources/cisco-meraki.html				/docs/shipping/security/cisco-meraki/
 /shipping/log-sources/active-directory-winserver.html				/docs/shipping/azure/azure-active-directory/

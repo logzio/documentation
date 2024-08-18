@@ -99,7 +99,7 @@ In the left navigation pane, click <i class="fas fa-plus"></i> and select **Impo
 
   - To import your existing Prometheus dashboards, first export the relevant dashboards as JSON files, then click **Upload json file** and select the files to upload.
 
-    For related information see [Upload JSON logs](/docs/shipping/code/json/).
+    For related information see [Upload HTTP logs](/docs/shipping/Code/HTTP).
   - To import dashboards from Grafana.com, enter the relevant dashboard URL or ID in **Import via grafana.com** and **Load** them.
 
 
