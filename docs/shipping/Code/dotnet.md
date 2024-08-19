@@ -13,6 +13,8 @@ logs2metrics: []
 metrics_dashboards: ['3lGo7AE5839jDfkAYU8r21']
 metrics_alerts: ['1ALFpmGPygXKWi18TDoO5C']
 drop_filter: []
+toc_min_heading_level: 2
+toc_max_heading_level: 3
 ---
 
 
@@ -27,7 +29,8 @@ import TabItem from '@theme/TabItem';
 [Project's GitHub repo](https://github.com/logzio/logzio-dotnet/)
 :::
 
-<Tabs>
+
+<Tabs queryString="current-lib">
   <TabItem value="log4net" label="log4net" default>
 
 **Before you begin, you'll need**:
@@ -1181,6 +1184,8 @@ Replace `<<TYPE>>` with the log type to identify these logs in Logz.io.
 
 </TabItem>
   <TabItem value="OpenTelemetry" label="OpenTelemetry">
+
+
 
 ### Prerequisites
     

@@ -1,6 +1,6 @@
 ---
-id: JSON
-title: JSON
+id: HTTP
+title: HTTP
 overview: Ship logs from your code directly to the Logz.io listener as a minified JavaScript Object Notation (JSON) file, a standard text-based format for representing structured data based on JavaScript object syntax.
 product: ['logs']
 os: ['windows', 'linux']
