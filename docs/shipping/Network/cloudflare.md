@@ -17,6 +17,13 @@ drop_filter: []
 
 The Cloudflare web application firewall (WAF) protects your internet property against malicious attacks that aim to exploit vulnerabilities such as SQL injection attacks, cross-site scripting, and cross-site forgery requests.
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+ <TabItem value="use-s3" label="Send logs using S3" default>
+
+
 For an overview of Cloudflare logs, and the related S3 and Logpush configuration procedures, click [here](https://developers.cloudflare.com/logs/).
 
 
@@ -35,8 +42,6 @@ Before you begin, ensure that you have:
 + [Enabled the Cloudflare Logppush service](https://developers.cloudflare.com/logs/get-started/logpush-dashboard) for the assets you want to monitor in Cloudflare, via **Analytics > Logs > Connect a service**.
 
 
- 
-
 ##### Configure Logpush to send logs to the S3 bucket
 
 To configure Logpush to stream logs of Cloudflare's datasets to your cloud service in batches, follow the [Cloudflare procedure](https://developers.cloudflare.com/logs/get-started/enable-destinations/aws-s3/) to enable the Logpush service to access Amazon S3. <!--  deprecated link (https://developers.cloudflare.com/logs/logpush/aws-s3  -->
@@ -46,6 +51,61 @@ For an overview of the Logpush service, [click here](https://developers.cloudfla
 ##### Configure Logz.io to collect logs from the S3 bucket. 
 
 Use [our procedure](https://docs.logz.io/docs/shipping/aws/aws-s3-bucket/#configure-logzio-to-fetch-logs-from-an-s3-bucket) to configure Logz.io to fetch logs from your S3 bucket.
+
+
+  </TabItem>
+  <TabItem value="use-cf-api" label="Send logs using Cloudflare API" default>
+
+You can send available logs from the Cloudflare API with Logzio API fetcher.
+
+## Pull Docker Image
+Download the logzio-api-fetcher image:
+
+```shell
+docker pull logzio/logzio-api-fetcher
+```
+
+## Configuration
+Create a local config file `config.yaml`.  
+
+```yaml
+apis:
+  - name: cloudflare example
+    type: cloudflare
+    cloudflare_account_id: <<CLOUDFLARE_ACCOUNT_ID>>
+    cloudflare_bearer_token: <<CLOUDFLARE_BEARER_TOKEN>>
+    url: https://api.cloudflare.com/client/v4/accounts/{account_id}/alerting/v3/history
+    next_url: https://api.cloudflare.com/client/v4/accounts/{account_id}/alerting/v3/history?since={res.result.[0].sent}
+    days_back_fetch: 7
+    additional_fields:
+      type: cloudflare
+
+logzio:
+  url: https://<<LISTENER-HOST>>:8071
+  token: <<LOGZIO_SHIPPING_TOKEN>>
+```
+
+:::note
+You can customize the endpoints to collect data from by adding extra API configurations under `apis`.
+:::
+
+### Cloudflare configuration options
+| Parameter Name          | Description                                                                                                                                 | Required/Optional | Default           |
+|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|-------------------|-------------------|
+| name                    | Name of the API (custom name)                                                                                                               | Optional          | the defined `url` |
+| cloudflare_account_id   | The CloudFlare Account ID                                                                                                                   | Required          | -                 |
+| cloudflare_bearer_token | The Cloudflare Bearer token                                                                                                                 | Required          | -                 |
+| url                     | The request URL                                                                                                                             | Required          | -                 |
+| next_url                | If needed to update the URL in next requests based on the last response. Supports using variables. | Optional          | -                 |
+| additional_fields       | Additional custom fields to add to the logs before sending to logzio                                                                        | Optional          | -                 |
+| days_back_fetch         | The amount of days to fetch back in the first request. Applies a filter on `since` parameter.                                               | Optional          | -                 |
+| scrape_interval         | Time interval to wait between runs (unit: `minutes`)                                                                                        | Optional          | 1 (minute)        |
+| pagination_off          | True if builtin pagination should be off, False otherwise                                                                                   | Optional          | `False`           |
+
+
+
+  </TabItem>
+</Tabs>
 
 
 ##### Check Logz.io for your logs
