@@ -1,6 +1,12 @@
 ---
 sidebar_position: 5
+title: Configure an Endpoint for Microsoft Teams
+description: Integrate Logz.io with Microsoft Teams
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [ms, microsoft, microsoft teams, logz.io, integration]
 ---
+
+
 
 # Configure an Endpoint for Microsoft Teams
 
@@ -49,25 +55,25 @@ To use this example in your own endpoint, copy the payload. Note that double-bra
 
 ```
 {
-    "@context": "https://schema.org/extensions",
-    "@type": "MessageCard",
-    "themeColor": "0072C6",
-    "title": "{{alert_severity}}: {{alert_title}}",
-    "summary": "{{alert_description}}",
-    "text": "{{alert_samples}}",
-    "potentialAction": [
-        {
-            "@type": "OpenUri",
-            "name": "View in OpenSearch Dashboards",
-            "targets": [
-                {
-                    "os": "default",
-                    "uri": "{{alert_app_url}}#/view-triggered-alert?from={{alert_timeframe_start_epoch_millis}}&to={{alert_timeframe_end_epoch_millis}}&definitionId={{alert_definition_id}}&switchToAccountId={{account_id}}"
+        "type": "message",
+        "attachments": [
+            {
+                "contentType": "application/vnd.microsoft.card.adaptive",
+                "contentUrl": null,
+                "content": {
+                    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+                    "type": "AdaptiveCard",
+                    "version": "1.2",
+                    "body": [
+                        {
+                            "type": "TextBlock",
+                            "text": "Submitted response:"
+                        }
+                    ]
                 }
-            ]
-        }
-    ]
-}
+            }
+        ]
+    }
 ```
 <!-- {% endraw %}-->
 
