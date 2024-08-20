@@ -14,7 +14,7 @@ metrics_alerts: []
 drop_filter: []
 ---
 
-You can ship logs available from the 1Password API with Logzio-api-fetcher.
+You can send available logs from the 1Password API with Logzio API fetcher.
 
 ## Pull Docker Image
 Download the logzio-api-fetcher image:
@@ -28,7 +28,7 @@ Create a local config file `config.yaml`.
 
 ```yaml
 apis:
-  - name: 1Password test
+  - name: 1Password Audit Events
     type: 1password
     onepassword_bearer_token: <<1PASSWORD_BEARER_TOKEN>>
     url: https://events.1password.com/api/v1/auditevents
@@ -40,8 +40,12 @@ apis:
 
 logzio:
   url: https://<<LISTENER-HOST>>:8071
-  token: <<SHIPPING_TOKEN>>
+  token: <<LOG-SHIPPING-TOKEN>>
 ```
+
+:::note
+You can customize the endpoints to collect data from by adding extra API configurations under `apis`.
+:::
 
 ### 1Password configuration options
 | Parameter Name           | Description                                                                                     | Required/Optional | Default           |

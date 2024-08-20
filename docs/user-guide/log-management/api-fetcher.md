@@ -6,9 +6,9 @@ image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.
 keywords: [logz.io, opensearch dashboards, log analysis, observability]
 ---
 
-The Logz.io API Fetcher supports both auth and OAuth APIs and includes specific implementations for Azure Graph, Cisco Secure X, and Office365 Message Trace reports.
+The Logz.io API Fetcher supports both auth and OAuth APIs and includes specific implementations for Azure Graph, Office365 Message Trace reports, Cloudflare and 1Password.
 
-This guide outlines the steps for configuring the Logz.io API Fetcher to fetch and send data to Logz.io. Our aim is to develop the API Fetcher as a generic tool capable of fetching data from any API endpoint. However, this presents significant challenges. If you encounter difficulties configuring the API Fetcher with a particular API endpoint, please reach out to our support team for assistance.
+This guide outlines the steps for configuring the Logz.io API Fetcher to fetch and send data to Logz.io.  Our aim is to develop the API Fetcher as a generic tool capable of fetching data from any API endpoint. However, this presents significant challenges. If you encounter difficulties configuring the API Fetcher with a particular API endpoint, please reach out to our support team for assistance.
 
 Below is a sample configuration template, as found in our documentation and on GitHub:
 
@@ -88,6 +88,7 @@ apis:
 ```
 
 ## Configuration
+Create a local config file `config.yaml`.
 
 ### Add Your Logz.io Listener and Token
 
@@ -100,6 +101,7 @@ logzio:
 ```
 
 {@include: ../../_include/log-shipping/log-shipping-token.md}
+
 {@include: ../../_include/log-shipping/listener-var.html}
 
 ### Configure your APIs
