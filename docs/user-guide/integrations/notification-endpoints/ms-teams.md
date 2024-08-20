@@ -39,7 +39,7 @@ This may include whitelisting Logz.io IPs and/or creating a verification token.
 5. **Headers**: Add `Content-Type=application/json`.
 6. **Payload**: Add your payload message. See the next step for details.
 
-![Configure a custom endpoint](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/ms-teams-endpoint.png)
+![Configure a custom endpoint](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/msteams-aug.png)
 
 
 ### 3. Add your payload
