@@ -102,6 +102,38 @@ You can customize the endpoints to collect data from by adding extra API configu
 | scrape_interval         | Time interval to wait between runs (unit: `minutes`)                                                                                        | Optional          | 1 (minute)        |
 | pagination_off          | True if builtin pagination should be off, False otherwise                                                                                   | Optional          | `False`           |
 
+### Logzio output configuration options
+| Parameter Name | Description                 | Required/Optional | Default                         |
+|----------------|-----------------------------|-------------------|---------------------------------|
+| url            | The logzio Listener address (You can find the relevant `<<LISTENER-HOST>>` [here](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs).) | Optional          | `https://listener.logz.io:8071` |
+| token          | The logzio shipping token   | Required          | -                               |
+
+
+## Run The Docker Container
+In the path where you saved your `config.yaml`, run:
+```shell
+docker run --name logzio-api-fetcher \
+-v "$(pwd)":/app/src/shared \
+logzio/logzio-api-fetcher 
+```
+
+:::note
+To run in Debug mode add `--level` flag to the command:
+```shell
+docker run --name logzio-api-fetcher \
+-v "$(pwd)":/app/src/shared \
+logzio/logzio-api-fetcher \
+--level DEBUG
+```
+Available Options: `INFO`, `WARN`, `ERROR`, `DEBUG`
+:::
+
+### Stopping the container
+When you want to stop the container, to make sure it will finish the iteration on time, please give it a grace period of 30 seconds when you run the docker stop command:
+
+```shell
+docker stop -t 30 logzio-api-fetcher
+```
 
 
   </TabItem>
