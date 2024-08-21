@@ -9,7 +9,7 @@ slug: /user-guide/new-explore/
 
 Explore provides a unified dashboard for monitoring your data, offering a quick and efficient way to identify and debug issues. Designed for investigating and analyzing large data volumes, Explore allows you to use filters, queries, and searches to pinpoint and delve into problems effortlessly.
 
-![Explore dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-dashboard-aug6.png)
+![Explore dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-aug21.png)
 
 
 ### Simple Search / Advanced (Lucene)  
@@ -20,11 +20,13 @@ Click on the dropdown menu to switch between Simple Search and Advanced Search, 
 
 Build your query by selecting fields, parameters, and conditions. To add a value that doesn't appear in your logs, type its name and click on the + sign. You can also add free text to your search, which will convert it into a Lucene query.
 
-![Smart Search gif](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/simple-search-aug6.gif)
+<!-- ![Smart Search gif](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/simple-search-aug6.gif)-->
 
 * **Advanced (Lucene)**: Use advanced text querying for log searches. You can search for free text by typing the text string you want to find; for example, error will return all words containing this string, and using quotation marks, "error", will return only the specific word you're searching for.
 
-![Lucene Search gif](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/advanced-search-aug6.gif)
+<!-- ![Lucene Search gif](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/advanced-search-aug6.gif)-->
+
+![Choose Search Method](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/choose-search-aug21.png)
 
 
 ### Filters
@@ -36,7 +38,7 @@ All visible fields appear on the left side, including exceptions (if any) and sp
 
 You can pin up to three custom fields by hovering over them and clicking the star icon. 
 
-<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/filters-aug6.png" alt="explore-fields" width="700"/>
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-filters-aug21.png" alt="explore-fields" width="700"/>
 
 ### Graph View
 
@@ -45,7 +47,7 @@ Visualize trends over time and group data based on your investigations. Hover ov
 You can enlarge or reduce the size of the graph by clicking the arrow button at the top right.
 
 
-<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/graph-view-aug6.png" alt="graph-view" width="700"/>
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/graph-view-aug21.png" alt="graph-view" width="700"/>
 
 
 ### Exceptions
