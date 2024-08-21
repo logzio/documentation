@@ -41,7 +41,7 @@ You can upload JSON or plain text files.
 If you want to ship logs from your code but don't have a library in place,
 you can send them directly to the Logz.io listener as a minified JSON file.
 
-```shell
+```shell 
 Invoke-RestMethod -method POST -Uri https://<<LISTENER-HOST>>:8071?token=<<LOG-SHIPPING-TOKEN>>"&"<<LOG-TYPE>> -InFile <<PATH/TO/LOG/FILE.JSON>>
 ```
 

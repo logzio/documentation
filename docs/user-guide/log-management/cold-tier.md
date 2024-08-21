@@ -16,9 +16,6 @@ With Cold Tier, you can seamlessly search cold storage data you've archived, vie
 
 To start using Cold Tier, navigate to [Log analytics > Cold Tier](https://app.logz.io/#/dashboard/osd/discover/).
 
-:::caution Important 
-Cold Tier is currently only available for users using **Amazon S3 archive**. 
-:::
 
 <!-- ### Cold search overview
 
@@ -32,17 +29,13 @@ Click on the Cold search button to open the relevant screen.
 
 To get started with Cold Tier, contact your account manager or [Logz.io's support team](mailto:help@logz.io).
 
-## Using Cold Tier
-
-
 :::caution Important
-All users can fetch raw logs from Cold Tier. However, only **account admins** can re-ingest logs into the account.
+All users can fetch raw logs from Cold Tier. However, only **account admins** and **Expert users** can re-ingest logs into the account.
 :::
 
-To use Cold Tier, navigate to [Log analytics](https://app.logz.io/#/dashboard/osd/discover/), choose Cold Tier from the navigation menu, or click the **Cold Tier** button.
+Once you activate Cold Tier, navigate to OpenSearch Dashboards and click on the **Cold Tier** button.
 
-![cold Tier nav](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cold-search/cold-search-from-nav.png)
-
+![cold Tier button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cold-search/cold-tier-button-jul11.png)
 
 Type the search term or query you'd like to use, and choose the relevant time frame. Your search result will only include data matching your exact search term.
 
@@ -79,8 +72,7 @@ And more.
 
 To investigate the logs further, you can re-ingest them to your Logz.io account by clicking the **Re-ingest** button.
 
-
-**Note that the re-ingested data will count against your daily quota and may result in an additional charge if you exceed your account's limit.**
+**Note that the re-ingested data will count against your daily quota and may result in an additional charge if you exceed your account's limit. Additionally, be aware that the maximum restore duration is limited to 24 hours.**
 
 You can check your account usage and daily limit by navigating to [**Settings > Manage accounts**](https://app.logz.io/#/dashboard/settings/manage-accounts).
 

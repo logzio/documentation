@@ -17,9 +17,9 @@ drop_filter: []
 
 Google Cloud IDS delivers cloud-native, managed, network-based threat detection, built with Palo Alto Networks’ industry-leading threat detection technologies to provide high levels of security efficacy. 
 
-## Logs
+## Logs 
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 For this integration, the telemetry list needs to include `ids`.
 

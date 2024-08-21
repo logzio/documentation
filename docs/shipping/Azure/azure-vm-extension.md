@@ -28,7 +28,7 @@ Logz.io Azure VM extension currently only supports Linux-based VMs.
 **Before you begin, you'll need**: 
 
 * Logz.io app installed from your Azure Marketplace.
-* An active account with Logz.io.
+* An active Logz.io account.
 * Resource group created under your Logz.io account in Azure.
   
   

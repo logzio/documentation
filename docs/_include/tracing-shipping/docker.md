@@ -1,10 +1,10 @@
-### Pull the Docker image for the OpenTelemetry collector
+#### Pull the Docker image for the OpenTelemetry collector
 
 ```shell
 docker pull otel/opentelemetry-collector-contrib:0.78.0
 ```
 
-### Create a configuration file
+#### Create a configuration file
 
 Create a file `config.yaml` with the following content:
 
@@ -22,6 +22,8 @@ exporters:
   logzio/traces:
     account_token: "<<TRACING-SHIPPING-TOKEN>>"
     region: "<<LOGZIO_ACCOUNT_REGION_CODE>>"
+    headers:
+      user-agent: logzio-opentelemetry-traces
 
   logging:
 
@@ -66,7 +68,7 @@ service:
 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
-##### Tail Sampling 
+#### Tail Sampling 
 
 {@include: ../../_include/tracing-shipping/tail-sampling.md}
  
@@ -80,6 +82,8 @@ If you already have an OpenTelemetry installation, add the following parameters 
   logzio/traces:
     account_token: <<TRACING-SHIPPING-TOKEN>>
     region: <<LOGZIO_ACCOUNT_REGION_CODE>>
+    headers:
+      user-agent: logzio-opentelemetry-traces
 ```
 
 * Under the `service` list:
@@ -96,7 +100,7 @@ If you already have an OpenTelemetry installation, add the following parameters 
 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
-An example configuration file looks as follows:
+Here is an example configuration file:
 
 ```yaml
 receivers:  
@@ -109,6 +113,8 @@ exporters:
   logzio/traces:
     account_token: "<<TRACING-SHIPPING-TOKEN>>"
     region: "<<LOGZIO_ACCOUNT_REGION_CODE>>"
+    headers:
+      user-agent: logzio-opentelemetry-traces
 
 processors:
   batch:
@@ -152,14 +158,11 @@ service:
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
 
-{@include: ../../_include/tracing-shipping/tail-sampling.md}
-
-
-##### Run the container
+#### Run the container
 
 Mount the `config.yaml` as volume to the `docker run` command and run it as follows.
 
-###### Linux
+##### Linux
 
 ```
 docker run  \
@@ -171,7 +174,7 @@ otel/opentelemetry-collector-contrib:0.78.0
 
 Replace `<PATH-TO>` to the path to the `config.yaml` file on your system.
 
-###### Windows
+##### Windows
 
 ```
 docker run  \

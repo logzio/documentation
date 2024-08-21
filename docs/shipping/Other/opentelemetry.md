@@ -9,7 +9,7 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/open
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: []
+metrics_dashboards: ['2Q2f3D9WiUgMIyjlDXi0sA']
 metrics_alerts: []
 drop_filter: []
 ---
@@ -18,9 +18,9 @@ drop_filter: []
 ## Logs
 
 
-This project lets you configure the OpenTelemetry collector to send your collected logs to Logz.io.
+This project helps you configure the OpenTelemetry collector to send your logs to Logz.io.
 
-### Configuring OpenTelemetry to send your log data to Logz.io
+### Sending OpenTelemetry Logs to Logz.io
 
 #### Download OpenTelemetry collector
 
@@ -28,28 +28,34 @@ This project lets you configure the OpenTelemetry collector to send your collect
 If you already have OpenTelemetry, proceed to the next step.
 :::
 
-Create a dedicated directory on your host and download the OpenTelemetry collector that is relevant to the operating system of your host.
+Create a dedicated directory on your host and download the relevant OpenTelemetry collector for your host operating system.
 
-After downloading the collector, create a configuration file `config.yaml`.
+Create a configuration file `config.yaml`.
 
-#### Configure the Receivers
 
-Open the configuration file and ensure it contains the receivers required to collect your logs.
 
-#### Configure the Exporters
+#### Configure Receivers
 
-In the same configuration file, add the following to the exporters section:
+Ensure your `config.yaml` file includes the necessary receivers to collect your logs.
+
+#### Configure Exporters
+
+Add the following to the exporters section of your `config.yaml`:
+
 
 ```yaml
 exporters:
   logzio/logs:
     account_token: <<LOGS-SHIPPING-TOKEN>>
     region: <<LOGZIO_ACCOUNT_REGION_CODE>>
+    headers:
+      user-agent: logzio-opentelemetry-logs
 ```
 
-#### Configure the Service Pipeline
+#### Configure Service Pipeline
 
-In the service section of the configuration file, add the following configuration:
+In the service section of your `config.yaml`, add:
+
 
 ```yaml
 service:
@@ -63,7 +69,7 @@ service:
 
 #### Start the Collector
 
-Run the following command:
+Run:
 
 ```shell
 <path/to>/otelcol-contrib --config ./config.yaml
@@ -71,35 +77,37 @@ Run the following command:
 
 * Replace `<path/to>` with the path to the directory where you downloaded the collector. If the name of your configuration file is different to config, adjust the name in the command accordingly.
 
-#### Check Logz.io for Your Logs
+#### View your logs
 
-Give your data some time to get from your system to ours, then log in to your Logz.io account, and open the appropriate tab or dashboard to view your logs.
+Allow some time for data ingestion, then open Logz.io to view your logs.
+
+
 
 ## Metrics
 
 
-This project lets you configure the OpenTelemetry collector to send your collected Prometheus-format metrics to Logz.io.
+This project helps you configure the OpenTelemetry collector to send your metrics to Logz.io.
 
 
-#### Configuring OpenTelemetry to send your metrics data to Logz.io
+### Sending OpenTelemetry Metrics to Logz.io
 
-##### Download OpenTelemetry collector
+#### Download OpenTelemetry collector
   
 :::note
 If you already have OpenTelemetry, proceed to the next step.
 :::
 
-Create a dedicated directory on your host and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.60.0) that is relevant to the operating system of your host.
+Create a dedicated directory on your host and download the relevant [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.60.0) for your host operating system.
 
-After downloading the collector, create a configuration file `config.yaml`.
+Create a configuration file `config.yaml`.
 
-##### Configure the receivers
+#### Configure receivers
   
-Open the configuration file and make sure that it states the receivers required for your source.
+Ensure your `config.yaml` file includes the necessary receivers for your source.
 
-##### Configure the exporters
+#### Configure exporters
 
-In the same configuration file, add the following to the `exporters` section:
+Add the following to the `exporters` section of your `config.yaml`:
   
 ```yaml  
 exporters:
@@ -107,15 +115,16 @@ exporters:
     endpoint: https://<<LISTENER-HOST>>:8053
     headers:
       Authorization: Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
+      user-agent: logzio-opentelemetry-metrics
     target_info:
         enabled: false
-```
+``` 
   
 {@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
 
-##### Configure the service pipeline
+#### Configure service pipeline
   
-In the `service` section of the configuration file, add the following configuration
+In the `service` section of your `config.yaml`, add:
   
 ```yaml
 service:
@@ -128,9 +137,9 @@ service:
 
 
 
-##### Start the collector
+#### Start the collector
 
-Run the following command:
+Run:
 
 ```shell
 <path/to>/otelcol-contrib --config ./config.yaml
@@ -138,28 +147,27 @@ Run the following command:
 
 * Replace `<path/to>` with the path to the directory where you downloaded the collector. If the name of your configuration file is different to `config`, adjust name in the command accordingly.
 
-##### Check Logz.io for your metrics
+#### View your metrics
 
-Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
+
+Allow some time for data ingestion, then open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
+
+
 
 
 ## Traces
 
-Deploy this integration to send traces from your OpenTelemetry installation to Logz.io.
+This project helps you configure the OpenTelemetry collector to send your traces to Logz.io.
+
+
 
 ## Manual configuration
 
-This integration includes:
-
-* Configuring the OpenTelemetry collector to receive traces from your OpenTelemetry installation and send them to Logz.io
-
 On deployment, your OpenTelemetry instrumentation captures spans from your application and forwards them to the collector, which exports the data to your Logz.io account.
-
-### Set up your locally hosted OpenTelemetry installation to send traces to Logz.io
 
 **Before you begin, you'll need**:
 
-* An active account with Logz.io
+* An active Logz.io account
 
  
 :::note
@@ -168,11 +176,11 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
   
 
 
-#### Download and configure OpenTelemetry collector
+### Download and configure OpenTelemetry collector
 
-Create a dedicated directory on the host of your application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.70.0) that is relevant to the operating system of your host.
+Create a directory on your application's host and download the relevant [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.70.0) for your host operating system
 
-After downloading the collector, create a configuration file `config.yaml` with the following parameters:
+Create a configuration file `config.yaml` with the following parameters:
 
 {@include: ../../_include/tracing-shipping/collector-config.md}
 
@@ -181,7 +189,7 @@ After downloading the collector, create a configuration file `config.yaml` with 
 {@include: ../../_include/tracing-shipping/tail-sampling.md}
 
 
-If you already have an OpenTelemetry installation, add the following parameters to the configuration file of your existing OpenTelemetry collector:
+If you already have an OpenTelemetry installation, add the following to the configuration file of your existing OpenTelemetry collector:
 
 * Under the `exporters` list
 
@@ -189,6 +197,8 @@ If you already have an OpenTelemetry installation, add the following parameters 
   logzio/traces:
     account_token: <<TRACING-SHIPPING-TOKEN>>
     region: <<LOGZIO_ACCOUNT_REGION_CODE>>
+    headers:
+      user-agent: logzio-opentelemetry-traces
 ```
 
 * Under the `service` list:
@@ -204,18 +214,19 @@ If you already have an OpenTelemetry installation, add the following parameters 
 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
-An example configuration file looks as follows:
+Example configuration file:
 
 {@include: ../../_include/tracing-shipping/collector-config.md}
 
-#### Instrument the application
+### Instrument the application
 
-If your application is not yet instrumented, instrument the code as described in our [tracing documents](https://docs.logz.io/shipping/#tracing-sources).
+If your application isn't instrumented, begin by downloading the OpenTelemetry agent or library specific to your programming language. Logz.io supports popular open-source instrumentation libraries, including OpenTracing, Jaeger, OpenTelemetry, and Zipkin. Attach the agent, set up the necessary configuration options, and start your application. The agent will automatically instrument your application to capture telemetry data.
 
 
-#### Start the collector
 
-Run the following command:
+### Start the collector
+
+Run:
 
 ```shell
 <path/to>/otelcontribcol_<VERSION-NAME> --config ./config.yaml
@@ -223,32 +234,30 @@ Run the following command:
 * Replace `<path/to>` with the path to the directory where you downloaded the collector.
 * Replace `<VERSION-NAME>` with the version name of the collector applicable to your system, e.g. `otelcontribcol_darwin_amd64`.
 
-#### Run the application
-
-Run the application to generate traces.
+And run the application to generate traces.
 
 
-#### Check Logz.io for your traces
+### View your traces
 
-Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
+Allow some time for data ingestion, then open your [Tracing](https://app.logz.io/#/dashboard/jaeger) account.
 
-### Set up your OpenTelemetry installation using containerized collector to send traces to Logz.io
+
+## Configure OpenTelemetry with a Containerized Collector
 
 **Before you begin, you'll need**:
 
-* An active account with Logz.io
+* An active Logz.io account
 
 
 #### Instrument the application
 
-If your application is not yet instrumented, instrument the code as described in our [tracing documents](https://docs.logz.io/shipping/#tracing-sources).
-
+If your application isn't instrumented, begin by downloading the OpenTelemetry agent or library specific to your programming language. Logz.io supports popular open-source instrumentation libraries, including OpenTracing, Jaeger, OpenTelemetry, and Zipkin. Attach the agent, set up the necessary configuration options, and start your application. The agent will automatically instrument your application to capture telemetry data.
 
 {@include: ../../_include/tracing-shipping/docker.md}
 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
-#### Run the application
+### Run the application
 
 {@include: ../../_include/tracing-shipping/collector-run-note.md}
 
@@ -256,12 +265,10 @@ If your application is not yet instrumented, instrument the code as described in
 Run the application to generate traces.
 
 
-#### Check Logz.io for your traces
+### View your traces
 
-Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
+Allow some time for data ingestion, then open your [Tracing](https://app.logz.io/#/dashboard/jaeger) account.
 
 
-### Troubleshooting
 
 {@include: ../../_include/tracing-shipping/otel-troubleshooting.md}
-

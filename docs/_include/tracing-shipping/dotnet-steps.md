@@ -1,4 +1,4 @@
-##### Download instrumentation packages
+#### Download instrumentation packages
 
 Run the following command from the application directory:
 
@@ -9,7 +9,7 @@ dotnet add package OpenTelemetry.Instrumentation.AspNetCore
 dotnet add package OpenTelemetry.Extensions.Hosting
 ```
 
-##### Enable instrumentation in the code
+#### Enable instrumentation in the code
 
 Add the following configuration to the beginning of the Startup.cs file:
 

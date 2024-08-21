@@ -49,7 +49,7 @@ Keep the defaults and click **Next**.
 
 ![Specify stack details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/ping_statistics/Stack_details1.png)
 
-Specify the stack details as per the table below and select **Next**.
+Specify the stack details as per the table below and select **Next**. 
 
 
 | Parameter | Description | Required/Optional | Default |
@@ -84,7 +84,7 @@ Run the ping statistics tests to generate metrics.
 
 Give your metrics some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). All metrics that were sent from the Lambda function will have the prefix `ping_stats` in their name.
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["1rNO8llFw8Cm9N8U3M3vCQ"] -->
 

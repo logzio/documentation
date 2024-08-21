@@ -20,7 +20,7 @@ Google Firestore is a NoSQL document database built for automatic scaling, high 
 
 ## Logs
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 For this integration, the telemetry list needs to include `firestore`.
 

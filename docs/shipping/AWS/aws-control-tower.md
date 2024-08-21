@@ -189,17 +189,9 @@ Setting `pathToFields` with the value: `org-id/aws-type/account-id` will add to 
 `org-id: oi-3rfEFA4`, `aws-type: AWSLogs`, `account-id: 2378194514`.
 
 :::note
-If you use `pathToFields`, you need to add a value for each subfolder in the path. Otherwise there will be a mismatch and the logs will be sent without fields.
-:::
- 
-
-:::note
-This will override a field with the same key, if it exists.
-:::
- 
-
-:::note
-In order for the feature to work, you need to set `pathToFields` from the root of the bucket.
+* If you use `pathToFields`, you need to add a value for each subfolder in the path. Otherwise there will be a mismatch and the logs will be sent without fields.
+* This will override a field with the same key, if it exists.
+* In order for the feature to work, you need to set `pathToFields` from the root of the bucket.
 :::
  
 

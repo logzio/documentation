@@ -36,7 +36,7 @@ Auth0 is an easy to implement, adaptable authentication and authorization platfo
   
 The **Settings** tab of the created event stream is displayed after you create the stream.
 
-Configure the required parameters as follows:
+Configure the required parameters as follows: 
 
 ![Configure stream](https://dytvr9ot2sszz.cloudfront.net/logz-docs/auth0/webhook-auth0.png)
 

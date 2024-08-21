@@ -8,18 +8,25 @@ keywords: [AI, observability, Assistant, iq, logs, metrics, traces, siem, insigh
 
 Observability IQ Assistant is an AI-powered, chat-based interface that lets you engage in a dynamic conversation with your data. Use it to move beyond passive data viewing and get real-time insights about your metrics, anomalies, trends, and the overall health of your environment.
 
-<h2 id="start"> Getting Started </h2> 
+Observability IQ Assistant is available in your [Explore dashboard](https://app.logz.io/#/dashboard/explore), and as part of [Kubernetes 360](https://app.logz.io/#/dashboard/observability/k8s360), and [App 360](https://app.logz.io/#/dashboard/spm/service-overview).
 
-Navigate to your  [Services](https://app.logz.io/#/dashboard/spm/services/table) and choose one of your services to find the Observability IQ Assistant.
+The assistant suggests a few queries you can run on your data to help you start the analysis and deep-dive, or you can type your own questions.
 
-Click the Observability IQ button at the top to open the interface. You'll get 4 pre-configured questions to help you start the analysis and deep-dive into the data, or you can type your own questions.
-
-The answers are based on the graphs and data you see in real time. Once you change the time period or apply filters, new answers will focus on the newly generated data.
-
-Observability IQ Assistant can help analyze trends in latency, throughput, error rate, and HTTP status codes over time to identify patterns or anomalies that may require attention. Additionally, it can compare the performance metrics of different operations to see if any significant differences need to be addressed.
-
-![Observability IQ screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/observabilityiq-mar27.png)
+The answers are based on the data currently shown on your dashboard. Once you change the query, apply filters, or change the time period, any new answer from the IQ Assistant will be based on the newly generated data. 
 
 You can now leverage the insights from your dialog and enhance data analysis to make informed decisions.
 
-For further assistance with Observability IQ Assistant, [contact Logz.io's Support Team](mailto:help@logz.io).
+![Observability IQ screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/obsiq-explore.png)
+
+<h2 id="start"> Using Observability IQ Assistant </h2> 
+
+Observability IQ Assistant is available in the **[Explore](https://app.logz.io/#/dashboard/explore)**, **[Kubernetes 360](https://app.logz.io/#/dashboard/observability/k8s360)**, and **[App 360](https://app.logz.io/#/dashboard/spm/services/table)** dashboards. Click the Observability IQ button at the top to open the interface.
+
+Once you provide input to the assistant, the **dashboard's data** will be shared with Claude3.
+
+Use the assistant to analyze trends in latency, throughput, error rate, and HTTP status codes over time to identify patterns or anomalies that may require attention. Additionally, it can be used to compare the performance metrics of different operations and determine if any significant differences need to be addressed.
+
+![Observability IQ screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/observabilityiq-mar27.png)
+
+
+For further assistance with Observability IQ Assistant, read the [FAQ](https://docs.logz.io/docs/user-guide/observability/faq) or [contact Logz.io's Support Team](mailto:help@logz.io).

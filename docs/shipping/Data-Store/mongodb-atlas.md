@@ -25,7 +25,7 @@ Deploy this integration to send your MongoDB Atlas metric to your Logz.io accoun
 
 * A MongoDB Atlas project
 * Private and public keys created for your MongoDB Atlas [organization](https://docs.atlas.mongodb.com/tutorial/configure-api-access/organization/create-one-api-key/) or the [project](https://docs.atlas.mongodb.com/tutorial/configure-api-access/project/create-one-api-key/) to send the data from.
-* An active account with Logz.io
+* An active Logz.io account
 
  
 
@@ -57,7 +57,7 @@ extensions:
   pprof:
     endpoint: :1777
   zpages:
-    endpoint: :55679
+    endpoint: :55679 
   health_check:
 
 service:

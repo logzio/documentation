@@ -1,4 +1,4 @@
-##### Create new stack
+#### Create new stack
 
 To deploy this project, click the button that matches the region you wish to deploy your Stack to:
 
@@ -23,7 +23,7 @@ To deploy this project, click the button that matches the region you wish to dep
 | `ca-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ca-central-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ca-central-1.s3.amazonaws.com/s3-hook/0.4.2/sam-template.yaml&stackName=logzio-s3-hook&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://<<LISTENER-HOST>>:8071)     | 
 
 
-##### Specify stack details
+#### Specify stack details
 
 Specify the stack details as per the table below, check the checkboxes and select **Create stack**.
 
@@ -37,39 +37,31 @@ Specify the stack details as per the table below, check the checkboxes and selec
 | `pathToFields`   | Fields from the path to your logs directory that you want to add to the logs. For example, `org-id/aws-type/account-id` will add each of the fields `ord-id`, `aws-type` and `account-id` to the logs that are fetched from the directory that this path refers to.  | -                  |
 
 
-##### Add trigger
+#### Add trigger
 
-Give the stack a few minutes to be deployed.
+After deploying the stack, wait a few minutes for it to complete. Once your Lambda function is ready, you'll need to manually add a trigger due to CloudFormation limitations:
 
-Once your Lambda function is ready, you'll need to manually add a trigger. This is due to Cloudformation limitations.
+1. Navigate to the function's page and click on **Add trigger**.
 
-Go to the function's page, and click on **Add trigger**.
+2. Choose **S3** as a trigger, and fill in:
 
-![Step 5 screenshot](https://dytvr9ot2sszz.cloudfront.net/logz-docs/control-tower/s3-hook-stack-05.png)
+    - **Bucket**: Your bucket name.
+    - **Event type**: Select `All object create events`.
+    - **Prefix** and **Suffix**: Leave these fields empty.
 
-Then, choose **S3** as a trigger, and fill in:
+    Confirm the checkbox, and click **Add**.
 
-- **Bucket**: Your bucket name.
-- **Event type**: Choose option `All object create events`.
-- Prefix and Suffix should be left empty.
 
-Confirm the checkbox, and click **Add*.
+#### Send logs
 
-![Step 5 screenshot](https://dytvr9ot2sszz.cloudfront.net/logz-docs/control-tower/s3-hook-stack-06.png)
+Your function is now configured. When you upload new files to your bucket, the function will be triggered, and the logs will be sent to your Logz.io account.
 
-##### Send logs
+#### Parsing
 
-That's it. Your function is configured.
-Once you upload new files to your bucket, it will trigger the function, and the logs will be sent to your Logz.io account.
+The S3 Hook will automatically parse logs if the object's path contains the phrase `cloudtrail` (case insensitive).
 
-###### Parsing
+#### Check your logs
 
-S3 Hook will automatically parse logs in the following cases:
+Allow some time for data ingestion, then check your [OpenSearch Dashboards](https://app.logz.io/#/dashboard/osd/discover/).
 
-- The object's path contains the phrase `cloudtrail` (case insensitive).
-
-##### Check Logz.io for your logs
-
-Give your logs some time to get from your system to ours, and then open [OpenSearch Dashboards](https://app.logz.io/#/dashboard/osd/discover/).
-
-If you still don't see your logs, see Log shipping troubleshooting.
+Encounter an issue? See our [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/) guide.

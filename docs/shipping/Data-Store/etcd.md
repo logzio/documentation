@@ -124,7 +124,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the e
   # tls_key = /path/to/keyfile
   
   ## Use TLS but skip chain & host verification
-  # insecure_skip_verify = false
+  # insecure_skip_verify = false 
 
 ```
 
@@ -140,7 +140,7 @@ The full list of data scraping and configuring options can be found [here](https
 
 ### Check Logz.io for your metrics
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboards to enhance the observability of your metrics.
+Install the pre-built dashboards to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["3Vr8IYt2XR2LEKP6PeVV0r"] -->
 

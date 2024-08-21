@@ -1,4 +1,4 @@
-##### Download instrumentation packages
+#### Download instrumentation packages
 
 Run the following command from the application directory:
 
@@ -8,7 +8,7 @@ gem install opentelemetry-exporter-otlp -v 0.26.1
 gem install opentelemetry-instrumentation-all -v 0.40.0
 ```
 
-##### Enable instrumentation in the code
+#### Enable instrumentation in the code
 
 Add the following configuration to the `Gemfile`:
 
@@ -34,7 +34,7 @@ end
 Replace `<YOUR-SERVICE-NAME>` with the name of your tracing service defined earlier.
 
 
-##### Install the Bundler
+#### Install the Bundler
 
 Run the following command:
 
@@ -44,7 +44,7 @@ bundle install
 
 ```
 
-##### Configure data exporter
+#### Configure data exporter
 
 Run the following command:
 

@@ -19,7 +19,7 @@ Google Firewall Insights is a service that provides data about how firewall rule
 
 ## Logs
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 For this integration, the telemetry list needs to include `gce_firewall_rule`.
 

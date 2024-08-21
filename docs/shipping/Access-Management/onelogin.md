@@ -30,7 +30,7 @@ Log in to your OneLogin account as admin.
 
 ### Open the **New broadcaster** dialog
 
-Navigate to **Developers > Webhooks > New broadcaster**.
+Navigate to **Developers > Webhooks > New broadcaster**. 
 
 ### Fill out the **New broadcaster** dialog
   

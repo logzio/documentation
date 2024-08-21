@@ -55,7 +55,7 @@ This document describes the way to get logs from your system to Logz.io using an
    * If you select **Other**, contact support to request custom parsing assistance. Don’t be shy, it’s included in your plan!
 6. Add the following to the outputs section:
 
-   ```yml
+   ```yml 
    output:
      logstash:
        hosts: ["<<LISTENER-HOST>>:5015"]  

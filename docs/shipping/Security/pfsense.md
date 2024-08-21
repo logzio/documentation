@@ -19,7 +19,7 @@ drop_filter: []
 **Before you begin, you'll need**: 
 
 * pfSense installed and configured on your machine
-* an active account with Logz.io
+* An active Logz.io account
 * [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) installed on your machine
 * Root priveleges on your machines 
 
@@ -87,7 +87,7 @@ By default, syslog will be forwarded over port 514. Feel free to adjust this, ba
          to: "source"
        ignore_missing: true
    output.logstash:
-     hosts: ["<<LISTENER-HOST>>:5015"]
+     hosts: ["<<LISTENER-HOST>>:5015"] 
      ssl:
        certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
    ```

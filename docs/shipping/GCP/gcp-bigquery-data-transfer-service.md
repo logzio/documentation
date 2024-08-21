@@ -18,9 +18,9 @@ drop_filter: []
 
 The BigQuery Data Transfer Service automates data movement into BigQuery on a scheduled, managed basis. 
 
-## Logs
+## Logs 
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 For this integration, the telemetry list needs to include `bigquery_dts_config`.
 

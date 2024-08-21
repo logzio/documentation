@@ -44,12 +44,12 @@ To be able to access and use the SSO link that is created for a Logz.io-Azure in
 
 ### Add the Logz.io-Azure Active Directory Integration from the gallery
 
-To configure SSO for the Logz.io resource in the Azure Portal, you need to add the Logz.io - Azure AD Integration from the gallery to your list of managed SaaS apps.
+To configure SSO for the Logz.io resource in the Azure Portal, you need to add the Logz.io - Microsoft Entra Integration from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the Azure Portal using a Microsoft account.
 2. In the Azure Portal, in **Logz.io | Overview**, in the **+ Add** menu, select **Enterprise application**.
    ![Enterprise application option](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/liftr-ovrview_enterprise_apps.png)
-3. In the Azure Active Directory Gallery, browse to the **Logz.io - Azure AD Integration** application and select it.
+3. In the Azure Active Directory Gallery, browse to the **Logz.io - Microsoft Entra Integration** application and select it.
 4. Rename the integration with a relevant name and click **Create**. (In the steps that follow, we used the name **AD app for a logz.io resource**)
 ![Rename the integration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/liftr-rename_logzio-ad_integration.png)
 
@@ -59,7 +59,7 @@ To configure SSO for the Logz.io resource in the Azure Portal, you need to add t
 In **AD app for a logz.io resource | Overview > Properties**, copy the **Application ID** property.
 ![Copy Application ID](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/liftr-copy_application_id2.png)
 
-### Configure Azure AD SSO
+### Configure Microsoft Entra Integration SSO
 
 1. In  **AD app for a logz.io resource | Overview > Getting Started**, in **2. Set up single sign on**, click **Get started** to open **Single sign-on**.
 ![Set up SSO](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/liftr-set-up_sso.png)
