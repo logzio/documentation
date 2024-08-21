@@ -39,7 +39,7 @@ You can dive deeper into each card by clicking on it and opening the **[Quick vi
 
 You can change and adjust Kubernetes 360 application to match your monitoring and troubleshooting needs. To help you get started, we'll break down the different options, how you can access them, and how they can help you and your team.
 
-![Dashboard breakdown](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/k360-jul-overview-numbers-.png)
+<!-- ![Dashboard breakdown](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/k360-jul-overview-numbers-.png) -->
 
 
 
@@ -49,6 +49,10 @@ You can change and adjust Kubernetes 360 application to match your monitoring an
 First, choose the environment you'd like to view. Environments with many users, teams, or projects use a namespace to bundle relevant clusters and nodes. This filter allows you to focus on all elements inside a specific namespace.
 
 Next, choose whether to view the environment's clusters, nodes, or both. Each dropdown menu includes all clusters and nodes in the chosen Kubernetes account, and you can use the search bar to find and add nodes to your view easily.
+
+<h4 id="#filters">Observability IQ Assistant</h4>
+
+Click the **AI Assistant** button to activate [Observability IQ Assistant](/docs/user-guide/observability/assistantiq), an AI-powered, chat-based interface that lets you engage in a dynamic conversation with your data. Use one of the pre-configured prompts or type your own question to get real-time insights about your metrics, anomalies, trends, and the overall health of your environment.
 
 <h4 id="#view">View</h4>
 
