@@ -334,10 +334,14 @@ The following example uses a basic Flask application.
 
 ### Create and launch an HTTP Server
 
-To begin, set up an environment in a new directory called `otel-getting-started`. Within that directory, follow these steps:
+1. Set up an environment in a new directory called `otel-getting-started`:
 
+   ```bash
+   mkdir otel-getting-started
+   cd otel-getting-started
+   ```
 
-1. Create and activate a virtual environment:
+2. Create and activate a virtual environment:
 
    ```bash
    mkdir otel-getting-started
@@ -346,13 +350,13 @@ To begin, set up an environment in a new directory called `otel-getting-started`
    source venv/bin/activate
    ```
 
-2. Install Flask and OpenTelemetry dependencies:
+3. Install Flask and OpenTelemetry dependencies:
 
    ```bash
    pip install flask opentelemetry-api opentelemetry-sdk opentelemetry-exporter-otlp
    ```
 
-3. Create a Flask application in a file named app.py and add the following code:
+4. Create a Flask application in a file named app.py and add the following code:
 
    ```python
    from flask import Flask
@@ -386,7 +390,7 @@ To begin, set up an environment in a new directory called `otel-getting-started`
    ```
 
 
-4. Run the application:
+5. Run the application:
 
    ``` bash
    python app.py
@@ -397,7 +401,13 @@ Open http://localhost:8080/rolldice in your web browser to ensure it is working.
 
 ### Instrumentation
 
-Next, we'll configure the OpenTelemetry logging exporter to send logs to Logz.io.
+Next, we'll configure the OpenTelemetry logging exporter to send logs to Logz.io via the OTLP listener.
+
+This configuration is designed to send logs to your Logz.io account via the OpenTelemetry Protocol (OTLP) listener. You need to specify your Logz.io token and configure the listener endpoint to match the correct region. By default, the endpoint is `https://otlp-listener.logz.io/v1/logs`, but it should be adjusted based on your region. You can find more details on the regional configurations in the [Hosting Regions Documentation](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
+
+:::note
+Ensure that you include the `user-agent` header in the format: `"user-agent=logzio-python-logs-otlp"`.
+:::
 
 1. Install OpenTelemetry dependencies:
 
@@ -422,7 +432,7 @@ Next, we'll configure the OpenTelemetry logging exporter to send logs to Logz.io
     
     # Configuration
     service_name = "roll-dice"
-    logzio_endpoint = "https://otlp-listener.logz.io/v1/logs"
+    logzio_endpoint = "https://otlp-listener.logz.io/v1/logs"  # Update this to match your region if needed
     logzio_token = "<<LOG-SHIPPING-TOKEN>>"
     
     # Set up OpenTelemetry resources
@@ -433,7 +443,10 @@ Next, we'll configure the OpenTelemetry logging exporter to send logs to Logz.io
     set_logger_provider(logger_provider)
     log_exporter = OTLPLogExporter(
         endpoint=logzio_endpoint,
-        headers={"Authorization": f"Bearer {logzio_token}"}
+        headers={
+            "Authorization": f"Bearer {logzio_token}",
+            "user-agent": "logzio-python-logs-otlp"
+        }
     )
     logger_provider.add_log_record_processor(BatchLogRecordProcessor(log_exporter))
     
@@ -472,6 +485,7 @@ Next, we'll configure the OpenTelemetry logging exporter to send logs to Logz.io
     
     if __name__ == "__main__":
         app.run(host="0.0.0.0", port=8080)
+    
     ```
 
     {@include: ../../_include/log-shipping/log-shipping-token.md}

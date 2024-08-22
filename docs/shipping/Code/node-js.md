@@ -372,50 +372,61 @@ The following example uses a basic Express application in Node.js
 
 ### Create and launch an HTTP Server
 
-To begin, set up an environment in a new directory called nodejs-simple. Within that directory, execute the following commands:
+1. Set up an environment in a new directory called `nodejs-simple`:
 
-```bash
-npm init -y
-```
 
-```bash
-npm install express
-```
+  ```bash
+  mkdir nodejs-simple
+  cd nodejs-simple
+  npm init -y
+  ```
 
-In the same directory, Ccreate a file named app.js and add the following code:
+2. Install Express JS:
 
-```javascript
-const express = require('express');
+   ```bash
+   npm install express
+   ```
 
-const PORT = parseInt(process.env.PORT || '8080');
-const app = express();
+3. In this directory, create a file named `app.js` and add the following code:
 
-function getRandomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+   ```javascript
+   const express = require('express');
+   
+   const PORT = parseInt(process.env.PORT || '8080');
+   const app = express();
+   
+   function getRandomNumber(min, max) {
+     return Math.floor(Math.random() * (max - min + 1)) + min;
+   }
+   
+   app.get('/rolldice', (req, res) => {
+     res.send(getRandomNumber(1, 6).toString());
+   });
+   
+   app.listen(PORT, () => {
+     console.log(`Listening for requests on http://localhost:${PORT}`);
+   });
+   
+   ```
 
-app.get('/rolldice', (req, res) => {
-  res.send(getRandomNumber(1, 6).toString());
-});
+4. Run the application with the following command:
 
-app.listen(PORT, () => {
-  console.log(`Listening for requests on http://localhost:${PORT}`);
-});
+   ```bash
+   node app.js
+   ```
 
-```
-
-Run the application with the following command:
-
-```bash
-node app.js
-```
-
-Open http://localhost:8080/rolldice in your web browser to ensure it is working.
+5. Open http://localhost:8080/rolldice in your web browser to ensure it is working.
 
 
 ### Instrumentation
 
-Next, we’ll install the necessary packages for logging telemetry data to Logz.io using OpenTelemetry.
+Next, we'll configure the OpenTelemetry logging exporter to send logs to Logz.io via the OTLP listener.
+
+This configuration is designed to send logs to your Logz.io account via the OpenTelemetry Protocol (OTLP) listener. You need to specify your Logz.io token and configure the listener endpoint to match the correct region. By default, the endpoint is `https://otlp-listener.logz.io/v1/logs`, but it should be adjusted based on your region. You can find more details on the regional configurations in the [Hosting Regions Documentation](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
+
+:::note
+Ensure that you include the `user-agent` header in the format: `"user-agent=logzio-python-logs-otlp"`.
+:::
 
 
 1. Add the packages
@@ -423,9 +434,7 @@ Next, we’ll install the necessary packages for logging telemetry data to Logz.
     npm install winston axios
     ```
 
-2. Create a custom Logz.io transport for Winston
-
-    Create a file named logzio-transport.js and add the following code:
+2. Create a custom Logz.io transport for Winston with a file named `logzio-transport.js` and add the following code:
 
     ```javascript
     const Transport = require('winston-transport');
@@ -453,6 +462,7 @@ Next, we’ll install the necessary packages for logging telemetry data to Logz.
           headers: {
             'Authorization': `Bearer ${this.token}`,
             'Content-Type': 'application/json',
+            'user-agent': 'logzio-nodejs-logs-otlp',
           },
         })
         .then(() => callback())
@@ -464,12 +474,9 @@ Next, we’ll install the necessary packages for logging telemetry data to Logz.
     }
     
     module.exports = LogzIoTransport;
-
     ```
     
-3. Set up the logging configuration:
-
-   In your app.js, replace the content with the following:
+3. Set up the logging configuration in your `app.js`, by replacing its content with the following:
 
    ```javascript
    const express = require('express');
@@ -506,13 +513,14 @@ Next, we’ll install the necessary packages for logging telemetry data to Logz.
      console.log(`Listening for requests on http://localhost:${PORT}`);
    });
    ```
+
+   {@include: ../../_include/log-shipping/log-shipping-token.md}
    
 4. Run your **application** once again:
 
     ```bash
     node app.js
     ```
-    Note the output from the dotnet run.
 
 4. From another terminal, send a request using curl:
 
