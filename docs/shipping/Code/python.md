@@ -506,8 +506,7 @@ Ensure that you include the `user-agent` header in the format: `"user-agent=logz
 
 At this point, you should see log output from the server and client on your Logz.io account.
 
-
-  </TabItem>
+</TabItem>
 </Tabs>
 
 
