@@ -1,6 +1,6 @@
 ---
 sidebar_position: 4
-title: Observability IQ Root Cause Analysis FAQ
+title: Observability IQ Root Cause Analyzer FAQ
 description: RCA FTW
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [AI, observability, Assistant, iq, logs, metrics, traces, rca, root cause analysis, root cause, analysis, services, logz.io]
@@ -25,9 +25,9 @@ With Logz.io's RCA you can quickly:
 
 ## General
 
-### What is Observability IQ Root Cause Analysis?
+### What is Observability IQ Root Cause Analyzer?
 
-Root Cause Analysis (RCA) is part of Logz.io's Observability IQ Assistant, offering an AI-enhanced platform that transforms how you can investigate any issues discovered in your cloud applications and infrastructure. You eliminate manual investigation steps, removing the need to pivot between multiple dashboards or run numerous queries for in-depth troubleshooting.
+Root Cause Analyzer (RCA) is part of Logz.io's Observability IQ Assistant, offering an AI-enhanced platform that transforms how you can investigate any issues discovered in your cloud applications and infrastructure. You eliminate manual investigation steps, removing the need to pivot between multiple dashboards or run numerous queries for in-depth troubleshooting.
 
 You can access it from **[Explore](https://app.logz.io/#/dashboard/explore)** > **Exceptions** to quickly execute a broad, context-aware analysis that highlights the critical what, when, where, how, and what was impacted and what to do next.
 
@@ -46,31 +46,17 @@ Observability IQ RCA is currently available to all Logz.io users whose data is h
 
 No. To access Observability IQ RCA, you must use Logz.io's app.
 
-### How do I activate Observability IQ RCA?
-
-Observability IQ RCA is available to all **[Explore](https://app.logz.io/#/dashboard/explore)** users. Open your Exceptions menu and click **Analyze** next to the issue you want to investigate.
-
-Once you activate the RCA process, the following data will be shared with Claude3:
-
-* Dashboard data
-* Current logs
-* Current exceptions
-* Some visualizations
-* Maybe traces
-* Probably more
-
 ### What data can Observability IQ RCA access upon activation?
 
-Observability IQ RCA activates when you click the **Analyze** button and start the process. It is designed to access the data ...., including your current query, the graphs visible on the screen, and a limited number of logs due to size constraints. 
+Observability IQ RCA activates when you click the Analyze button. Once the process has started, RCA can query for more context and utilize log search to get relevant data needed to performe the analysis. The restrictions are the same as the ones that apply to your Logz.io account, and RCA can access any data as needed.
 
 This setup ensures that the IQ RCA simulated a real-time investigation to resolve the issue and find the root cause.
 
-
 ### How do I provide feedback or report issues with Observability IQ RCA? 
 
-To provide feedback or report issues, click the **Share Your Feedback** button at the top of the Explore interface.
+Once the process is complete, you can provide feedback by clicking the Like or Dislike buttons. Note that rating your answer shares it with us, helping us improve and enhance RCA and its results.
 
-
+You can also provide feedback or report issues by clicking the **Share Your Feedback** button at the top of the Explore interface.
 
 ## Privacy and Security
 
@@ -80,7 +66,9 @@ The model is hosted within the same region in which your Logz.io data is hosted.
 
 ### Can account admins see RCA's previous steps and history?
 
-No. Account admins or any other users within your organization cannot view or access any data from Observability IQ RCA. Logz.io does not retain your chat history, and it is deleted after the session ends.
+No. Account admins or any other users within your organization cannot view or access any data from Observability IQ RCA. If you rate your answer by clicking the Like or Dislike buttons, the answer will be shared with Logz.io to help us improve and enhance RCA and its results.
+
+If you do not provide feedvack, Logz.io does not retain your chat history, and it is deleted after the session ends. 
 
 ### Do you use my data to train the AI model?
 
