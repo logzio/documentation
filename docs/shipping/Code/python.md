@@ -506,8 +506,7 @@ Ensure that you include the `user-agent` header in the format: `"user-agent=logz
 
 At this point, you should see log output from the server and client on your Logz.io account.
 
-
-  </TabItem>
+</TabItem>
 </Tabs>
 
 
@@ -515,8 +514,7 @@ At this point, you should see log output from the server and client on your Logz
 
 Send custom metrics to Logz.io from your Python application. This example uses [OpenTelemetry Python SDK](https://github.com/open-telemetry/opentelemetry-python-contrib) and the [OpenTelemetry remote write exporter](https://pypi.org/project/opentelemetry-exporter-prometheus-remote-write/).
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+
 
 <Tabs>
   <TabItem value="Setup-in-code" label="Setup in code" default>
