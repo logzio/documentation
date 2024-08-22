@@ -6,9 +6,9 @@ image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.
 keywords: [logz.io, opensearch dashboards, log analysis, observability]
 ---
 
-The Logz.io API Fetcher supports both auth and OAuth APIs and includes specific implementations for Azure Graph, Cisco Secure X, and Office365 Message Trace reports.
+The Logz.io API Fetcher supports both auth and OAuth APIs and includes specific implementations for Azure Graph, Office365 Message Trace reports, Cloudflare and 1Password.
 
-This guide outlines the steps for configuring the Logz.io API Fetcher to fetch and send data to Logz.io. Our aim is to develop the API Fetcher as a generic tool capable of fetching data from any API endpoint. However, this presents significant challenges. If you encounter difficulties configuring the API Fetcher with a particular API endpoint, please reach out to our support team for assistance.
+This guide outlines the steps for configuring the Logz.io API Fetcher to fetch and send data to Logz.io.  Our aim is to develop the API Fetcher as a generic tool capable of fetching data from any API endpoint. However, this presents significant challenges. If you encounter difficulties configuring the API Fetcher with a particular API endpoint, please reach out to our support team for assistance.
 
 Below is a sample configuration template, as found in our documentation and on GitHub:
 
@@ -43,7 +43,7 @@ apis:
     scrape_interval: 60  # for mail reports we suggest no less than 60 minutes
     days_back_fetch: 8  # for mail reports we suggest up to 8 days
 
-  - name: cloudflare test
+  - name: cloudflare example
     type: cloudflare
     cloudflare_account_id: <<CLOUDFLARE_ACCOUNT_ID>>
     cloudflare_bearer_token: <<CLOUDFLARE_BEARER_TOKEN>>
@@ -53,6 +53,16 @@ apis:
     scrape_interval: 5
     additional_fields:
       type: cloudflare
+
+  - name: 1Password example
+    type: 1password
+    onepassword_bearer_token: <<1PASSWORD_BEARER_TOKEN>>
+    url: https://events.1password.com/api/v1/auditevents
+    method: POST
+    days_back_fetch: 7
+    scrape_interval: 5
+    additional_fields:
+      type: 1password
 
   - name: general example
     type: general
@@ -78,6 +88,7 @@ apis:
 ```
 
 ## Configuration
+Create a local config file `config.yaml`.
 
 ### Add Your Logz.io Listener and Token
 
@@ -90,6 +101,7 @@ logzio:
 ```
 
 {@include: ../../_include/log-shipping/log-shipping-token.md}
+
 {@include: ../../_include/log-shipping/listener-var.html}
 
 ### Configure your APIs
@@ -252,6 +264,24 @@ By default `cloudflare` API type has built in pagination settings and sets the `
 | days_back_fetch         | The amount of days to fetch back in the first request. Applies a filter on `since` parameter.                                               | Optional          | -                 |
 | scrape_interval         | Time interval to wait between runs (unit: `minutes`)                                                                                        | Optional          | 1 (minute)        |
 | pagination_off          | True if builtin pagination should be off, False otherwise                                                                                   | Optional          | `False`           |
+
+  </TabItem>
+<TabItem value="1Password" label="1Password" default>
+
+#### 1Password API Settings
+By default `1password` API type has built in pagination settings and sets the `response_data_path` to `items` field.
+
+| Parameter Name           | Description                                                                                     | Required/Optional | Default           |
+|--------------------------|-------------------------------------------------------------------------------------------------|-------------------|-------------------|
+| name                     | Name of the API (custom name)                                                                   | Optional          | the defined `url` |
+| onepassword_bearer_token | The 1Password Bearer token                                                                      | Required          | -                 |
+| url                      | The request URL                                                                                 | Required          | -                 |
+| method                   | The request method (`GET` or `POST`)                                                            | Optional          | `GET`             |
+| additional_fields        | Additional custom fields to add to the logs before sending to logzio                            | Optional          | -                 |
+| days_back_fetch          | The amount of days to fetch back in the first request. Applies a filter on 1password `start_time` parameter. | Optional          | -                 |
+| scrape_interval          | Time interval to wait between runs (unit: `minutes`)                                            | Optional          | 1 (minute)        |
+| onepassword_limit        | 1Password limit for number of events to return in a single request (allowed range: 100 to 1000) | Optional          | 100               |
+| pagination_off           | True if builtin pagination should be off, False otherwise                                       | Optional          | `False`           |
 
   </TabItem>
 

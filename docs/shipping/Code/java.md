@@ -13,6 +13,8 @@ logs2metrics: []
 metrics_dashboards: []
 metrics_alerts: []
 drop_filter: []
+toc_min_heading_level: 2
+toc_max_heading_level: 3
 ---
 
 :::tip
