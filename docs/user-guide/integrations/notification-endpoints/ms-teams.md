@@ -55,25 +55,40 @@ To use this example in your own endpoint, copy the payload. Note that double-bra
 
 ```
 {
-        "type": "message",
-        "attachments": [
-            {
-                "contentType": "application/vnd.microsoft.card.adaptive",
-                "contentUrl": null,
-                "content": {
-                    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
-                    "type": "AdaptiveCard",
-                    "version": "1.2",
-                    "body": [
-                        {
-                            "type": "TextBlock",
-                            "text": "Submitted response:"
-                        }
-                    ]
-                }
-            }
+  "type": "message",
+  "attachments": [
+    {
+      "contentType": "application/vnd.microsoft.card.adaptive",
+      "contentUrl": null,
+      "content": {
+        "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+        "type": "AdaptiveCard",
+        "version": "1.2",
+        "body": [
+          {
+            "type": "TextBlock",
+            "text": "title: {{alert_severity}}: {{alert_title}}"
+          },
+          {
+            "type": "TextBlock",
+            "text": "summary: {{alert_description}}"
+          },
+          {
+            "type": "TextBlock",
+            "text": "text: {{alert_samples}}"
+          }
+        ],
+        "actions": [
+          {
+            "type": "Action.OpenUrl",
+            "title": "View in OpenSearch Dashboards",
+            "url": "{{alert_app_url}}#/view-triggered-alert?from={{alert_timeframe_start_epoch_millis}}&to={{alert_timeframe_end_epoch_millis}}&definitionId={{alert_definition_id}}&switchToAccountId={{account_id}}"
+          }
         ]
+      }
     }
+  ]
+}
 ```
 <!-- {% endraw %}-->
 
