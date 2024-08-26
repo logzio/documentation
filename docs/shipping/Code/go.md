@@ -492,9 +492,7 @@ Next, we'll configure the OpenTelemetry logging exporter to send logs to Logz.io
 
 This configuration is designed to send logs to your Logz.io account via the OpenTelemetry Protocol (OTLP) listener. You need to specify your Logz.io token and configure the listener endpoint to match the correct region. By default, the endpoint is `https://otlp-listener.logz.io/v1/logs`, but it should be adjusted based on your region. You can find more details on the regional configurations in the [Hosting Regions Documentation](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
 
-:::note
-Ensure that you include the `user-agent` header in the format: `"user-agent=logzio-python-logs-otlp"`.
-:::
+
 
 1. Install OpenTelemetry dependencies:
 
@@ -509,133 +507,101 @@ Ensure that you include the `user-agent` header in the format: `"user-agent=logz
 
 
    ```go
-   package main   
-   import (
-       "context"
-       "errors"
-       "fmt"
-       "time"
+   // Copyright The OpenTelemetry Authors
+   // SPDX-License-Identifier: Apache-2.0
    
-       "go.opentelemetry.io/otel"
-       "go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploghttp"
-       "go.opentelemetry.io/otel/exporters/stdout/stdoutlog"
-       "go.opentelemetry.io/otel/exporters/stdout/stdoutmetric"
-       "go.opentelemetry.io/otel/log/global"
-       "go.opentelemetry.io/otel/propagation"
-       "go.opentelemetry.io/otel/sdk/log"
-       "go.opentelemetry.io/otel/sdk/metric"
-       "go.opentelemetry.io/otel/sdk/trace"
+   package main
+   
+   import (
+   	"context"
+   	"errors"
+   	"fmt"
+   
+   	"go.opentelemetry.io/otel"
+   	"go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploghttp"
+   	"go.opentelemetry.io/otel/exporters/stdout/stdoutlog"
+   	"go.opentelemetry.io/otel/log/global"
+   	"go.opentelemetry.io/otel/propagation"
+   	"go.opentelemetry.io/otel/sdk/log"
    )
    
+   // setupOTelSDK bootstraps the OpenTelemetry pipeline.
+   // If it does not return an error, make sure to call shutdown for proper cleanup.
    func setupOTelSDK(ctx context.Context) (shutdown func(context.Context) error, err error) {
-       var shutdownFuncs []func(context.Context) error
+   	var shutdownFuncs []func(context.Context) error
    
-       shutdown = func(ctx context.Context) error {
-           var err error
-           for _, fn := range shutdownFuncs {
-               err = errors.Join(err, fn(ctx))
-           }
-           shutdownFuncs = nil
-           return err
-       }
+   	// shutdown calls cleanup functions registered via shutdownFuncs.
+   	// The errors from the calls are joined.
+   	// Each registered cleanup will be invoked once.
+   	shutdown = func(ctx context.Context) error {
+   		var err error
+   		for _, fn := range shutdownFuncs {
+   			err = errors.Join(err, fn(ctx))
+   		}
+   		shutdownFuncs = nil
+   		return err
+   	}
    
-       handleErr := func(inErr error) {
-           err = errors.Join(inErr, shutdown(ctx))
-       }
+   	// handleErr calls shutdown for cleanup and makes sure that all errors are returned.
+   	handleErr := func(inErr error) {
+   		err = errors.Join(inErr, shutdown(ctx))
+   	}
    
-       prop := newPropagator()
-       otel.SetTextMapPropagator(prop)
+   	// Set up propagator.
+   	prop := newPropagator()
+   	otel.SetTextMapPropagator(prop)
    
-       tracerProvider, err := newTraceProvider()
-       if err != nil {
-           handleErr(err)
-           return
-       }
-       shutdownFuncs = append(shutdownFuncs, tracerProvider.Shutdown)
-       otel.SetTracerProvider(tracerProvider)
+   	// Set up logger provider.
+   	loggerProvider, err := newLoggerProvider()
+   	if err != nil {
+   		handleErr(err)
+   		return
+   	}
+   	shutdownFuncs = append(shutdownFuncs, loggerProvider.Shutdown)
+   	global.SetLoggerProvider(loggerProvider)
    
-       meterProvider, err := newMeterProvider()
-       if err != nil {
-           handleErr(err)
-           return
-       }
-       shutdownFuncs = append(shutdownFuncs, meterProvider.Shutdown)
-       otel.SetMeterProvider(meterProvider)
-   
-       loggerProvider, err := newLoggerProvider()
-       if err != nil {
-           handleErr(err)
-           return
-       }
-       shutdownFuncs = append(shutdownFuncs, loggerProvider.Shutdown)
-       global.SetLoggerProvider(loggerProvider)
-   
-       return
+   	return
    }
    
    func newPropagator() propagation.TextMapPropagator {
-       return propagation.NewCompositeTextMapPropagator(
-           propagation.TraceContext{},
-           propagation.Baggage{},
-       )
-   }
-   
-   func newTraceProvider() (*trace.TracerProvider, error) {
-       traceExporter, err := stdouttrace.New(
-           stdouttrace.WithPrettyPrint())
-       if err != nil {
-           return nil, err
-       }
-   
-       traceProvider := trace.NewTracerProvider(
-           trace.WithBatcher(traceExporter,
-               trace.WithBatchTimeout(time.Second)),
-       )
-       return traceProvider, nil
-   }
-   
-   func newMeterProvider() (*metric.MeterProvider, error) {
-       metricExporter, err := stdoutmetric.New()
-       if err != nil {
-           return nil, err
-       }
-   
-       meterProvider := metric.NewMeterProvider(
-           metric.WithReader(metric.NewPeriodicReader(metricExporter,
-               metric.WithInterval(3*time.Second))),
-       )
-       return meterProvider, nil
+   	return propagation.NewCompositeTextMapPropagator(
+   		propagation.TraceContext{},
+   		propagation.Baggage{},
+   	)
    }
    
    func newLoggerProvider() (*log.LoggerProvider, error) {
-       stdoutExporter, err := stdoutlog.New(stdoutlog.WithPrettyPrint())
-       if err != nil {
-           return nil, fmt.Errorf("failed to create stdout exporter: %w", err)
-       }
+   	// Create stdout log exporter
+   	stdoutExporter, err := stdoutlog.New(stdoutlog.WithPrettyPrint())
+   	if err != nil {
+   		return nil, fmt.Errorf("failed to create stdout exporter: %w", err)
+   	}
    
-       httpExporter, err := otlploghttp.New(context.Background(),
-           otlploghttp.WithEndpoint("otlp-listener.logz.io"),
-           otlploghttp.WithHeaders(map[string]string{
-               "Authorization": "Bearer <LOG-SHIPPING-TOKEN>",
-               "user-agent":    "logzio-go-logs-otlp",
-           }),
-           otlploghttp.WithURLPath("/v1/logs"),
-       )
-       if err != nil {
-           return nil, fmt.Errorf("failed to create OTLP HTTP exporter: %w", err)
-       }
+   	// Create OTLP HTTP log exporter for Logz.io
+   	httpExporter, err := otlploghttp.New(context.Background(),
+   		otlploghttp.WithEndpoint("otlp-listener.logz.io"),
+   		otlploghttp.WithHeaders(map[string]string{
+   			"Authorization": "Bearer <LOG-SHIPPING-TOKEN>",
+   		}),
+   		otlploghttp.WithURLPath("/v1/logs"),
+   	)
+   	if err != nil {
+   		return nil, fmt.Errorf("failed to create OTLP HTTP exporter: %w", err)
+   	}
    
-       loggerProvider := log.NewLoggerProvider(
-           log.WithProcessor(log.NewBatchProcessor(stdoutExporter)),
-           log.WithProcessor(log.NewBatchProcessor(httpExporter)),
-       )
+   	// Create a logger provider with both exporters
+   	loggerProvider := log.NewLoggerProvider(
+   		log.WithProcessor(log.NewBatchProcessor(stdoutExporter)), // For stdout
+   		log.WithProcessor(log.NewBatchProcessor(httpExporter)),   // For HTTP export
+   	)
    
-       return loggerProvider, nil
+   	return loggerProvider, nil
    }
-   
    ```
 
+
    {@include: ../../_include/log-shipping/log-shipping-token.md}
+   Update the `listener.logz.io` parth in `https://otlp-listener.logz.io/v1/logs` with the URL for [your hosting region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region).
 
 
 3. Run your **application** once again:
