@@ -63,17 +63,17 @@ Clicking on one of the services or clicking on drill down opens a dashboard with
 
 You can change the time frame and add additional filters, including comparing the data to a previous period or choose an environment, nodes, and pods. Clicking the refresh button will manually update the data.
 
-![service deeper](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/services-service-drilldown-mar18.png)
+![service deeper](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/services-service-drilldown-aug26.png)
 
 
 Hovering over the graphs provides additional info for the time point you've chosen:
 
 * The **Request rate** graph shows the number of requests made per minute
 * The **Latency** graph provides a milliseconds count of how long it takes for data to travel in your environment
-* The **Errors** graph analyzes the percentage of errors that occurred
-* The **HTTP status code** graph measures the distribution of various HTTP status codes
+* The **Error Ratio** graph analyzes the percentage of errors that occurred
+* The **Status code** graph measures the distribution of various HTTP status codes
 
-![graphs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/service-drilldown-graphs-mar27.png)
+<!-- ![graphs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/service-drilldown-graphs-mar27.png) -->
 
 ### Operations overview
 
@@ -87,7 +87,7 @@ This table includes all of the operations running inside the chosen service with
 
 Use the search bar to find a specific operation or the arrows at the bottom of the table to navigate the operations.
 
-![operations view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/astronomy-operations-table.png)
+![operations view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/astronomy-operations-table-aug26.png)
 
 
 ### (Single) Operation overview
@@ -174,6 +174,12 @@ Once your anomaly detector is up and running, you'll see an indicator in the lis
 
 ![no anomaly](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/no-anomaly.png)
 
+## AI Assistant
+
+Click the **AI Assistant** button to activate the [Observability IQ Assistant](https://docs.logz.io/docs/user-guide/observability/assistantiq), an AI-powered, chat-based interface that lets you engage in a dynamic conversation with your data. Use one of the pre-configured prompts or type your own question to get real-time insights about your metrics, anomalies, trends, and the overall health of your environment.
+
+
+![AI App360](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/aikapp360.gif)
 
 
 
