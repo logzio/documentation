@@ -1,95 +1,36 @@
 ---
 sidebar_position: 4
-title: Observability IQ Root Cause Analyzer FAQ
-description: RCA FTW
+title: Observability IQ Root Cause Analyzer
+description: Meet Root Cause Analyzer (RCA) - Streamline troubleshooting with step-by-step insights and recommendations.
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [AI, observability, Assistant, iq, logs, metrics, traces, rca, root cause analysis, root cause, analysis, services, logz.io]
 ---
 
+Logz.io's Root Cause Analyzer (RCA) leverages GenAI to diagnose the root causes of exceptions within applications. By analyzing context and data, RCA delivers deep insights and actionable recommendations, streamlining the troubleshooting process and accelerating root cause analysis.
 
-<!--
-Logz.io’s automated Root Cause Analysis (RCA) uses GenAI to transform the manner in which your team carry out investigation into any issues discovered in your cloud applications and infrastructure. Eliminating manual investigation steps, removing the need to pivot between multiple dashboards or run numerous queries to carry out in-depth troubleshooting.
+With RCA, your team benefits from faster resolutions and more efficient troubleshooting, reclaiming hours once spent on manual investigations. This allows you to focus more on development and innovation.
 
-With Logz.io's RCA you can quickly: 
+RCA adapts dynamically to the specific context of each problem, functioning like a knowledgeable team member who understands the nuances of the issue and provides accurate and effective analysis.
 
+It comprehends the situation, identifies the necessary information for thorough analysis, and proactively seeks the data required.
 
-* Move from issue detection directly into automated investigation, simplifying and reducing time from discovery to response.
-
-* Execute broad, context-aware analysis that highlights the critical what, when, where, how and what was impacted, and what to do next.
-
-* Pinpoint details about how an issue was introduced [ex. new deployment introduced latency] and identify related response steps.
-
-* Generate detailed Conclusions, summarizing details for further analysis and communication.
--->
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/rca/rca-aug26.png" alt="rca-popup" width="700"/>
 
 
-## General
+## How to use RCA
 
-### What is Observability IQ Root Cause Analyzer?
-
-Root Cause Analyzer (RCA) is part of Logz.io's Observability IQ Assistant, offering an AI-enhanced platform that transforms how you can investigate any issues discovered in your cloud applications and infrastructure. You eliminate manual investigation steps, removing the need to pivot between multiple dashboards or run numerous queries for in-depth troubleshooting.
-
-You can access it from **[Explore](https://app.logz.io/#/dashboard/explore)** > **Exceptions** to quickly execute a broad, context-aware analysis that highlights the critical what, when, where, how, and what was impacted and what to do next.
+:::info note
+RCA is currently available to Logz.io users in the US region using Explore.
+:::
 
 
+To activate RCA, navigate to [Explore > Exceptions](https://app.logz.io/#/dashboard/explore). Select the exception you want to analyze, then hover over it and click **Analyze** to start the RCA process.
 
-### What kind of information can I get from Observability IQ RCA? 
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/rca/rca-button-aug26.png" alt="rca-button" width="700"/>
 
-Observability IQ RCA can help you pinpoint how an issue was introduced [ex., new deployment introduced latency] and identify related response steps while generating detailed conclusions and summarizing details for further analysis and communication.
+Once activated, RCA begins a multi-step process, gathering relevant information, analyzing it, and taking further actions to identify the root cause of the issue. You can click on each step to view a detailed explanation of what RCA is doing to move closer to finding the root cause.
 
+Please note that the analysis may take a few minutes, so it's essential to stay within the popup window during this time.
 
-### Is Observability IQ RCA available to all users?
+Once completed, RCA will display its **Conclusion**, outlining possible causes for the issue and providing recommendations to address it or prevent it from recurring.
 
-Observability IQ RCA is currently available to all Logz.io users whose data is hosted in the US regions.
-
-### Is Observability IQ RCA accessible via API?
-
-No. To access Observability IQ RCA, you must use Logz.io's app.
-
-### What data can Observability IQ RCA access upon activation?
-
-Observability IQ RCA activates when you click the Analyze button. Once the process has started, RCA can query for more context and utilize log search to get relevant data needed to performe the analysis. The restrictions are the same as the ones that apply to your Logz.io account, and RCA can access any data as needed.
-
-This setup ensures that the IQ RCA simulated a real-time investigation to resolve the issue and find the root cause.
-
-### How do I provide feedback or report issues with Observability IQ RCA? 
-
-Once the process is complete, you can provide feedback by clicking the Like or Dislike buttons. Note that rating your answer shares it with us, helping us improve and enhance RCA and its results.
-
-You can also provide feedback or report issues by clicking the **Share Your Feedback** button at the top of the Explore interface.
-
-## Privacy and Security
-
-### Where is the model hosted?
-
-The model is hosted within the same region in which your Logz.io data is hosted. 
-
-### Can account admins see RCA's previous steps and history?
-
-No. Account admins or any other users within your organization cannot view or access any data from Observability IQ RCA. If you rate your answer by clicking the Like or Dislike buttons, the answer will be shared with Logz.io to help us improve and enhance RCA and its results.
-
-If you do not provide feedvack, Logz.io does not retain your chat history, and it is deleted after the session ends. 
-
-### Do you use my data to train the AI model?
-
-No, your data will not be used by AWS or third-party model providers to train the AI models. You can read more about this [here](https://aws.amazon.com/bedrock/faqs/#product-faqs#bedrock-faqs#security-and-privacy).
-
-
-### Will the input and the model output served through Observability IQ RCA be available to Claude3? Are you using a private or public instance?
-
-The data is processed and stored in Logz.io's private instance within AWS, similar to the current setup of your Logz.io data. The model is stateless, and data will never be shared with third-party model providers.
-
-### How does Observability IQ RCA comply with security standards?
-
-Your data is secured using industry-standard encryption both at rest and in transit. Since the data is processed and stored in Logz.io's private instance within AWS, there is no significant change compared to the current situation where AWS processes your data.
-
-For more detailed information, please visit [Logz.io’s security and compliance page](https://logz.io/platform/features/soc-2-compliance/). You can read more about how AWS follows best practices for data security [here](https://aws.amazon.com/bedrock/faqs/#product-faqs#bedrock-faqs#general:~:text=Why%20should%20I%20use%20Amazon%20Bedrock%3F).
-
-### How does Observability IQ RCA comply with Privacy and GDPR standards?​
-
-Your data is handled by Logz.io and AWS (being Logz.io’s sub-processor) in accordance with privacy and GDPR standards and requirements. For more detailed information, please visit Logz.io’s [privacy policy](https://logz.io/about-us/privacy-policy/). You can read more about how AWS handles data protection [here](https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html).
-
-
-## Contact us
-
-For further assistance with Observability IQ RCA, [contact Logz.io's Support Team](mailto:help@logz.io).
