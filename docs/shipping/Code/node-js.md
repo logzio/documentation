@@ -63,7 +63,7 @@ var logger = require('logzio-nodejs').createLogger({
 | sendIntervalMs  | Time to wait between retry attempts, in milliseconds. | `2000` (2 seconds) |
 | bufferSize  | Maximum number of messages the logger accumulates before sending them all as a bulk. | `100` |
 | numberOfRetries | Maximum number of retry attempts. | `3` |
-| debug | Set to `true` to print debug messsages to the console.  | `false` |
+| debug | Set to `true` to print debug messages to the console.  | `false` |
 | callback | A callback function to call when the logger encounters an unrecoverable error. The function API is `function(err)`, where `err` is the Error object. | -- |
 | timeout | Read/write/connection timeout, in milliseconds. | -- |
 | extraFields | JSON format. Adds your custom fields to each log. Format: `extraFields : { field_1: "val_1", field_2: "val_2" , ... }` | -- |
@@ -77,7 +77,8 @@ You can send log lines as a raw string or an object. For consistent and reliable
   var obj = {
       message: 'Some log message',
       param1: 'val1',
-      param2: 'val2'
+      param2: 'val2',
+      tags : ['tag1']
   };
   logger.log(obj);
   ```
@@ -94,21 +95,6 @@ For serverless environments, such as AWS Lambda, Azure Functions, or Google Clou
   logger.sendAndClose();
   ```
 
-### Add custom tags to logzio-nodejs
-
-Add custom tags using the following format: `{ tags : ['tag1']}`, for example:
-
-```javascript
-var obj = {
-
-    message: 'Your log message',
-
-    tags : ['tag1']
-
-};
-
-logger.log(obj);
-```
 </TabItem>
   <TabItem value="winston-logzio" label="winston-logzio">
 
@@ -152,7 +138,11 @@ const logger = winston.createLogger({
 logger.log('warn', 'Just a test message');
 ```
 
-If you are using winston-logzio in a serverless service (e.g., AWS Lambda, Azure Functions, Google Cloud Functions), add `await logger.info("API Called")` and `logger.close()` at the end of each run to ensure proper logging.
+For serverless environments, such as AWS Lambda, Azure Functions, or Google Cloud Functions, add `await logger.info("API Called")` and include this line at the end of the run:
+
+  ```javascript
+  logger.close();
+  ```
 
 
 {@include: ../../_include/general-shipping/replace-placeholders.html}
@@ -162,7 +152,6 @@ If you are using winston-logzio in a serverless service (e.g., AWS Lambda, Azure
 ### Parameters
 
 For a complete list of your options, see the configuration parameters below.👇
-
 
 
 | Parameter | Description | Required/Default |
@@ -176,7 +165,7 @@ For a complete list of your options, see the configuration parameters below.👇
 | sendIntervalMs  | Time to wait between retry attempts, in milliseconds. | `2000` (2 seconds) |
 | bufferSize  | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
 | numberOfRetries | Maximum number of retry attempts. | `3` |
-| debug | To print debug messsages to the console, `true`. Otherwise, `false`. | `false` |
+| debug | To print debug messages to the console, `true`. Otherwise, `false`. | `false` |
 | callback | Callback function for unrecoverable errors. The function API is `function(err)`, where `err` is the Error object. | -- |
 | timeout | Read/write/connection timeout, in milliseconds. | -- |
 | extraFields | Adds custom fields to each log in JSON format: `extraFields : { field_1: "val_1", field_2: "val_2" , ... }` | -- |
@@ -184,24 +173,10 @@ For a complete list of your options, see the configuration parameters below.👇
 
 ### Additional configuration options
 
-* If you are using winston-logzio in a serverless service (e.g., AWS Lambda, Azure Functions, Google Cloud Functions), add this line at the end of the configuration code block.
-
-
-
-  ```javascript
-  logger.close()
-  ```
-
-
 * By default, the winston logger sends all logs to the console. Disable this by adding the following line to your code:
 
   ```javascript
   winston.remove(winston.transports.Console);
-  ```
-* Send a log line:
-
-  ```javascript
-  winston.log('info', 'winston logger configured with logzio transport');
   ```
 
 * Log the last UncaughtException before Node exits:
@@ -215,7 +190,7 @@ For a complete list of your options, see the configuration parameters below.👇
     exceptionHandlers: [
       logzIOTransport
     ],
-    exitOnError: true    // set this to true
+    exitOnError: true  // set this to true
   });
 
   process.on('uncaughtException', function (err) {
@@ -226,7 +201,7 @@ For a complete list of your options, see the configuration parameters below.👇
   });
   ```
 
-* Additional configuration option
+* Configure HTTPS Shipping
 
   ```javascript
   var winston = require('winston');
@@ -244,11 +219,7 @@ For a complete list of your options, see the configuration parameters below.👇
   winston.add(logzioWinstonTransport, loggerOptions);
   ```
 
-
-### Add custom tags to winston-logzio
-
-Add custom tags using the following format: `{ tags : ['tag1']}`, for example:
-
+* Add custom tags to winston-logzio
 
 ```javascript
 var obj = {
@@ -262,6 +233,9 @@ var obj = {
 logger.log(obj);
 ```
 
+
+</TabItem>
+  <TabItem value="Typescript" label="winston-logzio Typescript">
 
 
 ### Configure winston-logzio with Typescript
@@ -313,12 +287,40 @@ const logger = winston.createLogger({
     format: winston.format.simple(),
     transports: [logzioWinstonTransport],
 });
+
+var obj = {
+    message: 'Your log message',
+    tags : ['tag1']
+};
+
+logger.log(obj);
 logger.log('warn', 'Just a test message');
 ```
 
+### Parameters
+
+For a complete list of your options, see the configuration parameters below.👇
+
+
+| Parameter | Description | Required/Default |
+|---|---|---|
+| LogzioWinstonTransport | Determines the settings passed to the logzio-nodejs logger. Configure any parameters you want to send to winston when initializing the transport. | -- |
+| token | Your Logz.io log shipping token securely directs data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). {@include: ../../_include/log-shipping/log-shipping-token.html} | Required |
+| protocol | `http` or `https`, affecting the default `port` parameter. | `http` |
+| host  |  {@include: ../../_include/log-shipping/listener-var.md} {@include: ../../_include/log-shipping/listener-var.html} | `listener.logz.io` |
+| port | Destination port based on the `protocol` parameter: `8070` (for HTTP) or `8071` (for HTTPS) | `8070` / `8071` |
+| type | {@include: ../../_include/log-shipping/type.md} | `nodejs` |
+| sendIntervalMs  | Time to wait between retry attempts, in milliseconds. | `2000` (2 seconds) |
+| bufferSize  | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
+| numberOfRetries | Maximum number of retry attempts. | `3` |
+| debug | To print debug messages to the console, `true`. Otherwise, `false`. | `false` |
+| callback | Callback function for unrecoverable errors. The function API is `function(err)`, where `err` is the Error object. | -- |
+| timeout | Read/write/connection timeout, in milliseconds. | -- |
+| extraFields | Adds custom fields to each log in JSON format: `extraFields : { field_1: "val_1", field_2: "val_2" , ... }` | -- |
+| setUserAgent | Set to `false` to send logs without the user-agent field in the request header. Set to `false` if sending data from Firefox browser. | `true` |
+
+
 If you are using winston-logzio in a serverless service (e.g., AWS Lambda, Azure Functions, Google Cloud Functions), add this line at the end of each run to ensure proper logging.
-
-
 
 ```javascript
 await logger.info(“API Called”)
@@ -342,25 +344,83 @@ or
 tsc --project tsconfig.json  
 ```
 
+</TabItem>
+<TabItem value="OpenTelemetry" label="OpenTelemetry">
 
-### Add custom tags to winston-logzio with Typescript
+Install the dependencies:
 
-Add custom tags using the following format: `{ tags : ['tag1']}`, for example:
 
-```javascript
-var obj = {
-
-    message: 'Your log message',
-
-    tags : ['tag1']
-
-};
-
-logger.log(obj);
+```shell
+npm install --save @opentelemetry/api-logs
+npm install --save @opentelemetry/sdk-logs
+npm install --save @opentelemetry/exporter-logs-otlp-proto
 ```
 
-</TabItem>
+Configure the Opentelemetry Collector, You can use the sample configuration and edit it according to your needs:
 
+```javascript
+import logsAPI from '@opentelemetry/api-logs'
+import {
+  LoggerProvider,
+  SimpleLogRecordProcessor,
+} from '@opentelemetry/sdk-logs';
+import { OTLPLogExporter } from '@opentelemetry/exporter-logs-otlp-proto';
+import { diag, DiagConsoleLogger, DiagLogLevel } from '@opentelemetry/api';
+import { Resource } from '@opentelemetry/resources';
+
+
+// Initialize the Logger provider
+// Change <<service-name>> to your service name
+const loggerProvider = new LoggerProvider({resource: new Resource({'service.name': '<<service-name>>'})});
+
+// Configure OTLP exporter
+const logzioExporterOptions = {
+  url: 'https://otlp-listener.logz.io/v1/logs',
+  headers: {Authorization: 'Bearer <<LOG-SHIPPING-TOKEN>>', 'user-agent': 'logzio-nodejs-logs-otlp'},
+};
+
+// Add a processor to export log record
+// In order to send data in batch, change SimpleLogRecordProcessor >> BatchLogRecordProcessor
+loggerProvider.addLogRecordProcessor(
+  new SimpleLogRecordProcessor(new OTLPLogExporter(logzioExporterOptions)),
+);
+
+// To add debug mode to the OpenTelemetry collector, uncomment the below line
+// diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.DEBUG);
+
+
+// Create a Logger instance
+// You can change the logger name from exmaple_logger to any name you prefer
+const logger = loggerProvider.getLogger('exmaple_logger');
+
+// Close logger gracefully
+['SIGINT', 'SIGTERM'].forEach(signal => {
+  process.on(signal, () => loggerProvider.shutdown().catch(console.error));
+});
+
+// Emit a log record
+logger.emit({
+  severityNumber: logsAPI.SeverityNumber.INFO,
+  severityText: 'INFO',
+  body: 'some message',
+  attributes: { 'log.type': 'LogRecord' },
+});
+
+logger.emit({
+  severityNumber: logsAPI.SeverityNumber.INFO,
+  severityText: 'INFO',
+  body: '{"field1": 123, "field2": "value"}',
+  attributes: { 'log.type': 'LogRecord' },
+});
+
+```
+
+:::note
+If your Logz.io account region is not `us-east-1`, add your [region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions) to the `url` like so `https://otlp-listener-<<REGION-CODE>>.logz.io/v1/logs`.
+:::
+
+
+</TabItem>
 </Tabs>
 
 
@@ -382,13 +442,6 @@ Node 8 or higher.
 :::note
 We recommend using this integration with [the Logz.io Metrics backend](https://app.logz.io/#/dashboard/metrics/), though it is compatible with any backend that supports the `prometheusremotewrite` format.
 :::
-
-
-
-
-
-
-
 
 
 ### Install the SDK package
