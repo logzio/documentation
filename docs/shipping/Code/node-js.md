@@ -345,6 +345,7 @@ tsc --project tsconfig.json
 ```
 
 </TabItem>
+<TabItem value="OpenTelemetry" label="OpenTelemetry">
 
 Install the dependencies:
 
@@ -441,13 +442,6 @@ Node 8 or higher.
 :::note
 We recommend using this integration with [the Logz.io Metrics backend](https://app.logz.io/#/dashboard/metrics/), though it is compatible with any backend that supports the `prometheusremotewrite` format.
 :::
-
-
-
-
-
-
-
 
 
 ### Install the SDK package
