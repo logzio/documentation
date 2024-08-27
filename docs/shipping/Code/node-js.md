@@ -63,7 +63,7 @@ var logger = require('logzio-nodejs').createLogger({
 | sendIntervalMs  | Time to wait between retry attempts, in milliseconds. | `2000` (2 seconds) |
 | bufferSize  | Maximum number of messages the logger accumulates before sending them all as a bulk. | `100` |
 | numberOfRetries | Maximum number of retry attempts. | `3` |
-| debug | Set to `true` to print debug messsages to the console.  | `false` |
+| debug | Set to `true` to print debug messages to the console.  | `false` |
 | callback | A callback function to call when the logger encounters an unrecoverable error. The function API is `function(err)`, where `err` is the Error object. | -- |
 | timeout | Read/write/connection timeout, in milliseconds. | -- |
 | extraFields | JSON format. Adds your custom fields to each log. Format: `extraFields : { field_1: "val_1", field_2: "val_2" , ... }` | -- |
@@ -165,7 +165,7 @@ For a complete list of your options, see the configuration parameters below.👇
 | sendIntervalMs  | Time to wait between retry attempts, in milliseconds. | `2000` (2 seconds) |
 | bufferSize  | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
 | numberOfRetries | Maximum number of retry attempts. | `3` |
-| debug | To print debug messsages to the console, `true`. Otherwise, `false`. | `false` |
+| debug | To print debug messages to the console, `true`. Otherwise, `false`. | `false` |
 | callback | Callback function for unrecoverable errors. The function API is `function(err)`, where `err` is the Error object. | -- |
 | timeout | Read/write/connection timeout, in milliseconds. | -- |
 | extraFields | Adds custom fields to each log in JSON format: `extraFields : { field_1: "val_1", field_2: "val_2" , ... }` | -- |
@@ -313,7 +313,7 @@ For a complete list of your options, see the configuration parameters below.👇
 | sendIntervalMs  | Time to wait between retry attempts, in milliseconds. | `2000` (2 seconds) |
 | bufferSize  | Maximum number of messages the logger will accumulate before sending them all as a bulk. | `100` |
 | numberOfRetries | Maximum number of retry attempts. | `3` |
-| debug | To print debug messsages to the console, `true`. Otherwise, `false`. | `false` |
+| debug | To print debug messages to the console, `true`. Otherwise, `false`. | `false` |
 | callback | Callback function for unrecoverable errors. The function API is `function(err)`, where `err` is the Error object. | -- |
 | timeout | Read/write/connection timeout, in milliseconds. | -- |
 | extraFields | Adds custom fields to each log in JSON format: `extraFields : { field_1: "val_1", field_2: "val_2" , ... }` | -- |
