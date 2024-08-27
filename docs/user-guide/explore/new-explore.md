@@ -14,6 +14,14 @@ Explore provides a unified dashboard for monitoring your data, offering a quick 
 
 ### Simple Search / Advanced (Lucene)  
 
+
+<iframe
+  src="https://capture.navattic.com/clxywtqr3000009l86x8bh221"
+  style={{ border: 'none', width: '100%', height: '900px' }}
+  allow="fullscreen"
+  id="navattic-embed"
+/>
+
 Click on the dropdown menu to switch between Simple Search and Advanced Search, a Lucene query-based search:
 
 * **Simple Search**: An intuitive search with auto-complete functionality. It streamlines your search process and enables faster access to data.
@@ -105,3 +113,4 @@ Expand each log to view additional details, see the log in JSON format, and add 
 In the top right corner, choose to view a single log in a new window, view surrounding logs for context, and share the URL of the specific log you're viewing.
 
 <img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/logs-aug21.png" alt="smart-search" width="700"/>
+
