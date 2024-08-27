@@ -34,18 +34,20 @@ If you prefer to send your data manually, Logz.io offers numerous methods to do 
 | --- | --- | --- | --- |
 |[Filebeat](https://app.logz.io/#/dashboard/integrations/Filebeat-data)|[.NET](https://app.logz.io/#/dashboard/integrations/dotnet)|[Jaeger installation](https://app.logz.io/#/dashboard/integrations/Jaeger-data)|[Cloudflare](https://app.logz.io/#/dashboard/integrations/Cloudflare-network)
 |[S3 Bucket](https://app.logz.io/#/dashboard/integrations/AWS-S3-Bucket)|[Prometheus](https://app.logz.io/#/dashboard/integrations/Prometheus-remote-write)|[OpenTelemetry installation](https://app.logz.io/#/dashboard/integrations/OpenTelemetry-data)|[NGINX](https://app.logz.io/#/dashboard/integrations/Nginx-load)
-|[cURL](https://app.logz.io/#/dashboard/integrations/cURL-data)|[Azure Kubernetes Service](https://app.logz.io/#/dashboard/integrations/Kubernetes)|[Docker](https://app.logz.io/#/dashboard/integrations/Docker)|[Active directory](https://app.logz.io/#/dashboard/integrations/Active-Directory)
-|[JSON uploads](https://app.logz.io/#/dashboard/integrations/JSON)|[Google Kubernetes Engine over OpenTelemetry](https://app.logz.io/#/dashboard/integrations/Kubernetes)|[Kubernetes](https://app.logz.io/#/dashboard/integrations/Kubernetes)|[CloudTrail](https://app.logz.io/#/dashboard/integrations/AWS-CloudTrail)
-|[Docker container](https://app.logz.io/#/dashboard/integrations/Docker)|[Amazon EC2](https://app.logz.io/#/dashboard/integrations/AWS-EC2)|[Go instrumentation](https://app.logz.io/#/dashboard/integrations/GO)|[Auditbeat](https://app.logz.io/#/dashboard/integrations/auditbeat) |
+|[cURL](https://app.logz.io/#/dashboard/integrations/cURL-data)|[Java](https://app.logz.io/#/dashboard/integrations/Java)|[Docker](https://app.logz.io/#/dashboard/integrations/Docker)|[Active directory](https://app.logz.io/#/dashboard/integrations/Active-Directory)
+|[HTTP uploads](https://app.logz.io/#/dashboard/integrations/HTTP)|[Node.js](https://app.logz.io/#/dashboard/integrations/Node-js)|[Kubernetes](https://app.logz.io/#/dashboard/integrations/Kubernetes)|[CloudTrail](https://app.logz.io/#/dashboard/integrations/AWS-CloudTrail)
+|[Python](https://app.logz.io/#/dashboard/integrations/Python)|[Amazon EC2](https://app.logz.io/#/dashboard/integrations/AWS-EC2)|[Go instrumentation](https://app.logz.io/#/dashboard/integrations/GO)|[Auditbeat](https://app.logz.io/#/dashboard/integrations/auditbeat) |
 
-Browse the complete list of available shipping methods [here](https://docs.logz.io/docs/category/send-your-data/).
+Browse the complete list of available shipping methods [here](https://app.logz.io/#/dashboard/integrations/collectors).
 
-To learn more about shipping your data, check out **Shipping Log Data to Logz.io**:
+<!-- To learn more about shipping your data, check out **Shipping Log Data to Logz.io**:
 
 
 <div style={{position: 'relative', paddingBottom: '56.25%'}}>
   <iframe style={{position: 'absolute', top: '0', left: '0', width: '100%', height: '100%'}} src="https://fast.wistia.com/embed/iframe/oi6qydmyk6" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
+
+-->
 
 ### Parsing your data
 
@@ -53,7 +55,9 @@ Logz.io offers automatic parsing [for over 50 log types](https://docs.logz.io/do
 
 If you can't find your log type, or if you're interested in sending custom logs, Logz.io will parse the logs for you. Parsing-as-a-service is included in your Logz.io subscription; just open a chat with our **Support team** with your request, you can also email us at [help@logz.io](mailto:help@logz.io).
 
-###### Additional resources
+<h4 id="logs-resources"> Additional resources </h4>
+
+//START HERE
 
 
 Learn more about sending data to Logz.io:
@@ -65,9 +69,9 @@ Learn more about sending data to Logz.io:
 
 ### Explore your data with Logz.io's Log Management platform
 
-Logz.io’s **[Log Management](https://app.logz.io/#/dashboard/osd)** is where you can search and query log files. You can use it to identify and analyze your code, and the platform is optimized for debugging and troubleshooting issues as quickly and effectively as possible.
+Logz.io's [Explore](https://app.logz.io/#/dashboard/explore) is where you can view, search, and query your data. Use it to identify and analyze your code, debug and troubleshoot issues, and get recommendations to next steps with its AI Assistant.
 
-![Log management overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/log-analytics-main-sep26.png)
+![Log management overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/explore-aug27.png)
 
 The following list contains some of the common abilities available in Log Management:
 
