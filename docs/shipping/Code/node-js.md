@@ -345,7 +345,6 @@ tsc --project tsconfig.json
 ```
 
 </TabItem>
-  <TabItem value="OpenTelemetry" label="OpenTelemetry">
 
 Install the dependencies:
 

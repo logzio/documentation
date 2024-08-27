@@ -11,9 +11,7 @@ slug: /user-guide/k8s-360/kubernetes-360-pre
 
 Kubernetes 360 application provides an overview of your Kubernetes data, providing a quick overview of your current deployments, pods, and more useful information regarding your environment.
 
-![Main dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/k360-main.png)
-
-
+![Main dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/k360-aug22.png)
 
 
 
