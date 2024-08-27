@@ -1309,7 +1309,7 @@ This configuration is designed to send logs to your Logz.io account via the Open
            .AddOtlpExporter(otlpOptions =>
            {
                otlpOptions.Endpoint = new Uri(logzioEndpoint);
-               otlpOptions.Headers = $"Authorization=Bearer {logzioToken}, user-agent=logzio-dotnet-logs";
+               otlpOptions.Headers = $"Authorization=Bearer {logzioToken}, user-agent=logzio-dotnet-logs-otlp";
                otlpOptions.Protocol = OtlpExportProtocol.HttpProtobuf;
            });
    });   
