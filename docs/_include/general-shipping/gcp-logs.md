@@ -38,3 +38,12 @@ Replace the variables as per the table below:
 | `<<LOG-TYPE>>`       | Log type. Help classify logs into different classifications. (Default: `gcp-pubsub`)                                                                                                                       |
 | `<<FUNCTION-NAME>>`  | Function name will be using as Google Cloud Function name. (Default: `logzioHandler`)                                                                                                                      |
 | `<<TELEMETRY-LIST>>` | Will send logs that match the Google resource type. Detailed list you can find [here](https://cloud.google.com/logging/docs/api/v2/resource-list) (ex: `pubsub_topic,pubsub_subscription`). For all services insert `all_services`. |
+
+
+#### Updating `telemetry_list` after creation
+
+To update the resources that are monitored by the function follow the steps:
+1. Go to Log router page.
+2. Choose `logzioHandler-sink-logs-to-logzio`.
+3. Edit the sink.
+4. Update the query which filters for the resource types to monitor.
