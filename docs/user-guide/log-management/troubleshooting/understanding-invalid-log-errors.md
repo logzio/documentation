@@ -6,13 +6,13 @@ image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.
 keywords: [logz.io, troubleshooting, invalid logs, log analysis, observability]
 ---
 
-There are a number of scenarios that can lead to invalid log errors. In this doc, we'll walk through the different types of log errors and common methods to solve the issue.
+Invalid log errors can occur in several scenarios. In this document, we'll discuss the different types of log errors and common methods for solving the issue.
 
 
 
 ## Field mapping types
 
-To make your search engine queries and analytics are more effective, OpenSearch Dashboards maps each field by a data type, so it knows how to display it according to its capabilities. There are two types of mapping fields:
+To make your search engine queries and analytics more effective, OpenSearch Dashboards maps each field by a data type so it knows how to display it according to its capabilities. There are two types of mapping fields:
 
 * **Dynamic** - This is the default mapping type, determined by the value of the log fields mapped at the beginning of each day.
 * **Explicit** - This is a forced mapping type, and when chosen, OpenSearch will always map this field as the same data type.
@@ -39,11 +39,16 @@ Your logs are mapped daily, and each field is assigned a Dynamic or Explicit dat
 
 Dynamic mappings are automatically determined as logs are received, meaning the fields' data type is known. When a field is marked as Explicit, its data type is unclear.
 
-Mapping errors occur when different data types are sent to the same field. For example, if field `weather` receives the numeric value `35`, then gets the value `hot`, it'll result in a mapping error since the same field can't contain two different types of inputs.
+Mapping errors occur when different data types are sent to the same field. For example, if field `weather` receives the numeric value `35` and then gets the value `hot`, it'll result in a mapping error since the same field can't contain two different types of inputs.
 
 The **`type`** field is changed to **`logzio-index-failure`**,  and the **`tags`** field is added to the log to identify the issue.
 
 ![Fail log example](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/logzio-index-fail.png)
+
+When a specific log type encounters too many mapping parsing exceptions, the problematic field will either be eliminated or flatten and renamed by the support team.
+
+If a field is removed, its data is stored in a new entry called `logzio_removed_fields`, which holds all removed entries for that log type and their corresponding values for reference.    
+
 
 Here are some of the **common mapping errors** you might encounter and why they happen:
 
