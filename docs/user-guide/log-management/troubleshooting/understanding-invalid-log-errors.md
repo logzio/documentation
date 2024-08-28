@@ -45,7 +45,7 @@ The **`type`** field is changed to **`logzio-index-failure`**,  and the **`tags`
 
 ![Fail log example](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/logzio-index-fail.png)
 
-When a specific log type encounters too many mapping parsing exceptions, the system will either eliminate the problematic field or flatten and rename it.
+When a specific log type encounters too many mapping parsing exceptions, the problematic field will either be eliminated or flatten and renamed by the support team.
 
 If a field is removed, its data is stored in a new entry called `logzio_removed_fields`, which holds all removed entries for that log type and their corresponding values for reference.    
 
