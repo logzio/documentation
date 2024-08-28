@@ -57,9 +57,6 @@ If you can't find your log type, or if you're interested in sending custom logs,
 
 <h4 id="logs-resources"> Additional resources </h4>
 
-//START HERE
-
-
 Learn more about sending data to Logz.io:
 
 * [Use Logz.io API](https://api-docs.logz.io/docs/logz/logz-io-api/)
@@ -73,7 +70,7 @@ Logz.io's [Explore](https://app.logz.io/#/dashboard/explore) is where you can vi
 
 ![Log management overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/explore-aug27.png)
 
-The following list contains some of the common abilities available in Log Management:
+//The following list contains some of the common abilities available in Log Management:
 
 * **[Log Management best practices](https://docs.logz.io/docs/user-guide/log-management/opensearch-dashboards/opensearch-best-practices/)**
 * **[Configuring an alert](https://app.logz.io/#/dashboard/alerts/v2019/new)**

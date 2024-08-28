@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 6
 title: Explore Best Practices
 description: Best practices in Log management and Explore
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
@@ -15,10 +15,11 @@ Explore supports a few query methods, including:
 
 Logz.io offers an intuative and easy way to build your query. Click the search bar or start typing to find and select fields, conditions, and values. 
 
-Build your query by selecting fields, parameters, and conditions. To add a value that doesn't appear in your logs, type its name and click on the + sign. You can also add free text to your search, which will convert it into a Lucene query.
+Build your query by selecting fields, parameters, and conditions. Start typing to see all the relevant fields available, add an operator, and select the value. To add a custom value that doesn't appear in your logs, type its name and click on the + sign to apply it.
 
-/// ADD MORE INFO HERE 
+Click Enter to apply the query, or tab to build the next condition. 
 
+You can also type free text in your search, which will convert it into a Lucene query.
 
 ## Lucene 
 
@@ -26,18 +27,39 @@ Logz.io supports Lucene, an open-source search engine software library.
 
 With Lucene, you can search for free text by typing the text string you want to find; for example, `error` will return all words containing this string, and using quotation marks, `"error"`, will return only the specific word you're searching for.
 
-![See error](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/best-error-aug27.png)
+//![See error](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/best-error-aug27.png)
 
-Use the filters to refine your search. For example, you can filter out all of the eventType fields that are `Modified`.
+Use the filters to refine your search. For example, you can filter out all `log_type:info` to focus your search on relevant finds.
 
-![Filter out](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/isnot-filter-aug27.png)
+//![Filter out](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/isnot-filter-aug27.png)
 
 The filters include numeric based fields, such as `LogSize`. Choose the operator and value to view the relevant results. 
 
 ![numeric filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/logsize-explore-aug27.png)
 
+To search for a value in a specific field, use the following syntax:
 
+`log_level:ERROR`
 
+Use the boolean operators AND, OR, and NOT to create more complex searches. For example, to search for a specific status that doesn't contain a certain word:
+
+`log_level:ERROR AND Kubernetes`
+
+If you want to perform **range-related searches**, the fields must be mapped as numbers (long, float, double, etc.). Then, you can use the following syntax. For example, you can use it to find all status codes between 400-499:
+
+`LogSize:[2000 TO 3000]`
+
+To make your search more complex, you can find status codes 400-499 with the extension php:
+
+`LogSize:[2000 TO 3000] AND eventType:MODIFIED`
+
+Or, find status codes 400-499 with the extension php or html:
+
+`LogSize:[2000 TO 3000] AND logzio-signature:[700000000 TO 710000000]`
+
+To exclude a term from your search, you can use the following syntax:
+
+`LogSize:[2000 TO 3000] AND type NOT (name:"agent-k8s")`
 
 
 ### Apply regex to search
@@ -77,21 +99,24 @@ To find one of the values in the field, such as `fox`, you'll need to use the fo
 
 // DIDNT EDIT BELOW THIS LINE
 
-## Enrich log results
+## Edit log view
 
-You can add additional columns to your logs field view.
+You can add additional columns to your logs table view.
 
-Find the field you'd like to add, hover over it and click on the **+** button.
+Find the field you'd like to add, hover over it and click the **Toggle column in table** button.
 
-![Add field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/add-field-discover.png)
 
-Once the field is added, you can move or remove it using its inner menu.
 
-![Edit field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/add-field-overview.gif)
+//![Add field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/add-field-discover.png)
+
+Once added, you can drag it to reposition it, or click the **X** to remove it.
+
+
+//![Edit field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/add-field-overview.gif)
 
 Finally, you can save your search and its view by clicking on the **Save** option, at the top navigation bar.
 
-![Save field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/save-your-fields.png)
+//![Save field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/save-your-fields.png)
 
 ## Filter log results
 
