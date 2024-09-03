@@ -42,7 +42,7 @@ systemLog:
 
 Make sure Fluend can read from the MongoDB log file. You can set this as follows:
 
-#### On macOS and Linux
+#### On MacOS and Linux
 
 ```shell
 sudo chmod 604 <<MONGODB-FILE-PATH>>
@@ -208,7 +208,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the M
 * Replace `<<ADDRESS>>` with the address of your MongoDB database host. This is `localhost` if installed locally.
 * Replace `<<PORT>>` with the address of your host port allocated to MongoDB database.
 
-:::note
+:::note 
 The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/blob/release-1.18/plugins/inputs/mongodb/README.md).
 :::
 
@@ -224,7 +224,7 @@ The full list of data scraping and configuring options can be found [here](https
 
 #### Check Logz.io for your metrics
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["13q1IECY8zfnnDXvUq7vvH"] -->
 

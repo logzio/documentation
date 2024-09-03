@@ -20,7 +20,7 @@ drop_filter: []
 **Before you begin, you'll need**:
 
 * An active account with bunny.net
-* An active account with Logz.io
+* An active Logz.io account
 * [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) installed on your machine
 * Root priveleges on your machines
 
@@ -103,7 +103,7 @@ sudo openssl req -newkey rsa:2048 -nodes \
    output.logstash:
      hosts: ["<<LISTENER-HOST>>:5015"]
      ssl:
-       certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+       certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt'] 
    ```
   
    * Replace `<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>` with the address of your server running Filebeat.

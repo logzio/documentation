@@ -21,7 +21,7 @@ Deploy this integration to send traces from your Istio service mesh layers to Lo
 
 * An applicaion instrumented by Istio in a Kubernetes cluster
 * [Istioctl](https://istio.io/latest/docs/reference/commands/istioctl/) installed on your machine
-* An active account with Logz.io
+* An active Logz.io account
 
  
 :::note

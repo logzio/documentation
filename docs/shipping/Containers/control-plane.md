@@ -59,7 +59,7 @@ name: <<ORG_NAME>>
 spec:
   logging:
     logzio:
-      credentials: //secret/<<OPAQUE-SECRET-NAME>>
+      credentials: //secret/<<OPAQUE-SECRET-NAME>> 
       listenerHost: <<LISTENER-HOST>>
 ```
 

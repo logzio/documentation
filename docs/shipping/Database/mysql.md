@@ -184,7 +184,7 @@ The log type is used to apply the appropriate Logz.io preconfigured parsing pipe
 
 #### Set Logz.io as the output
 
-If Logz.io is not an output, add it now.
+If Logz.io is not an output, add it now. 
 Remove all other outputs.
 
 {@include: ../../_include/log-shipping/listener-url.html} 
@@ -372,7 +372,7 @@ The full list of data scraping and configuring options can be found [here](https
 
 ### Check Logz.io for your metrics
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["2zMVEOdWnIMgOPATDLByX7"] -->
 

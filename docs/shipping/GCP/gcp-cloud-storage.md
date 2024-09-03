@@ -19,7 +19,7 @@ Google Cloud Storage is a RESTful online file storage web service for storing an
 
 ## Logs
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 For this integration, the telemetry list needs to include `gcs_bucket`.
 

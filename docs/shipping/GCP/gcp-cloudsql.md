@@ -19,7 +19,7 @@ Google Cloud SQL is a fully-managed database service that is used to set up, mai
 
 ## Logs
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 For this integration, the telemetry list needs to include `cloudsql_database`.
 

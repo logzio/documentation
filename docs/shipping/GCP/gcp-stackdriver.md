@@ -18,7 +18,7 @@ drop_filter: []
 
 **Default integration**
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 For this integration, the telemetry list needs to include `gce_operation`.
 
@@ -367,7 +367,7 @@ processors:
 ### Output 
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"] 
-  # Replace <<LISTENER-HOST>> with the host for your region. For example, listener.logz.io if your account is hosted on AWS US East. The required port depends whether HTTP or HTTPS is used: HTTP = 8070, HTTPS = 8071.
+  # Replace <<LISTENER-HOST>> with the host for your region. Required port: HTTP = 8070, HTTPS = 8071.
 
 
   ssl:

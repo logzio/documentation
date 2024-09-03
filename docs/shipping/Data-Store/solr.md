@@ -3,7 +3,7 @@ id: Solr
 title: Solr
 overview: Solr is an open-source enterprise-search platform, written in Java. Telegraf is a plug-in driven server agent for collecting and sending metrics and events from databases, systems and IoT sensors.
 product: ['metrics']
-os: ['Search Platform']
+os: []
 filters: ['Data Store']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/solr-logo.png
 logs_dashboards: []
@@ -48,7 +48,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the A
 
 :::note
 The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/blob/release-1.18/plugins/inputs/solr/README.md)
-:::
+::: 
  
 
 ##### Add the outputs.http plug-in

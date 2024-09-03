@@ -16,11 +16,7 @@ You need to enable [Metrics](https://app.logz.io/#/dashboard/metrics/) in your L
 
 Navigate to your [Metrics dashboard](https://app.logz.io/#/dashboard/metrics), click the cogwheel icon in the upper right corner of the dashboard toolbar, and select **Variables > New**.
 
-
-
-<!-- 
-
-![Add Metrics interface variables](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metrics-variables.png) -->
+![Add Metrics interface variables](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/metrics-cogwheel.png)
 
 <h3 id="define"> Define the variable</h3>
 

@@ -105,7 +105,7 @@ If you're running Filebeat 6, paste this code block.
 registry_file: /var/lib/filebeat/registry
 ```
 
-### Set Logz.io as the output
+### Set Logz.io as the output 
 
 If Logz.io is not an output, add it now.
 Remove all other outputs.

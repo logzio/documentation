@@ -18,7 +18,7 @@ The Observability IQ Assistant can help you with queries related to log analysis
 
 ### Is Observability IQ Assistant available to all users?
 
-Observability IQ Assistant is currently available to all Logz.io users whose data is hosted in the EU, Australia, and the US regions.
+Yes. Observability IQ Assistant is currently available to all Logz.io users.
 
 ### Is Observability IQ Assistant accessible via API?
 
@@ -51,7 +51,7 @@ The model is hosted within the same region in which your Logz.io data is hosted.
 
 ### Can account admins see my queries and chat history?
 
-No. Account admins or any other users within your organization cannot view or access any queries or chat history from the Observability IQ Assistant. Logz.io does not retain your query or chat history and is deleted after the session ends.
+No. Account admins or any other users within your organization cannot view or access any queries or chat history from the Observability IQ Assistant. 
 
 ### Do you use my data to train the AI model?
 

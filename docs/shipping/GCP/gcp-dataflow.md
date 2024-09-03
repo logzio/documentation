@@ -18,7 +18,7 @@ Google Dataflow is a fully managed streaming analytics service that minimizes la
 
 ## Logs
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 
 ### Check Logz.io for your logs

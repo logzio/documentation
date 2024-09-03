@@ -9,13 +9,12 @@ This integration is based on [`logzio-google-pubsub`](https://github.com/logzio/
 
 ### Run Google Cloud Shell configuration
 
-Use the following link, to clone the solution's repo and use it in your Google Cloud Shell:
+[Click this link](https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/logzio/logzio-google-pubsub
+) to clone the solution's repo and use it in your Google Cloud Shell.
 
-```shell
-https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/logzio/logzio-google-pubsub
-```
-
-You may encounter a pop up window. Check the `Trust repo` checkbox, and press `Confirm`.
+:::note
+If a pop-up window appears, check the `Trust repo` box and press `Confirm`.
+:::
 
 ### Run setup script in Google Cloud Shell
 
@@ -39,3 +38,12 @@ Replace the variables as per the table below:
 | `<<LOG-TYPE>>`       | Log type. Help classify logs into different classifications. (Default: `gcp-pubsub`)                                                                                                                       |
 | `<<FUNCTION-NAME>>`  | Function name will be using as Google Cloud Function name. (Default: `logzioHandler`)                                                                                                                      |
 | `<<TELEMETRY-LIST>>` | Will send logs that match the Google resource type. Detailed list you can find [here](https://cloud.google.com/logging/docs/api/v2/resource-list) (ex: `pubsub_topic,pubsub_subscription`). For all services insert `all_services`. |
+
+
+#### Updating `telemetry_list` after creation
+
+To update the resources that are monitored by the function follow the steps:
+1. Go to Log router page.
+2. Choose `logzioHandler-sink-logs-to-logzio`.
+3. Edit the sink.
+4. Update the query which filters for the resource types to monitor.

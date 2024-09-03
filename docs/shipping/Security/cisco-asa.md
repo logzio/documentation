@@ -84,7 +84,7 @@ processors:
     ignore_missing: true
 ```
 
-If you're running Filebeat 6, paste this code block.
+If you're running Filebeat 6, paste this code block. 
 
 ```yaml
 # ... For Filebeat 6 only ...

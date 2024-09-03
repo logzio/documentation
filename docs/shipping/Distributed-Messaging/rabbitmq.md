@@ -94,7 +94,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the R
 :::note
 The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/blob/release-1.18/plugins/inputs/rabbitmq/README.md)
 :::
-
+ 
 
 ##### Add the outputs.http plug-in
 
@@ -109,7 +109,7 @@ The full list of data scraping and configuring options can be found [here](https
 
 Give your metrics some time to get from your system to ours.
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["77P29wgQwu1pqCaZFMcwnC"] -->
 

@@ -18,10 +18,10 @@ A connectivity issue may be causing this error.
 
 Check your shipper's connectivity as follows.
 
-For macOS and Linux, use telnet to make sure your log shipper can connect to Logz.io listeners.
+For MacOS and Linux, use telnet to make sure your log shipper can connect to Logz.io listeners.
 
 :::note
-As of macOS High Sierra (10.13),
+As of MacOS High Sierra (10.13),
 telnet is not installed by default.
 You can install telnet with Homebrew
 by running `brew install telnet`.
