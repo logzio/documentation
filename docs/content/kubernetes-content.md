@@ -23,13 +23,15 @@ Metrics alerts (Cluster CPU Overcommit, Node CPU Utilization, Pod Memory Usage) 
 
 Use our dashboards and alerts to maintain Kubernetes health and performance, making data-driven decisions to optimize resources and applications.
 
+![kubernetes dashboards](https://dytvr9ot2sszz.cloudfront.net/logz-docs/content/dashboards-main-sep3.png)
+
+
+
 ## Dashboards
 
 <h3 id="cluster-stats">Cluster Stats</h3>
 
 Get a comprehensive view of the cluster's resource utilization, including total CPU, memory, and disk usage, along with detailed metrics for pods, nodes, deployments, and namespaces. Includes network traffic insights and integrated alerts for efficient Kubernetes management.
-
-<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/content/dashmock.png" alt="cluster-stats" width="700"/>
 
 <h3 id="node-stats">Node Stats</h3>
 
@@ -74,6 +76,9 @@ Get detailed insights into your cluster's logging activity. Filter logs by clust
 
 ## Metric Alerts
 
+![kubernetes metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/content/grafana-dashboard-sep3-metrics.png)
+
+
 <h3 id="osd-overview">OSD Dashboard Cluster Overview</h3>
 
 * Cluster CPU Overcommit - Cluster has overcommitted cpu resource requests
@@ -108,6 +113,9 @@ Get detailed insights into your cluster's logging activity. Filter logs by clust
 
 
 ## Log Alerts
+
+![kubernetes log alerts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/content/k360-cluster-sep3-log-alerts.png)
+
 
 * Internal Error - The "INTERNAL_ERROR" indicates an internal error within the system or service responsible for the UAS exporter. It suggests that something went wrong during the export process, which resulted in the stream being terminated.
 * Warning - "WARNING" log level logs, please refer to message to inspect
