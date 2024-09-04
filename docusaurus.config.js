@@ -33,6 +33,7 @@ const config = {
   },
 
   plugins: [
+    'plugin-image-zoom',
     'docusaurus-plugin-hotjar',
     [
       'docusaurus-plugin-includes',
