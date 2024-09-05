@@ -398,95 +398,15 @@ Ensure that you have the following installed locally:
 
 * Go 1.21 or newer
 
-### Example Application
+### Clone the application repository
 
-The following example uses a basic net/http application in Go. This guide will help you set up the environment, create the application, and configure it to send logs to Logz.io using OpenTelemetry.
+Clone the sample application repository to your local machine by running:
 
+```bash
+git clone <placeholder>
+```
 
-
-### Create and launch an HTTP Server
-
-1. Create a new directory for your Go project and initialize the Go module:
-
-   ```bash
-   mkdir otel-getting-started
-   cd otel-getting-started
-   go mod init otel-getting-started
-   ```
-
-2. Create and activate a virtual environment:
-
-   ```bash
-   mkdir otel-getting-started
-   cd otel-getting-started
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
-
-3. Create a file named main.go and add the following code to set up a simple HTTP server:
-
-   ```go
-   package main
-
-   import (
-       "io"
-       "math/rand"
-       "net/http"
-       "strconv"
-       "strings"
-   
-       "go.opentelemetry.io/otel/attribute"
-       "go.opentelemetry.io/otel/metric"
-   )
-   
-   func rolldice(w http.ResponseWriter, r *http.Request) {
-       ctx, span := tracer.Start(r.Context(), "roll")
-       defer span.End()
-   
-       // Extract the player's name from a query parameter or other parts of the request
-       path := r.URL.Path
-       segments := strings.Split(path, "/")
-       playerName := "Anonymous" // Default name if not specified
-   
-       if len(segments) > 2 && segments[2] != "" {
-           playerName = segments[2]
-       }
-   
-       roll := 1 + rand.Intn(6)
-   
-       if playerName == "Anonymous" {
-           logger.InfoContext(ctx, "Anonymous player is rolling the dice", "result", roll)
-       } else {
-           logger.InfoContext(ctx, playerName+" is rolling the dice", "result", roll)
-       }
-   
-       rollValueAttr := attribute.Int("roll.value", roll)
-       span.SetAttributes(rollValueAttr)
-       rollCnt.Add(ctx, 1, metric.WithAttributes(rollValueAttr))
-   
-       resp := strconv.Itoa(roll) + "\n"
-       if _, err := io.WriteString(w, resp); err != nil {
-           logger.ErrorContext(ctx, "Write failed", "error", err)
-       }
-   }
-   
-   func main() {
-       http.HandleFunc("/rolldice", rolldice)
-       http.ListenAndServe(":8080", nil)
-   }
-   
-   ```
-
-4. Run the application:
-
-   ``` bash
-   go run main.go
-   ```
-
-Open http://localhost:8080/rolldice in your web browser to ensure it is working.
-
-
-### Instrumentation
+### Configure the instrumentation
 
 Next, we'll configure the OpenTelemetry logging exporter to send logs to Logz.io via the OTLP listener.
 
@@ -507,70 +427,20 @@ This configuration is designed to send logs to your Logz.io account via the Open
 
 
    ```go
-   // Copyright The OpenTelemetry Authors
-   // SPDX-License-Identifier: Apache-2.0
-   
    package main
-   
+
    import (
    	"context"
-   	"errors"
    	"fmt"
+   	"log"
    
-   	"go.opentelemetry.io/otel"
    	"go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploghttp"
    	"go.opentelemetry.io/otel/exporters/stdout/stdoutlog"
    	"go.opentelemetry.io/otel/log/global"
-   	"go.opentelemetry.io/otel/propagation"
-   	"go.opentelemetry.io/otel/sdk/log"
+   	sdklog "go.opentelemetry.io/otel/sdk/log"
    )
    
-   // setupOTelSDK bootstraps the OpenTelemetry pipeline.
-   // If it does not return an error, make sure to call shutdown for proper cleanup.
-   func setupOTelSDK(ctx context.Context) (shutdown func(context.Context) error, err error) {
-   	var shutdownFuncs []func(context.Context) error
-   
-   	// shutdown calls cleanup functions registered via shutdownFuncs.
-   	// The errors from the calls are joined.
-   	// Each registered cleanup will be invoked once.
-   	shutdown = func(ctx context.Context) error {
-   		var err error
-   		for _, fn := range shutdownFuncs {
-   			err = errors.Join(err, fn(ctx))
-   		}
-   		shutdownFuncs = nil
-   		return err
-   	}
-   
-   	// handleErr calls shutdown for cleanup and makes sure that all errors are returned.
-   	handleErr := func(inErr error) {
-   		err = errors.Join(inErr, shutdown(ctx))
-   	}
-   
-   	// Set up propagator.
-   	prop := newPropagator()
-   	otel.SetTextMapPropagator(prop)
-   
-   	// Set up logger provider.
-   	loggerProvider, err := newLoggerProvider()
-   	if err != nil {
-   		handleErr(err)
-   		return
-   	}
-   	shutdownFuncs = append(shutdownFuncs, loggerProvider.Shutdown)
-   	global.SetLoggerProvider(loggerProvider)
-   
-   	return
-   }
-   
-   func newPropagator() propagation.TextMapPropagator {
-   	return propagation.NewCompositeTextMapPropagator(
-   		propagation.TraceContext{},
-   		propagation.Baggage{},
-   	)
-   }
-   
-   func newLoggerProvider() (*log.LoggerProvider, error) {
+   func newLoggerProvider() (*sdklog.LoggerProvider, error) {
    	// Create stdout log exporter
    	stdoutExporter, err := stdoutlog.New(stdoutlog.WithPrettyPrint())
    	if err != nil {
@@ -582,6 +452,7 @@ This configuration is designed to send logs to your Logz.io account via the Open
    		otlploghttp.WithEndpoint("otlp-listener.logz.io"),
    		otlploghttp.WithHeaders(map[string]string{
    			"Authorization": "Bearer <LOG-SHIPPING-TOKEN>",
+   			"user-agent":    "logzio-go-logs-otlp",
    		}),
    		otlploghttp.WithURLPath("/v1/logs"),
    	)
@@ -590,13 +461,37 @@ This configuration is designed to send logs to your Logz.io account via the Open
    	}
    
    	// Create a logger provider with both exporters
-   	loggerProvider := log.NewLoggerProvider(
-   		log.WithProcessor(log.NewBatchProcessor(stdoutExporter)), // For stdout
-   		log.WithProcessor(log.NewBatchProcessor(httpExporter)),   // For HTTP export
+   	loggerProvider := sdklog.NewLoggerProvider(
+   		sdklog.WithProcessor(sdklog.NewBatchProcessor(stdoutExporter)), // For stdout
+   		sdklog.WithProcessor(sdklog.NewBatchProcessor(httpExporter)),   // For HTTP export
    	)
    
    	return loggerProvider, nil
    }
+   
+   // setupOTelSDK bootstraps the OpenTelemetry logging pipeline.
+   func setupOTelSDK(ctx context.Context) (shutdown func(context.Context) error, err error) {
+   	// Set up logger provider.
+   	loggerProvider, err := newLoggerProvider()
+   	if err != nil {
+   		return nil, err
+   	}
+   
+   	// Set the global logger provider
+   	global.SetLoggerProvider(loggerProvider)
+   
+   	// Return a shutdown function
+   	shutdown = func(ctx context.Context) error {
+   		err := loggerProvider.Shutdown(ctx)
+   		if err != nil {
+   			log.Printf("Error during logger provider shutdown: %v", err)
+   		}
+   		return err
+   	}
+   
+   	return shutdown, nil
+   }
+   
    ```
 
 
@@ -604,7 +499,7 @@ This configuration is designed to send logs to your Logz.io account via the Open
    Update the `listener.logz.io` parth in `https://otlp-listener.logz.io/v1/logs` with the URL for [your hosting region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region).
 
 
-3. Run your **application** once again:
+3. Run your application:
 
    ```bash
    go run .

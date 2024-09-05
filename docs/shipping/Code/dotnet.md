@@ -1192,80 +1192,17 @@ Replace `<<TYPE>>` with the log type to identify these logs in Logz.io.
 Ensure that you have the following installed locally:
 - [.NET SDK](https://dotnet.microsoft.com/download/dotnet) 6+
 
-### Example Application
 The following example uses a basic [Minimal API with ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/tutorials/min-web-api?view=aspnetcore-8.0&tabs=visual-studio) application.
 
-### Create and launch an HTTP Server
+### Clone the application repository
 
-1. Set up an environment in a new directory called `dotnet-simple`. Within that directory, execute following command:
+Clone the sample application repository to your local machine by running:
 
 ```bash
-dotnet new web
-```
-2. In the same directory, replace the content of `Program.cs` with the following code:
-
-```csharp
-using System.Globalization;
-
-using Microsoft.AspNetCore.Mvc;
-
-var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
-
-string HandleRollDice([FromServices]ILogger<Program> logger, string? player)
-{
-    var result = RollDice();
-
-    if (string.IsNullOrEmpty(player))
-    {
-        logger.LogInformation("Anonymous player is rolling the dice: {result}", result);
-    }
-    else
-    {
-        logger.LogInformation("{player} is rolling the dice: {result}", player, result);
-    }
-
-    return result.ToString(CultureInfo.InvariantCulture);
-}
-
-int RollDice()
-{
-    return Random.Shared.Next(1, 7);
-}
-
-app.MapGet("/rolldice/{player?}", HandleRollDice);
-
-app.Run();
-
+git clone <placeholder>
 ```
 
-3. In the `Properties` subdirectory, replace the content of `launchSettings.json` with the following:
-
-```
-{
-  "$schema": "http://json.schemastore.org/launchsettings.json",
-  "profiles": {
-    "http": {
-      "commandName": "Project",
-      "dotnetRunMessages": true,
-      "launchBrowser": true,
-      "applicationUrl": "http://localhost:8080",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
-    }
-  }
-}
-
-```
-
-4. Build and run the application with the following command, then open http://localhost:8080/rolldice in your web browser to ensure it is working.
-
-```
-dotnet build
-dotnet run
-```
-### Instrumentation
+### Configure the instrumentation
 
 Next, we'll configure the OpenTelemetry logging exporter to send logs to Logz.io via the OTLP listener.
 
@@ -1319,7 +1256,7 @@ This configuration is designed to send logs to your Logz.io account via the Open
    {@include: ../../_include/log-shipping/log-shipping-token.md}
    Update the `listener.logz.io` parth in `https://otlp-listener.logz.io/v1/logs` with the URL for [your hosting region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region).
 
-3. Run your **application** once again:
+3. Run your application:
 
    ```bash
    dotnet run

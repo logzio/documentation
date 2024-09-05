@@ -405,9 +405,6 @@ Next, we'll configure the OpenTelemetry logging exporter to send logs to Logz.io
 
 This configuration is designed to send logs to your Logz.io account via the OpenTelemetry Protocol (OTLP) listener. You need to specify your Logz.io token and configure the listener endpoint to match the correct region. By default, the endpoint is `https://otlp-listener.logz.io/v1/logs`, but it should be adjusted based on your region. You can find more details on the regional configurations in the [Hosting Regions Documentation](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
 
-:::note
-Ensure that you include the `user-agent` header in the format: `"user-agent=logzio-python-logs-otlp"`.
-:::
 
 1. Install OpenTelemetry dependencies:
 
@@ -489,6 +486,7 @@ Ensure that you include the `user-agent` header in the format: `"user-agent=logz
     ```
 
     {@include: ../../_include/log-shipping/log-shipping-token.md}
+    Update the `listener.logz.io` parth in `https://otlp-listener.logz.io/v1/logs` with the URL for [your hosting region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region).
 
 
 3. Run your **application** once again:
