@@ -1185,30 +1185,19 @@ Replace `<<TYPE>>` with the log type to identify these logs in Logz.io.
 </TabItem>
   <TabItem value="OpenTelemetry" label="OpenTelemetry">
 
-
+This integration uses the OpenTelemetry logging exporter to send logs to Logz.io via the OpenTelemetry Protocol (OTLP) listener.
 
 ### Prerequisites
     
-Ensure that you have the following installed locally:
 - [.NET SDK](https://dotnet.microsoft.com/download/dotnet) 6+
+- An ASP.NET Core application
+- An active account with Logz.io
 
-The following example uses a basic [Minimal API with ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/tutorials/min-web-api?view=aspnetcore-8.0&tabs=visual-studio) application.
-
-### Clone the application repository
-
-Clone the sample application repository to your local machine by running:
-
-```bash
-git clone <placeholder>
-```
+:::note
+If you need an example aplication to test this integration, please refer to our [.NET OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/dotnet/logs).
+:::
 
 ### Configure the instrumentation
-
-Next, we'll configure the OpenTelemetry logging exporter to send logs to Logz.io via the OTLP listener.
-
-This configuration is designed to send logs to your Logz.io account via the OpenTelemetry Protocol (OTLP) listener. You need to specify your Logz.io token and configure the listener endpoint to match the correct region. By default, the endpoint is `https://otlp-listener.logz.io/v1/logs`, but it should be adjusted based on your region. You can find more details on the regional configurations in the [Hosting Regions Documentation](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
-
-
 
 1. Add the packages
 
@@ -1218,15 +1207,7 @@ This configuration is designed to send logs to your Logz.io account via the Open
    dotnet add package OpenTelemetry.Exporter.OpenTelemetryProtocol
    ```
 
-2. Setup the OpenTelemetry code in `Program.cs`, by replacing the following lines:
-
-   ```csharp
-   var builder = WebApplication.CreateBuilder(args);
-   var app = builder.Build();
-   ```
-
-   With:
-
+2. Setup the OpenTelemetry code in `Program.cs`, by adding the following lines:
 
    ```csharp
    using OpenTelemetry;
@@ -1234,7 +1215,7 @@ This configuration is designed to send logs to your Logz.io account via the Open
    using OpenTelemetry.Resources;
    using OpenTelemetry.Exporter;   
    var builder = WebApplication.CreateBuilder(args);   
-   const string serviceName = "roll-dice";
+   const string serviceName = "YOUR-SERVICE-NAME";
    const string logzioEndpoint = "https://otlp-listener.logz.io/v1/logs";
    const string logzioToken = "<LOG-SHIPPING-TOKEN>";   
    builder.Logging.AddOpenTelemetry(options =>
@@ -1252,25 +1233,20 @@ This configuration is designed to send logs to your Logz.io account via the Open
    });   
    var app = builder.Build();
    ```
+   Replace `YOUR-SERVICE-NAME` with the required service name.
 
    {@include: ../../_include/log-shipping/log-shipping-token.md}
+
    Update the `listener.logz.io` parth in `https://otlp-listener.logz.io/v1/logs` with the URL for [your hosting region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region).
 
-3. Run your application:
+3. Run your application.
 
-   ```bash
-   dotnet run
-   ```
+### Check Logz.io for your logs
 
-4. From another terminal, send a request using curl:
 
-   ```bash
-   curl localhost:8080/rolldice
-   ```
+Allow some time for data ingestion, then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-5. After about 30 sec, stop the server process.
-
-At this point, you should see log output from the server and client on your Logz.io account.
+Encounter an issue? See our [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/) guide.
 
 
   </TabItem>

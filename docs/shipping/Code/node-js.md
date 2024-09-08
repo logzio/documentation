@@ -347,61 +347,70 @@ tsc --project tsconfig.json
 </TabItem>
 <TabItem value="OpenTelemetry" label="OpenTelemetry">
 
+This integration uses the OpenTelemetry logging exporter to send logs to Logz.io via the OpenTelemetry Protocol (OTLP) listener.
+
 ### Prerequisites
     
-Ensure that you have the following installed locally:
+- Node
+- A Node application
+- An active account with Logz.io
 
-* NodeJS
-
-### Clone the application repository
-
-Clone the sample application repository to your local machine by running:
-
-```bash
-git clone <placeholder>
-```
-
+:::note
+If you need an example aplication to test this integration, please refer to our [.NET OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/nodjs/logs).
+:::
 
 ### Configure the instrumentation
 
 
-Install the dependencies:
+1. Install the dependencies:
 
-```shell
-npm install --save @opentelemetry/api-logs
-npm install --save @opentelemetry/sdk-logs
-npm install --save @opentelemetry/exporter-logs-otlp-proto
-```
+   ```shell
+   npm install --save @opentelemetry/api-logs
+   npm install --save @opentelemetry/sdk-logs
+   npm install --save @opentelemetry/exporter-logs-otlp-proto
+   ```
 
-Configure the Opentelemetry Collector, You can use the sample configuration and edit it according to your needs:
+2. Configure the Opentelemetry Collector, You can use the sample configuration and edit it according to your needs:
 
-```javascript
-const { LoggerProvider, SimpleLogRecordProcessor } = require('@opentelemetry/sdk-logs');
-const { OTLPLogExporter } = require('@opentelemetry/exporter-logs-otlp-proto');
-const { Resource } = require('@opentelemetry/resources');
+   ```javascript
+   const { LoggerProvider, SimpleLogRecordProcessor } = require('@opentelemetry/sdk-logs');
+   const { OTLPLogExporter } = require('@opentelemetry/exporter-logs-otlp-proto');
+   const { Resource } = require('@opentelemetry/resources');
+   
+   const resource = new Resource({'service.name': 'YOUR-SERVICE-NAME'});
+   const loggerProvider = new LoggerProvider({ resource });
+   
+   const otlpExporter = new OTLPLogExporter({
+     url: 'https://otlp-listener.logz.io/v1/logs',
+     headers: {
+       Authorization: 'Bearer <LOG-SHIPPING-TOKEN>',
+       'user-agent': 'logzio-nodejs-logs-otlp'
+     }
+   });
+   
+   loggerProvider.addLogRecordProcessor(new SimpleLogRecordProcessor(otlpExporter));
+   
+   const logger = loggerProvider.getLogger('example_logger');
+   module.exports.logger = logger;
+   ```
+   
+   Replace `YOUR-SERVICE-NAME` with the required service name.
+   
+   
+   {@include: ../../_include/log-shipping/log-shipping-token.md}
+   
+   :::note
+   If your Logz.io account region is not `us-east-1`, add your [region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/   account-region/#available-regions) to the `url` like so `https://otlp-listener-<<REGION-CODE>>.logz.io/v1/logs`.
+   :::
 
-const resource = new Resource({'service.name': 'your-service-name'});
-const loggerProvider = new LoggerProvider({ resource });
+3. Run the application.
 
-const otlpExporter = new OTLPLogExporter({
-  url: 'https://otlp-listener.logz.io/v1/logs',
-  headers: {
-    Authorization: 'Bearer <LOG-SHIPPING-TOKEN>',
-    'user-agent': 'logzio-nodejs-logs-otlp'
-  }
-});
+### Check Logz.io for your logs
 
-loggerProvider.addLogRecordProcessor(new SimpleLogRecordProcessor(otlpExporter));
 
-const logger = loggerProvider.getLogger('example_logger');
-module.exports.logger = logger;
-```
+Allow some time for data ingestion, then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-{@include: ../../_include/log-shipping/log-shipping-token.md}
-
-:::note
-If your Logz.io account region is not `us-east-1`, add your [region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions) to the `url` like so `https://otlp-listener-<<REGION-CODE>>.logz.io/v1/logs`.
-:::
+Encounter an issue? See our [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/) guide.
 
 
 </TabItem>

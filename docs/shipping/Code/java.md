@@ -501,22 +501,21 @@ If the log appender does not ship logs, add `<inMemoryQueue>true</inMemoryQueue>
   <TabItem value="OpenTelemetry" label="OpenTelemetry">
 
 
-**Requirements**:
-* Java 8+
+This integration uses the OpenTelemetry logging exporter to send logs to Logz.io via the OpenTelemetry Protocol (OTLP) listener.
 
-### Clone the application repository
+### Prerequisites
 
-Clone the sample application repository to your local machine by running:
+- Java 8+
 
-```bash
-git clone <placeholder>
-```
+:::note
+If you need an example aplication to test this integration, please refer to our [.NET OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/java/logs).
+:::
 
 ### Configure the instrumentation
 
 Add the following dependencies to `pom.xml`:
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -655,9 +654,6 @@ Add the following dependencies to `pom.xml`:
 
 
 
-
-
-
 #### Add the OpenTelemetry controller
 
 ```java
@@ -712,23 +708,18 @@ public class OpenTelemetryConfig {
 
 #### Run the application
 
-1. Run your application:
-
    ```bash
    mvn clean package
    java -jar target/*.jar
    ```
 
-2. From another terminal, send a request using curl:
 
-   ```bash
-   curl localhost:8080/rolldice
-   ```
+### Check Logz.io for your logs
 
-3. After about 30 sec, stop the server process.
 
-At this point, you should see log output from the server and client on your Logz.io account.
+Allow some time for data ingestion, then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
+Encounter an issue? See our [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/) guide.
 
 
  
