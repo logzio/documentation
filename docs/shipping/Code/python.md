@@ -343,9 +343,7 @@ If you need an example aplication to test this integration, please refer to our 
 
 
     ```python
-    from flask import Flask
     import logging
-    
     from opentelemetry._logs import set_logger_provider
     from opentelemetry.exporter.otlp.proto.http._log_exporter import OTLPLogExporter
     from opentelemetry.sdk.resources import Resource
@@ -380,26 +378,9 @@ If you need an example aplication to test this integration, please refer to our 
     otlp_handler = LoggingHandler(logger_provider=logger_provider)
     logger.addHandler(otlp_handler)
     
-    # Attach a StreamHandler to log to the console
-    console_handler = logging.StreamHandler()
-    console_handler.setLevel(logging.INFO)
-    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    console_handler.setFormatter(formatter)
-    logger.addHandler(console_handler)
-    
-    # Flask application setup
-    app = Flask(__name__)
-    
-    @app.route("/log", methods=["GET"])
-    def handle_log():
-        # Log a message when this endpoint is accessed
-        logger.info("Log endpoint accessed")
-        return "Logging success", 200
-    
+    # Example usage of the logger
     if __name__ == "__main__":
-        app.run(host="0.0.0.0", port=8080)
-    
-        
+    logger.info("Log message sent to Logz.io")
     ```
 
     Replace `YOUR-SERVICE-NAME` with the required service name.
