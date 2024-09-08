@@ -508,7 +508,7 @@ This integration uses the OpenTelemetry logging exporter to send logs to Logz.io
 - Java 8+
 
 :::note
-If you need an example aplication to test this integration, please refer to our [.NET OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/java/logs).
+If you need an example aplication to test this integration, please refer to our [Java OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/java/logs).
 :::
 
 ### Configure the instrumentation
