@@ -344,7 +344,6 @@ If you need an example aplication to test this integration, please refer to our 
 
     ```python
     from flask import Flask
-    import random
     import logging
     
     from opentelemetry._logs import set_logger_provider
@@ -391,24 +390,16 @@ If you need an example aplication to test this integration, please refer to our 
     # Flask application setup
     app = Flask(__name__)
     
-    @app.route("/rolldice/<player>", methods=["GET"])
-    @app.route("/rolldice/", methods=["GET"])
-    def handle_roll_dice(player=None):
-        result = roll_dice()
-    
-        if player:
-            logger.info(f"{player} is rolling the dice: {result}")
-        else:
-            logger.info(f"Anonymous player is rolling the dice: {result}")
-    
-        return str(result)
-    
-    def roll_dice():
-        return random.randint(1, 6)
+    @app.route("/log", methods=["GET"])
+    def handle_log():
+        # Log a message when this endpoint is accessed
+        logger.info("Log endpoint accessed")
+        return "Logging success", 200
     
     if __name__ == "__main__":
         app.run(host="0.0.0.0", port=8080)
     
+        
     ```
 
     Replace `YOUR-SERVICE-NAME` with the required service name.
@@ -416,7 +407,7 @@ If you need an example aplication to test this integration, please refer to our 
 
     {@include: ../../_include/log-shipping/log-shipping-token.md}
 
-    Update the `listener.logz.io` parth in `https://otlp-listener.logz.io/v1/logs` with the URL for [your hosting region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region).
+    Update the `listener.logz.io` part in `https://otlp-listener.logz.io/v1/logs` with the URL for [your hosting region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region).
 
 
 3. Run your application.

@@ -1237,7 +1237,7 @@ If you need an example aplication to test this integration, please refer to our 
 
    {@include: ../../_include/log-shipping/log-shipping-token.md}
 
-   Update the `listener.logz.io` parth in `https://otlp-listener.logz.io/v1/logs` with the URL for [your hosting region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region).
+   Update the `listener.logz.io` part in `https://otlp-listener.logz.io/v1/logs` with the URL for [your hosting region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region).
 
 3. Run your application.
 

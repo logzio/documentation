@@ -398,6 +398,10 @@ If you need an example aplication to test this integration, please refer to our 
    
    
    {@include: ../../_include/log-shipping/log-shipping-token.md}
+
+
+    Update the `listener.logz.io` part in `https://otlp-listener.logz.io/v1/logs` with the URL for [your hosting region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region).
+
    
    :::note
    If your Logz.io account region is not `us-east-1`, add your [region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/   account-region/#available-regions) to the `url` like so `https://otlp-listener-<<REGION-CODE>>.logz.io/v1/logs`.

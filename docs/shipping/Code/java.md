@@ -685,6 +685,7 @@ public class OpenTelemetryConfig {
         OtlpHttpLogRecordExporter logExporter = OtlpHttpLogRecordExporter.builder()
                 .setEndpoint(DEFAULT_ENDPOINT)
                 .addHeader("Authorization", "Bearer " + LOGZ_IO_TOKEN)
+                .addHeader("user-agent", "logzio-java-logs-otlp")
                 .build();
 
         // Initialize the logger provider
@@ -705,6 +706,36 @@ public class OpenTelemetryConfig {
     }
 }
 ```
+
+{@include: ../../_include/log-shipping/log-shipping-token.md}
+
+Update the `listener.logz.io` part in `https://otlp-listener.logz.io/v1/logs` with the URL for [your hosting region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region).
+
+#### Add the Logback
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+
+    <!-- #### Model 1: Logging via OpenTelemetry Instrumentation #### -->
+
+    <appender name="otel-otlp"
+        class="io.opentelemetry.instrumentation.logback.appender.v1_0.OpenTelemetryAppender">
+        <captureExperimentalAttributes>false</captureExperimentalAttributes>
+        <!-- include src origin info -->
+        <captureCodeAttributes>true</captureCodeAttributes>
+        <!-- include slf4j key/value arguments -->
+        <captureKeyValuePairAttributes>true</captureKeyValuePairAttributes>
+    </appender>
+
+
+    <!-- #### send logs to all 3 loggers #### -->
+    <root level="INFO">
+        <appender-ref ref="otel-otlp" />
+    </root>
+</configuration>
+```
+
 
 #### Run the application
 

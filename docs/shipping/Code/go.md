@@ -399,7 +399,7 @@ This integration uses the OpenTelemetry logging exporter to send logs to Logz.io
 - Go 1.21 or newer
 
 :::note
-If you need an example aplication to test this integration, please refer to our [.NET OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/go/logs).
+If you need an example aplication to test this integration, please refer to our [Go OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/go/logs).
 :::
 
 ### Configure the instrumentation
@@ -411,7 +411,6 @@ If you need an example aplication to test this integration, please refer to our 
    go get go.opentelemetry.io/otel
    go get go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploghttp
    go get go.opentelemetry.io/otel/exporters/stdout/stdoutlog
-   go get go.opentelemetry.io/otel/exporters/stdout/stdoutmetric
    ```
 
 2. Create a new file named `otel.go` and add the following code to set up OpenTelemetry logging:
@@ -487,7 +486,7 @@ If you need an example aplication to test this integration, please refer to our 
 
 
    {@include: ../../_include/log-shipping/log-shipping-token.md}
-   Update the `listener.logz.io` parth in `https://otlp-listener.logz.io/v1/logs` with the URL for [your hosting region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region).
+   Update the `listener.logz.io` part in `https://otlp-listener.logz.io/v1/logs` with the URL for [your hosting region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region).
 
 
 3. Run your application.
