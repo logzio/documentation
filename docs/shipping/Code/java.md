@@ -497,7 +497,7 @@ If the log appender does not ship logs, add `<inMemoryQueue>true</inMemoryQueue>
 </TabItem>
 
 
-</TabItem>
+
   <TabItem value="OpenTelemetry" label="OpenTelemetry">
 
 
