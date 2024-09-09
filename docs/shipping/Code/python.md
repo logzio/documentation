@@ -320,17 +320,93 @@ The default limit is 32,700, but you can adjust this value as required.
 </TabItem>
   <TabItem value="OpenTelemetry" label="OpenTelemetry">
 
-This integration uses the OpenTelemetry logging exporter to send logs to Logz.io via the OpenTelemetry Protocol (OTLP) listener.
-
 ### Prerequisites
     
-- Python 3.7 or newer
-- pip (Python package installer)
-- A Python application
-- An active account with Logz.io
+Ensure that you have the following installed locally:
+
+* Python 3.7 or newer
+* pip (Python package installer)
+
+### Example Application
+
+The following example uses a basic Flask application.
+
+
+### Create and launch an HTTP Server
+
+1. Set up an environment in a new directory called `otel-getting-started`:
+
+   ```bash
+   mkdir otel-getting-started
+   cd otel-getting-started
+   ```
+
+2. Create and activate a virtual environment:
+
+   ```bash
+   mkdir otel-getting-started
+   cd otel-getting-started
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+
+3. Install Flask and OpenTelemetry dependencies:
+
+   ```bash
+   pip install flask opentelemetry-api opentelemetry-sdk opentelemetry-exporter-otlp
+   ```
+
+4. Create a Flask application in a file named app.py and add the following code:
+
+   ```python
+   from flask import Flask
+   import random
+   import logging
+   
+   # Basic Flask application setup
+   app = Flask(__name__)
+   
+   # Set up basic logging to console
+   logging.basicConfig(level=logging.INFO)
+   logger = logging.getLogger("app")
+   
+   @app.route("/rolldice/<player>", methods=["GET"])
+   @app.route("/rolldice/", methods=["GET"])
+   def handle_roll_dice(player=None):
+       result = roll_dice()
+   
+       if player:
+           logger.info(f"{player} is rolling the dice: {result}")
+       else:
+           logger.info(f"Anonymous player is rolling the dice: {result}")
+   
+       return str(result)
+   
+   def roll_dice():
+       return random.randint(1, 6)
+   
+   if __name__ == "__main__":
+       app.run(host="0.0.0.0", port=8080)
+   ```
+
+
+5. Run the application:
+
+   ``` bash
+   python app.py
+   ```
+
+Open http://localhost:8080/rolldice in your web browser to ensure it is working.
+
+
+### Instrumentation
+
+Next, we'll configure the OpenTelemetry logging exporter to send logs to Logz.io via the OTLP listener.
+
+This configuration is designed to send logs to your Logz.io account via the OpenTelemetry Protocol (OTLP) listener. You need to specify your Logz.io token and configure the listener endpoint to match the correct region. By default, the endpoint is `https://otlp-listener.logz.io/v1/logs`, but it should be adjusted based on your region. You can find more details on the regional configurations in the [Hosting Regions Documentation](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
 
 :::note
-If you need an example aplication to test this integration, please refer to our [Python OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/python/logs).
+Ensure that you include the `user-agent` header in the format: `"user-agent=logzio-python-logs-otlp"`.
 :::
 
 1. Install OpenTelemetry dependencies:
@@ -341,9 +417,13 @@ If you need an example aplication to test this integration, please refer to our 
 
 2. Update the Flask Application to Include OpenTelemetry:
 
+    Modify the existing app.py file to include OpenTelemetry logging:
 
     ```python
+    from flask import Flask
+    import random
     import logging
+    
     from opentelemetry._logs import set_logger_provider
     from opentelemetry.exporter.otlp.proto.http._log_exporter import OTLPLogExporter
     from opentelemetry.sdk.resources import Resource
@@ -351,7 +431,7 @@ If you need an example aplication to test this integration, please refer to our 
     from opentelemetry.sdk._logs.export import BatchLogRecordProcessor
     
     # Configuration
-    service_name = "YOUR-SERVICE-NAME"
+    service_name = "roll-dice"
     logzio_endpoint = "https://otlp-listener.logz.io/v1/logs"  # Update this to match your region if needed
     logzio_token = "<<LOG-SHIPPING-TOKEN>>"
     
@@ -378,31 +458,53 @@ If you need an example aplication to test this integration, please refer to our 
     otlp_handler = LoggingHandler(logger_provider=logger_provider)
     logger.addHandler(otlp_handler)
     
-    # Example usage of the logger
+    # Attach a StreamHandler to log to the console
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(logging.INFO)
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    console_handler.setFormatter(formatter)
+    logger.addHandler(console_handler)
+    
+    # Flask application setup
+    app = Flask(__name__)
+    
+    @app.route("/rolldice/<player>", methods=["GET"])
+    @app.route("/rolldice/", methods=["GET"])
+    def handle_roll_dice(player=None):
+        result = roll_dice()
+    
+        if player:
+            logger.info(f"{player} is rolling the dice: {result}")
+        else:
+            logger.info(f"Anonymous player is rolling the dice: {result}")
+    
+        return str(result)
+    
+    def roll_dice():
+        return random.randint(1, 6)
+    
     if __name__ == "__main__":
-    logger.info("Log message sent to Logz.io")
+        app.run(host="0.0.0.0", port=8080)
+    
     ```
-
-    Replace `YOUR-SERVICE-NAME` with the required service name.
-
 
     {@include: ../../_include/log-shipping/log-shipping-token.md}
 
-    Update the `listener.logz.io` part in `https://otlp-listener.logz.io/v1/logs` with the URL for [your hosting region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region).
 
-
-3. Run your application.
+3. Run your **application** once again:
 
     ```bash
     python app.py
     ```
 
-### Check Logz.io for your logs
+4. From another terminal, send a request using curl:
 
+    ```bash
+    curl localhost:8080/rolldice
+    ```
+5. After about 30 sec, stop the server process.
 
-Allow some time for data ingestion, then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
-
-Encounter an issue? See our [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/) guide.
+At this point, you should see log output from the server and client on your Logz.io account.
 
 </TabItem>
 </Tabs>

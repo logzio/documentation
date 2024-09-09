@@ -347,74 +347,77 @@ tsc --project tsconfig.json
 </TabItem>
 <TabItem value="OpenTelemetry" label="OpenTelemetry">
 
-This integration uses the OpenTelemetry logging exporter to send logs to Logz.io via the OpenTelemetry Protocol (OTLP) listener.
+Install the dependencies:
 
-### Prerequisites
-    
-- Node
-- A Node application
-- An active account with Logz.io
+
+```shell
+npm install --save @opentelemetry/api-logs
+npm install --save @opentelemetry/sdk-logs
+npm install --save @opentelemetry/exporter-logs-otlp-proto
+```
+
+Configure the Opentelemetry Collector, You can use the sample configuration and edit it according to your needs:
+
+```javascript
+import logsAPI from '@opentelemetry/api-logs'
+import {
+  LoggerProvider,
+  SimpleLogRecordProcessor,
+} from '@opentelemetry/sdk-logs';
+import { OTLPLogExporter } from '@opentelemetry/exporter-logs-otlp-proto';
+import { diag, DiagConsoleLogger, DiagLogLevel } from '@opentelemetry/api';
+import { Resource } from '@opentelemetry/resources';
+
+
+// Initialize the Logger provider
+// Change <<service-name>> to your service name
+const loggerProvider = new LoggerProvider({resource: new Resource({'service.name': '<<service-name>>'})});
+
+// Configure OTLP exporter
+const logzioExporterOptions = {
+  url: 'https://otlp-listener.logz.io/v1/logs',
+  headers: {Authorization: 'Bearer <<LOG-SHIPPING-TOKEN>>', 'user-agent': 'logzio-nodejs-logs-otlp'},
+};
+
+// Add a processor to export log record
+// In order to send data in batch, change SimpleLogRecordProcessor >> BatchLogRecordProcessor
+loggerProvider.addLogRecordProcessor(
+  new SimpleLogRecordProcessor(new OTLPLogExporter(logzioExporterOptions)),
+);
+
+// To add debug mode to the OpenTelemetry collector, uncomment the below line
+// diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.DEBUG);
+
+
+// Create a Logger instance
+// You can change the logger name from exmaple_logger to any name you prefer
+const logger = loggerProvider.getLogger('exmaple_logger');
+
+// Close logger gracefully
+['SIGINT', 'SIGTERM'].forEach(signal => {
+  process.on(signal, () => loggerProvider.shutdown().catch(console.error));
+});
+
+// Emit a log record
+logger.emit({
+  severityNumber: logsAPI.SeverityNumber.INFO,
+  severityText: 'INFO',
+  body: 'some message',
+  attributes: { 'log.type': 'LogRecord' },
+});
+
+logger.emit({
+  severityNumber: logsAPI.SeverityNumber.INFO,
+  severityText: 'INFO',
+  body: '{"field1": 123, "field2": "value"}',
+  attributes: { 'log.type': 'LogRecord' },
+});
+
+```
 
 :::note
-If you need an example aplication to test this integration, please refer to our [NodeJS OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/nodjs/logs).
+If your Logz.io account region is not `us-east-1`, add your [region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions) to the `url` like so `https://otlp-listener-<<REGION-CODE>>.logz.io/v1/logs`.
 :::
-
-### Configure the instrumentation
-
-
-1. Install the dependencies:
-
-   ```shell
-   npm install --save @opentelemetry/api-logs
-   npm install --save @opentelemetry/sdk-logs
-   npm install --save @opentelemetry/exporter-logs-otlp-proto
-   ```
-
-2. Configure the Opentelemetry Collector, You can use the sample configuration and edit it according to your needs:
-
-   ```javascript
-   const { LoggerProvider, SimpleLogRecordProcessor } = require('@opentelemetry/sdk-logs');
-   const { OTLPLogExporter } = require('@opentelemetry/exporter-logs-otlp-proto');
-   const { Resource } = require('@opentelemetry/resources');
-   
-   const resource = new Resource({'service.name': 'YOUR-SERVICE-NAME'});
-   const loggerProvider = new LoggerProvider({ resource });
-   
-   const otlpExporter = new OTLPLogExporter({
-     url: 'https://otlp-listener.logz.io/v1/logs',
-     headers: {
-       Authorization: 'Bearer <LOG-SHIPPING-TOKEN>',
-       'user-agent': 'logzio-nodejs-logs-otlp'
-     }
-   });
-   
-   loggerProvider.addLogRecordProcessor(new SimpleLogRecordProcessor(otlpExporter));
-   
-   const logger = loggerProvider.getLogger('example_logger');
-   module.exports.logger = logger;
-   ```
-   
-   Replace `YOUR-SERVICE-NAME` with the required service name.
-   
-   
-   {@include: ../../_include/log-shipping/log-shipping-token.md}
-
-
-    Update the `listener.logz.io` part in `https://otlp-listener.logz.io/v1/logs` with the URL for [your hosting region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region).
-
-   
-   :::note
-   If your Logz.io account region is not `us-east-1`, add your [region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/   account-region/#available-regions) to the `url` like so `https://otlp-listener-<<REGION-CODE>>.logz.io/v1/logs`.
-   :::
-
-3. Run the application.
-
-### Check Logz.io for your logs
-
-
-Allow some time for data ingestion, then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
-
-Encounter an issue? See our [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/) guide.
 
 
 </TabItem>
