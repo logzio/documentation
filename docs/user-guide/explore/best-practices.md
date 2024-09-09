@@ -11,33 +11,23 @@ Once you've sent your data to Logz.io, you can search and query your logs to ide
 Explore supports a few query methods, including:
 
 
-## Simple
+## Simple Search
 
-Logz.io offers an intuative and easy way to build your query. Click the search bar or start typing to find and select fields, conditions, and values. 
+Logz.io offers an intuitive and easy way to build your query. You can build queries easily by selecting fields, conditions, and values.
 
-Build your query by selecting fields, parameters, and conditions. Start typing to see all the relevant fields available, add an operator, and select the value. To add a custom value that doesn't appear in your logs, type its name and click on the + sign to apply it.
+Click the search bar or type to see available fields, add operators, and choose values. To use custom values, type the name and click the + sign. Press Enter to apply the query or Tab to add another condition. 
 
-Click Enter to apply the query, or tab to build the next condition. 
-
-You can also type free text in your search, which will convert it into a Lucene query.
+Free-text searches automatically convert into Lucene queries.
 
 ## Lucene 
 
-Logz.io supports Lucene, an open-source search engine software library.
+Logz.io supports Lucene for more advanced queries.
 
-With Lucene, you can search for free text by typing the text string you want to find; for example, `error` will return all words containing this string, and using quotation marks, `"error"`, will return only the specific word you're searching for.
+Search for free text by typing the text string you want to find; for example, `error` will return all words containing this string, and using quotation marks, `"error"`, will return only the specific word you're searching for.
 
-//![See error](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/best-error-aug27.png)
+![See error](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/basic-search-search-word.png)
 
-Use the filters to refine your search. For example, you can filter out all `log_type:info` to focus your search on relevant finds.
-
-//![Filter out](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/isnot-filter-aug27.png)
-
-The filters include numeric based fields, such as `LogSize`. Choose the operator and value to view the relevant results. 
-
-![numeric filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/logsize-explore-aug27.png)
-
-To search for a value in a specific field, use the following syntax:
+Search for a value in a specific field:
 
 `log_level:ERROR`
 
@@ -45,7 +35,7 @@ Use the boolean operators AND, OR, and NOT to create more complex searches. For 
 
 `log_level:ERROR AND Kubernetes`
 
-If you want to perform **range-related searches**, the fields must be mapped as numbers (long, float, double, etc.). Then, you can use the following syntax. For example, you can use it to find all status codes between 400-499:
+To perform **range-related searches**, fields must be mapped as numbers (long, float, double, etc.). Then, you can use the following syntax. For example, you can use it to find all status codes between 400-499:
 
 `LogSize:[2000 TO 3000]`
 
@@ -62,10 +52,18 @@ To exclude a term from your search, you can use the following syntax:
 `LogSize:[2000 TO 3000] AND type NOT (name:"agent-k8s")`
 
 
+## Filters
+
+Use the filters to refine your search, whether you're using Simple or Lucene. Open string fields to view its related values, and open numeric fields to choose a range. For example, `LogSize` lets you select the size of the logs you're interested in:
+
+![numeric filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/logsize-explore-aug27.png)
+
+
+
 ### Apply regex to search
 
 :::caution
-Using Regex can overload your system and cause performance issues in your account. If Regex is necessary, it's best to apply filters and use shorter timeframes.
+Using regex can overload your system and cause performance issues in your account. If regex is necessary, it is best to apply filters and use shorter timeframes.
 :::
 
 Logz.io uses Apache Lucene's regular expression engine to parse regex queries, supporting regexp and query_string.
@@ -97,86 +95,24 @@ To find one of the values in the field, such as `fox`, you'll need to use the fo
 
 `sentence:/.*fox.*/`.
 
-// DIDNT EDIT BELOW THIS LINE
 
-## Edit log view
+## Edit log table view
 
 You can add additional columns to your logs table view.
 
 Find the field you'd like to add, hover over it and click the **Toggle column in table** button.
 
-
-
-//![Add field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/add-field-discover.png)
+![Add field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/toggle-in-table-sep9.png)
 
 Once added, you can drag it to reposition it, or click the **X** to remove it.
 
+Save your query to quickly access it whenever needed. The query is saved while the results change according to your chosen relevant time frame.
 
-//![Edit field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/add-field-overview.gif)
+![Save field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/saved-search-sep9.png)
 
-Finally, you can save your search and its view by clicking on the **Save** option, at the top navigation bar.
-
-//![Save field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/save-your-fields.png)
-
-## Filter log results
-
-To narrow down your search, click the **Add filter** option underneath the search bar.
-
-Choose the field, operator, and value you'd like to apply in your filter, and click save. You can also create a custom label to rename the filter for better identification.
-
-![Apply a filter](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/add-a-filter.png)
-
-Once you've set your filter, clicking on it will open additional abilities such as pinning it across all apps, excluding results, temporarily disabling it, editing, or deleting it.
 
 ## Select logs' time frame
 
-The default period to display results is 15 minutes. You can edit this time frame by clicking on the **Show dates** link or clicking on the calendar icon.
+The default period to display results is 15 minutes. You can edit this time frame by clicking on the time picker. Choose an option from the quick menu, or switch to the absolute view to select a specific time frame. In this option, you can type the time frame you want to view. 
 
-The calendar icon offers popular time frames for you to choose from and lets you select the refresh rate of your data.
-
-![Time frame options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/quick-time-edits.png)
-
-The **Show dates** option lets you set a start and end time. In the popup, select between the following options:
-
-* **Relative** - Set a start and end date to view your data
-* **Now** - Get real-time troubleshooting and monitoring of your logs
-* **Absolute** - Browse the calendar view and choose any time frame to view your data. In this option, you can type the time frame you want to view
-
-![Choose time frame](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/time-settings-gif.gif)
-
-## Create Log Visualizations
-
-In the following video, you'll be able to see how to create a visualization dashboard based on your logs:
-
-
-<div>
-    <video width="100%" height="auto" controls autoplay loop muted>
-      <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/log-visualizations-velcfd5tpr.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-</div>
-
-
-
-<div style={{position: 'relative', paddingBottom: '56.25%'}}>
-  <iframe style={{position: 'absolute', top: '0', left: '0', width: '100%', height: '100%'}} src="https://fast.wistia.com/embed/iframe/velcfd5tpr" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-
-## Divide your log data
-
-You can divide logs from different environments by type, by utilizing Logz.io's sub accounts option.
-
-Create a sub account and configure it to receive the same logs as an existing account, mapping it as a different data type.
-
-For example, if a `metadata` field is assigned as an `Object` in your production environment, you can assign it as a `String` in your testing environment by creating a sub account to which you’ll send the same logs.
-
-You can also send data from each environment to a dedicated sub account to monitor them individually.
-
-Learn more about [creating and managing sub accounts](/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts) and about [field mapping](/docs/user-guide/data-hub/field-mapping/) in your account.
-
-## Additional resources
-
-* [Configure an alert](https://docs.logz.io/docs/user-guide/log-management/log-alerts/configure-alert/)
-* [Use Insights to detect new exceptions and critical errors](https://docs.logz.io/docs/user-guide/log-management/insights/ai-insights/)
-* [Use Live tail to get a live view of your logs](https://docs.logz.io/docs/user-guide/log-management/live-tail/)
-
+![Time frame options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/time-picker-sep9.png)
