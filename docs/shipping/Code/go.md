@@ -712,3 +712,4 @@ go run <YOUR-APPLICATION-FILE-NAME>.go
 Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
 
 
+ 

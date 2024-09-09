@@ -1538,7 +1538,7 @@ To uninstall the `logzio-monitoring` deployment, run:
 helm uninstall logzio-monitoring
 ```
 
-
+ 
 ## Troubleshooting
 
 

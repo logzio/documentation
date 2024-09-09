@@ -2080,4 +2080,4 @@ Give your traces some time to get from your system to ours, and then open [Traci
 Encounter an issue? See our [OpenTelemetry troubleshooting guide](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/otel-troubleshooting/).
 
 </TabItem>
-</Tabs>
+</Tabs> 
