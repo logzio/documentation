@@ -60,7 +60,7 @@ Use the filters to refine your search, whether you're using Simple or Lucene. Op
 
 
 
-### Apply regex to search
+## Regex in Lucene
 
 :::caution
 Using regex can overload your system and cause performance issues in your account. If regex is necessary, it is best to apply filters and use shorter timeframes.
