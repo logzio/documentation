@@ -120,9 +120,9 @@
 /user-guide/infrastructure-monitoring/data-rollups.html				/docs/user-guide/data-hub/data-rollups/
 /user-guide/log-shipping/built-in-log-types.html				/docs/user-guide/data-hub/log-parsing/default-parsing/
 /user-guide/mapping-and-parsing/split-json-array.html				/docs/user-guide/data-hub/log-parsing/split-json-array/
-/user-guide/mapping-and-parsing/sawmill-parsing.html				/docs/user-guide/data-hub/log-parsing/sawmill-parsing/
-/user-guide/mapping-and-parsing/sawmill-parsing				/docs/user-guide/data-hub/log-parsing/sawmill-parsing/
-/user-guide/mapping-and-parsing/data-parsing-wizard.html				/docs/user-guide/data-hub/log-parsing/sawmill-parsing/
+/user-guide/mapping-and-parsing/sawmill-parsing.html				/docs/category/log-parsing/
+/user-guide/mapping-and-parsing/sawmill-parsing				/docs/category/log-parsing/
+/user-guide/mapping-and-parsing/data-parsing-wizard.html				/docs/category/log-parsing/
 /user-guide/logs/mapping/				/docs/user-guide/data-hub/field-mapping/
 /user-guide/logs/mapping/field-not-indexed/				/docs/user-guide/data-hub/field-mapping/field-not-indexed/
 /user-guide/accounts/				/docs/user-guide/admin/logzio-accounts/accounts/
@@ -340,6 +340,7 @@
 /user-guide/infrastructure-monitoring/prometheus-importing-dashbds-manual-only.html				/docs/user-guide/Infrastructure-monitoring/introduction-to-prometheus/importing-dashboards
 /user-guide/users/single-sign-on/azure-sso.html/1000				/docs/user-guide/admin/sso/azure-sso/
 /user-guide/user-permissions/				/docs/user-guide/admin/users/
+/docs/user-guide/data-hub/log-parsing/sawmill-parsing/				/docs/category/log-parsing/
 # Shippers				
 /shipping/				/docs/category/send-your-data/
 /user-guide/log-shipping/				/docs/category/send-your-data/
