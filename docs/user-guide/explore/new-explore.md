@@ -9,28 +9,27 @@ slug: /user-guide/new-explore/
 
 Explore provides a unified dashboard for monitoring your data, offering a quick and efficient way to identify and debug issues. Designed for investigating and analyzing large data volumes, Explore allows you to use filters, queries, and searches to pinpoint and delve into problems effortlessly.
 
-![Explore dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-aug21.png)
-
-
-### Simple Search / Advanced (Lucene)  
-
+<!-- ![Explore dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-aug21.png)-->
 
 <iframe
-  src="https://capture.navattic.com/clxywtqr3000009l86x8bh221"
+  src="https://guide.logz.io/cm0kz9d9i000403l0665xdmng"
   style={{ border: 'none', width: '100%', height: '900px' }}
   allow="fullscreen"
   id="navattic-embed"
 />
 
-Click on the dropdown menu to switch between Simple Search and Advanced Search, a Lucene query-based search:
 
-* **Simple Search**: An intuitive search with auto-complete functionality. It streamlines your search process and enables faster access to data.
+### Simple / Lucene
+
+Click on the dropdown menu to switch between Simple and Lucene query-based search:
+
+* **Simple**: An intuitive search with auto-complete functionality. It streamlines your search process and enables faster access to data.
 
 Build your query by selecting fields, parameters, and conditions. To add a value that doesn't appear in your logs, type its name and click on the + sign. You can also add free text to your search, which will convert it into a Lucene query.
 
 <!-- ![Smart Search gif](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/simple-search-aug6.gif)-->
 
-* **Advanced (Lucene)**: Use advanced text querying for log searches. You can search for free text by typing the text string you want to find; for example, error will return all words containing this string, and using quotation marks, "error", will return only the specific word you're searching for.
+* **Lucene**: Use Lucene query language for log searches. You can search for free text by typing the text string you want to find; for example, `error` will return all words containing this string, and using quotation marks, `"error"`, will return only the specific word you're searching for.
 
 <!-- ![Lucene Search gif](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/advanced-search-aug6.gif)-->
 
