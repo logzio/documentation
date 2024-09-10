@@ -23,6 +23,7 @@
     "docusaurus": "^1.14.7",
     "docusaurus-plugin-hotjar": "^0.0.2",
     "docusaurus-plugin-includes": "^1.1.4",
+    "plugin-image-zoom": "github:flexanalytics/plugin-image-zoom",
     "prism-react-renderer": "^2.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
