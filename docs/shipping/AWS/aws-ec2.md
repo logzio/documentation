@@ -10,8 +10,8 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['2VNLppOm4XOFwVouv8dorr']
-metrics_alerts: ['hWld33IEO6gZMpp2e4vs0']
+metrics_dashboards: ['2VNLppOm4XOFwVouv8dorr', '2oLvCy5p914pM9m5pLoD6u', 'YGbSr3PrMIIJanIUb8u24']
+metrics_alerts: ['hWld33IEO6gZMpp2e4vs0', '7pnMXCMcUcoERzsIM0nZ9O', '22sfot5B5YjITiWjNrlD9M']
 drop_filter: []
 ---
 
