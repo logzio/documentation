@@ -10,8 +10,8 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['2VNLppOm4XOFwVouv8dorr', '2oLvCy5p914pM9m5pLoD6u', 'YGbSr3PrMIIJanIUb8u24']
-metrics_alerts: ['hWld33IEO6gZMpp2e4vs0', '7pnMXCMcUcoERzsIM0nZ9O', '22sfot5B5YjITiWjNrlD9M']
+metrics_dashboards: ['2oLvCy5p914pM9m5pLoD6u', 'YGbSr3PrMIIJanIUb8u24']
+metrics_alerts: ['7pnMXCMcUcoERzsIM0nZ9O', '22sfot5B5YjITiWjNrlD9M']
 drop_filter: []
 ---
 
@@ -190,9 +190,6 @@ Deploy this integration to send your Amazon EC2 metrics to Logz.io.
 
 This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon EC2 metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
 
-Install the pre-built dashboard to enhance the observability of your metrics.
-
-<!-- logzio-inject:install:grafana:dashboards ids=["2VNLppOm4XOFwVouv8dorr"] -->
 
 {@include: ../../_include/metric-shipping/generic-dashboard.html}
 
@@ -200,9 +197,6 @@ Install the pre-built dashboard to enhance the observability of your metrics.
 
 {@include: ../../_include/metric-shipping/aws-metrics-new.md}
 
-Install the pre-built dashboard to enhance the observability of your metrics.
-
-<!-- logzio-inject:install:grafana:dashboards ids=["2VNLppOm4XOFwVouv8dorr"] -->
 
 {@include: ../../_include/metric-shipping/generic-dashboard.html}
 
