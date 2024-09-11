@@ -41,7 +41,7 @@ Next:
 
 * Enter the following header into the **Headers** field: `authorization= Basic <API-TOKEN>`. Replace `<API-TOKEN>` with the API token to your Atlassian account
 
-* Add the following code as the payload:
+* Add the following code as the payload: 
 
    ```json
    {
