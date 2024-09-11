@@ -105,8 +105,8 @@ apis:
     azure_ad_secret_value: <<AZURE_AD_SECRET_VALUE>>
     data_request:
       url: https://reports.office365.com/ecp/reportingwebservice/reporting.svc/MessageTrace
-      additional_fields:
-        type: azure_mail_reports
+    additional_fields:
+      type: azure_mail_reports
     scrape_interval: 60  # for mail reports we suggest no less than 60 minutes
     days_back_fetch: 8  # for mail reports we suggest up to 8 days
 
