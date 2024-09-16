@@ -15,6 +15,19 @@ When log data is sent with **nested objects** in an array, it **cannot** be used
 Example of log data that **can** be used for alerts and visualizations:
 
 ```json
+"array_field": [
+    {
+      "field": "test"
+    },
+    {
+      "field": "test2"
+    }
+  ]
+```
+
+Example of log data that **cannot** be used for alerts or visualizations:
+
+```json
 {
   "nested_arr": [
     {
@@ -25,19 +38,6 @@ Example of log data that **can** be used for alerts and visualizations:
     }
   ]
 }
-```
-
-Example of log data that **cannot** be used for alerts or visualizations:
-
-```json
-"array_field": [
-    {
-      "field": "test"
-    },
-    {
-      "field": "test2"
-    }
-  ]
 ```
 
 
