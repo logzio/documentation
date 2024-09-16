@@ -14,7 +14,7 @@ When log data is sent with **nested objects** in an array, it **cannot** be used
 
 Example of log data that **can** be used for alerts and visualizations:
 
-```yaml
+```json
 {
   "nested_arr": [
     {
@@ -29,7 +29,7 @@ Example of log data that **can** be used for alerts and visualizations:
 
 Example of log data that **cannot** be used for alerts or visualizations:
 
-```yaml
+```json
 "array_field": [
     {
       "field": "test"
