@@ -23,7 +23,7 @@ No. To access Observability IQ RCA, you must use Logz.io's app.
 
 ### What data can Observability IQ RCA access upon activation?
 
-Observability IQ RCA activates when you click the Analyze button. Once the process has started, RCA can query for more context and utilize log search to get relevant data needed to performe the analysis. The restrictions are the same as the ones that apply to your Logz.io account, and RCA can access any data as needed.
+Observability IQ RCA activates when you click the Analyze button. Once the process has started, RCA can query for more context and utilize log search to get relevant data needed to perform the analysis. The restrictions are the same as the ones that apply to your Logz.io account, and RCA can access any data as needed.
 
 This setup ensures that the IQ RCA simulated a real-time investigation to resolve the issue and find the root cause.
 

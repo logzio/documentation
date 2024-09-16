@@ -34,3 +34,7 @@ Please note that the analysis may take a few minutes, so it's essential to stay 
 
 Once completed, RCA will display its **Conclusion**, outlining possible causes for the issue and providing recommendations to address it or prevent it from recurring.
 
+<h2 id="additional"> Additional resources</h2>
+
+* Meet Logz.io's [Observability IQ Assistant](/docs/user-guide/observability/assistantiq)
+* Common questions and answers on [RCA](/docs/user-guide/observability/rca-faq)
