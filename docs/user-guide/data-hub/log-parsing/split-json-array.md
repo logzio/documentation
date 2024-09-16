@@ -7,12 +7,39 @@ keywords: [log, monitoring, parsing, arrays, json, default parsing, built in log
 ---
 
 
-
-
 Logs that are received as a JSON array cannot be properly parsed or mapping into fields.
 This will impede your ability to search your logs efficiently.
 
-Log data sent in an array cannot be used for configuring alerts or creating visualizations. This is why it's important to parse arrays into multiple log documents.
+Log data sent with nested objects in the array cannot be used to configure alerts or create visualizations. This is why it's important to parse arrays into multiple log documents.
+
+Log data **without** nested objects:
+
+```yaml
+{
+  "nested_arr": [
+    {
+      "field": "test"
+    },
+    {
+      "field": "test2"
+    }
+  ]
+}
+```
+
+Log data **with** nested objects:
+
+```yaml
+"array_field": [
+    {
+      "field": "test"
+    },
+    {
+      "field": "test2"
+    }
+  ]
+```
+
 
 Some shipping methods offer the option to parse an array of JSON objects into discrete events. That way, the logs can be fully parsed and mapped by Logz.io.
 
