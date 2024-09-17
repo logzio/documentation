@@ -434,7 +434,7 @@ These examples use the [OpenTelemetry JS SDK](https://github.com/open-telemetry/
 
 **Before you begin, you'll need**:
 
-Node 8 or higher.
+Node 14 or higher.
 
 :::note
 We recommend using this integration with [the Logz.io Metrics backend](https://app.logz.io/#/dashboard/metrics/), though it is compatible with any backend that supports the `prometheusremotewrite` format.
@@ -444,7 +444,7 @@ We recommend using this integration with [the Logz.io Metrics backend](https://a
 ### Install the SDK package
 
 ```shell
-npm install logzio-nodejs-metrics-sdk@0.4.0
+npm install logzio-nodejs-metrics-sdk@0.5.0
 ```
 
 ### Initialize the exporter and meter provider
@@ -455,7 +455,7 @@ const MeterProvider = require('@opentelemetry/sdk-metrics-base');
 const sdk =  require('logzio-nodejs-metrics-sdk');
 
 const collectorOptions = {
-    url: '<<LISTENER-HOST>>',
+    url: 'https://<<LISTENER-HOST>>:8053',
     headers: {
         "Authorization":"Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>"
     }
@@ -464,12 +464,15 @@ const collectorOptions = {
 const metricExporter = new sdk.RemoteWriteExporter(collectorOptions);
 
 // Initialize the meter provider
-const meter = new MeterProvider.MeterProvider({
-    exporter: metricExporter,
-    interval: 15000, // Push interval in milliseconds
+const meter = new MeterProvider({
+    readers: [
+        new PeriodicExportingMetricReader(
+            {
+                exporter: metricExporter, 
+                exportIntervalMillis: 1000
+            })
+        ],
 }).getMeter('example-exporter');
-
-
 ```
 {@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
 
