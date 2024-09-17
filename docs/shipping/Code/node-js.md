@@ -552,13 +552,8 @@ Install the pre-built dashboard for enhanced observability.
 
 ### Auto-instrument Node.js and send Traces to Logz.io
 
-This integration includes:
-
-* Install OpenTelemetry Node.js instrumentation packages on your host.
-* Install the OpenTelemetry collector with Logz.io exporter.
-* Run your Node.js application with OpenTelemetry instrumentation.
-
-The Node.js instrumentation captures spans and forwards them to the collector, which exports the data to your Logz.io account.
+<Tabs>
+  <TabItem value="nodejs-traces" label="OpenTelemetry Collector" default>
 
 **Before you begin, you'll need**:
 
@@ -571,7 +566,6 @@ The Node.js instrumentation captures spans and forwards them to the collector, w
 This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
 :::
   
-
 
 {@include: ../../_include/tracing-shipping/node-steps.md}
 
@@ -611,7 +605,8 @@ node --require './tracer.js' <YOUR-APPLICATION-FILE-NAME>.js
 Give your traces some time to ingest, and then open your [Tracing account](https://app.logz.io/#/dashboard/jaeger).
 
 
-### Auto-instrument Node.js with Docker for Logz.io
+</TabItem>
+<TabItem value="nodejs-traces-docker" label="Docker" default>
 
 This integration auto-instruments your Node.js app and runs a containerized OpenTelemetry collector to send traces to Logz.io. Ensure both application and collector containers are on the same network.
 
@@ -648,6 +643,9 @@ node --require './tracer.js' <YOUR-APPLICATION-FILE-NAME>.js
 
 Give your traces some time to ingest, and then open your [Tracing account](https://app.logz.io/#/dashboard/jaeger).
 
+
+</TabItem>
+<TabItem value="nodejs-traces-helm" label="Helm" default>
 
 
 ### Configuration using Helm
@@ -823,6 +821,10 @@ To uninstall the `logzio-k8s-telemetry` deployment, run:
 ```shell
 helm uninstall logzio-k8s-telemetry
 ```
+
+
+</TabItem>
+</Tabs>
 
 
 {@include: ../../_include/tracing-shipping/otel-troubleshooting.md}
