@@ -6,11 +6,11 @@ product: ['logs','metrics']
 os: ['mac']
 filters: ['Operating Systems', 'Most Popular']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/mac-os.svg
-logs_dashboards: []
+logs_dashboards: ['2c8z6DVvPatBZMgZ7qpfff']
 logs_alerts: []
 logs2metrics: []
 metrics_dashboards: ['2gsQP2xRef7dkwt8pxWieo']
-metrics_alerts: []
+metrics_alerts: ['hWld33IEO6gZMpp2e4vs0']
 drop_filter: []
 ---
 

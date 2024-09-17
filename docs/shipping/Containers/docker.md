@@ -10,7 +10,7 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/dock
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: []
+metrics_dashboards: ['5Wbud46hwzhpFeokC69j0Z']
 metrics_alerts: []
 drop_filter: []
 ---
