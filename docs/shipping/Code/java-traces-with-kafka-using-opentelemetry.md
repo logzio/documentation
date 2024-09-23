@@ -158,7 +158,7 @@ helm install -n monitoring \
 --set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO-REGION>>" \
 --set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
-```
+``` 
 
 | Parameter | Description |
 | --- | --- |

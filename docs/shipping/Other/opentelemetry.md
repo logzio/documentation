@@ -174,7 +174,7 @@ On deployment, your OpenTelemetry instrumentation captures spans from your appli
 This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
 :::
   
-
+ 
 
 ### Download and configure OpenTelemetry collector
 

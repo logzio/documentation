@@ -14,8 +14,6 @@ exporters:
     headers:
       user-agent: logzio-opentelemetry-traces
 
-  logging:
-
 processors:
   batch:
   tail_sampling:
@@ -51,5 +49,8 @@ service:
     traces:
       receivers: [otlp]
       processors: [tail_sampling, batch]
-      exporters: [logging, logzio/traces]
+      exporters: [logzio/traces]
+  telemetry:
+    logs:
+      level: info
 ```
