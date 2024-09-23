@@ -1085,7 +1085,7 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 Download the latest version of the [OpenTelemetry Java agent](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar) to your application host.
 
 
-
+ 
 **2. Download and configure OpenTelemetry collector**
 
 Create a dedicated directory on the host of your Java application and download the relevant [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.70.0).

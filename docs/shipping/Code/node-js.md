@@ -571,7 +571,7 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
   
 
 {@include: ../../_include/tracing-shipping/node-steps.md}
-
+ 
 
 
 #### Download and configure the OpenTelemetry collector

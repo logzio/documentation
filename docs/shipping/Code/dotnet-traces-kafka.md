@@ -120,7 +120,7 @@ consumer.ConsumeWithInstrumentation((result) =>
 
 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
-
+ 
 
 * Replace `<path/to>` with the path to the directory where you downloaded the agent.
 * Replace `<YOUR-SERVICE-NAME>` with the name of your tracing service defined earlier.
