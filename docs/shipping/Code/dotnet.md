@@ -202,8 +202,8 @@ namespace dotnet_log4net
 | parseJsonMessage | To parse your message as JSON format, add this field and set it to `true`. | `false` |
 | proxyAddress | Proxy address to route your logs through. | `None` |
 | jsonKeysCamelCase | If you have custom fields keys that start with a capital letter and want to see the fields with a capital letter in Logz.io, set this field to true. | `false` |
-| addTraceContext | If want to add trace context to each log, set this field to true. | `false` |
-| useStaticHttpClient | If want to use the same static HTTP/s client for sending logs, set this field to true. | `false` |
+| addTraceContext | To add trace context to each log, set this field to true. | `false` |
+| useStaticHttpClient | To use the same static HTTP/s client for sending logs, set this field to true. | `false` |
 
 
 
@@ -458,8 +458,8 @@ LogManager.Configuration = config;
 | parseJsonMessage | To parse your message as JSON format, add this field and set it to `true`. | `false` |
 | proxyAddress | Proxy address to route your logs through. | `None` |
 | jsonKeysCamelCase | If you have custom fields keys that start with a capital letter and want to see the fields with a capital letter in Logz.io, set this field to true. | `false` |
-| addTraceContext | If want to add trace context to each log, set this field to true. | `false` |
-| useStaticHttpClient | If want to use the same static HTTP/s client for sending logs, set this field to true. | `false` |
+| addTraceContext | To add trace context to each log, set this field to true. | `false` |
+| useStaticHttpClient | To use the same static HTTP/s client for sending logs, set this field to true. | `false` |
 
 **Code sample**
 
@@ -759,8 +759,8 @@ Customize your code by adding the following:
 | parseJsonMessage | To parse your message as JSON format, add this field and set it to `true`. | `false` |
 | proxyAddress | Proxy address to route your logs through. | `None` |
 | jsonKeysCamelCase | If you have custom fields keys that start with capital letter and want to see the fields with capital letter in Logz.io, set this field to true. | `false` |
-| addTraceContext | If want to add trace context to each log, set this field to true. | `false` |
-| useStaticHttpClient | If want to use the same static HTTP/s client for sending logs, set this field to true. | `false` |
+| addTraceContext | To add trace context to each log, set this field to true. | `false` |
+| useStaticHttpClient | To use the same static HTTP/s client for sending logs, set this field to true. | `false` |
 
 
 ### ASP.NET Core

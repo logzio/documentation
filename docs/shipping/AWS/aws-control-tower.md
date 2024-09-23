@@ -145,7 +145,7 @@ It can take a few minutes after the stack creation for EventBridge rule to be tr
  
 
 :::caution Important
-If want to delete the S3 Hook Stack - you'll need to detach the policy "LambdaAccessBuckets" first.
+To delete the S3 Hook Stack - you'll need to detach the policy "LambdaAccessBuckets" first.
 :::
  
 

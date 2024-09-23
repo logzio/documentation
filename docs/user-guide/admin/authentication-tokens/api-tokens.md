@@ -13,6 +13,20 @@ API tokens are unique to each account. The only exception is a subset of account
 
 
 
+
+
+import DropdownComponent from '/src/components/CustomLayout.js';
+
+# My Page with Dropdown
+
+This is an example page with a custom dropdown.
+
+<DropdownComponent />
+
+
+
+
+
 From your account, go to the <a href="https://app.logz.io/#/dashboard/settings/manage-tokens/api" target ="_blank"> **Manage Tokens** > **API tokens** tab.</a> of your Operations workspace It can be reached by selecting **<i class="li li-gear"></i> > Settings > Tools > Manage Tokens**. 
 
 The token for each account is listed in the table along with the date it was created.
