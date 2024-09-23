@@ -6,11 +6,11 @@ product: ['logs', 'metrics']
 os: ['windows', 'linux']
 filters: ['Load Balancer']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/haproxy-logo.png
-logs_dashboards: []
-logs_alerts: []
+logs_dashboards: ['76IIHO5APcQVwPCiZTtbIq']
+logs_alerts: ['1d0LmzKUwqOWfO4bfX2CsN', '3Gz5XcfsUs1TVETc2NAwv3']
 logs2metrics: []
-metrics_dashboards: []
-metrics_alerts: []
+metrics_dashboards: ['1U8KSME6yoMu7UORZPxNR3']
+metrics_alerts: ['0AoIkckHjOS4UOQpEpQUc']
 drop_filter: []
 ---
 

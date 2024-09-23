@@ -6,7 +6,7 @@ product: ['logs','metrics']
 os: ['linux']
 filters: ['Operating Systems', 'Most Popular']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/linux.svg
-logs_dashboards: []
+logs_dashboards: ['6AJEM9FdpE5HqXem42edp']
 logs_alerts: []
 logs2metrics: []
 metrics_dashboards: ['6hb5Nww0ar4SXoF92QxMx']

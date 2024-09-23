@@ -6,11 +6,11 @@ product: ['metrics']
 os: ['windows', 'linux']
 filters: ['Security']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/trivy-logo.png
-logs_dashboards: []
+logs_dashboards: ['4OPbCglVXYcJHb4TyFl1gh']
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: []
-metrics_alerts: []
+metrics_dashboards: ['BjPE91VjpgZMm2jjbmh5N']
+metrics_alerts: ['30jz4eFbOmRgRI5SakQHu2']
 drop_filter: []
 ---
 

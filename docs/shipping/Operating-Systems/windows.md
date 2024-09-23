@@ -6,7 +6,7 @@ product: ['logs']
 os: ['windows']
 filters: ['Operating Systems', 'Most Popular']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/windows.svg
-logs_dashboards: []
+logs_dashboards: ['7xaHadrh2fJ8dJ5liH4g2S']
 logs_alerts: ['72Yry8pK5OfiGdPOV2y9RZ', '4Mkw0OICZz7xnZZjlGWX9x']
 logs2metrics: []
 metrics_dashboards: ['7vydxtpnlKLILHIGK4puX5']
