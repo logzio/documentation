@@ -1359,7 +1359,7 @@ Install the pre-built dashboard to enhance the observability of your metrics.
 
     * Edit the `values.yaml`
 
-    * Overide default values with your own `my_values.yaml` and apply it in the `helm install` command. 
+    * Override default values with your own `my_values.yaml` and apply it in the `helm install` command. 
 
 * **Customization parameters**
 
