@@ -9,20 +9,27 @@ slug: /user-guide/new-explore/
 
 Explore provides a unified dashboard for monitoring your data, offering a quick and efficient way to identify and debug issues. Designed for investigating and analyzing large data volumes, Explore allows you to use filters, queries, and searches to pinpoint and delve into problems effortlessly.
 
-![Explore dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-aug21.png)
+<!-- ![Explore dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-aug21.png)-->
+
+<iframe
+  src="https://guide.logz.io/cm0kz9d9i000403l0665xdmng"
+  style={{ border: 'none', width: '100%', height: '900px' }}
+  allow="fullscreen"
+  id="navattic-embed"
+/>
 
 
-### Simple Search / Advanced (Lucene)  
+### Simple / Lucene
 
-Click on the dropdown menu to switch between Simple Search and Advanced Search, a Lucene query-based search:
+Click on the dropdown menu to switch between Simple and Lucene query-based search:
 
-* **Simple Search**: An intuitive search with auto-complete functionality. It streamlines your search process and enables faster access to data.
+* **Simple**: An intuitive search with auto-complete functionality. It streamlines your search process and enables faster access to data.
 
 Build your query by selecting fields, parameters, and conditions. To add a value that doesn't appear in your logs, type its name and click on the + sign. You can also add free text to your search, which will convert it into a Lucene query.
 
 <!-- ![Smart Search gif](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/simple-search-aug6.gif)-->
 
-* **Advanced (Lucene)**: Use advanced text querying for log searches. You can search for free text by typing the text string you want to find; for example, error will return all words containing this string, and using quotation marks, "error", will return only the specific word you're searching for.
+* **Lucene**: Use Lucene query language for log searches. You can search for free text by typing the text string you want to find; for example, `error` will return all words containing this string, and using quotation marks, `"error"`, will return only the specific word you're searching for.
 
 <!-- ![Lucene Search gif](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/advanced-search-aug6.gif)-->
 
@@ -105,3 +112,4 @@ Expand each log to view additional details, see the log in JSON format, and add 
 In the top right corner, choose to view a single log in a new window, view surrounding logs for context, and share the URL of the specific log you're viewing.
 
 <img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/logs-aug21.png" alt="smart-search" width="700"/>
+

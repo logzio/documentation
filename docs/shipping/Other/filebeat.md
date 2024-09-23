@@ -6,7 +6,7 @@ product: ['logs']
 os: ['windows', 'linux']
 filters: ['Other']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/beats.svg
-logs_dashboards: []
+logs_dashboards: ['5x2SJocfpcAfRIKZx72LwX']
 logs_alerts: []
 logs2metrics: []
 metrics_dashboards: []

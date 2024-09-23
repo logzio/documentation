@@ -89,7 +89,7 @@ service:
   
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 {@include: ../../_include/tracing-shipping/tail-sampling.md}
-
+ 
 
 #### Direct the OpenTelemetry collector to the configuration file
 

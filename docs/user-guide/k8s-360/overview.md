@@ -192,7 +192,7 @@ Node and pod views include the **See Logs** button, which opens an OpenSearch Da
 
 If you’ve manually set up your Kubernetes account, you might get an empty query with no results. In this case, you can view all related logs using a custom filter.
 
-Click on **Add filter** at the top of the screen. The fields vary according to your chosen view; add `kubernetes.host` to the field to view Node related logs. To view Pod related logs, add `kubernetes.pod_name` to the field.
+Click on **Add filter** at the top of the screen. The fields vary according to your chosen view; add `k8s_node_name` to the field to view Node related logs. To view Pod related logs, add `k8s_pod_name` to the field.
 
 Next, choose the operator. For example, you can select **exists** to view all related logs.
 

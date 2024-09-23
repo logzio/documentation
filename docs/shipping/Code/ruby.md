@@ -48,7 +48,7 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 
 {@include: ../../_include/tracing-shipping/ruby-steps.md}
 
-
+ 
 
 ### Download and configure OpenTelemetry collector
 

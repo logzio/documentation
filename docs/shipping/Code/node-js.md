@@ -347,77 +347,74 @@ tsc --project tsconfig.json
 </TabItem>
 <TabItem value="OpenTelemetry" label="OpenTelemetry">
 
-Install the dependencies:
+This integration uses the OpenTelemetry logging exporter to send logs to Logz.io via the OpenTelemetry Protocol (OTLP) listener.
 
-
-```shell
-npm install --save @opentelemetry/api-logs
-npm install --save @opentelemetry/sdk-logs
-npm install --save @opentelemetry/exporter-logs-otlp-proto
-```
-
-Configure the Opentelemetry Collector, You can use the sample configuration and edit it according to your needs:
-
-```javascript
-import logsAPI from '@opentelemetry/api-logs'
-import {
-  LoggerProvider,
-  SimpleLogRecordProcessor,
-} from '@opentelemetry/sdk-logs';
-import { OTLPLogExporter } from '@opentelemetry/exporter-logs-otlp-proto';
-import { diag, DiagConsoleLogger, DiagLogLevel } from '@opentelemetry/api';
-import { Resource } from '@opentelemetry/resources';
-
-
-// Initialize the Logger provider
-// Change <<service-name>> to your service name
-const loggerProvider = new LoggerProvider({resource: new Resource({'service.name': '<<service-name>>'})});
-
-// Configure OTLP exporter
-const logzioExporterOptions = {
-  url: 'https://otlp-listener.logz.io/v1/logs',
-  headers: {Authorization: 'Bearer <<LOG-SHIPPING-TOKEN>>', 'user-agent': 'logzio-nodejs-logs-otlp'},
-};
-
-// Add a processor to export log record
-// In order to send data in batch, change SimpleLogRecordProcessor >> BatchLogRecordProcessor
-loggerProvider.addLogRecordProcessor(
-  new SimpleLogRecordProcessor(new OTLPLogExporter(logzioExporterOptions)),
-);
-
-// To add debug mode to the OpenTelemetry collector, uncomment the below line
-// diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.DEBUG);
-
-
-// Create a Logger instance
-// You can change the logger name from exmaple_logger to any name you prefer
-const logger = loggerProvider.getLogger('exmaple_logger');
-
-// Close logger gracefully
-['SIGINT', 'SIGTERM'].forEach(signal => {
-  process.on(signal, () => loggerProvider.shutdown().catch(console.error));
-});
-
-// Emit a log record
-logger.emit({
-  severityNumber: logsAPI.SeverityNumber.INFO,
-  severityText: 'INFO',
-  body: 'some message',
-  attributes: { 'log.type': 'LogRecord' },
-});
-
-logger.emit({
-  severityNumber: logsAPI.SeverityNumber.INFO,
-  severityText: 'INFO',
-  body: '{"field1": 123, "field2": "value"}',
-  attributes: { 'log.type': 'LogRecord' },
-});
-
-```
+### Prerequisites
+    
+- Node
+- A Node application
+- An active account with Logz.io
 
 :::note
-If your Logz.io account region is not `us-east-1`, add your [region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions) to the `url` like so `https://otlp-listener-<<REGION-CODE>>.logz.io/v1/logs`.
+If you need an example aplication to test this integration, please refer to our [NodeJS OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/nodjs/logs).
 :::
+
+### Configure the instrumentation
+
+
+1. Install the dependencies:
+
+   ```shell
+   npm install --save @opentelemetry/api-logs
+   npm install --save @opentelemetry/sdk-logs
+   npm install --save @opentelemetry/exporter-logs-otlp-proto
+   ```
+
+2. Configure the Opentelemetry Collector, You can use the sample configuration and edit it according to your needs:
+
+   ```javascript
+   const { LoggerProvider, SimpleLogRecordProcessor } = require('@opentelemetry/sdk-logs');
+   const { OTLPLogExporter } = require('@opentelemetry/exporter-logs-otlp-proto');
+   const { Resource } = require('@opentelemetry/resources');
+   
+   const resource = new Resource({'service.name': 'YOUR-SERVICE-NAME'});
+   const loggerProvider = new LoggerProvider({ resource });
+   
+   const otlpExporter = new OTLPLogExporter({
+     url: 'https://otlp-listener.logz.io/v1/logs',
+     headers: {
+       Authorization: 'Bearer <LOG-SHIPPING-TOKEN>',
+       'user-agent': 'logzio-nodejs-logs-otlp'
+     }
+   });
+   
+   loggerProvider.addLogRecordProcessor(new SimpleLogRecordProcessor(otlpExporter));
+   
+   const logger = loggerProvider.getLogger('example_logger');
+   module.exports.logger = logger;
+   ```
+   
+   Replace `YOUR-SERVICE-NAME` with the required service name.
+   
+   
+   {@include: ../../_include/log-shipping/log-shipping-token.md}
+
+
+    Update the `listener.logz.io` part in `https://otlp-listener.logz.io/v1/logs` with the URL for [your hosting region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region).
+
+   
+   :::note
+   If your Logz.io account region is not `us-east-1`, add your [region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/   account-region/#available-regions) to the `url` like so `https://otlp-listener-<<REGION-CODE>>.logz.io/v1/logs`.
+   :::
+
+3. Run the application.
+
+### Check Logz.io for your logs
+
+
+Allow some time for data ingestion, then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
+
+Encounter an issue? See our [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/) guide.
 
 
 </TabItem>
@@ -437,7 +434,7 @@ These examples use the [OpenTelemetry JS SDK](https://github.com/open-telemetry/
 
 **Before you begin, you'll need**:
 
-Node 8 or higher.
+Node 14 or higher.
 
 :::note
 We recommend using this integration with [the Logz.io Metrics backend](https://app.logz.io/#/dashboard/metrics/), though it is compatible with any backend that supports the `prometheusremotewrite` format.
@@ -447,7 +444,7 @@ We recommend using this integration with [the Logz.io Metrics backend](https://a
 ### Install the SDK package
 
 ```shell
-npm install logzio-nodejs-metrics-sdk@0.4.0
+npm install logzio-nodejs-metrics-sdk@0.5.0
 ```
 
 ### Initialize the exporter and meter provider
@@ -458,7 +455,7 @@ const MeterProvider = require('@opentelemetry/sdk-metrics-base');
 const sdk =  require('logzio-nodejs-metrics-sdk');
 
 const collectorOptions = {
-    url: '<<LISTENER-HOST>>',
+    url: 'https://<<LISTENER-HOST>>:8053',
     headers: {
         "Authorization":"Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>"
     }
@@ -467,12 +464,15 @@ const collectorOptions = {
 const metricExporter = new sdk.RemoteWriteExporter(collectorOptions);
 
 // Initialize the meter provider
-const meter = new MeterProvider.MeterProvider({
-    exporter: metricExporter,
-    interval: 15000, // Push interval in milliseconds
+const meter = new MeterProvider({
+    readers: [
+        new PeriodicExportingMetricReader(
+            {
+                exporter: metricExporter, 
+                exportIntervalMillis: 1000
+            })
+        ],
 }).getMeter('example-exporter');
-
-
 ```
 {@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
 
@@ -555,13 +555,8 @@ Install the pre-built dashboard for enhanced observability.
 
 ### Auto-instrument Node.js and send Traces to Logz.io
 
-This integration includes:
-
-* Install OpenTelemetry Node.js instrumentation packages on your host.
-* Install the OpenTelemetry collector with Logz.io exporter.
-* Run your Node.js application with OpenTelemetry instrumentation.
-
-The Node.js instrumentation captures spans and forwards them to the collector, which exports the data to your Logz.io account.
+<Tabs>
+  <TabItem value="nodejs-traces" label="OpenTelemetry Collector" default>
 
 **Before you begin, you'll need**:
 
@@ -575,9 +570,8 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 :::
   
 
-
 {@include: ../../_include/tracing-shipping/node-steps.md}
-
+ 
 
 
 #### Download and configure the OpenTelemetry collector
@@ -614,7 +608,8 @@ node --require './tracer.js' <YOUR-APPLICATION-FILE-NAME>.js
 Give your traces some time to ingest, and then open your [Tracing account](https://app.logz.io/#/dashboard/jaeger).
 
 
-### Auto-instrument Node.js with Docker for Logz.io
+</TabItem>
+<TabItem value="nodejs-traces-docker" label="Docker" default>
 
 This integration auto-instruments your Node.js app and runs a containerized OpenTelemetry collector to send traces to Logz.io. Ensure both application and collector containers are on the same network.
 
@@ -651,6 +646,9 @@ node --require './tracer.js' <YOUR-APPLICATION-FILE-NAME>.js
 
 Give your traces some time to ingest, and then open your [Tracing account](https://app.logz.io/#/dashboard/jaeger).
 
+
+</TabItem>
+<TabItem value="nodejs-traces-helm" label="Helm" default>
 
 
 ### Configuration using Helm
@@ -828,9 +826,14 @@ helm uninstall logzio-k8s-telemetry
 ```
 
 
+</TabItem>
+</Tabs>
+
+
 {@include: ../../_include/tracing-shipping/otel-troubleshooting.md}
 
 
 
 
 
+ 

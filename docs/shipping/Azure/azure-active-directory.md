@@ -90,9 +90,9 @@ apis:
     azure_ad_secret_value: <<AZURE_AD_SECRET_VALUE>>
     data_request:
       url: https://graph.microsoft.com/v1.0/auditLogs/signIns
-      additional_fields:
-        type: azure_graph
-        field_to_add_to_my_logs: 123
+    additional_fields:
+      type: azure_graph
+      field_to_add_to_my_logs: 123
     scrape_interval: 1
     days_back_fetch: 30
   
@@ -106,7 +106,7 @@ apis:
 | azure_ad_secret_value | The Azure AD Secret value                                                                           | Required          | -           |
 | date_filter_key                | The name of key to use for the date filter in the request URL params | Optional          | `createdDateTime` |
 | data_request.url               | The request URL                                                      | Required          | -                 |
-| data_request.additional_fields | Additional custom fields to add to the logs before sending to logzio | Optional          | -                 |
+| additional_fields | Additional custom fields to add to the logs before sending to logzio | Optional          | -                 |
 | days_back_fetch       | The amount of days to fetch back in the first request                                               | Optional          | 1 (day)     |
 | scrape_interval       | Time interval to wait between runs (unit: `minutes`)                                                | Optional          | 1 (minute)  |
 
