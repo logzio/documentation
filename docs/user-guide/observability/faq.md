@@ -36,6 +36,9 @@ The Observability IQ Assistant activates when you input a prompt in its interfac
 
 This setup ensures that the IQ Assistant interacts exclusively with the data you're actively analyzing.
 
+### How are you testing the Observability IQ Assistant and its models?
+
+We are actively testing the Observability IQ Assistant in multiple environments, including our own environment. This allows us to continuously refine its performance and reliability, ensuring it effectively meets your needs.
 
 ### How do I provide feedback or report issues with the Observability IQ Assistant? 
 
