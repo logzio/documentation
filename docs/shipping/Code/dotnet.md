@@ -1916,7 +1916,7 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 
 {@include: ../../_include/tracing-shipping/dotnet-steps.md}
 
-#### Download and configure OpenTelemetry collector
+#### Download and configure OpenTelemetry collector 
 
 Create a dedicated directory on the host of your ASP.NET Core application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.60.0) that is relevant to the operating system of your host.
 

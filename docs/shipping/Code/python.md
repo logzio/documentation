@@ -1059,7 +1059,7 @@ After installation, configure the exporter with this command:
 export OTEL_TRACES_EXPORTER=otlp
 export OTEL_RESOURCE_ATTRIBUTES="service.name=<<YOUR-SERVICE-NAME>>"
 ```
-
+ 
 ### Download and configure OpenTelemetry collector
 
 Create a directory on your Python application and download the relevant [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.82.0). Create a `config.yaml` with the following parameters:

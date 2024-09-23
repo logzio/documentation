@@ -14,7 +14,13 @@ npm install --save @opentelemetry/sdk-node
 
 #### Create a tracer file
 
-In your application's directory, create a file named `tracer.js` with the following configuration:
+In your application's directory, create a file named `tracer.js` with the following configuration.
+
+
+:::caution Important
+Replace `<<YOUR-SERVICE-NAME>>` with your service name.
+:::
+
 
 ```javascript
 "use strict";
@@ -43,7 +49,7 @@ const exporter = new OTLPTraceExporter({
 const provider = new BasicTracerProvider({
     resource: new Resource({
         [SemanticResourceAttributes.SERVICE_NAME]:
-            "YOUR-SERVICE-NAME",
+            "<<YOUR-SERVICE-NAME>>",
     }),
 });
 // export spans to console (useful for debugging)

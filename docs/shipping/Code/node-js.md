@@ -434,7 +434,7 @@ These examples use the [OpenTelemetry JS SDK](https://github.com/open-telemetry/
 
 **Before you begin, you'll need**:
 
-Node 8 or higher.
+Node 14 or higher.
 
 :::note
 We recommend using this integration with [the Logz.io Metrics backend](https://app.logz.io/#/dashboard/metrics/), though it is compatible with any backend that supports the `prometheusremotewrite` format.
@@ -444,7 +444,7 @@ We recommend using this integration with [the Logz.io Metrics backend](https://a
 ### Install the SDK package
 
 ```shell
-npm install logzio-nodejs-metrics-sdk@0.4.0
+npm install logzio-nodejs-metrics-sdk@0.5.0
 ```
 
 ### Initialize the exporter and meter provider
@@ -455,7 +455,7 @@ const MeterProvider = require('@opentelemetry/sdk-metrics-base');
 const sdk =  require('logzio-nodejs-metrics-sdk');
 
 const collectorOptions = {
-    url: '<<LISTENER-HOST>>',
+    url: 'https://<<LISTENER-HOST>>:8053',
     headers: {
         "Authorization":"Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>"
     }
@@ -464,12 +464,15 @@ const collectorOptions = {
 const metricExporter = new sdk.RemoteWriteExporter(collectorOptions);
 
 // Initialize the meter provider
-const meter = new MeterProvider.MeterProvider({
-    exporter: metricExporter,
-    interval: 15000, // Push interval in milliseconds
+const meter = new MeterProvider({
+    readers: [
+        new PeriodicExportingMetricReader(
+            {
+                exporter: metricExporter, 
+                exportIntervalMillis: 1000
+            })
+        ],
 }).getMeter('example-exporter');
-
-
 ```
 {@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
 
@@ -552,13 +555,8 @@ Install the pre-built dashboard for enhanced observability.
 
 ### Auto-instrument Node.js and send Traces to Logz.io
 
-This integration includes:
-
-* Install OpenTelemetry Node.js instrumentation packages on your host.
-* Install the OpenTelemetry collector with Logz.io exporter.
-* Run your Node.js application with OpenTelemetry instrumentation.
-
-The Node.js instrumentation captures spans and forwards them to the collector, which exports the data to your Logz.io account.
+<Tabs>
+  <TabItem value="nodejs-traces" label="OpenTelemetry Collector" default>
 
 **Before you begin, you'll need**:
 
@@ -572,9 +570,8 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 :::
   
 
-
 {@include: ../../_include/tracing-shipping/node-steps.md}
-
+ 
 
 
 #### Download and configure the OpenTelemetry collector
@@ -611,7 +608,8 @@ node --require './tracer.js' <YOUR-APPLICATION-FILE-NAME>.js
 Give your traces some time to ingest, and then open your [Tracing account](https://app.logz.io/#/dashboard/jaeger).
 
 
-### Auto-instrument Node.js with Docker for Logz.io
+</TabItem>
+<TabItem value="nodejs-traces-docker" label="Docker" default>
 
 This integration auto-instruments your Node.js app and runs a containerized OpenTelemetry collector to send traces to Logz.io. Ensure both application and collector containers are on the same network.
 
@@ -648,6 +646,9 @@ node --require './tracer.js' <YOUR-APPLICATION-FILE-NAME>.js
 
 Give your traces some time to ingest, and then open your [Tracing account](https://app.logz.io/#/dashboard/jaeger).
 
+
+</TabItem>
+<TabItem value="nodejs-traces-helm" label="Helm" default>
 
 
 ### Configuration using Helm
@@ -823,6 +824,10 @@ To uninstall the `logzio-k8s-telemetry` deployment, run:
 ```shell
 helm uninstall logzio-k8s-telemetry
 ```
+
+
+</TabItem>
+</Tabs>
 
 
 {@include: ../../_include/tracing-shipping/otel-troubleshooting.md}
