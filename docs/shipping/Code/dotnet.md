@@ -1380,7 +1380,7 @@ Install the pre-built dashboard to enhance the observability of your metrics.
 | `logzioDotnetMonitor.image.name` | Name of the image that is going to run in `logzioDotnetMonitor.name` container | `logzio/logzio-dotnet-monitor` |
 | `logzioDotnetMonitor.image.tag` | The tag of the image that is going to run in `logzioDotnetMonitor.name` container | `latest` |
 | `logzioDotnetMonitor.ports` | List of ports the `logzioDotnetMonitor.name` container exposes | `52325` |
-| `tolerations` | List of tolerations to applied to the pod. | `[]` | 
+| `tolerations` | List of tolerations to apply to the pod. | `[]` | 
 | `customVolumes` | List of custom volumes to add to deployment. | `[]` |
 | `customResources` | Custom resources to add to helm chart deployment (make sure to separate each resource with `---`). | `{}` |
 | `secrets.logzioURL` | Secret with your Logz.io listener url. | `https://listener.logz.io:8053` |
