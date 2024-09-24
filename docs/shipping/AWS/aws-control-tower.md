@@ -36,7 +36,7 @@ The stacks must be deployed in the same region as the S3 buckets.
 :::
  
 
-To deploy this project, click the button that matches the region you wish to deploy your Stack to:
+To deploy this project, click the button that matches the region you wish to deploy your stack to:
 
 | Region           | Deployment                                                                                                                                                                                                                                                                                                                       |
 |------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -106,7 +106,7 @@ The stacks must be deployed in the same region as the S3 buckets.
  
 
 
-To deploy this project, click the button that matches the region you wish to deploy your Stack to:
+To deploy this project, click the button that matches the region you wish to deploy your stack to:
 
 | Region           | Deployment                                                                                                                                                                                                                                                                                                                                           |
 |------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
