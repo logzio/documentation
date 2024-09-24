@@ -9,7 +9,7 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/redi
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['1sS7i6SyMz35RIay8NRYGp']
+metrics_dashboards: ['1sS7i6SyMz35RIay8NRYGp', '6XBrbjsUey4Agm0hAK4Yqn']
 metrics_alerts: []
 drop_filter: []
 ---

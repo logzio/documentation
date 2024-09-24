@@ -6,7 +6,7 @@ product: ['logs','metrics', 'siem']
 os: ['windows', 'linux']
 filters: ['Load Balancer']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/nginx.svg
-logs_dashboards: []
+logs_dashboards: ['7hn5uIYr92HmSWkMnC8tbZ']
 logs_alerts: ['5tov4MgrnR6vXZhh1MyuHO','63MnOu9ZzkCXdX0KOhXghi','4V8BXcfr7noTdtU6EjXp7w','2EXnb71ucdTnVolN1PqbM6']
 logs2metrics: []
 metrics_dashboards: ['3HKho6pQhCmEYmwMc4xCeY']

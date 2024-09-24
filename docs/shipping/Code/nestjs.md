@@ -130,7 +130,7 @@ require('<<PATH-TO-YOUR-FILE>>/tracer.ts');
 
 Replace `<<PATH-TO-YOUR-FILE>>` with the path to your tracer file.
 
-
+ 
 #### Download and configure OpenTelemetry collector
 
 Create a dedicated directory on the host of your NestJS application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.70.0) that is relevant to the operating system of your host.
