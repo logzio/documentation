@@ -341,6 +341,7 @@
 /user-guide/users/single-sign-on/azure-sso.html/1000				/docs/user-guide/admin/sso/azure-sso/
 /user-guide/user-permissions/				/docs/user-guide/admin/users/
 /docs/user-guide/data-hub/log-parsing/sawmill-parsing/				/docs/category/log-parsing/
+/docs/user-guide/admin/account-volume-optimization/smart-tier/				/docs/user-guide/data-hub/archive-restore/archive-and-restore
 # Shippers				
 /shipping/				/docs/category/send-your-data/
 /user-guide/log-shipping/				/docs/category/send-your-data/
