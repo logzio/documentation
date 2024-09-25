@@ -26,7 +26,7 @@ Deploy this integration to forward your Amazon API Gateway logs to Logz.io using
 ### Auto-deploy the Stack in the relevant region
 
 This integration will deploy a Firehose connection with your AWS services to forward logs to Logz.io
-To deploy this project, click the button that matches the region you wish to deploy your Stack to:
+To deploy this project, click the button that matches the region you wish to deploy your stack to:
 
 | Region           | Deployment                                                                                                                                                                                                                                                                                                                                             |
 |------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

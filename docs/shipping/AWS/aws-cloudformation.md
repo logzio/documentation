@@ -33,7 +33,7 @@ It will deploy the following projects:
 
 ##### Instructions
 
-To deploy this integrion, click the button that matches the region you wish to deploy your Stack to:
+To deploy this integrion, click the button that matches the region you wish to deploy your stack to:
 
 | Region           | Deployment                                                                                                                                                                                                                                                                                                                                                                                 |
 |------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
