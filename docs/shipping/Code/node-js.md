@@ -345,7 +345,7 @@ tsc --project tsconfig.json
 ```
 
 </TabItem>
-<TabItem value="OpenTelemetry" label="OpenTelemetry JavaScript">
+<TabItem value="OpenTelemetryJS" label="OpenTelemetry JavaScript">
 
 This integration uses the OpenTelemetry logging exporter to send logs to Logz.io via the OpenTelemetry Protocol (OTLP) listener.
 
@@ -418,7 +418,7 @@ Encounter an issue? See our [log shipping troubleshooting](https://docs.logz.io/
 
 
 </TabItem>
-<TabItem value="OpenTelemetry" label="OpenTelemetry Typescript">
+<TabItem value="OpenTelemetryTS" label="OpenTelemetry Typescript">
 
 This integration uses the OpenTelemetry logging exporter to send logs to Logz.io via the OpenTelemetry Protocol (OTLP) listener.
 
