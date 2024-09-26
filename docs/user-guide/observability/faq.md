@@ -10,7 +10,13 @@ keywords: [AI, observability, Assistant, iq, logs, metrics, traces, siem, insigh
 
 ### What is Observability IQ Assistant?
 
+
+:::info note
+The IQ Assistant is currently in beta and may not always be fully accurate. We recommend reviewing the information for confirmation.
+:::
+
 Observability IQ Assistant (IQ) is Logz.io's chat-driven, AI-enhanced platform, enabling active dialogue with your data. You can access it from your **[Explore](https://app.logz.io/#/dashboard/explore)**, **[Kubernetes 360](https://app.logz.io/#/dashboard/observability/k8s360)**, and **[App 360](https://app.logz.io/#/dashboard/spm/services/table)** dashboards, where you can transition from merely observing data to actively acquiring immediate insights on your metrics, identifying anomalies, discerning trends, and assessing the well-being of your ecosystem in real time.
+
 
 ### What kind of information can I get from the Observability IQ Assistant? 
 
