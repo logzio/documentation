@@ -370,7 +370,7 @@ If you need an example aplication to test this integration, please refer to our 
    npm install --save @opentelemetry/exporter-logs-otlp-proto
    ```
 
-2. Configure the Opentelemetry Collector, You can use the sample configuration and edit it according to your needs:
+2. Configure the Opentelemetry Collector. Create a logger file (e.g., `logger.js`) in your project with the following configuration:
 
    ```javascript
    const { LoggerProvider, SimpleLogRecordProcessor } = require('@opentelemetry/sdk-logs');
@@ -384,7 +384,7 @@ If you need an example aplication to test this integration, please refer to our 
      url: 'https://otlp-listener.logz.io/v1/logs',
      headers: {
        Authorization: 'Bearer <LOG-SHIPPING-TOKEN>',
-       'user-agent': 'logzio-nodejs-logs-otlp'
+       'user-agent': 'logzio-javascript-logs-otlp'
      }
    });
    
@@ -458,7 +458,7 @@ This integration uses the OpenTelemetry logging exporter to send logs to Logz.io
      url: 'https://otlp-listener.logz.io/v1/logs',
      headers: {
        Authorization: 'Bearer <LOG-SHIPPING-TOKEN>',
-       'user-agent': 'logzio-nodejs-logs-otlp'
+       'user-agent': 'logzio-typescript-logs-otlp'
      }
    });
    
@@ -492,21 +492,13 @@ This integration uses the OpenTelemetry logging exporter to send logs to Logz.io
    const app = express();
    const PORT = process.env.PORT || 8080;
    
-   app.get('/rolldice', (req: Request, res: Response) => {
+   app.get('/', (req: Request, res: Response) => {
      logger.emit({
-       body: 'Received a request to roll the dice',
+       body: 'Received a request at the root endpoint',
        attributes: { severityText: 'info' },
      });
    
-     const rolls = parseInt(req.query.rolls as string) || 1;  // Default to 1 roll if not specified
-     const result = [Math.floor(Math.random() * 6) + 1];  // Example dice roll
-     
-     logger.emit({
-       body: `Rolled dice result: ${result}`,
-       attributes: { severityText: 'info' },
-     });
-   
-     res.send(JSON.stringify(result));
+     res.send('Hello, Logz.io!');
    });
    
    app.listen(PORT, () => {
