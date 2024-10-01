@@ -32,7 +32,7 @@ Replace the variables as per the table below:
 
 | Parameter      | Description                                                                                                                                                                                               |
 | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<<LISTENER-HOST>>`   | Use the listener URL specific to the region of your Logz.io account. You can look it up [here](https://docs.logz.io/user-guide/accounts/account-region.html).                                             |
+| `<<LISTENER-HOST>>`   | Use the listener URL specific to the region of your Logz.io account. You can look it up [here](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/).                                             |
 | `<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>`          | The metrics' shipping token of the account you want to ship to.                                                                                                                                              |
 | `<<GCP-REGION>>`     | Region where you want to upload Cloud Function. Requires for Deploy to Cloud option for platform.                                                                                                     |
 | `<<FUNCTION-NAME-PREFIX>>`  | Function name will be using as Google Cloud Function name. (Default: `metrics_gcp`)                                                                                                                      |

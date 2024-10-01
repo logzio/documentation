@@ -8,7 +8,7 @@ keywords: [AI, observability, Assistant, iq, logs, metrics, traces, siem, insigh
 
 ## General
 
-### What is Observability IQ Assistant? 
+### What is Observability IQ Assistant?
 
 
 :::info note
