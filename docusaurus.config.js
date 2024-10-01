@@ -113,7 +113,7 @@ const config = {
         // Public API key: it is safe to commit it
         apiKey: '7f9d22d433c66f1a108b092d02c8d034',
   
-        indexName: 'Docs site',
+        indexName: 'shiny-alfajores-ede8d8',
   
         // Optional: see doc section below
         contextualSearch: true,
