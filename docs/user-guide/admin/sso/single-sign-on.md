@@ -78,9 +78,9 @@ To get started, follow the instructions for your provider:
 * [Single sign-on with OneLogin](https://docs.logz.io/docs/user-guide/admin/sso/onelogin-sso/)
 
 
+:::tip note
+Logz.io can integrate with various SSO providers.
+If your provider isn't listed, email us at [help@logz.io](mailto:help@logz.io) with the name of the SSO provider you want to set up and include your Logz.io account ID in the message.
+:::
 
-Logz.io can integrate with other SSO providers.
-If you don't see your provider on the list,
-send an email to [help@logz.io](mailto:help@logz.io).
-Write that you want to set up SSO for Logz.io,
-and include your Logz.io account ID in the message.
+
