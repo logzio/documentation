@@ -113,7 +113,7 @@ const config = {
         // Public API key: it is safe to commit it
         apiKey: 'fa16dbf7de110e5471e861e07ae65232',
   
-        indexName: 'deluxe-empanada-3ebf3b',
+        indexName: 'netlify_75edbe04-5da6-4aa2-8fd9-c8c79d877875_master_all',
   
         // Optional: see doc section below
         contextualSearch: true,
