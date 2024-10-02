@@ -109,14 +109,14 @@ exporters:
     headers:
       user-agent: logzio-linux-logs
   prometheusremotewrite:
-    endpoint: https:<<LISTENER-HOST>>:8053
+    endpoint: https://<<LISTENER-HOST>>:8053
     headers:
       Authorization: Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
       user-agent: logzio-linux-metrics
     resource_to_telemetry_conversion:
       enabled: true
     target_info:
-        enabled: false
+      enabled: false
 service:
   pipelines:
     logs:
