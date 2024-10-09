@@ -9,8 +9,8 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/php.
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: []
-metrics_alerts: []
+metrics_dashboards: ['55uVoiaFwAreNAf7DojQZN']
+metrics_alerts: ['1A2NfkQQprZqbtzQOVrcO7']
 drop_filter: []
 ---
 

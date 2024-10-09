@@ -8,8 +8,10 @@ keywords: [logz.io, alerts, log alerts, log analysis, observability]
 
 You can set up Logz.io log alerts to automatically get notified about issues that demand attention.
 
-:::note
 Community plans limit the number of alerts that may be enabled. See the official [pricing page](https://logz.io/pricing/) for details.
+
+:::note
+Need help setting up your alerts? If your logs haven't been parsed into fields yet, our [support team](mailto:help@logz.io) can assist with prasing your logs and extracting the fields needed to create your alerts.
 :::
 
 ## Configuring an alert
