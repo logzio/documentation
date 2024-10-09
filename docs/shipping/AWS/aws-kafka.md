@@ -9,7 +9,7 @@ logo: https://dytvr9ot2sszz.cloudfront.net/logz-docs/shipper-logos/aws-msk.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['7bHNddlAK5q8Iya7xIhbbU']
+metrics_dashboards: ['2EGM4H9wch68bVy1vm4oxb']
 metrics_alerts: []
 drop_filter: []
 ---
