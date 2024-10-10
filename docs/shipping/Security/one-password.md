@@ -34,9 +34,32 @@ apis:
     url: https://events.1password.com/api/v1/auditevents
     method: POST
     days_back_fetch: 7
+    scrape_interval: 5    
+    additional_fields:
+      type: 1password
+      eventType: auditevents
+
+  - name: 1Password Item Usages
+    type: 1password
+    onepassword_bearer_token: <<1PASSWORD_BEARER_TOKEN>>
+    url: https://events.1password.com/api/v1/itemusages
+    method: POST
+    days_back_fetch: 7
     scrape_interval: 5
     additional_fields:
       type: 1password
+      eventType: itemusages
+
+  - name: 1Password Sign In Attempts
+    type: 1password
+    onepassword_bearer_token: <<1PASSWORD_BEARER_TOKEN>>
+    url: https://events.1password.com/api/v1/signinattempts
+    method: POST
+    days_back_fetch: 7
+    scrape_interval: 5
+    additional_fields:
+      type: 1password
+      eventType: signinattempts
 
 logzio:
   url: https://<<LISTENER-HOST>>:8071
@@ -44,7 +67,7 @@ logzio:
 ```
 
 :::note
-You can customize the endpoints to collect data from by adding extra API configurations under `apis`.
+You can customize the endpoints to collect data from by adding extra API configurations under `apis`. 1Password API Docs can be found [here](https://developer.1password.com/docs/connect/connect-api-reference/).
 :::
 
 ### 1Password configuration options
