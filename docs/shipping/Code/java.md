@@ -10,8 +10,8 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/java
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: []
-metrics_alerts: []
+metrics_dashboards: ['1G48F1M2FrS9tBtZ4P8jP6','fTT01YApCLTpcVRWXOrrM']
+metrics_alerts: ['7nQq9znwWt3g7ZCzV5mIa9','3TgIowvRtFJR0maxLqiYOw']
 drop_filter: []
 toc_min_heading_level: 2
 toc_max_heading_level: 3

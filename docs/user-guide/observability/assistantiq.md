@@ -28,5 +28,17 @@ Use the assistant to analyze trends in latency, throughput, error rate, and HTTP
 
 ![Observability IQ screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/observabilityiq-mar27.png)
 
+## Observability IQ Assistant Pro
+
+Observability IQ Assistant Pro provides enhanced search capabilities and dynamic context, allowing you to tackle complex questions with greater percision. 
+
+By leveraging GenAI to analyze context and data, IQ Assistant Pro delivers deep insights and actionable recommendations, streamlining the troubleshooting process and accelerating root cause analysis.
+
+It comprehends the situation, identifies the necessary information for thorough analysis, and proactively seeks the data required.
+
+Observability IQ Assistant Pro is currently only available in **[Explore](https://app.logz.io/#/dashboard/explore)** for log analytics. Activate it by toggling the Pro button inside the assistant. 
+
+![Assistant pro](https://dytvr9ot2sszz.cloudfront.net/whats-new-announcements/aiassistantprobutton.gif)
+
 
 For further assistance with Observability IQ Assistant, read the [FAQ](https://docs.logz.io/docs/user-guide/observability/faq) or [contact Logz.io's Support Team](mailto:help@logz.io).

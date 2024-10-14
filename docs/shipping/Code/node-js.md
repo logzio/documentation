@@ -345,7 +345,7 @@ tsc --project tsconfig.json
 ```
 
 </TabItem>
-<TabItem value="OpenTelemetry" label="OpenTelemetry">
+<TabItem value="OpenTelemetryJS" label="OpenTelemetry JavaScript">
 
 This integration uses the OpenTelemetry logging exporter to send logs to Logz.io via the OpenTelemetry Protocol (OTLP) listener.
 
@@ -370,7 +370,7 @@ If you need an example aplication to test this integration, please refer to our 
    npm install --save @opentelemetry/exporter-logs-otlp-proto
    ```
 
-2. Configure the Opentelemetry Collector, You can use the sample configuration and edit it according to your needs:
+2. Configure the Opentelemetry Collector. Create a logger file (e.g., `logger.js`) in your project with the following configuration:
 
    ```javascript
    const { LoggerProvider, SimpleLogRecordProcessor } = require('@opentelemetry/sdk-logs');
@@ -384,7 +384,7 @@ If you need an example aplication to test this integration, please refer to our 
      url: 'https://otlp-listener.logz.io/v1/logs',
      headers: {
        Authorization: 'Bearer <LOG-SHIPPING-TOKEN>',
-       'user-agent': 'logzio-nodejs-logs-otlp'
+       'user-agent': 'logzio-javascript-logs-otlp'
      }
    });
    
@@ -408,6 +408,107 @@ If you need an example aplication to test this integration, please refer to our 
    :::
 
 3. Run the application.
+
+### Check Logz.io for your logs
+
+
+Allow some time for data ingestion, then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
+
+Encounter an issue? See our [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/) guide.
+
+
+</TabItem>
+<TabItem value="OpenTelemetryTS" label="OpenTelemetry Typescript">
+
+This integration uses the OpenTelemetry logging exporter to send logs to Logz.io via the OpenTelemetry Protocol (OTLP) listener.
+
+### Prerequisites
+    
+- Node
+- A Node application
+- An active account with Logz.io
+
+
+
+### Configure the instrumentation
+
+
+1. Install the dependencies:
+
+   ```shell
+   npm install --save @opentelemetry/api-logs
+   npm install --save @opentelemetry/sdk-logs
+   npm install --save @opentelemetry/exporter-logs-otlp-proto
+   npm install --save @opentelemetry/resources
+   ```
+
+2. Configure the Opentelemetry Collector. Create a `logger.ts` file in your project (or add it to your existing configuration) with the following configuration:
+
+
+
+   ```typescript
+   import { LoggerProvider, SimpleLogRecordProcessor } from '@opentelemetry/sdk-logs';
+   import { OTLPLogExporter } from '@opentelemetry/exporter-logs-otlp-proto';
+   import { Resource } from '@opentelemetry/resources';
+   
+   const resource = new Resource({ 'service.name': 'YOUR-SERVICE-NAME' });
+   const loggerProvider = new LoggerProvider({ resource });
+   
+   const otlpExporter = new OTLPLogExporter({
+     url: 'https://otlp-listener.logz.io/v1/logs',
+     headers: {
+       Authorization: 'Bearer <LOG-SHIPPING-TOKEN>',
+       'user-agent': 'logzio-typescript-logs-otlp'
+     }
+   });
+   
+   loggerProvider.addLogRecordProcessor(new SimpleLogRecordProcessor(otlpExporter));
+   
+   const logger = loggerProvider.getLogger('example_logger');
+   export { logger };
+   ```
+   
+   Replace `YOUR-SERVICE-NAME` with the required service name.
+   
+   
+   {@include: ../../_include/log-shipping/log-shipping-token.md}
+
+
+    Update the `listener.logz.io` part in `https://otlp-listener.logz.io/v1/logs` with the URL for [your hosting region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region).
+
+   
+   :::note
+   If your Logz.io account region is not `us-east-1`, add your [region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/   account-region/#available-regions) to the `url` like so `https://otlp-listener-<<REGION-CODE>>.logz.io/v1/logs`.
+   :::
+
+3. Once you have configured the logger, import it into your application (e.g., `server.ts`) and start logging.
+
+   Example of logging from your `server.ts` file:
+
+   ```typescript
+   import express, { Request, Response } from 'express';
+   import { logger } from './logger/logger';  // Assuming logger.ts is in the logger folder
+   
+   const app = express();
+   const PORT = process.env.PORT || 8080;
+   
+   app.get('/', (req: Request, res: Response) => {
+     logger.emit({
+       body: 'Received a request at the root endpoint',
+       attributes: { severityText: 'info' },
+     });
+   
+     res.send('Hello, Logz.io!');
+   });
+   
+   app.listen(PORT, () => {
+     logger.emit({
+       body: `Server is running on http://localhost:${PORT}`,
+       attributes: { severityText: 'info' },
+     });
+   });
+   ```
+
 
 ### Check Logz.io for your logs
 

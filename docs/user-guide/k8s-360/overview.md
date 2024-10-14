@@ -55,7 +55,7 @@ Next, choose whether to view the environment's clusters, namespaces, or deployme
 
 <h4 id="#filters">Observability IQ Assistant</h4>
 
-Click the **AI Assistant** button to activate [Observability IQ Assistant](/docs/user-guide/observability/assistantiq), an AI-powered, chat-based interface that lets you engage in a dynamic conversation with your data. Use one of the pre-configured prompts or type your own question to get real-time insights about your metrics, anomalies, trends, and the overall health of your environment.
+Click the **AI Assistant** button to activate [Observability IQ Assistant](/docs/user-guide/observability/assistantiq/), an AI-powered, chat-based interface that lets you engage in a dynamic conversation with your data. Use one of the pre-configured prompts or type your own question to get real-time insights about your metrics, anomalies, trends, and the overall health of your environment.
 
 ![IQ](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/iq-aug22.png)
 

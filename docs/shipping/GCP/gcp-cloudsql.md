@@ -9,7 +9,7 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/gcps
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['4KUp9D8EhuMuCuLLhIZBEP']
+metrics_dashboards: ['4KUp9D8EhuMuCuLLhIZBEP', '5DIgZxsYxBjeNlEAexf2A3']
 metrics_alerts: []
 drop_filter: []
 ---
