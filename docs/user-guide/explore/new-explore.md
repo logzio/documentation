@@ -38,14 +38,30 @@ Build your query by selecting fields, parameters, and conditions. To add a value
 
 ### Filters
 
-Filters make it easy to refine and narrow your search. Start by selecting the account you want to filter. Then, click on a field to see its available parameters. Choose the values to include in your view or uncheck to remove them.
+Use the filter pane on the right to refine and narrow your search results.
 
-All visible fields appear on the left side, including exceptions (if any) and special fields that cannot be filtered but can be added to the table or used as a **field exists** filter.
+Start by selecting the relevant account, then click on the field you want to filter. The available fields are based on the visible logs in the table. Open a field to explore its values—you’ll see the top values based on a sample of the logs. The percentages next to each value indicate how frequently that value appears within the field.
+
+Selected values move to the top of the list for easy access. You can also click the **star** next to a field to mark it as a favorite for quicker access in the future.
+
+Editing Filters
+
+* **Simple Search:**
+  
+  Click the in-line filter, choose Edit, and modify the value as needed. Click Apply to save your changes.
+
+  <img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/simple-edit-filter-oct14.png" alt="simple-filter" width="700"/>
 
 
-You can pin up to three custom fields by hovering over them and clicking the star icon. 
+* **Lucene Search:**
+  
+  Click the filter to open the edit screen. You can modify the field, value, and condition based on your filtering needs. Click Save when done.
 
-<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-filters-aug21.png" alt="explore-fields" width="700"/>
+  <img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/filter-lucene-oct14.png" alt="lucene-filter" width="700"/>
+
+
+At the top of the list, you’ll find special fields. These fields can’t be filtered but can be added to the table or used as a **field exists** filter.
+
 
 ### Graph View
 
@@ -70,6 +86,13 @@ Learn more about [Exceptions](https://docs.logz.io/docs/user-guide/explore/excep
 The default time frame in Explore is the last 15 minutes.
 
 To select a custom time frame, click the time element and choose the period relevant to your overview or investigation.
+
+#### View in UTC
+
+You can view your data in either UTC or your browser’s local timezone. To switch to UTC, click the **⋮** menu and toggle UTC on or off. The time column in your log table will display the active timezone for clarity.
+
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/utc-menu-oct14.png" alt="timezone-utc" width="900"/>
+
 
 ### Observability IQ Assistant
 
