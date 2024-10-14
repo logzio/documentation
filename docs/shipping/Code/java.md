@@ -340,7 +340,7 @@ For more details, see the [Logback documentation](https://logback.qos.ch/manual/
 </configuration>
 ```
 
-To output `debug` messages, include the parameter into the code:
+To output `debug` messages, add the parameter into the code:
 
 
 ```xml

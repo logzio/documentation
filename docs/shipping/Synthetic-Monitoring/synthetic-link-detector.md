@@ -28,7 +28,7 @@ Deploy this integration to collect data on broken links in a web page, and to ge
 
 ### Auto-deploy the stack
 
-To deploy this integration, click the button that matches the region you wish to deploy your Stack to:
+To deploy this integration, click the button that matches the region you wish to deploy your stack to:
 
 | Region           | Deployment                                                                                                                                                                                                                                                                                                                                                       |
 |------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

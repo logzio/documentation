@@ -202,8 +202,8 @@ namespace dotnet_log4net
 | parseJsonMessage | To parse your message as JSON format, add this field and set it to `true`. | `false` |
 | proxyAddress | Proxy address to route your logs through. | `None` |
 | jsonKeysCamelCase | If you have custom fields keys that start with a capital letter and want to see the fields with a capital letter in Logz.io, set this field to true. | `false` |
-| addTraceContext | If want to add trace context to each log, set this field to true. | `false` |
-| useStaticHttpClient | If want to use the same static HTTP/s client for sending logs, set this field to true. | `false` |
+| addTraceContext | To add trace context to each log, set this field to true. | `false` |
+| useStaticHttpClient | To use the same static HTTP/s client for sending logs, set this field to true. | `false` |
 
 
 
@@ -458,8 +458,8 @@ LogManager.Configuration = config;
 | parseJsonMessage | To parse your message as JSON format, add this field and set it to `true`. | `false` |
 | proxyAddress | Proxy address to route your logs through. | `None` |
 | jsonKeysCamelCase | If you have custom fields keys that start with a capital letter and want to see the fields with a capital letter in Logz.io, set this field to true. | `false` |
-| addTraceContext | If want to add trace context to each log, set this field to true. | `false` |
-| useStaticHttpClient | If want to use the same static HTTP/s client for sending logs, set this field to true. | `false` |
+| addTraceContext | To add trace context to each log, set this field to true. | `false` |
+| useStaticHttpClient | To use the same static HTTP/s client for sending logs, set this field to true. | `false` |
 
 **Code sample**
 
@@ -759,8 +759,8 @@ Customize your code by adding the following:
 | parseJsonMessage | To parse your message as JSON format, add this field and set it to `true`. | `false` |
 | proxyAddress | Proxy address to route your logs through. | `None` |
 | jsonKeysCamelCase | If you have custom fields keys that start with capital letter and want to see the fields with capital letter in Logz.io, set this field to true. | `false` |
-| addTraceContext | If want to add trace context to each log, set this field to true. | `false` |
-| useStaticHttpClient | If want to use the same static HTTP/s client for sending logs, set this field to true. | `false` |
+| addTraceContext | To add trace context to each log, set this field to true. | `false` |
+| useStaticHttpClient | To use the same static HTTP/s client for sending logs, set this field to true. | `false` |
 
 
 ### ASP.NET Core
@@ -1359,7 +1359,7 @@ Install the pre-built dashboard to enhance the observability of your metrics.
 
     * Edit the `values.yaml`
 
-    * Overide default values with your own `my_values.yaml` and apply it in the `helm install` command. 
+    * Override default values with your own `my_values.yaml` and apply it in the `helm install` command. 
 
 * **Customization parameters**
 
@@ -1380,7 +1380,7 @@ Install the pre-built dashboard to enhance the observability of your metrics.
 | `logzioDotnetMonitor.image.name` | Name of the image that is going to run in `logzioDotnetMonitor.name` container | `logzio/logzio-dotnet-monitor` |
 | `logzioDotnetMonitor.image.tag` | The tag of the image that is going to run in `logzioDotnetMonitor.name` container | `latest` |
 | `logzioDotnetMonitor.ports` | List of ports the `logzioDotnetMonitor.name` container exposes | `52325` |
-| `tolerations` | List of tolerations to applied to the pod. | `[]` | 
+| `tolerations` | List of tolerations to apply to the pod. | `[]` | 
 | `customVolumes` | List of custom volumes to add to deployment. | `[]` |
 | `customResources` | Custom resources to add to helm chart deployment (make sure to separate each resource with `---`). | `{}` |
 | `secrets.logzioURL` | Secret with your Logz.io listener url. | `https://listener.logz.io:8053` |
