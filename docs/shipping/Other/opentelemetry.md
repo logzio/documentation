@@ -221,7 +221,7 @@ Example configuration file:
 ### Optional: Configure Span Metrics Collection
 
 Span metrics collection is disabled by default. To enable it, add & modify the following sections in the `config.yaml` OpenTelemetry configuration.
-Replace `${LISTENER_URL}` with the Logz.io metrics listener URL and `${SPM_TOKEN}` with your Logz.io SPM metrics account token.
+Replace `<<ENV-ID>>` with the envrionment for filteration in App360, `<<LISTENER-HOST>>` with the Logz.io metrics listener URL and `<<METRICS-SHIPPING-TOKEN>>` with your Logz.io SPM metrics account token.
 ```yaml
   connectors:
     spanmetrics:
@@ -234,7 +234,7 @@ Replace `${LISTENER_URL}` with the Logz.io metrics listener URL and `${SPM_TOKEN
       - name: cloud.region
       - name: db.system
       - name: messaging.system
-      - default: ${ENV_ID}
+      - default: <<ENV-ID>>
         name: env_id
       dimensions_cache_size: 100000
       histogram:
@@ -290,9 +290,9 @@ Replace `${LISTENER_URL}` with the Logz.io metrics listener URL and `${SPM_TOKEN
           new_label: operation  
   exporters:
     prometheusremotewrite/spm-logzio:
-      endpoint: ${LISTENER_URL}
+      endpoint: https://<<LISTENER-HOST>>:8053
       headers:
-        Authorization: Bearer ${SPM_TOKEN}
+        Authorization: Bearer <<METRICS-SHIPPING-TOKEN>> # Metrics account token for span metrics
         user-agent: "logzio-opentelemetry-apm"
       timeout: 30s
       add_metric_suffixes: false
