@@ -63,6 +63,19 @@ Editing Filters
 At the top of the list, you’ll find special fields. These fields can’t be filtered but can be added to the table or used as a **field exists** filter.
 
 
+
+
+===
+%%%
+Field values are now dynamically fetched, taking into account the selected timeframe and user accounts.
+The percentage representation is calculated based on the entire query context, with optimizations in place for large datasets by using a representative sample.
+The results consistently return the top 50 most relevant values.
+Values are being re-fetched whenever the field filter is open and the query changes.
+
+
+===
+
+
 ### Graph View
 
 Visualize trends over time and group data based on your investigations. Hover over the graph to see additional details about each data point, and click and drag to focus on specific time frames or data points.
