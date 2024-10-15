@@ -218,6 +218,96 @@ Example configuration file:
 
 {@include: ../../_include/tracing-shipping/collector-config.md}
 
+### Optional: Configure Span Metrics Collection
+
+Span metrics collection is disabled by default. To enable it, add & modify the following sections in the `config.yaml` OpenTelemetry configuration.
+Replace `<<ENV-ID>>` with the envrionment for filteration in App360, `<<LISTENER-HOST>>` with the Logz.io metrics listener URL and `<<METRICS-SHIPPING-TOKEN>>` with your Logz.io SPM metrics account token.
+```yaml
+  connectors:
+    spanmetrics:
+      aggregation_temporality: AGGREGATION_TEMPORALITY_CUMULATIVE
+      dimensions:
+      - name: rpc.grpc.status_code
+      - name: http.method
+      - name: http.status_code
+      - name: cloud.provider
+      - name: cloud.region
+      - name: db.system
+      - name: messaging.system
+      - default: <<ENV-ID>>
+        name: env_id
+      dimensions_cache_size: 100000
+      histogram:
+        explicit:
+          buckets:
+          - 2ms
+          - 8ms
+          - 50ms
+          - 100ms
+          - 200ms
+          - 500ms
+          - 1s
+          - 5s
+          - 10s
+      metrics_expiration: 5m
+      resource_metrics_key_attributes:
+      - service.name
+      - telemetry.sdk.language
+      - telemetry.sdk.name
+    servicegraph:
+      latency_histogram_buckets: [2ms, 8ms, 50ms, 100ms, 200ms, 500ms, 1s, 5s, 10s]
+      dimensions:
+        - env_id
+      store:
+        ttl: 5s
+        max_items: 100000
+  processors:
+    # Rename metrics and labels to match Logz.io's requirements
+    metricstransform/metrics-rename:
+      transforms:
+      - include: ^duration(.*)$$
+        action: update
+        match_type: regexp
+        new_name: latency.$${1} 
+      - action: update
+        include: calls
+        new_name: calls_total
+    metricstransform/labels-rename:
+      transforms:
+      - action: update
+        include: ^latency
+        match_type: regexp
+        operations:
+        - action: update_label
+          label: span.name
+          new_label: operation
+      - action: update
+        include: ^calls
+        match_type: regexp
+        operations:
+        - action: update_label
+          label: span.name
+          new_label: operation  
+  exporters:
+    prometheusremotewrite/spm-logzio:
+      endpoint: https://<<LISTENER-HOST>>:8053
+      headers:
+        Authorization: Bearer <<METRICS-SHIPPING-TOKEN>> # Metrics account token for span metrics
+        user-agent: "logzio-opentelemetry-apm"
+      timeout: 30s
+      add_metric_suffixes: false
+  service:
+    pipelines:
+      extensions: [health_check, pprof, zpages]
+      traces:
+        receivers: [otlp]
+        processors: [tail_sampling, batch]          
+        exporters: [logzio/traces, servicegraph, spanmetrics]
+      metrics/spm-logzio:
+        receivers: [spanmetrics, servicegraph]
+        processors: [metricstransform/metrics-rename, metricstransform/labels-rename, batch]
+        exporters: [prometheusremotewrite/spm-logzio]
+```
 ### Instrument the application
 
 If your application isn't instrumented, begin by downloading the OpenTelemetry agent or library specific to your programming language. Logz.io supports popular open-source instrumentation libraries, including OpenTracing, Jaeger, OpenTelemetry, and Zipkin. Attach the agent, set up the necessary configuration options, and start your application. The agent will automatically instrument your application to capture telemetry data.
