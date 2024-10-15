@@ -293,7 +293,7 @@ Replace `${LISTENER_URL}` with the Logz.io metrics listener URL and `${SPM_TOKEN
       endpoint: ${LISTENER_URL}
       headers:
         Authorization: Bearer ${SPM_TOKEN}
-        user-agent: "{{ .Chart.Name }}-{{ .Chart.Version }}-helm"
+        user-agent: "logzio-opentelemetry-apm"
       timeout: 30s
       add_metric_suffixes: false
   service:
