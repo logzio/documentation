@@ -31,7 +31,7 @@ sudo mkdir /opt/logzio-agent
 **2. Download OpenTelemetry tar.gz:**
 
 ```shell
-curl -fsSL "https://github.com/logzio/otel-collector-distro/releases/download/v0.82.0/otelcol-logzio-darwin_amd64.tar.gz" >./otelcol-logzio.tar.gz
+curl -fsSL "https://github.com/logzio/otel-collector-distro/releases/download/v0.111.0/otelcol-logzio-darwin_amd64.tar.gz" >./otelcol-logzio.tar.gz
 ```
 
 **3. Extract the OpenTelemetry binary:**

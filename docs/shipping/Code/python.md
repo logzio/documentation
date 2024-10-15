@@ -1062,7 +1062,7 @@ export OTEL_RESOURCE_ATTRIBUTES="service.name=<<YOUR-SERVICE-NAME>>"
  
 ### Download and configure OpenTelemetry collector
 
-Create a directory on your Python application and download the relevant [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.82.0). Create a `config.yaml` with the following parameters:
+Create a directory on your Python application and download the relevant [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.111.0). Create a `config.yaml` with the following parameters:
 
 * {@include: ../../_include/tracing-shipping/replace-tracing-token.md}
 
@@ -1136,7 +1136,7 @@ Replace `<<YOUR-SERVICE-NAME>>` with your tracing service name.
 
 
 ```shell
-docker pull otel/opentelemetry-collector-contrib:0.78.0
+docker pull otel/opentelemetry-collector-contrib:0.111.0
 ```
 
 #### Create a configuration file
@@ -1300,7 +1300,7 @@ Mount `config.yaml` as volume to the `docker run` command and run it as follows.
 docker run  \
 --network host \
 -v <PATH-TO>/config.yaml:/etc/otelcol-contrib/config.yaml \
-otel/opentelemetry-collector-contrib:0.78.0
+otel/opentelemetry-collector-contrib:0.111.0
 
 ```
 
@@ -1321,7 +1321,7 @@ docker run  \
 -p 14268:14268 \
 -p 4317:4317 \
 -p 55681:55681 \
-otel/opentelemetry-collector-contrib:0.78.0
+otel/opentelemetry-collector-contrib:0.111.0
 ```
 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}

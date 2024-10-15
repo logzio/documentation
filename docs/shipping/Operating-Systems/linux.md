@@ -34,7 +34,7 @@ sudo mkdir /opt/logzio-agent
 **2. Download OpenTelemetry tar.gz:**
 
 ```shell
-curl -fsSL "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.82.0/otelcol-contrib_0.82.0_linux_amd64.tar.gz" >./otelcol-contrib.tar.gz
+curl -fsSL "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.111.0/otelcol-contrib_0.111.0_linux_amd64.tar.gz" >./otelcol-contrib.tar.gz
 ```
  
 **3. Extract the OpenTelemetry binary:**
