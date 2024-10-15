@@ -1,7 +1,7 @@
 #### Pull the Docker image for the OpenTelemetry collector
 
 ```shell
-docker pull otel/opentelemetry-collector-contrib:0.78.0
+docker pull otel/opentelemetry-collector-contrib:0.111.0
 ```
 
 #### Create a configuration file
@@ -168,7 +168,7 @@ Mount the `config.yaml` as volume to the `docker run` command and run it as foll
 docker run  \
 --network host \
 -v <PATH-TO>/config.yaml:/etc/otelcol-contrib/config.yaml \
-otel/opentelemetry-collector-contrib:0.78.0
+otel/opentelemetry-collector-contrib:0.111.0
 
 ```
 
@@ -189,5 +189,5 @@ docker run  \
 -p 14268:14268 \
 -p 4317:4317 \
 -p 55681:55681 \
-otel/opentelemetry-collector-contrib:0.78.0
+otel/opentelemetry-collector-contrib:0.111.0
 ```
