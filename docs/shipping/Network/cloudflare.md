@@ -86,7 +86,7 @@ logzio:
 ```
 
 :::note
-You can customize the endpoints to collect data from by adding extra API configurations under `apis`.
+You can customize the endpoints to collect data from by adding or modifying the configurations under the `apis` section. Refer to the [relevant API documentation](https://developers.cloudflare.com/api/) for more details.
 :::
 
 ### Cloudflare configuration options

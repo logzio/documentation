@@ -53,6 +53,10 @@ apis:
     days_back_fetch: 30  
 ```
 
+:::note
+You can customize the endpoints to collect data from by adding or modifying the configurations under the `apis` section. Refer to the [relevant API documentation](https://learn.microsoft.com/en-us/graph/api/overview?view=graph-rest-1.0) for more details.
+:::
+
 | Parameter Name        | Description                                                                                         | Required/Optional | Default     |
 |-----------------------|-----------------------------------------------------------------------------------------------------|-------------------|-------------|
 | name                  | Name of the API (custom name)                                                                       | Optional          | `azure api` |

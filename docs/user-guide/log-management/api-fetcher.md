@@ -87,6 +87,10 @@ apis:
     response_data_path: result
 ```
 
+:::note
+You can customize the endpoints to collect data from by adding or modifying the configurations under the `apis` section. Refer to the relevant API documentation for more details.
+:::
+
 ## Configuration
 Create a local config file `config.yaml`.
 
