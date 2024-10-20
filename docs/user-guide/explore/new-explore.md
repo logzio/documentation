@@ -71,11 +71,11 @@ The default time frame in Explore is the last 15 minutes.
 
 To select a custom time frame, click the time element and choose the period relevant to your overview or investigation.
 
-### Observability IQ Assistant
+### AI Agent
 
-Click the **AI Assistant** button to activate [Observability IQ Assistant](/docs/user-guide/observability/assistantiq/), an AI-powered, chat-based interface that lets you engage in a dynamic conversation with your data. Use one of the pre-configured prompts or type your own question to get real-time insights about your metrics, anomalies, trends, and the overall health of your environment.
+Click the [**AI Agent**](/docs/user-guide/observability/assistantiq/) button to activate an AI-powered, chat-based interface that lets you engage in a dynamic conversation with your data. Use one of the pre-configured prompts or type your own question to get real-time insights about your metrics, anomalies, trends, and the overall health of your environment.
 
-![Observability IQ Assistant](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/assistant-aug21.gif)
+![AI Agent](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/assistant-aug21.gif)
 
 
 ### Group By

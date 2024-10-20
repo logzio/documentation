@@ -176,7 +176,7 @@ Once your anomaly detector is up and running, you'll see an indicator in the lis
 
 ## AI Assistant
 
-Click the **AI Assistant** button to activate the [Observability IQ Assistant](https://docs.logz.io/docs/user-guide/observability/assistantiq/), an AI-powered, chat-based interface that lets you engage in a dynamic conversation with your data. Use one of the pre-configured prompts or type your own question to get real-time insights about your metrics, anomalies, trends, and the overall health of your environment.
+Click the **AI Assistant** button to activate the [AI Agent](https://docs.logz.io/docs/user-guide/observability/assistantiq/), an AI-powered, chat-based interface that lets you engage in a dynamic conversation with your data. Use one of the pre-configured prompts or type your own question to get real-time insights about your metrics, anomalies, trends, and the overall health of your environment.
 
 
 ![AI App360](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/aikapp360.gif)

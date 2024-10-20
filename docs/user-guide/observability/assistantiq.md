@@ -1,9 +1,9 @@
 ---
 sidebar_position: 1
-title: Observability IQ Assistant
-description: Enhance data insights with Observability IQ Assistant and get AI-powered analysis of your data.
+title: Observability AI Agent
+description: Enhance data insights with Observability AI Agent and get AI-powered analysis of your data.
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-keywords: [AI, observability, Assistant, iq, logs, metrics, traces, siem, insights, analysis, services, logz.io]
+keywords: [AI, observability, AI agent, Assistant, iq, logs, metrics, traces, siem, insights, analysis, services, logz.io]
 ---
 
 Observability IQ Assistant is an AI-powered, chat-based interface that lets you engage in a dynamic conversation with your data. Use it to move beyond passive data viewing and get real-time insights about your metrics, anomalies, trends, and the overall health of your environment.
