@@ -63,7 +63,8 @@ Clicking on one of the services or clicking on drill down opens a dashboard with
 
 You can change the time frame and add additional filters, including comparing the data to a previous period or choose an environment, nodes, and pods. Clicking the refresh button will manually update the data.
 
-![service deeper](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/services-service-drilldown-aug26.png)
+
+![service deeper](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/service-main-oct21.png)
 
 
 Hovering over the graphs provides additional info for the time point you've chosen:
@@ -174,12 +175,12 @@ Once your anomaly detector is up and running, you'll see an indicator in the lis
 
 ![no anomaly](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/no-anomaly.png)
 
-## AI Assistant
+## AI Agent
 
-Click the **AI Assistant** button to activate the [Observability IQ Assistant](https://docs.logz.io/docs/user-guide/observability/assistantiq/), an AI-powered, chat-based interface that lets you engage in a dynamic conversation with your data. Use one of the pre-configured prompts or type your own question to get real-time insights about your metrics, anomalies, trends, and the overall health of your environment.
+Click the **[AI Agent](https://docs.logz.io/docs/user-guide/observability/assistantiq/)** button to activate an AI-powered, chat-based interface that lets you engage in a dynamic conversation with your data. Use one of the pre-configured prompts or type your own question to get real-time insights about your metrics, anomalies, trends, and the overall health of your environment.
 
 
-![AI App360](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/aikapp360.gif)
+![AI App360](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/services-ai-agent-oct21.png)
 
 
 
