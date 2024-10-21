@@ -11,7 +11,7 @@ const FeatureList = [
     description: <>Learn how to make the most out of the Logz.io platform.</>,
   },
   {
-    title: 'Observability IQ',
+    title: 'AI Agent',
     link: "/docs/user-guide/observability/assistantiq/",
     Svg: require('@site/static/img/obsiq.svg').default,
     description: <>Engage in a dynamic conversation with your data.</>,
