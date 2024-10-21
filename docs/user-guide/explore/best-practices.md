@@ -15,17 +15,16 @@ Explore supports a few query methods, including:
 
 Logz.io offers an intuitive and easy way to build your query. You can build queries easily by selecting fields, conditions, and values.
 
-Click the search bar or type to see available fields, add operators, and choose values. To use custom values, type the name and click the + sign. Press Enter to apply the query or Tab to add another condition. 
-
-Free-text searches automatically convert into Lucene queries.
+Click the search bar or start typing to see the available fields, parameters, and conditions. To add a custom value, type its name and click the + sign. You can also add free text to your search, converting it into a Lucene query.
 
 ## Lucene 
 
 Logz.io supports Lucene for more advanced queries.
 
-Search for free text by typing the text string you want to find; for example, `error` will return all words containing this string, and using quotation marks, `"error"`, will return only the specific word you're searching for.
+Type the string or query you want to find. For example, `error` will return all words containing this string, and using quotation marks, `"error"`, will return only the specific word you're searching for.
 
-![See error](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/basic-search-search-word.png)
+
+![See error](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/saved-search/explore-error-oct21.png)
 
 Search for a value in a specific field:
 
@@ -56,14 +55,14 @@ To exclude a term from your search, you can use the following syntax:
 
 Use the filters to refine your search, whether you're using Simple or Lucene. Open string fields to view its related values, and open numeric fields to choose a range. For example, `LogSize` lets you select the size of the logs you're interested in:
 
-![numeric filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/logsize-explore-aug27.png)
+![numeric filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/saved-search/logsize-oct21.png)
 
 
 
 ## Regex in Lucene
 
 :::caution
-Using regex can overload your system and cause performance issues in your account. If regex is necessary, it is best to apply filters and use shorter timeframes.
+Using regex can overload your system and cause performance issues in your account. If regex is necessary, applying filters and using shorter timeframes is best.
 :::
 
 Logz.io uses Apache Lucene's regular expression engine to parse regex queries, supporting regexp and query_string.
@@ -72,7 +71,7 @@ While Lucene's regex supports all Unicode characters, several characters are res
 
 `. ? + * | { } [ ] ( ) " \`
 
-Depending on the optional operators enabled, some additional characters may also be reserved. These characters are:
+Some additional characters may also be reserved depending on the optional operators enabled. These characters are:
 
 `# @ & < >  ~`
 
@@ -100,19 +99,21 @@ To find one of the values in the field, such as `fox`, you'll need to use the fo
 
 You can add additional columns to your logs table view.
 
-Find the field you'd like to add, hover over it and click the **Toggle column in table** button.
+Find the field you'd like to add, hover over it and click the **Toggle column in table** button (table icon).
 
-![Add field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/toggle-in-table-sep9.png)
+![Add field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/toggle-explore-oct21.png)
 
 Once added, you can drag it to reposition it, or click the **X** to remove it.
 
-Save your query to quickly access it whenever needed. The query is saved while the results change according to your chosen relevant time frame.
+## Save Searches
 
-![Save field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/saved-search-sep9.png)
+Save your current query or filtered view to quickly access it whenever needed. Click on the Save icon > Save Search and name your search. The query is saved while the results change according to your chosen time frame. 
+
+![Save field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/saved-search/save-search-oct21.png)
 
 
 ## Select logs' time frame
 
-The default period to display results is 15 minutes. You can edit this time frame by clicking on the time picker. Choose an option from the quick menu, or switch to the absolute view to select a specific time frame. In this option, you can type the time frame you want to view. 
+The default period to display results is 15 minutes. You can edit this time frame by clicking on the time picker. Choose an option from the quick menu, or switch to the absolute view to select a specific time frame. You can type the time frame you want to view using this option.
 
-![Time frame options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/time-picker-sep9.png)
+![Time frame options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/timepicker-oct21.png)

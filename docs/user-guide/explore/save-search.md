@@ -18,13 +18,13 @@ Click the **Save** icon to open the Saved Search menu. Here, you can see all sav
 
 Click **Save Search**; give your search a meaningful name that you and your team will easily understand, then click **Save** to confirm.
 
-![saved search save](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/saved-search/saved-search.png)
+![saved search save](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/saved-search/save-search-oct21.png)
 
 Once saved, your search name will appear in the page's breadcrumbs. 
 
 Any changes to the query or addition of filters will **not** be automatically saved. A draft label will appear in the breadcrumbs to indicate unsaved modifications.
 
-<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/saved-search/draft-label.png" alt="draft-label" width="500"/>
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/saved-search/saved-draft-oct21.png" alt="draft-label" width="500"/>
 
 
 

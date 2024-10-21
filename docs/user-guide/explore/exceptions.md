@@ -13,7 +13,7 @@ It's integrated into Explore, where you can easily see the number of exceptions 
 
 To review exceptions affecting your environments, click the **Exceptions** button. This will open a quick view menu where you can review and filter the exceptions.
 
-![Exceptions in Explore](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/exceptions-quick-view.png)
+![Exceptions in Explore](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/exceptions-oct21.png)
 
 ### What's an exception?
 
@@ -37,7 +37,7 @@ You can find and view all exceptions by using the following query:
 
 `_exists_: _logzio_logceptions OR _exists_:"_logzio_insights"`
 
-![Find exceptions in Explore](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/logzio-insights.png)
+![Find exceptions in Explore](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/all-exceptions-oct21.png)
 
 Click the **Exceptions** button to see all exceptions related to your current query.
 
