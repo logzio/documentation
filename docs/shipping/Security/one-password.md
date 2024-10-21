@@ -67,7 +67,7 @@ logzio:
 ```
 
 :::note
-You can customize the endpoints to collect data from by adding extra API configurations under `apis`. 1Password API Docs can be found [here](https://developer.1password.com/docs/connect/connect-api-reference/).
+You can customize the endpoints to collect data by adding or modifying the configurations under the `apis` section. Refer to the [relevant API documentation](https://developer.1password.com/docs/connect/connect-api-reference/) for more details.
 :::
 
 ### 1Password configuration options
