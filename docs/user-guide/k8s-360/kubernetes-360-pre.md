@@ -4,7 +4,7 @@ title: Kubernetes 360 Prerequisites
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Everything you need to get started with Logz.io's Kubernetes 360
 keywords: [kubernetes, k360, ship kubernetes data, kubernetes logs, metrics, labels]
-slug: /user-guide/k8s-360/kubernetes-360-pre
+slug: /k8s-360/kubernetes-360-pre
 ---
 
 
