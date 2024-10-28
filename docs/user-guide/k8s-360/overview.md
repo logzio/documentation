@@ -4,6 +4,7 @@ title: Getting Started with Kubernetes 360
 tags: ['logs', 'metrics', 'traces', 'siem', 'os']
 description: First steps with Logz.io's Kubernetes 360 dashboard
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+slug: /k8s-360/overview/
 ---
 
 <Tags tags={frontMatter.tags} />

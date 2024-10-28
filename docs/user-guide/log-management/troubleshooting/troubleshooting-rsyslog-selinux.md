@@ -4,6 +4,7 @@ title: Troubleshooting Rsyslog - SELinux
 description: Learn about common errors when running Rsyslog - SELinux configuration
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [logz.io, troubleshooting, Rsyslog, SELinux, log analysis, observability]
+slug: /log-management/troubleshooting/troubleshooting-rsyslog-selinux/
 ---
 
 This section contains some guidelines for handling errors that you may encounter when trying to collect logs for Rsyslog - SELinux configuration.

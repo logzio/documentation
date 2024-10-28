@@ -4,6 +4,7 @@ title: Kubernetes with Helm and the OpenTelemetry Collector
 description: Troubleshoot Kubernetes with Helm and OpenTelemetry
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [logz.io, troubleshooting, kubernetes, k8s, opentelemetry, helm, helm chart]
+slug: /infrastructure-monitoring/troubleshooting/k8s-troubleshooting/
 ---
 
 This section contains some guidelines for troubleshooting and handling errors that you may encounter when trying to collect Kubernetes metrics. 

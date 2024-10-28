@@ -4,6 +4,7 @@ title: Troubleshooting Filebeat
 description: Learn about most common errors and remedies when running Filebeat
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [logz.io, troubleshooting, filebeat, log analysis, observability]
+slug: /log-management/troubleshooting/troubleshooting-filebeat/
 ---
 
 

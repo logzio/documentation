@@ -4,6 +4,7 @@ title: OpenTelemetry Traces Troubleshooting
 description: Common questions and use cases when setting up OpenTelemetry tracing account
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [logz.io, traces, tracing, trace dashboard, dashboard, troubleshoot, opentelemetry, logs, observability, distributed tracing]
+slug: /distributed-tracing/troubleshooting/otel-troubleshooting/
 ---
 
 

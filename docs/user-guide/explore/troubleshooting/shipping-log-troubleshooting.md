@@ -4,7 +4,7 @@ title: Log Shipping Troubleshooting
 description: Troubleshoot shipping logs to Logz.io
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [logz.io, troubleshooting, issues, log analysis, observability]
-
+slug: /explore/troubleshooting/shipping-log-troubleshooting/
 ---
 
 Getting logs from your system to Logz.io can be challenging, and identifying the exact issue can be difficult. This guide walks you through troubleshooting some common problems.

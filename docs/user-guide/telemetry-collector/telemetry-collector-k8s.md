@@ -4,6 +4,7 @@ title: Send Kubernetes Data with Telemetry Collector
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Send your Kubernetes data with Logz.io's Telemetry Collector
 keywords: [Kubernetes, ship kubernetes data, kubernetes logs, kubernetes metrics, kubernetes tracing]
+slug: /telemetry-collector/telemetry-collector-k8s/
 ---
 
 :::note

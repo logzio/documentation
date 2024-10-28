@@ -4,6 +4,7 @@ title: Configuring Remote Write for Prometheus
 description: Use remote write to connect your data with Logz.io
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [metrics, infrastructure monitoring, remote write, Prometheus, monitoring, dashboard, observability, logz.io]
+slug: /infrastructure-monitoring/introduction-to-prometheus/configure-remote-write-prometheus/
 ---
 
 To send your Prometheus application metrics to a Logz.io Infrastructure Monitoring account, use remote write to connect to Logz.io as the endpoint. Your data is formatted as JSON documents by the Logz.io listener.  
