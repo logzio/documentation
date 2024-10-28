@@ -4,6 +4,7 @@ title: Terraform Logz.io Provider
 description: Build Logz.io integrations with Terraform 
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [integrations, Terraform, API, logz.io, OpenSearch Dashboards, GitHub]
+slug: /integrations/terraform/
 ---
 
 :::note

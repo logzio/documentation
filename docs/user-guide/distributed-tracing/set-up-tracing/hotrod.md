@@ -4,6 +4,7 @@ title: Sending Demo Traces With the HotROD Application
 description: Send sample trace data with HotROD
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [logz.io, traces, hotrod, sample data, tracing, observability, distributed tracing]
+slug: /distributed-tracing/set-up-tracing/hotrod/
 ---
 
 Not ready to instrument and deploy components? We've got you covered with an app that can send demo traces to your Distributed Tracing.
