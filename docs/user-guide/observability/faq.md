@@ -15,7 +15,7 @@ keywords: [AI, observability, Assistant, iq, logs, metrics, traces, siem, insigh
 The AI Agent is currently in beta and may not always be fully accurate. We recommend reviewing the information for confirmation.
 :::
 
-AI Agent is Logz.io's chat-driven, AI-enhanced platform, enabling active dialogue with your data. You can access it from your **[Explore](https://app.logz.io/#/dashboard/explore)**, **[Kubernetes 360](https://app.logz.io/#/dashboard/observability/k8s360)**, and **[App 360](https://app.logz.io/#/dashboard/spm/services/table)** dashboards, where you can transition from merely observing data to actively acquiring immediate insights on your metrics, identifying anomalies, discerning trends, and assessing the well-being of your ecosystem in real time.
+AI Agent is part of Logz.io's Observability IQ suite. It provides a chat-driven, AI-enhanced platform, that enables active dialogue with your data. You can access it from your **[Explore](https://app.logz.io/#/dashboard/explore)**, **[Kubernetes 360](https://app.logz.io/#/dashboard/observability/k8s360)**, and **[App 360](https://app.logz.io/#/dashboard/spm/services/table)** dashboards, where you can transition from merely observing data to actively acquiring immediate insights on your metrics, identifying anomalies, discerning trends, and assessing the well-being of your ecosystem in real time.
 
 
 ### What kind of information can I get from the AI Agent? 
@@ -38,9 +38,9 @@ Once you provide input to the agent, the **dashboard's data** will be shared wit
 
 ### What data can AI Agent access upon activation?
 
-The AI Agent activates when you input a prompt in its interface. It is designed to access only the data currently visible in your browser, including your current query, the graphs visible on the screen, and a limited number of logs due to size constraints. 
+The AI Agent activates when you enter a prompt in its interface. It’s designed to access all your data, including logs, traces, current query, and visible graphs.
 
-This setup ensures that the AI Agent interacts exclusively with the data you're actively analyzing.
+This setup allows the AI Agent to interact directly with the data you're analyzing, delivering tailored insights and suggestions.
 
 
 ### How do I provide feedback or report issues with the AI Agent? 
