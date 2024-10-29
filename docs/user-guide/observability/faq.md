@@ -38,7 +38,7 @@ Once you provide input to the agent, the **dashboard's data** will be shared wit
 
 ### What data can AI Agent access upon activation?
 
-The AI Agent activates when you enter a prompt in its interface. It’s designed to access all your data, including logs, traces, current query, and visible graphs.
+The AI Agent activates when you enter a prompt in its interface. It’s designed to access all your log data, current query, and visible graphs.
 
 This setup allows the AI Agent to interact directly with the data you're analyzing, delivering tailored insights and suggestions.
 
