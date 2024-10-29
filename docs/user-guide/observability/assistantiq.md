@@ -6,7 +6,7 @@ image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.
 keywords: [AI, observability, AI agent, Assistant, iq, logs, metrics, traces, siem, insights, analysis, services, logz.io]
 ---
 
-AI Agent is an AI-powered, chat-based interface that lets you engage in a dynamic conversation with your data. Use it to move beyond passive data viewing and get real-time insights about your metrics, anomalies, trends, and the overall health of your environment.
+AI Agent is part of Logz.io's Observability IQ suite. It provides an AI-powered, chat-based interface that lets you engage in a dynamic conversation with your data. Use it to move beyond passive data viewing and get real-time insights about your metrics, anomalies, trends, and the overall health of your environment.
 
 AI Agent is available in your [Explore dashboard](https://app.logz.io/#/dashboard/explore), and as part of [Kubernetes 360](https://app.logz.io/#/dashboard/observability/k8s360), and [App 360](https://app.logz.io/#/dashboard/spm/service-overview).
 
@@ -28,17 +28,22 @@ Use the agent to analyze trends in latency, throughput, error rate, and HTTP sta
 
 ![AI Agent screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/ai-agent-answer-oct21.png)
 
-<!-- ## Observability IQ Assistant Pro
+## AI Agent Pro
 
-Observability IQ Assistant Pro provides enhanced search capabilities and dynamic context, allowing you to tackle complex questions with greater percision. 
+:::note
+AI Agent Pro is in a limited rollout and may not be available to everyone at this time.
+:::
 
-By leveraging GenAI to analyze context and data, IQ Assistant Pro delivers deep insights and actionable recommendations, streamlining the troubleshooting process and accelerating root cause analysis.
+
+AI Agent Pro provides enhanced search capabilities and dynamic context, allowing you to tackle complex questions with greater percision. 
+
+By leveraging GenAI to analyze context and data, AI Agent Pro delivers deep insights and actionable recommendations, streamlining the troubleshooting process and accelerating root cause analysis.
 
 It comprehends the situation, identifies the necessary information for thorough analysis, and proactively seeks the data required.
 
-Observability IQ Assistant Pro is currently only available in **[Explore](https://app.logz.io/#/dashboard/explore)** for log analytics. Activate it by toggling the Pro button inside the assistant. 
+AI Agent Pro is currently only available in **[Explore](https://app.logz.io/#/dashboard/explore)** for log analytics. Activate it by toggling the Pro button inside the agent. 
 
-![Assistant pro](https://dytvr9ot2sszz.cloudfront.net/whats-new-announcements/aiassistantprobutton.gif)
+![Assistant pro](https://dytvr9ot2sszz.cloudfront.net/whats-new-announcements/ai-agent-oct22.gif)
 
 
-For further assistance with Observability IQ Assistant, read the [FAQ](https://docs.logz.io/docs/user-guide/observability/faq) or [contact Logz.io's Support Team](mailto:help@logz.io). -->
+For further assistance with Observability IQ Assistant, read the [FAQ](https://docs.logz.io/docs/user-guide/observability/faq) or [contact Logz.io's Support Team](mailto:help@logz.io).
