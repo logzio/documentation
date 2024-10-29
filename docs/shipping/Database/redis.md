@@ -277,7 +277,7 @@ exporters:
  logging:
  logzio/logs:
    account_token: "<<LOG-SHIPPING-TOKEN>>"
-   region: "us"
+   region: "<<LOGZIO_ACCOUNT_REGION_CODE>>"
  prometheusremotewrite:
    endpoint: "https://listener.logz.io:8053"
    headers:
@@ -388,7 +388,7 @@ exporters:
  logging:
  logzio/logs:
    account_token: "<<LOG-SHIPPING-TOKEN>>"
-   region: "us"
+   region: "<<LOGZIO_ACCOUNT_REGION_CODE>>"
 
 
 processors:
