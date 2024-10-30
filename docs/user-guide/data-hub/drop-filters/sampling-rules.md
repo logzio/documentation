@@ -1,6 +1,6 @@
 ---
 sidebar_position: 4
-title: Sampling Rules
+title: Drop Filters - Trace Sampling
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: How Sampling rules can improve your monitoring
 keywords: [Sampling, data, sampling rules, traces, tracing]
@@ -8,11 +8,11 @@ slug: /user-guide/data-hub/sampling-rules
 ---
 
 
-Sampling rules let you choose which traces you want to index and monitor inside your account. They help you focus your attention on events that are happening right now inside your systems and services. In addition, applying sampling rules optimizes your quota management by indexing only critical and actionable spans or full traces.
+Trace Sampling let you choose which traces you want to index and monitor inside your account. They help you focus your attention on events that are happening right now inside your systems and services. In addition, applying sampling rules optimizes your quota management by indexing only critical and actionable spans or full traces.
 
 
 
-## Sampling rules overview
+## Trace Sampling overview
 
 The Sampling rules screen has these main components:
 
@@ -57,9 +57,9 @@ To **activate the new set of rules**, navigate to the [YAML Configuration Genera
 
 
 
-## Configure and apply your Sampling rules
+## Configure and apply your Trace Sampling rules
 
-The first step is to create your Sampling rules. Once you've finished creating a set of rules for your chosen account, you need to configure them through the OTEL configuration generator. 
+The first step is to create your Trace Sampling rules. Once you've finished creating a set of rules for your chosen account, you need to configure them through the OTEL configuration generator. 
 
 The OTEL configuration generator creates a YAML config file for your collector, which you’ll need to run for the rules to take effect.
 
