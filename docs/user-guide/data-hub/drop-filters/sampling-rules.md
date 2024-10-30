@@ -8,47 +8,44 @@ slug: /user-guide/data-hub/sampling-rules
 ---
 
 
-Trace Sampling let you choose which traces you want to index and monitor inside your account. They help you focus your attention on events that are happening right now inside your systems and services. In addition, applying sampling rules optimizes your quota management by indexing only critical and actionable spans or full traces.
-
+Trace Sampling lets you select which traces to index and monitor within your account, helping you focus on real-time events in your systems and services. Applying Drop Filters also optimizes quota usage by indexing only critical and actionable spans or full traces.
 
 
 ## Trace Sampling overview
 
-The Sampling rules screen has these main components:
+The Sampling Rules screen includes the following:
 
-* **Choose an account** - Choose the Tracing accounts for which you'd like to create and apply your rules. You’ll need to create a different set of rules for each one of your accounts.
+* **Account Selection** - Choose the Tracing accounts where you'd like to create and apply Drop Filters. Each account requires a separate set of rules.
 
-* **Main table** - Your sampling rules will appear on this table. Each rule includes a description and a list of the services it's running on. If no services appear, it means that the rule applies to all of the spans.
+* **Main Table** - Displays your sampling rules, including descriptions and the services they apply to. If no services are listed, the rule applies to all spans.
 
 
 ![Sampling rules overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/sampling-rules/sampling-rules.png)
 
-## Create custom Sampling rules
+## Create Custom Trace Sampling Rules
 
 :::tip
-Creating a separate set of rules per each tracing account allows you to control the span volume more accurately.
+Creating individual rules for each tracing account allows for more precise span volume control.
 :::
 
-To create Sampling rules, click the **New rule** button at the top right corner.
+To create a rule, click **New Rule** at the top right. Then, select the services where this rule will apply. To manually add services, check **These Services** and choose from the dropdown menu.
 
-Next, choose the services to which you'd like to apply this rule. To manually add your services, check the **These services** option and select the relevant services from the drop down menu.
+### Sampling actions
 
-Finally, choose the sampling action. Each rule can only have one of the following actions:
+Each rule can have one of the following actions:
 
-* Keep a certain percentage of the traces. You can choose any value between 1-100.
-* Keep traces that are slower than a certain value. You can choose any value that's higher than 1.
-* Keep all traces that contain span errors. This will allow you to focus on finding and identifying issues.
+* Keep a percentage of traces (choose a value from 1-100).
+* Keep traces slower than a specified duration (must exceed 1 ms).
+* Keep all traces with span errors to focus on identifying issues.
 
 ![Create a sampling rule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/sampling-rules/create-a-rule.png)
 
-While you can only choose one action per rule, you can create multiple rules on the same services.
+While each rule can have only one action, you can create multiple rules for the same services. For example:
 
-For example, you can create the following rules:
-
-* Sample ALL traces with spans that have errors
-* Sample traces that are slower than 2000ms
-* Sample 50% of the traces
-* Sample all traces from a critical service
+* Sample all traces with spans containing errors.
+* Sample traces slower than 2000 ms.
+* Sample 50% of traces.
+* Sample all traces from a critical service.
 
 :::caution Important
 To **activate the new set of rules**, navigate to the [YAML Configuration Generator](https://app.logz.io/#/dashboard/settings/tracing-yaml-configuration/) and follow the instructions.
@@ -57,16 +54,16 @@ To **activate the new set of rules**, navigate to the [YAML Configuration Genera
 
 
 
-## Configure and apply your Trace Sampling rules
+## Configure and apply Trace Sampling rules
 
-The first step is to create your Trace Sampling rules. Once you've finished creating a set of rules for your chosen account, you need to configure them through the OTEL configuration generator. 
+Start by creating your sampling rules for the chosen account.
 
-The OTEL configuration generator creates a YAML config file for your collector, which you’ll need to run for the rules to take effect.
+Configure them using the OTEL Configuration Generator, which creates a YAML file for your collector to run the rules.
 
-You can access the generator by clicking on the button at the top right corner of the screen or navigating to the page by clicking **[Tracing > OTEL configuration](https://app.logz.io/#/dashboard/settings/tracing-yaml-configuration/)**.
+Access the generator by clicking the button at the top right or navigating to **[Tracing > OTEL configuration](https://app.logz.io/#/dashboard/settings/tracing-yaml-configuration/)**. 
 
-Select the configuration method based on your OTEL deployment strategy. You can currently choose Localhost; Docker and Kubernetes support is coming soon.
+Select your configuration method based on your OTEL deployment strategy (currently supports Localhost; Docker and Kubernetes support is coming soon).
 
-Once you have selected the appropriate Tracing account, follow the instructions to apply your rules to your collector.
+After selecting the Tracing account, follow the instructions to apply your rules to the collector.
 
 ![Create a sampling rule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/sampling-rules/otel-configuration-screen.png)
