@@ -24,7 +24,7 @@ const FeatureList = [
   },
   {
     title: 'Kubernetes 360',
-    link: "/docs/user-guide/k8s-360/overview/",
+    link: "/docs/k8s-360/overview/",
     Svg: require('@site/static/img/k8s.svg').default,
     description: <>Monitor and troubleshoot applications deployed in Kubernetes environments.</>,
   },
@@ -42,13 +42,13 @@ const FeatureList = [
   },
   {
     title: 'Telemetry Collector',
-    link: "/docs/user-guide/telemetry-collector/",
+    link: "/docs/telemetry-collector/",
     Svg: require('@site/static/img/telemetry-collector.svg').default,
     description: <>Send logs, metrics, and traces data quickly and easily.</>,
   },
   {
     title: 'Log troubleshooting',
-    link: "/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/",
+    link: "/docs/log-management/troubleshooting/log-shipping-troubleshooting/",
     Svg: require('@site/static/img/troubleshooting.svg').default,
     description: <>Troubleshoot common log related issues.</>,
   },
