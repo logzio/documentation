@@ -6,58 +6,30 @@ description: Everything you need to know about Logz.io's Warm Tier solution
 keywords: [manage, log redaction, admin controls, account administration, access control, warm, warm tier, warm logs, archive]
 ---
 
-Logz.io offers a number of ways to store your data; Hot, Cold, and Warm tiers.
+Logz.io provides flexible options for storing and accessing data with Hot, Warm, and Cold tiers, each tailored to different access needs.
 
-The Warm tier is designed for logs that don't require frequent acessability, but still need to be readily available for analysis and troubleshooting when needed.
+The Warm tier is designed to handle logs that don’t require frequent access but still need to be readily available for analysis and troubleshooting. By enabling Warm tier data, you can access historical data when necessary, making it a practical choice for mid-term storage.
 
-It supports historical data and make it available when needed.
+## Warm tier use cases
 
-## When should you use Warm tier?
+The Warm Tier is ideal for scenarios where data is needed periodically but doesn’t demand the immediate speed of the Hot Tier. Key use cases include:
 
-Warm tier is ideal for cases where data is needed periodically but doesn’t require the immediate speed of Hot tier. For example:
+* **Historical Analysis**: Access past logs to gain insights, perform trend analysis, or examine event data weeks or months after ingestion.
 
-* Historical analysis - Access past logs for insights, trend analysis, or event data for weeks or months after the logs' initial ingestion. 
+* **Root Cause Analysis**: When troubleshooting, recent historical data often provides critical context. With the Warm Tier, logs can be accessed directly through Explore, allowing for in-depth investigations.
 
-* Root cause analysis - When troubleshooting issues, you oftern need to look back at recent historical data. With Warm tier, you'll be able to access it directly from Explore and get additional and needed context for your investigation. 
+* **Compliance**: Many compliance regulations require data retention for a specified period. The Warm Tier facilitates compliance by keeping data accessible without incurring the costs of real-time storage.
 
-* Compliance - Compliance regulations often require data to be available for a certain period. The warm tier enables compliance by keeping data available without real-time access costs.
+Warm tier balances long-term retention and moderate performance for data storage needs. 
 
+Logs automatically shift from the Hot to Warm tier after a set period, extending retention and enabling easy access to historical data for analysis, compliance, and reporting. Though slightly slower than the Hot tier, the Warm tier offers reliable search and query functionality suited for semi-active data.
 
+<!-- ## Enabling Warm tier data
 
-## Why Use the Warm Tier?
-
-* Cost Efficiency: The Warm Tier offers significant cost savings compared to the Hot Tier, making it ideal for storing data long-term without the high expenses associated with real-time access.
-* Extended Retention: Logs automatically transition from the Hot Tier to the Warm Tier after a defined period, allowing for longer retention and access to historical data.
-* Performance Balance: While slightly slower than the Hot Tier, the Warm Tier maintains search and query capabilities at a moderate performance level, suitable for semi-active data.
-
-
-
-
-The Warm Tier provides a valuable balance of cost, retention, and performance for data storage needs. It is designed for long-term data storage, offering significant cost savings over the Hot Tier, making it ideal for data that doesn’t require real-time access. This approach allows businesses to reduce storage expenses without sacrificing accessibility. Logs automatically transition from the Hot Tier to the Warm Tier after a set period, enabling longer data retention and easier access to historical data for analysis, compliance, and reporting purposes. Though slightly slower than the Hot Tier, the Warm Tier maintains reliable search and query functionality at a moderate performance level, well-suited for semi-active data that benefits from accessible yet cost-effective storage.
-
-
-
-
-
-
-
-
-
+To start using Warm tier data -->
 
 ## Key Features and Limitations
 
-### Core Features
-* Seamless UI Integration: Operates within the familiar Logz.io platform interface, allowing users to query and manage logs as usual.
-* Flexible Retention: Data is retained longer than the Hot Tier, providing mid-term storage that’s cost-effective and accessible.
-* Alerting and Exporting: While alerts cannot run directly on Warm Tier data, users can create alerts and export data as needed.
+Warm tier integrates seamlessly within the Logz.io platform. You can set alerts, export data, and perform queries, though search and visualization are slower compared to the Hot tier.
 
-### Performance Considerations
-* Query Speed: Searches may take longer, especially for free-text or complex queries. Applying filters can improve response time.
-* Visualization: Graphs and dashboards may load slower; the Hot Tier is recommended for critical real-time visualization needs.
-
-### Limitations
-* Query Constraints: Certain limitations, like a maximum number of concurrent queries and daily scan quotas, ensure that the system isn’t overloaded. Complex queries might be restricted to maintain performance.
-* Functionality Differences: Some features, such as real-time dashboards and alerting, are better suited for the Hot Tier due to performance and frequency requirements.
-
-
-For more information, contact Logz.io support or visit the Warm Tier page on our website.
+For further details, contact Logz.io support.
