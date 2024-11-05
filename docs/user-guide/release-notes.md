@@ -17,7 +17,7 @@ We’ve improved the filter pane to include:
 * An improved **Available Fields** section with results from visible logs, and a percentage indication of field value frequencies.
 * A new **Other Fields** section, where you can now view fields that aren’t marked as favorites or currently displayed in the logs, providing you a more comprehensive overview of your log data.
 
-Additionally, a new time-picker option lets you mix absolute and relative times and manually set the date and time to the second. Additionally, you can view your data in either UTC or your local time zone.
+A new time-picker option lets you mix absolute and relative times and manually set the date and time to the second. Additionally, you can view your data in either UTC or your local time zone.
 
 **Saved searches** from Explore can now be used to create visualizations and dashboards in OpenSearch Dashboards, streamlining data analysis.
 
