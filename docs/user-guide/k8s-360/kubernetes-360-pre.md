@@ -23,13 +23,13 @@ If you already have Kubernetes 360 data in your Logz.io account or prefer connec
 
 ### Send Kubernetes logs
 
-To ensure your Kubernetes 360 dashboard is up and running, you'll need to ensure the following fields are properly propagated:
+To have the relevant logs populated in your Kubernetes 360 dashboard, you'll need to ensure the following fields are properly propagated:
 
 | **Object** | **Field** |
 | -- | -- |
 | Pod | `kubernetes.pod_name` / `k8s_pod_name` |
 | namespace | `kubernetes.namespace_name` / `k8s_namespace_name` |
-| Nod | `k8s_nod_name` / `kubernetes.host` |
+| Node | `kubernetes.host` / `k8s_nod_name`  |
 | Cluster | `env_id` |
 
 
