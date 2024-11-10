@@ -38,7 +38,7 @@ To send your logs, our chart`logzio-monitoring` offers two methods:
 helm install -n monitoring --create-namespace \
 --set logs.enabled=true \
 --set logzio-logs-collector.secrets.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
---set logzio-logs-collector.secrets.logzioRegion="<<LOGZIO-REGION>>" \
+--set logzio-logs-collector.secrets.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
 --set logzio-logs-collector.secrets.env_id="<<CLUSTER-NAME>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
@@ -200,8 +200,11 @@ helm install -n monitoring --create-namespace \
 --set metricsOrTraces.enabled=true \
 --set logzio-k8s-telemetry.traces.enabled=true \
 --set logzio-k8s-telemetry.secrets.TracesToken="<<TRACING-SHIPPING-TOKEN>>" \
---set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO_REGION>>" \
+--set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
 --set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
+--set logzio-k8s-telemetry.nodeExporter.enabled=false \
+--set logzio-k8s-telemetry.kubeStateMetrics.enabled=false \
+--set logzio-k8s-telemetry.pushGateway.enabled=false \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
@@ -212,10 +215,13 @@ helm install -n monitoring --create-namespace \
 --set metricsOrTraces.enabled=true \
 --set logzio-k8s-telemetry.traces.enabled=true \
 --set logzio-k8s-telemetry.secrets.TracesToken="<<TRACING-SHIPPING-TOKEN>>" \
---set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO_REGION>>" \
+--set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
 --set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
 --set logzio-k8s-telemetry.spm.enabled=true \
---set logzio-k8s-telemetry.secrets.SpmToken=<<SPM-METRICS-SHIPPING-TOKEN>> \
+--set logzio-k8s-telemetry.secrets.SpmToken="<<SPM-METRICS-SHIPPING-TOKEN>>" \
+--set logzio-k8s-telemetry.nodeExporter.enabled=false \
+--set logzio-k8s-telemetry.kubeStateMetrics.enabled=false \
+--set logzio-k8s-telemetry.pushGateway.enabled=false \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
@@ -233,8 +239,11 @@ helm install -n monitoring --create-namespace \
 --set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
 --set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
 --set logzio-k8s-telemetry.spm.enabled=true \
---set logzio-k8s-telemetry.secrets.SpmToken=<<SPM-METRICS-SHIPPING-TOKEN>> \
+--set logzio-k8s-telemetry.secrets.SpmToken="<<SPM-METRICS-SHIPPING-TOKEN>>" \
 --set logzio-k8s-telemetry.serviceGraph.enabled=true \
+--set logzio-k8s-telemetry.nodeExporter.enabled=false \
+--set logzio-k8s-telemetry.kubeStateMetrics.enabled=false \
+--set logzio-k8s-telemetry.pushGateway.enabled=false \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
