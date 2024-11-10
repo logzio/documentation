@@ -4,6 +4,7 @@ title: Configuring Grafana Datasource for Logz.io Metrics
 description: This guide provides step-by-step instructions for configuring Grafana to query Prometheus metrics stored in Logz.io. If you have your own Grafana instance and want to use it to visualize metrics from Logz.io, follow the steps below.
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [metrics, infrastructure monitoring, Prometheus, monitoring, dashboard, observability, logz.io]
+slug: /infrastructure-monitoring/grafana-datasource-for-logzio-metrics/
 ---
 
 ### Request Metric API Endpoint Enablement

@@ -4,6 +4,7 @@ title: Distributed Tracing Troubleshooting
 description: Common questions and use cases when setting up your Logz.io tracing account
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [logz.io, traces, tracing, trace dashboard, dashboard, troubleshoot, logs, observability, distributed tracing]
+slug: /distributed-tracing/troubleshooting/tracing-troubleshooting/
 ---
 
 

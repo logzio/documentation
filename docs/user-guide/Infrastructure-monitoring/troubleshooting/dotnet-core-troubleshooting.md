@@ -4,6 +4,7 @@ title: .NET Core Metrics
 description: Troubleshoot .NET core metrics
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [logz.io, troubleshooting, .NET, dotnet, core, metrics]
+slug: /Infrastructure-monitoring/troubleshooting/dotnet-core-troubleshooting/
 ---
 
 This section contains some guidelines for troubleshooting and handling errors that you may encounter when trying to collect .NET core metrics. 

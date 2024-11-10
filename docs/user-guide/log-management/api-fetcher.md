@@ -4,6 +4,7 @@ title: Logz.io API Fetcher Configuration Guide
 description: This guide outlines the steps for configuring the Logz.io API Fetcher to fetch and send data to Logz.io. 
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [logz.io, opensearch dashboards, log analysis, observability]
+slug: /log-management/api-fetcher/
 ---
 
 The Logz.io API Fetcher supports both auth and OAuth APIs and includes specific implementations for Azure Graph, Office365 Message Trace reports, Cloudflare and 1Password.

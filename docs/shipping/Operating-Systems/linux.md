@@ -105,7 +105,7 @@ exporters:
   logging:
   logzio/logs:
     account_token: <<LOG-SHIPPING-TOKEN>>
-    region: us
+    region: <<LOGZIO_ACCOUNT_REGION_CODE>> # Default is US
     headers:
       user-agent: logzio-linux-logs
   prometheusremotewrite:
