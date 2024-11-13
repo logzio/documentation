@@ -219,6 +219,7 @@ helm install -n monitoring --create-namespace \
 --set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
 --set logzio-k8s-telemetry.spm.enabled=true \
 --set logzio-k8s-telemetry.secrets.SpmToken="<<SPM-METRICS-SHIPPING-TOKEN>>" \
+--set logzio-k8s-telemetry.secrets.ListenerHost="https://<<LISTENER-HOST>>:8053" \
 --set logzio-k8s-telemetry.nodeExporter.enabled=false \
 --set logzio-k8s-telemetry.kubeStateMetrics.enabled=false \
 --set logzio-k8s-telemetry.pushGateway.enabled=false \
@@ -240,6 +241,7 @@ helm install -n monitoring --create-namespace \
 --set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
 --set logzio-k8s-telemetry.spm.enabled=true \
 --set logzio-k8s-telemetry.secrets.SpmToken="<<SPM-METRICS-SHIPPING-TOKEN>>" \
+--set logzio-k8s-telemetry.secrets.ListenerHost="https://<<LISTENER-HOST>>:8053" \
 --set logzio-k8s-telemetry.serviceGraph.enabled=true \
 --set logzio-k8s-telemetry.nodeExporter.enabled=false \
 --set logzio-k8s-telemetry.kubeStateMetrics.enabled=false \
