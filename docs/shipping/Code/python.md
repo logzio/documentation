@@ -1025,6 +1025,8 @@ This integration includes:
 * Running your Python application in conjunction with the OpenTelemetry instrumentation
 
 On deployment, the Python instrumentation automatically captures spans from your application and forwards them to the collector, which exports the data to your Logz.io account.
+<Tabs>
+<TabItem value="python-traces-localhost" label="Local Host" default>
 
 ### Local host Python application auto instrumentation
 
@@ -1041,7 +1043,7 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 :::
   
 
-### Install OpenTelemetry components for Python
+#### Install OpenTelemetry components for Python
 
 
 ```shell
@@ -1051,7 +1053,7 @@ opentelemetry-bootstrap --action=install
 pip3 install opentelemetry-exporter-otlp
 ```
 
-### Set environment variables 
+#### Set environment variables 
 
 After installation, configure the exporter with this command:
 
@@ -1060,7 +1062,7 @@ export OTEL_TRACES_EXPORTER=otlp
 export OTEL_RESOURCE_ATTRIBUTES="service.name=<<YOUR-SERVICE-NAME>>"
 ```
  
-### Download and configure OpenTelemetry collector
+#### Download and configure OpenTelemetry collector
 
 Create a directory on your Python application and download the relevant [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.111.0). Create a `config.yaml` with the following parameters:
 
@@ -1071,7 +1073,7 @@ Create a directory on your Python application and download the relevant [OpenTel
 {@include: ../../_include/tracing-shipping/tail-sampling.md}
 
 
-### Start the collector
+#### Start the collector
 
 Run:
 
@@ -1081,7 +1083,7 @@ Run:
 * Replace `<path/to>` with the collector's directory.
 * Replace `<VERSION-NAME>` with the version name, e.g. `otelcontribcol_darwin_amd64`.
 
-### Run OpenTelemetry with your Python application
+#### Run OpenTelemetry with your Python application
 
 Run this code from the directory of your Python application script:
 
@@ -1091,12 +1093,13 @@ opentelemetry-instrument python3 <YOUR-APPLICATION-SCRIPT>.py
 
 Replace `<YOUR-APPLICATION-SCRIPT>` with your Python application script name.
 
-### Viewing Traces in Logz.io
+#### Viewing Traces in Logz.io
 
 Give your traces time to process, after which they'll be available in your [Tracing](https://app.logz.io/#/dashboard/jaeger) dashboard.
 
 
-
+</TabItem>
+<TabItem value="python-traces-docker" label="Docker" default>
 
 ### Docker Python application auto instrumentation
 
@@ -1342,12 +1345,14 @@ Replace `<<YOUR-APPLICATION-SCRIPT>>` with your Python application script name.
 #### Viewing Traces in Logz.io
 
 Give your traces time to process, after which they'll be available in your [Tracing](https://app.logz.io/#/dashboard/jaeger) dashboard.
+</TabItem>
+<TabItem value="python-traces-ecs" label="ECS" default>
 
-## Python Application Setup for ECS Service with OpenTelemetry
+### Python Application Setup for ECS Service with OpenTelemetry
 
 This document provides step-by-step instructions for setting up a Python application on Amazon ECS, using OpenTelemetry to send tracing data directly to your Logz.io account.
 
-### **Prerequisites**
+#### **Prerequisites**
 
 Before you begin, ensure you have the following prerequisites in place:
 
@@ -1357,7 +1362,7 @@ Before you begin, ensure you have the following prerequisites in place:
 - Amazon ECR repository for storing the Docker images.
 - Python 3.x and pip installed locally for development and testing.
 
-### **Architecture Overview**
+#### **Architecture Overview**
 
 This guide focuses on deploying the Python container using the following architecture:
 
@@ -1380,9 +1385,9 @@ The Python application includes:
 - **Dockerfile**: Used to create a Docker image for the Python application.
 - **requirements.txt**: Lists the required Python dependencies, including OpenTelemetry for tracing.
 
-### **Code**
+#### **Code**
 
-#### **app.py**
+##### **app.py**
 
 ```python
 from flask import Flask, request
@@ -1428,7 +1433,7 @@ CMD ["opentelemetry-instrument", "python", "app.py"]
 
 The Dockerfile uses a slim Python image, installs the necessary dependencies, sets the environment variables required for OpenTelemetry configuration, and starts the application with OpenTelemetry instrumentation.
 
-#### **requirements.txt**
+##### **requirements.txt**
 
 ```
 flask
@@ -1439,7 +1444,7 @@ opentelemetry-instrumentation-flask
 
 This file lists the required dependencies, including Flask and OpenTelemetry packages for tracing. The `opentelemetry-instrumentation-flask` package is used to automatically instrument Flask applications, enabling tracing for incoming HTTP requests without requiring manual instrumentation of each route.
 
-#### **task-definition.json**
+##### **task-definition.json**
 
 ```json
 {
@@ -1502,44 +1507,44 @@ This file lists the required dependencies, including Flask and OpenTelemetry pac
 
 This task definition includes both the Python application container and the OpenTelemetry Collector container, defining their configurations and log groups.
 
-### **Step-by-Step Instructions**
+#### **Step-by-Step Instructions**
 
-#### **1. Project Structure Setup**
+##### **1. Project Structure Setup**
 
 Ensure the project structure follows the provided architecture. The Python application source code should be located in the `python-app/` directory.
 
-#### **2. Create an Amazon ECR Repository**
+##### **2. Create an Amazon ECR Repository**
 
 Create an Amazon ECR repository to store the Docker image for the Python application:
 
-```sh
+```shell
 aws ecr create-repository --repository-name python-app --region <aws-region>
 ```
 
-#### **3. Configure OpenTelemetry Collector**
+##### **3. Configure OpenTelemetry Collector**
 
 The `collector-config.yaml` in the `ecs/` directory defines the OpenTelemetry Collector configuration for receiving, processing, and exporting telemetry data. The Python application will use OpenTelemetry instrumentation to send traces to the collector running as a sidecar in the ECS task.
 
 **collector-config.yaml**
 
-{@include: ../../_include/log-shipping/tracing-shipping/collector-config.md}
+{@include: ../../_include/tracing-shipping/collector-config.md}
 
 This configuration file defines the OpenTelemetry Collector, specifying how to receive, process, and export traces to Logz.io.
 
 **Dockerfile**
 
-```sh
+```shell
 # Dockerfile for OpenTelemetry Collector
 FROM otel/opentelemetry-collector-contrib:latest
 COPY collector-config.yaml /etc/collector-config.yaml
 CMD ["--config", "/etc/collector-config.yaml"]
 ```
 
-#### **4. Build and Push the Docker Image**
+##### **4. Build and Push the Docker Image**
 
 To build the Docker image for the Python application and opentelemetry collector, use the following commands:
 
-```sh
+```shell
 cd python-app/
 docker build --platform linux/amd64 -t python-app:latest .
 
@@ -1549,7 +1554,7 @@ docker build --platform linux/amd64 -t otel-collector:latest .
 
 Next, push the images to your Amazon ECR repository:
 
-```sh
+```shell
 # Authenticate Docker to your Amazon ECR repository
 aws ecr get-login-password --region <aws-region> | docker login --username AWS --password-stdin <aws_account_id>.dkr.ecr.<region>.amazonaws.com
 
@@ -1561,28 +1566,28 @@ docker tag otel-collector:latest <aws_account_id>.dkr.ecr.<region>.amazonaws.com
 docker push <aws_account_id>.dkr.ecr.<region>.amazonaws.com/otel-collector:latest
 ```
 
-#### **5. Set Up CloudWatch Log Groups**
+##### **5. Set Up CloudWatch Log Groups**
 
 - **Log Group Creation**: Create log groups for your Python application and OpenTelemetry Collector in CloudWatch.
 
-```sh
+```shell
 aws logs create-log-group --log-group-name /ecs/python-app
 aws logs create-log-group --log-group-name /ecs/otel-collector
 ```
 
 - Ensure the ECS task definition is configured to send logs to the appropriate log groups using the `awslogs` log driver.
 
-#### **6. Create an ECS Cluster and Service**
+##### **6. Create an ECS Cluster and Service**
 
 - **Create ECS Cluster**: Create an ECS cluster using the following command:
 
-```sh
+```shell
 aws ecs create-cluster --cluster-name app-cluster --region <aws-region> 
 ```
 
 - **Create ECS Service**: Use the ECS cluster to create a service based on the registered task definition.
 
-```sh
+```shell
 aws ecs create-service \
   --cluster <cluster-name> \
   --service-name <service-name> \
@@ -1595,15 +1600,15 @@ aws ecs create-service \
 
 - **Register Task Definition**: Use the `task-definition.json` file located in the `ecs/` directory to register a new task definition for your Python application.
 
-```sh
+```shell
 aws ecs register-task-definition --cli-input-json file://ecs/task-definition.json
 ```
 
-#### **7. Update ECS Service**
+##### **7. Update ECS Service**
 
 After making changes to the container or ECS configuration, update your ECS service to force a new deployment and pull the latest image:
 
-```sh
+```shell
 aws ecs update-service \
   --cluster <cluster-name> \
   --service-name python-app-service \
@@ -1611,20 +1616,22 @@ aws ecs update-service \
   --region <aws-region>
 ```
 
-#### **8. Send Requests to the Application**
+##### **8. Send Requests to the Application**
 
 To verify that the application is working and traces are being collected, use `curl` or a web browser to send requests to the Python application:
 
-```sh
+```shell
 curl http://<public-ip>:5000/
 curl http://<public-ip>:5000/hello
 ```
 
-### **Create Cluster and Service, Update Services**
+#### **Create Cluster and Service, Update Services**
 
 Ensure you have created the ECS cluster and registered the service with the correct task definition. Whenever updates are made (e.g., new Docker image versions or configuration changes), force a new deployment to apply the changes.
 
 ---
+</TabItem>
+<TabItem value="python-traces-k8s" label="Kuberenetes" default>
 
 ### Kuberenetes Python application auto insturmentation 
 
@@ -1681,7 +1688,7 @@ Typically, the service name will be `logzio-k8s-telemetry.default.svc.cluster.lo
   
 ```shell
 kubectl run -it --image=k8s.gcr.io/e2e-test-images/jessie-dnsutils:1.3 --restart=Never shell -- \
-sh -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.default//"'
+shell -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.default//"'
 ```
   
 This command deploys a pod to extract your cluster domain name, which can be removed after.
@@ -1817,7 +1824,9 @@ To uninstall the `logzio-monitoring` deployment, run:
 helm uninstall logzio-monitoring
 ```
 
- 
+</TabItem>
+</Tabs>
+
 ## Troubleshooting
 
 

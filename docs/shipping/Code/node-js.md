@@ -804,7 +804,7 @@ To find your cluster domain name, run the following command:
   
 ```shell
 kubectl run -it --image=k8s.gcr.io/e2e-test-images/jessie-dnsutils:1.3 --restart=Never shell -- \
-sh -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.default//"'
+shell -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.default//"'
 ```
   
 This command deploys a temporary pod to extract your cluster domain name. You can remove the pod after retrieving the domain name.
@@ -928,7 +928,7 @@ helm uninstall logzio-k8s-telemetry
 
 
 </TabItem>
-</Tabs>
+<TabItem value="nodejs-traces-ecs" label="ECS" default>
 
 ## Node.js Application Setup for ECS Service with OpenTelemetry
 
@@ -1210,7 +1210,7 @@ Ensure the project structure follows the provided architecture. The Node.js appl
 
 Create an Amazon ECR repository to store the Docker image for the Node.js application:
 
-```sh
+```shell
 aws ecr create-repository --repository-name nodejs-app --region <aws-region>
 ```
 
@@ -1220,13 +1220,13 @@ The `collector-config.yaml` in the `ecs/` directory defines the OpenTelemetry Co
 
 **collector-config.yaml**
 
-{@include: ../../_include/log-shipping/tracing-shipping/collector-config.md}
+{@include: ../../_include/tracing-shipping/collector-config.md}
 
 This configuration file defines the OpenTelemetry Collector, specifying how to receive, process, and export traces to Logz.io.
 
 **Dockerfile**
 
-```sh
+```shell
 # Dockerfile for OpenTelemetry Collector
 FROM otel/opentelemetry-collector-contrib:latest
 COPY collector-config.yaml /etc/collector-config.yaml
@@ -1237,7 +1237,7 @@ CMD ["--config", "/etc/collector-config.yaml"]
 
 To build the Docker image for the Node.js application and OpenTelemetry Collector, use the following commands:
 
-```sh
+```shell
 cd nodejs-app/
 docker build --platform linux/amd64 -t nodejs-app:latest .
 
@@ -1247,7 +1247,7 @@ docker build --platform linux/amd64 -t otel-collector:latest .
 
 Next, push the images to your Amazon ECR repository:
 
-```sh
+```shell
 # Authenticate Docker to your Amazon ECR repository
 aws ecr get-login-password --region <aws-region> | docker login --username AWS --password-stdin <aws_account_id>.dkr.ecr.<region>.amazonaws.com
 
@@ -1263,7 +1263,7 @@ docker push <aws_account_id>.dkr.ecr.<region>.amazonaws.com/otel-collector:lates
 
 - **Log Group Creation**: Create log groups for your Node.js application and OpenTelemetry Collector in CloudWatch.
 
-```sh
+```shell
 aws logs create-log-group --log-group-name /ecs/nodejs-app
 aws logs create-log-group --log-group-name /ecs/otel-collector
 ```
@@ -1274,13 +1274,13 @@ aws logs create-log-group --log-group-name /ecs/otel-collector
 
 - **Create ECS Cluster**: Create an ECS cluster using the following command:
 
-```sh
+```shell
 aws ecs create-cluster --cluster-name app-cluster --region <aws-region>
 ```
 
 - **Create ECS Service**: Use the ECS cluster to create a service based on the registered task definition.
 
-```sh
+```shell
 aws ecs create-service \
   --cluster <cluster-name> \
   --service-name <service-name> \
@@ -1293,7 +1293,7 @@ aws ecs create-service \
 
 - **Register Task Definition**: Use the `task-definition.json` file located in the `ecs/` directory to register a new task definition for your Node.js application.
 
-```sh
+```shell
 aws ecs register-task-definition --cli-input-json file://ecs/task-definition.json
 ```
 
@@ -1301,7 +1301,7 @@ aws ecs register-task-definition --cli-input-json file://ecs/task-definition.jso
 
 After making changes to the container or ECS configuration, update your ECS service to force a new deployment and pull the latest image:
 
-```sh
+```shell
 aws ecs update-service \
   --cluster <cluster-name> \
   --service-name nodejs-app-service \
@@ -1313,7 +1313,7 @@ aws ecs update-service \
 
 To verify that the application is working and traces are being collected, use `curl` or a web browser to send requests to the Node.js application:
 
-```sh
+```shell
 curl http://<public-ip>:3000/
 curl http://<public-ip>:3000/hello
 ```
@@ -1322,6 +1322,8 @@ curl http://<public-ip>:3000/hello
 
 Ensure you have created the ECS cluster and registered the service with the correct task definition. Whenever updates are made (e.g., new Docker image versions or configuration changes), force a new deployment to apply the changes.
 
+</TabItem>
+</Tabs>
 ---
 
 {@include: ../../_include/tracing-shipping/otel-troubleshooting.md}
