@@ -1324,7 +1324,7 @@ Ensure you have created the ECS cluster and registered the service with the corr
 
 </TabItem>
 </Tabs>
----
+
 
 {@include: ../../_include/tracing-shipping/otel-troubleshooting.md}
 
