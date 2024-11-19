@@ -503,7 +503,7 @@ If the log appender does not ship logs, add `<inMemoryQueue>true</inMemoryQueue>
 
 This integration uses the OpenTelemetry logging exporter to send logs to Logz.io via the OpenTelemetry Protocol (OTLP) listener.
 
-### Prerequisites
+#### Prerequisites
 
 - Java 8+
 
@@ -1158,7 +1158,7 @@ Give your traces time to process, after which they'll be available in your [Trac
 
 This guide provides an overview of deploying your Java application on Amazon ECS, using OpenTelemetry to collect and send tracing data to Logz.io. It offers a step-by-step process for setting up OpenTelemetry instrumentation and deploying both the application and OpenTelemetry Collector sidecar in an ECS environment.
 
-### **Prerequisites**
+#### **Prerequisites**
 
 Before you begin, ensure you have the following prerequisites in place:
 
@@ -1169,7 +1169,11 @@ Before you begin, ensure you have the following prerequisites in place:
 - Java JDK 11+ installed locally for development and testing.
 - Maven or Gradle for building the Java project.
 
-### **Architecture Overview**
+::: note
+For a complete example, refer to [this repo](https://github.com/logzio/opentelemetry-examples/tree/main/java/traces/ecs-service).
+:::
+
+#### **Architecture Overview**
 
 The deployment will involve two main components:
 
@@ -1210,8 +1214,6 @@ Ensure you download the latest version of the `opentelemetry-javaagent.jar` and 
 
 Add the following dependencies in your `pom.xml` (or equivalent Gradle build file) to support OpenTelemetry instrumentation:
 
-#### **pom.xml**
-
 ```xml
     <dependencies>
         <!-- Spring Boot Web Starter -->
@@ -1229,6 +1231,35 @@ Add the following dependencies in your `pom.xml` (or equivalent Gradle build fil
 ```
 
 Include the Java agent when running your application to enable tracing.
+see here for more details: https://opentelemetry.io/docs/zero-code/java/agent/getting-started/
+
+#### **Integrating OpenTelemetry Java Agent**
+
+1. **Download the OpenTelemetry Java Agent**
+
+    Get the latest version of `opentelemetry-javaagent.jar` from the [OpenTelemetry Java Agent GitHub releases](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases).
+
+2. **Add the Agent to Your Application**
+
+    Place the `opentelemetry-javaagent.jar` in your project as mentioned in the atchitectre structure above.
+
+3. **Modify the Application's Startup Command**
+
+    Include the `-javaagent` flag when starting your Java application to load the OpenTelemetry agent:
+
+    ```shell
+    java -javaagent:/path/to/opentelemetry-javaagent.jar -jar your-app.jar
+    ```
+
+4. **Set Environment Variables for OpenTelemetry**
+
+    Use environment variables to configure the agent, such as the OTLP endpoint and resource attributes:
+    
+    ```shell
+    export OTEL_TRACES_SAMPLER=always_on
+    export OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318
+    export OTEL_RESOURCE_ATTRIBUTES="service.name=java-app"
+    ```
 
 #### **Dockerize Your Application**
 
@@ -1403,4 +1434,4 @@ aws ecs create-service \
 
 #### **Verify Application and Tracing**
 
-After deploying, run your application to generate activity that will create tracing data. Wait a few minutes, then check the Logz.io dashboard to confirm that traces are being sent correctly. For a complete example, refer to [this repo](https://github.com/logzio/opentelemetry-examples/tree/main/java/traces/ecs-service).
+After deploying, run your application to generate activity that will create tracing data. Wait a few minutes, then check the Logz.io dashboard to confirm that traces are being sent correctly. 

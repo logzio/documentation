@@ -930,11 +930,9 @@ helm uninstall logzio-k8s-telemetry
 </TabItem>
 <TabItem value="nodejs-traces-ecs" label="ECS" default>
 
-### Node.js Application Setup for ECS Service with OpenTelemetry
-
 This guide provides an overview of deploying your Node.js application on Amazon ECS, using OpenTelemetry to collect and send tracing data to Logz.io. It offers a step-by-step process for setting up OpenTelemetry instrumentation and deploying both the application and OpenTelemetry Collector sidecar in an ECS environment.
 
-#### **Prerequisites**
+##### **Prerequisites**
 
 Before you begin, ensure you have the following prerequisites in place:
 
@@ -944,7 +942,11 @@ Before you begin, ensure you have the following prerequisites in place:
 - Amazon ECR repository for storing the Docker images.
 - Node.js and npm installed locally for development and testing.
 
-#### **Architecture Overview**
+:::note
+For a complete example, refer to [this repo](https://github.com/logzio/opentelemetry-examples/tree/main/nodejs/traces/ecs-service).
+:::
+
+##### **Architecture Overview**
 
 The deployment will involve two main components:
 
@@ -975,7 +977,7 @@ project-root/
 
 2. Set Up OpenTelemetry Instrumentation
 
-   Add OpenTelemetry instrumentation to your Node.js application by including a tracing setup (tracing.js). This file will initialize OpenTelemetry and configure the trace exporter to send traces to the OpenTelemetry Collector.
+   Add OpenTelemetry instrumentation to your Node.js application by including a tracing setup `tracing.js`. This file will initialize OpenTelemetry and configure the trace exporter to send traces to the OpenTelemetry Collector.
 
 ##### **tracing.js**
 
@@ -1024,7 +1026,7 @@ module.exports = { startTracing };
 
 The `tracing.js` file initializes OpenTelemetry tracing, configuring the OTLP exporter to send trace data to the OpenTelemetry Collector.
 
-Include the tracing setup at the entry point of your application (app.js), ensuring tracing starts before any other logic.
+Include the tracing setup at the entry point of your application `app.js`, ensuring tracing starts before any other logic.
 
 ##### **Dockerfile**
 
@@ -1062,7 +1064,7 @@ The OpenTelemetry Collector receives traces from the application and exports the
 
 ##### **collector-config.yaml**
 
-{@include: ../../\_include/tracing-shipping/collector-config.md}
+{@include: ../../_include/tracing-shipping/collector-config.md}
 
 ##### **Build Docker Images**
 
@@ -1189,8 +1191,6 @@ Create a task definition (task-definition.json) for ECS that defines both the No
 ###### **Verify Application and Tracing**
 
 After deploying, run your application to generate activity that will create tracing data. Wait a few minutes, then check the Logz.io dashboard to confirm that traces are being sent correctly.
-
-For a complete example, refer to [this repo](https://github.com/logzio/opentelemetry-examples/tree/main/nodejs/traces/ecs-service).
 
 </TabItem>
 </Tabs>
