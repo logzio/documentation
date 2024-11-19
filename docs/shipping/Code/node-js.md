@@ -553,7 +553,7 @@ npm install @opentelemetry/sdk-metrics@1.26.0
 
   
 ```javascript
-const { MeterProvider, PeriodicExportingMetricReader } = require('@opentelemetry/sdk-metrics-base');
+const { MeterProvider, PeriodicExportingMetricReader } = require('@opentelemetry/sdk-metrics');
 const sdk =  require('logzio-nodejs-metrics-sdk');
 
 const collectorOptions = {
