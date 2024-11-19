@@ -1169,7 +1169,7 @@ Before you begin, ensure you have the following prerequisites in place:
 - Java JDK 11+ installed locally for development and testing.
 - Maven or Gradle for building the Java project.
 
-::: note
+:::note
 For a complete example, refer to [this repo](https://github.com/logzio/opentelemetry-examples/tree/main/java/traces/ecs-service).
 :::
 
