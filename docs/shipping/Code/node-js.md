@@ -546,13 +546,14 @@ We recommend using this integration with [the Logz.io Metrics backend](https://a
 
 ```shell
 npm install logzio-nodejs-metrics-sdk@0.5.0
+npm install @opentelemetry/sdk-metrics@1.26.0
 ```
 
 ### Initialize the exporter and meter provider
 
   
 ```javascript
-const MeterProvider = require('@opentelemetry/sdk-metrics-base');
+const { MeterProvider, PeriodicExportingMetricReader } = require('@opentelemetry/sdk-metrics-base');
 const sdk =  require('logzio-nodejs-metrics-sdk');
 
 const collectorOptions = {
