@@ -1230,10 +1230,10 @@ Add the following dependencies in your `pom.xml` (or equivalent Gradle build fil
     </dependencies>
 ```
 
-Include the Java agent when running your application to enable tracing.
-see here for more details: https://opentelemetry.io/docs/zero-code/java/agent/getting-started/
-
 #### Integrating OpenTelemetry Java Agent
+
+Include the Java agent when running your application to enable tracing.
+see [here](https://opentelemetry.io/docs/zero-code/java/agent/getting-started/) for more details
 
 1. Download the OpenTelemetry Java Agent
 
