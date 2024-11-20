@@ -356,7 +356,7 @@ This integration uses the OpenTelemetry logging exporter to send logs to Logz.io
 - An active account with Logz.io
 
 :::note
-If you need an example aplication to test this integration, please refer to our [NodeJS OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/nodjs/logs).
+If you need an example aplication to test this integration, please refer to our [NodeJS OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/nodejs/logs).
 :::
 
 ### Configure the instrumentation
@@ -805,7 +805,7 @@ To find your cluster domain name, run the following command:
   
 ```shell
 kubectl run -it --image=k8s.gcr.io/e2e-test-images/jessie-dnsutils:1.3 --restart=Never shell -- \
-sh -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.default//"'
+shell -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.default//"'
 ```
   
 This command deploys a temporary pod to extract your cluster domain name. You can remove the pod after retrieving the domain name.
@@ -927,6 +927,280 @@ To uninstall the `logzio-k8s-telemetry` deployment, run:
 helm uninstall logzio-k8s-telemetry
 ```
 
+
+</TabItem>
+<TabItem value="nodejs-traces-ecs" label="ECS" default>
+
+This guide provides an overview of deploying your Node.js application on Amazon ECS, using OpenTelemetry to collect and send tracing data to Logz.io. It offers a step-by-step process for setting up OpenTelemetry instrumentation and deploying both the application and OpenTelemetry Collector sidecar in an ECS environment.
+
+##### Prerequisites
+
+Before you begin, ensure you have the following prerequisites in place:
+
+- AWS CLI configured with access to your AWS account.
+- Docker installed for building images.
+- AWS IAM role with sufficient permissions to create and manage ECS resources.
+- Amazon ECR repository for storing the Docker images.
+- Node.js and npm installed locally for development and testing.
+
+:::note
+For a complete example, refer to [this repo](https://github.com/logzio/opentelemetry-examples/tree/main/nodejs/traces/ecs-service).
+:::
+
+##### Architecture Overview
+
+The deployment will involve two main components:
+
+1. Node.js Application Container: A container running your Node.js application, instrumented with OpenTelemetry to capture traces.
+
+2. OpenTelemetry Collector Sidecar: A sidecar container that receives telemetry data from the application, processes it, and exports it to Logz.io.
+
+```
+project-root/
+├── nodejs-app/                      # Your Node.js application directory
+│   ├── app.js                       # Node.js application entry point
+│   ├── tracing.js                   # OpenTelemetry tracing setup
+│   ├── Dockerfile                   # Dockerfile to build Node.js application image
+│   └── package.json                 # Node.js dependencies, includes OpenTelemetry
+├── ecs/
+│   └── task-definition.json         # ECS task definition file
+└── otel-collector
+     ├── collector-config.yaml        # OpenTelemetry Collector configuration
+     └── Dockerfile                   # Dockerfile for the Collector
+
+```
+
+#### Steps to Deploy the Application
+
+1. Project Structure Setup
+
+   Ensure your project structure follows the architecture outline. You should have a directory for your Node.js application and a separate directory for the OpenTelemetry Collector.
+
+2. Set Up OpenTelemetry Instrumentation
+
+   Add OpenTelemetry instrumentation to your Node.js application by including a tracing setup `tracing.js`. This file will initialize OpenTelemetry and configure the trace exporter to send traces to the OpenTelemetry Collector.
+
+##### tracing.js
+
+```javascript
+"use strict";
+
+const { NodeSDK } = require("@opentelemetry/sdk-node");
+const {
+  OTLPTraceExporter,
+} = require("@opentelemetry/exporter-trace-otlp-grpc");
+const { diag, DiagConsoleLogger, DiagLogLevel } = require("@opentelemetry/api");
+const { Resource } = require("@opentelemetry/resources");
+
+// Optional: Enable diagnostic logging for debugging
+diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.INFO);
+
+function startTracing() {
+  const traceExporter = new OTLPTraceExporter({
+    url: process.env.OTEL_EXPORTER_OTLP_ENDPOINT || "grpc://localhost:4317",
+  });
+
+  const sdk = new NodeSDK({
+    traceExporter,
+    resource: new Resource({
+      "service.name": "nodejs-app",
+    }),
+  });
+
+  sdk
+    .start()
+    .then(() => console.log("Tracing initialized"))
+    .catch((error) => console.log("Error initializing tracing", error));
+
+  // Optional: Gracefully shutdown tracing on process exit
+  process.on("SIGTERM", () => {
+    sdk
+      .shutdown()
+      .then(() => console.log("Tracing terminated"))
+      .catch((error) => console.log("Error terminating tracing", error))
+      .finally(() => process.exit(0));
+  });
+}
+
+module.exports = { startTracing };
+```
+
+The `tracing.js` file initializes OpenTelemetry tracing, configuring the OTLP exporter to send trace data to the OpenTelemetry Collector.
+
+Include the tracing setup at the entry point of your application `app.js`, ensuring tracing starts before any other logic.
+
+##### Dockerfile
+
+```dockerfile
+# Use Node.js LTS version
+FROM node:16-alpine
+
+# Set the working directory
+WORKDIR /app
+
+# Copy and install dependencies
+COPY package*.json ./
+RUN npm install --production
+
+# Copy the application code
+COPY . .
+
+# Expose the application port
+EXPOSE 3000
+
+# Set environment variables for OpenTelemetry
+ENV OTEL_TRACES_SAMPLER=always_on
+ENV OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:4317"
+ENV OTEL_RESOURCE_ATTRIBUTES="service.name=nodejs-app"
+
+# Start the application
+CMD ["npm", "start"]
+```
+
+The Dockerfile installs the necessary dependencies, sets the environment variables required for OpenTelemetry configuration, and starts the application.
+
+##### Configure the OpenTelemetry Collector
+
+The OpenTelemetry Collector receives traces from the application and exports them to Logz.io. Create a `collector-config.yaml` file to define how the Collector should handle traces.
+
+##### collector-config.yaml
+
+{@include: ../../_include/tracing-shipping/collector-config.md}
+
+##### Build Docker Images
+
+Build Docker images for both the Node.js application and the OpenTelemetry Collector:
+
+```shell
+# Build Node.js application image
+cd nodejs-app/
+docker build --platform linux/amd64 -t your-nodejs-app:latest .
+
+# Build OpenTelemetry Collector image
+cd ../otel-collector/
+docker build --platform linux/amd64 -t otel-collector:latest .
+```
+
+##### Push Docker Images to Amazon ECR
+
+Push both images to your Amazon ECR repository:
+
+```shell
+# Authenticate Docker to Amazon ECR
+aws ecr get-login-password --region <aws-region> | docker login --username AWS --password-stdin <aws_account_id>.dkr.ecr.<region>.amazonaws.com
+
+# Tag and push images
+docker tag your-nodejs-app:latest <aws_account_id>.dkr.ecr.<region>.amazonaws.com/your-nodejs-app:latest
+docker push <aws_account_id>.dkr.ecr.<region>.amazonaws.com/your-nodejs-app:latest
+
+docker tag otel-collector:latest <aws_account_id>.dkr.ecr.<region>.amazonaws.com/otel-collector:latest
+docker push <aws_account_id>.dkr.ecr.<region>.amazonaws.com/otel-collector:latest
+```
+
+##### Log Group Creation: 
+
+Create log groups for your Nodejs application and OpenTelemetry Collector in CloudWatch.
+
+```shell
+aws logs create-log-group --log-group-name /ecs/nodejs-app
+aws logs create-log-group --log-group-name /ecs/otel-collector
+```
+
+##### Define ECS Task
+
+Create a task definition (task-definition.json) for ECS that defines both the Node.js application container and the OpenTelemetry Collector container.
+
+##### task-definition.json
+
+```json
+{
+  "family": "your-nodejs-app-task",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::<aws_account_id>:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "your-nodejs-app",
+      "image": "<aws_account_id>.dkr.ecr.<region>.amazonaws.com/your-nodejs-app:latest",
+      "cpu": 128,
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "environment": [],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/your-nodejs-app",
+          "awslogs-region": "<aws-region>",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    },
+    {
+      "name": "otel-collector",
+      "image": "<aws_account_id>.dkr.ecr.<aws-region>.amazonaws.com/otel-collector:latest",
+      "cpu": 128,
+      "essential": false,
+      "command": ["--config=/etc/collector-config.yaml"],
+      "environment": [
+        {
+          "name": "LOGZIO_TRACING_TOKEN",
+          "value": "<logzio_tracing_token>"
+        },
+        {
+          "name": "LOGZIO_REGION",
+          "value": "<logzio_region>"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/otel-collector",
+          "awslogs-region": "<aws-region>",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    }
+  ]
+}
+```
+
+##### Deploy to ECS
+
+- Create an ECS Cluster: Create a cluster to deploy your containers:
+
+  ```shell
+  aws ecs create-cluster --cluster-name your-app-cluster --region <aws-region>
+  ```
+
+- Register the Task Definition:
+
+  ```shell
+  aws ecs register-task-definition --cli-input-json file://ecs/task-definition.json
+  ```
+
+- Create ECS Service: Deploy the task definition using a service:
+
+  ```shell
+  aws ecs create-service \
+    --cluster your-app-cluster \
+    --service-name your-nodejs-app-service \
+    --task-definition your-nodejs-app-task \
+    --desired-count 1 \
+    --launch-type FARGATE \
+    --network-configuration "awsvpcConfiguration={subnets=[\"YOUR_SUBNET_ID\"],securityGroups=[\"YOUR_SECURITY_GROUP_ID\"],assignPublicIp=ENABLED}" \
+    --region <aws-region> \
+  ```
+
+##### Verify Application and Tracing
+
+After deploying, run your application to generate activity that will create tracing data. Wait a few minutes, then check the Logz.io dashboard to confirm that traces are being sent correctly.
 
 </TabItem>
 </Tabs>
