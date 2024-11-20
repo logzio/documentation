@@ -1348,11 +1348,11 @@ Give your traces time to process, after which they'll be available in your [Trac
 </TabItem>
 <TabItem value="python-traces-ecs" label="ECS" default>
 
-### Python Application Setup for ECS Service with OpenTelemetry
+## Python Application Setup for ECS Service with OpenTelemetry
 
 This guide provides an overview of deploying your Python application on Amazon ECS, using OpenTelemetry to collect and send tracing data to Logz.io. It offers a step-by-step process for setting up OpenTelemetry instrumentation and deploying both the application and OpenTelemetry Collector sidecar in an ECS environment.
 
-##### **Prerequisites**
+#### Prerequisites
 
 Before you begin, ensure you have the following prerequisites in place:
 
@@ -1366,7 +1366,7 @@ Before you begin, ensure you have the following prerequisites in place:
 For a complete example, refer to [this repo](https://github.com/logzio/opentelemetry-examples/tree/main/python/traces/ecs-service).
 :::
 
-##### **Architecture Overview**
+#### Architecture Overview
 
 The deployment will involve two main components:
 
@@ -1393,7 +1393,7 @@ project-root/
      └── Dockerfile                   # Dockerfile for the Collector
 ```
 
-##### **Steps to Deploy the Application**
+#### Steps to Deploy the Application
 
 1. Project Structure Setup
 
@@ -1405,7 +1405,7 @@ project-root/
 
 Install dependencies:
 
-##### **requirements.txt**
+#### requirements.txt
 
 ```
 flask
@@ -1416,11 +1416,11 @@ opentelemetry-instrumentation-flask
 
 The package `opentelemetry-instrumentation-flask` handles the automatic instrumentation of Flask at runtime.
 
-##### **Dockerize Your Application**
+#### Dockerize Your Application
 
 Create a Dockerfile to build a Docker image of your Python application. Below is the Dockerfile to get started:
 
-#### **Dockerfile**
+#### Dockerfile
 
 ```dockerfile
 FROM python:3.8-slim
@@ -1441,15 +1441,15 @@ EXPOSE 5000
 CMD ["opentelemetry-instrument", "python", "app.py"]
 ```
 
-##### **Configure the OpenTelemetry Collector**
+#### Configure the OpenTelemetry Collector
 
 The OpenTelemetry Collector receives traces from the application and exports them to Logz.io. Create a `collector-config.yaml` file to define how the Collector should handle traces.
 
-##### **collector-config.yaml**
+#### collector-config.yaml
 
 {@include: ../../_include/tracing-shipping/collector-config.md}
 
-##### **Build Docker Images**
+#### Build Docker Images
 
 Build Docker images for both the Node.js application and the OpenTelemetry Collector:
 
@@ -1463,7 +1463,7 @@ cd ../otel-collector/
 docker build --platform linux/amd64 -t otel-collector:latest .
 ```
 
-##### **Push Docker Images to Amazon ECR**
+#### Push Docker Images to Amazon ECR
 
 Push both images to your Amazon ECR repository:
 
@@ -1479,11 +1479,20 @@ docker tag otel-collector:latest <aws_account_id>.dkr.ecr.<region>.amazonaws.com
 docker push <aws_account_id>.dkr.ecr.<region>.amazonaws.com/otel-collector:latest
 ```
 
-##### **Define ECS Task**
+##### Log Group Creation: 
+
+Create log groups for your Python application and OpenTelemetry Collector in CloudWatch.
+
+```shell
+aws logs create-log-group --log-group-name /ecs/python-app
+aws logs create-log-group --log-group-name /ecs/otel-collector
+```
+
+#### Define ECS Task
 
 Create a task definition (task-definition.json) for ECS that defines both the Node.js application container and the OpenTelemetry Collector container.
 
-##### **task-definition.json**
+#### task-definition.json
 
 ```json
 {
@@ -1544,7 +1553,7 @@ Create a task definition (task-definition.json) for ECS that defines both the No
 }
 ```
 
-##### **Deploy to ECS**
+#### Deploy to ECS
 
 - Create an ECS Cluster: Create a cluster to deploy your containers:
 
@@ -1571,7 +1580,7 @@ Create a task definition (task-definition.json) for ECS that defines both the No
     --region <aws-region> \
   ```
 
-###### **Verify Application and Tracing**
+#### Verify Application and Tracing
 
 After deploying, run your application to generate activity that will create tracing data. Wait a few minutes, then check the Logz.io dashboard to confirm that traces are being sent correctly.
 
@@ -1632,9 +1641,9 @@ logzio-monitoring logzio-helm/logzio-monitoring -n monitoring
 
 Typically, the service name will be `logzio-k8s-telemetry.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name. If you're unsude what your cluster domain name is, run the following command to find it: 
   
-```sh
+```shell
 kubectl run -it --image=k8s.gcr.io/e2e-test-images/jessie-dnsutils:1.3 --restart=Never shell -- \
-shell -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.default//"'
+sh -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.default//"'
 ```
   
 This command deploys a pod to extract your cluster domain name, which can be removed after.

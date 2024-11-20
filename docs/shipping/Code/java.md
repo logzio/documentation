@@ -1158,7 +1158,7 @@ Give your traces time to process, after which they'll be available in your [Trac
 
 This guide provides an overview of deploying your Java application on Amazon ECS, using OpenTelemetry to collect and send tracing data to Logz.io. It offers a step-by-step process for setting up OpenTelemetry instrumentation and deploying both the application and OpenTelemetry Collector sidecar in an ECS environment.
 
-#### **Prerequisites**
+#### Prerequisites
 
 Before you begin, ensure you have the following prerequisites in place:
 
@@ -1173,7 +1173,7 @@ Before you begin, ensure you have the following prerequisites in place:
 For a complete example, refer to [this repo](https://github.com/logzio/opentelemetry-examples/tree/main/java/traces/ecs-service).
 :::
 
-#### **Architecture Overview**
+#### Architecture Overview
 
 The deployment will involve two main components:
 
@@ -1200,7 +1200,7 @@ project-root/
      └── Dockerfile                   # Dockerfile for the Collector
 ```
 
-#### **Steps to Deploy the Application**
+#### Steps to Deploy the Application
 
 1. Project Structure Setup
 
@@ -1233,17 +1233,17 @@ Add the following dependencies in your `pom.xml` (or equivalent Gradle build fil
 Include the Java agent when running your application to enable tracing.
 see here for more details: https://opentelemetry.io/docs/zero-code/java/agent/getting-started/
 
-#### **Integrating OpenTelemetry Java Agent**
+#### Integrating OpenTelemetry Java Agent
 
-1. **Download the OpenTelemetry Java Agent**
+1. Download the OpenTelemetry Java Agent
 
     Get the latest version of `opentelemetry-javaagent.jar` from the [OpenTelemetry Java Agent GitHub releases](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases).
 
-2. **Add the Agent to Your Application**
+2. Add the Agent to Your Application
 
     Place the `opentelemetry-javaagent.jar` in your project as mentioned in the atchitectre structure above.
 
-3. **Modify the Application's Startup Command**
+3. Modify the Application's Startup Command
 
     Include the `-javaagent` flag when starting your Java application to load the OpenTelemetry agent:
 
@@ -1251,7 +1251,7 @@ see here for more details: https://opentelemetry.io/docs/zero-code/java/agent/ge
     java -javaagent:/path/to/opentelemetry-javaagent.jar -jar your-app.jar
     ```
 
-4. **Set Environment Variables for OpenTelemetry**
+4. Set Environment Variables for OpenTelemetry
 
     Use environment variables to configure the agent, such as the OTLP endpoint and resource attributes:
     
@@ -1261,11 +1261,11 @@ see here for more details: https://opentelemetry.io/docs/zero-code/java/agent/ge
     export OTEL_RESOURCE_ATTRIBUTES="service.name=java-app"
     ```
 
-#### **Dockerize Your Application**
+#### Dockerize Your Application
 
 Create a Dockerfile to build a Docker image of your Java application. Below is the essential Dockerfile to get started:
 
-#### **Dockerfile**
+#### Dockerfile
 
 ```dockerfile
 # Use a Maven image to build the application
@@ -1304,15 +1304,15 @@ ENTRYPOINT ["java", "-javaagent:/app/opentelemetry-javaagent.jar", "-jar", "app.
 
 ```
 
-#### **Configure the OpenTelemetry Collector**
+#### Configure the OpenTelemetry Collector
 
 The OpenTelemetry Collector receives traces from the application and exports them to Logz.io. Create a `collector-config.yaml` file to define how the Collector should handle traces.
 
-**collector-config.yaml**
+collector-config.yaml
 
 {@include: ../../_include/tracing-shipping/collector-config.md}
 
-#### **Build Docker Images**
+#### Build Docker Images
 
 Build Docker images for both the Java application and the OpenTelemetry Collector:
 
@@ -1325,7 +1325,7 @@ docker build --platform linux/amd64 -t java-app:latest .
 cd ../otel-collector/
 docker build --platform linux/amd64 -t otel-collector:latest .
 ```
-#### **Push Docker Images to Amazon ECR**
+#### Push Docker Images to Amazon ECR
 
 Push both images to your Amazon ECR repository:
 
@@ -1341,11 +1341,20 @@ docker tag otel-collector:latest <aws_account_id>.dkr.ecr.<region>.amazonaws.com
 docker push <aws_account_id>.dkr.ecr.<region>.amazonaws.com/otel-collector:latest
 ```
 
-#### **Define ECS Task**
+##### Log Group Creation: 
+
+Create log groups for your Java application and OpenTelemetry Collector in CloudWatch.
+
+```shell
+aws logs create-log-group --log-group-name /ecs/java-app
+aws logs create-log-group --log-group-name /ecs/otel-collector
+```
+
+#### Define ECS Task
 
 Create a task definition (`task-definition.json`) for ECS that defines both the Java application container and the OpenTelemetry Collector container.
 
-#### **task-definition.json**
+#### task-definition.json
 
 ```json
 {
@@ -1406,7 +1415,7 @@ Create a task definition (`task-definition.json`) for ECS that defines both the 
 }
 ```
 
-#### **Deploy to ECS**
+#### Deploy to ECS
 
 Create an ECS Cluster: Create a cluster to deploy your containers:
 
@@ -1432,6 +1441,6 @@ aws ecs create-service \
   --network-configuration "awsvpcConfiguration={subnets=[\"YOUR_SUBNET_ID\"],securityGroups=[\"YOUR_SECURITY_GROUP_ID\"],assignPublicIp=ENABLED}"
 ```
 
-#### **Verify Application and Tracing**
+#### Verify Application and Tracing
 
 After deploying, run your application to generate activity that will create tracing data. Wait a few minutes, then check the Logz.io dashboard to confirm that traces are being sent correctly. 
