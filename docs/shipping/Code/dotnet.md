@@ -149,43 +149,6 @@ Customize your code by adding the following:
 
 
 
-<!-- #### Run the code
-
-```csharp
-using log4net;
-using log4net.Core;
-using log4net.Repository.Hierarchy;
-using Logzio.DotNet.Log4net;
-
-namespace dotnet_log4net
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            var hierarchy = (Hierarchy)LogManager.GetRepository();
-            var logger = LogManager.GetLogger(typeof(Program));
-            var logzioAppender = new LogzioAppender();
-
-            logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
-            logzioAppender.AddListenerUrl("https://<<LISTENER-HOST>>:8071");
-            logzioAppender.ActivateOptions();
-
-            hierarchy.Root.AddAppender(logzioAppender);
-            hierarchy.Configured = true;
-            hierarchy.Root.Level = Level.All;
-
-            logger.Info("Now I don't blame him 'cause he run and hid");
-            logger.Info("But the meanest thing he ever did");
-            logger.Info("Before he left was he went and named me Sue");
-
-            LogManager.Shutdown();
-        }
-    }
-}
-```
--->
-
 ### Parameters
 
 | Parameter | Description | Default/Required |
