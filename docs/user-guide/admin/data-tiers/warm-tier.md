@@ -27,6 +27,7 @@ Open the time picker, where indicators show the availability of Warm or Hot data
 
 When selecting a date with Warm Data, a notification will inform you that retrieval may take several minutes. To proceed, manually apply the query by clicking **Apply Query** in the top-right corner. This step ensures intentional data retrieval, as Warm Data may take longer to load and incur additional costs.
 
-<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/data-tiers/warm-data-date-picker-nov.png" alt="warm-data-tooltip" width="500"/>
+
+![warm data activate](https://dytvr9ot2sszz.cloudfront.net/logz-docs/data-tiers/time-picker-and-run-query.png)
 
 While waiting for results, you can navigate away from Explore. You’ll receive an in-app notification once the data is ready.
