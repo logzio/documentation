@@ -21,11 +21,15 @@ Once Warm Tier has been enabled on your Logz.io account, you can assign it to on
 
 ## Accessing Warm Tier Data
 
-After activation, all users can access Warm Tier data through [Explore](https://app.logz.io/#/dashboard/explore).
+After activation, all sub account users can access Warm Tier data through [Explore](https://app.logz.io/#/dashboard/explore).
 
-Open the time picker, where indicators show the availability of Warm or Hot data. Hover over specific dates to view a tooltip specifying the type of data available.
+:::tip
+When querying Warm Tier data, limit the time range, use filters, and focus on key information to improve speed. Warm Tier data has a 5-minute timeout; you'll be notified if retrieval fails.
+:::
 
-When selecting a date with Warm Data, a notification will inform you that retrieval may take several minutes. To proceed, manually apply the query by clicking **Apply Query** in the top-right corner. This step ensures intentional data retrieval, as Warm Data may take longer to load and incur additional costs.
+Open the time picker, where indicators show the availability of Warm or Hot data. 
+
+When selecting a date with Warm Data, a notification will inform you that retrieval may take several minutes. To proceed, confirm your date selection and click **Apply Query** in the top-right corner. This manual step ensures intentional data retrieval, as Warm Data may take longer to load and incur additional costs.
 
 
 ![warm data activate](https://dytvr9ot2sszz.cloudfront.net/logz-docs/data-tiers/time-picker-and-run-query.png)
