@@ -36,6 +36,21 @@ The Cold tier is intended for long-term data storage, optimized for cost over sp
 * Is rarely accessed but must remain available if needed
 * Offers the most cost-effective storage option for infrequently accessed data
 
+## Archive & Restore
+
+Archiving allows you to move rarely accessed data to a more cost-effective, long-term storage solution of logs that don't need to be instantly searchable. When you need to investigate old logs after they have expired from your account, you can restore them to a temporary account with no additional storage costs.
+
+
+When to Use Archiving:
+
+* When data is no longer actively used but must be retained for compliance, historical analysis, or regulatory requirements.
+* To optimize storage costs without permanently deleting data.
+
+By effectively managing your data lifecycle with archiving and restoring, you can maintain performance and cost-efficiency while ensuring long-term accessibility of critical information. 
+
+[Read more about Logz.io's Archive & Restore options](https://docs.logz.io/docs/user-guide/data-hub/archive-restore/archive-and-restore/).
+
+
 
 ## Choosing the right tier for your data
 

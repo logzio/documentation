@@ -6,23 +6,36 @@ description: Everything you need to know about Logz.io's Warm Tier solution
 keywords: [manage, log redaction, admin controls, account administration, access control, warm, warm tier, warm logs, archive]
 ---
 
+Warm tier is a storage option designed for data that is not frequently accessed but still needs to be readily available for analysis and troubleshooting. It provides a practical solution for mid-term storage ensuring you can retrieve historical data when required.
+
 :::info note
 Warm tier configuration can be set up by contacting the [Sales team](mailto:sales@logz.io).
 :::
 
-Once the Warm tier option is added to your Logz.io account, activate it by going to [Manage Accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) > Select the account you want to enable and check the Warm Tier checkbox.
+## Setting Up the Warm Tier
 
-<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/data-tiers/warm-tier-activate.png" alt="warm-tier-button" width="700"/>
+Once enabled on your Logz.io account, you can assign it to specific accounts or sub-accounts:
+
+Navigate to Manage Accounts.
+Select the account you want to configure.
+Choose the desired Warm Tier retention period.
+Click Apply to save your changes.
 
 
-## Accessing Warm Tier
 
-Once Warm data has been activated on your account, all users can access it through from [Explore](https://app.logz.io/#/dashboard/explore).
+Once Warm Tier has been enabled on your Logz.io account, you can assign it to specific accounts or sub-accounts. To do so, navigate to [Manage Accounts](https://app.logz.io/#/dashboard/settings/manage-accounts), select the account you want to configure, choose the desired Warm Tier retention period, and click **Apply** to save your changes.
 
-You can identify available Warm Data by opening the time picker, where an indication appears at the bottom. As you hover over different dates, a tooltip will display whether each date contains Warm or Hot data.
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/data-tiers/warm-tier-activate-nov28.png" alt="warm-tier-button" width="700"/>
 
-<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/data-tiers/warm-data-time-picker.png" alt="warm-data-tooltip" width="500"/>
 
-When selecting a date that includes Warm Data, you’ll receive a notification indicating that retrieval may take longer, potentially several minutes. To proceed with the query, you'll need to click the **Apply Query** button at the top right to initiate the search. 
+## Accessing Warm Tier Data
 
-Results may take additional time to load. You can navigate away from Explore, and once the data is ready, you’ll be notified inside Logz.io's app.
+After activation, all users can access Warm Tier data through [Explore](https://app.logz.io/#/dashboard/explore).
+
+Open the time picker, where indicators show the availability of Warm or Hot data. Hover over specific dates to view a tooltip specifying the type of data available.
+
+When selecting a date with Warm Data, a notification will inform you that retrieval may take several minutes. To proceed, manually apply the query by clicking **Apply Query** in the top-right corner. This step ensures intentional data retrieval, as Warm Data may take longer to load and incur additional costs.
+
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/data-tiers/warm-data-date-picker-nov.png" alt="warm-data-tooltip" width="500"/>
+
+While waiting for results, you can navigate away from Explore. You’ll receive an in-app notification once the data is ready.
