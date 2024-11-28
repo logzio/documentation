@@ -29,7 +29,7 @@ To have the relevant logs populated in your Kubernetes 360 dashboard, you'll nee
 | -- | -- |
 | Pod | `kubernetes.pod_name` / `k8s_pod_name` |
 | Namespace | `kubernetes.namespace_name` / `k8s_namespace_name` |
-| Node | `kubernetes.host` / `k8s_nod_name`  |
+| Node | `kubernetes.host` / `k8s_node_name`  |
 | Cluster | `env_id` |
 
 
