@@ -40,6 +40,11 @@ to a lower value (for example, `20m`).
 
 * Version 0.1.0 of docker-collector-logs includes breaking changes. Please see the project's [change log](https://github.com/logzio/docker-collector-logs#change-log) for further information.
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+<TabItem value="filebeat-docker" label="Filebeat" default>
 
 #### Pull the Docker image
 
@@ -73,7 +78,7 @@ docker service create --name docker-collector-logs \
 --mount type=bind,source=/var/lib/docker/containers,target=/var/lib/docker/containers \
 --mode global logzio/docker-collector-logs
 ```  
-  
+
 #### Parameters
 
 | Parameter | Description | Required/Default |
@@ -96,6 +101,64 @@ docker service create --name docker-collector-logs \
 | multilineMatch | Specifies how Filebeat combines matching lines into an event. The settings are `after` or `before`. The behavior of these settings depends on what you specify for negate. **Note**: Cannot be used without multilinePattern. See [Filebeat's official documentation](https://www.elastic.co/guide/en/beats/filebeat/7.12/multiline-examples.html#multiline) for more information.| `'after'` |
 | LOG_LEVEL | Set log level for the collector. Allowed values are: `debug`, `info`, `warning`, `error` | `info` |
 | INPUT_ENCODING | Here is a full list of [valid encodings](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-container.html#_encoding) you can use. | `utf-8` |
+
+
+  
+
+</TabItem>
+<TabItem value="fluentbit-docker" label="Fluent Bit" default>
+
+#### Pull the Docker image
+
+Download the logzio/docker-collector-logs image.
+
+```shell
+docker pull logzio/docker-logs-collector:latest
+```
+
+#### Run the Docker image
+  
+
+For a complete list of options, see the parameters below the code block.👇
+  
+##### Docker
+
+```shell
+docker run --name docker-logs-collector \
+--env LOGZIO_LOGS_TOKEN="<LOGS-SHIPPING-TOKEN>" \
+-v /var/run/docker.sock:/var/run/docker.sock:ro \
+-v /var/lib/docker/containers:/var/lib/docker/containers \
+-e HEADERS="user-agent:logzio-docker-logs" \
+logzio/docker-logs-collector:latest
+```  
+#### Parameters
+
+| Parameter | Description | Required/Default |
+|--|--|--|
+| **LOGZIO_LOGS_TOKEN**| Your Logz.io account logs token. Replace `<LOGS-SHIPPING-TOKEN>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to. | Required |
+| **LOGZIO_URL**              | `https://listener.logz.io:8071`. The full URL to send logs to, including your region if needed. For example, for the EU region, use `https://listener-eu.logz.io:8071`. to.| Default |
+| **LOGZIO_TYPE**             | `logzio-docker-logs`. Sets the log type.| Default|
+| **MATCH_CONTAINER_NAME**    | Specify a container to collect logs from. If the container's name matches, its logs are shipped; otherwise, its logs are ignored. **Note**: This option cannot be used with SKIP_CONTAINER_NAMES. Use regular expressions to keep records that match a specific field.|--|
+| **SKIP_CONTAINER_NAMES**    | Comma-separated list of containers to ignore. If a container's name matches a name on this list, its logs are ignored; otherwise, its logs are shipped. **Note**: This option cannot be used with MATCH_CONTAINER_NAME. Use regular expressions to exclude records matching a specific field. |--|
+| **MATCH_IMAGE_NAME**        | Specify an image to collect logs from. If the image's name matches, its logs are shipped; otherwise, its logs are ignored. **Note**: This option cannot be used with SKIP_IMAGE_NAMES. Use regular expressions to keep records that matching a specific field.|--|
+| **SKIP_IMAGE_NAMES**        | Comma-separated list of images to ignore. If an image's name matches a name on this list, its logs are ignored; otherwise, its logs are shipped. **Note**: This option cannot be used with MATCH_IMAGE_NAME. Use regular expressions to exclude records that match a specific field.|--|
+| **INCLUDE_LINE**            | Regular expression to match which lines Fluent Bit should include.|--|
+| **EXCLUDE_LINES**           | Regular expression to match which lines Fluent Bit should exclude.|--|
+| **ADDITIONAL_FIELDS**       | Include additional fields with every message sent, formatted as `"fieldName1:fieldValue1,fieldName2:fieldValue2"`.|--|
+| **SET_FIELDS**              | Set fields with every message sent, formatted as `"fieldName1:fieldValue1,fieldName2:fieldValue2"`.|--|
+| **LOG_LEVEL**               | `info`. Set log level for Fluent Bit. Allowed values: `debug`, `info`, `warning`, `error`.|Default|
+| **MULTILINE_START_STATE_RULE** | Regular expression for the start state rule of multiline parsing. See [Fluent Bit's official documentation](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/multiline-parsing#rules-definition) for further info.|--|
+| **MULTILINE_CUSTOM_RULES**     | Custom rules for multiline parsing, separated by semicolons `;`.||
+| **READ_FROM_HEAD**         | `true`. Specify if Fluent Bit should read logs from the beginning.|Default|
+| **OUTPUT_ID**               | `output_id`. Specify the output ID for Fluent Bit logs.|Default|
+| **HEADERS**                 | Custom headers for Fluent Bit logs.|--|
+
+
+</TabItem>
+</Tabs>
+
+
+
 
 
 :::note
