@@ -14,16 +14,7 @@ Warm tier configuration can be set up by contacting the [Sales team](mailto:sale
 
 ## Setting Up the Warm Tier
 
-Once enabled on your Logz.io account, you can assign it to specific accounts or sub-accounts:
-
-Navigate to Manage Accounts.
-Select the account you want to configure.
-Choose the desired Warm Tier retention period.
-Click Apply to save your changes.
-
-
-
-Once Warm Tier has been enabled on your Logz.io account, you can assign it to specific accounts or sub-accounts. To do so, navigate to [Manage Accounts](https://app.logz.io/#/dashboard/settings/manage-accounts), select the account you want to configure, choose the desired Warm Tier retention period, and click **Apply** to save your changes.
+Once Warm Tier has been enabled on your Logz.io account, you can assign it to one or more of your sub-accounts. To do so, navigate to [Manage Accounts](https://app.logz.io/#/dashboard/settings/manage-accounts), select the sub account you want to configure, choose the desired Warm Tier retention period, and click **Apply** to save your changes.
 
 <img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/data-tiers/warm-tier-activate-nov28.png" alt="warm-tier-button" width="700"/>
 
