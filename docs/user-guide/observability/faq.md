@@ -10,6 +10,9 @@ keywords: [AI, observability, Assistant, iq, logs, metrics, traces, siem, insigh
 
 ### What is AI Agent?
 
+### How are you testing the Observability IQ Assistant and its models?
+
+We are actively testing the Observability IQ Assistant in multiple environments, including our own environment. This allows us to continuously refine its performance and reliability, ensuring it effectively meets your needs.
 
 :::info note
 The AI Agent is currently in beta and may not always be fully accurate. We recommend reviewing the information for confirmation.
