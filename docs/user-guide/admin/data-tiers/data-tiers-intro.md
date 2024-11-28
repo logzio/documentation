@@ -22,10 +22,9 @@ Hot tier data is available in real-time or near real-time, allowing you to ident
 
 The Warm tier is designed to handle logs that don’t require frequent access but still need to be readily available for analysis and troubleshooting. By enabling Warm tier data, you can access historical data when necessary, making it a practical choice for mid-term storage.
 
-Data in the Warm tier remains readily accessible, but with slightly slower retrieval times, making it ideal for historical analysis and trend monitoring. Use the Warm tier for data that:
+Data in the Warm tier remains readily accessible, but with slightly slower retrieval times. Use the Warm tier for data that:
 
 * Is relevant for medium-term retention and analysis
-* Supports periodic reporting or trend analysis
 * Balances cost with retrieval speed, allowing less-frequent access at a lower cost than the Hot tier
 
 ## Cold Tier
@@ -34,7 +33,6 @@ The Cold tier is intended for long-term data storage, optimized for cost over sp
 
 * Requires long-term retention for regulatory compliance or record-keeping
 * Is rarely accessed but must remain available if needed
-* Offers the most cost-effective storage option for infrequently accessed data
 
 ## Archive & Restore
 
