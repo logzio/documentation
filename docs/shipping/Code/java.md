@@ -503,7 +503,7 @@ If the log appender does not ship logs, add `<inMemoryQueue>true</inMemoryQueue>
 
 This integration uses the OpenTelemetry logging exporter to send logs to Logz.io via the OpenTelemetry Protocol (OTLP) listener.
 
-### Prerequisites
+#### Prerequisites
 
 - Java 8+
 
@@ -1153,3 +1153,294 @@ Supported values for `otel.traces.sampler` are
 ### Viewing Traces in Logz.io
 
 Give your traces time to process, after which they'll be available in your [Tracing](https://app.logz.io/#/dashboard/jaeger) dashboard.
+
+## Java Application Setup for ECS Service with OpenTelemetry
+
+This guide provides an overview of deploying your Java application on Amazon ECS, using OpenTelemetry to collect and send tracing data to Logz.io. It offers a step-by-step process for setting up OpenTelemetry instrumentation and deploying both the application and OpenTelemetry Collector sidecar in an ECS environment.
+
+#### Prerequisites
+
+Before you begin, ensure you have the following prerequisites in place:
+
+- AWS CLI configured with access to your AWS account.
+- Docker installed for building images.
+- AWS IAM role with sufficient permissions to create and manage ECS resources.
+- Amazon ECR repository for storing the Docker images.
+- Java JDK 11+ installed locally for development and testing.
+- Maven or Gradle for building the Java project.
+
+:::note
+For a complete example, refer to [this repo](https://github.com/logzio/opentelemetry-examples/tree/main/java/traces/ecs-service).
+:::
+
+#### Architecture Overview
+
+The deployment will involve two main components:
+
+1. Java Application Container 
+
+    A container running your Java application, instrumented with OpenTelemetry to capture traces.
+
+2. OpenTelemetry Collector Sidecar 
+    A sidecar container that receives telemetry data from the application, processes it, and exports it to Logz.io.
+
+The architecture is structured as follows:
+
+```
+project-root/
+├── java-app/
+│   ├── src/                             # Java application source code
+│   ├── pom.xml                          # Maven build configuration
+│   ├── Dockerfile                       # Dockerfile for Java application
+│   └── opentelemetry-javaagent.jar      # OpenTelemetry Java agent for instrumentation
+├── ecs/
+│   └── task-definition.json         # ECS task definition file
+└── otel-collector    
+     ├── collector-config.yaml        # OpenTelemetry Collector configuration
+     └── Dockerfile                   # Dockerfile for the Collector
+```
+
+#### Steps to Deploy the Application
+
+1. Project Structure Setup
+
+    Ensure your project structure follows the architecture outline. You should have a directory for your Java application and a separate directory for the OpenTelemetry Collector.
+
+2. Set Up OpenTelemetry Instrumentation
+
+    Add OpenTelemetry instrumentation to your Java application by using the OpenTelemetry Java agent. This agent provides automatic instrumentation for common frameworks and libraries.
+
+Ensure you download the latest version of the `opentelemetry-javaagent.jar` and place it in your project directory.
+
+Add the following dependencies in your `pom.xml` (or equivalent Gradle build file) to support OpenTelemetry instrumentation:
+
+```xml
+    <dependencies>
+        <!-- Spring Boot Web Starter -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- Optional: For health checks -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+    </dependencies>
+```
+
+#### Integrating OpenTelemetry Java Agent
+
+Include the Java agent when running your application to enable tracing.
+see [here](https://opentelemetry.io/docs/zero-code/java/agent/getting-started/) for more details
+
+1. Download the OpenTelemetry Java Agent
+
+    Get the latest version of `opentelemetry-javaagent.jar` from the [OpenTelemetry Java Agent GitHub releases](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases).
+
+2. Add the Agent to Your Application
+
+    Place the `opentelemetry-javaagent.jar` in your project as mentioned in the atchitectre structure above.
+
+3. Modify the Application's Startup Command
+
+    Include the `-javaagent` flag when starting your Java application to load the OpenTelemetry agent:
+
+    ```shell
+    java -javaagent:/path/to/opentelemetry-javaagent.jar -jar your-app.jar
+    ```
+
+4. Set Environment Variables for OpenTelemetry
+
+    Use environment variables to configure the agent, such as the OTLP endpoint and resource attributes:
+    
+    ```shell
+    export OTEL_TRACES_SAMPLER=always_on
+    export OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318
+    export OTEL_RESOURCE_ATTRIBUTES="service.name=java-app"
+    ```
+
+#### Dockerize Your Application
+
+Create a Dockerfile to build a Docker image of your Java application. Below is the essential Dockerfile to get started:
+
+#### Dockerfile
+
+```dockerfile
+# Use a Maven image to build the application
+FROM maven:3.8.6-openjdk-11-slim AS builder
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the project files
+COPY pom.xml .
+COPY src ./src
+
+# Package the application
+RUN mvn clean package -DskipTests
+
+# Use a lightweight OpenJDK image for the runtime
+FROM openjdk:11-jre-slim
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the packaged application and the OpenTelemetry agent
+COPY --from=builder /app/target/java-app-0.0.1-SNAPSHOT.jar app.jar
+COPY opentelemetry-javaagent.jar opentelemetry-javaagent.jar
+
+# Expose the application port
+EXPOSE 8080
+
+# Set environment variables for OpenTelemetry
+ENV OTEL_TRACES_SAMPLER=always_on
+ENV OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:4318"
+ENV OTEL_RESOURCE_ATTRIBUTES="service.name=java-app"
+
+# Start the application with the OpenTelemetry Java agent
+ENTRYPOINT ["java", "-javaagent:/app/opentelemetry-javaagent.jar", "-jar", "app.jar"]
+
+```
+
+#### Configure the OpenTelemetry Collector
+
+The OpenTelemetry Collector receives traces from the application and exports them to Logz.io. Create a `collector-config.yaml` file to define how the Collector should handle traces.
+
+collector-config.yaml
+
+{@include: ../../_include/tracing-shipping/collector-config.md}
+
+#### Build Docker Images
+
+Build Docker images for both the Java application and the OpenTelemetry Collector:
+
+```shell
+# Build Java application image
+cd java-app/
+docker build --platform linux/amd64 -t java-app:latest .
+
+# Build OpenTelemetry Collector image
+cd ../otel-collector/
+docker build --platform linux/amd64 -t otel-collector:latest .
+```
+#### Push Docker Images to Amazon ECR
+
+Push both images to your Amazon ECR repository:
+
+```shell
+# Authenticate Docker to Amazon ECR
+aws ecr get-login-password --region <aws-region> | docker login --username AWS --password-stdin <aws_account_id>.dkr.ecr.<region>.amazonaws.com
+
+# Tag and push images
+docker tag java-app:latest <aws_account_id>.dkr.ecr.<region>.amazonaws.com/java-app:latest
+docker push <aws_account_id>.dkr.ecr.<region>.amazonaws.com/java-app:latest
+
+docker tag otel-collector:latest <aws_account_id>.dkr.ecr.<region>.amazonaws.com/otel-collector:latest
+docker push <aws_account_id>.dkr.ecr.<region>.amazonaws.com/otel-collector:latest
+```
+
+##### Log Group Creation: 
+
+Create log groups for your Java application and OpenTelemetry Collector in CloudWatch.
+
+```shell
+aws logs create-log-group --log-group-name /ecs/java-app
+aws logs create-log-group --log-group-name /ecs/otel-collector
+```
+
+#### Define ECS Task
+
+Create a task definition (`task-definition.json`) for ECS that defines both the Java application container and the OpenTelemetry Collector container.
+
+#### task-definition.json
+
+```json
+{
+  "family": "java-app-task",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::<aws_account_id>:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "java-app",
+      "image": "<aws_account_id>.dkr.ecr.<region>.amazonaws.com/java-app:latest",
+      "cpu": 128,
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,      
+      "environment": [],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/java-app",
+          "awslogs-region": "<aws-region>",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    },
+    {
+      "name": "otel-collector",
+      "image": "<aws_account_id>.dkr.ecr.<aws-region>.amazonaws.com/otel-collector:latest",
+      "cpu": 128,      
+      "essential": false,
+      "command": ["--config=/etc/collector-config.yaml"],
+      "environment": [
+        {
+          "name": "LOGZIO_TRACING_TOKEN",
+          "value": "<logzio_tracing_token>"
+        },
+        {
+          "name": "LOGZIO_REGION",
+          "value": "<logzio_region>"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/otel-collector",
+          "awslogs-region": "<aws-region>",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    }
+  ]
+}
+```
+
+#### Deploy to ECS
+
+Create an ECS Cluster: Create a cluster to deploy your containers:
+
+```shell
+aws ecs create-cluster --cluster-name your-app-cluster --region <aws-region>
+```
+
+Register the Task Definition:
+
+```shell
+aws ecs register-task-definition --cli-input-json file://ecs/task-definition.json
+```
+
+Create ECS Service: Deploy the task definition using a service:
+
+```shell
+aws ecs create-service \
+  --cluster your-app-cluster \
+  --service-name your-java-app-service \
+  --task-definition java-app-task \
+  --desired-count 1 \
+  --launch-type FARGATE \
+  --network-configuration "awsvpcConfiguration={subnets=[\"YOUR_SUBNET_ID\"],securityGroups=[\"YOUR_SECURITY_GROUP_ID\"],assignPublicIp=ENABLED}"
+```
+
+#### Verify Application and Tracing
+
+After deploying, run your application to generate activity that will create tracing data. Wait a few minutes, then check the Logz.io dashboard to confirm that traces are being sent correctly. 
