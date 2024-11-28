@@ -21,7 +21,21 @@ Kubernetes 360 application provides an overview of your Kubernetes data, providi
 
 If you already have Kubernetes 360 data in your Logz.io account or prefer connecting Kubernetes [manually](https://app.logz.io/#/dashboard/integrations/collectors?tags=Tracing), you'll need an active **[Infrastructure Monitoring](https://app.logz.io/#/dashboard/metrics)** account, and ensure that your Kubernetes data is [connected to Logz.io](https://app.logz.io/#/dashboard/integrations/collectors?tags=Quick%20Setup).
 
-In addition, you'll need to ship your cluster metrics from the following sources:
+### Send Kubernetes logs
+
+To have the relevant logs populated in your Kubernetes 360 dashboard, you'll need to ensure the following fields are properly propagated:
+
+| **Object** | **Field** |
+| -- | -- |
+| Pod | `kubernetes.pod_name` / `k8s_pod_name` |
+| Namespace | `kubernetes.namespace_name` / `k8s_namespace_name` |
+| Node | `kubernetes.host` / `k8s_node_name`  |
+| Cluster | `env_id` |
+
+
+### Send Kubernetes metrics
+
+Ship your cluster metrics from the following sources:
 
 * Node exporter (should be installed on every node).
 * CAdvisor.
