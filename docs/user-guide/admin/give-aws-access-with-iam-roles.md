@@ -161,8 +161,11 @@ and
 configurations that use the existing role.
 
 :::note
-In case your S3 bucket is encrypted, you need to add `kms:Decrypt` to the policy on the ARN of the KMS key used to encrypt the bucket.
+If your S3 bucket or the logs within it (e.g., CloudTrail logs) are encrypted, you need to add `kms:Decrypt` permission to the policy on the ARN of the KMS key used for encryption.
 :::
+
+
+
 
 
 
