@@ -9,14 +9,20 @@ keywords: [manage, log redaction, admin controls, account administration, access
 Warm tier is a storage option designed for data that is not frequently accessed but still needs to be readily available for analysis and troubleshooting. It provides a practical solution for mid-term storage ensuring you can retrieve historical data when required.
 
 :::info note
-Warm tier configuration can be set up by contacting the [Sales team](mailto:sales@logz.io).
+Warm tier configuration can be set up by contacting the [Sales team](https://logz.io/contact-us/).
 :::
+
+Prerequisites
+
+Data gets to warm only after it's been to hot. All hot data goes to warm data according to the retention period configured by you. When you enable Warm Tier, the retention minimum for Hot tier is 4 days.
 
 ## Setting Up the Warm Tier
 
 Once Warm Tier has been enabled on your Logz.io account, you can assign it to one or more of your sub-accounts. To do so, navigate to [Manage Accounts](https://app.logz.io/#/dashboard/settings/manage-accounts), select the sub account you want to configure, choose the desired Warm Tier retention period, and click **Apply** to save your changes.
 
-<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/data-tiers/warm-tier-activate-nov28.png" alt="warm-tier-button" width="700"/>
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/data-tiers/warm-tier-configuration-nov29.png" alt="warm-tier-button" width="700"/>
+
+Data transitions to the Warm Tier **only after** residing in the Hot Tier. All Hot Tier data moves to the Warm Tier based on the retention period you configure. When enabling the Warm Tier, the minimum retention period for the Hot Tier is set to 4 days.
 
 
 ## Accessing Warm Tier Data
