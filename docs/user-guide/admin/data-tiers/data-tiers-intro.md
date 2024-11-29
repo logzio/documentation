@@ -22,6 +22,8 @@ Hot tier data is available in real-time or near real-time, allowing you to ident
 
 The Warm tier is designed to handle logs that don’t require frequent access but still need to be readily available for analysis and troubleshooting. By enabling Warm tier data, you can access historical data when necessary, making it a practical choice for mid-term storage.
 
+Data transitions to the Warm Tier **only after** stored in the Hot Tier. All Hot Tier data moves to the Warm Tier based on the retention period you configure. When enabling the Warm Tier, the minimum retention period for the Hot Tier is set to 4 days.
+
 Data in the Warm tier remains readily accessible, but with slightly slower retrieval times. Use the Warm tier for data that:
 
 * Is relevant for medium-term retention and analysis
