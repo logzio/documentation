@@ -28,22 +28,4 @@ Use the agent to analyze trends in latency, throughput, error rate, and HTTP sta
 
 ![AI Agent screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/ai-agent-answer-oct21.png)
 
-## AI Agent Pro
-
-:::note
-AI Agent Pro is in a limited rollout and may not be available to everyone at this time.
-:::
-
-
-AI Agent Pro provides enhanced search capabilities and dynamic context, allowing you to tackle complex questions with greater percision. 
-
-By leveraging GenAI to analyze context and data, AI Agent Pro delivers deep insights and actionable recommendations, streamlining the troubleshooting process and accelerating root cause analysis.
-
-It comprehends the situation, identifies the necessary information for thorough analysis, and proactively seeks the data required.
-
-AI Agent Pro is currently only available in **[Explore](https://app.logz.io/#/dashboard/explore)** for log analytics. Activate it by toggling the Pro button inside the agent. 
-
-![Assistant pro](https://dytvr9ot2sszz.cloudfront.net/whats-new-announcements/ai-agent-oct22.gif)
-
-
 For further assistance with Observability IQ Assistant, read the [FAQ](https://docs.logz.io/docs/user-guide/observability/faq) or [contact Logz.io's Support Team](mailto:help@logz.io).
