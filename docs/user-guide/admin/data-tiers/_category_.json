@@ -1,0 +1,8 @@
+{
+  "label": "Data Tiers",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Logz.io offers different levels of data access and retention: hot for frequently accessed data, warm for intermediate storage, and cold for long-term archival."
+  }
+}
