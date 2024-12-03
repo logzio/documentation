@@ -18,9 +18,9 @@ drop_filter: []
 
 Google Cloud Armor is a network security service that provides defenses against DDoS and application attacks, and offers a rich set of WAF rules.  
 
-## Logs
+## Logs 
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 For this integration, the telemetry list needs to include `networksecurity`.
 

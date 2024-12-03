@@ -9,7 +9,7 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/gcps
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['4KUp9D8EhuMuCuLLhIZBEP']
+metrics_dashboards: ['4KUp9D8EhuMuCuLLhIZBEP', '5DIgZxsYxBjeNlEAexf2A3']
 metrics_alerts: []
 drop_filter: []
 ---
@@ -19,7 +19,7 @@ Google Cloud SQL is a fully-managed database service that is used to set up, mai
 
 ## Logs
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 For this integration, the telemetry list needs to include `cloudsql_database`.
 

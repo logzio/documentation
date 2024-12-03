@@ -60,7 +60,7 @@ You'll first need to make sure all your logs are being written to an S3 bucket.
 2. In the log type section menu of Logz.io configuration wizard, select `other` and type in `awswaf`. The log type section menu is located beside the hosting region selection menu.
 
 :::note
-If you run into issues, you can reference the [guide for troubleshooting user permissions](https://docs.logz.io/docs/user-guide/admin/give-aws-access-with-iam-roles/).
+Encounter an issue? See our [guide for troubleshooting user permissions](https://docs.logz.io/docs/user-guide/admin/give-aws-access-with-iam-roles/).
 :::
  
 

@@ -17,9 +17,9 @@ drop_filter: []
 
 Google Cloud DNS is a high-performance, resilient, global Domain Name System (DNS) service that publishes domain names to the global DNS in a cost-effective way. 
 
-## Logs
+## Logs 
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 For this integration, the telemetry list needs to include `dns_managed_zone`, `dns_policy`, `dns_query`.
 

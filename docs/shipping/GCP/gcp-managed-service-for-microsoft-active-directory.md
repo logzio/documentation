@@ -19,7 +19,7 @@ Google Managed Service for Microsoft Active Directory is a fully managed, real-t
 
 ## Logs
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 For this integration, the telemetry list needs to include `microsoft_ad_domain`.
 

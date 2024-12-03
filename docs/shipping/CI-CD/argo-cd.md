@@ -5,6 +5,7 @@ overview: Argo CD is a declarative, GitOps continuous delivery tool for Kubernet
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['CI/CD']
+recommendedFor: ['DevOps Engineer']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/argo.png
 logs_dashboards: []
 logs_alerts: []
@@ -39,7 +40,7 @@ First, you need to [expose Argo CD Prometheus-format metrics](https://argo-cd.re
 Now you need to configure the input plug-in to enable Telegraf to scrape the Argo CD data from your hosts. To do this, add the following code to the configuration file:
 
 
-``` ini
+``` ini 
 [[inputs.prometheus]]
   ## An array of urls to scrape metrics from.
   urls = ["http://<<ARGOCD_HOST_URL>>:<<PORT>>/metrics"]
@@ -55,7 +56,7 @@ Now you need to configure the input plug-in to enable Telegraf to scrape the Arg
 
 ### Check Logz.io for your metrics
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboards to enhance the observability of your metrics.
+Install the pre-built dashboards to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["6Gx8npV306IL2WZ4SJRIN4"] -->
 

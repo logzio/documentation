@@ -4,6 +4,7 @@ title: Send AWS data with Telemetry Collector
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Send your AWS data with Logz.io's Telemetry Collector
 keywords: [AWS, Amazon Web Service, ship AWS data, AWS logs, AWS metrics, AWS tracing]
+slug: /telemetry-collector/telemetry-collector-aws/
 ---
 
 :::note

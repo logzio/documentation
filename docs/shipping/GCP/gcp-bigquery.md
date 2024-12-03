@@ -17,9 +17,9 @@ drop_filter: []
 
 BigQuery is a serverless, multicloud data warehouse designed to help you turn big data into business insights. 
 
-## Logs
+## Logs 
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 For this integration, the telemetry list needs to include `bigquery`.
 

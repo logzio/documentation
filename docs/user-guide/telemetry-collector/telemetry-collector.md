@@ -4,6 +4,7 @@ title: Getting Started with Logz.io's Telemetry Collector
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Send your data with Logz.io's Telemetry Collector
 keywords: [Telemetry Collector, Telemetry, ship data, collectors, metrics, tracing, logs]
+slug: /telemetry-collector/
 ---
 
 
@@ -23,9 +24,7 @@ Configuring and running Logz.io’s Telemetry Collector provides several advanta
 
 ## Supported platforms
 
-Logz.io’s Telemetry Collector currently supports **Kubernetes** for logs, metrics, and traces. You can also use the Telemetry Collector to send **Localhost** files via your Mac or Windows machines. 
-
-The Telemetry Collector will soon support additional platforms, including **AWS**, **Azure**, **Linux**, **Windows**, **Mac**, and more.
+Logz.io’s Telemetry Collector supports **Kubernetes**, **AWS**, **GCP**, **Azure** and **localhost** servers for logs, metrics, traces, and SIEM.
 
 If you're interested in sending your data through a different source, you can browse Logz.io's **[Integration hub](https://app.logz.io/#/dashboard/integrations/collectors)**, which includes over 300 shipping methods.
 

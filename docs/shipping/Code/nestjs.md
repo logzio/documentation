@@ -34,7 +34,7 @@ On deployment, the NestJS instrumentation automatically captures spans from your
 **Before you begin, you'll need**:
 
 * A NestJS application without instrumentation
-* An active account with Logz.io
+* An active Logz.io account
 * Port `4317` available on your host system
 * A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 
@@ -130,7 +130,7 @@ require('<<PATH-TO-YOUR-FILE>>/tracer.ts');
 
 Replace `<<PATH-TO-YOUR-FILE>>` with the path to your tracer file.
 
-
+ 
 #### Download and configure OpenTelemetry collector
 
 Create a dedicated directory on the host of your NestJS application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.70.0) that is relevant to the operating system of your host.
@@ -176,7 +176,7 @@ This integration enables you to auto-instrument your NestJS application and run 
 **Before you begin, you'll need**:
 
 * A NestJS application without instrumentation
-* An active account with Logz.io
+* An active Logz.io account
 * Port `4317` available on your host system
 * A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 
@@ -435,13 +435,13 @@ You can use the following options to update the Helm chart parameters:
 
 * Edit the `values.yaml`.
 
-* Overide default values with your own `my_values.yaml` and apply it in the `helm install` command. 
+* Override default values with your own `my_values.yaml` and apply it in the `helm install` command. 
 
 If required, you can add the following optional parameters as environment variables:
   
 | Parameter | Description | 
 |---|---|
-| secrets.SamplingLatency | Threshold for the spand latency - all traces slower than the threshold value will be filtered in. Default 500. | 
+| secrets.SamplingLatency | Threshold for the span latency - all traces slower than the threshold value will be filtered in. Default 500. | 
 | secrets.SamplingProbability | Sampling percentage for the probabilistic policy. Default 10. | 
 
 #### Example

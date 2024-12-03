@@ -101,7 +101,7 @@ output:
     hosts: ["<<LISTENER-HOST>>:5015"]
     ssl:
       certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
-```
+``` 
 
 
 {@include: ../../_include/general-shipping/replace-placeholders.html}

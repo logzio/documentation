@@ -5,12 +5,13 @@ overview: Send logs, metrics and traces from you Go code
 product: ['logs','metrics','tracing']
 os: ['windows', 'linux']
 filters: ['Code']
+recommendedFor: ['Software Engineer']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/go.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: []
-metrics_alerts: []
+metrics_dashboards: ['2cm0FZu4VK4vzH0We6SrJb']
+metrics_alerts: ['1UqjU2gqNAKht1f62jBC9Q']
 drop_filter: []
 ---
 
@@ -19,6 +20,12 @@ If your code is running inside Kubernetes the best practice will be to use our [
 :::
 
 ## Logs
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="golang-api-client" label="Logz.io Golang API client" default>
 
 :::note
 [Project's GitHub repo](https://github.com/logzio/logzio-go/)
@@ -80,7 +87,7 @@ func main() {
 }
 ```
 
-#### Parameters
+#### Parameters 
 
 | Parameter | Description | Required/Default |
 |---|---|---|
@@ -144,7 +151,7 @@ Replace the placeholders in the code to match your specifics.
 
 | Parameter | Description | Required | Default|
 |---|---|---|---|
-|`<<LISTENER-HOST>>`|  The full Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic (example: https://listener.logz.io:8053). For more details, see the [regions page](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/) in logz.io docs | Required | https://listener.logz.io:8053 |
+|`<<LISTENER-HOST>>`|  The full Logz.io Listener URL for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic (example: https://listener.logz.io:8053). For more details, see the [regions page](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/) in logz.io docs | Required | https://listener.logz.io:8053 |
 |`<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>`| The Logz.io Prometheus Metrics account token. Find it under **Settings > Manage accounts**. [Look up your Metrics account token.](https://docs.logz.io/docs/user-guide/admin/authentication-tokens/finding-your-metrics-account-token/)  | Required | - |
 | RemoteTimeout | The timeout for requests to the remote write Logz.io metrics listener endpoint. | Required | 30 (seconds) |
 | PushInterval | The time interval for sending the metrics to Logz.io. | Required | 10 (seconds) |
@@ -376,6 +383,126 @@ _ = metric.Must(meter).NewFloat64UpDownCounterObserver(
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
+Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["2cm0FZu4VK4vzH0We6SrJb"] -->
+
+{@include: ../../_include/metric-shipping/generic-dashboard.html}
+
+</TabItem>
+  <TabItem value="OpenTelemetry" label="OpenTelemetry">
+
+This integration uses the OpenTelemetry logging exporter to send logs to Logz.io via the OpenTelemetry Protocol (OTLP) listener.
+
+### Prerequisites
+    
+- Go 1.21 or newer
+
+:::note
+If you need an example aplication to test this integration, please refer to our [Go OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/go/logs).
+:::
+
+### Configure the instrumentation
+
+
+1. Install OpenTelemetry dependencies:
+
+   ```bash
+   go get go.opentelemetry.io/otel
+   go get go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploghttp
+   go get go.opentelemetry.io/otel/exporters/stdout/stdoutlog
+   ```
+
+2. Create a new file named `otel.go` and add the following code to set up OpenTelemetry logging:
+
+
+   ```go
+   package main
+
+   import (
+   	"context"
+   	"fmt"
+   	"log"
+   
+   	"go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploghttp"
+   	"go.opentelemetry.io/otel/exporters/stdout/stdoutlog"
+   	"go.opentelemetry.io/otel/log/global"
+   	sdklog "go.opentelemetry.io/otel/sdk/log"
+   )
+   
+   func newLoggerProvider() (*sdklog.LoggerProvider, error) {
+   	// Create stdout log exporter
+   	stdoutExporter, err := stdoutlog.New(stdoutlog.WithPrettyPrint())
+   	if err != nil {
+   		return nil, fmt.Errorf("failed to create stdout exporter: %w", err)
+   	}
+   
+   	// Create OTLP HTTP log exporter for Logz.io
+   	httpExporter, err := otlploghttp.New(context.Background(),
+   		otlploghttp.WithEndpoint("otlp-listener.logz.io"),
+   		otlploghttp.WithHeaders(map[string]string{
+   			"Authorization": "Bearer <LOG-SHIPPING-TOKEN>",
+   			"user-agent":    "logzio-go-logs-otlp",
+   		}),
+   		otlploghttp.WithURLPath("/v1/logs"),
+   	)
+   	if err != nil {
+   		return nil, fmt.Errorf("failed to create OTLP HTTP exporter: %w", err)
+   	}
+   
+   	// Create a logger provider with both exporters
+   	loggerProvider := sdklog.NewLoggerProvider(
+   		sdklog.WithProcessor(sdklog.NewBatchProcessor(stdoutExporter)), // For stdout
+   		sdklog.WithProcessor(sdklog.NewBatchProcessor(httpExporter)),   // For HTTP export
+   	)
+   
+   	return loggerProvider, nil
+   }
+   
+   // setupOTelSDK bootstraps the OpenTelemetry logging pipeline.
+   func setupOTelSDK(ctx context.Context) (shutdown func(context.Context) error, err error) {
+   	// Set up logger provider.
+   	loggerProvider, err := newLoggerProvider()
+   	if err != nil {
+   		return nil, err
+   	}
+   
+   	// Set the global logger provider
+   	global.SetLoggerProvider(loggerProvider)
+   
+   	// Return a shutdown function
+   	shutdown = func(ctx context.Context) error {
+   		err := loggerProvider.Shutdown(ctx)
+   		if err != nil {
+   			log.Printf("Error during logger provider shutdown: %v", err)
+   		}
+   		return err
+   	}
+   
+   	return shutdown, nil
+   }
+   
+   ```
+
+
+   {@include: ../../_include/log-shipping/log-shipping-token.md}
+   Update the `listener.logz.io` part in `https://otlp-listener.logz.io/v1/logs` with the URL for [your hosting region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region).
+
+
+3. Run your application.
+
+### Check Logz.io for your logs
+
+
+Allow some time for data ingestion, then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
+
+Encounter an issue? See our [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/) guide.
+
+
+</TabItem>
+</Tabs>
+
+
 
 ## Traces
 
@@ -399,7 +526,7 @@ On deployment, the Go instrumentation automatically captures spans from your app
 **Before you begin, you'll need**:
 
 * A Go application without instrumentation
-* An active account with Logz.io
+* An active Logz.io account
 * Port `4318` available on your host system
 * A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 
@@ -549,7 +676,7 @@ func handleErr(err error, message string) {
 
 
 ##### Download and configure OpenTelemetry collector
-
+ 
 Create a dedicated directory on the host of your Go application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.70.0) that is relevant to the operating system of your host.
 
 
@@ -585,3 +712,4 @@ go run <YOUR-APPLICATION-FILE-NAME>.go
 Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
 
 
+ 

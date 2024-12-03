@@ -4,6 +4,7 @@ title: Troubleshooting Fluentd for Kubernetes Logs
 description: Learn about most common errors and remedies when running Fluentd for Kubernetes logs
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [logz.io, troubleshooting, kubernetes, fluentd, invalid logs, log analysis, observability]
+slug: /log-management/troubleshooting/troubleshooting-fluentd-for-kubernetes-logs/
 ---
 
 This section contains some guidelines for handling errors that you may encounter when trying to run Fluentd to collect Kubernetes logs.

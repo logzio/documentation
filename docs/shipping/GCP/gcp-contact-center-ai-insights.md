@@ -20,7 +20,7 @@ Google Contact Center AI Insights helps users detect and visualize patterns in t
 
 ## Logs
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 
 ### Check Logz.io for your logs

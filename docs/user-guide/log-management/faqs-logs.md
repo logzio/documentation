@@ -4,6 +4,7 @@ title: FAQs About Sending Log Data
 description: Frequently asked questions about sending log data to Logz.io
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [logz.io, faq, opensearch dashboards, log analysis, observability]
+slug: /log-management/faqs-logs/
 ---
 
 If you're interested in integrating our logs with a specific service or application, here are some FAQs to help troubleshoot the process:

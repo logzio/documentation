@@ -66,7 +66,7 @@ python3 main.py # If python 2 is your default version
 | GRAFANA_HOST | Your Grafana host without protocol specification (for example, localhost:3000) |
 | GRAFANA_TOKEN | Your Grafana editor/admin API key: Find or create one under **Configuration > API keys** |
 | LOGZIO_API_TOKEN | Your Logz.io account API token: You can find the API token under **Settings > Tools > Manage tokens > API tokens.** |
-| REGION_CODE | Your Logz.io region code: You can look up your region code [here]( https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) <br /> For example, if your region is US, then your region code is `us`|
+| REGION_CODE | Your Logz.io region code: You can look up your region code [here]( https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#regions-and-urls) <br /> For example, if your region is US, then your region code is `us`|
 
 
 <!--tab end bulk -->
@@ -99,7 +99,7 @@ In the left navigation pane, click <i class="fas fa-plus"></i> and select **Impo
 
   - To import your existing Prometheus dashboards, first export the relevant dashboards as JSON files, then click **Upload json file** and select the files to upload.
 
-    For related information see [Upload JSON logs](/docs/shipping/code/json/).
+    For related information see [Upload HTTP logs](https://docs.logz.io/docs/shipping/code/http/).
   - To import dashboards from Grafana.com, enter the relevant dashboard URL or ID in **Import via grafana.com** and **Load** them.
 
 

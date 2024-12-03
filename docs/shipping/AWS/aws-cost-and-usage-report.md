@@ -48,7 +48,7 @@ Keep the default setting in the **Create stack** screen and select **Next**.
 
 ![Specify stack details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/specify_stack_details.png)
 
-Specify the stack details as per the table below and select **Next**.
+Specify the stack details as per the table below and select **Next**. 
 
 | Parameter | Description |
 |---|---|

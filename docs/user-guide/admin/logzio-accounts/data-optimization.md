@@ -30,7 +30,7 @@ Enabling this option lets you save utilization metrics on a set schedule (every 
 
 **[Drop filters](https://docs.logz.io/docs/user-guide/data-hub/drop-fiters/)** offer a great and easy way to filter out logs you don’t regularly need from your account, which can help reduce the account’s volume and costs.
 
-Once you set up your drop filters, incoming logs that match your account’s active drop filters will not be indexed and will not appear in your OpenSource Dashboards account. 
+Once you set up your drop filters, incoming logs that match your account’s active drop filters will not be indexed and will not appear in your OpenSearch Dashboards account. 
 
 Dropped logs are not searchable, cannot trigger alerts, and will not appear in dashboards, reports, or anything else. However, if the Archive and restore option is enabled on your account, it will also include the dropped logs.
 
@@ -41,8 +41,6 @@ Reasons to love Archive and restore:
 * Compliance. Archiving to cold storage ensures you have a copy of all logs for years to come.
 * If you want to look back at logs outside your retention period with Logz.io, you can [reingest that data](https://docs.logz.io/docs/user-guide/data-hub/archive-restore/restore-archived-logs/) into the platform for deeper analysis. 
 * Cost-effective. Data you reingest to Logz.io from your archive does not count against your daily quota. 
-
-We know that sometimes you just need to have logs searchable for more extended periods of time, which is why we created **[Smart tiering](https://docs.logz.io/docs/user-guide/admin/account-volume-optimization/smart-tier/)**, which allows you to reduce storage costs as data ages. 
 
 * [Learn how to set up your Drop filters.](https://docs.logz.io/docs/user-guide/data-hub/drop-fiters/)
 * [Learn how to set up your Archive and restore.](https://docs.logz.io/docs/user-guide/data-hub/archive-restore/archive-and-restore/)

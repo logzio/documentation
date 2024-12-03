@@ -121,7 +121,7 @@ To access data stored in the archive tier, you'll need to rehydrate it through o
 Read more about rehydrating a blob in Microsoft's [**Blob rehydration from the Archive tier**](https://learn.microsoft.com/en-us/azure/storage/blobs/archive-rehydrate-overview) guide.
 
 
-
+<!--
 ## Limiting access to trusted networks
 
 To make sure that your Azure Blob storage cannot be accessed by malicious actors who get hold of the access credentials, you can configure the Azure Blob account to only allow logins from trusted networks. Every storage account in Azure has Security rules, which define the access permissions. By default, the storage account is accessible by any network as long as the user has the access credentials.
@@ -139,4 +139,13 @@ az storage account network-rule add --subnet /subscriptions/ac7ee52c-3b51-43b5-b
 az storage account network-rule add --subnet /subscriptions/ac7ee52c-3b51-43b5-b667-2498be58418b/resourceGroups/logzio-<REGION>-prod/providers/Microsoft.Network/virtualNetworks/logzio-<REGION>-prod-vnet/subnets/logzio-<REGION>-prod-vnet-subnet-aks-services --account-name <CUSTOMER_STORAGE_ACCOUNT_NAME>
 ```
 
-Replace `<REGION>` with the region of your account and `<CUSTOMER_STORAGE_ACCOUNT_NAME>` with the name of your storage account.
+Replace `<REGION>` with the region of your **Logz.io account** and `<CUSTOMER_STORAGE_ACCOUNT_NAME>` with the name of your storage account.
+
+-->
+
+## Allowlist IPs per region
+
+If your Logz.io account is hosted in AWS regions and you wish to archive to an Azure Cloud Service, you will need to whitelist AWS IP addresses to enable this functionality.
+
+
+{@include: ../../../_include/general-shipping/allowed-ips.md}

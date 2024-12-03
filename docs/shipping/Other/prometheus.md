@@ -100,7 +100,7 @@ externalLabels:
 + **Check via Metrics Explore**: To verify that metrics are arriving to Logz,io:
   1. Open Metrics **Explore** via the compass icon in the left menu bar.
 
-  2. Examine the **Metrics** dropdown list below the **Explore** heading in the upper left of the pane. <br />
+  2. Examine the **Metrics** dropdown list below the **Explore** heading in the upper left of the pane.
     An empty list or the text _no metrics_ indicates that the remote write configuration is not working properly.
     ![Verify Prometheus metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/select-metric-query.png)
 

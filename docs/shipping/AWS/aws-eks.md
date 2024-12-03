@@ -19,16 +19,16 @@ The logzio-monitoring Helm Chart ships your EKS Fargate telemetry (logs, metrics
 
 ## Prerequisites 
 
-1. [Helm](https://helm.sh/)
+* [Helm](https://helm.sh/)
 
 
-Add Logzio-helm repository
+* Add Logzio-helm repository
 `helm repo add logzio-helm https://logzio.github.io/logzio-helm && helm repo update`
 
 {@include: ../../_include/general-shipping/k8s-all-data.md}
 
 
-## Send your logs
+## Send your logs 
  
 
 Send your logs
@@ -141,34 +141,19 @@ To determine if a node uses taints as well as to display the taint keys, run:
 kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
 ```
 
-:::node
-You need to use `Helm` client with version `v3.9.0` or above.
-:::
+For example:
 
-For troubleshooting log shipping, see our [user guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-fluentd-for-kubernetes-logs/).
-
-
-### Sending logs from nodes with taints
-
-If you want to ship logs from any of the nodes that have a taint, make sure that the taint key values are listed in your in your daemonset/deployment configuration as follows:
-  
-```yaml
-tolerations:
-- key: 
-  operator: 
-  value: 
-  effect: 
 ```
-  
-To determine if a node uses taints as well as to display the taint keys, run:
-  
-```
-kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
+--set logzio-fluentd.daemonset.tolerations[0].key=node-role.kubernetes.io/master --set logzio-fluentd.daemonset.tolerations[0].effect=NoSchedule
 ```
 
 :::node
 You need to use `Helm` client with version `v3.9.0` or above.
 :::
+
+Encounter an issue? See our [user guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-fluentd-for-kubernetes-logs/).
+
+
 
 ## Send your Metrics
 
@@ -192,7 +177,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
 
 
-For troubleshooting metrics shipping, see our [user guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/k8s-troubleshooting/).
+Encounter an issue? See our [user guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/k8s-troubleshooting/).
  
 
 ### Customize the metrics collected by the Helm chart 
@@ -209,14 +194,14 @@ To customize your configuration, edit the `config` section in the `values.yaml` 
 Give your metrics some time to get from your system to ours.
 
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["1aO3NWtPAtVwO5Ipmc3Deh", "6KQUyksnNT2E40PifmCHR5", "X6YYCFajD56zayxcQOG2H", "M06b1BjTSGsSNZBWeiLnR"] -->
 
 {@include: ../../_include/metric-shipping/generic-dashboard.html} 
   
  
-For troubleshooting this solution, see our [EKS troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/eks-helm/).
+Encounter an issue? See our [EKS troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/eks-helm/).
  
 ## Send your traces
 
@@ -238,7 +223,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<LOGZIO-REGION>>` | Name of your Logz.io traces region e.g `us`, `eu`... |
 
 
-For troubleshooting traces shipping, see our [Distributed Tracing troubleshooting](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/tracing-troubleshooting/).
+Encounter an issue? See our [Distributed Tracing troubleshooting](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/tracing-troubleshooting/).
 
 
 ## Send traces with SPM
