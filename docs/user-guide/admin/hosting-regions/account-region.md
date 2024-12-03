@@ -43,7 +43,7 @@ Your listener host and API host will always be in the same region as your accoun
 ## OpenTelemetry Protocol (OTLP) regions
 
 
-When using the OpenTelemetry Protocol (OTLP) to send data to Logz.io, it’s essential to use the appropriate regional endpoint. This ensures compliance with data residency requirements and enhances performance.
+When using the OpenTelemetry Protocol (OTLP) to send **log data** to Logz.io, it’s essential to use the appropriate regional endpoint. This ensures compliance with data residency requirements and enhances performance.
 
 Configure your setup with the correct endpoint URL for your region and include your Logz.io token in the configuration file.
 
