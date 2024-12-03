@@ -700,7 +700,7 @@ Add `collector.yaml` at the root of your lambda function:
 receivers:
   otlp:
     protocols:
-      grpc:
+      http/protobuf:
       http:
 
 exporters:
@@ -1150,7 +1150,7 @@ Create a `config.yaml` file with the following content:
 receivers:
   otlp:
     protocols:
-      grpc:
+      http/protobuf:
         endpoint: "0.0.0.0:4317"
       http:
         endpoint: "0.0.0.0:4318"
@@ -1240,7 +1240,7 @@ An example configuration file:
 receivers:  
   otlp:
     protocols:
-      grpc:
+      http/protobuf:
       http:
 
 exporters:

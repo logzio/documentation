@@ -40,7 +40,7 @@ If the collector is installed, it may not have the correct endpoint configured f
            endpoint: "0.0.0.0:6831"
          thrift_binary:
            endpoint: "0.0.0.0:6832"
-         grpc:
+         http/protobuf:
            endpoint: "0.0.0.0:14250"
          thrift_http:
            endpoint: "0.0.0.0:14268"
@@ -48,7 +48,7 @@ If the collector is installed, it may not have the correct endpoint configured f
        endpoint: "0.0.0.0:55678"
      otlp:
        protocols:
-         grpc:
+         http/protobuf:
            endpoint: "0.0.0.0:4317"
          http:
            endpoint: "0.0.0.0:4318"
@@ -90,7 +90,7 @@ The correct endpoints are:
            endpoint: "<<COLLECTOR-URL>>:6831"
          thrift_binary:
            endpoint: "<<COLLECTOR-URL>>:6832"
-         grpc:
+         http/protobuf:
            endpoint: "<<COLLECTOR-URL>>:14250"
          thrift_http:
            endpoint: "<<COLLECTOR-URL>>:14268"
@@ -98,7 +98,7 @@ The correct endpoints are:
        endpoint: "<<COLLECTOR-URL>>:55678"
      otlp:
        protocols:
-         grpc:
+         http/protobuf:
            endpoint: "<<COLLECTOR-URL>>:4317"
          http:
            endpoint: "<<COLLECTOR-URL>>:4318/v1/traces"

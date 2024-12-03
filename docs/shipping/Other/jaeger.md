@@ -55,7 +55,7 @@ receivers:
         endpoint: "0.0.0.0:6831"
       thrift_binary:
         endpoint: "0.0.0.0:6832"
-      grpc:
+      http/protobuf:
         endpoint: "0.0.0.0:14250"
       thrift_http:
         endpoint: "0.0.0.0:14268"
