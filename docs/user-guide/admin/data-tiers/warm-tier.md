@@ -12,8 +12,6 @@ Warm tier is a storage option designed for data that is not frequently accessed 
 Warm tier configuration can be set up by contacting the [Sales team](https://logz.io/contact-us/).
 :::
 
-Prerequisites
-
 Data gets to warm only after it's been to hot. All hot data goes to warm data according to the retention period configured by you. When you enable Warm Tier, the retention minimum for Hot tier is 4 days.
 
 ## Setting Up the Warm Tier
