@@ -36,7 +36,7 @@ The integration is based on a Lambda function that will be auto-deployed togethe
 
 ### Auto-deploy the stack
 
-To deploy this integration, click the button that matches the region you wish to deploy your Stack to:
+To deploy this integration, click the button that matches the region you wish to deploy your stack to:
 
 | Region           | Deployment                                                                                                                                                                                                                                                                                                                                                               |
 |------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -58,7 +58,7 @@ To deploy this integration, click the button that matches the region you wish to
 | `ap-southeast-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-southeast-2.s3.amazonaws.com/api-status-auto-deployment/1.1.2/sam-template.yaml&stackName=logzio-api-status-auto-deployment&param_LogzioLogsToken=<<LOG-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>&param_LogzioListener=https://<<LISTENER-HOST>>) |
 | `ca-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ca-central-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ca-central-1.s3.amazonaws.com/api-status-auto-deployment/1.1.2/sam-template.yaml&stackName=logzio-api-status-auto-deployment&param_LogzioLogsToken=<<LOG-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>&param_LogzioListener=https://<<LISTENER-HOST>>)     |
 
-### Specify the stack details
+### Specify the stack details 
 
 Specify the stack details as per the table below, check the checkboxes and select **Create stack**.
 
@@ -90,7 +90,7 @@ Run the ping statistics tests to generate metrics.
 
 Give your metrics some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). All metrics that were sent from the Lambda function will have the prefix `api_status` in their name.
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["1RCzCjjByhyz0bJ4Hmau0y"] -->
 

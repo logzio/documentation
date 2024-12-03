@@ -66,7 +66,7 @@ curl -k -X POST
 -H 'cache-control: no-cache'
 -H 'content-type: application/json'
 -d '{"params": {"status": 1,"serviceType": "cef","serviceSettings": {"url": "https://<<LISTENER-HOST>>:8071?token=<<LOG-SHIPPING-TOKEN>>&type=bitdefender_grzone","requireValidSslCertificate": false,"authorization": "Basic <<ENCODED_API_KEY_BASE_64>>"},"subscribeToEventTypes": {"adcloud":true,"antiexploit":true,"aph":true,"av":true,"avc":true,"dp":true,"endpoint-moved-in":true,"endpoint-moved-out":true,"exchange-malware":true,"exchange-user-credentials":true,"fw":true,"hd":true,"hwid-change":true,"install":true,"modules":true,"network-monitor":true,"network-sandboxing":true,"new-incident":true,"registration":true,"supa-update-status":true,"sva":true,"sva-load":true,"task-status":true,"troubleshooting-activity":true,"uc":true,"uninstall":true}},"jsonrpc": "2.0","method": "setPushEventSettings","id": "1"}'
-```
+``` 
 
 
 {@include: ../../_include/general-shipping/replace-placeholders.html}

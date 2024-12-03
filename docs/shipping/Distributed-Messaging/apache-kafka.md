@@ -5,6 +5,7 @@ overview: Apache Kafka is a distributed event store and stream-processing platfo
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['Distributed Messaging']
+recommendedFor: ['DevOps Engineer']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/kafka.svg
 logs_dashboards: []
 logs_alerts: []
@@ -308,7 +309,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape data 
 [[inputs.prometheus]]
  urls = ["http://localhost:9100/metrics"]
  response_timeout = "10s"
-```
+``` 
 
 
 ### Add the outputs.http plug-in

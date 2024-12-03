@@ -72,7 +72,7 @@ For a list of options, see the configuration parameters below the code block. ðŸ
     logzio_url   https://<<LISTENER-HOST>>:8071
 ```
 
-### Parameters
+### Parameters 
 
 | Parameter | Description | Required/Default |
 |---|---|---|
@@ -200,6 +200,12 @@ To determine if a node uses taints as well as to display the taint keys, run:
 kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
 ```
 
+For example:
+
+```
+--set logzio-fluentd.daemonset.tolerations[0].key=node-role.kubernetes.io/master --set logzio-fluentd.daemonset.tolerations[0].effect=NoSchedule
+```
+
 :::node
 You need to use `Helm` client with version `v3.9.0` or above.
 :::
@@ -260,7 +266,7 @@ You can use the following options to update the Helm chart parameters:
 
 * Edit the `values.yaml`
 
-* Overide default values with your own `my_values.yaml` and apply it in the `helm install` command. 
+* Override default values with your own `my_values.yaml` and apply it in the `helm install` command. 
 
 #### Example
 

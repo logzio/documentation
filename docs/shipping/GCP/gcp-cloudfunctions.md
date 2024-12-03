@@ -20,7 +20,7 @@ Google Cloud Functions is a serverless execution environment for building and co
 
 ## Logs
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 For this integration, the telemetry list needs to include `cloud_function`.
 

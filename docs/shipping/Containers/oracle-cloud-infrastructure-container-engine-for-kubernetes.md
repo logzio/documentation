@@ -43,7 +43,7 @@ You have 3 options for deploying this Daemonset:
 Save your Logz.io shipping credentials as a Kubernetes secret. Customize the sample command below to your specifics before running it.
 
 
-```shell
+```shell 
 kubectl create secret generic logzio-logs-secret \
   --from-literal=logzio-logs-shipping-token='<<LOG-SHIPPING-TOKEN>>' \
   --from-literal=logzio-logs-listener='<<LISTENER-HOST>>' \

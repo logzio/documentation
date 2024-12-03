@@ -1,13 +1,13 @@
 **Before you begin, you'll need**:
 
-* An active account with Logz.io
+* An active Logz.io account
 
  
 
 ## Configure AWS to forward metrics to Logz.io
-### Create Stack in the relevant region
+### Create stack in the relevant region
 
-To deploy this project, click the button that matches the region you wish to deploy your Stack to:
+To deploy this project, click the button that matches the region you wish to deploy your stack to:
 
 | Region           | Deployment                                                                                                                                                                                                                                                                                                                                                          |
 |------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

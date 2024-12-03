@@ -20,7 +20,7 @@ Google Cloud Data Loss Prevention provides tools to classify, mask, tokenize, an
 
 ## Logs
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 
 ### Check Logz.io for your logs

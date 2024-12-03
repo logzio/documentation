@@ -45,7 +45,7 @@ Verify connectivity of your Logz.io listener as follows.
 
 Your Logz.io listener may not be using the correct endpoint.
 
-<h3 id="listener-remedy"> Suggested remedy</h3>
+<h3 id="listener-remedy"> Suggested remedy</h3> 
 
 
 Change the endpoint of your listener from `https://<<LISTENER-HOST>>:<<PORT>>` to `http://<<LISTENER-HOST>>:<<PORT>>` or from `http://<<LISTENER-HOST>>:<<PORT>>` to `https://<<LISTENER-HOST>>:<<PORT>>`

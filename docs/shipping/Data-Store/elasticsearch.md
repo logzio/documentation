@@ -9,7 +9,7 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/elas
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: []
+metrics_dashboards: ['51yJARkqUxLtwJCWHuuc1y']
 metrics_alerts: []
 drop_filter: []
 ---
@@ -105,6 +105,6 @@ The database name is only required for instantiating a connection with the serve
 ### Check Logz.io for your metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
-
+ 
 
  

@@ -1,4 +1,4 @@
-##### Download instrumentation packages
+#### Download instrumentation packages
 
 Run the following command from the application directory:
 
@@ -9,7 +9,7 @@ dotnet add package OpenTelemetry.Exporter.OpenTelemetryProtocol
 dotnet add package OpenTelemetry.Instrumentation.AspNet
 ```
 
-##### Modify the Web.Config file
+#### Modify the Web.Config file
 
 Add a required HttpModule to the Web.Config file as follows:
 
@@ -25,7 +25,7 @@ Add a required HttpModule to the Web.Config file as follows:
 </system.webServer>
 ```
 
-##### Enable instrumentation in the code
+#### Enable instrumentation in the code
 
 Add the following code to the Global.asax.cs file:
 

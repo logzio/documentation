@@ -9,7 +9,7 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/redi
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['1sS7i6SyMz35RIay8NRYGp']
+metrics_dashboards: ['1sS7i6SyMz35RIay8NRYGp', '6XBrbjsUey4Agm0hAK4Yqn']
 metrics_alerts: []
 drop_filter: []
 ---
@@ -107,7 +107,7 @@ service:
       processors: [resourcedetection/system]
 ```
 
-{@include: ../../_include/general-shipping/replace-prometheus-token.html}
+{@include: ../../_include/p8s-shipping/replace-prometheus-token.html}
 
 Replace `<<job_name>>` with a suitable job name for your setup.
 
@@ -162,7 +162,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the R
 
 :::note
 The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/blob/release-1.18/plugins/inputs/redis/README.md).
-:::
+::: 
 
 
 ##### Add the outputs.http plug-in
@@ -179,7 +179,7 @@ The full list of data scraping and configuring options can be found [here](https
 Give your metrics some time to get from your system to ours.
 
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["1sS7i6SyMz35RIay8NRYGp"] -->
 
@@ -277,7 +277,7 @@ exporters:
  logging:
  logzio/logs:
    account_token: "<<LOG-SHIPPING-TOKEN>>"
-   region: "us"
+   region: "<<LOGZIO_ACCOUNT_REGION_CODE>>"
  prometheusremotewrite:
    endpoint: "https://listener.logz.io:8053"
    headers:
@@ -305,7 +305,7 @@ service:
      processors: [resourcedetection/system]
 ```
 
-{@include: ../../_include/general-shipping/replace-prometheus-token.html}
+{@include: ../../_include/p8s-shipping/replace-prometheus-token.html}
 
 {@include: ../../_include/log-shipping/listener-var.html} 
 
@@ -388,7 +388,7 @@ exporters:
  logging:
  logzio/logs:
    account_token: "<<LOG-SHIPPING-TOKEN>>"
-   region: "us"
+   region: "<<LOGZIO_ACCOUNT_REGION_CODE>>"
 
 
 processors:

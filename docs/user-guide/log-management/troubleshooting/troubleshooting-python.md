@@ -4,6 +4,7 @@ title: Troubleshooting Python Logs
 description: Learn about common errors when running Python logs
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [logz.io, troubleshooting, python, log analysis, observability]
+slug: /log-management/troubleshooting/troubleshooting-python/
 ---
 
 

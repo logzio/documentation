@@ -18,9 +18,9 @@ drop_filter: []
 
 Google Cloud Composer is a fully managed data workflow orchestration service that empowers you to author, schedule, and monitor pipelines. 
 
-## Logs
+## Logs 
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 For this integration, the telemetry list needs to include `cloud_composer_environment`.
 

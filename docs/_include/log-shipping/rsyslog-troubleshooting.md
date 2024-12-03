@@ -1,20 +1,22 @@
-This section contains some guidelines for handling errors that you may encounter when trying to collect logs for Rsyslog - SELinux configuration.
+## Troubleshooting
 
-SELinux is a Linux feature that allows you to implement access control security policies in Linux systems. In distributions such as Fedora and RHEL, SELinux is in Enforcing mode by default.
+This section provides guidelines for handling errors when collecting logs for Rsyslog with SELinux configuration.
 
-Rsyslog is one of the system processes protected by SELinux. This means that rsyslog by default is not allowed to send to a port other than 514/udp (the standard syslog port) has limited access to other files and directories outside of their initial configurations.
+SELinux is a Linux feature for implementing access control security policies. In distributions like Fedora and RHEL, SELinux is enabled in Enforcing mode by default.
 
-To send information to Logz.io properly in a SELinux environment, it is necessary to add exceptions to allow:
+Rsyslog, a system process protected by SELinux, is restricted by default to sending data only to port 514/udp (the standard syslog port) and has limited access to files and directories beyond its initial configuration.
 
-* rsyslog to communicate with logz.io through the desired port
-* rsyslog to access the files and directories needed for it to work properly
+To send data to Logz.io in a SELinux environment, you need to add exceptions to allow:
+
+* rsyslog to communicate with logz.io through the desired port.
+* rsyslog to access the necessary files and directories.
 
 
-##### Possible cause - issue not related to SELinux
+### Issue not related to SELinux
 
 The issue may not be caused by SELinux.
 
-###### Suggested remedy
+**Suggested remedy**
 
 Disable SELinux temporarily and see if that solves the problem.
 
@@ -55,23 +57,20 @@ SELINUX=disabled
 SELINUX=permissive 
 ```
 
-##### Possible cause - need exceptions to SELinux for Logz.io
+### Need to add exceptions
 
 You may need to add exception to SELinux configuration to enable Logz.io.
 
-###### Suggested remedy
+**Suggested remedy**
 
-
-###### Install the policycoreutils and the setroubleshoot packages
+1. Install the policycoreutils and the setroubleshoot packages:
 
 ```shell
 # Installing policycoreutils & setroubleshoot packages
 $ sudo yum install policycoreutils setroubleshoot
 ```
 
-###### Check which syslog ports are allowed by SELinux
-
-Run the command as in the example below:
+2. Check which syslog ports are allowed by SELinux:
 
 ```shell
 $ sudo semanage port -l| grep syslog
@@ -80,14 +79,14 @@ output:
 syslogd_port_t udp 514
 ```
 
-###### Add a new port to policy for Logz.io
+3. Add a new port to policy for Logz.io:
 
 ```shell
 # Adding a port to SELinux policies
 $ sudo semanage port -m -t syslogd_port_t -p tcp 5000
 ```
 
-###### Authorize Rsyslog directory
+4. Authorize Rsyslog directory:
 
 
 ```shell
@@ -96,7 +95,7 @@ $ sudo semanage fcontext -a -t syslogd_var_lib_t "/var/spool/rsyslog/*"
 $ sudo restorecon -R -v /var/spool/rsyslog
 ```
 
-Depending on the distribution, run the following command:
+5. Depending on the distribution, run the following command:
 
 ```shell
 # instructing se to authorize /etc/rsyslog.d/*
@@ -109,7 +108,7 @@ $ sudo semanage fcontext -a -t etc_t "/etc/rsyslog.d"
 $ sudo restorecon -v /etc/rsyslog.d
 ```
 
-###### Restart Rsyslog
+6. Restart Rsyslog:
 
 ```shell
 $ sudo service rsyslog restart

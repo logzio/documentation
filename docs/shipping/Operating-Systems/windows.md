@@ -6,7 +6,7 @@ product: ['logs']
 os: ['windows']
 filters: ['Operating Systems', 'Most Popular']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/windows.svg
-logs_dashboards: []
+logs_dashboards: ['7xaHadrh2fJ8dJ5liH4g2S']
 logs_alerts: ['72Yry8pK5OfiGdPOV2y9RZ', '4Mkw0OICZz7xnZZjlGWX9x']
 logs2metrics: []
 metrics_dashboards: ['7vydxtpnlKLILHIGK4puX5']
@@ -15,38 +15,39 @@ drop_filter: []
 ---
 
  
-## Send your Windows machine logs and metrics using OpenTelemetry service
+## Send Windows logs and metrics with OpenTelemetry
 
 :::note
-For a much easier and more efficient way to collect and send metrics, consider using the [Logz.io telemetry collector](https://app.logz.io/#/dashboard/integrations/collectors?tags=Quick%20Setup).
+For a simpler and more efficient way to collect and send metrics, use the [Logz.io telemetry collector](https://app.logz.io/#/dashboard/integrations/collectors?tags=Quick%20Setup).
 :::
 
-Create a Logz.io directory: 
+
+**1. Create a Logz.io directory:**
 
 ```shell
 New-Item -Path $env:APPDATA\LogzioAgent -ItemType Directory -Force
 ```
 
-Download OpenTelemetry tar.gz: 
+**2. Download OpenTelemetry tar.gz:**
 
 ```shell
-Invoke-WebRequest -Uri "https://github.com/logzio/otel-collector-distro/releases/download/v0.82.0/otelcol-logzio-windows_amd64.zip" -OutFile C:\Users\<<USERNAME>>\Downloads\otelcol-logzio.zip
+Invoke-WebRequest -Uri "https://github.com/logzio/otel-collector-distro/releases/download/v0.95.0/otelcol-logzio-windows_amd64.zip" -OutFile C:\Users\<<USERNAME>>\Downloads\otelcol-logzio.zip
 ```
  
-Extract the OpenTelemetry binary:
+**3. Extract the OpenTelemetry binary:**
 
 ```shell
 Expand-Archive -LiteralPath C:\Users\<<USERNAME>>\Downloads\otelcol-logzio.zip -DestinationPath $env:APPDATA\LogzioAgent -Force
 ```
  
 
-Create the OpenTelemetry config file:
+**4. Create the OpenTelemetry config file:**
 
 ```shell
 New-Item -Path $env:APPDATA\LogzioAgent\otel_config.yaml -ItemType File -Force
 ```
  
-And copy the following OpenTelemetry content into the config file. 
+**5. Copy the following into the config file:**
 
 Replace `<<LOG-SHIPPING-TOKEN>>`, `<<LISTENER-HOST>>`, and `<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>` with the relevant parameters from your Logz.io account.
 
@@ -102,11 +103,14 @@ exporters:
   logging:
   logzio/logs:
     account_token: <<LOG-SHIPPING-TOKEN>>
-    region: us
+    region: <<LOGZIO_ACCOUNT_REGION_CODE>> # Default is US
+    headers:
+      user-agent: logzio-windows-logs
   prometheusremotewrite:
     endpoint: https://<<LISTENER-HOST>>:8053
     headers:
       Authorization: Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
+      user-agent: logzio-windows-metrics
     resource_to_telemetry_conversion:
       enabled: true
     target_info:
@@ -137,17 +141,19 @@ service:
 
  
 :::caution Important
-If you already running OpenTelemetry metrics on port 8888, you will need to edit the `address` field in the config file.
+If OpenTelemetry metrics are already running on port 8888, edit the `address` field in the config file.
 :::
  
 
-Next, create the service file:
+**6. Create the service file:**
 
 ```shell
 New-Service -Name LogzioOTELCollector -BinaryPathName "$env:APPDATA\LogzioAgent\otelcol-logzio-windows_amd64.exe --config $env:APPDATA\LogzioAgent\otel_config.yaml" -Description "Collects localhost logs/metrics and sends them to Logz.io."
 ```
 
-### Manage your OpenTelemetry on Localhost
+## Manage your OpenTelemetry on Localhost
+
+Manage OpenTelemetry on your machine using the following commands:
 
 |Description|Command|
 |--|--|

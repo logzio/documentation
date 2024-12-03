@@ -19,7 +19,7 @@ drop_filter: []
 **Before you begin, you'll need**:
 
 * Avast Antivirus installed on your machine
-* An active account with Logz.io
+* An active Logz.io account
 * [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) installed on your machine
 * Root priveleges on your machines 
 
@@ -201,7 +201,7 @@ drop_filter: []
    output:
      logstash:
        hosts: ["<<LISTENER-HOST>>:5015"]  
-       ssl:
+       ssl: 
          certificate_authorities: ['C:\ProgramData\Elastic\Beats\filebeat\Logzio.crt']
 
    ```

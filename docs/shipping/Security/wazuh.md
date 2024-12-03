@@ -96,7 +96,7 @@ filebeat.inputs:
 
 
 ### Set Logz.io as the output
-
+ 
 If Logz.io is not an output, add it now.
 Remove all other outputs.
 

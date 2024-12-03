@@ -9,13 +9,12 @@ This integration is based on [`logzio-google-metrics`](https://github.com/logzio
 
 ### Run Google Cloud Shell configuration
 
-Use the following link, to clone the solution's repo and use it in your Google Cloud Shell:
+[Click this link](https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/logzio/logzio-google-metrics
+) to clone the solution's repo and use it in your Google Cloud Shell.
 
-```shell
-https://ssh.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/logzio/logzio-google-metrics
-```
-
+:::note
 You may encounter a pop up window. Check the `Trust repo` checkbox, and press `Confirm`.
+:::
 
 ### Run setup script in Google Cloud Shell
 
@@ -33,7 +32,7 @@ Replace the variables as per the table below:
 
 | Parameter      | Description                                                                                                                                                                                               |
 | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<<LISTENER-HOST>>`   | Use the listener URL specific to the region of your Logz.io account. You can look it up [here](https://docs.logz.io/user-guide/accounts/account-region.html).                                             |
+| `<<LISTENER-HOST>>`   | Use the listener URL specific to the region of your Logz.io account. You can look it up [here](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/).                                             |
 | `<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>`          | The metrics' shipping token of the account you want to ship to.                                                                                                                                              |
 | `<<GCP-REGION>>`     | Region where you want to upload Cloud Function. Requires for Deploy to Cloud option for platform.                                                                                                     |
 | `<<FUNCTION-NAME-PREFIX>>`  | Function name will be using as Google Cloud Function name. (Default: `metrics_gcp`)                                                                                                                      |

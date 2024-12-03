@@ -4,6 +4,7 @@ title: Configure Azure Native Integration
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Step by step guide to configuring Azure native integration
 keywords: [Azure, Azure native integration, ship Azure data, Azure logs, Azure metrics, Azure tracing, Azure Logz.io]
+slug: /telemetry-collector/azure-native-integration/
 ---
 
 
@@ -139,6 +140,10 @@ Click **Generate collector** to continue.
 ### Activate and run the collector
 
 To get started with Azure Native Integration, toggle the **Enable Connection** on. You might have to wait a few minutes to see your data.
+
+:::note
+There is a limitation of three connections.
+:::
 
 ![Toggle fetcher](https://dytvr9ot2sszz.cloudfront.net/logz-docs/fetcher/azure-telemetry-finalize-dec.png)
 
