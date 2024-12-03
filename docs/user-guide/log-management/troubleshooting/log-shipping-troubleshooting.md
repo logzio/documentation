@@ -1,6 +1,10 @@
 ---
 sidebar_position: 1
 title: Log Shipping Troubleshooting
+description: Troubleshoot shipping logs to Logz.io
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, troubleshooting, issues, log analysis, observability]
+slug: /log-management/troubleshooting/log-shipping-troubleshooting/
 ---
 
 
@@ -37,10 +41,10 @@ you'll need to wait until we fix the problem before you can ship your logs.
 
 ## Check your shipper's connectivity
 
-For macOS and Linux, use telnet to make sure your log shipper can connect to Logz.io listeners.
+For MacOS and Linux, use telnet to make sure your log shipper can connect to Logz.io listeners.
 
 :::note
-As of macOS High Sierra (10.13),
+As of MacOS High Sierra (10.13),
 telnet is not installed by default.
 You can install telnet with Homebrew
 by running `brew install telnet`.
@@ -111,7 +115,7 @@ in the [account settings](https://app.logz.io/#/dashboard/settings/manage-accoun
 
 Compare your account token
 with the token you're sending to Logz.io with your logs.
-Review the instructions for your [log shipping method](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all)
+Review the instructions for your [log shipping method](https://app.logz.io/#/dashboard/integrations/collectors)
 if you're not sure where to find the token you're sending with your logs.
 
 :::tip

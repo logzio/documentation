@@ -29,7 +29,7 @@ Bitbucket is a Git-based source code repository hosting service. This integratio
 
 Log in to your Bitbucket account and navigate to the repository that you need to send logs from.
 
-### Open the **Add new webhook** page
+### Open the **Add new webhook** page 
 
 Navigate to **Repository Settings > Webhooks > Add webhook**.
 
@@ -56,7 +56,7 @@ When everything is filled out, click **Save**.
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can search for `type:bitbucket` to filter for your BitBucket logs.
   
-If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
 
  
 

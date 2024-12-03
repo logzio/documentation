@@ -6,11 +6,11 @@ product: ['logs']
 os: ['windows', 'linux']
 filters: ['Compute']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/iis.png
-logs_dashboards: []
-logs_alerts: []
+logs_dashboards: ['4ikRPk2FSyLcXdz4wluk95']
+logs_alerts: ['4iPtr9345KqZMVYeVsmqXr','68twzywUSzdjfk4Lkrhv8e']
 logs2metrics: []
-metrics_dashboards: []
-metrics_alerts: []
+metrics_dashboards: ['UJeTI7s6yntLroUacIg1T']
+metrics_alerts: ['6gEDOJJjr38j7MhxkP43HZ']
 drop_filter: []
 ---
 
@@ -27,11 +27,11 @@ Internet Information Services (IIS) for Windows® Server is a flexible, secure a
 
 ### Configure NXLog
 
-Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\nxlog.conf` by default).
+Copy this code into your configuration file (`C:\Program Files (x86)\nxlog\conf\nxlog.conf` by default). 
 
 {@include: ../../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-url.html} 
 
 ```conf
 define ROOT C:\\Program Files (x86)\\nxlog

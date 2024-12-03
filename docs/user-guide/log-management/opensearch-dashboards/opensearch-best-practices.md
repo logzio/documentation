@@ -1,8 +1,10 @@
 ---
 sidebar_position: 2
+title: OpenSearch Dashboards Best Practices
+description: Best practices in Log management and OpenSearch Dashboards
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, dashboard, opensearch dashboards, log analysis, observability]
 ---
-
-# OpenSearch Dashboards Best Practices
 
 
 After setting up your Logz.io's Log Management account, it's time to learn how to gain more out of your logs.
@@ -135,6 +137,10 @@ The **Show dates** option lets you set a start and end time. In the popup, selec
 
 ## Create Log Visualizations
 
+:::note
+Not sure what to visualize? If your logs haven't been parsed into fields yet, our [support team](mailto:help@logz.io) can assist with prasing your logs and extracting the fields needed to create your visualizations.
+:::
+
 In the following video, you'll be able to see how to create a visualization dashboard based on your logs:
 
 
@@ -165,7 +171,7 @@ Learn more about [creating and managing sub accounts](/docs/user-guide/admin/log
 
 ## Additional resources
 
-* [Configure an alert](https://docs.logz.io/user-guide/alerts/configure-an-alert.html)
-* [Use Insights to detect new exceptions and critical errors](https://docs.logz.io/user-guide/insights/ai-insights.html)
-* [Use Live tail to get a live view of your logs](https://docs.logz.io/user-guide/live-tail/)
+* [Configure an alert](https://docs.logz.io/docs/user-guide/log-management/log-alerts/configure-alert/)
+* [Use Insights to detect new exceptions and critical errors](https://docs.logz.io/docs/user-guide/log-management/insights/ai-insights/)
+* [Use Live tail to get a live view of your logs](https://docs.logz.io/docs/user-guide/log-management/live-tail/)
 

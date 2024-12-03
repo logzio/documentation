@@ -38,7 +38,7 @@ Upon deployment, the Crowdstrike connector connects to your Crowdstrike account 
 **Before you begin, you'll need**: 
 
 * an active account with Crowdstrike
-* an active account with Logz.io
+* An active Logz.io account
 * FluentD agent on your machine
 * Crowdstrike connector installed on your machine
 
@@ -124,13 +124,13 @@ Upon deployment, the Crowdstrike connector connects to your Crowdstrike account 
    <label @FLUENT_LOG>
      <match **>
        @type null
-     </match>
+     </match> 
    </label>
    ```
 
    If you change `type` in the `@type record_transformer` section, the data is not parsed into the relevant fields for the Crowdstrike integration.
    
-   {@include: ../../_include/log-shipping/listener-var.html}
+   {@include: ../../_include/log-shipping/listener-url.html}
    {@include: ../../_include/log-shipping/log-shipping-token.html}
    
 4. Save the changes.

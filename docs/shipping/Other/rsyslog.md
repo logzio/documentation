@@ -106,7 +106,7 @@ sudo service rsyslog restart
 
 Give your logs some time to get from your system to ours, and then [open Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see our [Rsyslog troubleshooting guide](https://docs.logz.io/user-guide/log-shipping/rsyslog-selinux-troubleshooting.html).
+If you still don't see your logs, see our [Rsyslog troubleshooting guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-rsyslog-selinux/).
 
   
 
@@ -209,7 +209,7 @@ $ sudo semanage port -m -t syslogd_port_t -p tcp 5000
 
 Give your logs some time to get from your system to ours, and then [open Open Search Dashboards](https://app.logz.io/#/dashboard/osd)
 
-If you still don't see your logs, see our [Rsyslog troubleshooting guide](https://docs.logz.io/user-guide/log-shipping/rsyslog-selinux-troubleshooting.html).
+If you still don't see your logs, see our [Rsyslog troubleshooting guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-rsyslog-selinux/).
 
  
 ## Automatic configuration
@@ -249,7 +249,7 @@ curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslo
 Run the following command to configure your rsyslog daemon to monitor JSON log files.  Each log should be formatted as a single JSON line that ends with a newline character.
 
 
-```
+``` 
 curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t file -a "<<LOG-SHIPPING-TOKEN>>" -l "<<LISTENER-HOST>>" --filepath "<<PATH_TO_FILE>>" -tag "<<TYPE>>" -c json
 ```
 
@@ -340,7 +340,7 @@ sudo service rsyslog restart
 
 Give your logs some time to get from your system to ours, and then [open Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see our [Rsyslog troubleshooting guide](https://docs.logz.io/user-guide/log-shipping/rsyslog-selinux-troubleshooting.html).
+If you still don't see your logs, see our [Rsyslog troubleshooting guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-rsyslog-selinux/).
 
  
   

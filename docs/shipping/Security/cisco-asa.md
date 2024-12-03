@@ -2,7 +2,7 @@
 id: Cisco-ASA
 title: Cisco ASA
 overview: Cisco ASA is a security device that combines firewall, antivirus, intrusion prevention, and virtual private network (VPN) capabilities.
-product: ['logs']
+product: ['logs', 'siem']
 os: ['windows', 'linux']
 filters: ['Network', 'Security']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/cisco.svg
@@ -84,7 +84,7 @@ processors:
     ignore_missing: true
 ```
 
-If you're running Filebeat 6, paste this code block.
+If you're running Filebeat 6, paste this code block. 
 
 ```yaml
 # ... For Filebeat 6 only ...
@@ -96,7 +96,7 @@ registry_file: /var/lib/filebeat/registry
 If Logz.io is not an output, add it now.
 (Remove all other outputs - there should only be 1 output in the configuration file.) 
 
-{@include: ../../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-url.html} 
 
 ```yaml
 # ...

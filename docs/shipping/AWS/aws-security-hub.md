@@ -2,7 +2,7 @@
 id: AWS-Security-Hub
 title: AWS Security Hub
 overview: This integration ships events from AWS Security Hub to Logz.io. It will automatically deploy resources to your AWS Account.
-product: ['logs']
+product: ['logs', 'siem']
 os: ['windows', 'linux']
 filters: ['AWS', 'Security']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws.svg
@@ -16,7 +16,7 @@ drop_filter: []
 
  
 
-This integration ships events from AWS Security Hub to Logz.io. It will automatically deploy [resources](#resources) to your AWS Account.
+This integration ships events from AWS Security Hub to Logz.io. It will automatically deploy resources to your AWS Account.
 
 A new event triggers a designated EventBridge rule, which invokes a Lambda function. The function processes the event and sends it to Logz.io.
 
@@ -41,23 +41,23 @@ Select the button below to create a new stack dedicated to sending events from A
 
 | AWS Region | Launch a stack |
 | --- | --- |
-| `us-east-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/aws-security-hub-collector/0.0.2/template.yaml) |
-| `us-east-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-us-east-2.s3.amazonaws.com/aws-security-hub-collector/0.0.2/template.yaml) |
-| `us-west-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-1#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-us-west-1.s3.amazonaws.com/aws-security-hub-collector/0.0.2/template.yaml) |
-| `us-west-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-us-west-2.s3.amazonaws.com/aws-security-hub-collector/0.0.2/template.yaml) |
-| `eu-central-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-eu-central-1.s3.amazonaws.com/aws-security-hub-collector/0.0.2/template.yaml) |
-| `eu-north-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-north-1#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-eu-north-1.s3.amazonaws.com/aws-security-hub-collector/0.0.2/template.yaml) |
-| `eu-west-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-eu-west-1.s3.amazonaws.com/aws-security-hub-collector/0.0.2/template.yaml) |
-| `eu-west-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-2#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-eu-west-2.s3.amazonaws.com/aws-security-hub-collector/0.0.2/template.yaml) |
-| `eu-west-3` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-3#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-eu-west-3.s3.amazonaws.com/aws-security-hub-collector/0.0.2/template.yaml) |
-| `sa-east-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=sa-east-1#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-sa-east-1.s3.amazonaws.com/aws-security-hub-collector/0.0.2/template.yaml) |
-| `ca-central-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ca-central-1#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-ca-central-1.s3.amazonaws.com/aws-security-hub-collector/0.0.2/template.yaml) |
-| `ap-northeast-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-1#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-ap-northeast-1.s3.amazonaws.com/aws-security-hub-collector/0.0.2/template.yaml) |
-| `ap-northeast-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-2#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-ap-northeast-2.s3.amazonaws.com/aws-security-hub-collector/0.0.2/template.yaml) |
-| `ap-northeast-3` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-3#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-ap-northeast-3.s3.amazonaws.com/aws-security-hub-collector/0.0.2/template.yaml) |
-| `ap-south-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-south-1#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-ap-south-1.s3.amazonaws.com/aws-security-hub-collector/0.0.2/template.yaml) |
-| `ap-southeast-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-1#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-ap-southeast-1.s3.amazonaws.com/aws-security-hub-collector/0.0.2/template.yaml) |
-| `ap-southeast-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-ap-southeast-2.s3.amazonaws.com/aws-security-hub-collector/0.0.2/template.yaml) |
+| `us-east-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/aws-security-hub-collector/0.0.4/template.yaml) |
+| `us-east-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-us-east-2.s3.amazonaws.com/aws-security-hub-collector/0.0.4/template.yaml) |
+| `us-west-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-1#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-us-west-1.s3.amazonaws.com/aws-security-hub-collector/0.0.4/template.yaml) |
+| `us-west-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-us-west-2.s3.amazonaws.com/aws-security-hub-collector/0.0.4/template.yaml) |
+| `eu-central-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-eu-central-1.s3.amazonaws.com/aws-security-hub-collector/0.0.4/template.yaml) |
+| `eu-north-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-north-1#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-eu-north-1.s3.amazonaws.com/aws-security-hub-collector/0.0.4/template.yaml) |
+| `eu-west-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-eu-west-1.s3.amazonaws.com/aws-security-hub-collector/0.0.4/template.yaml) |
+| `eu-west-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-2#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-eu-west-2.s3.amazonaws.com/aws-security-hub-collector/0.0.4/template.yaml) |
+| `eu-west-3` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-3#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-eu-west-3.s3.amazonaws.com/aws-security-hub-collector/0.0.4/template.yaml) |
+| `sa-east-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=sa-east-1#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-sa-east-1.s3.amazonaws.com/aws-security-hub-collector/0.0.4/template.yaml) |
+| `ca-central-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ca-central-1#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-ca-central-1.s3.amazonaws.com/aws-security-hub-collector/0.0.4/template.yaml) |
+| `ap-northeast-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-1#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-ap-northeast-1.s3.amazonaws.com/aws-security-hub-collector/0.0.4/template.yaml) |
+| `ap-northeast-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-2#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-ap-northeast-2.s3.amazonaws.com/aws-security-hub-collector/0.0.4/template.yaml) |
+| `ap-northeast-3` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-3#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-ap-northeast-3.s3.amazonaws.com/aws-security-hub-collector/0.0.4/template.yaml) |
+| `ap-south-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-south-1#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-ap-south-1.s3.amazonaws.com/aws-security-hub-collector/0.0.4/template.yaml) |
+| `ap-southeast-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-1#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-ap-southeast-1.s3.amazonaws.com/aws-security-hub-collector/0.0.4/template.yaml) |
+| `ap-southeast-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/new?stackName=logzio-security-hub-collector&templateURL=https://logzio-aws-integrations-ap-southeast-2.s3.amazonaws.com/aws-security-hub-collector/0.0.4/template.yaml) |
 
 ![Create stack](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aws/security-hub-step1.png)
 
@@ -72,7 +72,7 @@ Specify the stack details as per the table below and select **Next**.
 
 | Parameter | Description |
 | --- | --- |
-| `logzioListener` | Your Logz.io [listener url](https://docs.logz.io/user-guide/accounts/account-region.html), followed by port `8070` or `8071`. The required port depends whether HTTP or HTTPS is used: HTTP = 8070, HTTPS = 8071. For example, `https://listener.logz.io:8071` |
+| `logzioListener` | Your Logz.io [listener url](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/), followed by port `8070` or `8071`. The required port depends whether HTTP or HTTPS is used: HTTP = 8070, HTTPS = 8071. For example, `https://listener.logz.io:8071` |
 | `logzioLogLevel` | Log level for the Lambda function. Defaults to `info`. Valid options are: `debug`, `info`, `warn`, `error`, `fatal`, `panic`. |
 | `logzioOperationsToken` | Your Logz.io [operations token](https://app.logz.io/#/dashboard/settings/general). |
 
@@ -162,7 +162,7 @@ Save the template as a yaml file and add the values of your stack to the as per 
 
 | Parameter | Description |
 | --- | --- |
-| `<<LISTENER-HOST>>` | Your Logz.io [listener url](https://docs.logz.io/user-guide/accounts/account-region.html), followed by port `8070` or `8071`. For example, `https://listener.logz.io:8071` |
+| `<<LISTENER-HOST>>` | Your Logz.io [listener url](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/), followed by port `8070` or `8071`. For example, `https://listener.logz.io:8071` |
 | `<<LOGZIO-LOG-LEVEL>>` | Log level for the Lambda function. Defaults to `info`. Valid options are: `debug`, `info`, `warn`, `error`, `fatal`, `panic`. |
 | `<<LOG-SHIPPING-TOKEN>>` | Your Logz.io [operations token](https://app.logz.io/#/dashboard/settings/general). |
 

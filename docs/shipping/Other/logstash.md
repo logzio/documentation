@@ -2,7 +2,7 @@
 id: Logstash-data
 title: Logstash
 overview: Logstash is an open-source server-side data processing pipeline. This integration can ingest data from multiple  sources. With Logz.io, you can monitor Logstash instances and quickly identify if and when issues arise.
-product: ['metrics']
+product: ['logs']
 os: ['windows', 'linux']
 filters: ['Other']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/logstash_temp.png
@@ -47,12 +47,12 @@ Download the [Logz.io public certificate]({@include: ../../_include/log-shipping
 ### Add Logz.io to your configuration file
 
 Add these code blocks to the end of your existing Logstash configuration file.
-
+ 
 Make sure the `mutate` block is the last item in the `filters` block.
 
 {@include: ../../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../../_include/log-shipping/listener-var.html}
+{@include: ../../_include/log-shipping/listener-url.html}
 
 * For MacOS and Linux:
 
@@ -122,7 +122,7 @@ Make sure the `mutate` block is the last item in the `filters` block.
 
 {@include: ../../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../../_include/log-shipping/listener-var.html}
+{@include: ../../_include/log-shipping/listener-url.html}
 
 ```conf
 filter {

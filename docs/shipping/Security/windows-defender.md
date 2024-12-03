@@ -119,11 +119,11 @@ processors:
 
 ### Add Logz.io as an output
 
-If Logz.io isn't the output, set it now.
+If Logz.io isn't the output, set it now. 
 
 Winlogbeat can have one output only, so remove any other `output` entries.
 
-{@include: ../../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-url.html} 
 
 ```yaml
 output.logstash:

@@ -2,7 +2,7 @@
 id: Sysmon-data
 title: Sysmon (System Monitor) via Winlogbeat
 overview: Sysmon (System Monitor) is a Windows system service that monitors and logs system activity of the Windows event log. It tracks process creations, network connections, and changes to file creation time.
-product: ['logs']
+product: ['logs', 'siem']
 os: ['windows']
 filters: ['Other']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/windows.svg
@@ -67,7 +67,7 @@ processors:
         to: "log_information"
       ignore_missing: true
 output.logstash:
-  hosts: ["<<LISTENER-HOST>>:5015"]
+  hosts: ["<<LISTENER-HOST>>:5015"] 
   ssl:
     certificate_authorities: ['C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt']
 ```

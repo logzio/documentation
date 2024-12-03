@@ -6,7 +6,7 @@ product: ['logs','metrics']
 os: ['mac']
 filters: ['Operating Systems', 'Most Popular']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/mac-os.svg
-logs_dashboards: []
+logs_dashboards: ['2c8z6DVvPatBZMgZ7qpfff']
 logs_alerts: []
 logs2metrics: []
 metrics_dashboards: ['2gsQP2xRef7dkwt8pxWieo']
@@ -16,40 +16,37 @@ drop_filter: []
 
 
 
-## Send your Mac machine logs and metrics using Opentelemetry service
+## Send Mac logs and metrics using Opentelemetry service
 
 :::note
-For a much easier and more efficient way to collect and send metrics, consider using the [Logz.io telemetry collector](https://app.logz.io/#/dashboard/send-your-data/agent/new).
+For a simpler and more efficient way to collect and send metrics, use the [Logz.io telemetry collector](https://app.logz.io/#/dashboard/integrations/collectors?tags=Quick%20Setup).
 :::
 
-Follow these steps to manually configure OpenTelemetry on your Mac machine
-
-
-Create a Logz.io directory:
+**1. Create a Logz.io directory:**
 
 ```shell
 sudo mkdir /opt/logzio-agent
 ```
 
-Download OpenTelemetry tar.gz:
+**2. Download OpenTelemetry tar.gz:**
 
 ```shell
-curl -fsSL "https://github.com/logzio/otel-collector-distro/releases/download/v0.82.0/otelcol-logzio-darwin_amd64.tar.gz" >./otelcol-logzio.tar.gz
+curl -fsSL "https://github.com/logzio/otel-collector-distro/releases/download/v0.111.0/otelcol-logzio-darwin_amd64.tar.gz" >./otelcol-logzio.tar.gz
 ```
 
-Extract the OpenTelemetry binary:
+**3. Extract the OpenTelemetry binary:**
 
 ```shell
 sudo tar -zxf ./otelcol-logzio.tar.gz --directory /opt/logzio-agent
 ```
  
-Create the OpenTelemetry config file:
+**4. Create the OpenTelemetry config file:**
 
 ```shell
 sudo touch /opt/logzio-agent/otel_config.yaml
 ```
 
-And copy the following OpenTelemetry config content into the config file. 
+**5. Copy the following OpenTelemetry config content into the config file:**
 
 Replace  `<<LOG-SHIPPING-TOKEN>>`,  `<<LISTENER-HOST>>`, and `<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>` with the relevant parameters from your Logz.io account.
  
@@ -103,11 +100,14 @@ exporters:
   logging:
   logzio/logs:
     account_token: <<LOG-SHIPPING-TOKEN>>
-    region: us
+    region: <<LOGZIO_ACCOUNT_REGION_CODE>> # Default is US
+    headers:
+      user-agent: logzio-mac-logs
   prometheusremotewrite:
     endpoint: https://<<LISTENER-HOST>>:8053
     headers:
       Authorization: Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
+      user-agent: logzio-mac-metrics
     resource_to_telemetry_conversion:
       enabled: true
     target_info:
@@ -135,16 +135,16 @@ service:
 ```
 
 :::caution Important
-If you already running OpenTelemetry metrics on port 8888, you will need to edit the `address` field in the config file.
+If OpenTelemetry metrics are already running on port 8888, edit the `address` field in the config file.
 :::
 
-Create plist file:
+**6. Create plist file:**
 
 ```shell
 sudo touch /Library/LaunchDaemons/com.logzio.OTELCollector.plist
 ```
 
-And copy the plist file's content:
+Copy the plist file's content:
 
 ```shell
 <?xml version="1.0" encoding="UTF-8"?>
@@ -167,9 +167,9 @@ And copy the plist file's content:
 </plist>
 ```
 
-### Manage your OpenTelemetry on Mac
+## Manage your OpenTelemetry on Mac
 
-To manage OpenTelemetry on your machine, use the following commands:
+Manage OpenTelemetry on your machine using the following commands:
 
 Description|Command
 |--|--|

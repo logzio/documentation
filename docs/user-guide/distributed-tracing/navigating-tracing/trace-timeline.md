@@ -1,6 +1,9 @@
 ---
 sidebar_position: 2
 title: Trace Timeline
+description: Dive into your traces with the trace timeline
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, traces, tracing, timeline, observability, distributed tracing]
 ---
 
 

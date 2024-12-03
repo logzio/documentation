@@ -1,10 +1,10 @@
 ---
 id: Azure-Security-Center
 title: Azure Security Center
-overview: You can ship logs available from Azure Security Center via the Microsoft Graph APIs with Logzio-MSGraph. Logzio-MSGraph is a self-hosted application.
-product: ['logs', 'siem']
+overview: You can ship security logs available from the Microsoft Graph APIs with Logzio api fetcher.
+product: ['siem']
 os: ['windows', 'linux']
-filters: ['Azure', 'Security']
+filters: ['Azure', 'Access Management']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/azure.svg
 logs_dashboards: []
 logs_alerts: []
@@ -14,19 +14,9 @@ metrics_alerts: []
 drop_filter: []
 ---
 
-
-You can ship logs available from Azure Security Center via the Microsoft Graph APIs with Logzio-MSGraph. Logzio-MSGraph is a self-hosted application.
-
-Logzio-MSGraph currently supports only the following Azure Security Center APIs:
-
-* Alerts
-
-There are many other APIs available through Microsoft Graph.
-If you don't see your API in the list, please [open an issue](https://github.com/logzio/microsoft-graph/issues/new) at GitHub to request it.
+Microsoft Graph is a RESTful web API that enables you to access Microsoft Cloud service resources. This integration allows you to collect data from Microsoft Graph API and send it to your Logz.io account.
 
 To integrate Microsoft Graph and Logz.io:
-
- 
 
 ### Register a new app in Azure Active Directory
 
@@ -63,7 +53,6 @@ Select this item:
 
 * **SecurityEvents.Read.All**
 
-
 Click **Add permissions**.
 
 Click **Grant admin consent for Default Directory**, and then click **Yes** to confirm.
@@ -73,87 +62,86 @@ Only Azure administrators can grant consent for Default Directory. If the _Grant
 :::
  
 
+
+### Pull the Docker image of the Logz.io API fetcher
+
+```shell
+docker pull logzio/logzio-api-fetcher
+```
+
 ### Create a configuration file
 
-Create a configuration yaml file (`logzio-msgraph-config.yaml`) for Logzio-MSGraph.
-
-For a complete list of options, see the configuration parameters below.👇
+In the directory created in the previous step, create a file `config.yaml` using the example configuration below:
 
 ```yaml
-senderParams:
-  accountToken: "<<LOG-SHIPPING-TOKEN>>"
-  listenerUrl: "<<LISTENER-HOST>>"
+logzio:
+  url: https://<<LISTENER-HOST>>:8071
+  token: <<LOG-SHIPPING-TOKEN>>
 
-azureADClient:
-  pullIntervalSeconds: 300
-  tenantId: "<<AD_TENANT_ID>>"
-  clientId: "<<APP_CLIENT_ID>>"
-  clientSecret: "<<APP_CLIENT_SECRET>>"
-
-targetApi:
-  ASCApis:
-    - <<supportedApi1>>
-
-logLevel: INFO
-
-additionalFields:
-  <<KEY>>: "<<VALUE>>"
-
+apis:
+  - name: azure graph example
+    type: azure_graph
+    azure_ad_tenant_id: <<AZURE_AD_TENANT_ID>>
+    azure_ad_client_id: <<AZURE_AD_CLIENT_ID>>
+    azure_ad_secret_value: <<AZURE_AD_SECRET_VALUE>>
+    data_request:
+      url: https://graph.microsoft.com/v1.0/auditLogs/signIns
+    additional_fields:
+      type: azure_graph
+      field_to_add_to_my_logs: 123
+    scrape_interval: 1
+    days_back_fetch: 30
+  
 ```
 
-#### Parameters
+:::note
+You can customize the endpoints to collect data by adding or modifying the configurations under the `apis` section. Refer to the [relevant API documentation](https://learn.microsoft.com/en-us/graph/api/overview?view=graph-rest-1.0) for more details.
+:::
 
-| Parameter | Description | Required/Default |
-|---|---|---|
-| senderParams.accountToken | Your Logz.io account token. {@include: ../../_include/log-shipping/log-shipping-token.html} | Required |
-| senderParams.listenerUrl  | Listener URL.    {@include: ../../_include/log-shipping/listener-var.html}  | `listener.logz.io` |
-| senderParams.fromDisk  | If `true`, logs are stored on disk until they're shipped. (See **If from-disk=true** below). If `false`, logs persist in memory until they're shipped. (See **If from-disk=false** below. | Optional. Set to `true` by default. |
-| senderParams.senderDrainIntervals | How often the sender should drain the queue, in seconds. | Optional, set to `30` by default. |
-| azureADClient.tenantId  | Azure Active Directory tenant ID. You can find this in the _Overview_ section of the app you registered in step 1. | Required |
-| azureADClient.clientId  | Application client ID.    You can find this in the _Overview_ section of the app you registered in step 1. | Required |
-| azureADClient.clientSecret | Value of the Application Client Secret you created in step 2. | Required |
-| azureADClient.pullIntervalSeconds | Time interval, in seconds, to pull the logs with the Graph API. | `300` |
-| logLevel | Log level for Logizo-MSGraph to omit. Can be one of: `OFF`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL`. | `INFO` |
+| Parameter Name        | Description                                                                                         | Required/Optional | Default     |
+|-----------------------|-----------------------------------------------------------------------------------------------------|-------------------|-------------|
+| name                  | Name of the API (custom name)                                                                       | Optional          | `azure api` |
+| azure_ad_tenant_id    | The Azure AD Tenant id                                                                              | Required          | -           |
+| azure_ad_client_id    | The Azure AD Client id                                                                              | Required          | -           |
+| azure_ad_secret_value | The Azure AD Secret value                                                                           | Required          | -           |
+| date_filter_key                | The name of key to use for the date filter in the request URL params | Optional          | `createdDateTime` |
+| data_request.url               | The request URL                                                      | Required          | -                 |
+| additional_fields | Additional custom fields to add to the logs before sending to logzio | Optional          | -                 |
+| days_back_fetch       | The amount of days to fetch back in the first request                                               | Optional          | 1 (day)     |
+| scrape_interval       | Time interval to wait between runs (unit: `minutes`)                                                | Optional          | 1 (minute)  |
 
 
-#### If fromDisk=true
-
-| Parameter | Description | Required/Default |
-|---|---|---|
-senderParams.fileSystemFullPercentThreshold  | Threshold percentage of disk space at which to stop queueing. If this threshold is reached, all new logs are dropped until used space drops below the threshold. Set to `-1` to ignore threshold. | `98` |
-| senderParams.gcPersistedQueueFilesIntervalSeconds | Time interval, in seconds, to clean sent logs from the disk. | `30` |
-| senderParams.diskSpaceCheckInterval | Time interval, in milliseconds, to check for disk space.| `1000` |
-
-#### If fromDisk=false 
-
-| Parameter | Description | Required/Default |
-|---|---|---|
-| senderParams.inMemoryQueueCapacityInBytes  | The amount of memory, in bytes, Logzio-MSGraph can use for the memory queue. Set to `-1` for unlimited bytes. | `1024 * 1024 * 100` |
-| senderParams.logsCountLimit | The number of logs in the memory queue before dropping new logs. Set to `-1` to configure the sender to not limit the queue by logs count. | `-1` |
-
-### Download and run Logzio-MSGraph
-
-You can launch Logzio-MSGraph in a Docker container or as a standalone Java app.
-
-In a Docker container:
+### Run the Docker container
+In the path where you saved your `config.yaml`, run:
 
 ```shell
-docker run -d -v $(pwd)/logzio-msgraph-config.yaml:/config.yaml logzio/logzio-msgraph
+docker run --name logzio-api-fetcher \
+-v "$(pwd)":/app/src/shared \
+logzio/logzio-api-fetcher
 ```
 
-Or to run as a standalone Java app, download the latest jar from the [release page](https://github.com/logzio/microsoft-graph/releases).
-Then run:
+:::note
+To run in Debug mode add `--level` flag to the command:
+```shell
+docker run --name logzio-api-fetcher \
+-v "$(pwd)":/app/src/shared \
+logzio/logzio-api-fetcher \
+--level DEBUG
+```
+Available Options: `INFO`, `WARN`, `ERROR`, `DEBUG`
+:::
+
+### Stop the Docker container
+
+When you stop the container, the code will run until the iteration is completed. To make sure it will finish the iteration on time, please give it a grace period of 30 seconds when you run the `docker stop` command.
 
 ```shell
-java -jar logzio-msgraph.jar logzio-msgraph-config.yaml
+docker stop -t 30 logzio-api-fetcher
 ```
-
-Logs collected by this integration will have the type `Microsoft-Graph`
 
 ### Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
+Give your logs some time to get from your system to ours,
+and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for data of your custom field type value or type `api_fetcher` to see the incoming Microsoft Graph logs.
 
-If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-management/troubleshooting/log-shipping-troubleshooting.html).
-
- 
+If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting).

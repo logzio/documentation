@@ -2,7 +2,7 @@
 id: Carbon-Black
 title: Carbon Black
 overview: Carbon Black enables multi-cloud workload and endpoint threat protection. Connect your Carbon Black to Logz.io to monitor and analyze endpoint security, threat detection, user behavior, software inventory, compliance, and incident response to enhance overall cybersecurity.
-product: ['logs']
+product: ['logs', 'siem']
 os: ['windows', 'linux']
 filters: ['Security']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/carbon-black.png

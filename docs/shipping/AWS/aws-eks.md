@@ -19,16 +19,16 @@ The logzio-monitoring Helm Chart ships your EKS Fargate telemetry (logs, metrics
 
 ## Prerequisites 
 
-1. [Helm](https://helm.sh/)
+* [Helm](https://helm.sh/)
 
 
-Add Logzio-helm repository
+* Add Logzio-helm repository
 `helm repo add logzio-helm https://logzio.github.io/logzio-helm && helm repo update`
 
 {@include: ../../_include/general-shipping/k8s-all-data.md}
 
 
-## Send your logs
+## Send your logs 
  
 
 Send your logs
@@ -36,8 +36,8 @@ Send your logs
 ```sh
 helm install -n monitoring \
 --set logs.enabled=true \
---set logzio-fluentd.secrets.logzioShippingToken="{@include: ../../_include/log-shipping/log-shipping-token.html}" \
---set logzio-fluentd.secrets.logzioListener="{@include: ../../_include/log-shipping/listener-var.html}" \
+--set logzio-fluentd.secrets.logzioShippingToken="<<LOG-SHIPPING-TOKEN>>" \
+--set logzio-fluentd.secrets.logzioListener="<<LISTENER-HOST>>" \
 --set logzio-fluentd.env_id="<<CLUSTER-NAME>>" \
 --set logzio-fluentd.fargateLogRouter.enabled=true \
 logzio-monitoring logzio-helm/logzio-monitoring
@@ -141,34 +141,19 @@ To determine if a node uses taints as well as to display the taint keys, run:
 kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
 ```
 
-:::node
-You need to use `Helm` client with version `v3.9.0` or above.
-:::
+For example:
 
-For troubleshooting log shipping, see our [user guide](https://docs.logz.io/user-guide/kubernetes-troubleshooting/).
-
-
-### Sending logs from nodes with taints
-
-If you want to ship logs from any of the nodes that have a taint, make sure that the taint key values are listed in your in your daemonset/deployment configuration as follows:
-  
-```yaml
-tolerations:
-- key: 
-  operator: 
-  value: 
-  effect: 
 ```
-  
-To determine if a node uses taints as well as to display the taint keys, run:
-  
-```
-kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
+--set logzio-fluentd.daemonset.tolerations[0].key=node-role.kubernetes.io/master --set logzio-fluentd.daemonset.tolerations[0].effect=NoSchedule
 ```
 
 :::node
 You need to use `Helm` client with version `v3.9.0` or above.
 :::
+
+Encounter an issue? See our [user guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-fluentd-for-kubernetes-logs/).
+
+
 
 ## Send your Metrics
 
@@ -176,8 +161,8 @@ You need to use `Helm` client with version `v3.9.0` or above.
 helm install -n monitoring \
 --set metricsOrTraces.enabled=true \
 --set logzio-k8s-telemetry.metrics.enabled=true \
---set logzio-k8s-telemetry.secrets.MetricsToken="{@include: ../../_include/p8s-shipping/replace-prometheus-token.html}" \
---set logzio-k8s-telemetry.secrets.ListenerHost="{@include: ../../_include/p8s-shipping/replace-prometheus-listener.html}" \
+--set logzio-k8s-telemetry.secrets.MetricsToken="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>" \
+--set logzio-k8s-telemetry.secrets.ListenerHost="<<LISTENER-HOST>>" \
 --set logzio-k8s-telemetry.secrets.p8s_logzio_name="<<CLUSTER-NAME>>" \
 --set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
 --set logzio-k8s-telemetry.collector.mode=standalone \
@@ -192,7 +177,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
 
 
-For troubleshooting metrics shipping, see our [user guide](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/k8-helm-opentelemetry-troubleshooting.html).
+Encounter an issue? See our [user guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/k8s-troubleshooting/).
  
 
 ### Customize the metrics collected by the Helm chart 
@@ -209,14 +194,14 @@ To customize your configuration, edit the `config` section in the `values.yaml` 
 Give your metrics some time to get from your system to ours.
 
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["1aO3NWtPAtVwO5Ipmc3Deh", "6KQUyksnNT2E40PifmCHR5", "X6YYCFajD56zayxcQOG2H", "M06b1BjTSGsSNZBWeiLnR"] -->
 
 {@include: ../../_include/metric-shipping/generic-dashboard.html} 
   
  
-For troubleshooting this solution, see our [EKS troubleshooting guide](https://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/eks-helm-opentelemetry-troubleshooting.html).
+Encounter an issue? See our [EKS troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/eks-helm/).
  
 ## Send your traces
 
@@ -224,7 +209,7 @@ For troubleshooting this solution, see our [EKS troubleshooting guide](https://d
 helm install -n monitoring \
 --set metricsOrTraces.enabled=true \
 --set logzio-k8s-telemetry.traces.enabled=true \
---set logzio-k8s-telemetry.secrets.TracesToken="{@include: ../../_include/tracing-shipping/replace-tracing-token.html}" \
+--set logzio-k8s-telemetry.secrets.TracesToken="<<TRACES-SHIPPING-TOKEN>>" \
 --set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO-REGION>>" \
 --set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
@@ -238,7 +223,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<LOGZIO-REGION>>` | Name of your Logz.io traces region e.g `us`, `eu`... |
 
 
-For troubleshooting traces shipping, see our [user guide]([https://docs.logz.io/user-guide/kubernetes-troubleshooting/](https://docs.logz.io/user-guide/distributed-tracing/tracing-troubleshooting.html)).
+Encounter an issue? See our [Distributed Tracing troubleshooting](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/tracing-troubleshooting/).
 
 
 ## Send traces with SPM
@@ -247,7 +232,7 @@ For troubleshooting traces shipping, see our [user guide]([https://docs.logz.io/
 helm install -n monitoring \
 --set metricsOrTraces.enabled=true \
 --set logzio-k8s-telemetry.traces.enabled=true \
---set logzio-k8s-telemetry.secrets.TracesToken="{@include: ../../_include/tracing-shipping/replace-tracing-token.html}" \
+--set logzio-k8s-telemetry.secrets.TracesToken="<<TRACES-SHIPPING-TOKEN>>" \
 --set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO-REGION>>" \
 --set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
 --set logzio-k8s-telemetry.spm.enabled=true \

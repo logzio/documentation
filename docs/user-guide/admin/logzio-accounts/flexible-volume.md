@@ -1,6 +1,9 @@
 ---
 sidebar_position: 5
 title: Flexible volume
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Control how to manage and allocate data between your Logz.io accounts
+keywords: [account, manage account, optimization, user management, admin controls, admin, user permissions, permissions, access control]
 ---
 
 Flexible volume gives you more control over how you allocate space between your accounts.

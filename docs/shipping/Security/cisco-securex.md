@@ -20,7 +20,7 @@ Cisco SecureX connects the breadth of Cisco's integrated security portfolio and 
   
 
 :::note
-[Project's GitHub repo](https://github.com/logzio/logzio-api-fetcher/)
+[Project's GitHub repo](https://github.com/logzio/logzio-api-fetcher/tree/v0.1.3)
 :::
 
 
@@ -28,7 +28,7 @@ Cisco SecureX connects the breadth of Cisco's integrated security portfolio and 
 ### Pull the Docker image of the Logz.io API fetcher
 
 ```shell
-docker pull logzio/logzio-api-fetcher
+docker pull logzio/logzio-api-fetcher:0.1.3
 ```
 
 
@@ -51,7 +51,7 @@ logzio:
   token: <<LOG-SHIPPING-TOKEN>>
 
 auth_apis:
-  - type: api_fetcher
+  - type: cisco_secure_x
     name: cisco
     credentials:
       id: <<API_CREDENTIALS_ID>>
@@ -63,7 +63,7 @@ auth_apis:
       event_type%5B%5D: '1090519054'
       start_date: 2021-10-05T10%3A10%3A10%2B00%3A00
     custom_fields:
-      type: cisco
+      type: cisco_amp
       level: high
 ```
 
@@ -94,6 +94,7 @@ After every successful iteration of an API, the last start date of the next iter
 If you stopped the container, you can continue from the exact place you stopped, by adding the date to the API filters in the configuration.
 
 ### Run the Docker container
+In the path where you saved your `config.yaml`, run:
 
 ```shell
 docker run --name logzio-api-fetcher \

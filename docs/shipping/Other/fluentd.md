@@ -82,7 +82,7 @@ See the configuration parameters below the code block.👇
 </match>
 ```
 
-### Parameters
+### Parameters 
 
 | Parameter | Description |
 |---|---|
@@ -115,51 +115,7 @@ If you still don't see your logs, see [log shipping troubleshooting](https://doc
  
 Fluentd can receive and concatenate multiline logs. To do this, you need to add a parser and concatenation plugin to your Fluentd configuration.
 
- 
-
-### Add multiline parser to your input plugin
-
-:::note
-Multiline parsing only works with `in_tail` plugins. Refer to the [Fluentd documentation](https://docs.fluentd.org/parser/multiline) for more on this.
-:::
- 
-
-Add the following code block to your `in_tail` plugin:
-
-```xml
-<parse>
-  @type multiline
-  format_firstline /^<<YOUR-REGEX-PATTERN>>/
-</parse>
-```
-
-* Replace `<<YOUR-REGEX-PATTERN>>` with the definition of your Regex pattern. You can use [regex101](https://regex101.com/) to define it.
-
-The indentation of the parse plugin must be one level under the tail function as in the example below:
-
-```xml
-<source>
-  @type tail
-  path /var/log/httpd-access.log
-  pos_file /var/log/td-agent/httpd-access.log.pos
-  tag apache.access
-	<parse>
-	  @type multiline
-	  format_firstline /\d{4}-\d{1,2}-\d{1,2}/
-	  format1 /^(?<time>\d{4}-\d{1,2}-\d{1,2} \d{1,2}:\d{1,2}:\d{1,2}) \[(?<thread>.*)\] (?<level>[^\s]+)(?<message>.*)/
-	</parse>
-</source>
-```
-
-
- 
-Fluentd is a data collector, which unifies the data collection and consumption. This integration allows you to use Fluentd to send logs from your Windows system to your Logz.io account. 
-
-:::note
-Fluentd will fetch all existing logs, as it is not able to ignore older logs.
-:::
   
-
 ## Configure Fluentd with td-agent for Windows
 
 **Before you begin, you'll need**:
@@ -241,42 +197,7 @@ If you still don't see your logs, see [log shipping troubleshooting](https://doc
 
 Fluentd can receive and concatenate multiline logs. To do this, you need to add a parser and concatenation plugin to your Fluentd configuration.
 
- 
 
-### Add multiline parser to your input plugin
-
-:::note
-Multiline parsing only works with `in_tail` plugins. Refer to the [Fluentd documentation](https://docs.fluentd.org/parser/multiline) for more on this.
-:::
- 
-
-Add the following code block to your `in_tail` plugin:
-
-```xml
-<parse>
-  @type multiline
-  format_firstline /^<<YOUR-REGEX-PATTERN>>/
-</parse>
-```
-
-* Replace `<<YOUR-REGEX-PATTERN>>` with the definition of your Regex pattern. You can use [regex101](https://regex101.com/) to define it.
-
-The indentation of the parse plugin must be one level under the tail function as in the example below:
-
-```xml
-<source>
-  @type tail
-  path /var/log/httpd-access.log
-  pos_file /var/log/td-agent/httpd-access.log.pos
-  tag apache.access
-	<parse>
-	  @type multiline
-	  format_firstline /\d{4}-\d{1,2}-\d{1,2}/
-	  format1 /^(?<time>\d{4}-\d{1,2}-\d{1,2} \d{1,2}:\d{1,2}:\d{1,2}) \[(?<thread>.*)\] (?<level>[^\s]+)(?<message>.*)/
-	</parse>
-</source>
-```
- 
 ## Docker logs with Fluentd
 
 ### Architecture overview
@@ -336,7 +257,7 @@ If you need to send the logs via a proxy server:
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for data of type `docker-fluentd` to see the incoming container logs.
   
-If you still don’t see your data, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don’t see your data, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
   
  
 
@@ -362,4 +283,74 @@ If you need to customize the default settings of the configuration parameters, a
 
  ## Ship Kubernetes logs with Fluentd
 
- See the full documentation for shipping your Kubernetes logs with Fluentd [here](https://docs.logz.io/docs/shipping/Containers/Kubernetes).
+ See the full documentation for shipping your Kubernetes logs with Fluentd [here](https://docs.logz.io/docs/shipping/containers/kubernetes/).
+
+## Multiline logs
+
+ 
+Fluentd splits multiline logs by default. If your original logs span multiple lines, you may find that they arrive in your Logz.io account split into several partial logs.
+
+### Add multiline parser to your input plugin
+
+:::note
+ Multiline parsing only works with `in_tail` plugins. Refer to the [Fluentd documentation](https://docs.fluentd.org/parser/multiline) for more on this.
+:::
+
+The multine parser is supported in the `in_tail` input plugin that allows Fluentd to read events from the tail of text files.
+
+Add the following code block to your `in_tail` plugin:
+
+```xml
+<parse>
+  @type multiline
+  format_firstline /^<<YOUR-REGEX-PATTERN>>/
+</parse>
+```
+
+* Replace `<<YOUR-REGEX-PATTERN>>` with the definition of your Regex pattern. You can use [regex101](https://regex101.com/) to define it.
+
+The indentation of the parse plugin must be one level under the tail function as in the example below:
+
+```xml
+<source>
+  @type tail
+  path /var/log/httpd-access.log
+  pos_file /var/log/td-agent/httpd-access.log.pos
+  tag apache.access
+	<parse>
+	  @type multiline
+	  format_firstline /\d{4}-\d{1,2}-\d{1,2}/
+	  format1 /^(?<time>\d{4}-\d{1,2}-\d{1,2} \d{1,2}:\d{1,2}:\d{1,2}) \[(?<thread>.*)\] (?<level>[^\s]+)(?<message>.*)/
+	</parse>
+</source>
+```
+
+### Filter processing
+The following is an example of a multiline log sent from a deployment on a Kubernetes cluster:
+
+``` shell
+2021-02-08 09:37:51,031 - errorLogger - ERROR - Traceback (most recent call last):
+File "./code.py", line 25, in my_func
+1/0
+ZeroDivisionError: division by zero
+```
+
+Fluentd's default configuration will split the above log into 4 logs, 1 for each line of the original log. In other words, each line break (`\n`) causes a split.
+
+To avoid this, you can use the `fluent-plugin-concat` filter plugin and customize the configuration to meet your needs.
+
+For the above example, we could use the following regex expressions to demarcate the start and end of our example log:
+
+``` shell
+<filter **> # Match all logs, you can replace ** with your tag
+  @type concat
+  key message # The key for part of multiline log
+  multiline_start_regexp /^[0-9]{4}-[0-9]{2}-[0-9]{2}/ # This regex expression identifies line starts.
+</filter>
+```
+
+### Docker
+The Logz.io Docker image comes with a pre-built Fluentd filter plug-in that can be used to concatenate multiline logs. The plug-in is named `fluent-plugin-concat`, and it concatenate multiline log separated in multiple events. You can review the full list of configuration options in the [GitHub project](https://github.com/fluent-plugins-nursery/fluent-plugin-concat).
+
+### Kubernetes
+The additional configuration that applies to the matched logs should be added to the [values.yml file](https://github.com/logzio/logzio-helm/blob/master/charts/fluentd/values.yaml).

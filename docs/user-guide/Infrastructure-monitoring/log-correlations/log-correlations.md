@@ -1,9 +1,10 @@
 ---
 sidebar_position: 1
+title: Log Correlations
+description: Correlate data between your Logz.io metrics and log accounts
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [metrics, infrastructure monitoring, drilldown, Prometheus, monitoring, dashboard, observability, logz.io]
 ---
-
-
-# Log Correlations
 
 
 Your Metrics account offers several ways to correlate data between your Logz.io Infrastructure Monitoring and Log Management accounts:

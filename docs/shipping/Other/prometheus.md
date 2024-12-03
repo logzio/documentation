@@ -100,16 +100,16 @@ externalLabels:
 + **Check via Metrics Explore**: To verify that metrics are arriving to Logz,io:
   1. Open Metrics **Explore** via the compass icon in the left menu bar.
 
-  2. Examine the **Metrics** dropdown list below the **Explore** heading in the upper left of the pane. <br />
+  2. Examine the **Metrics** dropdown list below the **Explore** heading in the upper left of the pane.
     An empty list or the text _no metrics_ indicates that the remote write configuration is not working properly.
     ![Verify Prometheus metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/select-metric-query.png)
 
 ##### Open Metrics Explore
 
-Once you've verified that your data is available in Logz.io, [explore your Prometheus metrics.](https://docs.logz.io/user-guide/infrastructure-monitoring/metrics-explore-prometheus/)
+Once you've verified that your data is available in Logz.io, [explore your Prometheus metrics.](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/introduction-to-prometheus/explore-metrics-prometheus/)
 
 
-After your metrics are flowing, [import your existing Prometheus and Grafana dashboards](https://docs.logz.io/user-guide/infrastructure-monitoring/prometheus-importing-dashbds.html) to Logz.io Infrastructure Monitoring as JSON files.
+After your metrics are flowing, [import your existing Prometheus and Grafana dashboards](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/introduction-to-prometheus/importing-dashboards/) to Logz.io Infrastructure Monitoring as JSON files.
 
 
 

@@ -1,19 +1,47 @@
 ---
 sidebar_position: 2
+title: Split an Array
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Learn how to split JSON arrays in Logz.io
+keywords: [log, monitoring, parsing, arrays, json, default parsing, built in log types, log types, observability]
 ---
 
-# Split an Array
+Logs received as a JSON array cannot be effectively parsed or mapped into fields, making it difficult to search logs efficiently.
+
+When log data is sent with **nested objects** in an array, it **cannot** be used for configuring alerts or creating visualizations. Therefore, it's crucial to parse arrays into separate log documents.
 
 
 
+Example of log data that **can** be used for alerts and visualizations:
 
-Logs that are received as a JSON array cannot be properly parsed or mapping into fields.
-This will impede your ability to search your logs efficiently.
+```json
+"array_field": [
+    {
+      "field": "test"
+    },
+    {
+      "field": "test2"
+    }
+  ]
+```
 
-Log data sent in an array cannot be used for configuring alerts or creating visualizations. This is why it's important to parse arrays into multiple log documents.
+Example of log data that **cannot** be used for alerts or visualizations:
 
-Some shipping methods offer the option to parse an array of JSON objects into discrete events. That way, the logs can be fully parsed and mapped by Logz.io.
+```json
+{
+  "nested_arr": [
+    {
+      "field": "test"
+    },
+    {
+      "field": "test2"
+    }
+  ]
+}
+```
 
+
+Some log shipping methods allow you to parse a JSON array into individual events, ensuring that logs are fully parsed and mapped by Logz.io for better use in alerts and visualizations.
 
 ### Shipping methods that support arrays
 

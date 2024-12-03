@@ -186,7 +186,7 @@ Refer to GitLab Docs to learn more about the [Log system](https://docs.gitlab.co
 If Logz.io is not an output, add it now.
 Remove all other outputs.
 
-{@include: ../../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-url.html}  
 
 ```yaml
 # ...
@@ -204,6 +204,6 @@ output.logstash:
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/docs/shipping/other/filebeat-data/#troubleshooting).
+If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-filebeat).
 
   

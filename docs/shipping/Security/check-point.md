@@ -2,7 +2,7 @@
 id: Check-Point
 title: Check Point
 overview: Check Point provides hardware and software products for IT security, including network security, endpoint security, cloud security, mobile security, data security and security management. This integration allows you to send Check Point logs to your Logz.io SIEM account.
-product: ['logs']
+product: ['logs', 'siem']
 os: ['windows', 'linux']
 filters: ['Security']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/check-point.png
@@ -118,7 +118,7 @@ processors:
 ```
 
 If you're running Filebeat 6, paste this code block.
-
+ 
 ```yaml
 # ... For Filebeat 6 only ...
 registry_file: /var/lib/filebeat/registry
@@ -129,7 +129,7 @@ registry_file: /var/lib/filebeat/registry
 If Logz.io is not an output, add it now.
 Remove all other outputs.
 
-{@include: ../../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-url.html} 
 
 ```yaml
 # ...
@@ -321,7 +321,7 @@ PS C:\Program Files\Filebeat> Restart-Service filebeat
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
-If you still don't see your logs, see [Filebeat's troubleshooting guide](/user-guide/log-troubleshooting/filebeat-troubleshooting.html).
+If you still don't see your logs, see [Filebeat's troubleshooting guide](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/troubleshooting-filebeat/).
 
  
  

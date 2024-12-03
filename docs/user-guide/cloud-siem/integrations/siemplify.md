@@ -1,9 +1,11 @@
 ---
 sidebar_position: 2
+title: Integrate with Siemplify
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Integrate your Logz.io Cloud SIEM with Siemplify
+keywords: [SIEM, Security, Security events, investigate, Security information, Siemplify, integration]
+slug: /cloud-siem/integrations/siemplify/
 ---
-
-
-# Integrate with Siemplify
 
 
 
@@ -28,7 +30,7 @@ Siemplify is an industry-leading Security Orchestration, Automation & Response (
 **Before you begin, you'll need**:
 
 * An active account with Siemplify.
-* An active account with Logz.io.
+* An active Logz.io account.
 * A valid [Logz.io API](https://app.logz.io/#/dashboard/settings/manage-tokens/api) token. Contact support if your account doesn't have one.
 
 ### 1. Add a Logz.io instance to your Siemplify workspace
@@ -76,7 +78,7 @@ For incoming Logz.io alerts, the event trigger is **`[Event.event_name] Equals <
 Fill in the Logz.io integration panel:
 
 1. **Logz.io Security Token** - Enter the API token for your selected Security account.
-2. **Logz.io Region** - Enter the 2-letter region code for your Logz.io account. [Look up your Logz.io account region code](https://docs.logz.io/user-guide/accounts/account-region.html).
+2. **Logz.io Region** - Enter the 2-letter region code for your Logz.io account. [Look up your Logz.io account region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/).
 3. **Logz.io Operations Token** - Enter the token for your selected Log Management account.
 4. **Logz.io Custom Endpoint** - (Optional) Only relevant if you use a custom URL with the Logz.io API.
     * Enter the base url, without the direct path to the method
@@ -168,7 +170,7 @@ If the timeframe for your search exceeds 48 hours, the search is only applied to
 
 ### Logzio-get-logs-by-event-id
 
-Fetches the logs that triggered a security event using the [Logz.io Cloud SIEM API](https://api-docs.logz.io/docs/logz/security-rules). Upon success, returns the logs that match the query as a paginated list in JSON format.
+Fetches the logs that triggered a security event using the [Logz.io Cloud SIEM API](https://api-docs.logz.io/docs/logz/security-rules/). Upon success, returns the logs that match the query as a paginated list in JSON format.
 
 ```
 {

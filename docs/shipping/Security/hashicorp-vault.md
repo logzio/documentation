@@ -2,7 +2,7 @@
 id: HashiCorp-Vault
 title: HashiCorp Vault
 overview: HashiCorp Vault secures, stores, and tightly controls access to tokens, passwords, certificates, API keys, and other secrets in modern computing. This integration allows you to send HashiCorp Vault logs to your Logz.io SIEM account.
-product: ['logs']
+product: ['logs', 'siem']
 os: ['windows', 'linux']
 filters: ['Security']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/hashicorp-vault.svg
@@ -45,7 +45,7 @@ see [File Audit Device](https://www.vaultproject.io/docs/audit/file.html) from H
 
 The Filebeat configuration file is at `/etc/filebeat/filebeat.yml` by default.
 
-:::note
+:::note 
 To avoid conflicts with fields from other log sources, you'll need to run a dedicated Filebeat instance for Vault logs. This allows Filebeat to rename some fields
 to keep Vault logs compatible with Logz.io.
 :::
@@ -53,7 +53,7 @@ to keep Vault logs compatible with Logz.io.
 
 {@include: ../../_include/log-shipping/log-shipping-token.html}
 
-{@include: ../../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-url.html} 
 
 {@include: ../../_include/log-shipping/filebeat-input-extension.md}
 

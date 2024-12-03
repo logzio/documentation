@@ -1,8 +1,12 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
+title: Drop Filters Overview
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Filter out logs from your account with drop filters
+keywords: [Data hub, data optimization, optimization, drop filters, rollups, metrics, recommendations]
+slug: /user-guide/data-hub/drop-fiters
 ---
 
-# Drop Filters
 
 
 Drop filters offer a great way to filter out logs from an account to help manage your account volume and lower costs.

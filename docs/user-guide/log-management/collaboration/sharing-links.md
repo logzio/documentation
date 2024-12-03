@@ -1,45 +1,44 @@
 ---
 sidebar_position: 2
 title: Sharing Links
+description: Use shared tokens to share dashboards and visualizations
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, collaboration, sharing, log analysis, observability]
 ---
 
-You can use shared tokens to share OpenSearch dashboards and visualizations with
-stakeholders who don't have access to your Logz.io account.
+You can use shared tokens to share objects and visualizations with stakeholders who don't have access to your Logz.io account. This is particularly useful for communicating with clients outside your organization or with other teams internally.
 
-This can be useful for communicating with clients outside your organization or internally with other teams in your organization.
+### Configuring a shared token
+
+To share objects, queries, and dashboards, you need to configure a shared token. Only account admins can create, delete, or manage tokens.
 
 
-### Decide which dashboard to share
+To create a token, navigate to [Settings > Manage tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/shared), select **+ New shared token**, configure an expiration date, add any necessary filters, and save the token.
 
-Open the dashboard you would like to share.
-When you share a dashboard, you can decide whether to share the dashboard with a relative or fixed timeframe.
 
-* **Snapshot** - Converts the time selection to absolute dates. Your recipients will view the same data you are viewing now. For example, if you send out a snapshot when viewing the dashboard for the last 24 hours, your recipients will receive the dashboard with a fixed date range selection.
+Learn more about the different [types of tokens](https://docs.logz.io/docs/user-guide/admin/authentication-tokens/tokens/).
 
-  Of course, this type of permalink is short lived, as it depends on your log retention policy. Once the logs are too old, they will no longer feed the dashboard and your recipients won't have anything to see.
 
-* **Saved object** - Shares the dashboard with a relative time selection.
+### Choosing a Dashboard to Share
 
-  The permalink will load the dashboard with its default time selection and filters. For example, if the dashboard is set for the last 15 minutes, this is the time frame your recipients will also review.
+Open the dashboard or saved query you would like to share. When you share an item, you can decide whether to share it as a snapshot or a saved object.
 
-  This option means the sharing link will automatically be updated to reflect any changes made to the dashboard in the future. So if someone saves changes to the dashboard after the sharing link was sent out, your recipients will see the updated version without you having to resend them a new link.
+* **Snapshot** - Converts the time selection to absolute dates, allowing recipients to view the exact data you're seeing. For example, if you send a snapshot for the last 24 hours, recipients will receive a dashboard with a fixed date range. Note that this link is short-lived based on your log retention policy; once the logs expire, the dashboard will no longer display data.
 
-<!-- <video autoplay loop>
-  <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/share-permalink_aug2021.mp4" type="video/mp4" />
-</video> -->
+* **Saved object** - Shares the dashboard with a relative time selection, meaning the dashboard will load with its default time selection and filters. This option keeps the link updated automatically if changes are made to the dashboard, so recipients always see the latest version without needing a new link.
 
 ![Share your dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/dashboard-to-share.gif)
 
 
-### How recipients will see the shared dashboards
+### How recipients will view shared dashboards
 
-When you choose to **Share Public**, your recipients will receive a link to the dashboard you've shared with them. The dashboard will appear without the top and side navigation bars, and without the OpenSearch Dashboards time filtering options.
+When you select **Share Public**, you'll choose the relevant [shared token](https://docs.logz.io/docs/user-guide/admin/authentication-tokens/shared-tokens/), and recipients will receive a link to the shared dashboard. The dashboard will appear without the top and side navigation bars and without the OpenSearch Dashboards time filtering options.
 
-However, you can edit the link to **include the time frame** by adding the following string to the end of the link:
+To **include the time frame** and search functionality in the shared link, add the following string to the end of the URL:
 
 `&forceShowQueryBar=true`
 
-For example, if your public link is:
+For example, the original link:
 
 `https://app.logz.io/?embed=true&shareToken=8d90-fbe1c84836d3#/dashboard/osd/discover/?=&_a=(columns%3A...15m%2Cto%3Anow))`
 
@@ -48,15 +47,12 @@ This is how users will see it:
 ![public share no time](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sharing-logs/share-public-link.png)
 
 
-When you add the time frame string to the end of the URL, it changes the view and includes the time frame and search abilities:
-
+With the time frame string added:
 
 `https://app.logz.io/?embed=true&shareToken=8d90-fbe1c84836d3#/dashboard/osd/discover/?=&_a=(columns%3A...15m%2Cto%3Anow))&forceShowQueryBar=true`
 
 ![public share with time](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sharing-logs/share-with-time.png)
 
+### Testing your sharing permalink
 
-
-### Test your sharing permalink
-
-You can open your sharing link in incognito mode to test and verify it's working.
+To verify that your sharing link works as expected, you can open it in an incognito browser window.

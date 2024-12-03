@@ -2,7 +2,7 @@
 id: Okta
 title: Okta
 overview: Okta is an enterprise-grade, identity management service, built for the cloud, but compatible with many on-premises applications.
-product: ['logs']
+product: ['logs', 'siem']
 os: ['windows', 'linux']
 filters: ['Access Management']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/okta.png
@@ -117,7 +117,7 @@ docker run \
 --env LOGZIO_TOKEN=<<LOG-SHIPPING-TOKEN>> \
 --env LOGZIO_LISTENER_HOST=<<LISTENER-HOST>> \
 -v /etc/logzio-okta/tenants-credentials.yml:/usr/share/logstash/tenants-credentials.yml \
--t logzio/logzio-okta
+-t logzio/logzio-okta 
 ```
 
 For Mac users: To fix issues with mounting files from root directory please add the path ‘/etc/logzio-okta’ to your Docker File Sharing.
@@ -128,6 +128,7 @@ For more information about mounting files from root directory click [here](https
 |---|---|
 | LOGZIO_TOKEN (Required) | {@include: ../../_include/log-shipping/log-shipping-token.html} |
 | LOGZIO_LISTENER_HOST (Required) | {@include: ../../_include/log-shipping/listener-var.html}  |
+| LOG_LEVEL (Optional)                                      | Logstash Log Level (deafult: `info`)                                                                                                      |
 
 
 ### Check Logz.io for your logs

@@ -46,7 +46,7 @@ Choose the Kafka topic(s) you want to collect data from.
 
 ### Set up authentication for Logz.io
 
-1. In the **HTTP URL** field, enter:
+1. In the **HTTP URL** field, enter: 
 
    ```
    https://<<LOGZIO-LISTENER-HOST>>:8071/?token=<<LOGZIO-SHIPPING-TOKEN>>&type=<<YOUR-TYPE>>
@@ -79,7 +79,7 @@ Choose the Kafka topic(s) you want to collect data from.
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). 
   
-If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
 
 ### Removing the connector (if required)
 
@@ -148,7 +148,7 @@ Save this file as `confluent-logzio.json` or a similar JSON file.
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). 
   
-If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
+If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
 
 ### Deleting the connector
 

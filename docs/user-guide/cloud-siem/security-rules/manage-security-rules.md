@@ -14,7 +14,7 @@ with security rules for different attack types and security use cases.
 You can create new security rules to supplement the built-in rules. You can also update any preconfigured rule at any time, including adding a notification endpoint (for example, email or Slack) or changing trigger thresholds.
 
 :::caution Important
-You cannot configure rules using the `logzio-alert` log type. This type is reserved for system-generated rules.
+You cannot configure rules using the `logzio-alert` log type. This type is ignored by the rule engine.
 :::
 
 ## Manually create a new rule
@@ -82,7 +82,7 @@ Set your threshold and severity levels. You can base your trigger on a number of
 In the _Trigger if..._ section, click **Add a threshold** to set as many as 5 threshold conditions, each with its own severity tag.
 
 :::note
-You can set the trigger condition time frame between 5 minutes and up to 24 hours (1 day). To set a trigger condition longer than 24 hours, use [Logz.io’s API](https://api-docs.logz.io/docs/logz/create-security-rule) to create your rule.
+You can set the trigger condition time frame between 5 minutes and up to 24 hours (1 day). To set a trigger condition longer than 24 hours, use [Logz.io’s API](https://api-docs.logz.io/docs/logz/create-security-rule/) to create your rule.
 :::
 
 ![rule trigger thresholds](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--trigger-settings_aug2021.png)
@@ -149,7 +149,7 @@ Set a period between notifications to limit how frequently recipients are notifi
 The system combines the **Trigger if** time interval with the **Wait time** interval to calculate how long it should snooze notifications and chooses the more extended time duration available. For example, if your trigger condition is 1 hour and the wait time is 15 Minutes, the system will snooze notifications for 1 hour before triggering them again.
 :::
 
-*If you need help adding a new endpoint, see [Notification endpoints](https://docs.logz.io/docs/user-guide/integrations/notification-endpoints/endpoints).*
+*If you need help adding a new endpoint, see [Notification endpoints](https://docs.logz.io/docs/user-guide/integrations/notification-endpoints/endpoints/).*
 
 <h3 id="output">Select rule output format & content</h3>
 

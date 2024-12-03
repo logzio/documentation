@@ -1,9 +1,11 @@
 ---
 sidebar_position: 2
+title: OpenTelemetry Traces Troubleshooting
+description: Common questions and use cases when setting up OpenTelemetry tracing account
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, traces, tracing, trace dashboard, dashboard, troubleshoot, opentelemetry, logs, observability, distributed tracing]
+slug: /distributed-tracing/troubleshooting/otel-troubleshooting/
 ---
-
-
-# OpenTelemetry Traces Troubleshooting
 
 
 This section contains some guidelines for handling errors that you may encounter when trying to collect traces with OpenTelemetry.
@@ -54,7 +56,7 @@ If the collector is installed, it may not have the correct endpoint configured f
        endpoint: "0.0.0.0:9411"
    ```
 
-2. In the instrumentation code, make sure that the endpoint is specified correctly. Refer to our [tracing documentation](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=tracing-sources) for more on this.
+2. In the instrumentation code, make sure that the endpoint is specified correctly. Refer to Logz.io's [integrations hub](https://app.logz.io/#/dashboard/integrations/collectors?tags=Tracing) to learn more about how to send your data.
 
 
 ### Possible cause - Traces not genereated
@@ -71,7 +73,7 @@ If the collector is installed and the endpoints are properly configured, the ins
 
 * Replace `<<COLLECTOR-HOST>>` with the address of your collector host, e.g. `localhost`, if the collector is hosted locally.
 
-If the above steps do not work, refer to our [tracing documentation](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=tracing-sources) and re-instrument the application.
+If the above steps do not work, refer to Logz.io's [integrations hub](hhttps://app.logz.io/#/dashboard/integrations/collectors?tags=Tracing) and re-instrument the application.
 
 
 ### Possible cause - Wrong exporter/protocol/endpoint

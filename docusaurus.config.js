@@ -16,6 +16,8 @@ const config = {
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
+  trailingSlash: true,
+
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'facebook', // Usually your GitHub org/user name.
@@ -57,6 +59,13 @@ const config = {
         injectedHtmlTags: {
           preBodyTags: [`<link rel="stylesheet" href="https://cdn.example.com/style.css" type="text/css">`]
         }
+      },
+    ],
+    [
+      '@docusaurus/plugin-google-gtag',
+      {
+        trackingID: 'GTM-NH9MTDW',
+        anonymizeIP: true,
       },
     ],
     ],
@@ -125,9 +134,6 @@ const config = {
       hotjar: {
         applicationId: "3812613",
       },
-      googleTagManager: {
-        containerId: 'GTM-NH9MTDW',
-      },
       docs: {
       sidebar: {
         hideable: true,
@@ -192,7 +198,7 @@ const config = {
               },
               {
                 label: 'Report a security issue',
-                to: 'https://docs.logz.io/report-a-security-issue/',
+                to: '/docs/user-guide/report-security-issue/',
               },
             ],
           },
@@ -209,16 +215,16 @@ const config = {
               },
               {
                 label: 'Sending Data to Logz.io',
-                href: '/docs/user-guide/admin/sending-data-to-logzio',
+                href: '/docs/user-guide/admin/sending-data-to-logzio/',
               },
               {
                 label: 'Trademark Legal Notice',
                 href: 'https://logz.io/about-us/trademarks-legal-notice/',
               },
-              {
-                label: 'Contributers',
-                to: 'https://docs.logz.io/credits.html',
-              },
+              //{
+              //  label: 'Contributers',
+              //  to: 'https://docs.logz.io/credits.html',
+              //},
             ],
           },
           {

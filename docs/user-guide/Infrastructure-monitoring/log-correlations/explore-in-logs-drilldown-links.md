@@ -1,6 +1,9 @@
 ---
 sidebar_position: 3
 title: Explore in OpenSearch Dashboards
+description: Drilldown into log data from your metrics visualizations 
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [metrics, infrastructure monitoring, drilldown, logs, Prometheus, monitoring, dashboard, observability, logz.io]
 ---
 
 **Explore in OpenSearch Dashboards** are drilldown links that give you a direct shortcut from your Metrics' visualizations to the relevant logs in OpenSearch Dashboards.

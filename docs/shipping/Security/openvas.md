@@ -2,7 +2,7 @@
 id: OpenVAS
 title: OpenVAS
 overview: These instructions show you how to configure Filebeat to send OpenVAS reports to Logz.io.
-product: ['logs']
+product: ['logs', 'siem']
 os: ['windows', 'linux']
 filters: ['Security']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/greenbone_icon.png
@@ -116,7 +116,7 @@ output:
     hosts: ["<<LISTENER-HOST>>:5015"]
     ssl:
       certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
-```
+``` 
 
 
 

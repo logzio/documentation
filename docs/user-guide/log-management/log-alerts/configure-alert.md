@@ -1,21 +1,26 @@
 ---
 sidebar_position: 2
 title: Configure an Alert
+description: Create and configure alerts in Logz.io
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, alerts, log alerts, log analysis, observability]
 ---
 
 You can set up Logz.io log alerts to automatically get notified about issues that demand attention.
 
-:::note
 Community plans limit the number of alerts that may be enabled. See the official [pricing page](https://logz.io/pricing/) for details.
+
+:::note
+Need help setting up your alerts? If your logs haven't been parsed into fields yet, our [support team](mailto:help@logz.io) can assist with prasing your logs and extracting the fields needed to create your alerts.
 :::
 
-### Configuring an alert
+## Configuring an alert
 
 :::caution Important
-You cannot configure alerts using the `logzio-alert` log type. This type is reserved for system-generated alerts.
+You cannot configure alerts using the `logzio-alert` log type. This type is ignored by the alerts engine.
 :::
 
-#### Name the alert
+### Name the alert
 
 Give your alert a meaningful name. When your alert triggers, its name is used as the email subject or notification heading.
 
@@ -24,7 +29,7 @@ Your alert name can contain letters, numbers, spaces, and special characters. It
 :::
 
 
-#### Set search components
+### Set search components
 
 Next, set the search components. This determines which logs to look for and in which accounts.
 
@@ -40,7 +45,7 @@ rather than by adding it as a filter: `@timestamp` filters are overwritten.
 :::
 
 
-##### Enter query and filters
+<h3 id="query-filters"> Enter query and filters</h3>
 
 You can use any combination of filters and a search query. Note the following:
 
@@ -54,7 +59,7 @@ You can use any combination of filters and a search query. Note the following:
 Once you're done refining your search query and filters, you can
 click **Preview** to open OpenSearch Dashboards in another tab. It can help review the returned logs and ensure you get the expected results.
 
-##### Using Group-by (order matters!)
+<h3 id="groupby"> Using Group-by (order matters!)</h3>
 
 :::caution Important
 Alerts won't trigger if the field added to the Group-by doesn't exist in the logs. The logs must include **both** the field you have in group-by and the field you use in your query/filter to trigger the alert. 
@@ -85,7 +90,7 @@ You’ll be able to use these fields to create the following chart:
 
 
 
-##### Select relevant accounts
+<h3 id="relevant-accounts"> Select relevant accounts</h3>
 
 Next, select the **Accounts to search**. 
 
@@ -93,7 +98,7 @@ Next, select the **Accounts to search**.
 
 * You can select specific accounts. Select **Just these accounts** and add the relevant accounts from the dropdown list.
 
-#### Set threshold and severity levels
+<h3 id="thresholds"> Set threshold and severity levels</h3>
 
 Set your threshold and severity levels.
 
@@ -106,7 +111,7 @@ You can set the trigger condition time frame between 5 minutes and up to 24 hour
 
 ![Alert trigger thresholds](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--trigger-settings_aug2021.png)
 
-#### Set alert schedule
+### Set alert schedule
 
 You can use the scheduling mechanism to manage the trigger condition frequency.
 
@@ -131,9 +136,9 @@ For example, you can apply the following schedule to your alerts:
 
 By default, trigger conditions run approximately every minute. If there's a lag, the alert is not checked until all data is received. In addition, once an alert has met its condition and is triggered, it won't be checked again for the remainder of the alert trigger condition time range.
 
-#### _(Optional)_ Set notification details
+<h3 id="notification"> _(Optional)_ Set notification details </h3>
 
-##### Add description and tags
+<h3 id="description"> Add description and tags</h3>
 
 ![Alert description and tags](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/description-and-tags_aug2021.png)
 
@@ -143,7 +148,7 @@ We recommend making your description helpful to recipients, like telling them ho
 
 The **Tags** are useful for filtering. For example, they can be used to create filtered visualizations and dashboards or to filter the _Alert definitions_ page.
 
-##### Select alert recipients
+<h3 id="recipients"> Select alert recipients</h3>
 
 ![Recipients and wait between notifications](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/recipients-and-wait_aug2021.png)
 
@@ -151,7 +156,7 @@ Choose notification endpoints if you want to send notifications or emails when t
 
 Choose the endpoints or email addresses to notify under _Who to send it to_.
 
-##### Add an additional email address as a recipient
+<h3 id="additional"> Add an additional email address as a recipient</h3>
 
 
 :::note
@@ -173,7 +178,7 @@ Set a time period between notifications to limit how frequently recipients are n
 The system combines the **Trigger if** time interval with the **Wait time** interval to calculate how long it should snooze notifications and chooses the more extended time duration available. For example, if your trigger condition is 1 hour and the wait time is 15 Minutes, the system will snooze notifications for 1 hour before triggering them again.
 :::
 
-##### Select alert's output format & content
+<h3 id="output"> Select alert's output format & content</h3>
 
 When triggered, the alert will send out a notification with sample data.
 
@@ -183,20 +188,20 @@ If the alert includes any aggregation or group by field, the notification output
 
 ![Output format](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/output_aggregated_aug2021.png)
 
-To be selective about the output, click **<i class="li li-plus"></i> Add a field** and select a field from the dropdown list. If you want, you can also add a sorting rule and a regex filter. [Learn more about regex filters for alert notifications](/user-guide/alerts/regex-filters.html).
+To be selective about the output, click **<i class="li li-plus"></i> Add a field** and select a field from the dropdown list. If you want, you can also add a sorting rule and a regex filter. [Learn more about regex filters for alert notifications](https://docs.logz.io/docs/user-guide/log-management/log-alerts/regex-filters/).
 
   * If you select **JSON** format, you can send the full log (with all fields) or select as many as 7 fields.
   * If you select **Table**, you can send as many as 7 fields.
 
 ![Output table](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/output-formats_aug2021.gif)
 
-#### Save your alert
+### Save your alert
 
 Click **Save** to save your alert.
 If the thresholds are passed and the alert is triggered,
 Logz.io will log the alert and send the configured notifications.
 
-#### Get alert's ID
+### Get alert's ID
 
 
 Each alert has a unique ID to help you find and share it with your teammates. Once your alert is configured, click the Edit button next to it. Then, the URL will update to include a set of numbers that represents your alert’s ID.

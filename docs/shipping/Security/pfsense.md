@@ -2,7 +2,7 @@
 id: pfSense
 title: pfSense
 overview: pfSense is an open source firewall solution. This topic describes how to configure pfSense to send system logs to Logz.io via Filebeat running on a dedicated server. 
-product: ['logs']
+product: ['logs', 'siem']
 os: ['windows', 'linux']
 filters: ['Security', 'Network']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/pfsense-logo.png
@@ -19,7 +19,7 @@ drop_filter: []
 **Before you begin, you'll need**: 
 
 * pfSense installed and configured on your machine
-* an active account with Logz.io
+* An active Logz.io account
 * [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) installed on your machine
 * Root priveleges on your machines 
 
@@ -87,14 +87,14 @@ By default, syslog will be forwarded over port 514. Feel free to adjust this, ba
          to: "source"
        ignore_missing: true
    output.logstash:
-     hosts: ["<<LISTENER-HOST>>:5015"]
+     hosts: ["<<LISTENER-HOST>>:5015"] 
      ssl:
        certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
    ```
   
    * Replace `<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>` with the address of your server running Filebeat.
    * {@include: ../../_include/log-shipping/log-shipping-token.md}
-   * {@include: ../../_include/log-shipping/listener-var.md}
+   * {@include: ../../_include/log-shipping/listener-url.html}
 
 2. Run Filebeat with the new configuration.
 

@@ -1,8 +1,11 @@
 ---
 sidebar_position: 5
+title: Spans Table
+description: Visualize your traces with spans table
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, traces, tracing, spans, spans table, observability, distributed tracing]
 ---
 
-# Spans Table
 
 The Spans Table provides a table view of your services and operations. It’s a textual representation of what’s happening inside your trace, and you can filter your view based on a specific service or operation.
 

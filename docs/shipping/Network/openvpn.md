@@ -2,7 +2,7 @@
 id: OpenVPN-network
 title: OpenVPN
 overview: OpenVPN  is a virtual private network system for secure point-to-point or site-to-site connections.
-product: ['metrics']
+product: ['metrics', 'siem']
 os: ['windows', 'linux']
 filters: ['Network']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/openvpn.png
@@ -21,7 +21,7 @@ These instructions only apply to Linux and MacOS systems.
 
 **Before you begin, you'll need**: 
 
-* An active account with Logz.io
+* An active Logz.io account
 * OpenVPN Access Server installed
 * [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) installed on the same machine as OpenVPN Access Server
 * Root priveleges on your machines 
@@ -112,13 +112,12 @@ If you're running Filebeat 7 to 8.1, paste the code block below instead:
    output.logstash:
      hosts: ["<<LISTENER-HOST>>:5015"]
      ssl:
-       certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+       certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt'] 
    ```
 
 
   
-   * Your Logz.io log shipping token directs the data securely to your Logz.io Log Management account. [Manage your tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/shared).
-   * {@include: ../../_include/log-shipping/listener-var.md}
+   * Your Logz.io log shipping token directs the data securely to your Logz.io Log Management account. [Manage your tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/shared). {@include: ../../_include/log-shipping/listener-url.html}
 
 ##### Restart Filebeat to run it with the new configuration.
   

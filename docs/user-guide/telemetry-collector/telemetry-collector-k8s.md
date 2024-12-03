@@ -4,10 +4,11 @@ title: Send Kubernetes Data with Telemetry Collector
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Send your Kubernetes data with Logz.io's Telemetry Collector
 keywords: [Kubernetes, ship kubernetes data, kubernetes logs, kubernetes metrics, kubernetes tracing]
+slug: /telemetry-collector/telemetry-collector-k8s/
 ---
 
 :::note
-Telemetry Collector is currently **available in all regions** except for Japan and Australia. If you're located in these regions, you can use **[Logz.io’s data shippers](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=all)** to send your data.
+Telemetry Collector is currently **available in all regions** except for Japan. If you're located in this region, you can use **[Logz.io’s integrations hub](https://app.logz.io/#/dashboard/integrations/collectors)** to send your data.
 :::
 
 To start sending your Kubernetes data through the Telemetry Collector, you'll need the following:
@@ -61,14 +62,6 @@ The Telemetry Collector will create all setters needed for the Helm install comm
 You can review the complete list of parameters and commands Logz.io runs in the background [on the **Logzio Monitoring GitHub repository**](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-monitoring).
 
 It might take a while for the Telemetry Collector to get up and running, after which you can view your logs, metrics, or traces and get full observability into your system.
-
-### Auto-instrument and tag your code with Easy Connect
-
-Easy connect helps streamline auto-instrumentation and accurately identify and tag logs and traces. Copy and paste the snippet into your terminal to review and update your logs. 
-
-![Easy Connect](https://dytvr9ot2sszz.cloudfront.net/logz-docs/ezkonnect/ezkonnect-logs.png)
-
-Learn more about [Easy Connect](/docs/user-guide/telemetry-collector/ezkonnect).
 
 ### Optional - Configure data sources
 

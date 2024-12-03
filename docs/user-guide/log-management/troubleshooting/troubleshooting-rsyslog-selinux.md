@@ -1,9 +1,11 @@
 ---
 sidebar_position: 5
+title: Troubleshooting Rsyslog - SELinux
+description: Learn about common errors when running Rsyslog - SELinux configuration
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, troubleshooting, Rsyslog, SELinux, log analysis, observability]
+slug: /log-management/troubleshooting/troubleshooting-rsyslog-selinux/
 ---
-
-
-# Troubleshooting Rsyslog - SELinux
 
 This section contains some guidelines for handling errors that you may encounter when trying to collect logs for Rsyslog - SELinux configuration.
 
@@ -22,7 +24,7 @@ To send information to Logz.io properly in a SELinux environment, it is necessar
 
 The issue may not be caused by SELinux.
 
-###### Suggested remedy
+<h3 id="related-remedy"> Suggested remedy</h3>
 
 
 Disable SELinux temporarily and see if that solves the problem.
@@ -68,10 +70,10 @@ SELINUX=permissive
 
 You may need to add exception to SELinux configuration to enable Logz.io.
 
-###### Suggested remedy
+<h3 id="exception-remedy"> Suggested remedy</h3>
 
 
-###### 1. Install the policycoreutils and the setroubleshoot packages
+<h3 id="exception-1"> 1. Install the policycoreutils and the setroubleshoot packages</h3>
 
 
 ```shell
@@ -79,7 +81,7 @@ You may need to add exception to SELinux configuration to enable Logz.io.
 $ sudo yum install policycoreutils setroubleshoot
 ```
 
-###### 2. Check which syslog ports are allowed by SELinux
+<h3 id="exception-2"> 2. Check which syslog ports are allowed by SELinux</h3>
 
 Run the command as in the example below:
 
@@ -90,7 +92,7 @@ output:
 syslogd_port_t udp 514
 ```
 
-###### 3. Add a new port to policy for Logz.io
+<h3 id="exception-3"> 3. Add a new port to policy for Logz.io</h3>
 
 
 ```shell
@@ -98,7 +100,7 @@ syslogd_port_t udp 514
 $ sudo semanage port -m -t syslogd_port_t -p tcp 5000
 ```
 
-###### 4. Authorize Rsyslog directory
+<h3 id="exception-4"> 4. Authorize Rsyslog directory</h3>
 
 
 ```shell
@@ -120,7 +122,7 @@ $ sudo semanage fcontext -a -t etc_t "/etc/rsyslog.d"
 $ sudo restorecon -v /etc/rsyslog.d
 ```
 
-###### 5. Restart Rsyslog
+<h3 id="exception-5"> 5. Restart Rsyslog</h3>
 
 
 ```shell

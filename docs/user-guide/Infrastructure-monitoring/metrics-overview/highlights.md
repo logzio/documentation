@@ -1,6 +1,9 @@
 ---
 sidebar_position: 2
 title: Metrics Highlights
+description: Monitor your systems with Prometheus-based infrastructure monitoring
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [metrics, infrastructure monitoring, Prometheus, monitoring, observability, logz.io]
 ---
 
 Logz.io Metrics will help you monitor the health of your systems and catch issues BEFORE your customers notice.

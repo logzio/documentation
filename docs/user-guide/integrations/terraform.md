@@ -1,8 +1,11 @@
 ---
 sidebar_position: 7
+title: Terraform Logz.io Provider
+description: Build Logz.io integrations with Terraform 
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [integrations, Terraform, API, logz.io, OpenSearch Dashboards, GitHub]
+slug: /integrations/terraform/
 ---
-
-# Terraform Logz.io Provider
 
 :::note
 [Project's GitHub repo](https://github.com/logzio/logzio_terraform_provider/)
@@ -22,17 +25,23 @@ You can use the Terraform Logz.io Provider to manage users and log accounts in L
 
 The following Logz.io API endpoints are supported by this provider:
 
-* [User management](https://api-docs.logz.io/docs/logz/manage-users)
-* [Notification channels](https://api-docs.logz.io/docs/logz/manage-notification-endpoints)
-* [Sub accounts](https://api-docs.logz.io/docs/logz/manage-time-based-log-accounts)
-* [Logs-based alerts v2](https://api-docs.logz.io/docs/logz/alerts)
-* [Log shipping tokens](https://api-docs.logz.io/docs/logz/manage-log-shipping-tokens)
-* [Drop filters](https://api-docs.logz.io/docs/logz/drop-filters)
-* [Archive logs](https://api-docs.logz.io/docs/logz/archive-logs)
-* [Restore logs](https://api-docs.logz.io/docs/logz/restore-logs)
-* [Authentication groups](https://api-docs.logz.io/docs/logz/authentication-groups)
-* [OpenSearch Dashboards objects](https://api-docs.logz.io/docs/logz/import-or-export-kibana-objects)
-* [S3 Fetcher](https://api-docs.logz.io/docs/logz/connect-to-s-3-buckets)
+* [User management](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/user)
+* [Notification channels](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/grafana_notification_policy)
+* [Sub accounts](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/subaccount)
+* [Logs-based alerts v2](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/alert_v2)
+* [Log shipping tokens](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/log_shipping_token)
+* [Drop filters](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/drop_filter)
+* [Archive logs](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/archive_logs)
+* [Restore logs](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/restore_logs)
+* [Authentication groups](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/authentication_groups)
+* [OpenSearch Dashboards objects](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/kibana_object)
+* [S3 Fetcher](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/s3_fetcher)
+* [Grafana Dashboards](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/grafana_dashoboard)
+* [Grafana folders](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/grafana_folder)
+* [Grafana Alert Rules](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/grafana_alert_rule)
+* [Grafana Contact Point](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/grafana_contact_point)
+* [Grafana Notification Policy](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/grafana_notification_policy)
+* [Metrics Accounts](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/metrics_account)
 
 ## Working with Terraform
 
@@ -63,10 +72,10 @@ If you wish to use a specific version of the provider, add under `source` the fi
 
 The provider accepts the following arguments:
 
-* **api_token** - (Required) The API token is used for authentication. [Learn more about the API token](/user-guide/tokens/api-tokens.html).
+* **api_token** - (Required) The API token is used for authentication. [Learn more about the API token](https://docs.logz.io/docs/user-guide/admin/authentication-tokens/api-tokens/).
 
 * **region** - (Defaults to null) The 2-letter region code identifies where your Logz.io account is hosted.
-Defaults to null for accounts hosted in the US East - Northern Virginia region. [Learn more about account regions](https://docs.logz.io/user-guide/accounts/account-region.html)
+Defaults to null for accounts hosted in the US East - Northern Virginia region. [Learn more about account regions](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/)
 
 
 <h4 id="#example1">Example - Pass variables</h4>

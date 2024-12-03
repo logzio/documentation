@@ -75,7 +75,7 @@ filebeat.inputs:
   fields_under_root: true
   encoding: utf-8
   ignore_older: 3h
-```
+``` 
 
 
 
@@ -84,7 +84,7 @@ filebeat.inputs:
 If Logz.io is not an output, add it now.
 Remove all other outputs.
 
-{@include: ../../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-url.html} 
 
 ```yaml
 # ...

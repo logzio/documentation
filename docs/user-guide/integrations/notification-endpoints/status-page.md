@@ -4,7 +4,9 @@ sidebar_position: 6
 
 # Create an Integration with StatusPage
 
-
+:::warning note
+The StatusPage integration is not supported as a notification endpoint in Grafana Alert Manager.
+:::
 
 Use this StatusPage integration to notify StatusPage when there are service issues that impact your platform. 
 

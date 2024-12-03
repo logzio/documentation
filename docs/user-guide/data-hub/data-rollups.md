@@ -1,12 +1,18 @@
 ---
 sidebar_position: 6
+title: Metrics Rollups
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Compact and optimize your Logz.io metrics
+keywords: [Data hub, data optimization, optimization, drop filters, rollups, metrics, recommendations]
 ---
-
-# Metrics Rollups
 
 
 
 You can compact and discard some of your metrics as it ages to focus on the data that matters. **Rollups** let you aggregate many time series by excluding labels, optimizing your costs and performance.
+
+:::info note
+Only Account Admins can access the Data Hub and utilize Metric rollups.
+:::
 
 
 

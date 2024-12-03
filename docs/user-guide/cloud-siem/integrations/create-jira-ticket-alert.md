@@ -45,31 +45,31 @@ Next:
 
    ```json
    {
-       "fields": {
-           "project": {
-               "key": <project board key>
-           },
-           "summary": "",
-           "issuetype": {
-               "name": <board specific issue type>
-           },
-           "description": {
-               "type": "doc",
-               "version": 1,
-               "content": [
-                   {
-                       "type": "paragraph",
-                       "content": [
-                           {
-                               "type": "text",
-                               "text": ""
-                           }
-                       ]
-                   }
-               ]
-           }
-       }
-   }
+    "fields": {
+        "project": {
+            "key": <project board key>
+        },
+        "summary": "YOUR_SUMMARY",
+        "issuetype": {
+            "name": <board specific issue type>
+        },
+        "description": {
+            "type": "doc",
+            "version": 1,
+            "content": [
+                {
+                    "type": "paragraph",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "YOUR_TEXT"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+    }
    ```
    
    Replace `<project board key>` with the key of your JIRA project board.

@@ -121,7 +121,7 @@ Query values must be numberic. Set it to either integer or float using the `fiel
 
 :::note
 The database name is only required for instantiating a connection with the server and does not restrict the databases that we collect metrics from. The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/sql).
-:::
+::: 
  
 
 #### Add the outputs.http plug-in

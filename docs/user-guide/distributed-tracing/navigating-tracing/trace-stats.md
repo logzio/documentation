@@ -1,6 +1,9 @@
 ---
 sidebar_position: 4
 title: Trace Statistics
+description: Visualize your traces with statistics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, traces, tracing, statistics, observability, distributed tracing]
 ---
 
 

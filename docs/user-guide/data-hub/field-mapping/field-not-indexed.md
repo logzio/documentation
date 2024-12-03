@@ -1,9 +1,11 @@
 ---
 sidebar_position: 2
+title: Field Not Indexed
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Troubleshoot Field Not Indexed issue in OpenSearch Dashboards
+keywords: [troubleshoot, field, log, mapping, observability, monitoring, issues]
 ---
 
-
-# Field Not Indexed
 
 
 Sometimes, it will appear that a field in OpenSearch Dashboards is not mapped. The mapping icon will show a ?<i class="fas fa-question"></i> question mark, indicating that the field is not mapped. 

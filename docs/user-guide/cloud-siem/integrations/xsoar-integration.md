@@ -1,8 +1,12 @@
 ---
 sidebar_position: 3
+title: Integrate with Cortex xSOAR
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Integrate your Logz.io Cloud SIEM with xSOAR
+keywords: [SIEM, Security, Security events, investigate, Security information, xSOAR, integration]
+slug: /cloud-siem/integrations/xsoar-integration/
 ---
-
-# Integrate with Cortex xSOAR
+ 
 
 
 Integrate your Logz.io Cloud SIEM with [Cortex XSOAR](https://www.paloaltonetworks.com/cortex/xsoar) (formerly Demisto) to automatically remediate security incidents identified by Logz.io and increase observability into incident details. Cortex XSOAR is an industry-leading Security Orchestration, Automation & Response (SOAR) solution. The integration allows Cortex xSOAR users to implement playbooks to automatically remediate incidents identified by Logz.io Cloud SIEM.

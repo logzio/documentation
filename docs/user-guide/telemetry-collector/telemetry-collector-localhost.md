@@ -4,10 +4,11 @@ title: Send Localhost Data with Telemetry Collector
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Send your Localhost data with Logz.io's Telemetry Collector
 keywords: [log-shipping, telemetry collector, localhost data, local host, agent, collector, mac, linux, windows]
+slug: /telemetry-collector/telemetry-collector-localhost/
 ---
 
 :::note
-Telemetry Collector is currently **available in all regions** except for Japan and Australia. If you're located in these regions, you can use **[Logz.io’s data shippers](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=all)** to send your data.
+Telemetry Collector is currently **available in all regions** except for Japan. If you're located in this region, you can use **[Logz.io’s integrations hub](https://app.logz.io/#/dashboard/integrations/collectors)** to send your data.
 :::
 
 To start sending Localhost data through the Telemetry Collector, Log into your **main** Logz.io account, navigate to the [Integration hub](https://app.logz.io/#/dashboard/integrations/collectors) and choose one of the integrations under **Quick Setup**.
@@ -21,6 +22,10 @@ To configure the Telemetry Collector, you must be logged into your **main** Logz
 
 
 ## Send Localhost data
+
+:::note
+This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
+:::
 
 <!-- 
 ### Select your environment
@@ -72,6 +77,10 @@ If you encounter issues in installing or running your Telemetry Collector, [cont
 ## Manage and remove a Telemetry Collector:
 
 To manage a Localhost Telemetry Collector on your **Linux** machine, you can use the following commands:
+
+:::tip Note
+To run these commands, make sure you're using SystemD.
+:::
 
 |Description|Command|
 |-|-|

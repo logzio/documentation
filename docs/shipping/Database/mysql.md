@@ -5,11 +5,12 @@ overview: MySQL is an open-source relational database management system. Filebea
 product: ['metrics']
 os: ['windows', 'linux']
 filters: ['Database']
+recommendedFor: ['Software Engineer']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/mysql.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: []
+metrics_dashboards: ['2zMVEOdWnIMgOPATDLByX7']
 metrics_alerts: []
 drop_filter: []
 ---
@@ -183,10 +184,10 @@ The log type is used to apply the appropriate Logz.io preconfigured parsing pipe
 
 #### Set Logz.io as the output
 
-If Logz.io is not an output, add it now.
+If Logz.io is not an output, add it now. 
 Remove all other outputs.
 
-{@include: ../../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-url.html} 
 
 ```yaml
 # ...
@@ -371,7 +372,7 @@ The full list of data scraping and configuring options can be found [here](https
 
 ### Check Logz.io for your metrics
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["2zMVEOdWnIMgOPATDLByX7"] -->
 

@@ -6,11 +6,11 @@ product: ['metrics']
 os: ['windows', 'linux']
 filters: ['Compute']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/apache-http-logo.png
-logs_dashboards: []
-logs_alerts: []
+logs_dashboards: ['5LWLzuSeGMqXVj5p8cP1NX']
+logs_alerts: ['6b8UfKeSHCc4SWxHphMd0O', '5jTENQYn5PpgiZWvezI0Cp', '6OAv4ozj4eRi7NSHgJawl1', '7EgPOsqIuoBUCwcHpq57L3', '6NmeR0XGMoTTanwU82oCrD']
 logs2metrics: []
-metrics_dashboards: []
-metrics_alerts: []
+metrics_dashboards: ['1QVUFk8WyARc58yTjCyVC8']
+metrics_alerts: ['28VJXdtDINv7w2T3l8oOO9']
 drop_filter: []
 ---
 
@@ -133,10 +133,10 @@ filebeat.inputs:
 
 ### Set Logz.io as the output
 
-If Logz.io is not an output, add it now.
+If Logz.io is not an output, add it now. 
 Remove all other outputs.
 
-{@include: ../../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-url.html} 
 
 ```yaml
 # ...

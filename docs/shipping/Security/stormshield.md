@@ -2,7 +2,7 @@
 id: Stormshield
 title: Stormshield
 overview: Stormshield provides cyber-security solutions. This integration allows you to send logs from your Stormshield applications to your Logz.io SIEM account.
-product: ['logs']
+product: ['logs', 'siem']
 os: ['windows', 'linux']
 filters: ['Network', 'Security']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/stormshield.png
@@ -75,12 +75,12 @@ Still in the same configuration file, check if Logz.io is already an output. If 
 ```
 # ...
 output.logstash:
-  hosts: ["<<LISTENER-HOST>>:5015"]
+  hosts: ["<<LISTENER-HOST>>:5015"] 
   ssl:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-{@include: ../../_include/log-shipping/listener-var.html} 
+{@include: ../../_include/log-shipping/listener-url.html} 
 
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.

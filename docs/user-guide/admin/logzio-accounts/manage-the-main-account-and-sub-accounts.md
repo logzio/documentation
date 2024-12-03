@@ -1,7 +1,9 @@
 ---
 sidebar_position: 2
 title: Manage Log, Metrics, Tracing, Timeless and SIEM accounts
-
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Learn more on managing the different telemetries in Logz.io
+keywords: [account, manage account, optimization, admin controls, admin, user permissions, permissions, access control]
 ---
 
 

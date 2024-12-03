@@ -6,7 +6,7 @@ product: ['logs','metrics']
 os: ['linux']
 filters: ['Operating Systems', 'Most Popular']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/linux.svg
-logs_dashboards: []
+logs_dashboards: ['6AJEM9FdpE5HqXem42edp']
 logs_alerts: []
 logs2metrics: []
 metrics_dashboards: ['6hb5Nww0ar4SXoF92QxMx']
@@ -19,38 +19,38 @@ drop_filter: []
 
 * Root access
 
-## Send your Linux machine logs and metrics using OpenTelemetry service
+## Send Linux logs and metrics with OpenTelemetry
 
 :::note
-For a much easier and more efficient way to collect and send metrics, consider using the [Logz.io telemetry collector](https://app.logz.io/#/dashboard/send-your-data/agent/new).
+For a simpler and more efficient way to collect and send metrics, use the [Logz.io telemetry collector](https://app.logz.io/#/dashboard/integrations/collectors?tags=Quick%20Setup).
 :::
 
-Create a Logz.io directory: 
+**1. Create a Logz.io directory:**
 
 ```shell
 sudo mkdir /opt/logzio-agent
 ```
 
-Download OpenTelemetry tar.gz: 
+**2. Download OpenTelemetry tar.gz:**
 
 ```shell
-curl -fsSL "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.82.0/otelcol-contrib_0.82.0_linux_amd64.tar.gz" >./otelcol-contrib.tar.gz
+curl -fsSL "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.111.0/otelcol-contrib_0.111.0_linux_amd64.tar.gz" >./otelcol-contrib.tar.gz
 ```
  
-Extract the OpenTelemetry binary:
+**3. Extract the OpenTelemetry binary:**
 
 ```shell
 sudo tar -zxf ./otelcol-contrib.tar.gz --directory /opt/logzio-agent otelcol-contrib
 ```
  
 
-Create the OpenTelemetry config file:
+**4. Create the OpenTelemetry config file:**
 
 ```shell
 sudo touch /opt/logzio-agent/otel_config.yaml
 ```
  
-And copy the following OpenTelemetry content into the config file. 
+**5. Copy the following into the config file:**
 
 Replace `<<LOG-SHIPPING-TOKEN>>`, `<<LISTENER-HOST>>`, and `<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>` with the relevant parameters from your Logz.io account.
 
@@ -105,15 +105,18 @@ exporters:
   logging:
   logzio/logs:
     account_token: <<LOG-SHIPPING-TOKEN>>
-    region: us
+    region: <<LOGZIO_ACCOUNT_REGION_CODE>> # Default is US
+    headers:
+      user-agent: logzio-linux-logs
   prometheusremotewrite:
-    endpoint: https:<<LISTENER-HOST>>:8053
+    endpoint: https://<<LISTENER-HOST>>:8053
     headers:
       Authorization: Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
+      user-agent: logzio-linux-metrics
     resource_to_telemetry_conversion:
       enabled: true
     target_info:
-        enabled: false
+      enabled: false
 service:
   pipelines:
     logs:
@@ -138,11 +141,11 @@ service:
 
  
 :::caution Important
-If you already running OpenTelemetry metrics on port 8888, you will need to edit the `address` field in the config file.
+If OpenTelemetry metrics are already running on port 8888, edit the `address` field in the config file.
 :::
  
 
-Next, create the service file:
+**6. Create the service file:**
 
 ```shell
 sudo touch /etc/systemd/system/logzioOTELCollector.service
@@ -165,7 +168,9 @@ WantedBy=multi-user.target
 
 ```
 
-### Manage your OpenTelemetry on Localhost
+## Manage your OpenTelemetry on Localhost
+
+Manage OpenTelemetry on your machine using the following commands:
 
 |Description|Command|
 |--|--|
@@ -175,12 +180,12 @@ WantedBy=multi-user.target
 |Delete service|`sudo systemctl stop logzioOTELCollector` `sudo systemctl reset-failed logzioOTELCollector 2>/dev/null` `sudo rm /etc/systemd/system/logzioOTELCollector.service 2>/dev/null` `sudo rm /usr/lib/systemd/system/logzioOTELCollector.service 2>/dev/null` `sudo rm /etc/init.d/logzioOTELCollector 2>/dev/null`|
 
 
-## Send your logs to Logz.io through rsyslog 
+## Send data through rsyslog 
 
 **Before you begin, you'll need**:
 
 * Root access
-* Port 5000 open
+* Port 5000 open 
 
 ### Run the rsyslog configuration script
 
@@ -202,9 +207,9 @@ The above assumes the following defaults:
 
 ### Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours, and then [open Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can search for `type:syslog` to filter for your logs. 
+Allow some time for data ingestion, then open your [metrics dashboard](https://app.logz.io/#/dashboard/metrics).
 
-If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
+Encounter an issue? See our [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/) guide.
 
  
  

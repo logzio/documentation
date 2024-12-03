@@ -1,17 +1,18 @@
 ---
 sidebar_position: 2
+title: Understanding Invalid Log Errors
+description: Learn about invalid logs and the error tags that help you resolve issues
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [logz.io, troubleshooting, invalid logs, log analysis, observability]
 ---
 
-
-# Understanding Invalid Log Errors
-
-There are a number of scenarios that can lead to invalid log errors. In this doc, we'll walk through the different types of log errors and common methods to solve the issue.
+Invalid log errors can occur in several scenarios. In this document, we'll discuss the different types of log errors and common methods for solving the issue.
 
 
 
-### Field mapping types
+## Field mapping types
 
-To make your search engine queries and analytics are more effective, OpenSearch Dashboards maps each field by a data type, so it knows how to display it according to its capabilities. There are two types of mapping fields:
+To make your search engine queries and analytics more effective, OpenSearch Dashboards maps each field by a data type so it knows how to display it according to its capabilities. There are two types of mapping fields:
 
 * **Dynamic** - This is the default mapping type, determined by the value of the log fields mapped at the beginning of each day.
 * **Explicit** - This is a forced mapping type, and when chosen, OpenSearch will always map this field as the same data type.
@@ -32,17 +33,22 @@ Field data type determines how each field is indexed and shown in OpenSearch Das
 
 Changing a field’s data type may affect any dashboards, visualizations, searches, alerts, optimizers, and integrations using that field.
 
-### Mapping errors
+## Mapping errors
 
 Your logs are mapped daily, and each field is assigned a Dynamic or Explicit data type.
 
 Dynamic mappings are automatically determined as logs are received, meaning the fields' data type is known. When a field is marked as Explicit, its data type is unclear.
 
-Mapping errors occur when different data types are sent to the same field. For example, if field `weather` receives the numeric value `35`, then gets the value `hot`, it'll result in a mapping error since the same field can't contain two different types of inputs.
+Mapping errors occur when different data types are sent to the same field. For example, if field `weather` receives the numeric value `35` and then gets the value `hot`, it'll result in a mapping error since the same field can't contain two different types of inputs.
 
 The **`type`** field is changed to **`logzio-index-failure`**,  and the **`tags`** field is added to the log to identify the issue.
 
 ![Fail log example](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/logzio-index-fail.png)
+
+When a specific log type encounters too many mapping parsing exceptions, the problematic field will either be eliminated or flatten and renamed by the support team.
+
+If a field is removed, its data is stored in a new entry called `logzio_removed_fields`, which holds all removed entries for that log type and their corresponding values for reference.    
+
 
 Here are some of the **common mapping errors** you might encounter and why they happen:
 
@@ -56,7 +62,7 @@ Here are some of the **common mapping errors** you might encounter and why they 
 | Numeric value (NUMBER) out of range of long (-9223372036854775808 - 9223372036854775807) | Field mapped as a number, but its value is outside the range of the “Long” data type |
 | Object field starting or ending with a [.] makes object resolution ambiguous | Some fields in the logs contain invalid characters in the name. For example: `.` , `,` , `_` , `#` |
 
-### Mapping errors through sub accounts
+## Mapping errors through sub accounts
 
 When mapping errors occur in your account, you can only assign one data type per specific field.
 
@@ -68,19 +74,19 @@ For example, suppose you have a `metadata` field assigned as an Object in your p
 
 Use sub accounts to adjust your mapping based on your monitoring needs.
 
-Learn more about **[creating and managing sub accounts](https://docs.logz.io/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts/#add-and-manage-a-log-management-sub-account)** and about **[field mapping](https://docs.logz.io/user-guide/logs/mapping/)** in your account.
+Learn more about **[creating and managing sub accounts](https://docs.logz.io/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts/#add-and-manage-a-log-management-sub-account)** and about **[field mapping](https://docs.logz.io/docs/user-guide/data-hub/field-mapping/)** in your account.
 
 
 
-### Invalid logs
+## Invalid logs
 
-#### What causes an invalid log? 
+### What causes an invalid log? 
 
 When a log that includes specific issues is received, the log is flattened and ingested, the **`type`** field is changed to **`logzio-invalid-log`**,  and the **`tags`** field is added to the log to identify the issue.
 
 ![Invalid log example](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/invalid_log_eg-dec2021.png)
 
-#### Invalid log tags
+### Invalid log tags
 
 The tags in the table below explain the character or field issues that may cause a log to be labeled with the **`logzio-invalid-log`** field.
 
