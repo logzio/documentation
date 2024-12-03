@@ -18,7 +18,7 @@ Google Workspace is a collection of cloud computing, productivity and collaborat
 
 ## Logs
 
-{@include: ../../_include/general-shipping/gcp-metrics.md}
+{@include: ../../_include/general-shipping/gcp-logs.md}
 
 
 ### Check Logz.io for your logs

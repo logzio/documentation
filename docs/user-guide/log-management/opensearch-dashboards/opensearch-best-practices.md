@@ -137,6 +137,10 @@ The **Show dates** option lets you set a start and end time. In the popup, selec
 
 ## Create Log Visualizations
 
+:::note
+Not sure what to visualize? If your logs haven't been parsed into fields yet, our [support team](mailto:help@logz.io) can assist with prasing your logs and extracting the fields needed to create your visualizations.
+:::
+
 In the following video, you'll be able to see how to create a visualization dashboard based on your logs:
 
 

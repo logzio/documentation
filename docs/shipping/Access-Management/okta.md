@@ -117,7 +117,7 @@ docker run \
 --env LOGZIO_TOKEN=<<LOG-SHIPPING-TOKEN>> \
 --env LOGZIO_LISTENER_HOST=<<LISTENER-HOST>> \
 -v /etc/logzio-okta/tenants-credentials.yml:/usr/share/logstash/tenants-credentials.yml \
--t logzio/logzio-okta
+-t logzio/logzio-okta 
 ```
 
 For Mac users: To fix issues with mounting files from root directory please add the path ‘/etc/logzio-okta’ to your Docker File Sharing.

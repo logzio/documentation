@@ -1,51 +1,80 @@
 ---
 sidebar_position: 3
-title: Observability IQ Assistant FAQ
-description: Frequently asked questions about Observability IQ Assistant
+title: AI Agent FAQ
+description: Frequently asked questions about AI Agent
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [AI, observability, Assistant, iq, logs, metrics, traces, siem, insights, analysis, services, logz.io]
 ---
 
-## What is Observability IQ Assistant?
+## General
 
-Observability IQ Assistant is Logz.io's chat-driven, AI-enhanced platform, enabling active dialogue with your data. You can access it from your Services dashboard, where you can transition from merely observing data to actively acquiring immediate insights on your metrics, identifying anomalies, discerning trends, and assessing the well-being of your ecosystem in real time.
-
-## Is Observability IQ Assistant available to all users?
-
-Observability IQ Assistant is currently available to all Logz.io users, whose data is hosted in the EU, Australia, and in the US regions.
-
-## Is Observability IQ Assistant accessible via API?
-
-No. To access Observability IQ Assistant, you must use Logz.io's app.
-
-## How do I activate the Observability IQ Assistant?
-
-Observability IQ Assistant is available in the **[Explore](https://app.logz.io/#/dashboard/explore)**, **[Kubernetes 360](https://app.logz.io/#/dashboard/observability/k8s360)**, and **[App 360](https://app.logz.io/#/dashboard/spm/services/table)** dashboards. Click the Observability IQ button at the top to open the interface.
-
-Once you provide input to the assistant, the dashboard's data will be shared with Claude3.
+### What is AI Agent?
 
 
-## What data can Observability IQ Assistant access upon activation?
+:::info note
+The AI Agent is currently in beta and may not always be fully accurate. We recommend reviewing the information for confirmation.
+:::
+
+AI Agent is part of Logz.io's Observability IQ suite. It provides a chat-driven, AI-enhanced platform, that enables active dialogue with your data. You can access it from your **[Explore](https://app.logz.io/#/dashboard/explore)**, **[Kubernetes 360](https://app.logz.io/#/dashboard/observability/k8s360)**, and **[App 360](https://app.logz.io/#/dashboard/spm/services/table)** dashboards, where you can transition from merely observing data to actively acquiring immediate insights on your metrics, identifying anomalies, discerning trends, and assessing the well-being of your ecosystem in real time.
 
 
-The Observability IQ Assistant activates when you input a prompt in its interface and operates within the same region in which your Logz.io data is hosted. It is designed to access only the data currently visible in your browser, including your current query, the graphs visible on the screen, and a limited number of logs due to size constraints. This setup ensures that the IQ Assistant interacts exclusively with the data you're actively analyzing.
+### What kind of information can I get from the AI Agent? 
+
+The AI Agent can help you with queries related to log analysis, infrastructure monitoring, troubleshooting issues, and other aspects of using the Logz.io Platform.
+
+### Is AI Agent available to all users?
+
+Yes. AI Agent is currently available to all Logz.io users.
+
+### Is AI Agent accessible via API?
+
+No. To access AI Agent, you must use Logz.io's app.
+
+### How do I activate the AI Agent?
+
+AI Agent is available in the **[Explore](https://app.logz.io/#/dashboard/explore)**, **[Kubernetes 360](https://app.logz.io/#/dashboard/observability/k8s360)**, and **[App 360](https://app.logz.io/#/dashboard/spm/services/table)** dashboards. Click the AI Agent button at the top to open the interface.
+
+Once you provide input to the agent, the **dashboard's data** will be shared with Claude3.
+
+### What data can AI Agent access upon activation?
+
+The AI Agent activates when you enter a prompt in its interface. It’s designed to access all your log data, current query, and visible graphs.
+
+This setup allows the AI Agent to interact directly with the data you're analyzing, delivering tailored insights and suggestions.
+
+
+### How do I provide feedback or report issues with the AI Agent? 
+
+To provide feedback or report issues, click the **Share Your Feedback** button located to the top bar of the screen.
 
 
 
-Observability IQ Assistant activates when you input a prompt in its interface. It is designed to access only the data currently visible on the browser, your current query, and a limited number of logs due to size constrictions and limits. This setup ensures the IQ Assistant only interacts with the data you're currently analyzing.
+## Privacy and Security
 
-## Can account admins see my queries and chat history?
+### Where is the model hosted?
 
-No. Account admins or any other users within your organization cannot view or access any queries or chat history from the Observability IQ Assistant. Logz.io does not retain your query or chat history. 
+The model is hosted within the same region in which your Logz.io data is hosted. 
 
-## Will the input and the model output served through the Observability IQ Assistant be available to Claude3?
+### Can account admins see my queries and chat history?
 
-No, they are not shared with any model provider. The data is processed and stored in Logz.io's private instance within AWS, similar to the current setup of your Logz.io data.
+No. Account admins or any other users within your organization cannot view or access any queries or chat history from the AI Agent. 
 
-## Will the input and the model output served through the Observability IQ Assistant be used to train the AI Model? ​
+### Do you use my data to train the AI model?
 
-No, they will not be used by AWS or third-party model providers to train the AI models. You can read more about this [here](https://aws.amazon.com/bedrock/faqs/#product-faqs#bedrock-faqs#security-and-privacy).
+No, your data will not be used by AWS or third-party model providers to train the AI models. You can read more about this [here](https://aws.amazon.com/bedrock/faqs/#product-faqs#bedrock-faqs#security-and-privacy).
 
-## How does the Observability IQ Assistant comply with security and privacy standards?
 
-Since the data is processed and stored in Logz.io's private instance within AWS, from a privacy and security perspective, there is no significant change compared to the current situation where your data is processed by AWS (being Logz.io’s sub-processor). You can read more about it [here](https://aws.amazon.com/bedrock/faqs/#product-faqs#bedrock-faqs#general:~:text=Why%20should%20I%20use%20Amazon%20Bedrock%3F).
+### Will the input and the model output served through the AI Agent be available to Claude3? Are you using a private or public instance?
+
+The data is processed and stored in Logz.io's private instance within AWS, similar to the current setup of your Logz.io data. The model is stateless, and data will never be shared with third-party model providers.
+
+### How does the AI Agent comply with security standards?
+
+Your data is secured using industry-standard encryption both at rest and in transit. Since the data is processed and stored in Logz.io's private instance within AWS, there is no significant change compared to the current situation where AWS processes your data.
+
+For more detailed information, please visit [Logz.io’s security and compliance page](https://logz.io/platform/features/soc-2-compliance/). You can read more about how AWS follows best practices for data security [here](https://aws.amazon.com/bedrock/faqs/#product-faqs#bedrock-faqs#general:~:text=Why%20should%20I%20use%20Amazon%20Bedrock%3F).
+
+### How does the AI Agent comply with Privacy and GDPR standards?​
+
+Your data is handled by Logz.io and AWS (being Logz.io’s sub-processor) in accordance with privacy and GDPR standards and requirements. For more detailed information, please visit Logz.io’s [privacy policy](https://logz.io/about-us/privacy-policy/). You can read more about how AWS handles data protection [here](https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html).
+

@@ -20,7 +20,7 @@ drop_filter: []
 
 * An active Cynet license
 * Cynet login credentials 
-* An active account with Logz.io
+* An active Logz.io account
 * [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) installed on a dedicated machine (acting as a syslog server)
 * Root priveleges on your machines 
 
@@ -81,7 +81,7 @@ These instructions are based on UDP. If you want to use TCP, make sure your sysl
        - from: "log.file.path"
          to: "source"
        ignore_missing: true
-   output.logstash:
+   output.logstash: 
      hosts: ["<<LISTENER-HOST>>:5015"]
      ssl:
        certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']

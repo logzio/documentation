@@ -20,7 +20,7 @@ Google Firebase is a platform for creating mobile and web applications.
 
 ## Logs
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 For this integration, the telemetry list needs to include `firebase_auth`, `firebase_domain`, `firebase_namespace`, `firebaserules_release`, `firebaserules_ruleset`.
 

@@ -1,7 +1,7 @@
 ---
 id: Trend-micro
-title: Trend Micro is a hybrid cloud runtime security solution.
-overview: This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon S3 metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
+title: Trend Micro
+overview: This integration enables users to monitor and analyze cybersecurity threats and events in real-time, enhancing their overall security visibility and incident response capabilities.
 product: ['metrics', 'siem']
 os: ['windows', 'linux']
 filters: ['Security']
@@ -28,7 +28,7 @@ You can review the Trend Micro resources in your security account, including pre
 
  
 
-### Install the Trend Micro certificate on your Filebeat server {#key}
+## Install the Trend Micro certificate on your Filebeat server
 
 Trend Micro sends encrypted data, so you'll need to install the Trend Micro certificate on your Filebeat server.
 
@@ -42,7 +42,7 @@ sudo openssl req -newkey rsa:2048 -nodes \
 
 {@include: ../../_include/log-shipping/certificate.md}
 
-### Configure Filebeat
+## Configure Filebeat
 
 Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor.
 
@@ -82,14 +82,14 @@ processors:
 ```
 {@include: ../../_include/log-shipping/log-shipping-token.html}
 
-### Set Logz.io as the output
+## Set Logz.io as the output
 
 Still in the same configuration file, check if Logz.io is already an output. If not, add it now.
 
 ```
 # ...
 output.logstash:
-  hosts: ["<<LISTENER-HOST>>:5015"]
+  hosts: ["<<LISTENER-HOST>>:5015"] 
   ssl:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
@@ -99,11 +99,11 @@ output.logstash:
 One last validation - make sure Logz.io is the only output and appears only once.
 If the file has other outputs, remove them.
 
-### Start Filebeat
+## Start Filebeat
 
 [Start or restart Filebeat](https://www.elastic.co/guide/en/beats/filebeat/master/filebeat-starting.html) for the changes to take effect.
 
-### Configure Trend Micro agents to forward logs to Filebeat
+## Configure Trend Micro agents to forward logs to Filebeat
 
 The process for configuring Trend Micro to send logs to your Syslog server involves several steps. All of them are performed in the Trend Micro Cloud One console. You can also reference the [official documentation published by Trend Micro](https://cloudone.trendmicro.com/docs/workload-security/event-syslog/).
 
@@ -125,12 +125,12 @@ First, log into your Trend Micro Cloud One console.
 
 5. Open the **Credentials** tab, and fill in the details:
 
-    1. **Private key** - Provide the **Trendmicro.key** you created in [step 1](#key). You can run the following command to look up the key:
+    1. **Private key** - Provide the **Trendmicro.key** you created in step 1. You can run the following command to look up the key:
 
         ```
         sudo nano /etc/filebeat/certificates/Trendmicro.key
         ```
-    2. **Certificate** - Provide the **Trendmicro.crt** you created in [step 1](#key). You can run the following command to look up the key:
+    2. **Certificate** - Provide the **Trendmicro.crt** you created in step 1. You can run the following command to look up the key:
 
         ```
         sudo nano /etc/filebeat/certificates/Trendmicro.crt
@@ -141,7 +141,7 @@ First, log into your Trend Micro Cloud One console.
 
      ![Trend Micro Deep Security Cloud One screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-integrations/trendmicro-console2.png)
 
-### Activate syslog forwarding
+## Activate syslog forwarding
 
 Configure Trend Micro agents to forward event logs to Logz.io.
 
@@ -152,7 +152,7 @@ Configure Trend Micro agents to forward event logs to Logz.io.
 
  ![Trend Micro Deep Security Cloud One screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-integrations/trendmicro-console4.png)
 
-### Sample configuration
+## Sample configuration
 
 You can reference the sample configuration used by the Logz.io Security Team in development of this integration. [Exported configuration in XML format.](https://docs.logz.io/docs/shipping/security/trend-micro/#sample-configuration)
 
@@ -164,7 +164,7 @@ The configuration file includes settings for the following services:
 * Firewall
 * Intrusion prevention
 
-### Check Logz.io for your logs
+## Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 

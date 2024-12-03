@@ -74,7 +74,7 @@ exporters:
  logging:
  logzio/logs:
    account_token: <<LOG-SHIPPING-TOKEN>>
-   region: us
+   region: <<LOGZIO_ACCOUNT_REGION_CODE>> # Default is US
  prometheusremotewrite:
    endpoint: https://<<LISTENER-HOST>>:8053
    headers:
@@ -118,7 +118,7 @@ Run the following command:
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["55uVoiaFwAreNAf7DojQZN"] -->
 
@@ -182,7 +182,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the P
 
 :::note
 The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/blob/release-1.18/plugins/inputs/phpfpm/README.md)
-:::
+::: 
  
 
 #### Add the outputs.http plug-in
@@ -198,7 +198,7 @@ The full list of data scraping and configuring options can be found [here](https
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["55uVoiaFwAreNAf7DojQZN"] -->
 

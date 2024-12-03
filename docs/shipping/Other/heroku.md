@@ -39,7 +39,7 @@ heroku labs:enable log-runtime-metrics -a <<HEROKU-APP-NAME>>
 Run this command in the command line.
 
 ```shell
-heroku drains:add "https://<<LISTENER-HOST>>:8081?token=<<LOG-SHIPPING-TOKEN>>" -a <<HEROKU-APP-NAME>>
+heroku drains:add "https://<<LISTENER-HOST>>:8081?token=<<LOG-SHIPPING-TOKEN>>" -a <<HEROKU-APP-NAME>> 
 ```
 
 {@include: ../../_include/log-shipping/log-shipping-token.html}

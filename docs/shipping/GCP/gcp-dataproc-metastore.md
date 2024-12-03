@@ -18,7 +18,7 @@ Google Dataproc Metastore is a critical component of data lakes built on open so
 
 ## Logs
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 For this integration, the telemetry list needs to include `cloud_dataproc_batch`, `cloud_dataproc_cluster`, `cloud_dataproc_job`, `cloud_dataproc_session`.
 

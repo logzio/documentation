@@ -85,15 +85,6 @@ docker pull logzio/logzio-api-fetcher
 ```
 
 
-## Create a local directory for this integration
-
-You will need a dedicated directory to use it as mounted directory for the Docker container of the Logz.io API fetcher.
-
-```shell
-mkdir logzio-api-fetcher
-cd logzio-api-fetcher
-```
-
 ## Create a configuration file
 
 In the directory created in the previous step, create a file `config.yaml` using the example configuration below:
@@ -103,72 +94,58 @@ logzio:
   url: https://<<LISTENER-HOST>>:8071
   token: <<LOG-SHIPPING-TOKEN>>
 
-oauth_apis:
-  - type: azure_graph
-    name: azure_test
-    credentials:
-      id: <<AZURE_AD_SECRET_ID>>
-      key: <<AZURE_AD_SECRET_VALUE>>
-    token_http_request:
-      url: https://login.microsoftonline.com/<<AZURE_AD_TENANT_ID>>/oauth2/v2.0/token
-      body: client_id=<<AZURE_AD_CLIENT_ID>>
-        &scope=https://graph.microsoft.com/.default
-        &client_secret=<<AZURE_AD_SECRET_VALUE>>
-        &grant_type=client_credentials
-      headers:
-      method: POST
-    data_http_request:
+apis:
+  - name: azure graph example
+    type: azure_graph
+    azure_ad_tenant_id: <<AZURE_AD_TENANT_ID>>
+    azure_ad_client_id: <<AZURE_AD_CLIENT_ID>>
+    azure_ad_secret_value: <<AZURE_AD_SECRET_VALUE>>
+    data_request:
       url: https://graph.microsoft.com/v1.0/auditLogs/signIns
-      method: GET
-      headers:
-    json_paths:
-      data_date: createdDateTime
-    settings:
-      time_interval: 1
-      days_back_fetch: 30
+    additional_fields:
+      type: azure_graph
+      field_to_add_to_my_logs: 123
+    scrape_interval: 1
+    days_back_fetch: 30
 ```
 
-| Parameter | Description | Required/Default |
-|---|---|---|
-| URL | {@include: ../../_include/log-shipping/listener-var.md} | Required |
-| TOKEN | Your Logz.io account token. {@include: ../../_include/log-shipping/log-shipping-token.html}  | Required  |
-| type | The type of the OAuth API. Currently we support the following types: azure_graph, general. | Required | 
-| name | The name of the OAuth API. Please make names unique. | Required | 
-| credentials.id | The OAuth API credentials id. | Required | 
-| credentials.key | The OAuth API credentials key. | Required |
-| data_http_request.method | The HTTP method. Can be GET or POST. | Required | 
-| data_http_request.url | The OAuth API url. Make sure the url is without `?` at the end. | Required | 
-| data_http_request.headers | Pairs of key and value the represents the headers of the HTTP request. | Optional | 
-| data_http_request.body | The body of the HTTP request. Will be added to HTTP POST requests only. | Optional | 
-| token_http_request.method | The HTTP method. Can be GET or POST. | Required |
-| token_http_request.url | The OAuth API token request  url. Make sure the url is without `?` at the end. | Required | 
-| token_http_request.headers | Pairs of key and value the represents the headers of the HTTP request. | Optional |
-| token_http_request.body | The body of the HTTP request. Will be added to HTTP POST requests only. | Optional | 
-| json_paths.data_date | The json path to the data's date value inside the response of the OAuth API. | Required | 
-| settings.time_interval | The OAuth API time interval between runs. | Required | 
-| settings.days_back_fetch | The max days back to fetch from the OAuth API. | Optional. Default value is 14 days.| 
-| filters | Pairs of key and value of parameters that can be added to the OAuth API url. Make sure the keys and values are valid for the OAuth API. | Optional |
-| custom_fields | Pairs of key and value that will be added to each data and be sent to Logz.io. | Optional | 
+:::note
+You can customize the endpoints to collect data by adding or modifying the configurations under the `apis` section. Refer to the [relevant API documentation](https://learn.microsoft.com/en-us/graph/api/overview?view=graph-rest-1.0) for more details.
+:::
 
-## Create a Last Start Dates text file
+| Parameter Name        | Description                                                                                         | Required/Optional | Default     |
+|-----------------------|-----------------------------------------------------------------------------------------------------|-------------------|-------------|
+| name                  | Name of the API (custom name)                                                                       | Optional          | `azure api` |
+| azure_ad_tenant_id    | The Azure AD Tenant id                                                                              | Required          | -           |
+| azure_ad_client_id    | The Azure AD Client id                                                                              | Required          | -           |
+| azure_ad_secret_value | The Azure AD Secret value                                                                           | Required          | -           |
+| date_filter_key                | The name of key to use for the date filter in the request URL params | Optional          | `createdDateTime` |
+| data_request.url               | The request URL                                                      | Required          | -                 |
+| additional_fields | Additional custom fields to add to the logs before sending to logzio | Optional          | -                 |
+| days_back_fetch       | The amount of days to fetch back in the first request                                               | Optional          | 1 (day)     |
+| scrape_interval       | Time interval to wait between runs (unit: `minutes`)                                                | Optional          | 1 (minute)  |
 
-Create an empty text file named last_start_dates.txt in the same directory as the config file:
-
-```shell
-$ touch last_start_dates.txt
-```
-
-After every successful iteration of an API, the last start date of the next iteration will be written to last_start_dates.txt. Each line starts with the API name and ends with the last start date.
-
-If you stopped the container, you can continue from the exact place you stopped, by adding the date to the API filters in the configuration.
 
 ## Run the Docker container
+In the path where you saved your `config.yaml`, run:
 
 ```shell
 docker run --name logzio-api-fetcher \
 -v "$(pwd)":/app/src/shared \
 logzio/logzio-api-fetcher
 ```
+
+:::note
+To run in Debug mode add `--level` flag to the command:
+```shell
+docker run --name logzio-api-fetcher \
+-v "$(pwd)":/app/src/shared \
+logzio/logzio-api-fetcher \
+--level DEBUG
+```
+Available Options: `INFO`, `WARN`, `ERROR`, `DEBUG`
+:::
+
 
 ## Stop the Docker container
 

@@ -1,4 +1,4 @@
-##### Download the Logz.io public certificate to your credentials server
+### Download the Logz.io public certificate
 
 For HTTPS shipping, download the Logz.io public certificate to your certificate authority folder.
 

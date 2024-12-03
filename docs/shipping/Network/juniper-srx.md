@@ -88,7 +88,7 @@ processors:
 
 Copy and paste the following code block directly below. It sets Logz.io as the output.
 
-```yaml
+```yaml 
 # ...
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]

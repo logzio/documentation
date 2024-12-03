@@ -118,7 +118,7 @@ processors:
 ```
 
 If you're running Filebeat 6, paste this code block.
-
+ 
 ```yaml
 # ... For Filebeat 6 only ...
 registry_file: /var/lib/filebeat/registry

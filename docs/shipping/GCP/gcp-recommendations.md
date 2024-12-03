@@ -19,7 +19,7 @@ Google Recommendations AI is a product that helps retailers deliver highly perso
 
 ## Logs
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 For this integration, the telemetry list needs to include `recommender`, `recommender_insight_type`.
 

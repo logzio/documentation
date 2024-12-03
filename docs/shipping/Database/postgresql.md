@@ -49,7 +49,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the P
 
 :::note
 The database name is only required for instantiating a connection with the server and does not restrict the databases that we collect metrics from. The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/blob/release-1.18/plugins/inputs/postgresql/README.md).
-:::
+::: 
 
 
 ##### Add the outputs.http plug-in
@@ -65,7 +65,7 @@ The database name is only required for instantiating a connection with the serve
 
 Give your metrics some time to get from your system to ours.
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
+Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["3L7cjHptO2CFcrvpqGCNI0"] -->
 

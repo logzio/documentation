@@ -45,7 +45,7 @@ see [File Audit Device](https://www.vaultproject.io/docs/audit/file.html) from H
 
 The Filebeat configuration file is at `/etc/filebeat/filebeat.yml` by default.
 
-:::note
+:::note 
 To avoid conflicts with fields from other log sources, you'll need to run a dedicated Filebeat instance for Vault logs. This allows Filebeat to rename some fields
 to keep Vault logs compatible with Logz.io.
 :::

@@ -1,36 +1,42 @@
 ---
 sidebar_position: 1
-title: Observability IQ Assistant
-description: Enhance data insights with Observability IQ Assistant and get AI-powered analysis of your data.
+title: AI Agent
+description: Enhance data insights with AI Agent and get AI-powered analysis of your data.
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-keywords: [AI, observability, Assistant, iq, logs, metrics, traces, siem, insights, analysis, services, logz.io]
+keywords: [AI, observability, AI agent, Assistant, iq, logs, metrics, traces, siem, insights, analysis, services, logz.io]
 ---
 
-Observability IQ Assistant is an AI-powered, chat-based interface that lets you engage in a dynamic conversation with your data. Use it to move beyond passive data viewing and get real-time insights about your metrics, anomalies, trends, and the overall health of your environment.
+AI Agent is part of Logz.io's Observability IQ suite. It provides an AI-powered, chat-based interface that lets you engage in a dynamic conversation with your data. Use it to move beyond passive data viewing and get real-time insights about your metrics, anomalies, trends, and the overall health of your environment.
 
-Observability IQ Assistant is available in your [Explore dashboard](https://app.logz.io/#/dashboard/explore), and as part of [Kubernetes 360](https://app.logz.io/#/dashboard/observability/k8s360), and [App 360](https://app.logz.io/#/dashboard/spm/service-overview).
+AI Agent is available in [Explore](https://app.logz.io/#/dashboard/explore), and as part of [Kubernetes 360](https://app.logz.io/#/dashboard/observability/k8s360), and [App 360](https://app.logz.io/#/dashboard/spm/service-overview).
 
-The assistant suggests a few queries you can run on your data to help you start the analysis and deep-dive, or you can type your own questions.
+The agent suggests a few queries you can run on your data to help you start the analysis and deep-dive, or you can type your own questions.
 
-The answers are based on the data currently shown on your dashboard. Once you change the query, apply filters, or change the time period, any new answer from the IQ Assistant will be based on the newly generated data. 
+The answers are based on the data currently shown on your dashboard. Once you change the query, apply filters, or change the time period, any new answer from the agent will be based on the newly generated data. 
 
 You can now leverage the insights from your dialog and enhance data analysis to make informed decisions.
 
-![Observability IQ screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/obsiq-explore.png)
+![AI Agent screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/ai-agent-dec3.png)
 
-<h2 id="start"> Using Observability IQ Assistant </h2> 
+<h2 id="start"> Using AI Agent </h2> 
 
-To start using Observability IQ Assistant in **Explore**, you'll need to enable the new dashboard. Navigate to [Settings > General settings > Explore](https://app.logz.io/#/dashboard/settings/general) and toggle the button to activate your Explore beta.
+AI Agent is available in **[Explore](https://app.logz.io/#/dashboard/explore)**, **[Kubernetes 360](https://app.logz.io/#/dashboard/observability/k8s360)**, and **[App 360](https://app.logz.io/#/dashboard/spm/services/table)**. Click the AI Agent button at the top to open the interface.
 
-Next, navigate to the [Explore dashboard](https://app.logz.io/#/dashboard/explore) and click the Observability IQ button at the top to open the interface.
+Use the agent to analyze trends in latency, throughput, error rate, and HTTP status codes over time to identify patterns or anomalies that may require attention. Additionally, it can be used to compare the performance metrics of different operations and determine if any significant differences need to be addressed.
 
-For the **[Kubernetes 360](https://app.logz.io/#/dashboard/observability/k8s360)** dashboard, you can use Observability IQ Assistant as part of a deeper dive into a deployment, node, or pod. To activate it, choose one of the options, open its quick view, and click the Observability IQ button at the top to open the interface.
+Select one of the pre-built questions or type a custom query according to what you'd like to analyze. Next, select the data source you'd like to use when using the AI Agent:
 
-In the **[App 360](https://app.logz.io/#/dashboard/spm/services/table)** dashboard, the Observability IQ Assistant is part of the services' inner view. Open one of your services and click the Observability IQ button at the top to open the interface.
+* **All available data** - Utilize all available data, including logs and documentation.
+* **Using search results** - Answers will be based on the data currently displayed on your dashboard, including logs, queries, filters, etc.
+* **User guide** - Access information from Logz.io's user guides to answer questions about features and usage.
+* **Data shipping guide** - Refer to integration and data shipping guides for configuration and setup assistance.
 
-Use the assistant to analyze trends in latency, throughput, error rate, and HTTP status codes over time to identify patterns or anomalies that may require attention. Additionally, it can be used to compare the performance metrics of different operations and determine if any significant differences need to be addressed.
+:::note
+Some data sources may not be available in all observability tools (Explore, App 360, Kubernetes 360).
+:::
 
-![Observability IQ screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/observabilityiq-mar27.png)
+Once you provide input to the agent, the **dashboard's data** will be shared with Claude3.
 
+![AI Agent screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/ai-agent-response-dec3.png)
 
-For further assistance with Observability IQ Assistant, [contact Logz.io's Support Team](mailto:help@logz.io).
+For further assistance with the AI Agent, read the [FAQ](https://docs.logz.io/docs/user-guide/observability/faq) or [contact Logz.io's Support Team](mailto:help@logz.io).

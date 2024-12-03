@@ -80,3 +80,12 @@ Once you've refined a query to the point that it returns exactly what you are lo
 
 * [OpenSearch Dashboards best practices](/docs/user-guide/log-management/opensearch-dashboards/opensearch-best-practices)
 * [Create and run advanced searches in OpenSearch Dashboards](https://logz.io/blog/kibana-advanced/)
+
+Need help with parsing fields? Our [support team](mailto:help@logz.io) is available to assist you in parsing your logs and extracting fields, making it easier to query your logs and create meaningful visualizations and alerts.
+
+
+
+
+
+
+

@@ -10,8 +10,8 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['2VNLppOm4XOFwVouv8dorr']
-metrics_alerts: ['hWld33IEO6gZMpp2e4vs0']
+metrics_dashboards: ['2oLvCy5p914pM9m5pLoD6u', 'YGbSr3PrMIIJanIUb8u24']
+metrics_alerts: ['7pnMXCMcUcoERzsIM0nZ9O', '22sfot5B5YjITiWjNrlD9M']
 drop_filter: []
 ---
 
@@ -33,7 +33,7 @@ sudo mkdir /opt/logzio-agent
 Download OpenTelemetry tar.gz:
 
 ```shell
-curl -fsSL "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.82.0/otelcol-contrib_0.82.0_linux_amd64.tar.gz" >./otelcol-contrib.tar.gz
+curl -fsSL "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.111.0/otelcol-contrib_0.111.0_linux_amd64.tar.gz" >./otelcol-contrib.tar.gz
 ```
 
 Extract the OpenTelemetry binary:
@@ -106,7 +106,7 @@ exporters:
   logging:
   logzio/logs:
     account_token: <<LOG-SHIPPING-TOKEN>>
-    region: us
+    region: <<LOGZIO_ACCOUNT_REGION_CODE>> # Default is US
   prometheusremotewrite:
     endpoint: https://<<LISTENER-HOST>>:8053
     headers:
@@ -190,9 +190,6 @@ Deploy this integration to send your Amazon EC2 metrics to Logz.io.
 
 This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon EC2 metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
-
-<!-- logzio-inject:install:grafana:dashboards ids=["2VNLppOm4XOFwVouv8dorr"] -->
 
 {@include: ../../_include/metric-shipping/generic-dashboard.html}
 
@@ -200,9 +197,6 @@ This integration creates a Kinesis Data Firehose delivery stream that links to y
 
 {@include: ../../_include/metric-shipping/aws-metrics-new.md}
 
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboard to enhance the observability of your metrics.
-
-<!-- logzio-inject:install:grafana:dashboards ids=["2VNLppOm4XOFwVouv8dorr"] -->
 
 {@include: ../../_include/metric-shipping/generic-dashboard.html}
 

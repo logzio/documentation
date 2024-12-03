@@ -6,7 +6,7 @@ product: ['logs','metrics', 'siem']
 os: ['windows', 'linux']
 filters: ['Load Balancer']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/nginx.svg
-logs_dashboards: []
+logs_dashboards: ['7hn5uIYr92HmSWkMnC8tbZ']
 logs_alerts: ['5tov4MgrnR6vXZhh1MyuHO','63MnOu9ZzkCXdX0KOhXghi','4V8BXcfr7noTdtU6EjXp7w','2EXnb71ucdTnVolN1PqbM6']
 logs2metrics: []
 metrics_dashboards: ['3HKho6pQhCmEYmwMc4xCeY']
@@ -119,7 +119,7 @@ Defaults for Error logs:
 
 #### Set Logz.io as the output
 
-If Logz.io is not an output, add it now.
+If Logz.io is not an output, add it now. 
 Remove all other outputs.
 
 {@include: ../../_include/log-shipping/listener-url.html} 
@@ -233,7 +233,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the N
 
 #### Check Logz.io for your metrics
   
-{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboards to enhance the observability of your metrics.
+Install the pre-built dashboards to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["3HKho6pQhCmEYmwMc4xCeY"] -->
 

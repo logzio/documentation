@@ -19,7 +19,7 @@ Google Compute Engine Autoscaler allows to automatically add or remove VM instan
 
 ## Logs
 
-{@include: ../../_include/general-shipping/gcp-logs.md}  
+{@include: ../../_include/general-shipping/gcp-logs.md}   
 
 For this integration, the telemetry list needs to include `gce_autoscaler`.
 

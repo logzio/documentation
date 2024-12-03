@@ -60,26 +60,28 @@ To do this, add the following to your IAM policy:
 Note that the ListBucket permission is set to the entire bucket and the GetObject permission ends with a /* suffix, so we can get files in subdirectories.
 :::
 
-### Create a Logz.io-AWS connector
+### Create a Logz.io-AWS Connector for Archive Setup
 
-In your Logz.io app, go to the **Integration hub** and select the relevant AWS resource.
+1. In your Logz.io app, go to the **Integration hub** and select the relevant AWS resource.
 
-Inside the integration, click **+ Add a bucket** and select the option to **Authenticate with a role**
+2. Inside the integration, click **+ Add a bucket** and select the option to **Authenticate with a role**.
 
-![Connect Logz.io to an AWS resource](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/s3-bucket-id-dec.png)
+3. Copy and paste the **Account ID** and the **External ID** into your text editor.
 
-Copy and paste the **Account ID** and the **External ID** in your text editor.
+4. Fill in the form to create a new connector:
+   - Enter the **S3 bucket name**.
+   - Enter the **Prefix** where your logs are stored, if applicable.
 
-Fill in the form to create a new connector.
+5. Click **Get the role policy**.
+   - Review the role policy to confirm the required permissions.
+   - Paste the policy into your text editor.
 
-Enter the **S3 bucket name** and, if needed,
-the **Prefix** where your logs are stored.
+6. Follow the role creation process using the information from the role policy.
 
-Click **Get the role policy**.
-You can review the role policy to confirm the permissions that will be needed.
-Paste the policy in your text editor.
+7. Once the role is created, paste the resulting **Role ARN** within the Archive setup in Logz.io.
 
 Keep this information available so you can use it in AWS.
+
 
 ### Create the policy in AWS
 
@@ -159,8 +161,11 @@ and
 configurations that use the existing role.
 
 :::note
-In case your S3 bucket is encrypted, you need to add `kms:Decrypt` to the policy on the ARN of the KMS key used to encrypt the bucket.
+If your S3 bucket or the logs within it (e.g., CloudTrail logs) are encrypted, you need to add `kms:Decrypt` permission to the policy on the ARN of the KMS key used for encryption.
 :::
+
+
+
 
 
 
@@ -168,14 +173,12 @@ In case your S3 bucket is encrypted, you need to add `kms:Decrypt` to the policy
   You can update the external ID
   and replace current Logz.io configurations.
   See
-  [_Migrate to the Logz.io external ID in the same role_](#migrate-with-same-role)
-  (below).
+  _Migrate to the Logz.io external ID in the same role_.
 * **If the role is used with multiple Logz.io accounts**:
   You'll need to create a new role for each account
   and replace current Logz.io configurations.
   See
-  [_Migrate to new IAM roles_](#migrate-to-new-roles)
-  (below).
+  _Migrate to new IAM roles_.
 
 ## Migrate to the Logz.io external ID in the same role {#migrate-with-same-role}
 
@@ -311,8 +314,7 @@ and copy the **External ID** (you'll paste it in AWS later).
 
 Using the information you copied to your text editor,
 follow the steps in
-[_Grant access to an S3 bucket_](#grant-access-to-an-s3-bucket)
-(near the top of this page).
+_Grant access to an S3 bucket_.
 
 Continue with this procedure when you're done.
 
