@@ -40,6 +40,25 @@ Your listener host and API host will always be in the same region as your accoun
 |Europe (Frankfurt)|AWS|app-eu.logz.io|listener-eu.logz.io|api-eu.logz.io|eu|eu-central-1|
 |Europe (London)|AWS|app-uk.logz.io|listener-uk.logz.io|api-uk.logz.io|uk|eu-west-2|
 
+## OpenTelemetry Protocol (OTLP) regions
+
+
+When using the OpenTelemetry Protocol (OTLP) to send **log data** to Logz.io, it’s essential to use the appropriate regional endpoint. This ensures compliance with data residency requirements and enhances performance.
+
+Configure your setup with the correct endpoint URL for your region and include your Logz.io token in the configuration file.
+
+
+| Region | Logz.io account host | Listener host | Region code | Region slug |
+|---|---|---|---|---|
+|US East (Northern Virginia)|app.logz.io|otlp-listener.logz.io/v1/logs|us | us-east-1|	 
+|Asia Pacific (Sydney)|app-au.logz.io|otlp-listener-au.logz.io/v1/logs|au|ap-southeast-2|
+|Canada (Central) |app-ca.logz.io|otlp-listener-ca.logz.io/v1/logs	|ca|ca-central-1|
+|Europe (Frankfurt) |app-eu.logz.io|otlp-listener-eu.logz.io/v1/logs|eu|eu-central-1|
+|Europe (London) |app-uk.logz.io|otlp-listener-uk.logz.io/v1/logs|uk|eu-west-2|
+
+
+
+
 ## Supported regions for Prometheus metrics
 
 
