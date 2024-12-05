@@ -1118,10 +1118,8 @@ Run the following command from your Java application's directory:
 
 ```shell
 java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
-     -Dotel.traces.exporter=otlp \
      -Dotel.metrics.exporter=none \
      -Dotel.resource.attributes=service.name=<YOUR-SERVICE-NAME> \
-     -Dotel.exporter.otlp.endpoint=http://localhost:4317 \
      -jar target/*.jar
 ```
 

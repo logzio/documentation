@@ -65,10 +65,8 @@ If you produce and consume Kafka topics/messages from different applications, th
 
 ```shell
 java -javaagent:<path/to>/opentelemetry-javaagent.jar \
-     -Dotel.traces.exporter=otlp \
      -Dotel.metrics.exporter=none \
      -Dotel.resource.attributes=service.name=<YOUR-SERVICE-NAME> \
-     -Dotel.exporter.otlp.endpoint=http://localhost:4317 \
      -Dotel.instrumentation.messaging.experimental.receive-telemetry.enabled=true
      -jar target/*.jar
 ```
@@ -85,10 +83,8 @@ You can download the relevant applications from the [kafka-opentelemetry GitHub 
 Run the OpenTelemetry Java Agent insturmated with the [Kafka consumer application](https://github.com/ppatierno/kafka-opentelemetry/tree/main/kafka-consumer-agent) in the following way:
 ```shell
 java -javaagent:<path/to>/opentelemetry-javaagent.jar \
-     -Dotel.traces.exporter=otlp \
      -Dotel.metrics.exporter=none \
      -Dotel.resource.attributes=service.name=<YOUR-CONSUMER-NAME> \
-     -Dotel.exporter.otlp.endpoint=http://localhost:4317 \
      -Dotel.instrumentation.messaging.experimental.receive-telemetry.enabled=true \
      -jar kafka-consumer-agent/target/kafka-consumer-agent-1.0-SNAPSHOT-jar-with-dependencies.jar
 ```
@@ -97,10 +93,8 @@ java -javaagent:<path/to>/opentelemetry-javaagent.jar \
 Run the OpenTelemetry Java Agent insturmated with the [Kafka producer application](https://github.com/ppatierno/kafka-opentelemetry/tree/main/kafka-producer-agent) in the following way:
 ```shell
 java -javaagent:<path/to>/opentelemetry-javaagent.jar \
-     -Dotel.traces.exporter=otlp \
      -Dotel.metrics.exporter=none \
      -Dotel.resource.attributes=service.name=<YOUR-PRODUCER-NAME> \
-     -Dotel.exporter.otlp.endpoint=http://localhost:4317 \
      -Dotel.instrumentation.messaging.experimental.receive-telemetry.enabled=true \
      -jar kafka-producer-agent/target/kafka-producer-agent-1.0-SNAPSHOT-jar-with-dependencies.jar
 ```
@@ -198,10 +192,8 @@ Add the following command to your Java application Dockerfile or equivalent:
 
 ```shell
 java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
-     -Dotel.traces.exporter=otlp \
      -Dotel.metrics.exporter=none \
      -Dotel.resource.attributes=service.name=<<YOUR-SERVICE-NAME>> \
-     -Dotel.exporter.otlp.endpoint=http://<<logzio-monitoring-service-dns>>:4317 \
      -Dotel.instrumentation.messaging.experimental.receive-telemetry.enabled=true
      -jar target/*.jar
 ```
