@@ -139,4 +139,182 @@ Allow some time for data ingestion, then open [Open Search Dashboards](https://a
 Encounter an issue? See our [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/) guide.
 
 </TabItem>
+<TabItem value="otlp" label="Bulk uploads over OpenTelemetry" default>
+
+Follow this guide to send logs in Protobuf format using the Logz.io OTLP listener with the protocurl tool.
+
+### Download protocurl
+
+Download and install `protocurl`, a tool that simplifies interacting with Protobuf files via HTTP. Follow the instructions on the [protocurl GitHub repository](https://github.com/fullstorydev/protocurl).
+
+Verify the installation with:
+
+```bash
+protocurl --version
+```
+
+### Get OpenTelemetry protobuf definitions
+
+Download the [OpenTelemetry Protobuf definitions](https://github.com/open-telemetry/opentelemetry-proto). The `.proto` files are required to compile Protobuf messages and send logs. Clone the repository to a local folder. For example:
+
+```bash
+git clone https://github.com/open-telemetry/opentelemetry-proto.git ~/Downloads/proto/opentelemetry-proto
+```
+
+### Construct the command
+
+Use the following command to send logs via `protocurl`:
+
+```bash
+protocurl -v \
+  -I ~/Downloads/proto/opentelemetry-proto \
+  -i opentelemetry.proto.collector.logs.v1.ExportLogsServiceRequest \
+  -o opentelemetry.proto.collector.logs.v1.ExportLogsServiceResponse \
+  -u '<https://otlp-listener.logz.io/v1/logs>' \
+  -H 'Authorization: Bearer <Your-Logzio-Token>' \
+  -H 'user-agent: logzio-protobuf-logs' \
+  -d @export_logs_request.json
+```
+
+Breakdown:
+
+* `-I`: Points to the Protobuf definitions.
+* `-i`: Specifies the Protobuf request type.
+* `-o`: Specifies the Protobuf response type.
+* `-u`: URL of the OTLP listener (update based on your region).
+* `-H`: Includes headers like authorization and user-agent.
+* `-d`: Path to the JSON file with log data.
+
+### Prepare the JSON data
+
+Create a JSON file (`export_logs_request.json`) 
+
+
+with the log data structure:
+
+
+
+
+
+
+
+
+===
+
+
+
+
+Step 4: Prepare the JSON Data
+You need to create the export_logs_request.json file, which contains the structure of the log data to be sent to the OTLP listener. The required fields in the log request are as follows:
+
+
+
+{
+  "resourceLogs": [
+    {
+      "resource": {
+        "attributes": [
+          {
+            "key": "service.name",
+            "value": { "stringValue": "example-service" }
+          }
+        ]
+      },
+      "scopeLogs": [
+        {
+          "scope": {
+            "name": "example-scope"
+          },
+          "logRecords": [
+            {
+              "timeUnixNano": "<timestamp>", // e.g., 1727270794000000000
+              "severityNumber": "SEVERITY_NUMBER_INFO",
+              "severityText": "INFO",
+              "body": { "stringValue": "Log message here" }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+Important Fields:
+
+timeUnixNano: A required field that represents the timestamp in nanoseconds since epoch (e.g., 1727270794000000000 for a future time).
+
+This needs to be manually set, but you can automate it in future feature requests.
+
+severityNumber: Represents the severity level of the log (SEVERITY_NUMBER_INFO, for example).
+
+body: Contains the actual log message.
+
+Step 5: Adjust the Region URL
+You must adjust the OTLP listener URL based on your Logz.io account region. Find the correct endpoint for your region here.
+For example, if you're in the US region, your endpoint might be:
+
+
+
+-u '<https://otlp-listener.logz.io/v1/logs>'
+For EU region:
+
+
+
+-u '<https://otlp-eu.logz.io/v1/logs>'
+Step 6: Full Command Example
+
+
+
+protocurl -v \\
+  -I ~/Downloads/proto/opentelemetry-proto \\
+  -i opentelemetry.proto.collector.logs.v1.ExportLogsServiceRequest \\
+  -o opentelemetry.proto.collector.logs.v1.ExportLogsServiceResponse \\
+  -u '<https://otlp-listener.logz.io/v1/logs>' \\
+  -H 'Authorization: Bearer <Your-Logzio-Token>' \\
+  -H 'user-agent: logzio-protobuf-logs' \\
+  -d @export_logs_request.json
+Step 7: Sample Output in Console
+When you run the command, you should see output like this in your console:
+
+
+
+=========================== POST Request  JSON    =========================== >>>
+{
+  "resource_logs": [
+    {
+      "resource": {
+        "attributes": [
+          {
+            "key": "service.name",
+            "value": {"string_value": "example-service"}
+          }
+        ]
+      },
+      "scope_logs": [
+        {
+          "scope": {
+            "name": "example-scope"
+          },
+          "log_records": [
+            {
+              "time_unix_nano": "1727065212000000000",
+              "severity_number": "SEVERITY_NUMBER_INFO",
+              "severity_text": "INFO",
+              "body": {"string_value": "Log message here"}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+=========================== POST Request Binary =========================== >>>
+00000000  0a 5c 0a 23 0a 21 0a 0c  73 65 72 76 69 63 65 2e  |.\\.#.!..service.|
+00000010  6e 61 6d 65 12 11 0a 0f  65 78 61 6d 70 6c 65 2d  |name....example-|
+...
+=========================== POST Response Headers =========================== <<<
+HTTP/1.1 200 OK
+If everything is set correctly, you should see an HTTP status code 200 OK, indicating that the logs were successfully sent.
+===
+
+</TabItem>
 </Tabs>
