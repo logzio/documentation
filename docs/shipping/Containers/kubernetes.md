@@ -15,8 +15,12 @@ metrics_alerts: ['5Ng398K19vXP9197bRV1If']
 drop_filter: []
 ---
 
-
 Integrate your Kubernetes system with Logz.io to monitor your logs, metrics, and traces, gain observability into your environment, and be able to identify and resolve issues with a few clicks.
 
 {@include: ../../_include/general-shipping/k8s.md} 
 
+{@include: ../../_include/metric-shipping/custom-dashboard.html} Install the pre-built dashboards to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["6ThbRK67ZxBGeYwp8n74D0"] -->
+
+{@include: ../../_include/metric-shipping/generic-dashboard.html} 

@@ -1,0 +1,8 @@
+{
+  "label": "Cold tier",
+  "position": 7,
+  "link": {
+    "type": "generated-index",
+    "description": "Cold Tier allows you to effortlessly search archived cold storage data, view up to 1,000 matching raw logs, and re-ingest them into your Logz.io account for further analysis and investigation."
+  }
+}
