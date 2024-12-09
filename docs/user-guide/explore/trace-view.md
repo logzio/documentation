@@ -23,8 +23,8 @@ Logs and traces are correlated using the `traceID` or `trace_id` fields. Make su
 After configuring your logs and traces, expand a log entry in Explore to verify that the Trace tab displays the associated trace data.
 
 Supported integrations for Trace context:
-* [.NET](http://localhost:3000/docs/shipping/Code/dotnet/#traces)
-* [Python](http://localhost:3000/docs/shipping/Code/Python/#traces)
+* [.NET](https://docs.logz.io/docs/shipping/Code/dotnet/#add-trace-context-1)
+* [Python](https://docs.logz.io/docs/shipping/Code/Python/#trace-context)
 
 
 
