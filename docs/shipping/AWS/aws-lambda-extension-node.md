@@ -42,6 +42,14 @@ Adding environmental variables using the AWS CLI commands below, will overwrite 
 This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
 :::
 
+**Instrumentation adds overhead.** A 60-second timeout ensures reliable trace exports.
+
+```shell
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --timeout 60
+```
+
+Replace <<YOUR-LAMBDA_FUNCTION_NAME>> with the name of the Lambda function you want to update.
+
 #### Add the OpenTelemetry collector layer to your Lambda function
 
 This layer contains the OpenTelemetry collector that will capture data from your application.
