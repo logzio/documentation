@@ -374,6 +374,8 @@
 /docs/user-guide/cloud-siem/integrations/siemplify/	                                /docs/cloud-siem/integrations/siemplify/
 /docs/user-guide/cloud-siem/integrations/xsoar-integration/	                                /docs/cloud-siem/integrations/xsoar-integration/
 /docs/user-guide/integrations/terraform/	                                /docs/integrations/terraform/
+/docs/shipping/aws/lambda-extension-go/	                                /docs/shipping/code/go/#traces
+/docs/shipping/AWS/Lambda-extension-node/	                                /docs/shipping/Code/Node-js/#traces
 # Shippers				
 /shipping/				/docs/category/send-your-data/
 /user-guide/log-shipping/				/docs/category/send-your-data/
