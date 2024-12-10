@@ -24,6 +24,10 @@ This integration only works for the following AWS regions: `us-east-1`, `us-east
 `ca-central-1`.
 :::
 
+:::note
+If you need an example aplication to test this integration, please refer to our [Java OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/java/traces/lambda-service).
+:::
+
 **Before you begin, you'll need**:
 
 - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
@@ -102,7 +106,7 @@ service:
 
 Add `OPENTELEMETRY_COLLECTOR_CONFIG_URI` variable to direct the OpenTelemetry collector to the configuration file:
 
-```
+```shell
 aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --environment Variables={OPENTELEMETRY_COLLECTOR_CONFIG_URI=<<PATH_TO_YOUR_COLLECTOR.YAML>>}
 ```
 
@@ -119,11 +123,11 @@ aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_
 
 Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Java application.
 
-#### Add the OpenTelemetry Java wrapper layer to your Lambda function
+#### Add the OpenTelemetry Java Agent layer to your Lambda function
 
-The OpenTelemetry Java wrapper layer automatically instruments the Java application in your Lambda function.
+The OpenTelemetry Java Agent layer automatically instruments the Java application in your Lambda function.
 
-Find the latest ARN for the OpenTelemetry Java wrapper layer on the [OpenTelemetry Lambda GitHub Releases page](https://github.com/open-telemetry/opentelemetry-lambda/releases) under `layer-java`.
+Find the latest ARN for the OpenTelemetry Java Agent layer on the [OpenTelemetry Lambda GitHub Releases page](https://github.com/open-telemetry/opentelemetry-lambda/releases) under `layer-java`.
 
 ```shell
 aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers <LAYER_ARN>
@@ -136,12 +140,18 @@ Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function ru
 
 Replace `<<YOUR-AWS-REGION>>` with the code of your AWS regions, e.g. `us-east-1`.
 
-#### Add environment variable for the wrapper
+#### Add environment variable
 
-Add the `AWS_LAMBDA_EXEC_WRAPPER` environment variable to point to the `otel-instrument` executable:
+Add the following environment variables to your Lambda function:
+
+- `AWS_LAMBDA_EXEC_WRAPPER` to point to the otel-handler executable
+- `OTEL_JAVA_AGENT_FAST_STARTUP_ENABLED` to improve startup performance see [here](https://github.com/open-telemetry/opentelemetry-lambda/tree/main/java#java-agent)
+- `OTEL_RESOURCE_ATTRIBUTES` to set a service name
 
 ```shell
-aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --environment Variables={AWS_LAMBDA_EXEC_WRAPPER=/opt/otel-instrument}
+aws lambda update-function-configuration \
+  --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> \
+  --environment "Variables={AWS_LAMBDA_EXEC_WRAPPER=/opt/otel-handler,OTEL_JAVA_AGENT_FAST_STARTUP_ENABLED=true,OTEL_RESOURCE_ATTRIBUTES=service.name=my-lambda-function-java}"
 ```
 
 Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Java application.
