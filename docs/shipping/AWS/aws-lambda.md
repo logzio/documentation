@@ -37,7 +37,9 @@ Install the pre-built dashboard to enhance the observability of your metrics.
 
 Deploy this integration for automatic instrumentation of Node.js or Go applications on AWS Lambda, forwarding traces to Logz.io. This involves adding an OpenTelemetry collector layer and configuring environment variables for both Node.js and Go integrations without modifying your application code.
 
-These guides offer step-by-step instructions tailored to your application's programming language, ensuring a seamless integration process:
+These guides provide step-by-step instructions for sending traces with OpenTelemetry, tailored to your application's programming language:
 
-* Traces from **[Go Applications](https://docs.logz.io/docs/shipping/AWS/Lambda-extension-go)** using OpenTelemetry.
-* Traces from **[Node.js Applications](https://docs.logz.io/docs/shipping/aws/lambda-extension-node/)** using OpenTelemetry.
+* [Go](http://docs.logz.io/docs/shipping/Code/GO/#traces)
+* [Node.js](http://docs.logz.io/docs/shipping/Code/Node-js/#traces)
+* [.NET](http://docs.logz.io/docs/shipping/Code/dotnet/#traces)
+* [Python](http://docs.logz.io/docs/shipping/Code/Python/#traces)
