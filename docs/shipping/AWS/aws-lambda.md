@@ -41,5 +41,5 @@ These guides provide step-by-step instructions for sending traces with OpenTelem
 
 * [Go](http://docs.logz.io/docs/shipping/Code/GO/#traces)
 * [Node.js](http://docs.logz.io/docs/shipping/Code/Node-js/#traces)
-* [.NET](http://docs.logz.io/docs/shipping/Code/dotnet/#traces)
+* [Java](http://docs.logz.io/docs/shipping/Code/Java/#traces)
 * [Python](http://docs.logz.io/docs/shipping/Code/Python/#traces)
