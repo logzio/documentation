@@ -43,13 +43,18 @@ Expand a log entry. The Trace tab will appear alongside the Log tab. If the log 
 ![open trace view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/trace-view-dec9.png)
 
 
-## Best practices for using Trace view
 
-* **Maintain Consistent Trace IDs**: Ensure trace_id is propagated consistently across all services.
+## Best Practices and troubleshooting
 
-* **Optimize Logging**: Avoid logging excessive trace data to minimize noise.
+Follow these tips to ensure Trace View works seamlessly and resolve any issues with missing traces:
 
-* **Validate Regularly**: Periodically confirm that logs and traces are correctly linked in the Trace View tab.
+* **Maintain Consistent Trace IDs**: Ensure the `trace_id` is consistently propagated across all services to enable proper correlation between logs and traces.
+* **Optimize Sampling and Filters**: Adjust sampling limits, refine filters, or increase the sample size to capture sufficient trace data.
+* **Verify Instrumentation**: Ensure instrumentation is set up correctly in your application and tracing libraries.
+* **Include Trace Context**: Confirm that the `traceID` or `trace_id` field is present and consistent in both logs and traces.
+* **Reconnect and Resend Data**: If traces are not appearing, try reconnecting and resending your trace data to Logz.io.
+* **Minimize Noise**: Avoid logging excessive trace data to keep logs clean and focused.
+* **Validate Regularly**: Periodically check that logs and traces are correctly linked in the Trace View tab to ensure everything is functioning as expected.
 
 
 For further assistance, contact our [support team](mailto:help@logz.io).
