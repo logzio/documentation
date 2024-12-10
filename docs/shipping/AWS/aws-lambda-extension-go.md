@@ -60,7 +60,7 @@ Replace `<<ARCHITECTURE>>` with the target architecture for your Lambda function
 
 #### Create a configuration file for the OpenTelemetry collector
   
-By default, the OpenTelemetry collector layer exports data to the Lambda console. To customize the collector configuration, you need to add a `collector.yaml` to your function and specifiy its location via the `OPENTELEMETRY_COLLECTOR_CONFIG_FILE` environment variable.
+By default, the OpenTelemetry collector layer exports data to the Lambda console. To customize the collector configuration, you need to add a `collector.yaml` to your function and specify its location via the `OPENTELEMETRY_COLLECTOR_CONFIG_FILE` environment variable.
 
 
 The `collector.yaml` file will have the following configuration:
