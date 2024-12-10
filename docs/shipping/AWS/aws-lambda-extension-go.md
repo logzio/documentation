@@ -2,9 +2,9 @@
 id: Lambda-extension-go
 title: Traces from Go on AWS Lambda using OpenTelemetry
 overview: This integration to auto-instrument your Go application running on AWS Lambda and send the traces to your Logz.io account.
-product: ['tracing']
-os: ['windows', 'linux']
-filters: ['AWS', 'Compute']
+product: ["tracing"]
+os: ["windows", "linux"]
+filters: ["AWS", "Compute"]
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/AWS-Lambda.svg
 logs_dashboards: []
 logs_alerts: []
@@ -14,21 +14,21 @@ metrics_alerts: []
 drop_filter: []
 ---
 
-Deploy this integration to auto-instrument your Go application running on AWS Lambda and send the traces to your Logz.io account. This is done by adding a dedicated layer for OpenTelemetry collector and configuring environment variables of these layer. This integration will require no change to your application code.
+Deploy this integration to instrument your Go application running on AWS Lambda and send the traces to your Logz.io account. This is done by adding a dedicated layer for OpenTelemetry collector and configuring environment variables of these layer.
 
 :::note
 This integration only works for the following AWS regions: `us-east-1`, `us-east-2`, `us-west-1`, `us-west-2`,
-               `ap-south-1`, `ap-northeast-3`, `ap-northeast-2`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`,
-               `eu-central-1`, `eu-west-1`, `eu-west-2`, `eu-west-3`, `eu-north-1`,
-               `sa-east-1`,
-               `ca-central-1`.
+`ap-south-1`, `ap-northeast-3`, `ap-northeast-2`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`,
+`eu-central-1`, `eu-west-1`, `eu-west-2`, `eu-west-3`, `eu-north-1`,
+`sa-east-1`,
+`ca-central-1`.
 :::
 
 **Before you begin, you'll need**:
-  
-* [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
-* Configured [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
-* A Lambda function with Go application that is not yet instrumented.
+
+- [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
+- Configured [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
+- A Lambda function with Go application.
 
 :::note
 Using `aws lambda update-function-configuration` with `--layers` replaces all existing layers with the specified ARN(s). To add a new layer without removing existing ones, include all desired layer ARNs in the command, both new and previously attached.
@@ -42,29 +42,28 @@ Adding environmental variables using the AWS CLI commands below, will overwrite 
 This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
 :::
 
-
-#### Add the OpenTelemetry collector layer to your Lambda function 
+#### Add the OpenTelemetry collector layer to your Lambda function
 
 This layer contains the OpenTelemetry collector that will capture data from your application.
 
 ```shell
-aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers arn:aws:lambda:<<YOUR-AWS-REGION>>:486140753397:layer:logzio-opentelemetry-collector-<<ARCHITECHTURE>>-0_1_0:1
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers arn:aws:lambda:<<YOUR-AWS-REGION>>:486140753397:layer:logzio-opentelemetry-collector-<<ARCHITECHTURE>>:<<VERSION>>
 ```
 
-Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Go application.
+Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Java application.
 
 Replace `<<YOUR-AWS-REGION>>` with the code of your AWS regions, e.g. `us-east-1`.
 
 Replace `<<ARCHITECTURE>>` with the target architecture for your Lambda function, either `arm64` for ARM-based applications or `amd64` (also known as x86_64) for traditional 64-bit Intel/AMD applications.
 
+Replace `<<VERSION>>` with the latest version of the layer. You can find the latest version number by visiting the [Logz.io OpenTelemetry Lambda Releases page.](https://github.com/logzio/opentelemetry-lambda/releases)
 
 #### Create a configuration file for the OpenTelemetry collector
-  
-By default, the OpenTelemetry collector layer exports data to the Lambda console. To customize the collector configuration, you need to add a `collector.yaml` to your function and specifiy its location via the `OPENTELEMETRY_COLLECTOR_CONFIG_FILE` environment variable.
 
+By default, the OpenTelemetry collector layer exports data to the Lambda console. To customize the collector configuration, you need to add a `collector.yaml` to your function and specifiy its location via the `OPENTELEMETRY_COLLECTOR_CONFIG_URI` environment variable.
 
 The `collector.yaml` file will have the following configuration:
-  
+
 ```yaml
 receivers:
   otlp:
@@ -86,25 +85,21 @@ service:
       exporters: [logzio/traces]
 ```
 
-  
-{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
-{@include: ../../_include/tracing-shipping/tail-sampling.md}
+{@include: ../../\_include/tracing-shipping/replace-tracing-token.html}
+{@include: ../../\_include/tracing-shipping/tail-sampling.md}
 
- 
 #### Direct the OpenTelemetry collector to the configuration file
 
+Add `OPENTELEMETRY_COLLECTOR_CONFIG_URI` variable to direct the OpenTelemetry collector to the configuration file:
 
-Add `OPENTELEMETRY_COLLECTOR_CONFIG_FILE` variable to direct the OpenTelemetry collector to the configuration file:
-
-```
-aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --environment Variables={OPENTELEMETRY_COLLECTOR_CONFIG_FILE=<<PATH_TO_YOUR_COLLECTOR.YAML>>}
+```shell
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --environment Variables={OPENTELEMETRY_COLLECTOR_CONFIG_URI=<<PATH_TO_YOUR_COLLECTOR.YAML>>}
 ```
 
 Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Go application.
 
-Replace `<<PATH_TO_YOUR_COLLECTOR.YAML>>` with the actual path to your `collector.yaml` file. 
+Replace `<<PATH_TO_YOUR_COLLECTOR.YAML>>` with the actual path to your `collector.yaml` file.
 (If `collector.yaml` is located in the root directory of your application, use the path `/var/task/collector.yaml`.)
-
 
 #### Activate tracing for your Lambda function
 
@@ -115,6 +110,7 @@ aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_
 Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Go application.
 
 ## Example: Manual Instrumentation for Go Lambda Functions
+
 Below is a simple example that demonstrates how to instrument a Go-based AWS Lambda function using OpenTelemetry:
 
 ```go
@@ -163,6 +159,7 @@ func main() {
 	lambda.Start(handler)
 }
 ```
+
 This example manually sets up OpenTelemetry tracing within a Go Lambda function, configuring the OTLP exporter to send traces to an OpenTelemetry Collector. Remember to replace `localhost:4317` with the actual endpoint of your collector.
 
 For additional information and best practices on instrumenting your Go applications with OpenTelemetry, refer to the [OpenTelemetry Go documentation](https://opentelemetry.io/docs/languages/go/instrumentation/#traces)
