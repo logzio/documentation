@@ -808,7 +808,7 @@ Replace `<<VERSION>>` with the latest version of the layer. You can find the lat
 
 #### Create a configuration file for the OpenTelemetry collector
 
-By default, the OpenTelemetry collector layer exports data to the Lambda console. To customize the collector configuration, you need to add a `collector.yaml` to your function and specifiy its location via the `OPENTELEMETRY_COLLECTOR_CONFIG_URI` environment variable.
+By default, the OpenTelemetry collector layer exports data to the Lambda console. To customize the collector configuration, you need to add a `collector.yaml` to your function and  its location via the `OPENTELEMETRY_COLLECTOR_CONFIG_URI` environment variable.
 The `collector.yaml` file will have the following configuration:
 
 ```yaml
