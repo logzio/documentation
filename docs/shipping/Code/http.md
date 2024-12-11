@@ -139,7 +139,7 @@ Allow some time for data ingestion, then open [Open Search Dashboards](https://a
 Encounter an issue? See our [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/) guide.
 
 </TabItem>
-<TabItem value="http-otlp" label="Protobuf Logs via OpenTelemetry" default>
+<TabItem value="http-otlp" label="Protobuf via OpenTelemetry" default>
 
 This guide provides step-by-step instructions to Logz.io users on how to send logs in Protobuf format using the OTLP listener. Follow these steps to set up your environment and send logs via the OTLP protocol using the protocurl tool.
 
