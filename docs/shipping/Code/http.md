@@ -2,9 +2,9 @@
 id: HTTP
 title: HTTP
 overview: Ship data from your code directly to the Logz.io listener as a minified JavaScript Object Notation (JSON) file, a standard text-based format for representing structured data based on JavaScript object syntax.
-product: ["logs", "traces"]
-os: ["windows", "linux"]
-filters: ["Code", "Most Popular"]
+product: ['logs', 'tracing']
+os: ['windows', 'linux']
+filters: ['Code', 'Most Popular']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/json.svg
 logs_dashboards: []
 logs_alerts: []
