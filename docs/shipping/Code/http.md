@@ -185,7 +185,7 @@ Breakdown:
 * `I`: Points to the location of the OpenTelemetry Protobuf definitions.
 * `i`: Specifies the Protobuf request type (`ExportLogsServiceRequest`).
 * `o`: Specifies the Protobuf response type (`ExportLogsServiceResponse`).
-* `u`: URL of the Logz.io OTLP listener endpoint. Adjust the URL for your region using Logz.io [region settings](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/).
+* `u`: URL of the Logz.io OTLP listener endpoint. Adjust the URL for your region using Logz.io [region settings](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#opentelemetry-protocol-otlp-regions).
 * `H`: Include headers like the Authorization token and user-agent.
 * `d`: Specifies the JSON file containing the log data.
 
@@ -232,34 +232,6 @@ Key fields:
 * `severityNumber`: Log severity level (e.g., `SEVERITY_NUMBER_INFO`).
 * `body`: The log message content.
 
-## Adjust the Region URL
-
-You must adjust the OTLP listener URL based on your Logz.io account region. Find the correct endpoint for your region [here](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/).
-
-For example, if you're in the US region, your endpoint might be:
-
-```bash
--u '<https://otlp-listener.logz.io/v1/logs>'
-```
-
-For EU region:
-
-```bash
--u '<https://otlp-eu.logz.io/v1/logs>'
-```
-
-## Full Command Example
-
-```bash
-protocurl -v \\
-  -I ~/Downloads/proto/opentelemetry-proto \\
-  -i opentelemetry.proto.collector.logs.v1.ExportLogsServiceRequest \\
-  -o opentelemetry.proto.collector.logs.v1.ExportLogsServiceResponse \\
-  -u '<https://otlp-listener.logz.io/v1/logs>' \\
-  -H 'Authorization: Bearer <Your-Logzio-Token>' \\
-  -H 'user-agent: logzio-protobuf-logs' \\
-  -d @export_logs_request.json
-```
 
 ## Sample Output in Console
 
