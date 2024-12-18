@@ -1491,6 +1491,7 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --timeout 60
 ```
 
+
 Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of the Lambda function you want to update.
 
 #### Add the OpenTelemetry collector layer to your Lambda function
@@ -1498,13 +1499,15 @@ Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of the Lambda function you
 This layer contains the OpenTelemetry collector that will capture data from your application.
 
 ```shell
-aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers arn:aws:lambda:<<YOUR-AWS-REGION>>:486140753397:layer:logzio-opentelemetry-collector-<<ARCHITECHTURE>>:<<VERSION>>
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers <<LAYER-ARN>>
 ```
 
 Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Java application.
-Replace `<<YOUR-AWS-REGION>>` with the code of your AWS regions, e.g. `us-east-1`.
-Replace `<<ARCHITECTURE>>` with the target architecture for your Lambda function, either `arm64` for ARM-based applications or `amd64` (also known as x86_64) for traditional 64-bit Intel/AMD applications.
-Replace `<<VERSION>>` with the latest version of the layer. You can find the latest version number by visiting the [Logz.io OpenTelemetry Lambda Releases page.](https://github.com/logzio/opentelemetry-lambda/releases)
+
+Copy the appropriate `<<LAYER-ARN>>` for your Lambda architecture (amd64 or arm64) from the [latest release notes](https://github.com/logzio/opentelemetry-lambda/releases).
+
+Replace `<<YOUR-AWS-REGION>>` with the code of your AWS regions. [See all available Logz.io hosting regions](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
+
 
 #### Create a configuration file for the OpenTelemetry collector
 
@@ -1560,7 +1563,7 @@ The OpenTelemetry Java Agent layer automatically instruments the Java applicatio
 Find the latest ARN for the OpenTelemetry Java Agent layer on the [OpenTelemetry Lambda GitHub Releases page](https://github.com/open-telemetry/opentelemetry-lambda/releases) under `layer-java`.
 
 ```shell
-aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers <LAYER_ARN>
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers <<LAYER-ARN>>
 ```
 
 Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Java application.
