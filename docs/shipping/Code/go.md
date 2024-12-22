@@ -213,17 +213,6 @@ func handleErr(err error) {
 ```	
 	
 Replace `<<INSTRUMENTATION_NAME>>` with your instrumentation name.
-	
-Additionally, add the error handler:
-	
-```go
-func handleErr(err error) {
-    if err != nil {
-        panic(fmt.Errorf("encountered error: %v", err))
-    }
-}
-```
-
 
 
 ### Add metric instruments
@@ -644,7 +633,7 @@ Give your traces some time to get from your system to ours, and then open [Traci
 
 ### Manual Instrumentation
 
-If you're using specific libararies and want to be specific or precise with instrumentation, you can opt to[instrument your code manually](https://opentelemetry.io/docs/languages/go/instrumentation/#traces).
+If you're using specific libararies and want to be specific or precise with instrumentation, you can opt to [instrument your code manually](https://opentelemetry.io/docs/languages/go/instrumentation/#traces).
 
 
 </TabItem>
