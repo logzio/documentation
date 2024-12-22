@@ -513,28 +513,14 @@ If you need an example aplication to test this integration, please refer to our 
 
 ### Configure the instrumentation
 
+:::note
+The below guide is using LogBack appender. OpenTelemetry also support [Log4J Appender](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/main/instrumentation/log4j/log4j-appender-2.17/library/README.md).
+:::
+
+
 Add the following dependencies to `pom.xml`:
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-
-  <groupId>com.logzio.otel</groupId>
-  <artifactId>otel-log</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <name>otel-log</name>
-  <packaging>jar</packaging>
-
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.release>17</maven.compiler.release>
-    <spring-boot.version>3.0.6</spring-boot.version>
-  </properties>
-
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -577,18 +563,6 @@ Add the following dependencies to `pom.xml`:
       <artifactId>opentelemetry-exporter-otlp-logs</artifactId>
     </dependency>
 
-    <!-- Spring Boot dependencies -->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter</artifactId>
-      <version>${spring-boot.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-      <version>${spring-boot.version}</version>
-    </dependency>
-
     <!-- Logback dependencies -->
     <dependency>
       <groupId>ch.qos.logback</groupId>
@@ -613,43 +587,6 @@ Add the following dependencies to `pom.xml`:
       <version>1.25.1-alpha</version>
     </dependency>
   </dependencies>
-
-  <build>
-    <plugins>
-      <!-- Spring Boot Maven plugin -->
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-        <version>${spring-boot.version}</version>
-      </plugin>
-      
-      <plugin>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <version>3.5.0</version>
-        <configuration>
-          <descriptorRefs>
-            <descriptorRef>jar-with-dependencies</descriptorRef>
-          </descriptorRefs>
-          <archive>
-            <manifest>
-              <mainClass>com.logzio.otel.DiceApplication</mainClass>
-            </manifest>
-          </archive>
-        </configuration>
-        <executions>
-          <execution>
-            <id>make-assembly</id>
-            <phase>package</phase>
-            <goals>
-              <goal>single</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
-</project>
-
 ```
 
 
@@ -672,7 +609,7 @@ import io.opentelemetry.api.common.Attributes;
 public class OpenTelemetryConfig {
 
     private static final String DEFAULT_ENDPOINT = "https://otlp-listener.logz.io/v1/logs";
-    private static final String LOGZ_IO_TOKEN = "<LOG-SHIPPING-TOKEN>";
+    private static final String LOGZ_IO_TOKEN = "<<LOG-SHIPPING-TOKEN>>";
     private static final String SERVICE_NAME = "java-otlp";
 
     public void initializeOpenTelemetry() {
@@ -711,7 +648,7 @@ public class OpenTelemetryConfig {
 
 Update the `listener.logz.io` part in `https://otlp-listener.logz.io/v1/logs` with the URL for [your hosting region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region).
 
-#### Add the Logback
+#### Configure Logback
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
