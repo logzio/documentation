@@ -756,7 +756,7 @@ Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function ru
 
 Copy the appropriate `<<LAYER-ARN>>` for your Lambda architecture (amd64 or arm64) from the [latest release notes](https://github.com/logzio/opentelemetry-lambda/releases).
 
-Replace `<<YOUR-AWS-REGION>>` with the code of your AWS regions. [See all available Logz.io hosting regions](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
+Replace `<<REGION>>` with the code of your AWS regions. [See all available Logz.io hosting regions](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
 
 
 #### Create a configuration file for the OpenTelemetry collector

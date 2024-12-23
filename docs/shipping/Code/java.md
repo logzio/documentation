@@ -1506,7 +1506,7 @@ Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function ru
 
 Copy the appropriate `<<LAYER-ARN>>` for your Lambda architecture (amd64 or arm64) from the [latest release notes](https://github.com/logzio/opentelemetry-lambda/releases).
 
-Replace `<<YOUR-AWS-REGION>>` with the code of your AWS regions. [See all available Logz.io hosting regions](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
+Replace `<<REGION>>` with the code of your AWS regions. [See all available Logz.io hosting regions](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
 
 
 #### Create a configuration file for the OpenTelemetry collector
@@ -1568,7 +1568,7 @@ aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_
 
 Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Java application.
 `<<LAYER_ARN>>` with the latest ARN from the GitHub releases page.
-Replace `<<YOUR-AWS-REGION>>` with the code of your AWS regions, e.g. `us-east-1`.
+Replace `<<REGION>>` with the code of your AWS regions, e.g. `us-east-1`.
 
 #### Add environment variable
 
