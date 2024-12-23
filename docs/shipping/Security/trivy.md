@@ -2,7 +2,7 @@
 id: Trivy
 title: Trivy
 overview: TThis integration utilizes the logzio-trivy Helm Chart to deploy the trivy-Operator Helm Chart that scans the cluster and creates Trivy reports and a  deployment that looks for the Trivy reports in the cluster, processes them, and sends them to Logz.io
-product: ['metrics']
+product: ['logs', 'metrics']
 os: ['windows', 'linux']
 filters: ['Security']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/trivy-logo.png
@@ -39,8 +39,6 @@ This integration is presently in its beta phase and may be subject to modificati
 * An active Logz.io account
 * Kubernetes cluster to send reports from
 
- 
-
 
 ### Add `logzio-helm` repo
   
@@ -71,6 +69,29 @@ With this command, we instruct Helm to create the monitoring namespace if it doe
 | `<<LOG-SHIPPING-TOKEN>>` | {@include: ../../_include/log-shipping/log-shipping-token.html} |
 | `<<LISTENER-HOST>>` | Replace `<<LISTENER-HOST>>` with the host for your region, without the `http/https` prefix.  |
 
+
+#### Trivy Metrics
+By default the `trivy-operator` [exposes a metrics endpoint](https://aquasecurity.github.io/trivy-operator/v0.23.0/tutorials/integrations/metrics/). As a result, if the chart is run alongside the [Logz.io Telemetry chart to collect metrics from the cluster](https://docs.logz.io/docs/k8s-360/unified-helm-chart/#send-your-metrics), the Trivy metrics will also be collected.
+
+
+:::caution
+The Logz.io Telemetry chart is sending metrics of the entire cluster and not only of trivy.
+:::
+
+```shell
+helm install  -n monitoring --create-namespace \
+--set metricsOrTraces.enabled=true \
+--set logzio-k8s-telemetry.metrics.enabled=true \
+--set logzio-k8s-telemetry.secrets.MetricsToken="<<METRICS-SHIPPING-TOKEN>>" \
+--set logzio-k8s-telemetry.secrets.ListenerHost="https://<<LISTENER-HOST>>:8053" \
+--set logzio-k8s-telemetry.secrets.p8s_logzio_name="<<ENV-ID>>" \
+--set logzio-k8s-telemetry.secrets.env_id="<<ENV-ID>>" \
+--set securityReport.enabled=true \
+--set logzio-trivy.env_id="<<ENV-ID>>" \
+--set logzio-trivy.secrets.logzioShippingToken="<<LOG-SHIPPING-TOKEN>>" \
+--set logzio-trivy.secrets.logzioListener="<<LISTENER-HOST>>" \
+logzio-monitoring logzio-helm/logzio-monitoring
+```
 
 ### Check Logz.io for your reports
 
