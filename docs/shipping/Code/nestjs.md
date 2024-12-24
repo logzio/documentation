@@ -327,23 +327,26 @@ logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 `<<LOGZIO_ACCOUNT_REGION_CODE>>` - Your Logz.io account region code. [Available regions](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
 
-#### Define the logzio-k8s-telemetry service dns
+#### Define the service DNS
 
-:::note
-If you're using the unified logzio-monitoring chart, update the service to point to the specified host: `http://logzio-monitoring-otel-collector.monitoring.svc.cluster.local:4317/`
-:::
+You'll need the following service DNS:
 
-In most cases, the service dns will be `logzio-k8s-telemetry.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
-  
-If you are not sure what your cluster domain name is, you can run the following command to look it up: 
-  
+`http://<<CHART-NAME>>.<<NAMESPACE>>.svc.cluster.local:<<PORT>>/`.
+
+Replace `<<CHART-NAME>>` with the relevant service you're using (`logzio-k8s-telemetry-otel-collector`, `logzio-k8s-telemetry`).
+Replace `<<PORT>>` with the port for your agent's protocol.
+Replace `<<NAMESPACE>>` with your Helm chart's deployment namespace (e.g., default or monitoring).
+
+If you're not sure what your cluster domain name is, you can run the following command to look it up:
+
 ```shell
 kubectl run -it --image=k8s.gcr.io/e2e-test-images/jessie-dnsutils:1.3 --restart=Never shell -- \
 sh -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.default//"'
 ```
   
 It will deploy a small pod that extracts your cluster domain name from your Kubernetes environment. You can remove this pod after it has returned the cluster domain name.
-  
+
+In most cases, the service dns will be `logzio-k8s-telemetry.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.  
 
 #### Download instrumentation packages
 
