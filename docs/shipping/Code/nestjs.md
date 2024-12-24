@@ -329,6 +329,10 @@ logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 
 #### Define the logzio-k8s-telemetry service dns
 
+:::note
+If you're using the unified logzio-monitoring chart, update the service to point to the specified host: `http://logzio-monitoring-otel-collector.monitoring.svc.cluster.local:4317/`
+:::
+
 In most cases, the service dns will be `logzio-k8s-telemetry.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
   
 If you are not sure what your cluster domain name is, you can run the following command to look it up: 
