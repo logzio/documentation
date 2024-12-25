@@ -935,7 +935,7 @@ You'll need the following service DNS:
 
 `http://<<CHART-NAME>>-otel-collector.<<NAMESPACE>>.svc.cluster.local:<<PORT>>/`.
 
-Replace `<<CHART-NAME>>` with the relevant service you're using (`logzio-k8s-telemetry-otel-collector`, `logzio-k8s-telemetry`).
+Replace `<<CHART-NAME>>` with the relevant service you're using (`logzio-k8s-telemetry`, `logzio-monitoring`).
 Replace `<<NAMESPACE>>` with your Helm chart's deployment namespace (e.g., default or monitoring).
 Replace `<<PORT>>` with the [port for your agent's protocol](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-telemetry/values.yaml#L249-L267) (Default is 4317).
 
