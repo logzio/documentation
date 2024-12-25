@@ -929,21 +929,25 @@ logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 `<<LOGZIO_ACCOUNT_REGION_CODE>>` - Your Logz.io account region code. [Available regions](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
 
-#### Define the logzio-k8s-telemetry dns name
+#### Define the DNS name
 
-In most cases, the service name will be `logzio-k8s-telemetry.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
+You'll need the following service DNS:
 
+`http://<<CHART-NAME>>-otel-collector.<<NAMESPACE>>.svc.cluster.local:<<PORT>>/`.
 
-  
-To find your cluster domain name, run the following command:
-  
+Replace `<<CHART-NAME>>` with the relevant service you're using (`logzio-k8s-telemetry`, `logzio-monitoring`).
+Replace `<<NAMESPACE>>` with your Helm chart's deployment namespace (e.g., default or monitoring).
+Replace `<<PORT>>` with the [port for your agent's protocol](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-telemetry/values.yaml#L249-L267) (Default is 4317).
+
+If you're not sure what your cluster domain name is, you can run the following command to look it up:
+
 ```shell
 kubectl run -it --image=k8s.gcr.io/e2e-test-images/jessie-dnsutils:1.3 --restart=Never shell -- \
-shell -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.default//"'
+shell -c 'nslookup kubernetes.<<NAMESPACE>> | grep Name | sed "s/Name:\skubernetes.<<NAMESPACE>>//"'
 ```
-  
+
 This command deploys a temporary pod to extract your cluster domain name. You can remove the pod after retrieving the domain name.
-  
+
 
 {@include: ../../_include/tracing-shipping/node-steps.md}
 
