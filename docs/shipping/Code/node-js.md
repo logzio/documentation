@@ -755,16 +755,14 @@ Replace <<YOUR-LAMBDA_FUNCTION_NAME>> with the name of the Lambda function you w
 This layer contains the OpenTelemetry collector that will capture data from your application.
 
 ```shell
-aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers arn:aws:lambda:<<YOUR-AWS-REGION>>:486140753397:layer:logzio-opentelemetry-collector-<<ARCHITECHTURE>>:<<VERSION>>
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers <<LAYER-ARN>>
 ```
 
 Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Node.js application.
 
-Replace `<<YOUR-AWS-REGION>>` with the code of your AWS regions, e.g. `us-east-1`.
+Copy the appropriate `<<LAYER-ARN>>` for your Lambda architecture (amd64 or arm64) from the [latest release notes](https://github.com/logzio/opentelemetry-lambda/releases).
 
-Replace `<<ARCHITECTURE>>` with the target architecture for your Lambda function, either `arm64` for ARM-based applications or `amd64` (also known as x86_64) for traditional 64-bit Intel/AMD applications.
-
-Replace `<<VERSION>>` with the latest version of the layer. You can find the latest version number by visiting the [Logz.io OpenTelemetry Lambda Releases page.](https://github.com/logzio/opentelemetry-lambda/releases)
+Replace `<<REGION>>` with the code of your AWS regions. [See all available Logz.io hosting regions](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
 
 #### Create a configuration file for the OpenTelemetry collector
 
@@ -832,7 +830,7 @@ Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function ru
 
 `<<LAYER_ARN>>` with the latest ARN from the GitHub releases page.
 
-Replace `<<YOUR-AWS-REGION>>` with the code of your AWS regions, e.g. `us-east-1`.
+Replace `<<REGION>>` with the code of your AWS regions, e.g. `us-east-1`.
 
 #### Add environment variable for the wrapper
 
@@ -931,21 +929,25 @@ logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 `<<LOGZIO_ACCOUNT_REGION_CODE>>` - Your Logz.io account region code. [Available regions](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
 
-#### Define the logzio-k8s-telemetry dns name
+#### Define the DNS name
 
-In most cases, the service name will be `logzio-k8s-telemetry.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
+You'll need the following service DNS:
 
+`http://<<CHART-NAME>>-otel-collector.<<NAMESPACE>>.svc.cluster.local:<<PORT>>/`.
 
-  
-To find your cluster domain name, run the following command:
-  
+Replace `<<CHART-NAME>>` with the relevant service you're using (`logzio-k8s-telemetry`, `logzio-monitoring`).
+Replace `<<NAMESPACE>>` with your Helm chart's deployment namespace (e.g., default or monitoring).
+Replace `<<PORT>>` with the [port for your agent's protocol](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-telemetry/values.yaml#L249-L267) (Default is 4317).
+
+If you're not sure what your cluster domain name is, you can run the following command to look it up:
+
 ```shell
 kubectl run -it --image=k8s.gcr.io/e2e-test-images/jessie-dnsutils:1.3 --restart=Never shell -- \
-shell -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.default//"'
+shell -c 'nslookup kubernetes.<<NAMESPACE>> | grep Name | sed "s/Name:\skubernetes.<<NAMESPACE>>//"'
 ```
-  
+
 This command deploys a temporary pod to extract your cluster domain name. You can remove the pod after retrieving the domain name.
-  
+
 
 {@include: ../../_include/tracing-shipping/node-steps.md}
 

@@ -112,6 +112,118 @@ if err != nil {
 l.Stop() // Drains the log buffer
 ```
 
+</TabItem>
+  <TabItem value="OpenTelemetry" label="OpenTelemetry">
+
+This integration uses the OpenTelemetry logging exporter to send logs to Logz.io via the OpenTelemetry Protocol (OTLP) listener.
+
+### Prerequisites
+    
+- Go 1.21 or newer
+
+:::note
+If you need an example aplication to test this integration, please refer to our [Go OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/go/logs).
+:::
+
+### Configure the instrumentation
+
+
+1. Install OpenTelemetry dependencies:
+
+   ```bash
+   go get go.opentelemetry.io/otel
+   go get go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploghttp
+   go get go.opentelemetry.io/otel/exporters/stdout/stdoutlog
+   ```
+
+2. Create a new file named `otel.go` and add the following code to set up OpenTelemetry logging:
+
+
+   ```go
+   package main
+
+   import (
+   	"context"
+   	"fmt"
+   	"log"
+   
+   	"go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploghttp"
+   	"go.opentelemetry.io/otel/exporters/stdout/stdoutlog"
+   	"go.opentelemetry.io/otel/log/global"
+   	sdklog "go.opentelemetry.io/otel/sdk/log"
+   )
+   
+   func newLoggerProvider() (*sdklog.LoggerProvider, error) {
+   	// Create stdout log exporter
+   	stdoutExporter, err := stdoutlog.New(stdoutlog.WithPrettyPrint())
+   	if err != nil {
+   		return nil, fmt.Errorf("failed to create stdout exporter: %w", err)
+   	}
+   
+   	// Create OTLP HTTP log exporter for Logz.io
+   	httpExporter, err := otlploghttp.New(context.Background(),
+   		otlploghttp.WithEndpoint("otlp-listener.logz.io"),
+   		otlploghttp.WithHeaders(map[string]string{
+   			"Authorization": "Bearer <LOG-SHIPPING-TOKEN>",
+   			"user-agent":    "logzio-go-logs-otlp",
+   		}),
+   		otlploghttp.WithURLPath("/v1/logs"),
+   	)
+   	if err != nil {
+   		return nil, fmt.Errorf("failed to create OTLP HTTP exporter: %w", err)
+   	}
+   
+   	// Create a logger provider with both exporters
+   	loggerProvider := sdklog.NewLoggerProvider(
+   		sdklog.WithProcessor(sdklog.NewBatchProcessor(stdoutExporter)), // For stdout
+   		sdklog.WithProcessor(sdklog.NewBatchProcessor(httpExporter)),   // For HTTP export
+   	)
+   
+   	return loggerProvider, nil
+   }
+   
+   // setupOTelSDK bootstraps the OpenTelemetry logging pipeline.
+   func setupOTelSDK(ctx context.Context) (shutdown func(context.Context) error, err error) {
+   	// Set up logger provider.
+   	loggerProvider, err := newLoggerProvider()
+   	if err != nil {
+   		return nil, err
+   	}
+   
+   	// Set the global logger provider
+   	global.SetLoggerProvider(loggerProvider)
+   
+   	// Return a shutdown function
+   	shutdown = func(ctx context.Context) error {
+   		err := loggerProvider.Shutdown(ctx)
+   		if err != nil {
+   			log.Printf("Error during logger provider shutdown: %v", err)
+   		}
+   		return err
+   	}
+   
+   	return shutdown, nil
+   }
+   
+   ```
+
+
+   {@include: ../../_include/log-shipping/log-shipping-token.md}
+   Update the `listener.logz.io` part in `https://otlp-listener.logz.io/v1/logs` with the URL for [your hosting region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region).
+
+
+3. Run your application.
+
+### Check Logz.io for your logs
+
+
+Allow some time for data ingestion, then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
+
+Encounter an issue? See our [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/) guide.
+
+
+</TabItem>
+</Tabs>
 
 ## Metrics
 
@@ -379,119 +491,6 @@ Install the pre-built dashboard to enhance the observability of your metrics.
 
 {@include: ../../_include/metric-shipping/generic-dashboard.html}
 
-</TabItem>
-  <TabItem value="OpenTelemetry" label="OpenTelemetry">
-
-This integration uses the OpenTelemetry logging exporter to send logs to Logz.io via the OpenTelemetry Protocol (OTLP) listener.
-
-### Prerequisites
-    
-- Go 1.21 or newer
-
-:::note
-If you need an example aplication to test this integration, please refer to our [Go OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/go/logs).
-:::
-
-### Configure the instrumentation
-
-
-1. Install OpenTelemetry dependencies:
-
-   ```bash
-   go get go.opentelemetry.io/otel
-   go get go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploghttp
-   go get go.opentelemetry.io/otel/exporters/stdout/stdoutlog
-   ```
-
-2. Create a new file named `otel.go` and add the following code to set up OpenTelemetry logging:
-
-
-   ```go
-   package main
-
-   import (
-   	"context"
-   	"fmt"
-   	"log"
-   
-   	"go.opentelemetry.io/otel/exporters/otlp/otlplog/otlploghttp"
-   	"go.opentelemetry.io/otel/exporters/stdout/stdoutlog"
-   	"go.opentelemetry.io/otel/log/global"
-   	sdklog "go.opentelemetry.io/otel/sdk/log"
-   )
-   
-   func newLoggerProvider() (*sdklog.LoggerProvider, error) {
-   	// Create stdout log exporter
-   	stdoutExporter, err := stdoutlog.New(stdoutlog.WithPrettyPrint())
-   	if err != nil {
-   		return nil, fmt.Errorf("failed to create stdout exporter: %w", err)
-   	}
-   
-   	// Create OTLP HTTP log exporter for Logz.io
-   	httpExporter, err := otlploghttp.New(context.Background(),
-   		otlploghttp.WithEndpoint("otlp-listener.logz.io"),
-   		otlploghttp.WithHeaders(map[string]string{
-   			"Authorization": "Bearer <LOG-SHIPPING-TOKEN>",
-   			"user-agent":    "logzio-go-logs-otlp",
-   		}),
-   		otlploghttp.WithURLPath("/v1/logs"),
-   	)
-   	if err != nil {
-   		return nil, fmt.Errorf("failed to create OTLP HTTP exporter: %w", err)
-   	}
-   
-   	// Create a logger provider with both exporters
-   	loggerProvider := sdklog.NewLoggerProvider(
-   		sdklog.WithProcessor(sdklog.NewBatchProcessor(stdoutExporter)), // For stdout
-   		sdklog.WithProcessor(sdklog.NewBatchProcessor(httpExporter)),   // For HTTP export
-   	)
-   
-   	return loggerProvider, nil
-   }
-   
-   // setupOTelSDK bootstraps the OpenTelemetry logging pipeline.
-   func setupOTelSDK(ctx context.Context) (shutdown func(context.Context) error, err error) {
-   	// Set up logger provider.
-   	loggerProvider, err := newLoggerProvider()
-   	if err != nil {
-   		return nil, err
-   	}
-   
-   	// Set the global logger provider
-   	global.SetLoggerProvider(loggerProvider)
-   
-   	// Return a shutdown function
-   	shutdown = func(ctx context.Context) error {
-   		err := loggerProvider.Shutdown(ctx)
-   		if err != nil {
-   			log.Printf("Error during logger provider shutdown: %v", err)
-   		}
-   		return err
-   	}
-   
-   	return shutdown, nil
-   }
-   
-   ```
-
-
-   {@include: ../../_include/log-shipping/log-shipping-token.md}
-   Update the `listener.logz.io` part in `https://otlp-listener.logz.io/v1/logs` with the URL for [your hosting region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region).
-
-
-3. Run your application.
-
-### Check Logz.io for your logs
-
-
-Allow some time for data ingestion, then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
-
-Encounter an issue? See our [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/) guide.
-
-
-</TabItem>
-</Tabs>
-
 
 ## Traces
 
@@ -672,16 +671,16 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 This layer contains the OpenTelemetry collector that will capture data from your application.
 
 ```shell
-aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers arn:aws:lambda:<<YOUR-AWS-REGION>>:486140753397:layer:logzio-opentelemetry-collector-<<ARCHITECHTURE>>:<<VERSION>>
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers <<LAYER-ARN>>
 ```
 
-Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Java application.
 
-Replace `<<YOUR-AWS-REGION>>` with the code of your AWS regions, e.g. `us-east-1`.
+Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Go application.
 
-Replace `<<ARCHITECTURE>>` with the target architecture for your Lambda function, either `arm64` for ARM-based applications or `amd64` (also known as x86_64) for traditional 64-bit Intel/AMD applications.
+Copy the appropriate `<<LAYER-ARN>>` for your Lambda architecture (amd64 or arm64) from the [latest release notes](https://github.com/logzio/opentelemetry-lambda/releases).
 
-Replace `<<VERSION>>` with the latest version of the layer. You can find the latest version number by visiting the [Logz.io OpenTelemetry Lambda Releases page.](https://github.com/logzio/opentelemetry-lambda/releases)
+Replace `<<REGION>>` with the code of your AWS regions. [See all available Logz.io hosting regions](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
+
 
 #### Create a configuration file for the OpenTelemetry collector
 
