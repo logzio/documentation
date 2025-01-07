@@ -37,7 +37,7 @@ Deployment logs sent via the API will appear as deployment markers in Explore. Y
 
 Open **Visualize > Deployment markers** to view all markers within your selected time frame. Toggle markers on or off to focus on the most relevant ones for your analysis.
 
-<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/deployment-marker-explore.png" alt="add-deployment-marker" width="500"/>
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/visualize-deployment-jan7.png" alt="add-deployment-marker" width="500"/>
 
 Once added, deployment markers will be displayed across your histogram. Hover over a marker to view additional details such as its title, timestamp, and description.
 
