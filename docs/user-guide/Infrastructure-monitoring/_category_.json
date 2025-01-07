@@ -1,6 +1,6 @@
 {
   "label": "Infrastructure Monitoring",
-  "position": 8,
+  "position": 9,
   "link": {
     "type": "generated-index",
     "description": "Infrastructure Monitoring, or Metrics, lets you monitor your infrastructure metrics to gain a clear picture of the ongoing status of your distributed cloud services at all times."
