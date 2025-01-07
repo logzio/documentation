@@ -48,13 +48,10 @@ Once added, deployment markers will be displayed across your histogram. Hover ov
 Include the service name in the `title` field when sending deployment marker logs for easier identification.
 :::
 
-<!--
-### 3. View additional details in the marker log
+### Viewing additional details in the marker logs
 
-Some of the fields in the deployment logs sent by API are not rendered. These include the **description** and additional **metadata** fields.
+Certain fields in deployment logs sent via the API, such as additional metadata fields, are not displayed in the standard view.
 
-You can run the search `_exists_: __logzio_marker_title` to retrieve your marker logs. Switch to the JSON log view to look up the additional details and context available for your Deployment markers.
+To retrieve marker logs, run the query `_exists_: __logzio_marker_title`. Switch to the JSON log view to access the additional details and context available for your deployment markers.
 
-![Search deployment logs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/search-deployment-logs_aug2021.png)
-
--->
+![Search deployment logs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/deployment-json-view.png)
