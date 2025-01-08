@@ -18,7 +18,7 @@ You can now leverage the insights from your dialog and enhance data analysis to 
 
 ![AI Agent screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/ai-agent-dec3.png)
 
-<h2 id="start"> Using AI Agent </h2> 
+## Using AI Agent
 
 AI Agent is available in **[Explore](https://app.logz.io/#/dashboard/explore)**, **[Kubernetes 360](https://app.logz.io/#/dashboard/observability/k8s360)**, and **[App 360](https://app.logz.io/#/dashboard/spm/services/table)**. Click the AI Agent button at the top to open the interface.
 
@@ -37,6 +37,36 @@ Some data sources may not be available in all observability tools (Explore, App 
 
 Once you provide input to the agent, the **dashboard's data** will be shared with Claude3.
 
-![AI Agent screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/ai-agent-response-dec3.png)
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/ai-agent-main-dec23.png" alt="ai-agent-answer" width="700"/>
+
+## AI Agent Root Cause Analyzer
+
+Logz.io's Root Cause Analyzer (RCA) leverages GenAI to diagnose the root causes of exceptions within applications. By analyzing context and data, RCA delivers deep insights and actionable recommendations, streamlining the troubleshooting process and accelerating root cause analysis.
+
+RCA adapts dynamically to the specific context of each problem, functioning like a knowledgeable team member who understands the nuances of the issue and provides accurate and effective analysis.
+
+It comprehends the situation, identifies the necessary information for thorough analysis, and proactively seeks the data required.
+
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/rca/root-cause-analyzer-start.png" alt="rca-popup" width="700"/>
+
+
+### How to use RCA
+
+:::info note
+RCA is currently available to Logz.io users in the **US region** using **[Explore](https://docs.logz.io/docs/user-guide/new-explore/)**.
+:::
+
+
+To activate RCA, navigate to [Explore > Exceptions](https://app.logz.io/#/dashboard/explore). Select the exception you want to analyze, then hover over it and click **AI Analyzer** to activate the RCA process.
+
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/rca/ai-analyzer-rca.png" alt="rca-button" width="700"/>
+
+Once activated, RCA begins a multi-step process, gathering relevant information, analyzing it, and taking further actions to identify the root cause of the issue. You can click on each step to view a detailed explanation of what RCA is doing to move closer to finding the root cause.
+
+Please note that the analysis may take a few minutes. Once completed, RCA will display its **Root Cause Analysis**, outlining possible causes for the issue and providing recommendations to address it or prevent it from recurring.
+
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/rca/root-cause-analysis-rca-end.png" alt="rca-end" width="700"/>
+
+
 
 For further assistance with the AI Agent, read the [FAQ](https://docs.logz.io/docs/user-guide/observability/faq) or [contact Logz.io's Support Team](mailto:help@logz.io).
