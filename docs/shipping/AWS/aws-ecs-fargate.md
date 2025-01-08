@@ -176,7 +176,7 @@ service:
       exporters: [ prometheusremotewrite ]
   telemetry:
     logs:
-      level: "debug"
+      level: "info"
 ```
 ### AWS::Lambda::Function
 The `logzioFirehoseSubscriptionFiltersFunction` Lambda function is designed to handle the process of filtering log data for Logz.io, and add and remove cloudwatch logs subscription filters
