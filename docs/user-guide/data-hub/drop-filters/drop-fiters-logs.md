@@ -19,6 +19,10 @@ The drop filters table lists all filters, whether active or not. Each filter has
 
 ## Add a new Drop Log Filter
 
+:::caution note
+Regular expressions **are not supported** for field values. Ensure the value matches the log exactly as it appears.
+:::
+
 
 Click on **+ Add drop filter**.
 
