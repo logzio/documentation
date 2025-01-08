@@ -15,35 +15,51 @@ To see the list of available dashboards, navigate to **[SIEM > Dashboards](https
 
 You can search dashboards by name or description or sort them by their creation date or last update.
 
-![Logz.io Security Dashboards](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/cloud-siem-dashboards-jan.png)
+![Logz.io Security Dashboards](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/siem-dashboards-dec24.png)
 
-Note that dashboards provided by Logz.io are labeled and locked to editing. You can duplicate them to make them your own.
-You can always create your own dashboards to add to Logz.io's pre-built dashboards.
+Dashboards provided by Logz.io are labeled and locked for editing. To customize these dashboards, **duplicate** them and make changes to the copy. You can also create custom dashboards to complement Logz.io's pre-built options.
+
 
 ## Reports
 
 You can automatically send reports about existing dashboards on a regular schedule over your preferred endpoints.
 
-Open a dashboard and click **Create report** from the top menu. 
+To view a list of your existing reports, navigate to **[SIEM > Reports](https://app.logz.io/#/dashboard/scheduled-reports)**.
+
+You can create a report directly from a dashboard by clicking the **Create report** from the top menu. 
 
 ![Create a report](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/create-report-siem-jan.png)
 
-You can also create a report by navigating to **[SIEM > Reports > New Report](https://app.logz.io/#/dashboard/scheduled-reports/create)**.
+Or, you can create a report by navigating to **[SIEM > Reports > New Report](https://app.logz.io/#/dashboard/scheduled-reports/create)**.
 
-Next: 
+When creating a new report, you'll need to provide the following details:
 
-* Name your report and provide a description
+* Name your report and provide a brief description
 * Select the dashboard you want to send as a report and the relevant time range
-* Choose when you want to send the report using a [cron expression](https://www.freeformatter.com/cron-expression-generator-quartz.html)
+* Set up the report's delivery schedule using a [cron expression](https://www.freeformatter.com/cron-expression-generator-quartz.html)
 * Select the relevant time zone you want to use for this report
-* Add the relevant recipients. You can type email addresses to add them or click on **New recipients** to configure notification endpoints
+* Add recipients by typing their email addresses or by clicking **New Recipients** to configure notification endpoints
 
-Finally, you can check the box to include a link to the live dashboard in the message and add a custom logo to the report.
+Optionally, you can check the option to include a link to the live dashboard in the report and upload a custom logo for branding.
 
-Click **Send test** to verify your report, and **Save** to activate it.
-
+Once you've configured the report, click **Send Test** to verify its setup, and then click **Save** to activate the schedule.
 
 ![Create a report inner](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/siem-create-report-jan.png)
 
-
 For further information, read more about [scheduling reports](/docs/user-guide/log-management/reports/).
+
+## Configuring visualizations for SIEM rules
+
+If you've created a new SIEM rule and want to populate specific visualizations, you'll need to apply the correct tag when setting up the rule.
+
+Visualization Tags:
+
+* Access Events: `access`
+* Threat Events: `network_threat`
+* Audit Events: `audit`
+* Endpoint Events: `endpoint_threat`
+
+Adding the appropriate tag ensures that these visualizations are populated correctly.
+
+![Create a report inner](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/siem-add-tags-to-rule.png)
+
