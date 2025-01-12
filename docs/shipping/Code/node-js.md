@@ -233,6 +233,30 @@ var obj = {
 logger.log(obj);
 ```
 
+### Add opentelemetry context
+If you're sending traces with OpenTelemetry instrumentation (auto or manual), you can correlate your logs with the trace context. This ensures your logs include trace data, such as service name, `span_id` and `trace_id` (version >= `5.2.0`). 
+
+This feature is enabled by default. To disable it, set the `AddOtelContext` param in your handler configuration to `false`, as shown in this example:
+
+```javascript
+const winston = require('winston');
+const LogzioWinstonTransport = require('winston-logzio');
+
+const logzioWinstonTransport = new LogzioWinstonTransport({
+    level: 'info',
+    name: 'winston_logzio',
+    token: '<<SHIPPING-TOKEN>>',
+    host: '<<LISTENER-HOST>>',
+    addOtelCotext: false,
+});
+
+const logger = winston.createLogger({
+    format: winston.format.simple(),
+    transports: [logzioWinstonTransport],
+});
+```
+
+
 
 </TabItem>
   <TabItem value="Typescript" label="winston-logzio Typescript">
