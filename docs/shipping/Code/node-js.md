@@ -170,6 +170,8 @@ For a complete list of your options, see the configuration parameters below.👇
 | timeout | Read/write/connection timeout, in milliseconds. | -- |
 | extraFields | Adds custom fields to each log in JSON format: `extraFields : { field_1: "val_1", field_2: "val_2" , ... }` | -- |
 | setUserAgent | Set to `false` to send logs without the user-agent field in the request header. Set to `false` if sending data from Firefox browser. | `true` |
+| addOtelContext | Add `trace_id`, `span_id`, and `service_name` fields to logs when OpenTelemetry context is available. | Default: `true` |
+
 
 ### Additional configuration options
 
