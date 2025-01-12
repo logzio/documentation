@@ -67,7 +67,7 @@ logzio/docker-logs-collector:latest
 | LOGZIO_TYPE | Sets the log type.| _Default_: `logzio-docker-logs` |
 | MATCH_CONTAINER_NAME | Specify a container to collect logs from. If the container's name matches, its logs are shipped; otherwise, its logs are ignored. **Note**: This option cannot be used with SKIP_CONTAINER_NAMES. Use regular expressions to keep records that match a specific field.| _optional_ (Example: `^my-app-container.*`) |
 | SKIP_CONTAINER_NAMES | Comma-separated list of containers to ignore. If a container's name matches a name on this list, its logs are ignored; otherwise, its logs are shipped. **Note**: This option cannot be used with MATCH_CONTAINER_NAME. Use regular expressions to exclude records matching a specific field. | _optional_ (Example: `test-container,debug-container`)|
-| MATCH_IMAGE_NAME | Specify an image to collect logs from. If the image's name matches, its logs are shipped; otherwise, its logs are ignored. **Note**: This option cannot be used with SKIP_IMAGE_NAMES. Use regular expressions to keep records that matching a specific field. | _optional_ (Example: `my-app-image:v1.2.3`) |
+| MATCH_IMAGE_NAME | Specify an image to collect logs from. If the image's name matches, its logs are shipped; otherwise, its logs are ignored. **Note**: This option cannot be used with SKIP_IMAGE_NAMES. Use regular expressions to keep records that match a specific field. | _optional_ (Example: `my-app-image:v1.2.3`) |
 | SKIP_IMAGE_NAMES | Comma-separated list of images to ignore. If an image's name matches a name on this list, its logs are ignored; otherwise, its logs are shipped. **Note**: This option cannot be used with MATCH_IMAGE_NAME. Use regular expressions to exclude records that match a specific field. | _optional_ (Example: `test-image,debug-image`)|
 | INCLUDE_LINE | Regular expression to match which lines Fluent Bit should include. | _optional_ (Example: `^ERROR.*`) |
 | EXCLUDE_LINES | Regular expression to match which lines Fluent Bit should exclude. | _optional_ (Example: `.*DEBUG.*`) |
@@ -75,7 +75,7 @@ logzio/docker-logs-collector:latest
 | SET_FIELDS | Set fields with every message sent, formatted as `"fieldName1:fieldValue1,fieldName2:fieldValue2"`. | _optional_ |
 | LOG_LEVEL | Set log level for Fluent Bit. Allowed values: `debug`, `info`, `warning`, `error`.| _Default_: `info` |
 | MULTILINE_START_STATE_RULE** | Regular expression for the start state rule of multiline parsing. See [Fluent Bit's official documentation](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/multiline-parsing#rules-definition) for further info.| _optional_ (Example: `^Exception`) |
-| MULTILINE_CUSTOM_RULES | Custom rules for multiline parsing, separated by semicolons `;`.| _Optional_ (Example: `^\\sat\\s;^Caused by:`) |
+| MULTILINE_CUSTOM_RULES | Custom rules for multiline parsing, separated by semicolons `;`.| _optional_ (Example: `^\\sat\\s;^Caused by:`) |
 | READ_FROM_HEAD | Specify if Fluent Bit should read logs from the beginning.|_Default_: `true`|
 | OUTPUT_ID | Specify the output ID for Fluent Bit logs.|_Default_: `output_id`|
 | HEADERS | Custom headers for Fluent Bit logs.| _optional_ (Example: `x-custom-header:myCustomValue,x-other-header:someOtherValue`) |
