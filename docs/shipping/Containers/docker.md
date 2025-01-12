@@ -28,6 +28,60 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 <Tabs>
+<TabItem value="fluentbit-docker" label="Fluent Bit" default>
+
+:::note
+[Project's GitHub repo](https://github.com/logzio/docker-logs-collector)
+:::
+
+
+#### Pull the Docker image
+
+Download the logzio/docker-collector-logs image.
+
+```shell
+docker pull logzio/docker-logs-collector:latest
+```
+
+#### Run the Docker image
+  
+
+For a complete list of options, see the parameters below the code block.👇
+  
+##### Docker
+
+```shell
+docker run --name docker-logs-collector \
+--env LOGZIO_LOGS_TOKEN="<LOGS-SHIPPING-TOKEN>" \
+-v /var/run/docker.sock:/var/run/docker.sock:ro \
+-v /var/lib/docker/containers:/var/lib/docker/containers \
+-e HEADERS="user-agent:logzio-docker-logs" \
+logzio/docker-logs-collector:latest
+```  
+#### Parameters
+
+| Parameter | Description | Field Type |
+|---|---|---|
+| LOGZIO_LOGS_TOKEN| Your Logz.io logs account token. Replace `<LOGS-SHIPPING-TOKEN>` with the [token](https://app.logz.io/#/dashboard/settings/general) associated with the account you want to use for shipping logs. | Required |
+| LOGZIO_URL | The full URL to send logs to, including your region if needed. For example, for the EU region, use `https://listener-eu.logz.io:8071`. | _Default_: `https://listener.logz.io:8071` |
+| LOGZIO_TYPE | Sets the log type.| _Default_: `logzio-docker-logs` |
+| MATCH_CONTAINER_NAME | Specify a container to collect logs from. If the container's name matches, its logs are shipped; otherwise, its logs are ignored. **Note**: This option cannot be used with SKIP_CONTAINER_NAMES. Use regular expressions to keep records that match a specific field.| _optional_ (Example: `^my-app-container.*`) |
+| SKIP_CONTAINER_NAMES | Comma-separated list of containers to ignore. If a container's name matches a name on this list, its logs are ignored; otherwise, its logs are shipped. **Note**: This option cannot be used with MATCH_CONTAINER_NAME. Use regular expressions to exclude records matching a specific field. | _optional_ (Example: `test-container,debug-container`)|
+| MATCH_IMAGE_NAME | Specify an image to collect logs from. If the image's name matches, its logs are shipped; otherwise, its logs are ignored. **Note**: This option cannot be used with SKIP_IMAGE_NAMES. Use regular expressions to keep records that matching a specific field. | _optional_ (Example: `my-app-image:v1.2.3`) |
+| SKIP_IMAGE_NAMES | Comma-separated list of images to ignore. If an image's name matches a name on this list, its logs are ignored; otherwise, its logs are shipped. **Note**: This option cannot be used with MATCH_IMAGE_NAME. Use regular expressions to exclude records that match a specific field. | _optional_ (Example: `test-image,debug-image`)|
+| INCLUDE_LINE | Regular expression to match which lines Fluent Bit should include. | _optional_ (Example: `^ERROR.*`) |
+| EXCLUDE_LINES | Regular expression to match which lines Fluent Bit should exclude. | _optional_ (Example: `.*DEBUG.*`) |
+| ADDITIONAL_FIELDS | Include additional fields with every message sent, formatted as `"fieldName1:fieldValue1,fieldName2:fieldValue2"`.| _optional_ |
+| SET_FIELDS | Set fields with every message sent, formatted as `"fieldName1:fieldValue1,fieldName2:fieldValue2"`. | _optional_ |
+| LOG_LEVEL | Set log level for Fluent Bit. Allowed values: `debug`, `info`, `warning`, `error`.| _Default_: `info` |
+| MULTILINE_START_STATE_RULE** | Regular expression for the start state rule of multiline parsing. See [Fluent Bit's official documentation](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/multiline-parsing#rules-definition) for further info.| _optional_ (Example: `^Exception`) |
+| MULTILINE_CUSTOM_RULES | Custom rules for multiline parsing, separated by semicolons `;`.| _Optional_ (Example: `^\\sat\\s;^Caused by:`) |
+| READ_FROM_HEAD | Specify if Fluent Bit should read logs from the beginning.|_Default_: `true`|
+| OUTPUT_ID | Specify the output ID for Fluent Bit logs.|_Default_: `output_id`|
+| HEADERS | Custom headers for Fluent Bit logs.| _optional_ (Example: `x-custom-header:myCustomValue,x-other-header:someOtherValue`) |
+
+
+</TabItem>
 <TabItem value="filebeat-docker" label="Filebeat" default>
 
 :::note
@@ -103,60 +157,6 @@ docker service create --name docker-collector-logs \
 By default, logs from docker-collector-logs and docker-collector-metrics containers are ignored.
 :::
   
-
-</TabItem>
-<TabItem value="fluentbit-docker" label="Fluent Bit" default>
-
-:::note
-[Project's GitHub repo](https://github.com/logzio/docker-logs-collector)
-:::
-
-
-#### Pull the Docker image
-
-Download the logzio/docker-collector-logs image.
-
-```shell
-docker pull logzio/docker-logs-collector:latest
-```
-
-#### Run the Docker image
-  
-
-For a complete list of options, see the parameters below the code block.👇
-  
-##### Docker
-
-```shell
-docker run --name docker-logs-collector \
---env LOGZIO_LOGS_TOKEN="<LOGS-SHIPPING-TOKEN>" \
--v /var/run/docker.sock:/var/run/docker.sock:ro \
--v /var/lib/docker/containers:/var/lib/docker/containers \
--e HEADERS="user-agent:logzio-docker-logs" \
-logzio/docker-logs-collector:latest
-```  
-#### Parameters
-
-| Parameter | Description | Field Type |
-|---|---|---|
-| LOGZIO_LOGS_TOKEN| Your Logz.io logs account token. Replace `<LOGS-SHIPPING-TOKEN>` with the [token](https://app.logz.io/#/dashboard/settings/general) associated with the account you want to use for shipping logs. | Required |
-| LOGZIO_URL | The full URL to send logs to, including your region if needed. For example, for the EU region, use `https://listener-eu.logz.io:8071`. | _Default_: `https://listener.logz.io:8071` |
-| LOGZIO_TYPE | Sets the log type.| _Default_: `logzio-docker-logs` |
-| MATCH_CONTAINER_NAME | Specify a container to collect logs from. If the container's name matches, its logs are shipped; otherwise, its logs are ignored. **Note**: This option cannot be used with SKIP_CONTAINER_NAMES. Use regular expressions to keep records that match a specific field.| _optional_ |
-| SKIP_CONTAINER_NAMES | Comma-separated list of containers to ignore. If a container's name matches a name on this list, its logs are ignored; otherwise, its logs are shipped. **Note**: This option cannot be used with MATCH_CONTAINER_NAME. Use regular expressions to exclude records matching a specific field. | _optional_ |
-| MATCH_IMAGE_NAME | Specify an image to collect logs from. If the image's name matches, its logs are shipped; otherwise, its logs are ignored. **Note**: This option cannot be used with SKIP_IMAGE_NAMES. Use regular expressions to keep records that matching a specific field. | _optional_ |
-| SKIP_IMAGE_NAMES | Comma-separated list of images to ignore. If an image's name matches a name on this list, its logs are ignored; otherwise, its logs are shipped. **Note**: This option cannot be used with MATCH_IMAGE_NAME. Use regular expressions to exclude records that match a specific field. | _optional_ |
-| INCLUDE_LINE | Regular expression to match which lines Fluent Bit should include. | _optional_ |
-| EXCLUDE_LINES | Regular expression to match which lines Fluent Bit should exclude. | _optional_ |
-| ADDITIONAL_FIELDS | Include additional fields with every message sent, formatted as `"fieldName1:fieldValue1,fieldName2:fieldValue2"`.| _optional_ |
-| SET_FIELDS | Set fields with every message sent, formatted as `"fieldName1:fieldValue1,fieldName2:fieldValue2"`. | _optional_ |
-| LOG_LEVEL | Set log level for Fluent Bit. Allowed values: `debug`, `info`, `warning`, `error`.| _Default_: `info` |
-| MULTILINE_START_STATE_RULE** | Regular expression for the start state rule of multiline parsing. See [Fluent Bit's official documentation](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/multiline-parsing#rules-definition) for further info.| _optional_ |
-| MULTILINE_CUSTOM_RULES | Custom rules for multiline parsing, separated by semicolons `;`.| _Optional_ |
-| READ_FROM_HEAD | Specify if Fluent Bit should read logs from the beginning.|_Default_: `true`|
-| OUTPUT_ID | Specify the output ID for Fluent Bit logs.|_Default_: `output_id`|
-| HEADERS | Custom headers for Fluent Bit logs.| _optional_ |
-
 
 </TabItem>
 </Tabs>
