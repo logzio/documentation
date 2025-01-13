@@ -58,7 +58,7 @@ var logger = require('logzio-nodejs').createLogger({
 | token | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). {@include: ../../_include/log-shipping/log-shipping-token.html} | Required |
 | protocol | `http`, `https` or `udp`. The value of this parameter affects the default of the `port` parameter. | `http` |
 | host  |  {@include: ../../_include/log-shipping/listener-var.md} Replace `<<LISTENER-HOST>>` with the host [for your region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). The required port depends whether HTTP or HTTPS is used: HTTP = 8070, HTTPS = 8071. | `listener.logz.io` |
-| port | Destination port. The default port depends on the `protocol` parameter. For udp default port is `5050`, http is `8070`, and https is `8071` | `5050` / `8070` / `8071` |
+| port | Destination port. The default port depends on the `protocol` parameter. `8070` for HTTP, `8071` for HTTPS | `8070` / `8071` |
 | type | {@include: ../../_include/log-shipping/type.md} | `nodejs` |
 | sendIntervalMs  | Time to wait between retry attempts, in milliseconds. | `2000` (2 seconds) |
 | bufferSize  | Maximum number of messages the logger accumulates before sending them all as a bulk. | `100` |
@@ -69,55 +69,6 @@ var logger = require('logzio-nodejs').createLogger({
 | extraFields | JSON format. Adds your custom fields to each log. Format: `extraFields : { field_1: "val_1", field_2: "val_2" , ... }` | -- |
 | setUserAgent | Set to false to send logs without the user-agent field in the request header.  | `true` |
 | addOtelContext | Add `trace_id`, `span_id`, and `service_name` fields to logs when OpenTelemetry context is available. | Default: `true` |
-
-### Using UDP
-
-While the UDP protocol can be used, it has limitations that make it less than ideal:
-
-* Lack of Reliability: UDP does not guarantee that logs are received, making it less reliable than other protocols.
-* Suboptimal Performance: UDP cannot utilize the bulk API, leading to reduced performance.
-
-When using UDP, each message is sent individually rather than in batches. However, the `bufferSize` parameter still applies differently:
-
-The logger waits for the buffer to reach the specified size before sending all messages. To send each message immediately, set `bufferSize = 1`.
-
-For better reliability and performance, consider using a different protocol when possible.
-
-### Callback usage
-
-The `callback` option lets you manage errors and confirm successful log transmissions when logging messages. The callback function can be used to handle different scenarios, such as logging errors or confirming successful log transmissions.
-
-### Callback invocation
-
-1. **On Error**: The callback is invoked with an error object if an issue occured during log transmission.
-2. **On Success**: The callback is invoked without arguments when the log messages are successfully sent.
-
-#### Example Usage
-
-```javascript
-var logger = require('logzio-nodejs').createLogger({
-    token: '__YOUR_ACCOUNT_TOKEN__',
-    type: 'YourLogType',
-    callback: function(err) {
-        if (err) {
-            console.error('Error sending log:', err);
-        } else {
-            console.log('Log sent successfully');
-        }
-    }
-});
-
-// Sending a log message
-logger.log('This is a log message');
-```
-### Default callback
-```javascript
-    _defaultCallback(err) {
-        if (err && !this.supressErrors) {
-            this.internalLogger.log(`logzio-logger error: ${err}`, err);
-        }
-    }
-```
 
 **Code example:**
 
@@ -146,8 +97,9 @@ For serverless environments, such as AWS Lambda, Azure Functions, or Google Clou
   ```
 
 
-### Add opentelemetry context
-If you're sending traces with OpenTelemetry instrumentation (auto or manual), you can correlate your logs with the trace context. That way, your logs will have traces data in it, such as service name, span id and trace id (version >= `2.2.0`). 
+### Add OpenTelemetry context
+
+If you're sending traces with OpenTelemetry instrumentation (auto or manual), you can correlate your logs with the trace context. This ensures your logs include trace data, such as service name, `span_id` and `trace_id` (version >= `2.2.0`).
 
 This feature is enabled by default, To disable it, set the `AddOtelContext` param in your handler configuration to `false`, like in this example:
 
@@ -159,20 +111,6 @@ var logger = require('logzio-nodejs').createLogger({
 });
 ```
 
-### Build and test locally
-1. Clone the repository:
-  
-```bash
-  git clone https://github.com/logzio/logzio-nodejs.git
-  cd logzio-nodejs
-  ```
-
-2. Build and run tests:
-
-```bash
-  npm install
-  npm test
-  ```
 
 </TabItem>
   <TabItem value="winston-logzio" label="winston-logzio">
