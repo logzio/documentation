@@ -260,6 +260,30 @@ Which produces the following output:
 }
 ```
 
+### Add OpenTelemetry context
+
+If you're sending traces with OpenTelemetry instrumentation (auto or manual), you can correlate your logs with the trace context. This ensures your logs include trace data, such as service name, `span_id` and `trace_id` (version >= `2.2.0`). 
+
+This feature is enabled by default, To disable it, set the `addOpentelemetryContext` option in your configuration to `false`, like in this example:
+
+```xml
+    <Appenders>
+    <LogzioAppender name="Logzio">
+        <logzioToken>your-logzio-personal-token-from-settings</logzioToken>
+        <logzioType>myAwesomeType</logzioType>
+        <logzioUrl>https://listener.logz.io:8071</logzioUrl>
+        <addOpentelemetryContext>false</addOpentelemetryContext>
+    </LogzioAppender>
+
+</Appenders>
+<Loggers>
+<Root level="info">
+    <AppenderRef ref="Logzio"/>
+</Root>
+</Loggers>
+```
+
+
 </TabItem>
   <TabItem value="Logzio-Logback-Appender" label="Logzio-Logback-Appender">
 
@@ -465,6 +489,28 @@ Which produces this output:
   "Your log message follows": "..."
 }
 ```
+
+### Add OpenTelemetry context
+
+If you're sending traces with OpenTelemetry instrumentation (auto or manual), you can correlate your logs with the trace context. This ensures your logs include trace data, such as service name, `span_id` and `trace_id` (version >= `5.2.0`).
+
+This feature is enabled by default, To disable it, set the `addOpentelemetryContext` option in your configuration to `false`, like in this example:
+
+```xml
+<configuration>
+   <appender name="LogzioLogbackAppender" class="io.logz.logback.LogzioLogbackAppender">
+      <token>yourlogziopersonaltokenfromsettings</token>
+      <logzioType>myAwesomeType</logzioType>
+      <logzioUrl>https://listener.logz.io:8071</logzioUrl>
+      <addOpentelemetryContext>false</addOpentelemetryContext>
+   </appender>
+   <root level="debug">
+      <!-- IMPORTANT: This line is required -->
+      <appender-ref ref="LogzioLogbackAppender"/>
+   </root>
+</configuration>
+```
+
   
 #### Troubleshooting
   
