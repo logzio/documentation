@@ -147,6 +147,7 @@ For more details, see the [Log4j documentation](https://logging.apache.org/log4j
 | **connectTimeoutMs**       | *10 * 1000*                                    | Connection timeout during log shipment, in milliseconds. | Required |
 | **addHostname**       | *false*                                    | If true, adds a field named `hostname` with the machine's hostname. If there's no defined hostname, the field won't be added. | Required |
 | **additionalFields**       | *None*                                    | Allows to add additional fields to the JSON message sent. The format is "fieldName1=fieldValue1;fieldName2=fieldValue2". Optionally, inject an environment variable value using this format: "fieldName1=fieldValue1;fieldName2=$ENV_VAR_NAME". The environment variable should be the only value. If the environment variable can't be resolved, the field will be omitted. | Optional |
+| **addOpentelemetryContext** | Optional. Add `trace_id`, `span_id`, and `service_name` fields to logs when OpenTelemetry context is available. | `true` |
 | **debug**       | *false*                                    | Boolean. Set to `true` to print debug messages to stdout. | Required |
 | **compressRequests**       | *false*                                    | Boolean. If `true`, logs are compressed in gzip format before sending. If `false`, logs are sent uncompressed. | Required |
 | **exceedMaxSizeAction**       | *"cut"*                                    | String. Use "cut" to truncate the message or "drop" to discard oversized logs. Logs exceeding the maximum size after truncation will be dropped. | Required |
@@ -400,6 +401,7 @@ To output `debug` messages, add the parameter into the code:
 | logzioType | The [log type](https://docs.logz.io/docs/user-guide/data-hub/log-parsing/default-parsing/#built-in-log-types), shipped as `type` field. Can't contain spaces. | `java` |
 | addHostname | If true, adds a field named `hostname` with the machine's hostname. If there's no defined hostname, the field won't be added.	 | `false` |
 | additionalFields | Adds fields to the JSON message output, formatted as `field1=value1;field2=value2`. Use `$` to inject an environment variable value, such as `field2=$VAR_NAME`. The environment variable should be the only value in the key-value pair. If the environment variable can't be resolved, the field is omitted. | N/A |
+| addOpentelemetryContext | Optional. Add `trace_id`, `span_id`, and `service_name` fields to logs when OpenTelemetry context is available. | `true` |
 | bufferDir | Filepath where the appender stores the buffer. | `System.getProperty("java.io.tmpdir")` |
 | compressRequests | Boolean. If `true`, logs are compressed in gzip format before sending. If `false`, logs are sent uncompressed. | `false` |
 | connectTimeout  | Connection timeout during log shipment, in milliseconds. | `10 * 1000` |
