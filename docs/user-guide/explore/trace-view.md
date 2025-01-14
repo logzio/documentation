@@ -28,6 +28,7 @@ Supported integrations for Trace context:
 
 * [.NET](https://docs.logz.io/docs/shipping/Code/dotnet/#add-trace-context-1)
 * [Python](https://docs.logz.io/docs/shipping/Code/Python/#trace-context)
+* [Node.js](https://docs.logz.io/docs/shipping/code/node-js/)
 
 Additional integrations will be available in future updates.
 
