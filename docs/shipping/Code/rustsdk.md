@@ -1,7 +1,7 @@
 ---
 id: Rust
 title: Rust
-overview: Deploy this integration to collect logs from your Rust SDK application.
+overview: Deploy this integration to collect logs from your Rust application.
 product: ['logs']
 os: ['windows', 'linux']
 filters: ['Code']
@@ -32,99 +32,72 @@ To send logs to Logz.io, add the required dependencies to your `Cargo.toml` file
 ```yaml
 [dependencies]
 log = "0.4"
-env_logger = "0.10"
-reqwest = { version = "0.11", features = ["blocking", "json"] }
-serde_json = "1.0"
-chrono = "0.4"
+opentelemetry = "0.27"
+opentelemetry-appender-log = "0.27"
+opentelemetry_sdk = { version = "*", features = ["rt-tokio"] }
+opentelemetry-otlp = { version = "*", features = ["http-proto", "reqwest-client"] }
+rand = "0.8"
+tokio = { version = "1", features = ["full"] }
 ```
 
-## Configure Logging and Implement HTTP Communication
+## Configure Logging and Implement OTLP Communication
 
 The following example demonstrates logging setup and sending logs to Logz.io:
 
 ```bash
-use log::{info, warn, error};
-use reqwest::blocking::Client;
-use serde_json::json;
-use std::env;
+use rand::Rng;
+use opentelemetry_appender_log::OpenTelemetryLogBridge;
+use opentelemetry_otlp::{WithExportConfig, WithHttpConfig};
+use std::collections::HashMap;
 
-const LOGZ_IO_URL: &str = "https://listener.logz.io:8071/?token=";
-
-fn main() {
-    // Initialize logger
-    env_logger::init();
-
-    // Example usage
-    info!("Application started");
-    send_log_to_logzio("info", "Application started successfully.");
+fn roll_dice() -> i32 {
+    let mut rng = rand::thread_rng();
+    rng.gen_range(1..=6)
 }
 
-fn send_log_to_logzio(level: &str, message: &str) {
-    let token = env::var("LOGZ_IO_TOKEN").expect("LOGZ_IO_TOKEN must be set");
-    let client = Client::new();
-    let payload = json!({
-        "message": message,
-        "level": level,
-        "timestamp": chrono::Utc::now().to_rfc3339(),
-    });
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync + 'static>> {
 
-    let url = format!("{}{}", LOGZ_IO_URL, token);
-    match client.post(&url).json(&payload).send() {
-        Ok(response) if response.status().is_success() => {
-            println!("Log sent successfully to Logz.io.");
-        }
-        Ok(response) => {
-            eprintln!("Failed to send log: {}", response.status());
-        }
-        Err(e) => {
-            eprintln!("Error occurred while sending log: {}", e);
-        }
-    }
+    let endpoint = "https://otlp-listener.logz.io/v1/logs";
+    let api_token = "LOGZ_IO_TOKEN";
+
+    let logger_provider = opentelemetry_sdk::logs::LoggerProvider::builder()
+        .with_batch_exporter(
+            opentelemetry_otlp::LogExporter::builder()
+                .with_http()
+                .with_endpoint(endpoint)
+                .with_headers(HashMap::from([
+                    ("Authorization".to_string(), format!("Bearer {}", api_token)),
+                ]))
+                .build()?,
+            opentelemetry_sdk::runtime::Tokio,
+        )
+        .build();
+    
+    let log_bridge = OpenTelemetryLogBridge::new(&logger_provider);
+
+    log::set_boxed_logger(Box::new(log_bridge))?;
+    log::set_max_level(log::LevelFilter::Info);
+
+    let result = roll_dice();
+    log::info!("Player is rolling the dice: {}", result);
+
+    println!("Done");
+
+    // Force flush any pending logs
+    logger_provider.force_flush();
+
+    Ok(())
 }
 ```
 
-Replace `LOGZ_IO_TOKEN` with the shipping token of the account. 
+Replace `LOGZ_IO_TOKEN` with the shipping token of the account.
+
+If needed, update the `https://otlp-listener.logz.io/v1/logs` with the URL of [your hosting region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region).
+
 
 ## Run the application and check Logz.io for logs
 
 Run your application with `cargo run`. Give your logs some time to get from your system to ours.
 
-## Troubleshooting
-
-### Missing blocking Module:
-
-Ensure you include the blocking feature in the reqwest dependency in Cargo.toml:
-
-```bash
-reqwest = { version = "0.11", features = ["blocking"] }
-```
-
-### `json` Method Not Found:
-
-Enable the json feature in the reqwest dependency:
-
-```bash
-reqwest = { version = "0.11", features = ["blocking", "json"] }
-```
-
-### Missing `chrono` Crate:
-
-Add the chrono crate to your Cargo.toml:
-
-```yaml
-chrono = "0.4"
-```
-
-### Environment Variable Not Set:
-
-Make sure `LOGZ_IO_TOKEN` is exported in your environment:
-
-```yaml
-export LOGZ_IO_TOKEN="<Your_Logz.io_Token>"
-```
-
-### Network Issues:
-
-Verify that your application can connect to `https://listener.logz.io:8071`.
-
-Check firewall and network rules if needed.
+Encounter an issue? See our [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/) guide.
