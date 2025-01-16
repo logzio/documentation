@@ -35,7 +35,7 @@ log = "0.4"
 opentelemetry = "0.27"
 opentelemetry-appender-log = "0.27"
 opentelemetry_sdk = { version = "*", features = ["rt-tokio"] }
-opentelemetry-otlp = { version = "*", features = ["http-proto", "reqwest-client"] }
+opentelemetry-otlp = { version = "*", features = ["http-proto", "reqwest-client", "reqwest-rustls"] }
 rand = "0.8"
 tokio = { version = "1", features = ["full"] }
 ```
@@ -67,7 +67,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync + 'static>
                 .with_http()
                 .with_endpoint(endpoint)
                 .with_headers(HashMap::from([
-                    ("Authorization".to_string(), format!("Bearer {}", api_token)),
+                    ("Authorization".to_string(), format!("Bearer {}", api_token), ),
                 ]))
                 .build()?,
             opentelemetry_sdk::runtime::Tokio,
