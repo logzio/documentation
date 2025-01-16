@@ -13,20 +13,47 @@ To ensure your team is equipped with the support it needs, here is an overview o
 
 <h3>Support packages overview</h3>
 
-|  | **Basic** | **Silver** | **Gold, Enterprise and Trials** |
-| --- | --- | --- | --- |
-|  | Available for all paid Logz.io plans | Available for accounts spending $5K–$10K annually or $400–$800/monthly | Available for enterprise accounts - [contact our team](mailto:help@logz.io) to learn more |
-| Documentation & learning | ✔ | ✔ | ✔ |
-| Support tickets (Email) | ✔ | ✔ | ✔ |
-| Support chats (During Business Hours) | ✖ | ✔ | ✔ |
-| Support chats (24/7) | ✖ | ✖ | ✔ |
+|  | **Basic** | **Silver** | **Gold** | **Enterprise and Trials** |
+| --- | --- | --- | --- | --- |
+|  | Included in all paid Logz.io plans | Minimum Spend of $5k annually, or $400/month | Minimum Spend of $10k annually, or $800/month | Enterprise Accounts - Contact our team to purchase |
+| Documentation & learning | ✔ | ✔ | ✔ | ✔ |
+| Support tickets (Email) | ✔ | ✔ | ✔ | ✔ |
+| Support chats (During Business Hours) | ✖ | ✔ | ✔ | ✔ |
+| Support chats (24/7) | ✖ | ✖ | ✔ | ✔ |
+| Dedicated Customer Success | ✖ | ✖ | ✖ | ✔ |
 
-<h3>View your current support plan</h3>
+*Trial accounts receive our Gold service package for the duration of their trial.*
 
-You can review your current support plan with Logz.io by logging into your account and navigating to [Settings > Plans and Usage](https://app.logz.io/#/dashboard/settings/plan-and-billing/plan).
+<h3>Identify your current support plan</h3>
 
-![Plan and usage](https://dytvr9ot2sszz.cloudfront.net/logz-docs/settings-plan-usage.png)
+To determine your current support plan, log in to your Logz.io account and follow these steps:
 
-If you're interested in a different support tier, you can update your plan within the app by visiting the [Plans and Billing](https://app.logz.io/#/dashboard/settings/plan-and-billing/plan) page. Your Logz.io plan can include any combination of Logz.io products (logs, metrics, traces, SIEM) and can be structured as either a monthly or an annual plan.
+* Navigate to [Settings > Plans and Usage](https://app.logz.io/#/dashboard/settings/plan-and-billing/plan)
+* Click on **Billing & Invoices: Manage** to access the Stripe portal.
+
+![plan and billing page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/plan-and-billing-manage.png)
+
+In the Stripe Portal:
+
+Open your recent invoices to review your monthly or yearly spending. Your spending determines the Logz.io plan associated with your account.
+
+Examples:
+
+Yearly plan invoice:
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/logzio-yearly-plan.png" alt="yearly" width="500"/>
+
+Monthly plan invoice:
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/logzio-monthly-plan-jan.png" alt="monthly" width="500"/>
+
+
+
+<h3>Upgrade your support plan</h3>
+
+To upgrade your support package, you’ll need to increase your monthly or yearly Logz.io subscription.
+
+To do so, navigate to [Settings > Plans and Usage](https://app.logz.io/#/dashboard/settings/plan-and-billing/plan) and upgrade your plan to a higher tier.
+
+Your Logz.io subscription can include any combination of products (logs, metrics, traces, SIEM) and can be set as a monthly or annual plan to suit your needs.
+
 
 If you have any questions, feel free to reach out to us at [help@logz.io](mailto:help@logz.io) at any time. 
