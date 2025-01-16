@@ -13,15 +13,18 @@ To ensure your team is equipped with the support it needs, here is an overview o
 
 <h3>Support packages overview</h3>
 
-|  | **Basic** | **Silver** | **Gold, Enterprise and Trials** |
-| --- | --- | --- | --- |
-|  | Available for all paid Logz.io plans | Available for accounts spending $5K–$10K annually or $400–$800/monthly | Available for enterprise accounts - [contact our team](mailto:help@logz.io) to learn more |
-| Documentation & learning | ✔ | ✔ | ✔ |
-| Support tickets (Email) | ✔ | ✔ | ✔ |
-| Support chats (During Business Hours) | ✖ | ✔ | ✔ |
-| Support chats (24/7) | ✖ | ✖ | ✔ |
+|  | **Basic** | **Silver** | **Gold** | **Enterprise and Trials** |
+| --- | --- | --- | --- | --- |
+|  | Included in all paid Logz.io plans | Minimum Spend of $5k annually, or $400/month | Minimum Spend of $10k annually, or $800/month | Enterprise Accounts - Contact our team to purchase |
+| Documentation & learning | ✔ | ✔ | ✔ | ✔ |
+| Support tickets (Email) | ✔ | ✔ | ✔ | ✔ |
+| Support chats (During Business Hours) | ✖ | ✔ | ✔ | ✔ |
+| Support chats (24/7) | ✖ | ✖ | ✔ | ✔ |
+| Dedicated Customer Success | ✖ | ✖ | ✖ | ✔ |
 
-<h3> Identify your current support plan</h3>
+*Trial accounts receive our Gold service package for the duration of their trial.*
+
+<h3>Identify your current support plan</h3>
 
 To determine your current support plan, log in to your Logz.io account and follow these steps:
 
