@@ -15,7 +15,7 @@ To ensure your team is equipped with the support it needs, here is an overview o
 
 |  | **Basic** | **Silver** | **Gold, Enterprise and Trials** |
 | --- | --- | --- | --- |
-| Business Stage | Starter Plan | Growth Plan | Premium Plan |
+|  | Available for all paid Logz.io plans | Available for accounts spending $5K–$10K annually or $400–$800/monthly | Available for enterprise accounts - [contact our team](mailto:help@logz.io) to learn more |
 | Documentation & learning | Included | Included | Included |
 | Support Tickets (Email) | Included | Included | Included |
 | Support Chats (During Business Hours) | Not Included | Included | Included |
