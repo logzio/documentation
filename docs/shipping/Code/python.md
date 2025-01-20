@@ -1451,10 +1451,10 @@ The OpenTelemetry Collector receives traces from the application and exports the
 
 #### Build Docker Images
 
-Build Docker images for both the Node.js application and the OpenTelemetry Collector:
+Build Docker images for both the Python application and the OpenTelemetry Collector:
 
 ```shell
-# Build Node.js application image
+# Build Python application image
 cd python-app/
 docker build --platform linux/amd64 -t your-python-app:latest .
 
@@ -1490,7 +1490,7 @@ aws logs create-log-group --log-group-name /ecs/otel-collector
 
 #### Define ECS Task
 
-Create a task definition (task-definition.json) for ECS that defines both the Node.js application container and the OpenTelemetry Collector container.
+Create a task definition (task-definition.json) for ECS that defines both the Python application container and the OpenTelemetry Collector container.
 
 #### task-definition.json
 
