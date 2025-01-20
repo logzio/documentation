@@ -14,7 +14,11 @@ metrics_alerts: []
 drop_filter: []
 ---
 
-This guide explains how to configure your Rust application to send logs to Logz.io.
+:::note
+If you need an example aplication to test this integration, please refer to our [Rust OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/rust/logs).
+:::
+
+This guide explains how to configure your Rust application to send logs to Logz.io via OpenTelemetry.
 
 ## Prerequisites
 
@@ -24,12 +28,11 @@ This guide explains how to configure your Rust application to send logs to Logz.
 * Port `8071` available on your host system
 
 
-
 ## Add Dependencies
 
-To send logs to Logz.io, add the required dependencies to your `Cargo.toml` file:
+To send logs to Logz.io via OpenTelemetry, add the required dependencies to your `Cargo.toml` file:
 
-```yaml
+```toml
 [dependencies]
 log = "0.4"
 opentelemetry = "0.27"
@@ -42,20 +45,18 @@ tokio = { version = "1", features = ["full"] }
 
 ## Configure Logging and Implement OTLP Communication
 
-The following example demonstrates logging setup and sending logs to Logz.io:
+Import the following modules into your existing app:
 
-```bash
+```rust
 use rand::Rng;
 use opentelemetry_appender_log::OpenTelemetryLogBridge;
 use opentelemetry_otlp::{WithExportConfig, WithHttpConfig};
 use std::collections::HashMap;
+```
 
-fn roll_dice() -> i32 {
-    let mut rng = rand::thread_rng();
-    rng.gen_range(1..=6)
-}
+Add the exporters and logger provider section to your code:
 
-#[tokio::main]
+```rust
 async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync + 'static>> {
 
     let endpoint = "https://otlp-listener.logz.io/v1/logs";
@@ -68,6 +69,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync + 'static>
                 .with_endpoint(endpoint)
                 .with_headers(HashMap::from([
                     ("Authorization".to_string(), format!("Bearer {}", api_token), ),
+                    ("User-Agent".to_string(), format!("logzio-rust-logs-otlp"), ),
                 ]))
                 .build()?,
             opentelemetry_sdk::runtime::Tokio,
@@ -76,25 +78,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync + 'static>
     
     let log_bridge = OpenTelemetryLogBridge::new(&logger_provider);
 
-    log::set_boxed_logger(Box::new(log_bridge))?;
-    log::set_max_level(log::LevelFilter::Info);
-
-    let result = roll_dice();
-    log::info!("Player is rolling the dice: {}", result);
-
-    println!("Done");
-
-    // Force flush any pending logs
-    logger_provider.force_flush();
-
-    Ok(())
-}
 ```
 
 Replace `LOGZ_IO_TOKEN` with the shipping token of the account.
 
-If needed, update the `https://otlp-listener.logz.io/v1/logs` with the URL of [your hosting region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region).
-
+If needed, update the `https://otlp-listener.logz.io/v1/logs` with the URL of [your hosting region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#opentelemetry-protocol-otlp-regions).
 
 ## Run the application and check Logz.io for logs
 
