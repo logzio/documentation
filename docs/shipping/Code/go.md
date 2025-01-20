@@ -374,7 +374,7 @@ The exporter uses the `simple` selector's `metric.DefaultAggregationSelector()`.
 // Create counter instruments
 counter, err := meter.Int64Counter(
     "int_counter",  // name of the metric
-    // m.WithUnit("ms")  // add unit to the metric if you want
+    // m.WithUnit("ms")  // add a unit to the metric, if needed
     m.WithDescription("Counts the total number of requests"),
 )
 
@@ -393,7 +393,7 @@ floatCounter.Add(con, 2.5)
 // Float64ObservableCounter is also a supported type
 observableCounter, err := meter.Int64ObservableCounter(
     "observable_counter",  // name of the metric
-    // m.WithUnit("By"),  // add unit to the metric if you want
+    // m.WithUnit("By"),  // add a unit to the metric, if needed
     m.WithDescription("observable counter description"),
 )
 
@@ -412,7 +412,7 @@ _, err = meter.RegisterCallback(
 // Create Histogram instruments
 intHistogram, err := meter.Int64Histogram(
 	"histogram-meter",  // name of the metric
-    // m.WithUnit("seconds")  // add unit to the metric if you want
+    // m.WithUnit("seconds")  // add a unit to the metric, if needed
     m.WithDescription("Histogram description"),
 )
 
@@ -429,7 +429,7 @@ floatHistogram.Record(con, 3.4)
 ```go
 g, err := meter.Int64Gauge(
 	"g-test",
-	// m.WithUnit("seconds"),  // add unit to the metric if you want
+	// m.WithUnit("seconds"),  // add a unit to the metric, if needed
     m.WithDescription("Gauge description"),
 )
 
@@ -444,7 +444,7 @@ g.Record(con, 4, m.WithAttributes(attribute.Key("<<LABEL_KEY>>").String("<<LABEL
 // Float64ObservableGauge is also a supported type
 observableGauge, err := meter.Int64ObservableGauge(
     "observable_gauge",  // name of the metric
-    // m.WithUnit("By"),  // add unit to the metric if you want
+    // m.WithUnit("By"),  // add a unit to the metric, if needed
     m.WithDescription("observable gauge description"),
 )
 
@@ -462,7 +462,7 @@ observableGauge,
 ```go
 intUpDownCounter, err := meter.Int64UpDownCounter(
     "int_up_down_counter",  // name of the metric
-    // m.WithUnit("ms"),  // add unit to the metric if you want
+    // m.WithUnit("ms"),  // add a unit to the metric, if needed
     m.WithDescription("Up-down counter description"),
 )
 
@@ -482,7 +482,7 @@ floatUpDownCounter.Add(con, 5.6, m.WithAttributes(attribute.Key("<<LABEL_KEY>>")
 // Float64ObservableUpDownCounter is also a supported type
 observableCounter, err := meter.Int64ObservableUpDownCounter(
     "observable_up_down_counter",  // name of the metric
-    // m.WithUnit("By"),  // add unit to the metric if you want
+    // m.WithUnit("By"),  // add a unit to the metric, if needed
     m.WithDescription("observable up down counter description"),
 )
 
