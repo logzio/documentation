@@ -151,7 +151,7 @@ This setup includes creating a Kinesis Firehose delivery stream, CloudWatch metr
 
 This setup includes creating a Kinesis Firehose delivery stream, CloudWatch metric stream, and necessary IAM roles.
 
-:::Note
+:::note
 The setup excludes the Lambda function for adding namespaces, as CloudFormation automatically triggers this during resource creation.
 :::
 
@@ -194,12 +194,12 @@ resource "aws_cloudwatch_metric_stream" "logzio_metric_stream" {
 }
 ```
 
-* Replace LOGZIO_TOKEN with your Logz.io shipping token.
+* Replace `LOGZIO_TOKEN` with your Logz.io shipping token.
 
 
 Next, deploy your Terraform code to set up the Firehose stream and related resources, and verify that metrics are sent correctly to the Logz.io listener endpoint.
 
-:::Note
+:::note
 The Lambda function `logzioMetricStreamAddNamespacesLambda` has been removed from the script as the CloudFormation template automatically triggers it during creation.
 :::
 
