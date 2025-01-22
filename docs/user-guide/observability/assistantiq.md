@@ -53,7 +53,7 @@ It comprehends the situation, identifies the necessary information for thorough 
 ### How to use RCA
 
 :::info note
-RCA is currently available to Logz.io users in the **US region** using **[Explore](https://docs.logz.io/docs/user-guide/new-explore/)**.
+RCA is currently available to Logz.io users in the **US and EU region** using **[Explore](https://docs.logz.io/docs/user-guide/new-explore/)**.
 :::
 
 
