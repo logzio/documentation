@@ -397,7 +397,7 @@ This integration uses the OpenTelemetry logging exporter to send logs to Logz.io
 - An active account with Logz.io
 
 :::note
-If you need an example aplication to test this integration, please refer to our [NodeJS OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/nodejs/logs).
+If you need an example application to test this integration, please refer to our [NodeJS OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/nodejs/logs).
 :::
 
 ### Configure the instrumentation

@@ -15,7 +15,7 @@ drop_filter: []
 ---
 
 :::note
-If you need an example aplication to test this integration, please refer to our [Rust OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/rust/logs).
+If you need an example application to test this integration, please refer to our [Rust OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/rust/logs).
 :::
 
 This guide explains how to configure your Rust application to send logs to Logz.io via OpenTelemetry.
@@ -39,7 +39,6 @@ opentelemetry = "0.27"
 opentelemetry-appender-log = "0.27"
 opentelemetry_sdk = { version = "*", features = ["rt-tokio"] }
 opentelemetry-otlp = { version = "*", features = ["http-proto", "reqwest-client", "reqwest-rustls"] }
-rand = "0.8"
 tokio = { version = "1", features = ["full"] }
 ```
 
@@ -48,7 +47,6 @@ tokio = { version = "1", features = ["full"] }
 Import the following modules into your existing app:
 
 ```rust
-use rand::Rng;
 use opentelemetry_appender_log::OpenTelemetryLogBridge;
 use opentelemetry_otlp::{WithExportConfig, WithHttpConfig};
 use std::collections::HashMap;
