@@ -13,7 +13,7 @@ To ensure your team is equipped with the support it needs, here is an overview o
 
 <h3>Support packages overview</h3>
 
-|  | **Basic** | **Silver** | **Gold** | **Enterprise and Trials** |
+|  | **Basic** | **Silver** | **Gold and Trials** | **Enterprise** |
 | --- | --- | --- | --- | --- |
 |  | Included in all paid Logz.io plans | Minimum Spend of $5k annually, or $400/month | Minimum Spend of $10k annually, or $800/month | Enterprise Accounts - Contact our team to purchase |
 | Documentation & learning | ✔ | ✔ | ✔ | ✔ |
@@ -56,4 +56,5 @@ To do so, navigate to [Settings > Plans and Usage](https://app.logz.io/#/dashboa
 Your Logz.io subscription can include any combination of products (logs, metrics, traces, SIEM) and can be set as a monthly or annual plan to suit your needs.
 
 
-If you have any questions, feel free to reach out to us at [help@logz.io](mailto:help@logz.io) at any time. 
+
+If you have any questions, feel free to reach out to us at our [Support Help Portal](https://logzio-support.atlassian.net/servicedesk/customer/portals).
