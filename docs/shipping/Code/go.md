@@ -122,7 +122,7 @@ This integration uses the OpenTelemetry logging exporter to send logs to Logz.io
 - Go 1.21 or newer
 
 :::note
-If you need an example aplication to test this integration, please refer to our [Go OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/go/logs).
+If you need an example application to test this integration, please refer to our [Go OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/go/logs).
 :::
 
 ### Configure the instrumentation
