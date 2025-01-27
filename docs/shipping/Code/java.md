@@ -147,6 +147,7 @@ For more details, see the [Log4j documentation](https://logging.apache.org/log4j
 | **connectTimeoutMs**       | *10 * 1000*                                    | Connection timeout during log shipment, in milliseconds. | Required |
 | **addHostname**       | *false*                                    | If true, adds a field named `hostname` with the machine's hostname. If there's no defined hostname, the field won't be added. | Required |
 | **additionalFields**       | *None*                                    | Allows to add additional fields to the JSON message sent. The format is "fieldName1=fieldValue1;fieldName2=fieldValue2". Optionally, inject an environment variable value using this format: "fieldName1=fieldValue1;fieldName2=$ENV_VAR_NAME". The environment variable should be the only value. If the environment variable can't be resolved, the field will be omitted. | Optional |
+| **addOpentelemetryContext** | Optional. Add `trace_id`, `span_id`, and `service_name` fields to logs when OpenTelemetry context is available. | `true` |
 | **debug**       | *false*                                    | Boolean. Set to `true` to print debug messages to stdout. | Required |
 | **compressRequests**       | *false*                                    | Boolean. If `true`, logs are compressed in gzip format before sending. If `false`, logs are sent uncompressed. | Required |
 | **exceedMaxSizeAction**       | *"cut"*                                    | String. Use "cut" to truncate the message or "drop" to discard oversized logs. Logs exceeding the maximum size after truncation will be dropped. | Required |
@@ -259,6 +260,30 @@ Which produces the following output:
   "Your log message follows": "..."
 }
 ```
+
+### Add OpenTelemetry context
+
+If you're sending traces with OpenTelemetry instrumentation (auto or manual), you can correlate your logs with the trace context. This ensures your logs include trace data, such as service name, `span_id` and `trace_id` (version >= `2.2.0`). 
+
+This feature is enabled by default, To disable it, set the `addOpentelemetryContext` option in your configuration to `false`, like in this example:
+
+```xml
+    <Appenders>
+    <LogzioAppender name="Logzio">
+        <logzioToken>your-logzio-personal-token-from-settings</logzioToken>
+        <logzioType>myAwesomeType</logzioType>
+        <logzioUrl>https://listener.logz.io:8071</logzioUrl>
+        <addOpentelemetryContext>false</addOpentelemetryContext>
+    </LogzioAppender>
+
+</Appenders>
+<Loggers>
+<Root level="info">
+    <AppenderRef ref="Logzio"/>
+</Root>
+</Loggers>
+```
+
 
 </TabItem>
   <TabItem value="Logzio-Logback-Appender" label="Logzio-Logback-Appender">
@@ -376,6 +401,7 @@ To output `debug` messages, add the parameter into the code:
 | logzioType | The [log type](https://docs.logz.io/docs/user-guide/data-hub/log-parsing/default-parsing/#built-in-log-types), shipped as `type` field. Can't contain spaces. | `java` |
 | addHostname | If true, adds a field named `hostname` with the machine's hostname. If there's no defined hostname, the field won't be added.	 | `false` |
 | additionalFields | Adds fields to the JSON message output, formatted as `field1=value1;field2=value2`. Use `$` to inject an environment variable value, such as `field2=$VAR_NAME`. The environment variable should be the only value in the key-value pair. If the environment variable can't be resolved, the field is omitted. | N/A |
+| addOpentelemetryContext | Optional. Add `trace_id`, `span_id`, and `service_name` fields to logs when OpenTelemetry context is available. | `true` |
 | bufferDir | Filepath where the appender stores the buffer. | `System.getProperty("java.io.tmpdir")` |
 | compressRequests | Boolean. If `true`, logs are compressed in gzip format before sending. If `false`, logs are sent uncompressed. | `false` |
 | connectTimeout  | Connection timeout during log shipment, in milliseconds. | `10 * 1000` |
@@ -465,6 +491,28 @@ Which produces this output:
   "Your log message follows": "..."
 }
 ```
+
+### Add OpenTelemetry context
+
+If you're sending traces with OpenTelemetry instrumentation (auto or manual), you can correlate your logs with the trace context. This ensures your logs include trace data, such as service name, `span_id` and `trace_id` (version >= `5.2.0`).
+
+This feature is enabled by default, To disable it, set the `addOpentelemetryContext` option in your configuration to `false`, like in this example:
+
+```xml
+<configuration>
+   <appender name="LogzioLogbackAppender" class="io.logz.logback.LogzioLogbackAppender">
+      <token>yourlogziopersonaltokenfromsettings</token>
+      <logzioType>myAwesomeType</logzioType>
+      <logzioUrl>https://listener.logz.io:8071</logzioUrl>
+      <addOpentelemetryContext>false</addOpentelemetryContext>
+   </appender>
+   <root level="debug">
+      <!-- IMPORTANT: This line is required -->
+      <appender-ref ref="LogzioLogbackAppender"/>
+   </root>
+</configuration>
+```
+
   
 #### Troubleshooting
   
@@ -508,7 +556,7 @@ This integration uses the OpenTelemetry logging exporter to send logs to Logz.io
 - Java 8+
 
 :::note
-If you need an example aplication to test this integration, please refer to our [Java OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/java/logs).
+If you need an example application to test this integration, please refer to our [Java OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/java/logs).
 :::
 
 ### Configure the instrumentation
@@ -1399,7 +1447,7 @@ Deploy this integration to auto-instrument your Java application running on AWS 
 {@include: ../../_include/log-shipping/aws-region-limitation.md}
 
 :::note
-If you need an example aplication to test this integration, please refer to our [Java OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/java/traces/lambda-service).
+If you need an example application to test this integration, please refer to our [Java OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/java/traces/lambda-service).
 :::
 
 **Before you begin, you'll need**:

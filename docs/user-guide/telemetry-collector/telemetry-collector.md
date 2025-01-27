@@ -31,12 +31,12 @@ If you're interested in sending your data through a different source, you can br
 
 ## Getting started with the Telemetry Collector:
 
-* [Send **AWS** data with Telemetry Collector](/docs/user-guide/telemetry-collector/telemetry-collector-aws)
-  * [Manage an AWS Telemetry Collector](/docs/user-guide/telemetry-collector/telemetry-collector-aws#manage-your-telemetry-collector)
-* [Send **Kubernetes** data with Telemetry Collector](/docs/user-guide/telemetry-collector/telemetry-collector-k8s)
-  * [Manage a Kubernetes Telemetry Collector](/docs/user-guide/telemetry-collector/telemetry-collector-k8s#manage-your-telemetry-collector)
-* [Send **Localhost** data with Telemetry Collector](/docs/user-guide/telemetry-collector/telemetry-collector-localhost)
-  * [Manage a Localhost Telemetry Collector](/docs/user-guide/telemetry-collector/telemetry-collector-localhost#manage-and-remove-a-telemetry-collector)
+* [Send **AWS** data with Telemetry Collector](https://docs.logz.io/docs/telemetry-collector/telemetry-collector-aws/)
+  * [Manage an AWS Telemetry Collector](https://docs.logz.io/docs/telemetry-collector/telemetry-collector-aws/#manage-your-ec2-telemetry-collector)
+* [Send **Kubernetes** data with Telemetry Collector](https://docs.logz.io/docs/telemetry-collector/telemetry-collector-k8s/)
+  * [Manage a Kubernetes Telemetry Collector](https://docs.logz.io/docs/telemetry-collector/telemetry-collector-k8s/#manage-your-telemetry-collector)
+* [Send **Localhost** data with Telemetry Collector](https://docs.logz.io/docs/telemetry-collector/telemetry-collector-localhost/)
+  * [Manage a Localhost Telemetry Collector](https://docs.logz.io/docs/telemetry-collector/telemetry-collector-localhost/#manage-and-remove-a-telemetry-collector)
 
 ###### Additional resources
 
