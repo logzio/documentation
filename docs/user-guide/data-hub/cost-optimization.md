@@ -10,11 +10,12 @@ keywords: [Data hub, data optimization, optimization, drop filters, recommendati
 
 
 
-Logz.io Data Optimization helps Account Admins manage and optimize Logz.io products by offering tailored recommendations and a quick and easy way to drop logs and metrics.
+Logz.io Data Optimization helps Account Admins manage and optimize Logz.io products by offering tailored recommendations and a quick and easy way to drop logs and metrics. You will receive tailored recommendations based on Log data from the last 24 hours and based on Metrics data from the previous 1 hour.
 
-:::note
-You will receive tailored recommendations based on Log data from the last 24 hours and based on Metrics data from the previous 1 hour.
+:::important note
+[Click here to configure drop filters for Metrics data](https://docs.logz.io/docs/user-guide/data-hub/drop-filters/drop-fiters-metrics/).
 :::
+
 
 To get started, navigate to **[Data hub > Data Optimization](https://app.logz.io/#/dashboard/cost)**.
 
