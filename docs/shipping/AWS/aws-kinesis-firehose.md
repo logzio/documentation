@@ -149,8 +149,6 @@ Install the pre-built dashboard to enhance the observability of your metrics.
 
 This setup includes creating a Kinesis Firehose delivery stream, CloudWatch metric stream, and necessary IAM roles.
 
-This setup includes creating a Kinesis Firehose delivery stream, CloudWatch metric stream, and necessary IAM roles.
-
 :::note
 The setup excludes the Lambda function for adding namespaces, as CloudFormation automatically triggers this during resource creation.
 :::
