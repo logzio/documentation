@@ -115,7 +115,6 @@ To make the most of Distributed Tracing, check out these guides:
 
 * **[Getting started with Tracing](https://docs.logz.io/docs/user-guide/distributed-tracing/set-up-tracing/get-started-tracing/)**
 * **[Sending demo traces with HOTROD](https://docs.logz.io/docs/user-guide/distributed-tracing/set-up-tracing/hotrod/)**
-* Combine Traces and Metrics with **[Service Performance Monitoring](https://docs.logz.io/docs/user-guide/distributed-tracing/spm/)**
 * **[Correlate logs and traces](https://docs.logz.io/docs/user-guide/distributed-tracing/correlate-traces/)**
 
 
