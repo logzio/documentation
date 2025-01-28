@@ -378,6 +378,7 @@
 /docs/shipping/aws/lambda-extension-go/	                                /docs/shipping/code/go/#traces
 /docs.logz.io/docs/user-guide/distributed-tracing/setup-spm/	                                /docs.logz.io/docs/user-guide/app360/service-list/
 /docs.logz.io/docs/user-guide/distributed-tracing/spm/	                                /docs.logz.io/docs/user-guide/app360/service-list/
+/docs.logz.io/docs/shipping/aws/aws-kafka/	                                /docs.logz.io/docs/shipping/aws/aws-msk/
 # Shippers				
 /shipping/				/docs/category/send-your-data/
 /user-guide/log-shipping/				/docs/category/send-your-data/
