@@ -182,6 +182,10 @@ Encounter an issue? See our [user guide](https://docs.logz.io/docs/user-guide/in
 
 ### Customize the metrics collected by the Helm chart 
 
+:::note
+To learn more about adding additional filters for metrics scraping, see our [Logzio-k8s-telemetry GitHub repository](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-telemetry#adding-addiotional-filters-for-metrics-scraping).
+:::
+
 The default configuration uses the Prometheus receiver with the following scrape jobs:
 
 * Cadvisor: Scrapes container metrics
