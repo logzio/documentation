@@ -376,6 +376,8 @@
 /docs/user-guide/integrations/terraform/	                                /docs/integrations/terraform/
 /docs/shipping/AWS/Lambda-extension-node/	                                /docs/shipping/Code/Node-js/#traces
 /docs/shipping/aws/lambda-extension-go/	                                /docs/shipping/code/go/#traces
+/docs.logz.io/docs/user-guide/distributed-tracing/setup-spm/	                                /docs.logz.io/docs/user-guide/app360/service-list/
+/docs.logz.io/docs/user-guide/distributed-tracing/spm/	                                /docs.logz.io/docs/user-guide/app360/service-list/
 # Shippers				
 /shipping/				/docs/category/send-your-data/
 /user-guide/log-shipping/				/docs/category/send-your-data/
