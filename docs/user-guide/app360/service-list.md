@@ -15,13 +15,22 @@ The **Services** dashboard centralizes all of your running services, allowing yo
 
 ## Prerequisites
 
-To populate data in the Operations and Overview sections of App360, ensure the following metrics are available:
+To populate data in the Operations and Overview sections of App360, ensure the following metrics and labels are available:
+
+Metrics: 
 
 * `calls_total`
 * `latency_sum`
 * `latency_count`
 
-Currently, infrastructure logs are only supported in the Kubernetes 360 environment. For more details, refer to the [Kubernetes 360 Prerequisites](https://docs.logz.io/docs/k8s-360/kubernetes-360-pre/) documentation.
+Labels: 
+
+* `service_name`
+* `operation`
+* `env_id`
+* `status_code`
+
+Currently, infrastructure and logs are only supported in the Kubernetes 360 environment. For more details, refer to the [Kubernetes 360 Prerequisites](https://docs.logz.io/docs/k8s-360/kubernetes-360-pre/) documentation.
 
 ## Services overview
 
