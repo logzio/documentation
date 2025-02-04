@@ -227,6 +227,12 @@ You can set the trigger condition time frame between 5 minutes and up to 24 hour
 
 MITRE ATT&CK tags help map security events to known attack techniques. If your SIGMA rule includes these tags, they’ll be added automatically. Review them to ensure they’re relevant.
 
+:::note
+Some MITRE ATT&CK tags are unsupported and will not be automatically added.
+:::
+
+![mitre attack tags](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/mitre-attack-tags.png)
+
 ### Set rule schedule
 
 Use the scheduling mechanism to manage the trigger condition frequency.
@@ -271,7 +277,7 @@ Choose whether notifications display sample data in JSON or Table format. Aggreg
 
 ### Save your rule
 
-Click Save to activate your rule. Once triggered, Logz.io will log the event and send notifications based on your settings.
+Click **Save** to activate your rule. Once triggered, Logz.io will log the event and send notifications based on your settings.
 
 
 ## Create a rule from OpenSearch Dashboards query
