@@ -182,16 +182,32 @@ Encounter an issue? See our [user guide](https://docs.logz.io/docs/user-guide/in
 
 ### Customize the metrics collected by the Helm chart 
 
-:::note
-To learn more about adding additional filters for metrics scraping, see our [Logzio-k8s-telemetry GitHub repository](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-telemetry#adding-addiotional-filters-for-metrics-scraping).
-:::
-
 The default configuration uses the Prometheus receiver with the following scrape jobs:
 
 * Cadvisor: Scrapes container metrics
 * Kubernetes service endpoints: These jobs scrape metrics from the node exporters, from Kube state metrics, from any other service for which the `prometheus.io/scrape: true` annotaion is set, and from services that expose Prometheus metrics at the `/metrics` endpoint.
 
 To customize your configuration, edit the `config` section in the `values.yaml` file.
+
+#### Adding addiotional filters for metrics scraping
+
+To add flexibility for the metrics filtering, you can add custom filters for the following:
+
+* Metric name (keep & drop)
+* Service names (keep & drop - only for infrastructure pipeline)
+* Namespace names
+
+Filters should be written as regex patterns, e.g., `"metric1|metric2"`.
+
+To add a custom filter, select the pipeline where the filter should be applied, and add the filter under the relevant `custom` key. 
+
+For example, to add a custom `namespace` keep filter to the application metric job, you can set:
+
+```bash
+--set prometheusFilters.namespaces.applications.keep.custom="namesapce_1|namespace_2"
+```
+
+For more information, refer to `prometheusFitlers` in [values.yaml](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-telemetry/values.yaml).
 
  
 ### Check Logz.io for your metrics
