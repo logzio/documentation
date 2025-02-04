@@ -6,32 +6,20 @@ Send all of your telemetry data using one single Helm chart:
 
 ```shell
 helm install  -n monitoring --create-namespace \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set global.env_id="<<ENV-ID>> \
 --set logs.enabled=true \
---set logzio-logs-collector.secrets.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
---set logzio-logs-collector.secrets.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
---set logzio-logs-collector.secrets.env_id="<<CLUSTER-NAME>>" \
---set metricsOrTraces.enabled=true \
+--set global.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
 --set logzio-k8s-telemetry.metrics.enabled=true \
---set logzio-k8s-telemetry.secrets.MetricsToken="<<METRICS-SHIPPING-TOKEN>>" \
---set logzio-k8s-telemetry.secrets.ListenerHost="https://<<LISTENER-HOST>>:8053" \
---set logzio-k8s-telemetry.secrets.p8s_logzio_name="<<ENV-ID>>" \
---set logzio-k8s-telemetry.traces.enabled=true \
---set logzio-k8s-telemetry.secrets.TracesToken="<<TRACING-SHIPPING-TOKEN>>" \
---set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
---set logzio-k8s-telemetry.spm.enabled=true \
---set logzio-k8s-telemetry.secrets.env_id="<<ENV-ID>>" \
---set logzio-k8s-telemetry.secrets.SpmToken="<<SPM-METRICS-SHIPPING-TOKEN>>" \
---set logzio-k8s-telemetry.serviceGraph.enabled=true \
+--set global.logzioMetricsToken="<<METRICS-SHIPPING-TOKEN>>" \
 --set logzio-k8s-telemetry.k8sObjectsConfig.enabled=true \
---set logzio-k8s-telemetry.secrets.k8sObjectsLogsToken="<<LOG-SHIPPING-TOKEN>>" \
+--set logzio-apm-collector.enabled=true
+--set global.logzioTracesToken="<<TRACING-SHIPPING-TOKEN>>" \
+--set logzio-apm-collector.spm.enabled=true \
+--set logzio-apm-collector.serviceGraph.enabled=true \
+--set global.logzioSpmToken="<<METRICS-SHIPPING-TOKEN>>" \
 --set securityReport.enabled=true \
---set logzio-trivy.env_id="<<ENV-ID>>" \
---set logzio-trivy.secrets.logzioShippingToken="<<LOG-SHIPPING-TOKEN>>" \
---set logzio-trivy.secrets.logzioListener="<<LISTENER-HOST>>" \
 --set deployEvents.enabled=true \
---set logzio-k8s-events.secrets.logzioShippingToken="<<LOG-SHIPPING-TOKEN>>" \
---set logzio-k8s-events.secrets.logzioListener="<<LISTENER-HOST>>" \
---set logzio-k8s-events.secrets.env_id="<<ENV-ID>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
@@ -40,18 +28,6 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<LOG-SHIPPING-TOKEN>>` | Your [logs shipping token](https://app.logz.io/#/dashboard/settings/general). |
 | `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
 | `<<METRICS-SHIPPING-TOKEN>>` | Your [metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
-| `<<SPM-METRICS-SHIPPING-TOKEN>>` | Your [SPM account shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping) |
-| `<<ENV-ID>>` | The name for your environment's identifier, to easily identify the telemetry data for each environment. |
+| `<<ENV-ID>>` | The name for your environment's identifier, to easily identify the telemetry data for each environment. For example, your cluster name. |
 | `<<TRACING-SHIPPING-TOKEN>>` | Your [traces shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
 | `<<LOGZIO_ACCOUNT_REGION_CODE>>` | Your Logz.io [region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions) |
-
-
-:::tip
-To diable metrics when `metricsOrTraces.enabled=true`, make sure to include the below flags in the command:
-
-```shell
---set logzio-k8s-telemetry.nodeExporter.enabled=false \
---set logzio-k8s-telemetry.kubeStateMetrics.enabled=false \
---set logzio-k8s-telemetry.pushGateway.enabled=false \
-```
-:::
