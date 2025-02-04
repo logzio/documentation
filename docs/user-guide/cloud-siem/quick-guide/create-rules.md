@@ -50,7 +50,6 @@ To perform date range filtering on the `@timestamp` field, include the field as 
 
 ![Rule search](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/siem-rule-search-dec.png)
 
-
 ### Using Group-by (order matters!)
 
 :::caution Important
@@ -165,44 +164,6 @@ If the rule includes any aggregation or group by field, the notification output 
 Click Save to save your rule. If the thresholds are passed and the rule is triggered, Logz.io will log the rule and send the configured notifications.
 
 
-
-<!-- 1. Sign in to Logz.io.
-
-2. Go to **SIEM > Rules**.
-
-   ![Rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/rule-1.png)
-
-3. Select **+ New rule**. 
-
-   ![Rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/rule-2.png)
-
-4. Fill out the rule details as follows:
-
-   ![Rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/create-a-siem-rule.png)
-
-
-   * Give the rule a required name.
-   
-   * Define a query for the rule. You can do it directly in the **Create a rule** window and then preview it in OpenSearch Dashboards. Alternatively, you can define the query in OpenSearch Dashboards and copy it across.
-   
-   * Define what fields the query needs to be grouped by.
-   
-   * Define what accounts the query needs to apply to.
-   
-   * Repeat the previous three steps for another query, if required.
-   
-   * Define the trigger conditions for the rule.
-   
-   * If required, add a notification description to the rule. For example, a course of actions required when the rule is executed.
-   
-   * If required, add tags to the rule.
-   
-   * If required, add a notification endpoint in the **Recipients** list. This can be an email address or a webhook. See [Adding notification and SOAR endpoints](https://docs.logz.io/user-guide/cloud-siem/select-dashboards.html) for more on this.
-
-4. Select **Save**.
--->
-
-
 ## Clone and modify an existing rule
 
 You can create rules based on Logz.io's preconfigured rules. In this case, the builder will be pre-populated with data from the existing rule, such as the query string.
@@ -216,6 +177,108 @@ The rule includes all of the relevant queries, filters, etc.
 Now, you can define the rule based on your needs and edit the trigger conditions, schedule, notification endpoints, etc.
 
 Once you're done, click **Save** to create the rule. 
+
+## Creating a Security Rule from a SIGMA Rule
+
+SIGMA rules are a standardized YAML format for writing security detection rules. They provide a flexible, vendor-agnostic way to describe threats, making it easier to detect suspicious activity across different platforms.
+
+By importing a SIGMA rule, you can quickly create a security rule without manually defining patterns and conditions, ensuring consistency with industry best practices.
+
+
+To create a security rule from a SIGMA rule YAML, navigate to **[SIEM > Rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions)** and select **New rule**.
+
+![New rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/siem-new-rule-dec.png)
+
+### Name the rule
+
+Give your rule a clear name. This will appear in notifications when the rule is triggered. It can include letters, numbers, and special characters but not emojis or other elements.
+
+
+### Import your SIGMA rule
+
+Click **SIGMA Conversion** to open the SIGMA converter.
+
+Paste your SIGMA rule or upload a YAML file. Review the rule details, then click **Convert** to apply the rule parameters.
+
+![sigma rule modal](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/sigma-rule-modal.png)
+
+
+### Select relevant accounts
+
+Choose which accounts the rule should monitor:
+
+* All accounts – The rule will query the logs in all the accounts to which it has access. It will automatically include any accounts added in the future.
+
+* Specific accounts – Select accounts from the dropdown.
+
+### Set trigger conditions
+
+Set your threshold and severity levels. You can base your trigger on a number of logs, minimum/maximum of fields, average, sum, and more.
+
+You can add multiple conditions for the trigger by clicking **+ Add threshold**. You can add up to 5 threshold conditions, each with its own severity tag.
+
+:::note
+You can set the trigger condition time frame between 5 minutes and up to 24 hours (1 day). To set a trigger condition longer than 24 hours, use [Logz.io’s API](https://api-docs.logz.io/docs/logz/create-security-rule/) to create your rule.
+:::
+
+![Trigger if](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/trigger-if-siem-dec.png)
+
+### *(Optional)* MITRE ATT&Ck threats
+
+MITRE ATT&CK tags help map security events to known attack techniques. If your SIGMA rule includes these tags, they’ll be added automatically. Review them to ensure they’re relevant.
+
+:::note
+Some MITRE ATT&CK tags are unsupported and will not be automatically added.
+:::
+
+![mitre attack tags](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/mitre-attack-tags.png)
+
+### Set rule schedule
+
+Use the scheduling mechanism to manage the trigger condition frequency.
+
+Scheduling defines the frequency and the time frame for the rule. To define a schedule, select **On Schedule** and use a [cron expression](https://www.freeformatter.com/cron-expression-generator-quartz.html) to specify when to trigger the rule.
+
+:::note
+The cron expression can only be set in increments rounded to the nearest minute.
+:::
+
+For example, you can apply the following schedule to your rules:
+
+| Cron expression                         | Rule trigger schedule |
+|-----------------------------------------|------|
+| 0 0/10 * ? * * *                        | Every 10 minutes |
+| 0 0 0/1 ? * * *                         | Rounded to the nearest hour |
+| 0 * 8-17 ? * MON,TUE,WED,THU,FRI *  | Every minute between 8 am to 5 pm, Monday through Friday |
+| 0 5 0 ? * * *                           | Every day at exactly 12:05 am |
+
+
+By default, trigger conditions run approximately every minute. If there's a lag, the rule is checked once all data is received. In addition, once a rule has met its condition and is triggered, it won't be checked again for the remainder of the rule trigger condition time range.
+
+![Schedule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/schedule-siem-dec.png)
+
+### *(Optional)* Set notification details
+
+
+The Description is visible on the rule definitions page, and it's part of the emails and Slack messages sent when the rule is triggered. As such, an ideal description will be helpful to recipients, explaining how to fix the issues that led to the rule.
+
+The Tags are helpful for filtering and finding the rules later on.
+
+You can choose a notification endpoint to send notifications or emails when the rule is triggered. This isn't required, though—triggered rules are still logged and searchable in OpenSearch Dashboards.
+
+Choose the endpoints or email addresses you want to notify when the rule triggers. 
+
+#### Select rule output format & content
+
+Choose whether notifications display sample data in JSON or Table format. Aggregated results are included by default if applicable.
+
+
+![Add email](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/siem-add-email-dec.gif)
+
+### Save your rule
+
+Click **Save** to activate your rule. Once triggered, Logz.io will log the event and send notifications based on your settings.
+
 
 ## Create a rule from OpenSearch Dashboards query
 
