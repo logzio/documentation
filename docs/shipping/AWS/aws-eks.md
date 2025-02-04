@@ -193,17 +193,21 @@ To customize your configuration, edit the `config` section in the `values.yaml` 
 
 To add flexibility for the metrics filtering, you can add custom filters for the following:
 
-* metric name (keep & drop)
-* service names (keep & drop - only for infrastructure pipeline)
-* namespace names
+* Metric name (keep & drop)
+* Service names (keep & drop - only for infrastructure pipeline)
+* Namespace names
 
-Added filters should be in the format of regex, i.e: `"metrics1|metric2"` etc. To add a custom filter, choose to which pipeline the filter is needed, and add the filter under the `custom` key accordingly. For example, to add a custom `namespace` keep filter to the application metric job, you can set:
+Filters should be written as regex patterns, e.g., `"metric1|metric2"`.
 
-```yaml
+To add a custom filter, select the pipeline where the filter should be applied, and add the filter under the relevant `custom` key. 
+
+For example, to add a custom `namespace` keep filter to the application metric job, you can set:
+
+```bash
 --set prometheusFilters.namespaces.applications.keep.custom="namesapce_1|namespace_2"
 ```
 
-For more information, view `prometheusFitlers` in [values.yaml](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-telemetry/values.yaml).
+For more information, refer to `prometheusFitlers` in [values.yaml](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-telemetry/values.yaml).
 
  
 ### Check Logz.io for your metrics
