@@ -495,7 +495,6 @@ helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --ver
 --set global.env_id="<<ENV-ID>>" \
 --set global.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
 --set global.logzioMetricsToken="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>" \
-
 --reuse-values
 ```
 
@@ -561,7 +560,6 @@ helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --ver
 --set global.region="<<LOGZIO-REGION>>" \
 --set global.env_id="<<ENV-ID>>" \
 --set global.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
-
 --reuse-values
 ```
 
