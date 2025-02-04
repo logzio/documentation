@@ -15,7 +15,7 @@ The **Services** dashboard centralizes all of your running services, allowing yo
 
 ## Prerequisites
 
-To populate the Operations and Overview sections in App360, ensure the following metrics are populated:
+To populate data in the Operations and Overview sections of App360, ensure the following metrics are available:
 
 * `calls_total`
 * `latency_sum`
