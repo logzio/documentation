@@ -12,6 +12,17 @@ The **Services** dashboard centralizes all of your running services, allowing yo
 
 ![Services](https://dytvr9ot2sszz.cloudfront.net/logz-docs/services/services-mar18.png)
 
+
+## Prerequisites
+
+To populate the Operations and Overview sections in App360, ensure the following metrics are populated:
+
+* `calls_total`
+* `latency_sum`
+* `latency_count`
+
+Currently, infrastructure logs are only supported in the Kubernetes 360 environment. For more details, refer to the [Kubernetes 360 Prerequisites](https://docs.logz.io/docs/k8s-360/kubernetes-360-pre/) documentation.
+
 ## Services overview
 
 You can choose how you want to view your services: a table view or a map view. Switch between the views by clicking on the buttons at the top right corner of the screen.
