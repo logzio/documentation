@@ -4,7 +4,7 @@ title: Creating Security Rules
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Create a security rule in Logz.io Cloud SIEM
 keywords: [SIEM, security rule, rules, cloud security, Security information and event management, Security information]
-toc_max_heading_level: 3
+toc_max_heading_level: 2
 ---
 
 

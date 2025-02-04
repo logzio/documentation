@@ -4,7 +4,7 @@ title: Create a Security Rule
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Create and edit a security rule in Logz.io
 keywords: [SIEM, Security rule, rules, cloud security, cloud security rules, Security information and event management, Security information, event management]
-toc_max_heading_level: 3
+toc_max_heading_level: 2
 ---
 
 Security rules define events and their execution conditions and can contain one or more queries. Logz.io offers a set of updated preconfigured rules. You can refine them by editing thresholds and triggers, duplicate them for full editing access, or create new rules.
