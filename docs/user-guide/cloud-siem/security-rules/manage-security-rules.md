@@ -4,43 +4,42 @@ title: Create a Security Rule
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Create and edit a security rule in Logz.io
 keywords: [SIEM, Security rule, rules, cloud security, cloud security rules, Security information and event management, Security information, event management]
+toc_max_heading_level: 2
 ---
 
-
-
-Security rules help you connect the dots between your data sources and events that could indicate a security threat or breach. Your Cloud SIEM account comes preconfigured
-with security rules for different attack types and security use cases.
-
-You can create new security rules to supplement the built-in rules. You can also update any preconfigured rule at any time, including adding a notification endpoint (for example, email or Slack) or changing trigger thresholds.
+Security rules define events and their execution conditions and can contain one or more queries. Logz.io offers a set of updated preconfigured rules. You can refine them by editing thresholds and triggers, duplicate them for full editing access, or create new rules.
 
 :::caution Important
 You cannot configure rules using the `logzio-alert` log type. This type is ignored by the rule engine.
 :::
 
+
 ## Manually create a new rule
 
 You can create your own custom rules. To get started, navigate to **[SIEM > Rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions)** and select **New rule**.
 
-![Add new rule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/siem-new-rule-dec.png)
+![New rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/siem-new-rule-dec.png)
 
 
-<h3 id="name">Name the rule</h3>
+### Name the rule
 
 Give your rule a meaningful name. When your rule triggers, its name is used as the email subject or notification heading.
 
 :::note
-Your rule name can contain letters, numbers, spaces, and special characters. It can't contain emojis or any other elements.
+Your rule name can contain letters, numbers, spaces, and special characters. It **can't** contain emojis or any other elements.
 :::
 
-<h3 id="search">Set search components</h3>
+### Set search components
 
-Next, set the search components. This determines which logs to look for and in which accounts.
+Next, set the search components. This determines which logs to look for and in which accounts. 
 
 You can use any combination of filters and a search query. Note the following:
 
 * Use a Lucene search query.
-  * You have the option to use wildcards.
-  * OpenSearch Dashboards Query Language (DQL) is not supported.
+
+   * You have the option to use wildcards.
+   * OpenSearch Dashboards Query Language (DQL) is not supported.
+
 * All filters are accepted, including: **is, is not, is one of, is not one of, exists, does not exist**.
 
 After refining your search query and filters, click **Preview** to open OpenSearch Dashboards in another tab and review the returned logs to ensure you get the expected results.
@@ -49,60 +48,55 @@ After refining your search query and filters, click **Preview** to open OpenSear
 To perform date range filtering on the `@timestamp` field, include the field as part of a query rather than adding it as a filter: `@timestamp` filters are overwritten.
 :::
 
-![siem rule create](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/siem-rule-search-dec.png)
+![Rule search](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/siem-rule-search-dec.png)
 
-<h3 id="groupby">Use group-by (order matters!)</h3>
+### Using Group-by (order matters!)
 
-:::crucial Important
-Alerts won't trigger if the field added to the Group-by doesn't exist in the logs. The logs must include **both** the field you have in group-by and the field you use in your query/filter to trigger the alert. 
+:::caution Important
+Rules won't trigger if the field added to the Group-by doesn't exist in the logs. The logs must include **both** the field you have in group-by and the field you use in your query/filter to trigger the rule.
 :::
 
 You can apply **group by** operators to up to 3 fields. If you use this option, the rule will return the aggregated results.
 
-The order of group-by fields matters. Results are grouped in the order in which the group-by fields are added. (The fields are shown from first to last from left-to-right.)
+The order in which you add group-by fields matters. Results are grouped in the order in which the group-by fields are added. (The fields are shown from first to last from left-to-right.)
 
 For example, the following will group results by continent, then country, then city:
 
-![group by](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/ordered-group-by_aug2021.png)
+![Order by group](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/ordered-group-by_aug2021.png)
 
-If you reverse the order (city, country, continent), it will likely generate unintended results.
+If we reverse the order (city, country, continent), it will likely generate unintended results.
 
-<h3 id="relevant">Select relevant accounts</h3>
 
-Next, select the **Accounts to search**.
+### Select relevant accounts
 
-* If you select **All accounts**, the rule will query the logs in all the accounts to which it has access. It will automatically include any accounts added in the future.
+Next, select the Accounts to search.
 
-* You can select specific accounts. Select **Just these accounts** and add the relevant accounts from the dropdown list.
+* If you select All accounts, the rule will query the logs in all the accounts to which it has access. It will automatically include any accounts added in the future.
 
-<h3 id="threshold">Set threshold and severity levels</h3>
+* You can select specific accounts. Select Just these accounts and add the relevant accounts from the dropdown list.
+
+### Set trigger conditions
 
 Set your threshold and severity levels. You can base your trigger on a number of logs, minimum/maximum of fields, average, sum, and more.
 
-In the _Trigger if..._ section, click **Add a threshold** to set as many as 5 threshold conditions, each with its own severity tag.
+You can add multiple conditions for the trigger by clicking **+ Add threshold**. You can add up to 5 threshold conditions, each with its own severity tag.
 
 :::note
 You can set the trigger condition time frame between 5 minutes and up to 24 hours (1 day). To set a trigger condition longer than 24 hours, use [Logz.io’s API](https://api-docs.logz.io/docs/logz/create-security-rule/) to create your rule.
 :::
 
-![rule trigger thresholds](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--trigger-settings_aug2021.png)
 
-<h3 id="mitre">(Optional) Add MITRE ATT&CK Tags</h3>
+![Trigger if](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/trigger-if-siem-dec.png)
 
-**MITRE ATT&CK** is a curated knowledge base and model for cyber adversary behavior, reflecting the various phases of an adversary’s attack lifecycle and the platforms they are known to target. 
+### *(Optional)* MITRE ATT&Ck threats
 
-You can add the predefined MITRE tags to your security rules and get an alert when a known cyber security threat is found in your systems.
+You can add tactics, techniques, and sub technique tags to your rule, which will appear in the rule definitions table and Event management table. The tags are according to Mitre's knowledge base and model for cyber adversary behavior. 
 
-![Create Mitre Attack tag](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/mitre-attack-dec.png)
 
-Click on **Add tags** and choose the **Tactics** (Why) and **Technique** (How) you’d like to monitor. For some Techniques, you’ll be able to select a **Sub-technique** to get more in-depth monitoring of it.
+![Mitre attack](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/mitre-attack-dec.png)
 
-![Configure Mitre Attack tag](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/mitre-attack-tags.png)
 
-Click on your saved tags to view MITRE’s documentation and additional information for each one.
-
-<h3 id="schedule">Set rule schedule</h3>
-
+### Set rule schedule
 You can use the scheduling mechanism to manage the trigger condition frequency.
 
 Scheduling defines the frequency and the time frame for the rule. To define a schedule, select **On Schedule** and use a [cron expression](https://www.freeformatter.com/cron-expression-generator-quartz.html) to specify when to trigger the rule.
@@ -113,7 +107,6 @@ The cron expression can only be set in increments rounded to the nearest minute.
 
 For example, you can apply the following schedule to your rules:
 
-
 | Cron expression                         | Rule trigger schedule |
 |-----------------------------------------|------|
 | 0 0/10 * ? * * *                        | Every 10 minutes |
@@ -121,21 +114,23 @@ For example, you can apply the following schedule to your rules:
 | 0 * 8-17 ? * MON,TUE,WED,THU,FRI *  | Every minute between 8 am to 5 pm, Monday through Friday |
 | 0 5 0 ? * * *                           | Every day at exactly 12:05 am |
 
+
 By default, trigger conditions run approximately every minute. If there's a lag, the rule is checked once all data is received. In addition, once a rule has met its condition and is triggered, it won't be checked again for the remainder of the rule trigger condition time range.
 
-![schedule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/schedule-siem-dec.png)
+![Schedule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/schedule-siem-dec.png)
 
-<h3 id="notification">(Optional) Set notification details</h3>
+### *(Optional)* Set notification details
 
-The rule's **Description** is visible on the rule definitions page, and it's part of the emails and Slack messages sent when the rule is triggered. As such, an ideal description will be helpful to recipients, explaining how to fix the issues that led to the rule.
 
-The **Tags** are helpful for filtering and finding the rules later on. You can add up to 25 tags per rule.
+The Description is visible on the rule definitions page, and it's part of the emails and Slack messages sent when the rule is triggered. As such, an ideal description will be helpful to recipients, explaining how to fix the issues that led to the rule.
+
+The Tags are helpful for filtering and finding the rules later on.
 
 You can choose a notification endpoint to send notifications or emails when the rule is triggered. This isn't required, though—triggered rules are still logged and searchable in OpenSearch Dashboards.
 
-Choose the endpoints or email addresses you want to notify when the rule triggers.
+Choose the endpoints or email addresses you want to notify when the rule triggers. 
 
-<h3 id="email">Add email address as a recipient</h3>
+#### Add email address as a recipient
 
 :::note
 Notification emails include up to 10 sample events. If your rule triggers more than 10 events, you can view the complete list in your logs.
@@ -151,77 +146,195 @@ The system combines the **Trigger if** time interval with the **Wait time** inte
 
 *If you need help adding a new endpoint, see [Notification endpoints](https://docs.logz.io/docs/user-guide/integrations/notification-endpoints/endpoints/).*
 
-<h3 id="output">Select rule output format & content</h3>
+
+#### Select rule output format & content
 
 When triggered, the rule will send out a notification with sample data.
 
 Sample data can be sent in either JSON or Table formats. Toggle the button to select your preferred format.
 
-If the rule includes any aggregation or group by rule, the notification output defaults to the group by/aggregated fields.
-
-Otherwise, you control the data format. It can be either **JSON** or a **Table**.
-
-  * If you select JSON, you can choose to send all fields or select fields.
-  * If you select a table, you can send as many as 7 fields.
-
-To be selective about the output, click **Add a field** and select a field from the dropdown list. If you want, you can also add a sorting rule and a regex filter.
+If the rule includes any aggregation or group by field, the notification output will send the aggregated results by default.
 
 
-![add email recipient](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/siem-add-email-dec.gif)
-
-:::note
-When notifications are suppressed,
-Logz.io will continue to log triggered rules without sending notifications.
-You can search triggered rule logs at any time.
-:::
-
-<h3 id="regex">Using regex filters</h3>
 
 
-You can "clean" the data in the notification using regex filters. If you add a regex filter, it will select for the data you want to include in the rule output.
+![Add email](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/siem-add-email-dec.gif)
 
-There is no danger that a regex filter will disrupt the notification.
-
-* If the regex matches the relevant data, you will see only the desired results.
-* If the regex _does not_ match, the filter will be disregarded and the rule output will include the full content of the field.
+### Save your rule
+Click Save to save your rule. If the thresholds are passed and the rule is triggered, Logz.io will log the rule and send the configured notifications.
 
 
-<h3 id="save">Save your rule</h3>
-
-
-Click **Save** to save your rule.
-Whenever the thresholds are met, the rule will trigger. Logz.io will log the security event, and send out a notification, if configured.
-
-
-## Duplicate and modify an existing rule
+## Clone and modify an existing rule
 
 You can create rules based on Logz.io's preconfigured rules. In this case, the builder will be pre-populated with data from the existing rule, such as the query string.
 
-Navigate to **[SIEM > Rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions)** and choose the rule you want to use. Hover over the three dots and select **Duplicate**.
+Navigate to **[SIEM > Rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions)** and choose the rule you want to use. Hover over the three dots and select **Duplicate**. 
 
-![duplicate rule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/siem-duplicate-dec.png)
+![Duplicate rule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/siem-duplicate-dec.png)
 
-The rule configuration wizard includes all of the preconfigured queries, filters, etc.
+The rule includes all of the relevant queries, filters, etc. 
 
-Now, you can edit the rule based on your needs and set the trigger conditions, schedule, notification endpoints, etc.
+Now, you can define the rule based on your needs and edit the trigger conditions, schedule, notification endpoints, etc.
 
-Once you're done, click **Save** to create the rule.
+Once you're done, click **Save** to create the rule. 
+
+## Creating a Security Rule from a SIGMA Rule
+
+SIGMA rules are a standardized YAML format for writing security detection rules. They provide a flexible, vendor-agnostic way to describe threats, making it easier to detect suspicious activity across different platforms.
+
+By importing a SIGMA rule, you can quickly create a security rule without manually defining patterns and conditions, ensuring consistency with industry best practices.
+
+
+To create a security rule from a SIGMA rule YAML, navigate to **[SIEM > Rules](https://app.logz.io/#/dashboard/security/rules/rule-definitions)** and select **New rule**.
+
+![New rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/siem-new-rule-dec.png)
+
+### Name the rule
+
+Give your rule a clear name. This will appear in notifications when the rule is triggered. It can include letters, numbers, and special characters but not emojis or other elements.
+
+
+### Import your SIGMA rule
+
+Click **SIGMA Conversion** to open the SIGMA converter.
+
+Paste your SIGMA rule or upload a YAML file. Review the rule details, then click **Convert** to apply the rule parameters.
+
+![sigma rule modal](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/sigma-rule-modal.png)
+
+
+### Select relevant accounts
+
+Choose which accounts the rule should monitor:
+
+* All accounts – The rule will query the logs in all the accounts to which it has access. It will automatically include any accounts added in the future.
+
+* Specific accounts – Select accounts from the dropdown.
+
+### Set trigger conditions
+
+Set your threshold and severity levels. You can base your trigger on a number of logs, minimum/maximum of fields, average, sum, and more.
+
+You can add multiple conditions for the trigger by clicking **+ Add threshold**. You can add up to 5 threshold conditions, each with its own severity tag.
+
+:::note
+You can set the trigger condition time frame between 5 minutes and up to 24 hours (1 day). To set a trigger condition longer than 24 hours, use [Logz.io’s API](https://api-docs.logz.io/docs/logz/create-security-rule/) to create your rule.
+:::
+
+![Trigger if](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/trigger-if-siem-dec.png)
+
+### *(Optional)* MITRE ATT&Ck threats
+
+MITRE ATT&CK tags help map security events to known attack techniques. If your SIGMA rule includes these tags, they’ll be added automatically. Review them to ensure they’re relevant.
+
+:::note
+Some MITRE ATT&CK tags are unsupported and will not be automatically added.
+:::
+
+![mitre attack tags](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/mitre-attack-tags.png)
+
+### Set rule schedule
+
+Use the scheduling mechanism to manage the trigger condition frequency.
+
+Scheduling defines the frequency and the time frame for the rule. To define a schedule, select **On Schedule** and use a [cron expression](https://www.freeformatter.com/cron-expression-generator-quartz.html) to specify when to trigger the rule.
+
+:::note
+The cron expression can only be set in increments rounded to the nearest minute.
+:::
+
+For example, you can apply the following schedule to your rules:
+
+| Cron expression                         | Rule trigger schedule |
+|-----------------------------------------|------|
+| 0 0/10 * ? * * *                        | Every 10 minutes |
+| 0 0 0/1 ? * * *                         | Rounded to the nearest hour |
+| 0 * 8-17 ? * MON,TUE,WED,THU,FRI *  | Every minute between 8 am to 5 pm, Monday through Friday |
+| 0 5 0 ? * * *                           | Every day at exactly 12:05 am |
+
+
+By default, trigger conditions run approximately every minute. If there's a lag, the rule is checked once all data is received. In addition, once a rule has met its condition and is triggered, it won't be checked again for the remainder of the rule trigger condition time range.
+
+![Schedule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/schedule-siem-dec.png)
+
+### *(Optional)* Set notification details
+
+
+The Description is visible on the rule definitions page, and it's part of the emails and Slack messages sent when the rule is triggered. As such, an ideal description will be helpful to recipients, explaining how to fix the issues that led to the rule.
+
+The Tags are helpful for filtering and finding the rules later on.
+
+You can choose a notification endpoint to send notifications or emails when the rule is triggered. This isn't required, though—triggered rules are still logged and searchable in OpenSearch Dashboards.
+
+Choose the endpoints or email addresses you want to notify when the rule triggers. 
+
+#### Select rule output format & content
+
+Choose whether notifications display sample data in JSON or Table format. Aggregated results are included by default if applicable.
+
+
+![Add email](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/siem-add-email-dec.gif)
+
+### Save your rule
+
+Click **Save** to activate your rule. Once triggered, Logz.io will log the event and send notifications based on your settings.
+
 
 ## Create a rule from OpenSearch Dashboards query
 
 You can create rules based on queries and filters in OpenSearch Dashboards.
 
-Navigate to **[SIEM > Research](https://app.logz.io/#/dashboard/security/research/discover/)** and build your query.
+Navigate to [**SIEM > Research**](https://app.logz.io/#/dashboard/security/research/discover/) and build your query.
 
 To turn the query into a rule, click on **Create from query > Create rule**. The rule will include the query and filters you've used.
 
-![create rule from osd](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/create-rule-from-query-dec.png)
+![Rule from query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/create-rule-from-query-dec.png)
 
-Next:
-* [Name your rule](/docs/user-guide/cloud-siem/quick-guide/create-rules#name-the-rule)
-* [Set the trigger conditions](/docs/user-guide/cloud-siem/quick-guide/create-rules#set-trigger-conditions)
-* [Add MITRE ATT&Ck tags](/docs/user-guide/cloud-siem/quick-guide/create-rules#optional-mitre-attck-threats) if needed
-* [Set schedule](/docs/user-guide/cloud-siem/quick-guide/create-rules#set-rule-schedule) 
-* [Choose the notification points](/docs/user-guide/cloud-siem/quick-guide/create-rules#optional-set-notification-details).
+Next, [name your rule](/docs/user-guide/cloud-siem/quick-guide/create-rules#name-the-rule), [set the trigger conditions](/docs/user-guide/cloud-siem/quick-guide/create-rules#set-trigger-conditions), [add MITRE ATT&Ck tags](/docs/user-guide/cloud-siem/quick-guide/create-rules#optional-mitre-attck-threats) if needed, [set schedule](/docs/user-guide/cloud-siem/quick-guide/create-rules#set-rule-schedule), and [choose the notification points](/docs/user-guide/cloud-siem/quick-guide/create-rules#optional-set-notification-details).
 
 Once you're done, click **Save** to create the new rule. 
+
+
+
+<!-- 
+1. Sign in to Logz.io.
+
+2. Go to **SIEM**.
+
+3. Scroll down to the **Events** section. 
+
+   ![Rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/events-1.png)
+
+
+4. Click the **Investigate** tab next to the event that you want to base the new rule on.
+
+5. Select **Create rule**.
+
+   ![Rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/create-rule-from-query.png)
+
+6. Fill out the rule details as follows:
+
+   ![Rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/create-rule-from-query-2.png)
+
+   * Give the rule a required name.
+   
+   * Define a query for the rule. You can do it directly in the **Create a rule** window and then preview it in OpenSearch Dashboards. Alternatively, you can define the query in OpenSearch Dashboards and copy it across.
+   
+   * Define what fields the query needs to be grouped by.
+   
+   * Define what accounts the query needs to apply to.
+   
+   * Repeat the previous three steps for another query, if required.
+   
+   * Define the trigger conditions for the rule.
+   
+   * If required, add a notification description to the rule. For example, a course of actions required when the rule is executed.
+   
+   * If required, add tags to the rule.
+   
+   * If required, add a notification endpoint in the **Recipients** list. This can be an email address or a webhook. See [Adding notification and SOAR endpoints](https://docs.logz.io/user-guide/cloud-siem/select-dashboards.html) for more on this.
+
+6. Select **Save**.
+
+
+-->
