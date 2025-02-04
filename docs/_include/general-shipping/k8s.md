@@ -197,10 +197,7 @@ For example, for a parameter called `someField` in the `logzio-k8s-telemetry`'s 
 
 ## Send your traces
 
-We offer three options for sending send your traces:
-* Send Traces only
-* Send Traces and SPM 
-* Send Traces, SPM and Service Graph data
+Together with Traces data you can also choose to send SPM or Service graph, or both.
 
 ```shell
 helm install -n monitoring --create-namespace \
@@ -250,14 +247,14 @@ Encounter an issue? See our [Distributed Tracing troubleshooting](https://docs.l
 
 ### Custom Configuration
 
-You can view the full list of the possible configuration values in the [logzio-k8s-telemetry Chart folder](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-telemetry).
+You can view the full list of the possible configuration values in the [logzio-apm-collector Chart folder](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-apm-collector/VALUES.md).
 
-To modify values found in the `logzio-telemetry` folder, use the `--set` flag with the `logzio-k8s-telemetry` prefix.
+To modify values found in the `logzio-apm-collector` folder, use the `--set` flag with the `logzio-apm-collector` prefix.
 
-For example, for a parameter called `someField` in the `logzio-k8s-telemetry`'s `values.yaml` file, set it by adding the following to the `helm install` command:
+For example, for a parameter called `someField` in the `logzio-apm-collector`'s `values.yaml` file, set it by adding the following to the `helm install` command:
 
 ```shell
---set logzio-k8s-telemetry.someField="my new value"
+--set logzio-apm-collector.someField="my new value"
 ```
 
 
@@ -421,6 +418,20 @@ helm upgrade <RELEASE_NAME> logzio-helm/logzio-monitoring \
 
  </TabItem>
 </Tabs>
+
+
+## Instrumentation
+If you're using manual instrumentation or an instrumentation agent, configure it to export data to the Logz.io APM collector by setting the export/output address as follows:
+```
+logzio-apm-collector.monitoring.svc.cluster.local:<<PORT>>
+```
+
+:::note
+Replace `<<PORT>>` based on the protocol your agent uses:
+- 4317 for OTLP GRCP
+- 4318 for OTLP HTTP
+For a complete list, see [values.yaml](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-apm-collector/values.yaml#L71).
+:::
 
 
 ## Migrating to `logzio-monitoring` 7.0.0
