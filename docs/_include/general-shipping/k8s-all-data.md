@@ -7,7 +7,7 @@ Send all of your telemetry data using one single Helm chart:
 ```shell
 helm install  -n monitoring --create-namespace \
 --set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
---set global.env_id="<<ENV-ID>> \
+--set global.env_id="<<ENV-ID>>" \
 --set logs.enabled=true \
 --set global.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
 --set logzio-k8s-telemetry.metrics.enabled=true \

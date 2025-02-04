@@ -597,7 +597,7 @@ helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --ver
 </Tabs>
 
 
-#### Managing own secret
+### Managing own secret
 If you manage your own secret for the Logz.io charts, please also add to your command:
 
  ```shell
