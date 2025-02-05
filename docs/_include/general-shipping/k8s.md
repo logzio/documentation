@@ -296,7 +296,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 ```shell
 helm install -n monitoring --create-namespace \
 --set securityReport.enabled=true \
---set global.env_id=<<CLUSTER-NAME>> \
+--set global.env_id="<<CLUSTER-NAME>>" \
 --set global.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
 --set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
 ```
