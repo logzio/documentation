@@ -115,10 +115,10 @@ Supported resource kinds are `Deployment`, `Daemonset`, `Statefulset`, `ConfigMa
 
 ```shell
 helm install -n monitoring --create-namespace \
---set global.logzioLogsToken='<<LOG-SHIPPING-TOKEN>>' \
---set global.logzioRegion='<<LOGZIO_ACCOUNT_REGION_CODE>>' \
---set global.env_id='<<CLUSTER-NAME>>' \
---set global.customLogsEndpoint='<<CUSTOM-HOST>>' \
+--set global.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set global.env_id="<<CLUSTER-NAME>>" \
+--set global.customLogsEndpoint="<<CUSTOM-HOST>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 
 ```
@@ -161,7 +161,7 @@ Encounter an issue? See our [troubleshooting guide](https://docs.logz.io/docs/us
 helm install -n monitoring --create-namespace \
 --set logzio-k8s-telemetry.metrics.enabled=true \
 --set global.logzioMetricsToken="<<METRICS-SHIPPING-TOKEN>>" \
---set global.logzioRegion='<<LOGZIO_ACCOUNT_REGION_CODE>>' \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
 --set global.env_id="<<CLUSTER-NAME>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
@@ -272,10 +272,10 @@ For example, for a parameter called `someField` in the `logzio-apm-collector`'s 
 helm install  \
 --set logzio-k8s-telemetry.metrics.enabled=true \
 --set logzio-k8s-telemetry.k8sObjectsConfig.enabled=true \
---set global.logzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>> \
---set global.logzioLogsToken=<<LOG-SHIPPING-TOKEN>> \
---set global.logzioMetricsToken=<<METRICS-SHIPPING-TOKEN>> \
---set global.env_id=<<CLUSTER-NAME>> \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set global.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
+--set global.logzioMetricsToken="<<METRICS-SHIPPING-TOKEN>>" \
+--set global.env_id="<<CLUSTER-NAME>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
