@@ -30,7 +30,7 @@ _Once you provide input to the agent, the **dashboard's data** will be shared wi
 
 ### Choose data source
 
-You can edit the data source you'd like to use when using the AI Agent:
+Depending on your analysis needs, you can refine the data source to get the most relevant insights:
 
 * **All available data** - Utilize all available data, including logs and documentation.
 * **Using search results** - Generates answers based on the data currently displayed on your dashboard, including logs, queries, filters, etc.
@@ -47,7 +47,7 @@ History lets you review past interactions with the AI Agent, making it easier to
 
 To access your chat history, open the AI Agent interface and click the History button.
 
-<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/ai-agent-main-dec23.png" alt="ai-agent-answer" width="700"/>
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/ai-history.png" alt="ai-agent-history" width="700"/>
 
 ## AI Agent Root Cause Analyzer
 
