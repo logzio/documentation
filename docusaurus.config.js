@@ -121,7 +121,14 @@ const config = {
         // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
         externalUrlRegex: 'external\\.com|domain\\.com',
   
-
+          announcementBar: {
+            id: 'images_broken',
+            content:
+              'we&#39;re currently experiencing issues with images on our docs and integration pages. We&#39;re aware of the problem and are working to resolve it as quickly as possible.',
+            backgroundColor: '#20232a',
+            textColor: '#fff',
+            isCloseable: false,
+          },
   
         // Optional: Algolia search parameters
         searchParameters: {},
