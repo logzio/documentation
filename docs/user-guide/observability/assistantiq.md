@@ -24,20 +24,30 @@ AI Agent is available in **[Explore](https://app.logz.io/#/dashboard/explore)**,
 
 Use the agent to analyze trends in latency, throughput, error rate, and HTTP status codes over time to identify patterns or anomalies that may require attention. Additionally, it can be used to compare the performance metrics of different operations and determine if any significant differences need to be addressed.
 
-Select one of the pre-built questions or type a custom query according to what you'd like to analyze. Next, select the data source you'd like to use when using the AI Agent:
+To get started with AI Agent, select one of the pre-built questions or type a custom query according to what you'd like to analyze.
+
+_Once you provide input to the agent, the **dashboard's data** will be shared with Claude3._
+
+### Choose data source
+
+Depending on your analysis needs, you can refine the data source to get the most relevant insights:
 
 * **All available data** - Utilize all available data, including logs and documentation.
-* **Using search results** - Answers will be based on the data currently displayed on your dashboard, including logs, queries, filters, etc.
-* **User guide** - Access information from Logz.io's user guides to answer questions about features and usage.
-* **Data shipping guide** - Refer to integration and data shipping guides for configuration and setup assistance.
+* **Using search results** - Generates answers based on the data currently displayed on your dashboard, including logs, queries, filters, etc.
+* **User guide** - Pulls information from Logz.io's user guides to answer questions about features and usage.
+* **Data shipping guide** - Provides insights from integration and data shipping guides to assist with configuration and setup.
 
 :::note
-Some data sources may not be available in all observability tools (Explore, App 360, Kubernetes 360).
+Some data sources may not be available in all observability tools, including Explore, App 360, and Kubernetes 360.
 :::
 
-Once you provide input to the agent, the **dashboard's data** will be shared with Claude3.
+### View chat history
 
-<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/ai-agent-main-dec23.png" alt="ai-agent-answer" width="700"/>
+History lets you review past interactions with the AI Agent, making it easier to track insights, revisit previous analyses, and maintain continuity in your investigations.
+
+To access your chat history, open the AI Agent interface and click the History button.
+
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/ai-history.png" alt="ai-agent-history" width="700"/>
 
 ## AI Agent Root Cause Analyzer
 
