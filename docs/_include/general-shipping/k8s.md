@@ -463,7 +463,7 @@ You must use one of the Logs command options as part of the upgrade process.
 
 ```shell
 helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --version 7.0.0 \
---set global.region="<<LOGZIO-REGION>>" \
+--set global.logzioRegion="<<LOGZIO-REGION>>" \
 --set global.env_id="<<ENV-ID>>" \
 --set global.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
 --set global.logzioMetricsToken="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>" \
@@ -491,7 +491,7 @@ If you were using `logzio-logs-collector.secrets.logType`, add to your command `
 
 ```shell
 helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --version 7.0.0 \
---set global.region="<<LOGZIO-REGION>>" \
+--set global.logzioRegion="<<LOGZIO-REGION>>" \
 --set global.env_id="<<ENV-ID>>" \
 --set global.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
 --set global.logzioMetricsToken="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>" \
@@ -510,7 +510,7 @@ If you were using `logzio-logs-collector.secrets.logType`, add to your command `
 
 ```shell
 helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --version 7.0.0 \
---set global.region="<<LOGZIO-REGION>>" \
+--set global.logzioRegion="<<LOGZIO-REGION>>" \
 --set global.env_id="<<ENV-ID>>" \
 --set global.logzioMetricsToken="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>" \
 --set logzio-k8s-telemetry.traces.enabled=false \
@@ -531,7 +531,7 @@ helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --ver
 
 ```shell
 helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --version 7.0.0 \
---set global.region="<<LOGZIO-REGION>>" \
+--set global.logzioRegion="<<LOGZIO-REGION>>" \
 --set global.env_id="<<ENV-ID>>" \
 --set global.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
 --set logzio-k8s-telemetry.traces.enabled=false \
@@ -557,7 +557,7 @@ If you were using `logzio-logs-collector.secrets.logType`, add to your command `
 
 ```shell
 helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --version 7.0.0 \
---set global.region="<<LOGZIO-REGION>>" \
+--set global.logzioRegion="<<LOGZIO-REGION>>" \
 --set global.env_id="<<ENV-ID>>" \
 --set global.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
 --reuse-values
@@ -574,7 +574,7 @@ If you were using `logzio-logs-collector.secrets.logType`, add to your command `
 
 ```shell
 helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --version 7.0.0 \
---set global.region="<<LOGZIO-REGION>>" \
+--set global.logzioRegion="<<LOGZIO-REGION>>" \
 --set global.env_id="<<ENV-ID>>" \
 --set global.logzioMetricsToken="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>" \
 --reuse-values
@@ -586,7 +586,7 @@ helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --ver
 
 ```shell
 helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --version 7.0.0 \
---set global.region="<<LOGZIO-REGION>>" \
+--set global.logzioRegion="<<LOGZIO-REGION>>" \
 --set global.env_id="<<ENV-ID>>" \
 --set logzio-k8s-telemetry.traces.enabled=false \
 --set logzio-apm-collector.enabled=true \
@@ -625,7 +625,7 @@ For example, if you manage secret for both `logzio-logs-collector` and for `logz
 
  ```shell
 helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --version 7.0.0 \
---set global.region="<<LOGZIO-REGION>>" \
+--set global.logzioRegion="<<LOGZIO-REGION>>" \
 --set global.env_id="<<ENV-ID>>" \
 --set logzio-logs-collector.secret.name="<<NAME-OF-SECRET>>" \
 --set logzio-logs-collector.secret.enabled=false \
