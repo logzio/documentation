@@ -37,9 +37,9 @@ To send your logs, our chart`logzio-monitoring` offers two methods:
 ```shell
 helm install -n monitoring --create-namespace \
 --set logs.enabled=true \
---set logzio-logs-collector.secrets.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
---set logzio-logs-collector.secrets.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
---set logzio-logs-collector.secrets.env_id="<<CLUSTER-NAME>>" \
+--set global.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set global.env_id="<<CLUSTER-NAME>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
@@ -52,9 +52,9 @@ helm install -n monitoring --create-namespace \
 --set logs.enabled=true \
 --set logzio-fluentd.enabled=true \
 --set logzio-logs-collector.enabled=false \
---set logzio-fluentd.secrets.logzioShippingToken="<<LOG-SHIPPING-TOKEN>>" \
---set logzio-fluentd.secrets.logzioListener="<<LISTENER-HOST>>" \
---set logzio-fluentd.env_id="<<CLUSTER-NAME>>" \
+--set global.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set global.env_id="<<CLUSTER-NAME>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
@@ -62,7 +62,6 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | Parameter | Description |
 | --- | --- |
 | `<<LOG-SHIPPING-TOKEN>>` | Your [logs shipping token](https://app.logz.io/#/dashboard/settings/general). |
-| `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
 | `<<LOGZIO-REGION>>` | Your Logz.io [region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). |
 
@@ -116,10 +115,10 @@ Supported resource kinds are `Deployment`, `Daemonset`, `Statefulset`, `ConfigMa
 
 ```shell
 helm install -n monitoring --create-namespace \
---set logzio-k8s-events.secrets.logzioShippingToken='<<LOG-SHIPPING-TOKEN>>' \
---set logzio-k8s-events.secrets.logzioListener='<<LISTENER-HOST>>' \
---set logzio-k8s-events.secrets.env_id='<<CLUSTER-NAME>>' \
---set logzio-k8s-events.secrets.customListener='<<CUSTOM-HOST>>' \
+--set global.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set global.env_id="<<CLUSTER-NAME>>" \
+--set global.customLogsEndpoint="<<CUSTOM-HOST>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 
 ```
@@ -127,7 +126,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | Parameter | Description |
 | --- | --- |
 | `<<LOG-SHIPPING-TOKEN>>` | Your [logs shipping token](https://app.logz.io/#/dashboard/settings/general). |
-| `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
+| `<<LOGZIO-REGION>>` | Your Logz.io [region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). |
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
 | `<<CUSTOM-HOST>>` | (*optional*) HTTP/s listener endpoint that receives JSON input, overrides the Logz.io listener. |
 
@@ -160,12 +159,10 @@ Encounter an issue? See our [troubleshooting guide](https://docs.logz.io/docs/us
 
 ```shell
 helm install -n monitoring --create-namespace \
---set metricsOrTraces.enabled=true \
 --set logzio-k8s-telemetry.metrics.enabled=true \
---set logzio-k8s-telemetry.secrets.MetricsToken="<<METRICS-SHIPPING-TOKEN>>" \
---set logzio-k8s-telemetry.secrets.ListenerHost="https://<<LISTENER-HOST>>:8053" \
---set logzio-k8s-telemetry.secrets.p8s_logzio_name="<<CLUSTER-NAME>>" \
---set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
+--set global.logzioMetricsToken="<<METRICS-SHIPPING-TOKEN>>" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set global.env_id="<<CLUSTER-NAME>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
@@ -173,7 +170,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | --- | --- |
 | `<<METRICS-SHIPPING-TOKEN>>` | Your [metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
-| `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
+| `<<LOGZIO-REGION>>` | Your Logz.io [region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). |
 
 
 Encounter an issue? See our [troubleshooting guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/k8s-troubleshooting/).
@@ -200,21 +197,14 @@ For example, for a parameter called `someField` in the `logzio-k8s-telemetry`'s 
 
 ## Send your traces
 
-We offer three options for sending send your traces:
-* Send Traces only
-* Send Traces and SPM 
-* Send Traces, SPM and Service Graph data
+Together with Traces data you can also choose to send SPM or Service graph, or both.
 
 ```shell
 helm install -n monitoring --create-namespace \
---set metricsOrTraces.enabled=true \
---set logzio-k8s-telemetry.traces.enabled=true \
---set logzio-k8s-telemetry.secrets.TracesToken="<<TRACING-SHIPPING-TOKEN>>" \
---set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
---set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
---set logzio-k8s-telemetry.nodeExporter.enabled=false \
---set logzio-k8s-telemetry.kubeStateMetrics.enabled=false \
---set logzio-k8s-telemetry.pushGateway.enabled=false \
+--set logzio-apm-collector.enabled=true \
+--set global.logzioTracesToken="<<TRACING-SHIPPING-TOKEN>>" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set global.env_id="<<CLUSTER-NAME>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
@@ -222,40 +212,25 @@ logzio-monitoring logzio-helm/logzio-monitoring
 
 ```shell
 helm install -n monitoring --create-namespace \
---set metricsOrTraces.enabled=true \
---set logzio-k8s-telemetry.traces.enabled=true \
---set logzio-k8s-telemetry.secrets.TracesToken="<<TRACING-SHIPPING-TOKEN>>" \
---set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
---set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
---set logzio-k8s-telemetry.spm.enabled=true \
---set logzio-k8s-telemetry.secrets.SpmToken="<<SPM-METRICS-SHIPPING-TOKEN>>" \
---set logzio-k8s-telemetry.secrets.ListenerHost="https://<<LISTENER-HOST>>:8053" \
---set logzio-k8s-telemetry.nodeExporter.enabled=false \
---set logzio-k8s-telemetry.kubeStateMetrics.enabled=false \
---set logzio-k8s-telemetry.pushGateway.enabled=false \
+--set logzio-apm-collector.enabled=true \
+--set global.logzioTracesToken="<<TRACING-SHIPPING-TOKEN>>" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set global.env_id="<<CLUSTER-NAME>>" \
+--set logzio-apm-collector.spm.enabled=true \
+--set global.logzioSpmToken="<<SPM-METRICS-SHIPPING-TOKEN>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
 ## Send Service Graph data
 
-:::caution Important
-`serviceGraph.enabled=true` will have no effect unless `traces.enabled` and `spm.enabled=true` is set to `true`.
-:::
-
 ```shell
 helm install -n monitoring --create-namespace \
---set metricsOrTraces.enabled=true \
---set logzio-k8s-telemetry.traces.enabled=true \
---set logzio-k8s-telemetry.secrets.TracesToken="<<TRACING-SHIPPING-TOKEN>>" \
---set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
---set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
---set logzio-k8s-telemetry.spm.enabled=true \
---set logzio-k8s-telemetry.secrets.SpmToken="<<SPM-METRICS-SHIPPING-TOKEN>>" \
---set logzio-k8s-telemetry.secrets.ListenerHost="https://<<LISTENER-HOST>>:8053" \
---set logzio-k8s-telemetry.serviceGraph.enabled=true \
---set logzio-k8s-telemetry.nodeExporter.enabled=false \
---set logzio-k8s-telemetry.kubeStateMetrics.enabled=false \
---set logzio-k8s-telemetry.pushGateway.enabled=false \
+--set logzio-apm-collector.enabled=true \
+--set global.logzioTracesToken="<<TRACING-SHIPPING-TOKEN>>" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set global.env_id="<<CLUSTER-NAME>>" \
+--set logzio-apm-collector.serviceGraph.enabled=true \
+--set global.logzioSpmToken="<<SPM-METRICS-SHIPPING-TOKEN>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
@@ -263,7 +238,6 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | --- | --- |
 | `<<TRACING-SHIPPING-TOKEN>>` | Your [traces shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
-| `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
 | `<<LOGZIO_REGION>>` | Your Logz.io [region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions) |
 | `<<SPM-METRICS-SHIPPING-TOKEN>>` | Your [span metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
 
@@ -273,14 +247,14 @@ Encounter an issue? See our [Distributed Tracing troubleshooting](https://docs.l
 
 ### Custom Configuration
 
-You can view the full list of the possible configuration values in the [logzio-k8s-telemetry Chart folder](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-telemetry).
+You can view the full list of the possible configuration values in the [logzio-apm-collector Chart folder](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-apm-collector/VALUES.md).
 
-To modify values found in the `logzio-telemetry` folder, use the `--set` flag with the `logzio-k8s-telemetry` prefix.
+To modify values found in the `logzio-apm-collector` folder, use the `--set` flag with the `logzio-apm-collector` prefix.
 
-For example, for a parameter called `someField` in the `logzio-k8s-telemetry`'s `values.yaml` file, set it by adding the following to the `helm install` command:
+For example, for a parameter called `someField` in the `logzio-apm-collector`'s `values.yaml` file, set it by adding the following to the `helm install` command:
 
 ```shell
---set logzio-k8s-telemetry.someField="my new value"
+--set logzio-apm-collector.someField="my new value"
 ```
 
 
@@ -298,12 +272,10 @@ For example, for a parameter called `someField` in the `logzio-k8s-telemetry`'s 
 helm install  \
 --set logzio-k8s-telemetry.metrics.enabled=true \
 --set logzio-k8s-telemetry.k8sObjectsConfig.enabled=true \
---set logzio-k8s-telemetry.secrets.LogzioRegion=<<LOGZIO-REGION>> \
---set logzio-k8s-telemetry.secrets.k8sObjectsLogsToken=<<LOG-SHIPPING-TOKEN>> \
---set logzio-k8s-telemetry.secrets.MetricsToken=<<METRICS-SHIPPING-TOKEN>> \
---set logzio-k8s-telemetry.secrets.ListenerHost=<<LISTENER-HOST>> \
---set logzio-k8s-telemetry.secrets.p8s_logzio_name=<<CLUSTER-NAME>> \
---set logzio-k8s-telemetry.secrets.env_id=<<CLUSTER-NAME>> \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set global.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
+--set global.logzioMetricsToken="<<METRICS-SHIPPING-TOKEN>>" \
+--set global.env_id="<<CLUSTER-NAME>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
@@ -312,7 +284,6 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<LOG-SHIPPING-TOKEN>>` | Your [logs shipping token](https://app.logz.io/#/dashboard/settings/general). |
 | `<<METRICS-SHIPPING-TOKEN>>` | Your [metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
 | `<<LOGZIO_REGION>>` | Your Logz.io [region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions) |
-| `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
 
 
@@ -325,15 +296,15 @@ logzio-monitoring logzio-helm/logzio-monitoring
 ```shell
 helm install -n monitoring --create-namespace \
 --set securityReport.enabled=true \
---set logzio-trivy.env_id="<<CLUSTER-NAME>>" \
---set logzio-trivy.secrets.logzioShippingToken="<<LOG-SHIPPING-TOKEN>>" \
---set logzio-trivy.secrets.logzioListener="<<LISTENER-HOST>>" \
+--set global.env_id="<<CLUSTER-NAME>>" \
+--set global.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
 ```
 
 | Parameter | Description |
 | --- | --- |
 | `<<LOG-SHIPPING-TOKEN>>` | Your [logs shipping token](https://app.logz.io/#/dashboard/settings/general). |
-| `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
+| `<<LOGZIO_REGION>>` | Your Logz.io [region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions) |
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
 
 
@@ -350,25 +321,20 @@ Set the `fargateLogRouter.enabled` value to `true`. This deploys a dedicated `aw
 helm install -n monitoring --create-namespace \
 --set logs.enabled=true \
 --set logzio-fluentd.fargateLogRouter.enabled=true \
---set logzio-fluentd.secrets.logzioShippingToken="<<LOG-SHIPPING-TOKEN>>" \
---set logzio-fluentd.secrets.logzioListener="<<LISTENER-HOST>>" \
---set metricsOrTraces.enabled=true \
+--set global.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
 --set logzio-k8s-telemetry.collector.mode=standalone \
 --set logzio-k8s-telemetry.enableMetricsFilter.eks=true \
 --set logzio-k8s-telemetry.metrics.enabled=true \
---set logzio-k8s-telemetry.secrets.MetricsToken="<<METRICS-SHIPPING-TOKEN>>" \
---set logzio-k8s-telemetry.secrets.ListenerHost="https://<<LISTENER-HOST>>:8053" \
---set logzio-k8s-telemetry.secrets.p8s_logzio_name="<<CLUSTER-NAME>>" \
---set logzio-k8s-telemetry.traces.enabled=true \
---set logzio-k8s-telemetry.secrets.TracesToken="<<TRACING-SHIPPING-TOKEN>>" \
---set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO_REGION>>" \
+--set global.logzioMetricsToken="<<METRICS-SHIPPING-TOKEN>>" \
+--set logzio-apm-collector.enabled=true \
+--set global.logzioTracesToken="<<TRACING-SHIPPING-TOKEN>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
 | Parameter | Description |
 | --- | --- |
 | `<<LOG-SHIPPING-TOKEN>>` | Your [logs shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
-| `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
 | `<<METRICS-SHIPPING-TOKEN>>` | Your [metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=metrics). |
 | `<<CLUSTER-NAME>>` | The name for your environment's identifier, to easily identify the telemetry data for each environment. |
 | `<<TRACING-SHIPPING-TOKEN>>` | Replace `<<TRACING-SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=tracing) of the account you want to ship to. |
@@ -453,3 +419,217 @@ helm upgrade <RELEASE_NAME> logzio-helm/logzio-monitoring \
  </TabItem>
 </Tabs>
 
+
+## Instrumentation
+If you're using manual instrumentation or an instrumentation agent, configure it to export data to the Logz.io APM collector by setting the export/output address as follows:
+```
+logzio-apm-collector.monitoring.svc.cluster.local:<<PORT>>
+```
+
+:::note
+Replace `<<PORT>>` based on the protocol your agent uses:
+- 4317 for OTLP GRCP
+- 4318 for OTLP HTTP
+For a complete list, see [values.yaml](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-apm-collector/values.yaml#L71).
+:::
+
+
+## Migrating to `logzio-monitoring` 7.0.0
+
+### Step 1: Update helm repositories
+Run the following command to ensure you have the latest chart versions:
+
+```shell
+helm repo update
+```
+
+### Step 2: Build the upgrade command
+Choose the appropriate upgrade command for your current setup. If you're unsure of your configuration, use the following command to retrieve the current values
+
+```shell
+helm get values logzio-monitoring -n monitoring
+```
+
+:::caution Important
+If you have enabled any of the following
+- `logzio-k8s-events` (`deployEvents`)
+- `logzio-trivy` (`securityReport`)
+- `logzio-k8s-telemetry.k8sObjectsConfig`
+You must use one of the Logs command options as part of the upgrade process.
+:::
+
+<Tabs>
+<TabItem value="migrate-all" label="Logs, Metrics and Traces" default>
+
+```shell
+helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --version 7.0.0 \
+--set global.logzioRegion="<<LOGZIO-REGION>>" \
+--set global.env_id="<<ENV-ID>>" \
+--set global.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
+--set global.logzioMetricsToken="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>" \
+--set logzio-k8s-telemetry.traces.enabled=false \
+--set logzio-apm-collector.enabled=true \
+--set global.logzioTracesToken="<<TRACES-SHIPPING-TOKEN>>" \
+
+# If you also send SPM or ServiceGraph, add the relevant enable flag for them and the token
+--set logzio-apm-collector.spm.enabled=true \
+--set logzio-apm-collector.serviceGraph.enabled=true \
+--set global.logzioSpmToken="<<SPM-SHIPPING-TOKEN>>" \
+
+--reuse-values
+```
+
+
+:::note
+If you were using `logzio-logs-collector.secrets.logType`, add to your command `--set global.logType=<<LOG-TYPE>> \`
+:::
+
+
+</TabItem>
+
+<TabItem value="migrate-logs-metrics" label="Logs and Metrics" default>
+
+```shell
+helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --version 7.0.0 \
+--set global.logzioRegion="<<LOGZIO-REGION>>" \
+--set global.env_id="<<ENV-ID>>" \
+--set global.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
+--set global.logzioMetricsToken="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>" \
+--reuse-values
+```
+
+
+:::note
+If you were using `logzio-logs-collector.secrets.logType`, add to your command `--set global.logType=<<LOG-TYPE>> \`
+:::
+
+
+</TabItem>
+
+<TabItem value="migrate-metrics-traces" label="Metrics and Traces" default>
+
+```shell
+helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --version 7.0.0 \
+--set global.logzioRegion="<<LOGZIO-REGION>>" \
+--set global.env_id="<<ENV-ID>>" \
+--set global.logzioMetricsToken="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>" \
+--set logzio-k8s-telemetry.traces.enabled=false \
+--set logzio-apm-collector.enabled=true \
+--set global.logzioTracesToken="<<TRACES-SHIPPING-TOKEN>>" \
+
+# If you also send SPM or ServiceGraph, add the relevant enable flag for them and the token
+--set logzio-apm-collector.spm.enabled=true \
+--set logzio-apm-collector.serviceGraph.enabled=true \
+--set global.logzioSpmToken="<<SPM-SHIPPING-TOKEN>>" \
+
+--reuse-values
+```
+
+</TabItem>
+
+<TabItem value="migrate-logs-traces" label="Logs and Traces" default>
+
+```shell
+helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --version 7.0.0 \
+--set global.logzioRegion="<<LOGZIO-REGION>>" \
+--set global.env_id="<<ENV-ID>>" \
+--set global.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
+--set logzio-k8s-telemetry.traces.enabled=false \
+--set logzio-apm-collector.enabled=true \
+--set global.logzioTracesToken="<<TRACES-SHIPPING-TOKEN>>" \
+
+# If you also send SPM or ServiceGraph, add the relevant enable flag for them and the token
+--set logzio-apm-collector.spm.enabled=true \
+--set logzio-apm-collector.serviceGraph.enabled=true \
+--set global.logzioSpmToken="<<SPM-SHIPPING-TOKEN>>" \
+
+--reuse-values
+```
+
+
+:::note
+If you were using `logzio-logs-collector.secrets.logType`, add to your command `--set global.logType=<<LOG-TYPE>> \`
+:::
+
+</TabItem>
+
+<TabItem value="migrate-logs-only" label="Only Logs" default>
+
+```shell
+helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --version 7.0.0 \
+--set global.logzioRegion="<<LOGZIO-REGION>>" \
+--set global.env_id="<<ENV-ID>>" \
+--set global.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
+--reuse-values
+```
+
+
+:::note
+If you were using `logzio-logs-collector.secrets.logType`, add to your command `--set global.logType=<<LOG-TYPE>> \`
+:::
+
+</TabItem>
+
+<TabItem value="migrate-metrics-only" label="Only Metrics" default>
+
+```shell
+helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --version 7.0.0 \
+--set global.logzioRegion="<<LOGZIO-REGION>>" \
+--set global.env_id="<<ENV-ID>>" \
+--set global.logzioMetricsToken="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>" \
+--reuse-values
+```
+
+</TabItem>
+
+<TabItem value="migrate-traces-only" label="Only Traces" default>
+
+```shell
+helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --version 7.0.0 \
+--set global.logzioRegion="<<LOGZIO-REGION>>" \
+--set global.env_id="<<ENV-ID>>" \
+--set logzio-k8s-telemetry.traces.enabled=false \
+--set logzio-apm-collector.enabled=true \
+--set global.logzioTracesToken="<<TRACES-SHIPPING-TOKEN>>" \
+
+# If you also send SPM or ServiceGraph, add the relevant enable flag for them and the token
+--set logzio-apm-collector.spm.enabled=true \
+--set logzio-apm-collector.serviceGraph.enabled=true \
+--set global.logzioSpmToken="<<SPM-SHIPPING-TOKEN>>" \
+
+--reuse-values
+```
+
+</TabItem>
+
+
+</Tabs>
+
+
+### Managing own secret
+If you manage your own secret for the Logz.io charts, please also add to your command:
+
+ ```shell
+--set sub-chart-name.secret.name="<<NAME-OF-SECRET>>" \
+--set sub-chart-name.secret.enabled=false \
+```
+
+:::caution Important
+This change is not relevant for the `logzio-k8s-telemetry` chart.
+:::
+
+
+Replace `sub-chart-name` with the name of the sub chart which you manage the secrets for.
+
+For example, if you manage secret for both `logzio-logs-collector` and for `logzio-trivy`, use:
+
+ ```shell
+helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --version 7.0.0 \
+--set global.logzioRegion="<<LOGZIO-REGION>>" \
+--set global.env_id="<<ENV-ID>>" \
+--set logzio-logs-collector.secret.name="<<NAME-OF-SECRET>>" \
+--set logzio-logs-collector.secret.enabled=false \
+--set logzio-trivy.secret.name="<<NAME-OF-SECRET>>" \
+--set logzio-trivy.secret.enabled=false \
+--reuse-values
+```
