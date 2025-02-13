@@ -13,7 +13,7 @@ helm install  -n monitoring --create-namespace \
 --set logzio-k8s-telemetry.metrics.enabled=true \
 --set global.logzioMetricsToken="<<METRICS-SHIPPING-TOKEN>>" \
 --set logzio-k8s-telemetry.k8sObjectsConfig.enabled=true \
---set logzio-apm-collector.enabled=true
+--set logzio-apm-collector.enabled=true \
 --set global.logzioTracesToken="<<TRACING-SHIPPING-TOKEN>>" \
 --set logzio-apm-collector.spm.enabled=true \
 --set logzio-apm-collector.serviceGraph.enabled=true \

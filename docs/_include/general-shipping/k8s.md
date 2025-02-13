@@ -633,3 +633,4 @@ helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --ver
 --set logzio-trivy.secret.enabled=false \
 --reuse-values
 ```
+
