@@ -15,15 +15,17 @@ drop_filter: []
 ---
 
 
-Ship your Azure activity logs using an automated deployment process.
-At the end of this process, you'll have configured an event hub namespace, an event hub, and 2 storage blobs.
+Automate the deployment of your Azure activity logs. By the end of this process, you will have an event hub namespace, an event hub, and two storage blobs configured.
 
-The resources set up by the automated deployment can collect data for a single Azure region.
+The deployed resources will collect data from a single Azure region.
+
+_Note: The metrics solution is deprecated and only supports the Elastic-based Logz.io metrics product._
 
 :::note
 [Project's GitHub repo](https://github.com/logzio/logzio-azure-serverless/)
 :::
 
+<!--
 ### Overview of the services you'll be setting up in your Azure account
 
 The automated deployment sets up a new Event Hub namespace and all the components you'll need to collect logs in one Azure region.
@@ -43,108 +45,97 @@ How many automated deployments you will need, depends on the number of regions i
 
 You'll need at least 1 automated deployment for each region where you want to collect logs.This is because Azure requires an event hub in the same region as your services. The good news is you can stream data from multiple services to the same event hub, just as long as they are in the same region.
 
-### Configuration
+-->
 
- 
+## Configuration
 
-#### If needed, configure an automated deployment
-
-If you already set up an automated deployment in this region, you can skip to step 2.
-
-👇 Otherwise, click this button to start the automated deployment.
+### 1. Deploy the Logz.io template 👇
 
 [![Deploy to Azure](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_blob/deploybutton-az.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flogzio%2Flogzio-azure-serverless%2Fmaster%2Fdeployments%2Fazuredeploylogs.json)
 
+This deployment will create the following services in Azure:
 
-You'll be taken to Azure, where you'll configure the resources to be deployed.
-Make sure to use the settings shown below.
+* Serverless Function App
+* Event Hub Namespace
+* Storage Account for Function Logs
+* Backup Storage Account for Failed Shipments
+* App Service Plan
+* Application Insights
 
-![Customized template](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure-event-hubs/customized-template.png)
+<!-- ![Customized template](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure-event-hubs/customized-template.png) -->
 
-#### In the BASICS section
+If you have already set up an automated deployment in this region, you can skip to the next step.
+
+### 2. Configure the template
+
+Use the following settings:
 
 | Parameter | Description |
 |---|---|
-| Resource group | Click **Create new**. Give a meaningful **Name**, such as "logzioEventHubIntegration", and then click **OK**. |
-| Location | Choose the same region as the Azure services that will stream data to this Event Hub. |
+| Resource group* | Create a new resource group or select an existing one, then click **OK**.|
+| Region* | Select the same region as the Azure services that will stream data to this event hub. |
+| Debug* | Add debug logs to your function app. |
+| Shipping token* | Add the [logs shipping token](https://app.logz.io/#/dashboard/settings/general) or [metrics shipping token](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/) for the Logz.io account where you want to send data.  |
+| Logs listener host* (Default: `listener.logz.io`)| Use the listener URL specific to your Logz.io account’s region. You can find it [here](https://docs.logz.io/user-guide/accounts/account-region.html). |
+| buffersize (Default: 100) | Defines the maximum number of messages the logger accumulates before sending them in bulk.  |
+
+*Required fields.
+
+For all other parameters:
+
+* To use existing services, enter the corresponding service name.
+* Otherwise, the template will automatically create the necessary services.
+
+At the bottom of the page, click **Review + Create**, then select **Create** to deploy.
+
+Deployment may take a few minutes.
+
+### 3. Stream Azure service data to your new event hubs
+
+Once deployment is complete, configure Azure to stream service logs or metrics to the new event hub so that your function apps can forward them to Logz.io.
+
+To send your data to this event hub choose your **service type** and create **diagnostic settings** for it. 
+
+Under `Event hub policy name`, select `LogzioLSharedAccessKey` for logs and `LogzioMSharedAccessKey` for metrics.
+
+Changes may take time to apply, and some services may require a restart.
+
+For more details, see Microsoft's guide [Stream Azure monitoring data to an event hub for consumption by an external tool](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs).
+
+![Diagnostic-settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure-event-hubs/azure-diagnostic-settings.png)
 
 
-#### In the SETTINGS section
+### 4. Check Logz.io for your data
 
-| Parameter | Description |
-|---|---|
-| Logs listener host | Use the listener host for your logs account region. For more information on finding your account's region, see Account region. |
-| Logs account token | Use the [token](https://app.logz.io/#/dashboard/settings/general) of the logs account you want to ship to. |
+Give your data some time to be processed, and then open Logz.io.
 
+If everything went according to plan, you should see logs with the type `eventHub` in Explore, or metrics with the type `eventHub` in Grafana.
 
-At the bottom of the page, select **I agree to the terms and conditions stated above**, and then click **Purchase** to deploy.
+### Backing up your logs!
 
-Deployment can take a few minutes.
+This deployment includes an automatic backup mechanism in case of connection issues or shipping failures. Logs that weren't shipped to Logz.io will be uploaded to the blob storage `logziologsbackupstorage` under the container `logziologsbackupcontainer`.
 
-#### _(Optional)_ Add failsafes for shipping timeouts
+## Modifying configuration after deployment
 
-You can configure Azure to back up your logs to Azure Blob Storage.
-So if the connection to Logz.io times out or an error occurs, you'll still have a backup of any dropped data.
+To update parameter values post-deployment, go to your function app page in Azure, then on the left menu press the **Configuration** tab.
 
-To do this, expand your function app's left menu, and then click **Integrate**.
+You'll have the option to edit the following values:
 
-![New Blob output](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure-event-hubs/azure-blob-storage-outputblob.png)
+* Shipper's configurations such as `LogzioHost`, `LogzioToken`, `Buffersize`.
+* FUNCTIONS_WORKER_PROCESS_COUNT - maximum of 10, see more details [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings#functions_worker_process_count).
+* ParseEmptyFields - (Default: `false`) If Azure logs contain empty fields that prevent parsing in Kibana, set this to `true`. **Note that this option may impact the shipper's perfomance.**
 
-In the top of the triggers panel, click **Azure Blob Storage (outputBlob)**.
-The _Azure Blob Storage output_ settings are displayed.
-
-Leave **Blob parameter name** blank.
-Enter the **Path** for the Azure blob you're sending dropped logs to, and then click **Save**.
+![Function's configuration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure-event-hubs/azure-configuration-settings.png)
 
 
-:::note
-For more information on Azure Blob output binding, see [Azure Blob storage bindings for Azure Functions > Output](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob#output) from Microsoft.
-:::
- 
+## Migration to log analytics workspace-based model
 
-#### Stream data to the new event hubs
+If you are still using Classic Application Insights, migrating to the Log Analytics Workspace-based model is required.
 
-So far in this process, you've deployed an event hub and a function app.
-
-Now you'll need to configure Azure to stream activity logs to the event hub you just deployed.
-When data comes into the event hub, the function app will forward that data to Logz.io.
-
-In the search bar, type "Activity", and then click **Activity log**.
-This brings you to the _Activity log_ page.
-
-Navigate to the **Diagnostics settings** page (You can search for it).
-Choose a resource from the list of resources, and select **Turn on diagnostics settings** to open the _Diagnostics settings_ panel for that resource.
-
-* Give your diagnostic settings a **Name**.
-* Select **Stream to an event hub**. Next, select **Configure** to open the _Select event hub_ panel.
-
-Choose your event hub:
-
-* **Event hub namespace**: Choose the namespace that starts with **LogzioNS** (LogzioNS6nvkqdcci10p, for example)
-* **Event hub name**: Choose **insights-operational-logs**
-* **Event hub policy name**: Choose **LogzioSharedAccessKey**
-* Click **OK** to return to Diagnostics settings.
-
-In the _log_ section, select the logs you want to stream, and then click **Save**.
-The selected logs will now stream to the event hub.
-
-#### Check Logz.io for your logs
-
-Give your logs some time to get from your system to ours, and then open Open Search Dashboards.
-If everything went according to plan, you should see logs with the type `eventHub` in Open Search Dashboards.
-
-If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
-
- 
-### Migration to Log Analytics Workspace-Based Model
-
-For users currently on the Classic Application Insights, it's essential to migrate to the Log Analytics workspace-based model. To do this:
+To migrate:
 
 1. Navigate to your Application Insights resource that hasn't been migrated yet.
-2. Click on the notification that states "Classic Application Insights is deprecated."
-3. A "Migrate to Workspace-based" dialog will appear. Here, confirm your preferred Log Analytics Workspace and click 'Apply'.
+2. Click the "Classic Application Insights is deprecated" notification.
+3. In the "Migrate to Workspace-based" dialog, confirm your preferred Log Analytics Workspace and click **Apply**.
 
-
-:::caution important
-Be aware that once you migrate to a workspace-based model, the process cannot be reversed.
-:::
+**Important**: Migration to the workspace-based model is **irreversible**.
