@@ -21,50 +21,51 @@ Explore provides a unified dashboard for monitoring your data, offering a quick 
 
 ### Query and search
 
-Explore uses **Lucene** query language for log searches. You can search for any text string you want to find, or build a query to view the results relevant to you. For example, `error` will return all words containing this string,
+Explore uses an enhanced **Lucene** query language for log searches, featuring autocomplete suggestions and syntax highlighting for faster, more accurate queries. Start typing to view available fields and operators. For example, you can search for logs where `logSize` exceeds a certain value or find messages containing specific words.
 
-You can also use the **Simple** search to build your query by selecting fields, parameters, and conditions. To add a value that doesn't appear in your logs, type its name and click on the + sign. You can also add free text to your search, converting it into a Lucene query.
+![Lucene search](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/lucene-open-search-2.png)
 
-![Choose Search Method](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/choose-search-aug21.png)
+Explore also offers **Simple** Search, allowing you to build queries by selecting fields, parameters, and conditions. If a value isn’t listed, type its name and click the + button to add it. Free-text searches are automatically converted into Lucene queries.
 
 
 ### Filters
 
-The filter pane on the right can help refine and narrow your search results.
+The filter pane helps refine and narrow search results.
 
-Start by selecting the relevant account, then click on the field you want to filter. The Available fields are based on the visible logs in the table, and Other fields are ones that exists in your database but are not currently visible on the logs. You can add fields to your favorites by clicking the **star** icon, allowing quicker access in the future.
+* Account Selection: Choose the relevant account before filtering.
+* Available Fields: Display fields from currently visible logs.
+* Other Fields: Show fields stored in your database but not currently visible in logs.
+* Favorites: Click the ⭐ icon to save frequently used fields for quick access.
+* Special Fields: These cannot be filtered but can be added to the table or used as **field exists** filters.
 
-At the top of the list, you’ll find special fields. These fields can’t be filtered but can be added to the table or used as a **field exists** filter.
 
-<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-filter-oct21.png" alt="explore-filter" width="700"/>
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-filter-feb17.png" alt="explore-filter" width="700"/>
 
-Open a field to explore its values—you’ll see the top values based on a sample of the logs. The percentages following each value indicate how frequently that value appears within the field.
-
-Field values are dynamically fetched, taking into account the selected timeframe and accounts. Values are re-fetched whenever the field filter is open and the query changes. Once you select and add one or more values to your view, it'll move to the top of the list for easy access and management.
+Click a field to explore its values, which are dynamically fetched based on the selected timeframe and account. A percentage indicator shows how often a value appears in the logs. Once selected, field values move to the top of the list for easy management.
 
 
 #### Editing filters
 
 * **Lucene Search:**
 
-  Click the filter to open the edit screen. You can modify the field, value, and condition based on your filtering needs. Click **Save** when done.
+  Click the filter to modify the field, value, or condition, then click **Save**.
 
-  <img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-lucene-oct21.png" alt="lucene-filter" width="700"/>
+  <img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/filter-lucene-feb17.png" alt="lucene-filter" width="700"/>
 
 * **Simple Search:**
 
-  Click the in-line filter, choose Edit, and modify the value as needed. Click Apply to save your changes.
+  Click the in-line filter, choose Edit, modify the value, then click Apply.
 
-  <img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/simple-edit-filter-oct14.png" alt="simple-filter" width="700"/>
+  <img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/simple-filter-feb17.png" alt="simple-filter" width="700"/>
 
 
 
 
 ### Graph View
 
-Visualize trends over time and group data based on your investigations. Hover over the graph to see additional details about each data point, and click and drag to focus on specific time frames or data points.
+Visualize trends over time and group data for deeper insights.
 
-You can enlarge or reduce the size of the graph by clicking the arrow button at the top right.
+Hover over the graph to see additional details about each data point. Click and drag to zoom in on specific timeframes. Resize the graph using the arrow button in the top-right corner.
 
 
 <img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-graph-oct21.png" alt="graph-view" width="700"/>
@@ -72,36 +73,50 @@ You can enlarge or reduce the size of the graph by clicking the arrow button at 
 
 ### Exceptions
 
-Logz.io Exceptions automatically identifies and highlights exceptions in Explore.
+Logz.io Exceptions automatically detects and highlights errors in Explore.
 
-You can see the number of exceptions detected for every query you run. Click the button to open the Exception quick view menu for a detailed view of the exceptions found.
+The exception count is displayed for every query. Click the **Exceptions** button to open the Exception Quick View for a detailed breakdown.
 
 Learn more about [Exceptions](https://docs.logz.io/docs/user-guide/explore/exceptions).
 
-### Choose Time Frame
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/exceptions-feb17.png" alt="exceptions" width="700"/>
 
-The default time frame in Explore is the last 15 minutes.
 
-To select a custom time frame, click the time element and choose the period relevant to your overview or investigation.
+### Choose Timeframe
+
+The default timeframe is the last 15 minutes.
+Click the time selector to choose a custom range.
+
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/timeframe-feb17.png" alt="time-frame" width="700"/>
 
 ### AI Agent
 
-Click the [**AI Agent**](/docs/user-guide/observability/assistantiq/) button to activate an AI-powered, chat-based interface that lets you engage in a dynamic conversation with your data. Use one of the pre-configured prompts or type your own question to get real-time insights about your metrics, anomalies, trends, and the overall health of your environment.
 
-![AI Agent](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/ai-agent-oct21.gif)
+Click [**AI Agent**](/docs/user-guide/observability/assistantiq/) to activate an AI-powered, chat-based interface that lets you engage in a dynamic conversation with your data. Use one of the pre-configured prompts or type your own question to get real-time insights about your metrics, anomalies, trends, and the overall health of your environment.
+
+![AI Agent](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/ai-agent-feb17.gif)
 
 
-### Group By
+### Visualize
 
-The default graph view is set to group by all fields, and you can choose specific fields to focus on from the dropdown menu. 
+The default graph view groups all fields. Customize the visualization by:
 
-<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-grouby-oct21.png" alt="smart-search-groupby" width="700"/>
+* Grouping by specific fields.
+* Comparing different time frames.
+* Adjusting the time interval or Y-axis scale.
+* Adding [Deployment markers](https://docs.logz.io/docs/user-guide/explore/deployment-markers/).
+
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/visualize-feb17.png" alt="visualize" width="700"/>
 
 
 
 ### Table Density
 
-Click the 1L button to change the table view. Selecting **1 Line** provides a compact view, **2 Lines** displays two lines from the logs, and **Expanded** offers a full log view, presenting all relevant data for easier viewing.
+Adjust the table view using the 1L button:
+
+* 1 Line → Compact view.
+* 2 Lines → Displays two log lines.
+* Expanded → Shows full log details.
 
 
 <!-- <img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/expand-table-aug6.gif" alt="expand-view" width="700"/>-->
@@ -110,14 +125,14 @@ Click the 1L button to change the table view. Selecting **1 Line** provides a co
 
 The ⋮ menu offers additional options for Explore, including:
 
-* **Create Alert**: Opens the configure alert page with the current values and filters already added to the configuration
-* **Copy Link**: Generates a URL with your current view, which you can share with team members. You need to be logged in to Logz.io to view it
-* **Export CSV**: Exports up to 50,000 logs to a CSV file, including the timestamp and log message
+* **Create Alert**: Opens an alert configuration with your current filters applied.
+* **Copy Link**: Generates a URL with your current view, which you can share with team members. You need to be logged in to Logz.io to view it.
+* **Export CSV**: Exports up to 50,000 logs to a CSV file, including the timestamp and log message.
 * **Turn UTC On**: You can view your data in either UTC or your browser’s local time zone. For clarity, the time column in your log table will display the active time zone.
 
 <img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-menu-oct21.png" alt="side-menu" width="700"/>
 
-### Logs Table
+<!-- ### Logs Table
 
 Use the Logs Table to view and analyze logs. Quickly access relevant logs and their details, customizing the table by adding or removing columns.
 
@@ -127,3 +142,4 @@ Once you expand a log, you can use the top right menu to get more context—view
 
 <img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-logs-table-oct21.png" alt="logs-table" width="700"/>
 
+-->
