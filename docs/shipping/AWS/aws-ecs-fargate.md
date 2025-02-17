@@ -23,21 +23,24 @@ ECS logs will be sent to logz.io with aws firehose
 
 **Make your ecs fargate logs are being sent to cloudwatch**
 
-### Before you begin
-These are the prerequisites you’ll need before you can begin:
+## Prerequisites
 
 * An Amazon ECS Fargate cluster
 * Applications instrumented with OpenTelemetry SDK (for Traces)
 
 Next, you'll need to configure your CloudFormation template and point the OTLP exporter.
 
-#### Deploy the CloudFormation template
+### Choose the CloudFormation template
 
-**Note**: We support two different types of CloudFormation stacks. Option 1 collects all logs from ECS clusters and also gathers metrics and traces from one cluster. For collecting metrics and traces from multiple clusters without logs, deploy multiple instances of Option 2, which is exclusively designed for metrics and traces.
+We support two types of CloudFormation stacks:
 
-##### (Option 1) Cloudformation template for logs, metrics and traces:
+* Option 1 collects all logs from ECS clusters and also gathers metrics and traces from a single cluster. 
+* Option 2 is designed only for metrics and traces. To collect metrics and traces from multiple clusters without logs, deploy multiple instances of Option 2.
 
-Click on the **Launch Stack** button below to deploy the CloudFormation template. This template will create the required resources and configurations for the AWS OTel Collector.
+#### Option 1: Logs, Metrics, and Traces
+
+Click **Launch Stack** below to deploy the CloudFormation template. This will automatically create the required resources and configurations for the AWS OTel Collector.
+
 
 | Region           | Deployment                                                                                                                                                                                                                                                                                                                                           |
 |------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -60,7 +63,7 @@ Click on the **Launch Stack** button below to deploy the CloudFormation template
 | `ca-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ca-central-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ca-central-1.s3.amazonaws.com/ecs-fargate/ecs-fargate-0.0.2/sam-template.yaml&stackName=logzio-ecs-fargate&param_logzioLogsToken=<<LOG-SHIPPING-TOKEN>>&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs-<<LISTENER-HOST>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053)     |
 
 
-##### (Option 2) Cloudformation template for metrics and traces only:
+#### Option 2: Metrics and Traces Only
 
 | Region           | Deployment                                                                                                                                                                                                                                                                                                                                           |
 |------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -82,19 +85,21 @@ Click on the **Launch Stack** button below to deploy the CloudFormation template
 | `ap-southeast-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-southeast-2.s3.amazonaws.com/ecs-fargate/ecs-fargate_collector-0.0.1/sam-template.yaml&stackName=logzio-ecs-fargate&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053) |
 | `ca-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ca-central-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ca-central-1.s3.amazonaws.com/ecs-fargate/ecs-fargate_collector-0.0.1/sam-template.yaml&stackName=logzio-ecs-fargate&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053)     |
 
-#### Point the OTLP exporter to the new collector container
+### Point the OTLP exporter to the new collector
 
-Update the OTLP exporter configuration in your applications to point to the new collector container running in your ECS Fargate tasks.
+Update your application's OTLP exporter configuration to send data to the new collector container running in your ECS Fargate tasks.
 
 ### Check Logz.io for your data
 
-Give your data some time to get from your system to ours.
+Allow some time for your data to be processed and appear in Logz.io.
 
 
-### Parameters
+### Required parameters
 
 The CloudFormation template requires the following parameters:
-#### Traces and metrics
+
+**Traces and metrics**
+
 | Parameter            | Description                                                                                                            |
 |----------------------|------------------------------------------------------------------------------------------------------------------------|
 | `ClusterName`        | The name of your ECS cluster from which you want to collect metrics.                                                   |
@@ -106,7 +111,9 @@ The CloudFormation template requires the following parameters:
 | `LogzioMetricsToken` | Your Logz.io metrics account token.                                                                                    |
 | `LogzioRegion`       | Your Logz.io region. for example: `us`                                                                                 |
 | `LogzioListenerUrl`  | Your Logz.io listener URL. for example: `https://listener.logz.io:8053`                                                |
-#### Logs
+
+**Logs**
+
 | Parameter                                  | Description                                                                                                                |
 |--------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
 | `logzioLogsToken`                          | Your Logz.io logs account token.                                                                                           |
@@ -239,37 +246,33 @@ When deploying the CloudFormation template, provide the collector container's se
 By properly configuring your Amazon VPC, subnets, and security groups, you can ensure that your application containers can send metrics and traces to the AWS OTel Collector container, which in turn forwards the data to Logz.io.
 
 
-## Alternative: Configure AWS Fargate task Manually to send logs to Logz.io
+## Manual configuration: Send logs from AWS Fargate to Logz.io
 
 ### Build the task execution role
 
-[Create a new role](https://console.aws.amazon.com/iam/home#/roles$new?step=type)
-in the IAM console.
+In the [IAM Console](https://console.aws.amazon.com/iam/home#/roles$new?step=type), create a new role.
 
-* Select **AWS service**. It should already be selected by default.
+* Under **AWS Service**, keep the default selection.
 * Under **Choose a use case**:
-  * Select **Elastic Container Service**
-  * Select **Elastic Container Service Task** (scroll to the bottom of the page to see it.)
-  * Click **Next: Permissions** to continue.
-* Select **AmazonECSTaskExecutionRolePolicy**.
-  * Click **Next: Tags** and then **Next: Review**
-* Set **Role name** to `logzioEcsTaskExecutionRole`, then click **Create role** to save.
+  * Select **Elastic Container** Service.
+  * Select **Elastic Container Service** Task (scroll to the bottom).
+  * Click **Next: Permissions** and select **AmazonECSTaskExecutionRolePolicy**.
+  * Click **Next: Tags**, then **Next: Review**.
+* Set the **Role Name** to `logzioEcsTaskExecutionRole`, then click **Create Role**.
 
-Your new role should now be created.
+Once created, open the role's Summary page, copy the Role ARN, and save it for later.
 
 * Click the newly created role to go to its **Summary** page.
 * Copy the **Role ARN** (at the top of the page) and save it for later. You will need it for the deployment JSON.
 
 ### Create a Fluent Bit task definition
 
-In the ECS console, open the [_Task Definitions_](https://eu-central-1.console.aws.amazon.com/ecs/home?region=eu-central-1#/taskDefinitions)
-page.
+In the ECS Console, go to the [Task Definitions](https://eu-central-1.console.aws.amazon.com/ecs/home?region=eu-central-1#/taskDefinitions) page.
 
-* Select **Create new Task Definition**.
-* Choose **Fargate**, and click **Next step** to continue.
-* Scroll to the bottom of the page to the **Volumes** section, and select
-**Configure via JSON**.
-* Replace the default JSON with this code block:
+* Click **Create new Task Definition**.
+* Choose **Fargate** and click **Next step**.
+* Scroll to the **Volumes** section and select **Configure via JSON**.
+* Replace the default JSON with the following:
 
 ```json
 {
@@ -321,14 +324,9 @@ page.
 }
 ```
 
-Replace the placeholders in the code block (indicated by the double angle brackets `<< >>`) using the parameters below: 👇
+Replace the placeholders (<< >>) with your values:
 
-
-When you're done, click **Save**,
-and then click **Create**.
-
-
-### Parameters in logzio-log-router
+**Parameters in `logzio-log-router`**
 
 | Parameter | Description |
 |---|---|
@@ -336,7 +334,7 @@ and then click **Create**.
 | logConfiguration.options.awslogs-region | The [AWS region](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) of your cluster. |
 
 
-### Parameters in app
+**Parameters in app**
 
 | Parameter | Description |
 |---|---|
@@ -344,20 +342,18 @@ and then click **Create**.
 | logConfiguration.options.Host | The host [for your region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). |
 | logConfiguration.options.URI | Your Logz.io account token. {@include: ../../_include/log-shipping/log-shipping-token.html} |
 
-
-
-### Remaining parameters
+**Remaining parameters**
 
 | Parameter | Description |
 |---|---|
 | executionRoleArn | Replace `<<AWS-ACCOUNT-ID>>` with your [AWS account Id](https://console.aws.amazon.com/billing/home?#/account). |
 
 
+When you're done, click **Save**, and then click **Create**.
 
 ### Run the task on your cluster
 
-Go back to your new task's definition page,
-and click **Actions > Run Task**.
+Open your Task Definition page and click **Actions > Run Task**.
 
 Click **Switch to launch type**, and fill in these details:
 
@@ -373,7 +369,7 @@ under the `/aws/ecs/logzio-fargate-logs` log group.
 ### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours,
-and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
+and then open [Explore](https://app.logz.io/#/dashboard/explore).
 
 You'll be able to find these logs by searching for `type:{{fargate}}`.
 
