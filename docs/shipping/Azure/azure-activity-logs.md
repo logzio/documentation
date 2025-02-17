@@ -19,8 +19,6 @@ Automate the deployment of your Azure activity logs. By the end of this process,
 
 The deployed resources will collect data from a single Azure region.
 
-_Note: The metrics solution is deprecated and only supports the Elastic-based Logz.io metrics product._
-
 :::note
 [Project's GitHub repo](https://github.com/logzio/logzio-azure-serverless/)
 :::
@@ -75,7 +73,7 @@ Use the following settings:
 | Resource group* | Create a new resource group or select an existing one, then click **OK**.|
 | Region* | Select the same region as the Azure services that will stream data to this event hub. |
 | Debug* | Add debug logs to your function app. |
-| Shipping token* | Add the [logs shipping token](https://app.logz.io/#/dashboard/settings/general) or [metrics shipping token](https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/) for the Logz.io account where you want to send data.  |
+| Shipping token* | Add the [logs shipping token](https://app.logz.io/#/dashboard/settings/general) for the Logz.io account where you want to send data.  |
 | Logs listener host* (Default: `listener.logz.io`)| Use the listener URL specific to your Logz.io account’s region. You can find it [here](https://docs.logz.io/user-guide/accounts/account-region.html). |
 | buffersize (Default: 100) | Defines the maximum number of messages the logger accumulates before sending them in bulk.  |
 
@@ -92,11 +90,11 @@ Deployment may take a few minutes.
 
 ### 3. Stream Azure service data to your new event hubs
 
-Once deployment is complete, configure Azure to stream service logs or metrics to the new event hub so that your function apps can forward them to Logz.io.
+Once deployment is complete, configure Azure to stream service logs to the new event hub so that your function apps can forward them to Logz.io.
 
 To send your data to this event hub choose your **service type** and create **diagnostic settings** for it. 
 
-Under `Event hub policy name`, select `LogzioLSharedAccessKey` for logs and `LogzioMSharedAccessKey` for metrics.
+Under `Event hub policy name`, select `LogzioLSharedAccessKey` for logs.
 
 Changes may take time to apply, and some services may require a restart.
 
@@ -109,7 +107,7 @@ For more details, see Microsoft's guide [Stream Azure monitoring data to an even
 
 Give your data some time to be processed, and then open Logz.io.
 
-If everything went according to plan, you should see logs with the type `eventHub` in Explore, or metrics with the type `eventHub` in Grafana.
+If everything went according to plan, you should see logs with the type `eventHub` in Explore.
 
 ### Backing up your logs!
 
