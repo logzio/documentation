@@ -24,7 +24,7 @@ The AI Agent can help you with queries related to log analysis, infrastructure m
 
 ### Is AI Agent available to all users?
 
-Yes. AI Agent is currently available to all Logz.io users.
+AI Agent is currently available to all Logz.io users whose data is hosted in the EU and the US regions.
 
 ### Is AI Agent accessible via API?
 

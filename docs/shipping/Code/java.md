@@ -556,7 +556,7 @@ This integration uses the OpenTelemetry logging exporter to send logs to Logz.io
 - Java 8+
 
 :::note
-If you need an example aplication to test this integration, please refer to our [Java OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/java/logs).
+If you need an example application to test this integration, please refer to our [Java OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/java/logs).
 :::
 
 ### Configure the instrumentation
@@ -1447,7 +1447,7 @@ Deploy this integration to auto-instrument your Java application running on AWS 
 {@include: ../../_include/log-shipping/aws-region-limitation.md}
 
 :::note
-If you need an example aplication to test this integration, please refer to our [Java OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/java/traces/lambda-service).
+If you need an example application to test this integration, please refer to our [Java OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/java/traces/lambda-service).
 :::
 
 **Before you begin, you'll need**:

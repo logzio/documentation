@@ -23,7 +23,7 @@ This extension is written in Go, but can be run with runtimes that support [exte
 
 ## Prerequisites
 
-* Lambda function with [supported runtime](https://docs.aws.amazon.com/lambda/latest/dg/using-extensions.html) for extensions.
+* Lambda function with [supported runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported) for extensions.
 * AWS Lambda limitations: A function can use up to five layers at a time. The total unzipped size of the function and all layers cannot exceed the unzipped deployment package size limit of 250 MB.
 
 

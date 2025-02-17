@@ -19,35 +19,37 @@ Explore provides a unified dashboard for monitoring your data, offering a quick 
 />
 
 
-### Simple / Lucene
+### Query and search
 
-Click on the dropdown menu to switch between Simple and Lucene query-based search:
+Explore uses **Lucene** query language for log searches. You can search for any text string you want to find, or build a query to view the results relevant to you. For example, `error` will return all words containing this string,
 
-* **Simple**: An intuitive search with auto-complete functionality. It streamlines your search process and enables faster access to data.
-
-Build your query by selecting fields, parameters, and conditions. To add a value that doesn't appear in your logs, type its name and click on the + sign. You can also add free text to your search, converting it into a Lucene query.
-
-<!-- ![Smart Search gif](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/simple-search-aug6.gif)-->
-
-* **Lucene**: Use Lucene query language for log searches. You can search for free text by typing the text string you want to find; for example, `error` will return all words containing this string, and using quotation marks, `"error"`, will return only the specific word you're searching for.
-
-<!-- ![Lucene Search gif](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/advanced-search-aug6.gif)-->
+You can also use the **Simple** search to build your query by selecting fields, parameters, and conditions. To add a value that doesn't appear in your logs, type its name and click on the + sign. You can also add free text to your search, converting it into a Lucene query.
 
 ![Choose Search Method](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/choose-search-aug21.png)
 
 
 ### Filters
 
-Use the filter pane on the right to refine and narrow your search results.
+The filter pane on the right can help refine and narrow your search results.
 
-Start by selecting the relevant account, then click on the field you want to filter. The available fields are based on the visible logs in the table. You can add fields to your favorite by clicking the **star** icon, allowing quicker access in the future.
+Start by selecting the relevant account, then click on the field you want to filter. The Available fields are based on the visible logs in the table, and Other fields are ones that exists in your database but are not currently visible on the logs. You can add fields to your favorites by clicking the **star** icon, allowing quicker access in the future.
+
+At the top of the list, you’ll find special fields. These fields can’t be filtered but can be added to the table or used as a **field exists** filter.
+
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-filter-oct21.png" alt="explore-filter" width="700"/>
 
 Open a field to explore its values—you’ll see the top values based on a sample of the logs. The percentages following each value indicate how frequently that value appears within the field.
 
 Field values are dynamically fetched, taking into account the selected timeframe and accounts. Values are re-fetched whenever the field filter is open and the query changes. Once you select and add one or more values to your view, it'll move to the top of the list for easy access and management.
 
 
-#### Editing Filters
+#### Editing filters
+
+* **Lucene Search:**
+
+  Click the filter to open the edit screen. You can modify the field, value, and condition based on your filtering needs. Click **Save** when done.
+
+  <img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-lucene-oct21.png" alt="lucene-filter" width="700"/>
 
 * **Simple Search:**
 
@@ -56,17 +58,7 @@ Field values are dynamically fetched, taking into account the selected timeframe
   <img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/simple-edit-filter-oct14.png" alt="simple-filter" width="700"/>
 
 
-* **Lucene Search:**
 
-  Click the filter to open the edit screen. You can modify the field, value, and condition based on your filtering needs. Click **Save** when done.
-
-  <img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-lucene-oct21.png" alt="lucene-filter" width="700"/>
-
-
-At the top of the list, you’ll find special fields. These fields can’t be filtered but can be added to the table or used as a **field exists** filter.
-
-
-<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-filter-oct21.png" alt="explore-filter" width="700"/>
 
 ### Graph View
 
