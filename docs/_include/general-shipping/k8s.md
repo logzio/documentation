@@ -529,6 +529,11 @@ helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --ver
 --reuse-values
 ```
 
+
+:::note
+Make sure to update your Instrumentation service endpoint from `logzio-monitoring-otel-collector.default.svc.cluster.local` to `logzio-apm-collector.monitoring.svc.cluster.local`.
+:::
+
 </TabItem>
 
 <TabItem value="migrate-logs-traces" label="Logs and Traces" default>
