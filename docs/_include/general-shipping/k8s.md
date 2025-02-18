@@ -418,7 +418,7 @@ helm upgrade <RELEASE_NAME> logzio-helm/logzio-monitoring \
 
  </TabItem>
 
-<TabItem value="pull-rate-limit-issue" label="Pull Rate Limit" default>
+<TabItem value="resolve-readiness-probe-and-liveness-probe-failures" label="Readiness probe and Liveness probe failures" default>
 
 ## Resolve Readiness probe and Liveness probe failures
 
