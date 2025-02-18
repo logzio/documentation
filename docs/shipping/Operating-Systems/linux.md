@@ -139,7 +139,7 @@ service:
       address: localhost:8888
 ```
 :::note 
-If you previously used the `logging` exporter, ensure that your service pipeline includes the `debug` exporter in the exporters section.
+Ensure that your service pipeline includes the `debug` exporter in the `exporters` section.
 See the OpenTelemetry [Debug Exporter documentation](https://github.com/open-telemetry/opentelemetry-collector/blob/v0.111.0/exporter/debugexporter/README.md) for more details.
 :::
 
