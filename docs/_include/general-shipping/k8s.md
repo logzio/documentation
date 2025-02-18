@@ -417,6 +417,32 @@ helm upgrade <RELEASE_NAME> logzio-helm/logzio-monitoring \
 
 
  </TabItem>
+
+<TabItem value="pull-rate-limit-issue" label="Pull Rate Limit" default>
+
+## Resolve Readiness probe and Liveness probe failures
+
+If, after installing the chart, the `logzio-apm-collector` or `logzio-spm-collector` (if you enabled SPM) pod fails to get scheduled on a node, and describing the pod shows the following errors:
+
+```txt
+Readiness probe failed: HTTP probe failed with statuscode: 503
+Liveness probe failed: HTTP probe failed with statuscode: 503
+```
+
+Try increasing the initial delay for the liveness and readiness probes:
+
+```sh
+helm upgrade logzio-apm-collector logzio-helm/logzio-apm-collector -n monitoring \
+--set livenessProbe.initialDelaySeconds=10 \
+--set readinessProbe.initialDelaySeconds=10 \
+--reuse-values
+```
+
+:::note
+If `10s` is insufficient, try increasing it to `15s` or higher.
+:::
+
+ </TabItem>
 </Tabs>
 
 
