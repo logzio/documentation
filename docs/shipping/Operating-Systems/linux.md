@@ -102,7 +102,7 @@ processors:
         match_type: strict
         metric_names: ["system.cpu.time", "system.cpu.load_average.1m", "system.cpu.load_average.5m", "system.cpu.load_average.15m", "system.cpu.utilization", "system.memory.usage", "system.memory.utilization", "system.filesystem.usage", "system.disk.io", "system.disk.io_time", "system.disk.operation_time", "system.network.connections", "system.network.io", "system.network.packets", "system.network.errors", "process.cpu.time", "process.memory.usage", "process.disk.io", "process.memory.usage", "process.memory.virtual"]
 exporters:
-  logging:
+  debug:
   logzio/logs:
     account_token: <<LOG-SHIPPING-TOKEN>>
     region: <<LOGZIO_ACCOUNT_REGION_CODE>> # Default is US
