@@ -417,6 +417,32 @@ helm upgrade <RELEASE_NAME> logzio-helm/logzio-monitoring \
 
 
  </TabItem>
+
+<TabItem value="resolve-readiness-probe-and-liveness-probe-failures" label="Readiness probe and Liveness probe failures" default>
+
+## Resolve Readiness probe and Liveness probe failures
+
+If, after installing the chart, the `logzio-apm-collector` or `logzio-spm-collector` (if you enabled SPM) pod fails to get scheduled on a node, and describing the pod shows the following errors:
+
+```txt
+Readiness probe failed: HTTP probe failed with statuscode: 503
+Liveness probe failed: HTTP probe failed with statuscode: 503
+```
+
+Try increasing the initial delay for the liveness and readiness probes:
+
+```sh
+helm upgrade logzio-apm-collector logzio-helm/logzio-apm-collector -n monitoring \
+--set livenessProbe.initialDelaySeconds=10 \
+--set readinessProbe.initialDelaySeconds=10 \
+--reuse-values
+```
+
+:::note
+If `10s` is insufficient, try increasing it to `15s` or higher.
+:::
+
+ </TabItem>
 </Tabs>
 
 
@@ -485,6 +511,10 @@ If you were using `logzio-logs-collector.secrets.logType`, add to your command `
 :::
 
 
+:::note
+Make sure to update your Instrumentation service endpoint from `logzio-monitoring-otel-collector.monitoring.svc.cluster.local` to `logzio-apm-collector.monitoring.svc.cluster.local`.
+:::
+
 </TabItem>
 
 <TabItem value="migrate-logs-metrics" label="Logs and Metrics" default>
@@ -525,6 +555,11 @@ helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --ver
 --reuse-values
 ```
 
+
+:::note
+Make sure to update your Instrumentation service endpoint from `logzio-monitoring-otel-collector.monitoring.svc.cluster.local` to `logzio-apm-collector.monitoring.svc.cluster.local`.
+:::
+
 </TabItem>
 
 <TabItem value="migrate-logs-traces" label="Logs and Traces" default>
@@ -549,6 +584,11 @@ helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --ver
 
 :::note
 If you were using `logzio-logs-collector.secrets.logType`, add to your command `--set global.logType=<<LOG-TYPE>> \`
+:::
+
+
+:::note
+Make sure to update your Instrumentation service endpoint from `logzio-monitoring-otel-collector.monitoring.svc.cluster.local` to `logzio-apm-collector.monitoring.svc.cluster.local`.
 :::
 
 </TabItem>
@@ -599,6 +639,11 @@ helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --ver
 
 --reuse-values
 ```
+
+
+:::note
+Make sure to update your Instrumentation service endpoint from `logzio-monitoring-otel-collector.monitoring.svc.cluster.local` to `logzio-apm-collector.monitoring.svc.cluster.local`.
+:::
 
 </TabItem>
 
