@@ -165,7 +165,7 @@ resource "aws_kinesis_firehose_delivery_stream" "logzio_delivery_stream" {
   destination = "http_endpoint"
 
   http_endpoint_configuration {
-    url                = "https://listener-aws-metrics-stream-eu.logz.io/"
+    url                = "https://listener-otlp-aws-metrics-stream-us.logz.io"
     name               = "logzio_endpoint"
     retry_duration     = 60
     buffering_size     = 5
@@ -184,13 +184,15 @@ resource "aws_cloudwatch_metric_stream" "logzio_metric_stream" {
   name          = "logzio-metric-stream"
   role_arn      = aws_iam_role.metrics_stream_role.arn
   firehose_arn  = aws_kinesis_firehose_delivery_stream.logzio_delivery_stream.arn
-  output_format = "opentelemetry0.7"
+  output_format = "opentelemetry1.0"
 
   include_filter {
     namespace = "AWS/RDS"
   }
 }
 ```
+
+* Make sure the `URL` matches your region. [View region settings](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#opentelemetry-protocol-otlp-regions).
 
 * Replace `LOGZIO_TOKEN` with your Logz.io shipping token.
 
