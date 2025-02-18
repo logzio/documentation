@@ -485,6 +485,10 @@ If you were using `logzio-logs-collector.secrets.logType`, add to your command `
 :::
 
 
+:::note
+Make sure to update your Instrumentation service endpoint from `logzio-monitoring-otel-collector.default.svc.cluster.local` to `logzio-apm-collector.monitoring.svc.cluster.local`.
+:::
+
 </TabItem>
 
 <TabItem value="migrate-logs-metrics" label="Logs and Metrics" default>
@@ -551,6 +555,11 @@ helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --ver
 If you were using `logzio-logs-collector.secrets.logType`, add to your command `--set global.logType=<<LOG-TYPE>> \`
 :::
 
+
+:::note
+Make sure to update your Instrumentation service endpoint from `logzio-monitoring-otel-collector.default.svc.cluster.local` to `logzio-apm-collector.monitoring.svc.cluster.local`.
+:::
+
 </TabItem>
 
 <TabItem value="migrate-logs-only" label="Only Logs" default>
@@ -599,6 +608,11 @@ helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --ver
 
 --reuse-values
 ```
+
+
+:::note
+Make sure to update your Instrumentation service endpoint from `logzio-monitoring-otel-collector.default.svc.cluster.local` to `logzio-apm-collector.monitoring.svc.cluster.local`.
+:::
 
 </TabItem>
 
