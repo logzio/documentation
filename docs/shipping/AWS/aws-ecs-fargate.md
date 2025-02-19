@@ -389,7 +389,7 @@ You can use the [CloudWatch Metrics Stream integration](https://github.com/logzi
 
 ### For each option, compare the available metrics:
 
-`awsecscontainermetricsreceiver`
+`awsecscontainermetricsreceiver`:
 
 Task Level Metrics | Container Level Metrics | Unit 
 ------------ | ------------- | --------------------
