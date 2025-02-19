@@ -12,6 +12,7 @@ logs2metrics: []
 metrics_dashboards: []
 metrics_alerts: []
 drop_filter: []
+toc_max_heading_level: 2
 ---
 
 
@@ -30,14 +31,14 @@ ECS logs will be sent to logz.io with aws firehose
 
 Next, you'll need to configure your CloudFormation template and point the OTLP exporter.
 
-### Choose the CloudFormation template
+## Choose the CloudFormation template
 
 We support two types of CloudFormation stacks:
 
 * Option 1 collects all logs from ECS clusters and also gathers metrics and traces from a single cluster. 
 * Option 2 is designed only for metrics and traces. To collect metrics and traces from multiple clusters without logs, deploy multiple instances of Option 2.
 
-#### Option 1: Logs, Metrics, and Traces
+### Option 1: Logs, Metrics, and Traces
 
 Click **Launch Stack** below to deploy the CloudFormation template. This will automatically create the required resources and configurations for the AWS OTel Collector.
 
@@ -63,7 +64,7 @@ Click **Launch Stack** below to deploy the CloudFormation template. This will au
 | `ca-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ca-central-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ca-central-1.s3.amazonaws.com/ecs-fargate/ecs-fargate-0.0.2/sam-template.yaml&stackName=logzio-ecs-fargate&param_logzioLogsToken=<<LOG-SHIPPING-TOKEN>>&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs-<<LISTENER-HOST>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053)     |
 
 
-#### Option 2: Metrics and Traces Only
+### Option 2: Metrics and Traces Only
 
 | Region           | Deployment                                                                                                                                                                                                                                                                                                                                           |
 |------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -94,7 +95,7 @@ Update your application's OTLP exporter configuration to send data to the new co
 Allow some time for your data to be processed and appear in Logz.io.
 
 
-### Required parameters
+## Required parameters
 
 The CloudFormation template requires the following parameters:
 
@@ -373,11 +374,63 @@ and then open [Explore](https://app.logz.io/#/dashboard/explore).
 
 You'll be able to find these logs by searching for `type:{{fargate}}`.
 
- 
 
-## Adding extra configuration to your Fluent Bit task
+## Manual configuration: Send metrics from AWS Fargate to Logz.io
 
- 
+There are a few alternatives to collect metrics for your ECS Fargate cluster:
+
+### Attach OpenTelemetry Collector Sidecar to Your Application Task
+
+You can attach an OpenTelemetry collector sidecar to your ECS application task. This method allows you to collect a variety of metrics from your containerized applications. Note that this requires a deployment per task.
+
+### Collect ECS Metrics from CloudWatch
+
+You can use the [CloudWatch Metrics Stream integration](https://github.com/logzio/cloudwatch-metrics-helpers) to collect ECS metrics such as CPU and memory utilization directly from CloudWatch. This integration also includes an option to enable AWS Container Insights for enhanced ECS container metrics at the cluster level.
+
+### For each option, compare the available metrics:
+
+`awsecscontainermetricsreceiver`
+
+Task Level Metrics | Container Level Metrics | Unit 
+------------ | ------------- | --------------------
+ecs.task.memory.usage | container.memory.usage | Bytes
+ecs.task.memory.usage.max | container.memory.usage.max | Bytes
+ecs.task.memory.usage.limit | container.memory.usage.limit | Bytes
+ecs.task.memory.reserved | container.memory.reserved | Megabytes
+ecs.task.memory.utilized | container.memory.utilized | Megabytes
+ecs.task.cpu.usage.total | container.cpu.usage.total | Nanoseconds
+ecs.task.cpu.usage.kernelmode | container.cpu.usage.kernelmode | Nanoseconds
+ecs.task.cpu.usage.usermode | container.cpu.usage.usermode | Nanoseconds
+ecs.task.cpu.usage.system | container.cpu.usage.system | Nanoseconds
+ecs.task.cpu.usage.vcpu | container.cpu.usage.vcpu | vCPU
+ecs.task.cpu.cores | container.cpu.cores | Count
+ecs.task.cpu.onlines | container.cpu.onlines | Count
+ecs.task.cpu.reserved | container.cpu.reserved | vCPU
+ecs.task.cpu.utilized | container.cpu.utilized | Percent
+ecs.task.network.rate.rx	| container.network.rate.rx	| Bytes/Second
+ecs.task.network.rate.tx	| container.network.rate.tx	| Bytes/Second
+ecs.task.network.io.usage.rx_bytes	| container.network.io.usage.rx_bytes	| Bytes
+ecs.task.network.io.usage.rx_packets	| container.network.io.usage.rx_packets	| Count
+ecs.task.network.io.usage.rx_errors |	container.network.io.usage.rx_errors	| Count
+ecs.task.network.io.usage.rx_dropped |	container.network.io.usage.rx_dropped	| Count
+ecs.task.network.io.usage.tx_bytes | container.network.io.usage.tx_bytes	| Bytes
+ecs.task.network.io.usage.tx_packets	| container.network.io.usage.tx_packets	| Count
+ecs.task.network.io.usage.tx_errors	| container.network.io.usage.tx_errors	| Count
+ecs.task.network.io.usage.tx_dropped	| container.network.io.usage.tx_dropped	| Count
+ecs.task.storage.read_bytes | container.storage.read_bytes| Bytes
+ecs.task.storage.write_bytes | container.storage.write_bytes | Bytes
+
+**[ECS CloudWatch](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-metrics.html#best-practices-cloudwatch-metrics)** - Includes cluster-level metrics like CPI, memory utalization, and more.
+
+**[Container Insights CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-ECS.html)** - See the detailed list of Amazon ECS Container Insights metrics and dimensions, including setup requirements and availability.
+
+
+:::tip note
+Enabling AWS Container Insights may incur additional charges from AWS.
+:::
+
+
+## Adding extra configuration to your Fluent Bit task 
 
 ### Create an extra.conf file
 
