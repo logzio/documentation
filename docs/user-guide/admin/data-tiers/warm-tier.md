@@ -6,6 +6,10 @@ description: Everything you need to know about Logz.io's Warm Tier solution
 keywords: [manage, log redaction, admin controls, account administration, access control, warm, warm tier, warm logs, archive]
 ---
 
+:::caution note
+Hot tier retention days cannot be changed while the Warm Tier is active.
+:::
+
 Warm tier is a storage option designed for data that is not frequently accessed but still needs to be readily available for analysis and troubleshooting. It provides a practical solution for mid-term storage ensuring you can retrieve historical data when required.
 
 :::info note
@@ -24,10 +28,6 @@ Data transitions to the Warm Tier **only after** stored in the Hot Tier. All Hot
 
 
 ## Accessing Warm Tier Data
-
-:::caution note
-Hot tier retention days cannot be changed while the Warm Tier is active.
-:::
 
 After activation, all sub account users can access Warm Tier data **only** through [Explore](https://app.logz.io/#/dashboard/explore). Warm Tier is not supported on OpenSearch Dashboards. 
 
