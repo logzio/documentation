@@ -25,13 +25,15 @@ Data transitions to the Warm Tier **only after** stored in the Hot Tier. All Hot
 
 ## Accessing Warm Tier Data
 
-After activation, all sub account users can access Warm Tier data through [Explore](https://app.logz.io/#/dashboard/explore).
-
-:::tip
-When querying Warm Tier data, limit the time range, use filters, and focus on key information to improve speed. Warm Tier data has a 5-minute timeout; you'll be notified if retrieval fails.
+:::caution note
+Hot tier retention days cannot be changed while the Warm Tier is active.
 :::
 
+After activation, all sub account users can access Warm Tier data **only** through [Explore](https://app.logz.io/#/dashboard/explore). Warm Tier is not supported on OpenSearch Dashboards. 
+
 Open the time picker, where indicators show the availability of Warm or Hot data. 
+
+When querying Warm Tier data, limit the time range, use filters, and focus on key information to improve speed. Warm Tier data has a 5-minute timeout; you'll be notified if retrieval fails.
 
 When selecting a date containing Warm Tier data, a notification will inform you that retrieval may take several minutes. To proceed, confirm your date selection by clicking **Apply** in the time picker, then click **Run Query** in the main Explore query bar. This manual step ensures intentional data retrieval, as Warm Tier data may take longer to load and incur additional costs.
 
