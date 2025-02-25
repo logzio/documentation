@@ -74,7 +74,7 @@ apis:
     type: cloudflare
     cloudflare_account_id: <<CLOUDFLARE_ACCOUNT_ID>>
     cloudflare_bearer_token: <<CLOUDFLARE_BEARER_TOKEN>>
-    url: https://api.cloudflare.com/client/v4/accounts/{account_id}/alerting/v3/history
+    url: https://api.cloudflare.com/client/v4/accounts/alerting/v3/history
     next_url: https://api.cloudflare.com/client/v4/accounts/{account_id}/alerting/v3/history?since={res.result.[0].sent}
     days_back_fetch: 7
     additional_fields:

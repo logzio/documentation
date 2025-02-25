@@ -21,7 +21,7 @@ This integration uses the OpenTelemetry logging exporter to send logs to Logz.io
 - PHP 7.4+ for manual instrumentation or PHP 8.0+ for auto-instrumentation.
 
 :::note
-If you need an example aplication to test this integration, please refer to our [PHP OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/php).
+If you need an example application to test this integration, please refer to our [PHP OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/php).
 :::
 
 ### Configure the instrumentation
