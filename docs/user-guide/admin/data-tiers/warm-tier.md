@@ -6,10 +6,6 @@ description: Everything you need to know about Logz.io's Warm Tier solution
 keywords: [manage, log redaction, admin controls, account administration, access control, warm, warm tier, warm logs, archive]
 ---
 
-:::caution note
-Hot tier retention days cannot be changed while the Warm Tier is active.
-:::
-
 Warm tier is a storage option designed for data that is not frequently accessed but still needs to be readily available for analysis and troubleshooting. It provides a practical solution for mid-term storage ensuring you can retrieve historical data when required.
 
 :::info note
@@ -19,6 +15,10 @@ Warm tier configuration can be set up by contacting the [Sales team](https://log
 Data gets to warm only after it's been to hot. All hot data goes to warm data according to the retention period configured by you. When you enable Warm Tier, the retention minimum for Hot tier is 4 days.
 
 ## Setting Up the Warm Tier
+
+:::caution note
+Hot tier retention days cannot be changed while the Warm Tier is active.
+:::
 
 Once Warm Tier has been enabled on your Logz.io account, you can assign it to one or more of your sub-accounts. To do so, navigate to [Manage Accounts](https://app.logz.io/#/dashboard/settings/manage-accounts), select the sub account you want to configure, choose the desired Warm Tier retention period, and click **Apply** to save your changes.
 
