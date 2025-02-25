@@ -22,12 +22,11 @@ Once Warm Tier has been enabled on your Logz.io account, you can assign it to on
 
 Data transitions to the Warm Tier **only after** stored in the Hot Tier. All Hot Tier data moves to the Warm Tier based on the retention period you configure. When enabling the Warm Tier, the minimum retention period for the Hot Tier is set to 4 days.
 
-
-## Accessing Warm Tier Data
-
 :::caution note
 Hot tier retention days cannot be changed while the Warm Tier is active.
 :::
+
+## Accessing Warm Tier Data
 
 After activation, all sub account users can access Warm Tier data **only** through [Explore](https://app.logz.io/#/dashboard/explore). Warm Tier is not supported on OpenSearch Dashboards. 
 
