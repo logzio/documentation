@@ -387,43 +387,15 @@ You can attach an OpenTelemetry collector sidecar to your ECS application task. 
 
 You can use the [CloudWatch Metrics Stream integration](https://github.com/logzio/cloudwatch-metrics-helpers) to collect ECS metrics such as CPU and memory utilization directly from CloudWatch. This integration also includes an option to enable AWS Container Insights for enhanced ECS container metrics at the cluster level.
 
-### For each option, compare the available metrics:
+### Understanding where your Metrics come from
 
-`awsecscontainermetricsreceiver`:
+The source of your metrics in Logz.io depends on the integration method you select:
 
-Task Level Metrics | Container Level Metrics | Unit 
------------- | ------------- | --------------------
-ecs.task.memory.usage | container.memory.usage | Bytes
-ecs.task.memory.usage.max | container.memory.usage.max | Bytes
-ecs.task.memory.usage.limit | container.memory.usage.limit | Bytes
-ecs.task.memory.reserved | container.memory.reserved | Megabytes
-ecs.task.memory.utilized | container.memory.utilized | Megabytes
-ecs.task.cpu.usage.total | container.cpu.usage.total | Nanoseconds
-ecs.task.cpu.usage.kernelmode | container.cpu.usage.kernelmode | Nanoseconds
-ecs.task.cpu.usage.usermode | container.cpu.usage.usermode | Nanoseconds
-ecs.task.cpu.usage.system | container.cpu.usage.system | Nanoseconds
-ecs.task.cpu.usage.vcpu | container.cpu.usage.vcpu | vCPU
-ecs.task.cpu.cores | container.cpu.cores | Count
-ecs.task.cpu.onlines | container.cpu.onlines | Count
-ecs.task.cpu.reserved | container.cpu.reserved | vCPU
-ecs.task.cpu.utilized | container.cpu.utilized | Percent
-ecs.task.network.rate.rx	| container.network.rate.rx	| Bytes/Second
-ecs.task.network.rate.tx	| container.network.rate.tx	| Bytes/Second
-ecs.task.network.io.usage.rx_bytes	| container.network.io.usage.rx_bytes	| Bytes
-ecs.task.network.io.usage.rx_packets	| container.network.io.usage.rx_packets	| Count
-ecs.task.network.io.usage.rx_errors |	container.network.io.usage.rx_errors	| Count
-ecs.task.network.io.usage.rx_dropped |	container.network.io.usage.rx_dropped	| Count
-ecs.task.network.io.usage.tx_bytes | container.network.io.usage.tx_bytes	| Bytes
-ecs.task.network.io.usage.tx_packets	| container.network.io.usage.tx_packets	| Count
-ecs.task.network.io.usage.tx_errors	| container.network.io.usage.tx_errors	| Count
-ecs.task.network.io.usage.tx_dropped	| container.network.io.usage.tx_dropped	| Count
-ecs.task.storage.read_bytes | container.storage.read_bytes| Bytes
-ecs.task.storage.write_bytes | container.storage.write_bytes | Bytes
+* **OpenTelemetry Collector Sidecar** - Uses the `awsecscontainermetricsreceiver` to collect and send container-level metrics from within your Fargate tasks. [View the available metrics](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/awsecscontainermetricsreceiver/README.md#available-metrics).
+* **[ECS CloudWatch](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-metrics.html#best-practices-cloudwatch-metrics)** - Collects cluster and service-level metrics from the AWS/ECS namespace, providing insights into CPU, memory utilization, and scaling activity.
+**[Container Insights CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-ECS.html)** – Extends CloudWatch monitoring by gathering per-task metrics, including CPU, memory, and EBS filesystem utilization, from the ECS/ContainerInsights namespace.
 
-**[ECS CloudWatch](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-metrics.html#best-practices-cloudwatch-metrics)** - Includes cluster-level metrics like CPI, memory utalization, and more.
-
-**[Container Insights CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-ECS.html)** - See the detailed list of Amazon ECS Container Insights metrics and dimensions, including setup requirements and availability.
-
+Each integration provides different data, so choose the option that best fits your monitoring needs.
 
 :::tip note
 Enabling AWS Container Insights may incur additional charges from AWS.
