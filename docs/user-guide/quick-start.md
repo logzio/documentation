@@ -60,9 +60,9 @@ Learn more about sending data to Logz.io:
 
 ### Navigate your logs with Logz.io Explore
 
-Logz.io's [Explore](https://app.logz.io/#/dashboard/explore) lets you view, search, and query your data to analyze code, debug issues, and get guidance with its integrated AI Assistant.
+Logz.io's [Explore](https://app.logz.io/#/dashboard/explore) lets you view, search, and query your data to analyze code, debug issues, and get guidance with its integrated AI Agent.
 
-![Log management overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/explore-aug27.png)
+![Log management overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/explore-ai-agent-oct21.png)
 
 Key capabilities in Explore include:
 
@@ -115,7 +115,6 @@ To make the most of Distributed Tracing, check out these guides:
 
 * **[Getting started with Tracing](https://docs.logz.io/docs/user-guide/distributed-tracing/set-up-tracing/get-started-tracing/)**
 * **[Sending demo traces with HOTROD](https://docs.logz.io/docs/user-guide/distributed-tracing/set-up-tracing/hotrod/)**
-* Combine Traces and Metrics with **[Service Performance Monitoring](https://docs.logz.io/docs/user-guide/distributed-tracing/spm/)**
 * **[Correlate logs and traces](https://docs.logz.io/docs/user-guide/distributed-tracing/correlate-traces/)**
 
 

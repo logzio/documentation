@@ -4,6 +4,7 @@ title: Integrate with Cortex xSOAR
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Integrate your Logz.io Cloud SIEM with xSOAR
 keywords: [SIEM, Security, Security events, investigate, Security information, xSOAR, integration]
+slug: /cloud-siem/integrations/xsoar-integration/
 ---
  
 

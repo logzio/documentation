@@ -42,8 +42,6 @@ Reasons to love Archive and restore:
 * If you want to look back at logs outside your retention period with Logz.io, you can [reingest that data](https://docs.logz.io/docs/user-guide/data-hub/archive-restore/restore-archived-logs/) into the platform for deeper analysis. 
 * Cost-effective. Data you reingest to Logz.io from your archive does not count against your daily quota. 
 
-We know that sometimes you just need to have logs searchable for more extended periods of time, which is why we created **[Smart tiering](https://docs.logz.io/docs/user-guide/admin/account-volume-optimization/smart-tier/)**, which allows you to reduce storage costs as data ages. 
-
 * [Learn how to set up your Drop filters.](https://docs.logz.io/docs/user-guide/data-hub/drop-fiters/)
 * [Learn how to set up your Archive and restore.](https://docs.logz.io/docs/user-guide/data-hub/archive-restore/archive-and-restore/)
 

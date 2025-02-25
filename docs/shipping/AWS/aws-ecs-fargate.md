@@ -98,7 +98,7 @@ The CloudFormation template requires the following parameters:
 | Parameter            | Description                                                                                                            |
 |----------------------|------------------------------------------------------------------------------------------------------------------------|
 | `ClusterName`        | The name of your ECS cluster from which you want to collect metrics.                                                   |
-| `TaskRoleArn`        | Specifies whether to create default IAM roles (True or False).                                                         |
+| `CreateIAMRoles`        | Specifies whether to create default IAM roles (True or False).                                                         |
 | `ExecutionRoleArn`   | The role ARN you want to use as the ECS task role. (Optional, only required if you set `CreateIAMRoles` to False)      |
 | `SecurityGroups`     | The role ARN you want to use as the ECS execution role. (Optional, only required if you set `CreateIAMRoles` to False) |
 | `Subnets`            | The list of SecurityGroupIds in your Virtual Private Cloud (VPC).                                                      |
@@ -176,7 +176,7 @@ service:
       exporters: [ prometheusremotewrite ]
   telemetry:
     logs:
-      level: "debug"
+      level: "info"
 ```
 ### AWS::Lambda::Function
 The `logzioFirehoseSubscriptionFiltersFunction` Lambda function is designed to handle the process of filtering log data for Logz.io, and add and remove cloudwatch logs subscription filters

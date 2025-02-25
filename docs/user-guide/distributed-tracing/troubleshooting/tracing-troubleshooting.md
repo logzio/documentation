@@ -4,6 +4,7 @@ title: Distributed Tracing Troubleshooting
 description: Common questions and use cases when setting up your Logz.io tracing account
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [logz.io, traces, tracing, trace dashboard, dashboard, troubleshoot, logs, observability, distributed tracing]
+slug: /distributed-tracing/troubleshooting/tracing-troubleshooting/
 ---
 
 
@@ -85,6 +86,5 @@ To confirm that the data is available and accessible, type `calls_total` and run
 
 ![Query of calls total](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/calls-total-tracing.png)
 
-If there are no results, go through the **[Set up your Service Performance Monitoring dashboard](https://docs.logz.io/docs/user-guide/distributed-tracing/setup-spm/)** guide again to confirm that  the collector is properly configured to send the data.
 
 If you can see the query's results, but the data is not visible in your Service Performance Monitoring dashboard, contact the [Logz.io Support team](mailto:help@logz.io) for additional help.

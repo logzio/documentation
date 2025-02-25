@@ -6,13 +6,13 @@ import styles from './styles.module.css';
 const FeatureList = [
   {
     title: 'Logz.io quick start guide',
-    link: "/docs/user-guide/quick-start",
+    link: "/docs/user-guide/quick-start/",
     Svg: require('@site/static/img/quick-start.svg').default,
     description: <>Learn how to make the most out of the Logz.io platform.</>,
   },
   {
-    title: 'Observability IQ',
-    link: "/docs/user-guide/observability/assistantiq",
+    title: 'AI Agent',
+    link: "/docs/user-guide/observability/assistantiq/",
     Svg: require('@site/static/img/obsiq.svg').default,
     description: <>Engage in a dynamic conversation with your data.</>,
   },
@@ -24,13 +24,13 @@ const FeatureList = [
   },
   {
     title: 'Kubernetes 360',
-    link: "/docs/user-guide/k8s-360/overview",
+    link: "/docs/k8s-360/overview/",
     Svg: require('@site/static/img/k8s.svg').default,
     description: <>Monitor and troubleshoot applications deployed in Kubernetes environments.</>,
   },
   {
     title: 'Logz.io integrations',
-    link: "/docs/category/send-your-data",
+    link: "/docs/category/send-your-data/",
     Svg: require('@site/static/img/integrations.svg').default,
     description: <>All the different ways to send your data to Logz.io.</>,
   },
@@ -42,19 +42,19 @@ const FeatureList = [
   },
   {
     title: 'Telemetry Collector',
-    link: "/docs/user-guide/telemetry-collector/",
+    link: "/docs/telemetry-collector/",
     Svg: require('@site/static/img/telemetry-collector.svg').default,
     description: <>Send logs, metrics, and traces data quickly and easily.</>,
   },
   {
     title: 'Log troubleshooting',
-    link: "/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting",
+    link: "/docs/log-management/troubleshooting/log-shipping-troubleshooting/",
     Svg: require('@site/static/img/troubleshooting.svg').default,
     description: <>Troubleshoot common log related issues.</>,
   },
   {
     title: 'Your accounts',
-    link: "/docs/user-guide/admin/logzio-accounts/accounts",
+    link: "/docs/user-guide/admin/logzio-accounts/accounts/",
     Svg: require('@site/static/img/accounts.svg').default,
     description: <>Manage your accounts & optimize costs.</>,
   },

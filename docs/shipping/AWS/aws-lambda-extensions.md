@@ -23,7 +23,7 @@ This extension is written in Go, but can be run with runtimes that support [exte
 
 ## Prerequisites
 
-* Lambda function with [supported runtime](https://docs.aws.amazon.com/lambda/latest/dg/using-extensions.html) for extensions.
+* Lambda function with [supported runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported) for extensions.
 * AWS Lambda limitations: A function can use up to five layers at a time. The total unzipped size of the function and all layers cannot exceed the unzipped deployment package size limit of 250 MB.
 
 
@@ -68,8 +68,8 @@ This command overwrites the existing function configuration. If you already have
 | Placeholder | Description | Required/Default|
 |---|---|---|
 | `<<FUNCTION-NAME>>` |  Name of the Lambda Function you want to monitor. |Required|
-| `<<LAYERS>>` | A space-separated list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.  For the ARN, see the [**ARNs** table]({@include: ../../_include/log-shipping/lambda-xtension-tablink.md}) |  |
-| `<<ENV-VARS>>`  | Key-value pairs containing environment variables that are accessible from function code during execution. Should appear in the following format: `KeyName1=string,KeyName2=string`.  For a list of all the environment variables for the extension, see the [**Lambda environment variables** table]{@include: ../../_include/log-shipping/lambda-xtension-tablink-indox.html} |  |
+| `<<LAYERS>>` | A space-separated list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.  For the ARN, see the [**ARNs** table](https://docs.logz.io/docs/shipping/aws/lambda-extensions/#arns) |  |
+| `<<ENV-VARS>>`  | Key-value pairs containing environment variables that are accessible from function code during execution. Should appear in the following format: `KeyName1=string,KeyName2=string`.  For a list of all the environment variables for the extension, see the [**Lambda environment variables** table](https://docs.logz.io/docs/shipping/Compute/Lambda-extensions#environment-variables) |  |
 
 #### Command example
 ```shell
@@ -115,13 +115,13 @@ aws lambda update-function-configuration \
 2. In the page for the function, scroll down to the `Layers` section and choose `Add Layer`.
 ![Add layer](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lambda_extensions/lambda-x_1-2.jpg)
 
-3. Select the `Specify an ARN` option, then choose the ARN of the extension with the region code that matches your Lambda Function region from the [**ARNs** table]{@include: ../../_include/log-shipping/lambda-xtension-tablink.md}, and click the `Add` button.
+3. Select the `Specify an ARN` option, then choose the ARN of the extension with the region code that matches your Lambda Function region from the [**ARNs** table](https://docs.logz.io/docs/shipping/aws/lambda-extensions/#arns), and click the `Add` button.
 
 ![Add ARN extension](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lambda_extensions/lambda-x_1-3.jpg)
 
 ### Configure the extension parameters
 
-Add environment variables to the function, according to the [**Environment variables** table]{@include: ../../_include/log-shipping/lambda-xtension-tablink-indox.html}.
+Add environment variables to the function, according to the [**Environment variables** table](https://docs.logz.io/docs/shipping/Compute/Lambda-extensions#environment-variables).
 
 
 #### Deleting the extension
@@ -166,45 +166,45 @@ Log in to your Logz.io account and navigate to the [current instructions page](h
 ### AMD64 Architecture
 | Region Name               | Region Code      | AWS ARN                                                                        |
 |---------------------------|------------------|--------------------------------------------------------------------------------|
-| US East (N. Virginia)     | `us-east-1`      | `arn:aws:lambda:us-east-1:486140753397:layer:LogzioLambdaExtensionLogs:13`      |
-| US East (Ohio)            | `us-east-2`      | `arn:aws:lambda:us-east-2:486140753397:layer:LogzioLambdaExtensionLogs:13`      |
-| US West (N. California)   | `us-west-1`      | `arn:aws:lambda:us-west-1:486140753397:layer:LogzioLambdaExtensionLogs:13`      |
-| US West (Oregon)          | `us-west-2`      | `arn:aws:lambda:us-west-2:486140753397:layer:LogzioLambdaExtensionLogs:12`      |
-| Europe (Frankfurt)        | `eu-central-1`   | `arn:aws:lambda:eu-central-1:486140753397:layer:LogzioLambdaExtensionLogs:14`   |
-| Europe (Ireland)          | `eu-west-1`      | `arn:aws:lambda:eu-west-1:486140753397:layer:LogzioLambdaExtensionLogs:12`      |
-| Europe (Stockholm)        | `eu-north-1`     | `arn:aws:lambda:eu-north-1:486140753397:layer:LogzioLambdaExtensionLogs:13`     |
-| Asia Pacific (Sydney)     | `ap-southeast-2` | `arn:aws:lambda:ap-southeast-2:486140753397:layer:LogzioLambdaExtensionLogs:13` |
-| Canada (Central)          | `ca-central-1`   | `arn:aws:lambda:ca-central-1:486140753397:layer:LogzioLambdaExtensionLogs:14`   |
-| South America (São Paulo) | `sa-east-1`      | `arn:aws:lambda:sa-east-1:486140753397:layer:LogzioLambdaExtensionLogs:15`      |
-| Asia Pacific (Tokyo)      | `ap-northeast-1` | `arn:aws:lambda:ap-northeast-1:486140753397:layer:LogzioLambdaExtensionLogs:9` |
-| Asia Pacific (Singapore)  | `ap-southeast-1` | `arn:aws:lambda:ap-southeast-1:486140753397:layer:LogzioLambdaExtensionLogs:10` |
-| Asia Pacific (Mumbai)     | `ap-south-1`     | `arn:aws:lambda:ap-south-1:486140753397:layer:LogzioLambdaExtensionLogs:9`     |
-| Asia Pacific (Osaka)      | `ap-northeast-3` | `arn:aws:lambda:ap-northeast-3:486140753397:layer:LogzioLambdaExtensionLogs:10` |
-| Asia Pacific (Seoul)      | `ap-northeast-2` | `arn:aws:lambda:ap-northeast-2:486140753397:layer:LogzioLambdaExtensionLogs:10` |
-| Europe (London)           | `eu-west-2`      | `arn:aws:lambda:eu-west-2:486140753397:layer:LogzioLambdaExtensionLogs:11`      |
-| Europe (Paris)            | `eu-west-3`      | `arn:aws:lambda:eu-west-3:486140753397:layer:LogzioLambdaExtensionLogs:10`      |
+| US East (N. Virginia)     | `us-east-1`      | `arn:aws:lambda:us-east-1:486140753397:layer:LogzioLambdaExtensionLogs:16`      |
+| US East (Ohio)            | `us-east-2`      | `arn:aws:lambda:us-east-2:486140753397:layer:LogzioLambdaExtensionLogs:16`      |
+| US West (N. California)   | `us-west-1`      | `arn:aws:lambda:us-west-1:486140753397:layer:LogzioLambdaExtensionLogs:16`      |
+| US West (Oregon)          | `us-west-2`      | `arn:aws:lambda:us-west-2:486140753397:layer:LogzioLambdaExtensionLogs:15`      |
+| Europe (Frankfurt)        | `eu-central-1`   | `arn:aws:lambda:eu-central-1:486140753397:layer:LogzioLambdaExtensionLogs:17`   |
+| Europe (Ireland)          | `eu-west-1`      | `arn:aws:lambda:eu-west-1:486140753397:layer:LogzioLambdaExtensionLogs:15`      |
+| Europe (Stockholm)        | `eu-north-1`     | `arn:aws:lambda:eu-north-1:486140753397:layer:LogzioLambdaExtensionLogs:16`     |
+| Asia Pacific (Sydney)     | `ap-southeast-2` | `arn:aws:lambda:ap-southeast-2:486140753397:layer:LogzioLambdaExtensionLogs:16` |
+| Canada (Central)          | `ca-central-1`   | `arn:aws:lambda:ca-central-1:486140753397:layer:LogzioLambdaExtensionLogs:17`   |
+| South America (São Paulo) | `sa-east-1`      | `arn:aws:lambda:sa-east-1:486140753397:layer:LogzioLambdaExtensionLogs:18`      |
+| Asia Pacific (Tokyo)      | `ap-northeast-1` | `arn:aws:lambda:ap-northeast-1:486140753397:layer:LogzioLambdaExtensionLogs:12` |
+| Asia Pacific (Singapore)  | `ap-southeast-1` | `arn:aws:lambda:ap-southeast-1:486140753397:layer:LogzioLambdaExtensionLogs:13` |
+| Asia Pacific (Mumbai)     | `ap-south-1`     | `arn:aws:lambda:ap-south-1:486140753397:layer:LogzioLambdaExtensionLogs:12`     |
+| Asia Pacific (Osaka)      | `ap-northeast-3` | `arn:aws:lambda:ap-northeast-3:486140753397:layer:LogzioLambdaExtensionLogs:13` |
+| Asia Pacific (Seoul)      | `ap-northeast-2` | `arn:aws:lambda:ap-northeast-2:486140753397:layer:LogzioLambdaExtensionLogs:13` |
+| Europe (London)           | `eu-west-2`      | `arn:aws:lambda:eu-west-2:486140753397:layer:LogzioLambdaExtensionLogs:14`      |
+| Europe (Paris)            | `eu-west-3`      | `arn:aws:lambda:eu-west-3:486140753397:layer:LogzioLambdaExtensionLogs:13`      |
 
 ### ARM64 Architecture
 | Region Name               | Region Code      | AWS ARN                                                                           |
 |---------------------------|------------------|-----------------------------------------------------------------------------------|
-| US East (N. Virginia)     | `us-east-1`      | `arn:aws:lambda:us-east-1:486140753397:layer:LogzioLambdaExtensionLogsArm:5`      |
-| US East (Ohio)            | `us-east-2`      | `arn:aws:lambda:us-east-2:486140753397:layer:LogzioLambdaExtensionLogsArm:5`      |
-| US West (N. California)   | `us-west-1`      | `arn:aws:lambda:us-west-1:486140753397:layer:LogzioLambdaExtensionLogsArm:5`      |
-| US West (Oregon)          | `us-west-2`      | `arn:aws:lambda:us-west-2:486140753397:layer:LogzioLambdaExtensionLogsArm:4`      |
-| Europe (Frankfurt)        | `eu-central-1`   | `arn:aws:lambda:eu-central-1:486140753397:layer:LogzioLambdaExtensionLogsArm:4`   |
-| Europe (Ireland)          | `eu-west-1`      | `arn:aws:lambda:eu-west-1:486140753397:layer:LogzioLambdaExtensionLogsArm:5`      |
-| Europe (Stockholm)        | `eu-north-1`     | `arn:aws:lambda:eu-north-1:486140753397:layer:LogzioLambdaExtensionLogsArm:5`     |
-| Asia Pacific (Sydney)     | `ap-southeast-2` | `arn:aws:lambda:ap-southeast-2:486140753397:layer:LogzioLambdaExtensionLogsArm:4` |
-| Canada (Central)          | `ca-central-1`   | `arn:aws:lambda:ca-central-1:486140753397:layer:LogzioLambdaExtensionLogsArm:4`   |
-| South America (São Paulo) | `sa-east-1`      | `arn:aws:lambda:sa-east-1:486140753397:layer:LogzioLambdaExtensionLogsArm:5`      |
-| Asia Pacific (Tokyo)      | `ap-northeast-1` | `arn:aws:lambda:ap-northeast-1:486140753397:layer:LogzioLambdaExtensionLogsArm:5` |
-| Asia Pacific (Singapore)  | `ap-southeast-1` | `arn:aws:lambda:ap-southeast-1:486140753397:layer:LogzioLambdaExtensionLogsArm:5` |
-| Asia Pacific (Mumbai)     | `ap-south-1`     | `arn:aws:lambda:ap-south-1:486140753397:layer:LogzioLambdaExtensionLogsArm:4`     |
-| Asia Pacific (Osaka)      | `ap-northeast-3` | `arn:aws:lambda:ap-northeast-3:486140753397:layer:LogzioLambdaExtensionLogsArm:5` |
-| Asia Pacific (Seoul)      | `ap-northeast-2` | `arn:aws:lambda:ap-northeast-2:486140753397:layer:LogzioLambdaExtensionLogsArm:5` |
-| Europe (London)           | `eu-west-2`      | `arn:aws:lambda:eu-west-2:486140753397:layer:LogzioLambdaExtensionLogsArm:4`      |
-| Europe (Paris)            | `eu-west-3`      | `arn:aws:lambda:eu-west-3:486140753397:layer:LogzioLambdaExtensionLogsArm:5`      |
-                                             |
+| US East (N. Virginia)     | `us-east-1`      | `arn:aws:lambda:us-east-1:486140753397:layer:LogzioLambdaExtensionLogsArm:8`      |
+| US East (Ohio)            | `us-east-2`      | `arn:aws:lambda:us-east-2:486140753397:layer:LogzioLambdaExtensionLogsArm:8`      |
+| US West (N. California)   | `us-west-1`      | `arn:aws:lambda:us-west-1:486140753397:layer:LogzioLambdaExtensionLogsArm:8`      |
+| US West (Oregon)          | `us-west-2`      | `arn:aws:lambda:us-west-2:486140753397:layer:LogzioLambdaExtensionLogsArm:7`      |
+| Europe (Frankfurt)        | `eu-central-1`   | `arn:aws:lambda:eu-central-1:486140753397:layer:LogzioLambdaExtensionLogsArm:7`   |
+| Europe (Ireland)          | `eu-west-1`      | `arn:aws:lambda:eu-west-1:486140753397:layer:LogzioLambdaExtensionLogsArm:8`      |
+| Europe (Stockholm)        | `eu-north-1`     | `arn:aws:lambda:eu-north-1:486140753397:layer:LogzioLambdaExtensionLogsArm:8`     |
+| Asia Pacific (Sydney)     | `ap-southeast-2` | `arn:aws:lambda:ap-southeast-2:486140753397:layer:LogzioLambdaExtensionLogsArm:7` |
+| Canada (Central)          | `ca-central-1`   | `arn:aws:lambda:ca-central-1:486140753397:layer:LogzioLambdaExtensionLogsArm:7`   |
+| South America (São Paulo) | `sa-east-1`      | `arn:aws:lambda:sa-east-1:486140753397:layer:LogzioLambdaExtensionLogsArm:8`      |
+| Asia Pacific (Tokyo)      | `ap-northeast-1` | `arn:aws:lambda:ap-northeast-1:486140753397:layer:LogzioLambdaExtensionLogsArm:8` |
+| Asia Pacific (Singapore)  | `ap-southeast-1` | `arn:aws:lambda:ap-southeast-1:486140753397:layer:LogzioLambdaExtensionLogsArm:8` |
+| Asia Pacific (Mumbai)     | `ap-south-1`     | `arn:aws:lambda:ap-south-1:486140753397:layer:LogzioLambdaExtensionLogsArm:7`     |
+| Asia Pacific (Osaka)      | `ap-northeast-3` | `arn:aws:lambda:ap-northeast-3:486140753397:layer:LogzioLambdaExtensionLogsArm:8` |
+| Asia Pacific (Seoul)      | `ap-northeast-2` | `arn:aws:lambda:ap-northeast-2:486140753397:layer:LogzioLambdaExtensionLogsArm:8` |
+| Europe (London)           | `eu-west-2`      | `arn:aws:lambda:eu-west-2:486140753397:layer:LogzioLambdaExtensionLogsArm:7`      |
+| Europe (Paris)            | `eu-west-3`      | `arn:aws:lambda:eu-west-3:486140753397:layer:LogzioLambdaExtensionLogsArm:8`      |
+
 
 :::note
 If your AWS region is not in the list, please reach out to Logz.io's support or open an issue in the [project's Github repo](https://github.com/logzio/logzio-lambda-extensions).

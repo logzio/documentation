@@ -4,6 +4,7 @@ title: Integrate with Siemplify
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Integrate your Logz.io Cloud SIEM with Siemplify
 keywords: [SIEM, Security, Security events, investigate, Security information, Siemplify, integration]
+slug: /cloud-siem/integrations/siemplify/
 ---
 
 

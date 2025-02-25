@@ -2,16 +2,16 @@
 id: GO
 title: GO
 overview: Send logs, metrics and traces from you Go code
-product: ['logs','metrics','tracing']
-os: ['windows', 'linux']
-filters: ['Code']
-recommendedFor: ['Software Engineer']
+product: ["logs","metrics","tracing"]
+os: ["windows", "linux"]
+filters: ["Code", "AWS", "Compute"]
+recommendedFor: ["Software Engineer"]
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/go.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['2cm0FZu4VK4vzH0We6SrJb']
-metrics_alerts: ['1UqjU2gqNAKht1f62jBC9Q']
+metrics_dashboards: ["2cm0FZu4VK4vzH0We6SrJb"]
+metrics_alerts: ["1UqjU2gqNAKht1f62jBC9Q"]
 drop_filter: []
 ---
 
@@ -112,283 +112,6 @@ if err != nil {
 l.Stop() // Drains the log buffer
 ```
 
-## Metrics
-
-:::note
-[Project's GitHub repo](https://github.com/logzio/go-metrics-sdk/)
-:::
-
-### Install the SDK
-
-Run the following command:
-
-```shell
-go get github.com/logzio/go-metrics-sdk
-```
-
-### Configure the exporter
-
-Add the exporter definition to your application code:
-
-```go
-import (
-    metricsExporter "github.com/logzio/go-metrics-sdk"
-    controller "go.opentelemetry.io/otel/sdk/metric/controller/basic"
-    semconv "go.opentelemetry.io/otel/semconv/v1.7.0"
-    // ...
-)
-
-config := metricsExporter.Config {
-	LogzioMetricsListener: "<<LISTENER-HOST>>",
-	LogzioMetricsToken:    "<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>",
-	RemoteTimeout:         30 * time.Second,
-	PushInterval:          5 * time.Second,
-}
-```
-
-
-Replace the placeholders in the code to match your specifics.
-
-| Parameter | Description | Required | Default|
-|---|---|---|---|
-|`<<LISTENER-HOST>>`|  The full Logz.io Listener URL for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic (example: https://listener.logz.io:8053). For more details, see the [regions page](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/) in logz.io docs | Required | https://listener.logz.io:8053 |
-|`<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>`| The Logz.io Prometheus Metrics account token. Find it under **Settings > Manage accounts**. [Look up your Metrics account token.](https://docs.logz.io/docs/user-guide/admin/authentication-tokens/finding-your-metrics-account-token/)  | Required | - |
-| RemoteTimeout | The timeout for requests to the remote write Logz.io metrics listener endpoint. | Required | 30 (seconds) |
-| PushInterval | The time interval for sending the metrics to Logz.io. | Required | 10 (seconds) |
-| Quantiles | The quantiles of the histograms. | Optional | [0.5, 0.9, 0.95, 0.99] |
-| HistogramBoundaries | The histogram boundaries. | Optional | - |
-
-### Add the exporter setup
-
-Add the exporter setup definition to your application code:
-
-```go
-// Use the `config` instance from last step.
-
-cont, err := metricsExporter.InstallNewPipeline(
-    config,
-    controller.WithCollectPeriod(<<COLLECT_PERIOD>>*time.Second),
-    controller.WithResource(
-        resource.NewWithAttributes(
-            semconv.SchemaURL,
-            attribute.<<TYPE>>("<<LABEL_KEY>>", "<<LABEL_VALUE>>"),
-        ),
-    ),
-)
-if err != nil {
-    return err
-}
-```
-
-Replace the placeholders in the code to match your specifics.
-
-| Parameter | Description | 
-|---|---|
-| `<<COLLECT_PERIOD>>` | The collect period time in seconds. |
-| `<<TYPE>>` | The available label value types according to the `<<LABEL_VALUE>>`. |
-| `<<LABEL_KEY>>` | The label key. |
-| `<<LABEL_VALUE>>` | The label value. | 
-	
-
-### Set up the Metric Instruments Creator
-	
-Create `Meter` to create metric instruments:
-	
-```go
-// Use `cont` instance from last step.
-
-ctx := context.Background()
-defer func() {
-    handleErr(cont.Stop(ctx))
-}()
-
-meter := cont.Meter("<<INSTRUMENTATION_NAME>>")
-
-func handleErr(err error) {
-    if err != nil {
-        panic(fmt.Errorf("encountered error: %v", err))
-    }
-}	
-```	
-	
-Replace `<<INSTRUMENTATION_NAME>>` with your instrumentation name.
-	
-Additionally, add the error handler:
-	
-```go
-func handleErr(err error) {
-    if err != nil {
-        panic(fmt.Errorf("encountered error: %v", err))
-    }
-}
-```
-
-
-
-### Add metric instruments
-
-Add a required metric intrument to your code. Below are the available metric instruments and their code definition.
-
-
-The exporter uses the `simple` selector's `NewWithHistogramDistribution()`. This means that the instruments are mapped to aggregations as shown in the table below.
-
-| Instrument | Behavior | Aggregation |
-| --- | --- | --- |
-| Counter | A synchronous Instrument which supports non-negative increments. | Sum |
-| Asynchronous Counter | An asynchronous Instrument which reports monotonically increasing value(s) when the instrument is being observed. | Sum |
-| Histogram | A synchronous Instrument which can be used to report arbitrary values that are likely to be statistically meaningful. It is intended for statistics such as histograms, summaries, and percentile. | Histogram |
-| Asynchronous Gauge | An asynchronous Instrument which reports non-additive value(s) when the instrument is being observed. | LastValue |
-| UpDownCounter | A synchronous Instrument which supports increments and decrements. | Sum |
-| Asynchronous UpDownCounter | An asynchronous Instrument which reports additive value(s) when the instrument is being observed. | Sum |
-
-#### Counter
-
-```go
-// Use `ctx` and `meter` from last steps.
-
-// Create counter instruments
-intCounter := metric.Must(meter).NewInt64Counter(
-    "go_metrics.int_counter",
-    metric.WithDescription("int_counter description"),
-)
-floatCounter := metric.Must(meter).NewFloat64Counter(
-    "go_metrics.float_counter",
-    metric.WithDescription("float_counter description"),
-)
-
-// Record values to the metric instruments and add labels
-intCounter.Add(ctx, int64(10), attribute.String("<<LABEL_KEY>>", "<<LABEL_VALUE>>"))
-floatCounter.Add(ctx, float64(2.5), attribute.String("<<LABEL_KEY>>", "<<LABEL_VALUE>>"))
-```
-
-#### Asynchronous Counter
-
-```go
-// Use `meter` from last steps.
-
-// Create callbacks for your CounterObserver instruments
-intCounterObserverCallback := func(_ context.Context, result metric.Int64ObserverResult) {
-    result.Observe(10, attribute.String("<<LABEL_KEY>>", "<<LABEL_VALUE>>"))
-}
-floatCounterObserverCallback := func(_ context.Context, result metric.Float64ObserverResult) {
-    result.Observe(2.5, attribute.String("<<LABEL_KEY>>", "<<LABEL_VALUE>>"))
-}
-
-// Create CounterObserver instruments
-_ = metric.Must(meter).NewInt64CounterObserver(
-    "go_metrics.int_counter_observer",
-    intCounterObserverCallback,
-    metric.WithDescription("int_counter_observer description"),
-)
-_ = metric.Must(meter).NewFloat64CounterObserver(
-    "go_metrics.float_counter_observer",
-    floatCounterObserverCallback,
-    metric.WithDescription("float_counter_observer description"),
-)
-```
-
-#### Histogram
-
-```go
-// Use `ctx` and `meter` from last steps.
-
-// Create Histogram instruments
-intHistogram := metric.Must(meter).NewInt64Histogram(
-    "go_metrics.int_histogram",
-    metric.WithDescription("int_histogram description"),
-)
-floatHistogram := metric.Must(meter).NewFloat64Histogram(
-    "go_metrics.float_histogram",
-    metric.WithDescription("float_histogram description"),
-)
-
-// Record values to the metric instruments and add labels
-intHistogram.Record(ctx, int(10), attribute.String("<<LABEL_KEY>>", "<<LABEL_VALUE>"))
-floatHistogram.Record(ctx, float64(2.5), attribute.String("<<LABEL_KEY>>", "<<LABEL_VALUE>"))
-```
-
-#### Asynchronous Gauge
-
-```go
-// Use `meter` from last steps.
-
-// Create callbacks for your GaugeObserver instruments
-intGaugeObserverCallback := func(_ context.Context, result metric.Int64ObserverResult) {
-    result.Observe(10, attribute.String("<<LABEL_KEY>>", "<<LABEL_VALUE>>"))
-}
-floatGaugeObserverCallback := func(_ context.Context, result metric.Float64ObserverResult) {
-result.Observe(2.5, attribute.String("<<LABEL_KEY>>", "<<LABEL_VALUE>>"))
-}
-
-// Create GaugeObserver instruments
-_ = metric.Must(meter).NewInt64GaugeObserver(
-    "go_metrics.int_gauge_observer", 
-    intGaugeObserverCallback,
-    metric.WithDescription("int_gauge_observer description"),
-)
-_ = metric.Must(meter).NewFloat64GaugeObserver(
-    "go_metrics.float_gauge_observer",
-    floatGaugeObserverCallback,
-    metric.WithDescription("float_gauge_observer description"),
-)
-```
-
-#### UpDownCounter
-
-```go
-// Use `ctx` and `meter` from last steps.
-
-// Create UpDownCounter instruments
-intUpDownCounter := metric.Must(meter).NewInt64UpDownCounter(
-    "go_metrics.int_up_down_counter",
-    metric.WithDescription("int_up_down_counter description"),
-)
-floatUpDownCounter := metric.Must(meter).NewFloat64UpDownCounter(
-    "go_metrics.float_up_down_counter",
-    metric.WithDescription("float_up_down_counter description"),
-)
-
-// Record values to the metric instruments and add labels
-intUpDownCounter.Add(ctx, int64(-10), attribute.String("<<LABEL_KEY>>", "<<LABEL_VALUE>"))
-floatUpDownCounter.Add(ctx, float64(2.5), attribute.String("<<LABEL_KEY>>", "<<LABEL_VALUE>"))
-```
-
-#### Asynchronous UpDownCounter
-
-```go
-// Use `meter` from last steps.
-
-// Create callback for your UpDownCounterObserver instruments
-intUpDownCounterObserverCallback := func(_ context.Context, result metric.Int64ObserverResult) {
-    result.Observe(-10, attribute.String("<<LABEL_KEY>>", "<<LABEL_VALUE>"))
-}
-floatUpDownCounterObserverCallback := func(_ context.Context, result metric.Float64ObserverResult) {
-    result.Observe(2.5, attribute.String("<<LABEL_KEY>>", "<<LABEL_VALUE>"))
-}
-
-// Create UpDownCounterObserver instruments
-_ = metric.Must(meter).NewInt64UpDownCounterObserver(
-    "go_metrics.int_up_down_counter_observer",
-    intUpDownCounterObserverCallback,
-    metric.WithDescription("int_up_down_counter_observer description"),
-)
-_ = metric.Must(meter).NewFloat64UpDownCounterObserver(
-    "go_metrics.float_up_down_counter_observer",
-    floatUpDownCounterObserverCallback,
-    metric.WithDescription("float_up_down_counter_observer description"),
-)
-```
-
-### Check Logz.io for your metrics
-
-Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
-
-Install the pre-built dashboard to enhance the observability of your metrics.
-
-<!-- logzio-inject:install:grafana:dashboards ids=["2cm0FZu4VK4vzH0We6SrJb"] -->
-
-{@include: ../../_include/metric-shipping/generic-dashboard.html}
-
 </TabItem>
   <TabItem value="OpenTelemetry" label="OpenTelemetry">
 
@@ -399,7 +122,7 @@ This integration uses the OpenTelemetry logging exporter to send logs to Logz.io
 - Go 1.21 or newer
 
 :::note
-If you need an example aplication to test this integration, please refer to our [Go OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/go/logs).
+If you need an example application to test this integration, please refer to our [Go OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/go/logs).
 :::
 
 ### Configure the instrumentation
@@ -502,184 +225,401 @@ Encounter an issue? See our [log shipping troubleshooting](https://docs.logz.io/
 </TabItem>
 </Tabs>
 
+## Metrics
+
+:::note
+[Project's GitHub repo](https://github.com/logzio/go-metrics-sdk/)
+:::
+
+The Logz.io Go Metrics Exporter enables you to send metrics directly from your code using the Prometheus Remote Write API.
+Below, you'll find a guide for setting it up, along with examples of how to manually instrument your application using the OpenTelemetry SDK.
+
+### Install the Logzio Metrics exporter
+
+Run the following command:
+
+```shell
+go get github.com/logzio/go-metrics-sdk
+```
+
+### Configure the exporter
+
+Add the exporter definition to your application code:
+
+```go
+import (
+    "context"
+    metricsExporter "github.com/logzio/go-metrics-sdk"
+    "go.opentelemetry.io/otel"
+    "go.opentelemetry.io/otel/attribute"
+    m "go.opentelemetry.io/otel/metric"
+    "go.opentelemetry.io/otel/sdk/metric"
+    "go.opentelemetry.io/otel/sdk/resource"
+    semconv "go.opentelemetry.io/otel/semconv/v1.26.0"
+    "log"
+    "time"
+)
+
+func newLogzioExporter() (*metricsExporter.Exporter, error) {
+    return metricsExporter.New(
+        metricsExporter.Config{
+            LogzioMetricsListener: "https://<<LISTENER-HOST>>:8053",
+            LogzioMetricsToken:    "<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>",
+            RemoteTimeout:         30 * time.Second,
+            PushInterval:          10 * time.Second,
+            Quantiles:             []float64{0, 0.25, 0.5, 0.75, 1},
+            AddMetricSuffixes: true,
+            ExternalLabels: map[string]string{
+                "<<LABEL_KEY>>": "<<LABEL_VALUE>>",
+            },
+        })
+}
+```
+
+### Exporter parameters
+
+Replace the placeholders in the code to match your specifics.
+
+| Parameter Name        | Description                                                                           | Required/Optional | Default                       |
+|-----------------------|---------------------------------------------------------------------------------------|-------------------|-------------------------------|
+| LogzioMetricsListener | The full Logz.io Listener URL for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic (example: https://listener.logz.io:8053). For more details, see the [regions page](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/) in logz.io docs                      | Required          | https://listener.logz.io:8053 |
+| LogzioMetricsToken    | The Logz.io Prometheus Metrics account token. Find it under **Settings > Manage accounts**. [Look up your Metrics account token.](https://docs.logz.io/docs/user-guide/admin/authentication-tokens/finding-your-metrics-account-token/) | Required          | -                             |
+| RemoteTimeout         | The timeout for requests to the remote write Logz.io metrics listener endpoint.       | Required          | 30 (seconds)                  |
+| PushInterval          | The time interval for sending the metrics to Logz.io.                                 | Required          | 10 (seconds)                  |
+| Quantiles             | The quantiles of the histograms.                                                      | Optional          | [0.5, 0.9, 0.95, 0.99]        |
+| HistogramBoundaries   | The histogram boundaries.                                                             | Optional          | -                             |
+| ExternalLabels        | Allow adding global labels to all metrics that are processed by the exporter.         | Optional          | -                             |
+| AddMetricSuffixes     | Adds Unit suffix to the metric, if the Unit was defined.                              | Optional          | `false`                       |
+
+
+### Set up the Metric Instruments Creator
+	
+Create `Meter` to be able to create metric instruments.
+
+```go
+func newResource() (*resource.Resource, error) {
+    return resource.Merge(resource.Default(),
+        resource.NewWithAttributes(semconv.SchemaURL,
+            semconv.ServiceName("<<SERVICE_NAME>>"),
+            semconv.ServiceVersion("<<SERVICE_VERSION>>"),
+        ))
+}
+
+func newMeterProvider(res *resource.Resource) (*metric.MeterProvider, error) {
+    metricExporter, err := newLogzioExporter()
+	if err != nil {
+        return nil, err
+    }
+
+    meterProvider := metric.NewMeterProvider(
+        metric.WithResource(res),
+        metric.WithReader(metric.NewPeriodicReader(metricExporter,
+        metric.WithInterval(60*time.Second))),
+    )
+    return meterProvider, nil
+}
+
+// create a context
+con := context.Background()
+
+// Create resource
+res, err := newResource()
+if err != nil {
+    panic(err)
+}
+
+// Create a meter provider.
+meterProvider, err := newMeterProvider(res)
+if err != nil {
+	panic(err)
+}
+
+// Handle shutdown properly so nothing leaks.
+defer func() {
+    if err := meterProvider.Shutdown(con); err != nil {
+        log.Println(err)
+    }
+}()
+
+// Register as global meter provider so that it can be used via otel.Meter
+// and accessed using otel.GetMeterProvider.
+// Most instrumentation libraries use the global meter provider as default.
+// If the global meter provider is not set then a no-op implementation
+// is used, which fails to generate data.
+otel.SetMeterProvider(meterProvider)
+
+meter := otel.Meter("example-meter")  // replace `example-meter` with any custom instrumentation meter name you'd like
+```
+
+
+### Add metric instruments
+
+Add a required metric intrument to your code. Below are the available metric instruments and their code definition.
+
+
+The exporter uses the `simple` selector's `metric.DefaultAggregationSelector()`. This means that the instruments are mapped to aggregations as shown in the table below.
+
+| Instrument | Behavior | Aggregation |
+| --- | --- | --- |
+| Counter | A synchronous Instrument which supports non-negative increments. | Sum |
+| Asynchronous Counter | An asynchronous Instrument which reports monotonically increasing value(s) when the instrument is being observed. | Sum |
+| Histogram | A synchronous Instrument which can be used to report arbitrary values that are likely to be statistically meaningful. It is intended for statistics such as histograms, summaries, and percentile. | Histogram |
+| Asynchronous Gauge | An asynchronous Instrument which reports non-additive value(s) when the instrument is being observed. | Gauge |
+| UpDownCounter | A synchronous Instrument which supports increments and decrements. | Sum |
+| Asynchronous UpDownCounter | An asynchronous Instrument which reports additive value(s) when the instrument is being observed. | Sum |
+
+#### Counter
+
+```go
+// Create counter instruments
+counter, err := meter.Int64Counter(
+    "int_counter",  // name of the metric
+    // m.WithUnit("ms")  // add a unit to the metric, if needed
+    m.WithDescription("Counts the total number of requests"),
+)
+
+floatCounter, err := meter.Float64Counter("float_counter")  // name of the metric
+
+// Record values to the metric instruments and add labels
+counter.Add(con, 1)
+counter.Add(con, 10, m.WithAttributes(attribute.Key("<<LABEL_KEY>>").String("<<LABEL_VALUE>>")))
+floatCounter.Add(con, 2.5)
+```
+
+#### Asynchronous Counter
+
+```go
+// Create callbacks for your observable counter instruments
+// Float64ObservableCounter is also a supported type
+observableCounter, err := meter.Int64ObservableCounter(
+    "observable_counter",  // name of the metric
+    // m.WithUnit("By"),  // add a unit to the metric, if needed
+    m.WithDescription("observable counter description"),
+)
+
+_, err = meter.RegisterCallback(
+    func(con context.Context, o m.Observer) error {
+        o.ObserveInt64(observableCounter, 10, m.WithAttributes(attribute.Key("<<LABEL_KEY>>").String("<<LABEL_VALUE>>")))
+        return nil
+    },
+    observableCounter,
+)
+```
+
+#### Histogram
+
+```go
+// Create Histogram instruments
+intHistogram, err := meter.Int64Histogram(
+	"histogram-meter",  // name of the metric
+    // m.WithUnit("seconds")  // add a unit to the metric, if needed
+    m.WithDescription("Histogram description"),
+)
+
+floatHistogram, err := meter.Float64Histogram("float-histogram-meter")  // name of the metric
+
+// Record values to the metric instruments and add labels
+intHistogram.Record(con, 2)
+intHistogram.Record(con, 2, m.WithAttributes(attribute.Key("<<LABEL_KEY>>").String("<<LABEL_VALUE>>")))
+floatHistogram.Record(con, 3.4)
+```
+
+#### Gauge
+
+```go
+g, err := meter.Int64Gauge(
+	"g-test",
+	// m.WithUnit("seconds"),  // add a unit to the metric, if needed
+    m.WithDescription("Gauge description"),
+)
+
+g.Record(con, 4)
+g.Record(con, 4, m.WithAttributes(attribute.Key("<<LABEL_KEY>>").String("<<LABEL_VALUE>>")))
+```
+
+#### Asynchronous Gauge
+
+```go
+// Create callbacks for your observable up-down counter instruments
+// Float64ObservableGauge is also a supported type
+observableGauge, err := meter.Int64ObservableGauge(
+    "observable_gauge",  // name of the metric
+    // m.WithUnit("By"),  // add a unit to the metric, if needed
+    m.WithDescription("observable gauge description"),
+)
+
+_, err = meter.RegisterCallback(
+    func(con context.Context, o m.Observer) error {
+        o.ObserveInt64(observableGauge, 10, m.WithAttributes(attribute.Key("<<LABEL_KEY>>").String("<<LABEL_VALUE>>")))
+        return nil
+    },
+observableGauge,
+)
+```
+
+#### UpDownCounter
+
+```go
+intUpDownCounter, err := meter.Int64UpDownCounter(
+    "int_up_down_counter",  // name of the metric
+    // m.WithUnit("ms"),  // add a unit to the metric, if needed
+    m.WithDescription("Up-down counter description"),
+)
+
+floatUpDownCounter, err := meter.Float64UpDownCounter(
+    "float_up_down_counter",  // name of the metric
+    m.WithDescription("Up-down counter description"),
+)
+
+intUpDownCounter.Add(con, 5)
+floatUpDownCounter.Add(con, 5.6, m.WithAttributes(attribute.Key("<<LABEL_KEY>>").String("<<LABEL_VALUE>>")))
+```
+
+#### Asynchronous UpDownCounter
+
+```go
+// Create callbacks for your observable up-down counter instruments
+// Float64ObservableUpDownCounter is also a supported type
+observableCounter, err := meter.Int64ObservableUpDownCounter(
+    "observable_up_down_counter",  // name of the metric
+    // m.WithUnit("By"),  // add a unit to the metric, if needed
+    m.WithDescription("observable up down counter description"),
+)
+
+_, err = meter.RegisterCallback(
+    func(con context.Context, o m.Observer) error {
+        o.ObserveInt64(observableCounter, 10, m.WithAttributes(attribute.Key("<<LABEL_KEY>>").String("<<LABEL_VALUE>>")))
+        return nil
+    },
+    observableCounter,
+)
+```
+
+### Check Logz.io for your metrics
+
+Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
+
+Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["2cm0FZu4VK4vzH0We6SrJb"] -->
+
+{@include: ../../_include/metric-shipping/generic-dashboard.html}
 
 
 ## Traces
 
+<Tabs>
+<TabItem value="opentelemetry" label="OpenTelemetry" default>
+
+### Auto Instrumentation
+
 Deploy this integration to enable instrumentation of your Go application using OpenTelemetry. 
 
-### Manual configuration
-
-This integration includes:
-
-* Installing the OpenTelemetry Go instrumentation packages on your application host
-* Installing the OpenTelemetry collector with Logz.io exporter
-* Running your Go application in conjunction with the OpenTelemetry instrumentation
-
-On deployment, the Go instrumentation automatically captures spans from your application and forwards them to the collector, which exports the data to your Logz.io account.
-
-
-
-
-#### Setup instrumentation for your locally hosted Go application and send traces to Logz.io
 
 **Before you begin, you'll need**:
-
 * A Go application without instrumentation
 * An active Logz.io account
 * Port `4318` available on your host system
 * A name defined for your tracing service. You will need it to identify the traces in Logz.io.
 
-
-:::note
-This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
-:::
-
-
-
-
-##### Download the general instrumentation packages
-
-These packages are required to enable instrumentation for your code regardless of the type of application that you need to instrument. 
-
-To download these packages, run the following command from the application directory:
+#### Install dependencies
 
 ```shell
 go get -u go.opentelemetry.io/otel
-go get -u go.opentelemetry.io/otel/exporters/otlp
-go get -u go.opentelemetry.io/otel
-go get -u go.opentelemetry.io/otel/attribute
-go get -u go.opentelemetry.io/otel/baggage
 go get -u go.opentelemetry.io/otel/propagation
 go get -u go.opentelemetry.io/otel/sdk/resource
-go get -u go.opentelemetry.io/otel/sdk/trace
-go get -u go.opentelemetry.io/otel/semconv/v1.4.0
-go get -u go.opentelemetry.io/otel/trace
 go get -u go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp
+go get -u go.opentelemetry.io/otel/sdk/trace
+go get -u go.opentelemetry.io/otel/semconv/v1.26.0
 ```
 
+#### Setup Tracer Provider
+Create a new file `otel.go` and place the below code in it:
 
 :::note
-We recommend sending OTLP traces using HTTP. This is why we import the `otlptracehttp` package.
+Change `<<SERVICE-NAME>>` to your own service name.
 :::
 
-
-##### Download the application specific instrumentation packages
-
-Depending on the type of your application, you need to download instrumentation packages specific to your application. For example, if your application is a HTTP server, you will need the `opentelemetry.io/contrib/instrumentation/net/http/otelhttp` package. The full list of all available packages can be found in the [OpenTelemetry contrib directory](https://github.com/open-telemetry/opentelemetry-go-contrib/tree/v0.22.0/instrumentation).
-
-The example below is given for a HTTP server application:
-
-```shell
-go get -u go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp
-```
-
-##### Add the instrumentation to the `import` function
-
-Add all the packages downloaded in the previous steps to the `import` function of your application.
-
-The example below is given for a HTTP server application:
 
 ```go
 import (
 	"context"
-	"io"
-	"log"
-	"net/http"
-
-	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
-
 	"go.opentelemetry.io/otel"
-	"go.opentelemetry.io/otel/attribute"
-	"go.opentelemetry.io/otel/baggage"
 	"go.opentelemetry.io/otel/propagation"
 	"go.opentelemetry.io/otel/sdk/resource"
-	sdktrace "go.opentelemetry.io/otel/sdk/trace"
-	semconv "go.opentelemetry.io/otel/semconv/v1.4.0"
-	"go.opentelemetry.io/otel/trace"
+	"log"
+
 	"go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp"
+	sdktrace "go.opentelemetry.io/otel/sdk/trace"
+	semconv "go.opentelemetry.io/otel/semconv/v1.26.0"
 )
-```
 
-##### Add the `initProvider` function
-
-
-Add the `initProvider` function to the application code as follows:
-
-```go
-func initProvider() func() {
-	ctx := context.Background()
-
-	res, err := resource.New(ctx,
-		resource.WithAttributes(
-			semconv.ServiceNameKey.String("test-service"),
+func newTraceProvider() (*sdktrace.TracerProvider, error) {
+	// Ensure default SDK resources and the required service name are set.
+	r, err := resource.Merge(
+		resource.Default(),
+		resource.NewWithAttributes(
+			semconv.SchemaURL,
+			semconv.ServiceName("<<SERVICE-NAME>>"),
 		),
 	)
-	handleErr(err, "failed to create resource")
+	if err != nil {
+		return nil, err
+	}
 
-	traceExporter, err := otlptracehttp.New(ctx,
-		otlptracehttp.WithInsecure(),
+	exp, _ := otlptracehttp.New(context.Background(),
 		otlptracehttp.WithEndpoint("localhost:4318"),
-	)
-	handleErr(err, "failed to create trace exporter")
+		otlptracehttp.WithInsecure())
 
-	bsp := sdktrace.NewBatchSpanProcessor(traceExporter)
-	tracerProvider := sdktrace.NewTracerProvider(
-		sdktrace.WithSampler(sdktrace.AlwaysSample()),
-		sdktrace.WithResource(res),
-		sdktrace.WithSpanProcessor(bsp),
-	)
-	otel.SetTracerProvider(tracerProvider)
-	otel.SetTextMapPropagator(propagation.TraceContext{})
-	return func() {
-		handleErr(tracerProvider.Shutdown(ctx), "failed to shutdown TracerProvider")
+	return sdktrace.NewTracerProvider(
+		sdktrace.WithBatcher(exp),
+		sdktrace.WithResource(r),
+	), nil
+}
+
+// setupOTelSDK bootstraps the OpenTelemetry logging pipeline.
+func setupOTelSDK(ctx context.Context) (shutdown func(context.Context) error, err error) {
+	// setup trace provider
+	traceProvider, err := newTraceProvider()
+	if err != nil {
+		return nil, err
 	}
+
+	otel.SetTracerProvider(traceProvider)
+	otel.SetTextMapPropagator(propagation.NewCompositeTextMapPropagator(
+		propagation.TraceContext{}, propagation.Baggage{}))
+
+	// Return a shutdown function
+	shutdown = func(ctx context.Context) error {
+		err := traceProvider.Shutdown(ctx)
+		if err != nil {
+			log.Printf("Error during tracer provider shutdown: %v", err)
+		}
+		return err
+	}
+
+	return shutdown, nil
 }
 ```
 
-##### Instrument the code in the `main` function
-
-In the `main` function of your application, add the following code:
-
-```go
-	shutdown := initProvider()
-	defer shutdown()
-```
-
-After this, you need to declare the instrumentation according to your application. The example below is given for a HTTP server application. The HTTP handler instructs the tracer to create spans on each request.
+#### Call Tracer Provider from main function
+Make sure the application will setup the instrumentation by calling `setupOTelSDK()` that was created in the previous step from your main function.
 
 ```go
-uk := attribute.Key("username")
-
-	helloHandler := func(w http.ResponseWriter, req *http.Request) {
-		ctx := req.Context()
-		span := trace.SpanFromContext(ctx)
-		bag := baggage.FromContext(ctx)
-		span.AddEvent("handling this...", trace.WithAttributes(uk.String(bag.Member("username").Value())))
-
-		_, _ = io.WriteString(w, "Hello, world!\n")
-	}
-
-	otelHandler := otelhttp.NewHandler(http.HandlerFunc(helloHandler), "Hello")
-
-	http.Handle("/hello", otelHandler)
-	err := http.ListenAndServe(":7777", nil)
-	if err != nil {
-		panic(err)
-	}
+// Set up OpenTelemetry.
+otelShutdown, err := setupOTelSDK(ctx)
+if err != nil {
+	return
 }
-func handleErr(err error, message string) {
-	if err != nil {
-		log.Fatalf("%s: %v", message, err)
-	}
+// Handle shutdown properly so nothing leaks.
+defer func() {
+	err = errors.Join(err, otelShutdown(context.Background()))
+}()
 ```
 
+#### Setup OpenTelemetry Collector
 
-##### Download and configure OpenTelemetry collector
- 
-Create a dedicated directory on the host of your Go application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.70.0) that is relevant to the operating system of your host.
-
-
+Create a dedicated directory on the host of your Go application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.116.0) that is relevant to the operating system of your host.
 
 After downloading the collector, create a configuration file `config.yaml` with the following parameters:
 
@@ -688,8 +628,7 @@ After downloading the collector, create a configuration file `config.yaml` with 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
 
-##### Start the collector
-
+#### Start OpenTelemetry Collector
 Run the following command from the directory of your application file:
 
 ```shell
@@ -698,18 +637,170 @@ Run the following command from the directory of your application file:
 * Replace `<path/to>` with the path to the directory where you downloaded the collector.
 * Replace `<VERSION-NAME>` with the version name of the collector applicable to your system, e.g. `otelcontribcol_darwin_amd64`.
 
-##### Run the application
-
-Run the application to generate traces:
-
-```shell
-go run <YOUR-APPLICATION-FILE-NAME>.go
-```
-
 
 ##### Check Logz.io for your traces
 
+Run the application after building it with the new Instrumentation.
 Give your traces some time to get from your system to ours, and then open [Tracing](https://app.logz.io/#/dashboard/jaeger).
 
 
- 
+### Manual Instrumentation
+
+If you're using specific libararies and want to be specific or precise with instrumentation, you can opt to [instrument your code manually](https://opentelemetry.io/docs/languages/go/instrumentation/#traces).
+
+
+</TabItem>
+<TabItem value="lambda-otel" label="Lambda via OpenTelemetry">
+
+ Deploy this integration to instrument your Go application running on AWS Lambda and send the traces to your Logz.io account. This is done by adding a dedicated layer for OpenTelemetry collector and configuring environment variables of these layer.
+
+:::note
+This integration only works for the following AWS regions: `us-east-1`, `us-east-2`, `us-west-1`, `us-west-2`,
+`ap-south-1`, `ap-northeast-3`, `ap-northeast-2`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`,
+`eu-central-1`, `eu-west-1`, `eu-west-2`, `eu-west-3`, `eu-north-1`,
+`sa-east-1`,
+`ca-central-1`.
+:::
+
+**Before you begin, you'll need**:
+
+- [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
+- Configured [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
+- A Lambda function with Go application.
+
+:::note
+Using `aws lambda update-function-configuration` with `--layers` replaces all existing layers with the specified ARN(s). To add a new layer without removing existing ones, include all desired layer ARNs in the command, both new and previously attached.
+:::
+
+:::note
+Adding environmental variables using the AWS CLI commands below, will overwrite all existing variables for your Lambda function.
+:::
+
+:::note
+This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
+:::
+
+#### Add the OpenTelemetry collector layer to your Lambda function
+
+This layer contains the OpenTelemetry collector that will capture data from your application.
+
+```shell
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers <<LAYER-ARN>>
+```
+
+
+Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Go application.
+
+Copy the appropriate `<<LAYER-ARN>>` for your Lambda architecture (amd64 or arm64) from the [latest release notes](https://github.com/logzio/opentelemetry-lambda/releases).
+
+Replace `<<REGION>>` with the code of your AWS regions. [See all available Logz.io hosting regions](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
+
+
+#### Create a configuration file for the OpenTelemetry collector
+
+By default, the OpenTelemetry collector layer exports data to the Lambda console. To customize the collector configuration, you need to add a `collector.yaml` to your function and specifiy its location via the `OPENTELEMETRY_COLLECTOR_CONFIG_URI` environment variable.
+
+The `collector.yaml` file will have the following configuration:
+
+```yaml
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: "0.0.0.0:4317"
+      http:
+        endpoint: "0.0.0.0:4318"
+
+exporters:
+  logzio/traces:
+    account_token: "<<TRACING-SHIPPING-TOKEN>>"
+    region: "<<LOGZIO_ACCOUNT_REGION_CODE>>"
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      exporters: [logzio/traces]
+```
+
+{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
+{@include: ../../_include/tracing-shipping/tail-sampling.md}
+
+#### Direct the OpenTelemetry collector to the configuration file
+
+Add `OPENTELEMETRY_COLLECTOR_CONFIG_URI` variable to direct the OpenTelemetry collector to the configuration file:
+
+```shell
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --environment Variables={OPENTELEMETRY_COLLECTOR_CONFIG_URI=<<PATH_TO_YOUR_COLLECTOR.YAML>>}
+```
+
+Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Go application.
+
+Replace `<<PATH_TO_YOUR_COLLECTOR.YAML>>` with the actual path to your `collector.yaml` file.
+(If `collector.yaml` is located in the root directory of your application, use the path `/var/task/collector.yaml`.)
+
+#### Activate tracing for your Lambda function
+
+```shell
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --tracing-config Mode=Active
+```
+
+Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Go application.
+
+## Example: Manual Instrumentation for Go Lambda Functions
+
+Below is a simple example that demonstrates how to instrument a Go-based AWS Lambda function using OpenTelemetry:
+
+```go
+package main
+
+import (
+	"context"
+	"github.com/aws/aws-lambda-go/lambda"
+	"go.opentelemetry.io/otel"
+	"go.opentelemetry.io/otel/exporters/otlp/otlptrace"
+	"go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc"
+	sdktrace "go.opentelemetry.io/otel/sdk/trace"
+	"log"
+)
+
+// handler is your Lambda function handler
+func handler(ctx context.Context, event any) (string, error) {
+	log.Println("Starting function")
+	// Configure the OTLP exporter to send traces to an OpenTelemetry Collector
+	exporter, err := otlptrace.New(ctx, otlptracegrpc.NewClient(
+		otlptracegrpc.WithEndpoint("localhost:4317"), // Replace with your collector endpoint
+		otlptracegrpc.WithInsecure(),
+	))
+	if err != nil {
+		log.Fatalf("Failed to create OTLP trace exporter: %v", err)
+	}
+
+	// Set up a trace provider with a batch span processor and the OTLP exporter
+	tp := sdktrace.NewTracerProvider(
+		sdktrace.WithBatcher(exporter),
+	)
+	otel.SetTracerProvider(tp)
+	// Create a tracer
+	tracer := tp.Tracer("example-tracer")
+
+	// Start a span
+	_, span := tracer.Start(ctx, "lambda-example-span")
+	// Your Lambda logic here
+	log.Println("Handling event", span)
+	span.End()
+	tp.ForceFlush(ctx)
+	return "Event handled successfully", nil
+}
+
+func main() {
+	lambda.Start(handler)
+}
+```
+
+This example manually sets up OpenTelemetry tracing within a Go Lambda function, configuring the OTLP exporter to send traces to an OpenTelemetry Collector. Remember to replace `localhost:4317` with the actual endpoint of your collector.
+
+For additional information and best practices on instrumenting your Go applications with OpenTelemetry, refer to the [OpenTelemetry Go documentation](https://opentelemetry.io/docs/languages/go/instrumentation/#traces)
+
+</TabItem>
+</Tabs>

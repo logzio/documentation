@@ -15,136 +15,120 @@ drop_filter: []
 ---
 
 
-Ship your Azure activity logs using an automated deployment process.
-At the end of this process, you'll have configured an event hub namespace, an event hub, and 2 storage blobs.
+Automate the deployment of your Azure activity logs. By the end of this process, you will have an event hub namespace, an event hub, and two storage blobs configured.
 
-The resources set up by the automated deployment can collect data for a single Azure region.
-
-:::note
-[Project's GitHub repo](https://github.com/logzio/logzio-azure-serverless/)
-:::
-
-### Overview of the services you'll be setting up in your Azure account
-
-The automated deployment sets up a new Event Hub namespace and all the components you'll need to collect logs in one Azure region.
-
-Each automated deployment sets up these resources in your Azure environment:
-
-* 1 namespace
-* 1 Azure function
-* 1 event hub
-* 2 blobs (1 to store logs from the Azure functions, 1 for failover storage)
-
-### Determining how many automated deployments to deploy
-
-You'll need an event hub in the same region as your services.
-
-How many automated deployments you will need, depends on the number of regions involved.
-
-You'll need at least 1 automated deployment for each region where you want to collect logs.This is because Azure requires an event hub in the same region as your services. The good news is you can stream data from multiple services to the same event hub, just as long as they are in the same region.
-
-### Configuration
-
- 
-
-#### If needed, configure an automated deployment
-
-If you already set up an automated deployment in this region, you can skip to step 2.
-
-👇 Otherwise, click this button to start the automated deployment.
-
-[![Deploy to Azure](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure_blob/deploybutton-az.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flogzio%2Flogzio-azure-serverless%2Fmaster%2Fdeployments%2Fazuredeploylogs.json)
-
-
-You'll be taken to Azure, where you'll configure the resources to be deployed.
-Make sure to use the settings shown below.
-
-![Customized template](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure-event-hubs/customized-template.png)
-
-#### In the BASICS section
-
-| Parameter | Description |
-|---|---|
-| Resource group | Click **Create new**. Give a meaningful **Name**, such as "logzioEventHubIntegration", and then click **OK**. |
-| Location | Choose the same region as the Azure services that will stream data to this Event Hub. |
-
-
-#### In the SETTINGS section
-
-| Parameter | Description |
-|---|---|
-| Logs listener host | Use the listener host for your logs account region. For more information on finding your account's region, see Account region. |
-| Logs account token | Use the [token](https://app.logz.io/#/dashboard/settings/general) of the logs account you want to ship to. |
-
-
-At the bottom of the page, select **I agree to the terms and conditions stated above**, and then click **Purchase** to deploy.
-
-Deployment can take a few minutes.
-
-#### _(Optional)_ Add failsafes for shipping timeouts
-
-You can configure Azure to back up your logs to Azure Blob Storage.
-So if the connection to Logz.io times out or an error occurs, you'll still have a backup of any dropped data.
-
-To do this, expand your function app's left menu, and then click **Integrate**.
-
-![New Blob output](https://dytvr9ot2sszz.cloudfront.net/logz-docs/azure-event-hubs/azure-blob-storage-outputblob.png)
-
-In the top of the triggers panel, click **Azure Blob Storage (outputBlob)**.
-The _Azure Blob Storage output_ settings are displayed.
-
-Leave **Blob parameter name** blank.
-Enter the **Path** for the Azure blob you're sending dropped logs to, and then click **Save**.
-
+The deployed resources will collect data from a single Azure region.
 
 :::note
-For more information on Azure Blob output binding, see [Azure Blob storage bindings for Azure Functions > Output](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob#output) from Microsoft.
+[Project's GitHub repo](https://github.com/logzio/azure-serverless/)
 :::
- 
 
-#### Stream data to the new event hubs
+## Configuration via Azure ARM template
 
-So far in this process, you've deployed an event hub and a function app.
+### 1. Deploy the Logz.io template 👇
 
-Now you'll need to configure Azure to stream activity logs to the event hub you just deployed.
-When data comes into the event hub, the function app will forward that data to Logz.io.
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flogzio%2Fazure-serverless%2Fmaster%2Fdeployments%2Fazuredeploylogs.json)
 
-In the search bar, type "Activity", and then click **Activity log**.
-This brings you to the _Activity log_ page.
-
-Navigate to the **Diagnostics settings** page (You can search for it).
-Choose a resource from the list of resources, and select **Turn on diagnostics settings** to open the _Diagnostics settings_ panel for that resource.
-
-* Give your diagnostic settings a **Name**.
-* Select **Stream to an event hub**. Next, select **Configure** to open the _Select event hub_ panel.
-
-Choose your event hub:
-
-* **Event hub namespace**: Choose the namespace that starts with **LogzioNS** (LogzioNS6nvkqdcci10p, for example)
-* **Event hub name**: Choose **insights-operational-logs**
-* **Event hub policy name**: Choose **LogzioSharedAccessKey**
-* Click **OK** to return to Diagnostics settings.
-
-In the _log_ section, select the logs you want to stream, and then click **Save**.
-The selected logs will now stream to the event hub.
-
-#### Check Logz.io for your logs
-
-Give your logs some time to get from your system to ours, and then open Open Search Dashboards.
-If everything went according to plan, you should see logs with the type `eventHub` in Open Search Dashboards.
-
-If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
-
- 
-### Migration to Log Analytics Workspace-Based Model
-
-For users currently on the Classic Application Insights, it's essential to migrate to the Log Analytics workspace-based model. To do this:
-
-1. Navigate to your Application Insights resource that hasn't been migrated yet.
-2. Click on the notification that states "Classic Application Insights is deprecated."
-3. A "Migrate to Workspace-based" dialog will appear. Here, confirm your preferred Log Analytics Workspace and click 'Apply'.
+This deployment will create the following services:
+* Serverless Function App (Python-based)
+* Event Hubs Namespace
+* Event Hubs Instance
+* Storage account: 
+  - Function's logs containers
+  - Failed shipments logs container
+* App Service Plan
+* Log Analytics Workspace
+* Application Insights
 
 
-:::caution important
-Be aware that once you migrate to a workspace-based model, the process cannot be reversed.
-:::
+### 2. Configure the template
+
+Use these settings when configuring the template:
+
+| Parameter       | Description                                                             |
+|-----------------|-------------------------------------------------------------------------|
+| Resource group* | Create a new resource group or select an existing one.                  |
+| Region*         | Select the region closest to your Azure services.                       |
+| LogzioURL*      | Use the listener URL specific to your Logz.io account region.           |
+| LogzioToken*    | Your Logz.io logs shipping token.                                       |
+| ThreadCount     | Number of threads for the Function App (default: 4).                    |
+| bufferSize      | Maximum number of messages to accumulate before sending (default: 100). |
+| intervalTime    | Interval time for sending logs in milliseconds (default: 10000).        |
+| maxTries        | The maximum number of retries for the backoff mechanism (default: 3).   |
+| logType         | The type of the logs being processed (default: eventHub).               |
+
+*Required fields.
+
+At the bottom of the page, click **Review + Create**, then select **Create** to deploy.
+
+Deployment may take a few minutes.
+
+### 3. Stream Azure service data
+
+Once deployment is complete, configure your Azure services to stream logs to the newly created Event Hub. For each service:
+
+1. Create diagnostic settings.
+2. Under **Event hub policy name**, select the appropriate policy (e.g., `RootManageSharedAccessKey`).
+
+For more details, see [Microsoft's documentation](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs).
+
+
+### 4. Check Logz.io for your data
+
+Give your data some time to be processed, and then open Logz.io.
+
+If everything went according to plan, you should see logs with the type `eventHub` in Explore.
+
+## Backup for unshipped logs
+
+The deployment includes a backup mechanism for logs that fail to ship to Logz.io. By default, these logs are stored in the **failedlogbackup** blob container, but this can be customized to a different container name of your choice during the setup process.
+
+## Post-deployment configuration
+
+To modify configuration after deployment, go to your Function App's **Configuration** tab. You can adjust settings such as `LogzioURL`, `LogzioToken`, `bufferSize`, and more.
+
+## Configuration via Terraform
+
+You can use Terraform as an alternative to the Azure Template to set up your log shipping environment. The Terraform configuration files are available [here](https://github.com/logzio/azure-serverless/tree/master/deployments). Follow these steps to deploy the integration using Terraform:
+
+### Prerequisites
+- Terraform installed on your local machine.
+- Azure CLI installed and configured with your Azure account credentials.
+
+### Deploying with Terraform
+
+1. **Download the Terraform Configuration**: Use curl to download only the azuredeploylogs.tf and variables.tf files from the GitHub repository.
+
+   ```bash
+    curl -O https://raw.githubusercontent.com/logzio/azure-serverless/master/deployments/azuredeploylogs.tf \
+   &&
+   curl -O https://raw.githubusercontent.com/logzio/azure-serverless/master/deployments/variables.tf
+   ```
+
+2. **Create a `.tfvars` File**: Create a `terraform.tfvars` file in the same folder to specify your configurations, such as your Logz.io token.
+    
+    ```hcl
+    logzio_url = "https://<<LISTENER-HOST>>:8071"
+    logzio_token = "<<LOG-SHIPPING-TOKEN>>"
+    thread_count = 4
+    buffer_size = 100
+    interval_time = 10000
+    max_tries = 3
+    log_type = "eventHub"
+    ```
+   
+3. **Initialize Terraform**: Run the Terraform initialization to install the necessary plugins.
+   
+   ```bash
+    terraform init
+   ```
+
+4. **Apply Terraform Configuration**: Deploy the infrastructure using `terraform apply`. You will be prompted to review the proposed changes before applying the configuration.
+   
+   ```bash
+    terraform apply
+   ```
+    Type **yes** when prompted to confirm the deployment.
+    
+5. **Verify Deployment**: After successful application of the Terraform configuration, your Azure services will be set up and ready for log shipping.
+

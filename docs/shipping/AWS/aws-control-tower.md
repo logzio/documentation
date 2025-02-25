@@ -29,14 +29,14 @@ AWS Control Tower is a tool to control a top-level summary of policies applied t
 
 ## Deploy an S3 Hook Lambda function
 
-### Create Stack in the relevant region
+### Create stack in the relevant region
 
 :::note
 The stacks must be deployed in the same region as the S3 buckets.
 :::
  
 
-To deploy this project, click the button that matches the region you wish to deploy your Stack to:
+To deploy this project, click the button that matches the region you wish to deploy your stack to:
 
 | Region           | Deployment                                                                                                                                                                                                                                                                                                                       |
 |------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -106,7 +106,7 @@ The stacks must be deployed in the same region as the S3 buckets.
  
 
 
-To deploy this project, click the button that matches the region you wish to deploy your Stack to:
+To deploy this project, click the button that matches the region you wish to deploy your stack to:
 
 | Region           | Deployment                                                                                                                                                                                                                                                                                                                                           |
 |------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -145,7 +145,7 @@ It can take a few minutes after the stack creation for EventBridge rule to be tr
  
 
 :::caution Important
-If want to delete the S3 Hook Stack - you'll need to detach the policy "LambdaAccessBuckets" first.
+To delete the S3 Hook Stack - you'll need to detach the policy "LambdaAccessBuckets" first.
 :::
  
 

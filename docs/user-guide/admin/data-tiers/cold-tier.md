@@ -1,9 +1,10 @@
 ---
-sidebar_position: 11
+sidebar_position: 3
 title: Cold Tier
 description: Search your archived data before re-ingesting it with Cold Tier
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [logz.io, cold tier, storage, archive, opensearch dashboards, log analysis, observability]
+slug: /user-guide/log-management/cold-tier/
 ---
 
 

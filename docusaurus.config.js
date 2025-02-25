@@ -16,6 +16,8 @@ const config = {
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
+  trailingSlash: true,
+
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'facebook', // Usually your GitHub org/user name.
@@ -189,6 +191,10 @@ const config = {
               {
                 label: 'Videos',
                 href: 'https://logz.io/learn/video/',
+              },
+              {
+                label: 'Support Help Center',
+                href: 'https://logzio-support.atlassian.net/servicedesk/customer/portals',
               },
               {
                 label: 'Notices for 3rd Party Software included with the Logz.io Platform',

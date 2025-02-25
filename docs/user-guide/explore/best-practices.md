@@ -1,5 +1,5 @@
 ---
-sidebar_position: 6
+sidebar_position: 9
 title: Explore Best Practices
 description: Best practices in Log management and Explore
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
@@ -8,111 +8,92 @@ keywords: [logz.io, explore, dashboard, log analysis, observability]
 
 Once you've sent your data to Logz.io, you can search and query your logs to identify, debug, and monitor issues as quickly and effectively as possible.
 
-Explore supports a few query methods, including:
+## Lucene
+
+Explore supports an enhanced version of Lucene, offering autocomplete suggestions and syntax highlighting to help you build faster, more accurate queries.
+
+As you type, Lucene displays available fields, variables, and operators, making it easier to construct queries. If there's an error in your syntax, hover over the error indicator to get feedback that guides you toward a solution and a valid search.
+
+For example, you can quickly search for logs where `logSize` exceeds a specific value or find messages containing certain words.
+
+![numeric filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/logsize-bigger-feb24.png)
+
+
+To perform range-based searches, the field must be mapped as a numeric value (e.g., long, float, double). Use the following syntax to find values within a range.
+
+For example, to find all logs where logSize is between 1200 and 1500:
+
+`LogSize:[1200 TO 1500]`
+
+To refine your search further, combine multiple conditions. Find logs where logSize is between 2000 and 3000 and the eventType is MODIFIED:
+
+`LogSize:[2000 TO 3000] AND eventType:MODIFIED`
+
+Find logs where logSize is between 2000 and 3000 and the logzio-signature is in the range 700000000 to 710000000:
+
+`LogSize:[2000 TO 3000] AND logzio-signature:[700000000 TO 710000000]`
+
+To exclude specific values from your search, use the NOT operator. For example, to find logs where `logSize` is between 2000 and 3000, but exclude logs from `agent-k8s`:
+
+`LogSize:[2000 TO 3000] AND type NOT "agent-k8s"`
+
+## Keyboard Shortcuts
+
+Explore includes several keyboard shortcuts to help streamline your workflow:
+
+* Control + Enter – Submits the query, even if the suggestion menu is open.
+* Shift + Enter – Creates a new line to organize your Lucene query more clearly.
+* Command + D – Highlights the next occurrence of the selected word.
+
+Explore uses the same editor as VS Code, so most of its shortcuts will work here. [View the full list here](https://code.visualstudio.com/docs/editor/keybindings#_keyboard-shortcuts-reference).
+
+Looking for a shortcut that isn’t available? [Let us know](mailto:help@logz.io), and we’ll consider adding it!
 
 
 ## Simple Search
 
-Logz.io offers an intuitive and easy way to build your query. You can build queries easily by selecting fields, conditions, and values.
+Simple Search offers an autocomplete feature to help you build queries by selecting fields, conditions, and values—similar to Lucene but with a more streamlined approach.
 
-Click the search bar or type to see available fields, add operators, and choose values. To use custom values, type the name and click the + sign. Press Enter to apply the query or Tab to add another condition. 
-
-Free-text searches automatically convert into Lucene queries.
-
-## Lucene 
-
-Logz.io supports Lucene for more advanced queries.
-
-Search for free text by typing the text string you want to find; for example, `error` will return all words containing this string, and using quotation marks, `"error"`, will return only the specific word you're searching for.
-
-![See error](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/basic-search-search-word.png)
-
-Search for a value in a specific field:
-
-`log_level:ERROR`
-
-Use the boolean operators AND, OR, and NOT to create more complex searches. For example, to search for a specific status that doesn't contain a certain word:
-
-`log_level:ERROR AND Kubernetes`
-
-To perform **range-related searches**, fields must be mapped as numbers (long, float, double, etc.). Then, you can use the following syntax. For example, you can use it to find all status codes between 400-499:
-
-`LogSize:[2000 TO 3000]`
-
-To make your search more complex, you can find status codes 400-499 with the extension php:
-
-`LogSize:[2000 TO 3000] AND eventType:MODIFIED`
-
-Or, find status codes 400-499 with the extension php or html:
-
-`LogSize:[2000 TO 3000] AND logzio-signature:[700000000 TO 710000000]`
-
-To exclude a term from your search, you can use the following syntax:
-
-`LogSize:[2000 TO 3000] AND type NOT (name:"agent-k8s")`
-
+Click the search bar or start typing to see available fields, parameters, and conditions. To add a custom value, type it in and click the + sign. You can also enter free text, which will automatically convert into a Lucene query.
 
 ## Filters
 
-Use the filters to refine your search, whether you're using Simple or Lucene. Open string fields to view its related values, and open numeric fields to choose a range. For example, `LogSize` lets you select the size of the logs you're interested in:
+Use the side panel to refine your search by selecting specific accounts and exploring all available fields in your logs.
 
-![numeric filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/logsize-explore-aug27.png)
+Click a field to view its values:
 
+* **String fields** display unique values along with a percentage indicating how frequently each appears.
+* **Numeric fields** allow you to set a range, letting you filter logs based on size or other numerical values.
 
+For example, `LogSize` lets you select the size of the logs you're interested in:
 
-## Regex in Lucene
-
-:::caution
-Using regex can overload your system and cause performance issues in your account. If regex is necessary, it is best to apply filters and use shorter timeframes.
-:::
-
-Logz.io uses Apache Lucene's regular expression engine to parse regex queries, supporting regexp and query_string.
-
-While Lucene's regex supports all Unicode characters, several characters are reserved as operators and cannot be searched on their own:
-
-`. ? + * | { } [ ] ( ) " \`
-
-Depending on the optional operators enabled, some additional characters may also be reserved. These characters are:
-
-`# @ & < >  ~`
-
-However, you can still use reserved characters by applying a backslash or double-quotes. For example:
-
-`\*` will render as a * sign.
-
-`\#` will render as a # sign.
-
-`\()` will render as brackets.
+![numeric filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-filters-feb24.png)
 
 
-To use Regex in a search query in OpenSearch, you'll need to use the following template:
+## Visualize
 
-`fieldName:/.*value.*/`.
-
-For example, you have a field called `sentence` that holds the following line: "The quick brown fox jumps over the lazy dog".
-
-To find one of the values in the field, such as `fox`, you'll need to use the following query:
-
-`sentence:/.*fox.*/`.
+The Visualize button provides additional ways to explore your data. Use it to switch to a **group-by** view, **compare data** to a previous time frame, adjust **time intervals**, and add **deployment markers** to track trends after a deployment.
 
 
 ## Edit log table view
 
 You can add additional columns to your logs table view.
 
-Find the field you'd like to add, hover over it and click the **Toggle column in table** button.
+Find the field you'd like to add, hover over it and click the **Toggle column in table** button (table icon).
 
-![Add field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/toggle-in-table-sep9.png)
+![Add field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/toggle-explore-oct21.png)
 
 Once added, you can drag it to reposition it, or click the **X** to remove it.
 
-Save your query to quickly access it whenever needed. The query is saved while the results change according to your chosen relevant time frame.
+## Save Searches
 
-![Save field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/saved-search-sep9.png)
+Save your current query or filtered view to quickly access it whenever needed. Click on the Save icon > Save Search and name your search. The query is saved while the results change according to your chosen time frame. 
+
+![Save field](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/saved-search/save-search-oct21.png)
 
 
 ## Select logs' time frame
 
-The default period to display results is 15 minutes. You can edit this time frame by clicking on the time picker. Choose an option from the quick menu, or switch to the absolute view to select a specific time frame. In this option, you can type the time frame you want to view. 
+The default period to display results is 15 minutes. You can edit this time frame by clicking on the time picker. Choose an option from the quick menu, or switch to the absolute view to select a specific time frame. You can type the time frame you want to view using this option.
 
-![Time frame options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/time-picker-sep9.png)
+![Time frame options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/adjust-time-explore-feb24.png)

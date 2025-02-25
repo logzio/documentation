@@ -1,9 +1,8 @@
 {
   "label": "Observability IQ",
-  "position": 7,
+  "position": 8,
   "link": {
     "type": "generated-index",
-    "description": "Observability IQ is an AI-powered, chat-based interface that lets you engage in a dynamic conversation with your data."
-  },
-  className: 'section-title.tutorial'
+    "description": "Observability IQ is Logz.io’s suite of AI-powered tools, including the AI Agent — a chat-based interface that enables dynamic conversations with your data."
+  }
 }

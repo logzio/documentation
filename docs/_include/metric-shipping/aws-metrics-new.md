@@ -61,9 +61,9 @@ configured the minimum required IAM permissions as follows:
    - `cloudformation:ListStackResources`
 
 
-**2. Create Stack in the relevant region**
+**2. Create stack in the relevant region**
 
-To deploy this project, click the button that matches the region you wish to deploy your Stack to:
+To deploy this project, click the button that matches the region you wish to deploy your stack to:
 
 | Region           | Deployment                                                                                                                                                                                                                                                                                                                                                                                 |
 |------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

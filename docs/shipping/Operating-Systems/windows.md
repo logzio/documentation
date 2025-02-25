@@ -31,7 +31,7 @@ New-Item -Path $env:APPDATA\LogzioAgent -ItemType Directory -Force
 **2. Download OpenTelemetry tar.gz:**
 
 ```shell
-Invoke-WebRequest -Uri "https://github.com/logzio/otel-collector-distro/releases/download/v0.82.0/otelcol-logzio-windows_amd64.zip" -OutFile C:\Users\<<USERNAME>>\Downloads\otelcol-logzio.zip
+Invoke-WebRequest -Uri "https://github.com/logzio/otel-collector-distro/releases/download/v0.95.0/otelcol-logzio-windows_amd64.zip" -OutFile C:\Users\<<USERNAME>>\Downloads\otelcol-logzio.zip
 ```
  
 **3. Extract the OpenTelemetry binary:**
@@ -103,7 +103,7 @@ exporters:
   logging:
   logzio/logs:
     account_token: <<LOG-SHIPPING-TOKEN>>
-    region: us
+    region: <<LOGZIO_ACCOUNT_REGION_CODE>> # Default is US
     headers:
       user-agent: logzio-windows-logs
   prometheusremotewrite:
@@ -134,7 +134,7 @@ service:
       exporters: [prometheusremotewrite]
   telemetry:
     logs:
-      level: "debug"
+      level: "info"
     metrics:
       address: localhost:8888
 ```

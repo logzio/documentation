@@ -4,6 +4,7 @@ title: Configure Azure Native Integration
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Step by step guide to configuring Azure native integration
 keywords: [Azure, Azure native integration, ship Azure data, Azure logs, Azure metrics, Azure tracing, Azure Logz.io]
+slug: /telemetry-collector/azure-native-integration/
 ---
 
 

@@ -4,6 +4,7 @@ title: Logz.io API Fetcher Configuration Guide
 description: This guide outlines the steps for configuring the Logz.io API Fetcher to fetch and send data to Logz.io. 
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [logz.io, opensearch dashboards, log analysis, observability]
+slug: /log-management/api-fetcher/
 ---
 
 The Logz.io API Fetcher supports both auth and OAuth APIs and includes specific implementations for Azure Graph, Office365 Message Trace reports, Cloudflare and 1Password.
@@ -47,7 +48,7 @@ apis:
     type: cloudflare
     cloudflare_account_id: <<CLOUDFLARE_ACCOUNT_ID>>
     cloudflare_bearer_token: <<CLOUDFLARE_BEARER_TOKEN>>
-    url: https://api.cloudflare.com/client/v4/accounts/{account_id}/alerting/v3/history
+    url: https://api.cloudflare.com/client/v4/accounts/alerting/v3/history
     next_url: https://api.cloudflare.com/client/v4/accounts/{account_id}/alerting/v3/history?since={res.result.[0].sent}
     days_back_fetch: 7
     scrape_interval: 5
@@ -86,6 +87,10 @@ apis:
         condition: empty
     response_data_path: result
 ```
+
+:::note
+You can customize the endpoints to collect data by adding or modifying the configurations under the `apis` section. Refer to the relevant API documentation for more details.
+:::
 
 ## Configuration
 Create a local config file `config.yaml`.

@@ -10,8 +10,8 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/java
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: []
-metrics_alerts: []
+metrics_dashboards: ['1G48F1M2FrS9tBtZ4P8jP6','fTT01YApCLTpcVRWXOrrM']
+metrics_alerts: ['7nQq9znwWt3g7ZCzV5mIa9','3TgIowvRtFJR0maxLqiYOw']
 drop_filter: []
 toc_min_heading_level: 2
 toc_max_heading_level: 3
@@ -147,6 +147,7 @@ For more details, see the [Log4j documentation](https://logging.apache.org/log4j
 | **connectTimeoutMs**       | *10 * 1000*                                    | Connection timeout during log shipment, in milliseconds. | Required |
 | **addHostname**       | *false*                                    | If true, adds a field named `hostname` with the machine's hostname. If there's no defined hostname, the field won't be added. | Required |
 | **additionalFields**       | *None*                                    | Allows to add additional fields to the JSON message sent. The format is "fieldName1=fieldValue1;fieldName2=fieldValue2". Optionally, inject an environment variable value using this format: "fieldName1=fieldValue1;fieldName2=$ENV_VAR_NAME". The environment variable should be the only value. If the environment variable can't be resolved, the field will be omitted. | Optional |
+| **addOpentelemetryContext** | Optional. Add `trace_id`, `span_id`, and `service_name` fields to logs when OpenTelemetry context is available. | `true` |
 | **debug**       | *false*                                    | Boolean. Set to `true` to print debug messages to stdout. | Required |
 | **compressRequests**       | *false*                                    | Boolean. If `true`, logs are compressed in gzip format before sending. If `false`, logs are sent uncompressed. | Required |
 | **exceedMaxSizeAction**       | *"cut"*                                    | String. Use "cut" to truncate the message or "drop" to discard oversized logs. Logs exceeding the maximum size after truncation will be dropped. | Required |
@@ -260,6 +261,30 @@ Which produces the following output:
 }
 ```
 
+### Add OpenTelemetry context
+
+If you're sending traces with OpenTelemetry instrumentation (auto or manual), you can correlate your logs with the trace context. This ensures your logs include trace data, such as service name, `span_id` and `trace_id` (version >= `2.2.0`). 
+
+This feature is enabled by default, To disable it, set the `addOpentelemetryContext` option in your configuration to `false`, like in this example:
+
+```xml
+    <Appenders>
+    <LogzioAppender name="Logzio">
+        <logzioToken>your-logzio-personal-token-from-settings</logzioToken>
+        <logzioType>myAwesomeType</logzioType>
+        <logzioUrl>https://listener.logz.io:8071</logzioUrl>
+        <addOpentelemetryContext>false</addOpentelemetryContext>
+    </LogzioAppender>
+
+</Appenders>
+<Loggers>
+<Root level="info">
+    <AppenderRef ref="Logzio"/>
+</Root>
+</Loggers>
+```
+
+
 </TabItem>
   <TabItem value="Logzio-Logback-Appender" label="Logzio-Logback-Appender">
 
@@ -340,7 +365,7 @@ For more details, see the [Logback documentation](https://logback.qos.ch/manual/
 </configuration>
 ```
 
-To output `debug` messages, include the parameter into the code:
+To output `debug` messages, add the parameter into the code:
 
 
 ```xml
@@ -376,6 +401,7 @@ To output `debug` messages, include the parameter into the code:
 | logzioType | The [log type](https://docs.logz.io/docs/user-guide/data-hub/log-parsing/default-parsing/#built-in-log-types), shipped as `type` field. Can't contain spaces. | `java` |
 | addHostname | If true, adds a field named `hostname` with the machine's hostname. If there's no defined hostname, the field won't be added.	 | `false` |
 | additionalFields | Adds fields to the JSON message output, formatted as `field1=value1;field2=value2`. Use `$` to inject an environment variable value, such as `field2=$VAR_NAME`. The environment variable should be the only value in the key-value pair. If the environment variable can't be resolved, the field is omitted. | N/A |
+| addOpentelemetryContext | Optional. Add `trace_id`, `span_id`, and `service_name` fields to logs when OpenTelemetry context is available. | `true` |
 | bufferDir | Filepath where the appender stores the buffer. | `System.getProperty("java.io.tmpdir")` |
 | compressRequests | Boolean. If `true`, logs are compressed in gzip format before sending. If `false`, logs are sent uncompressed. | `false` |
 | connectTimeout  | Connection timeout during log shipment, in milliseconds. | `10 * 1000` |
@@ -465,6 +491,28 @@ Which produces this output:
   "Your log message follows": "..."
 }
 ```
+
+### Add OpenTelemetry context
+
+If you're sending traces with OpenTelemetry instrumentation (auto or manual), you can correlate your logs with the trace context. This ensures your logs include trace data, such as service name, `span_id` and `trace_id` (version >= `5.2.0`).
+
+This feature is enabled by default, To disable it, set the `addOpentelemetryContext` option in your configuration to `false`, like in this example:
+
+```xml
+<configuration>
+   <appender name="LogzioLogbackAppender" class="io.logz.logback.LogzioLogbackAppender">
+      <token>yourlogziopersonaltokenfromsettings</token>
+      <logzioType>myAwesomeType</logzioType>
+      <logzioUrl>https://listener.logz.io:8071</logzioUrl>
+      <addOpentelemetryContext>false</addOpentelemetryContext>
+   </appender>
+   <root level="debug">
+      <!-- IMPORTANT: This line is required -->
+      <appender-ref ref="LogzioLogbackAppender"/>
+   </root>
+</configuration>
+```
+
   
 #### Troubleshooting
   
@@ -503,38 +551,24 @@ If the log appender does not ship logs, add `<inMemoryQueue>true</inMemoryQueue>
 
 This integration uses the OpenTelemetry logging exporter to send logs to Logz.io via the OpenTelemetry Protocol (OTLP) listener.
 
-### Prerequisites
+#### Prerequisites
 
 - Java 8+
 
 :::note
-If you need an example aplication to test this integration, please refer to our [Java OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/java/logs).
+If you need an example application to test this integration, please refer to our [Java OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/java/logs).
 :::
 
 ### Configure the instrumentation
 
+:::note
+The below guide is using LogBack appender. OpenTelemetry also support [Log4J Appender](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/main/instrumentation/log4j/log4j-appender-2.17/library/README.md).
+:::
+
+
 Add the following dependencies to `pom.xml`:
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-
-  <groupId>com.logzio.otel</groupId>
-  <artifactId>otel-log</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <name>otel-log</name>
-  <packaging>jar</packaging>
-
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.release>17</maven.compiler.release>
-    <spring-boot.version>3.0.6</spring-boot.version>
-  </properties>
-
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -577,18 +611,6 @@ Add the following dependencies to `pom.xml`:
       <artifactId>opentelemetry-exporter-otlp-logs</artifactId>
     </dependency>
 
-    <!-- Spring Boot dependencies -->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter</artifactId>
-      <version>${spring-boot.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-      <version>${spring-boot.version}</version>
-    </dependency>
-
     <!-- Logback dependencies -->
     <dependency>
       <groupId>ch.qos.logback</groupId>
@@ -613,43 +635,6 @@ Add the following dependencies to `pom.xml`:
       <version>1.25.1-alpha</version>
     </dependency>
   </dependencies>
-
-  <build>
-    <plugins>
-      <!-- Spring Boot Maven plugin -->
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-        <version>${spring-boot.version}</version>
-      </plugin>
-      
-      <plugin>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <version>3.5.0</version>
-        <configuration>
-          <descriptorRefs>
-            <descriptorRef>jar-with-dependencies</descriptorRef>
-          </descriptorRefs>
-          <archive>
-            <manifest>
-              <mainClass>com.logzio.otel.DiceApplication</mainClass>
-            </manifest>
-          </archive>
-        </configuration>
-        <executions>
-          <execution>
-            <id>make-assembly</id>
-            <phase>package</phase>
-            <goals>
-              <goal>single</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
-</project>
-
 ```
 
 
@@ -672,7 +657,7 @@ import io.opentelemetry.api.common.Attributes;
 public class OpenTelemetryConfig {
 
     private static final String DEFAULT_ENDPOINT = "https://otlp-listener.logz.io/v1/logs";
-    private static final String LOGZ_IO_TOKEN = "<LOG-SHIPPING-TOKEN>";
+    private static final String LOGZ_IO_TOKEN = "<<LOG-SHIPPING-TOKEN>>";
     private static final String SERVICE_NAME = "java-otlp";
 
     public void initializeOpenTelemetry() {
@@ -711,7 +696,7 @@ public class OpenTelemetryConfig {
 
 Update the `listener.logz.io` part in `https://otlp-listener.logz.io/v1/logs` with the URL for [your hosting region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region).
 
-#### Add the Logback
+#### Configure Logback
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1054,6 +1039,13 @@ Run your application to start sending metrics to Logz.io. Give it some time to r
 
 ## Traces
 
+<Tabs>
+
+<TabItem value="traces-opentelemetry" label="OpenTelemetry" default>
+
+
+
+
 
 Deploy this integration for automatic instrumentation of your Java application using OpenTelemetry. The Java agent captures spans and forwards them to the collector, which exports data to your Logz.io account.
 
@@ -1118,10 +1110,8 @@ Run the following command from your Java application's directory:
 
 ```shell
 java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
-     -Dotel.traces.exporter=otlp \
      -Dotel.metrics.exporter=none \
      -Dotel.resource.attributes=service.name=<YOUR-SERVICE-NAME> \
-     -Dotel.exporter.otlp.endpoint=http://localhost:4317 \
      -jar target/*.jar
 ```
 
@@ -1153,3 +1143,433 @@ Supported values for `otel.traces.sampler` are
 ### Viewing Traces in Logz.io
 
 Give your traces time to process, after which they'll be available in your [Tracing](https://app.logz.io/#/dashboard/jaeger) dashboard.
+
+</TabItem>
+<TabItem value="traces-ecs-otel" label="ECS with OpenTelemetry" default>
+
+
+
+This guide provides an overview of deploying your Java application on Amazon ECS, using OpenTelemetry to collect and send tracing data to Logz.io. It offers a step-by-step process for setting up OpenTelemetry instrumentation and deploying both the application and OpenTelemetry Collector sidecar in an ECS environment.
+
+#### Prerequisites
+
+Before you begin, ensure you have the following prerequisites in place:
+
+- AWS CLI configured with access to your AWS account.
+- Docker installed for building images.
+- AWS IAM role with sufficient permissions to create and manage ECS resources.
+- Amazon ECR repository for storing the Docker images.
+- Java JDK 11+ installed locally for development and testing.
+- Maven or Gradle for building the Java project.
+
+:::note
+For a complete example, refer to [this repo](https://github.com/logzio/opentelemetry-examples/tree/main/java/traces/ecs-service).
+:::
+
+#### Architecture Overview
+
+The deployment will involve two main components:
+
+1. Java Application Container 
+
+    A container running your Java application, instrumented with OpenTelemetry to capture traces.
+
+2. OpenTelemetry Collector Sidecar 
+    A sidecar container that receives telemetry data from the application, processes it, and exports it to Logz.io.
+
+The architecture is structured as follows:
+
+```
+project-root/
+├── java-app/
+│   ├── src/                             # Java application source code
+│   ├── pom.xml                          # Maven build configuration
+│   ├── Dockerfile                       # Dockerfile for Java application
+│   └── opentelemetry-javaagent.jar      # OpenTelemetry Java agent for instrumentation
+├── ecs/
+│   └── task-definition.json         # ECS task definition file
+└── otel-collector    
+     ├── collector-config.yaml        # OpenTelemetry Collector configuration
+     └── Dockerfile                   # Dockerfile for the Collector
+```
+
+#### Steps to Deploy the Application
+
+1. Project Structure Setup
+
+    Ensure your project structure follows the architecture outline. You should have a directory for your Java application and a separate directory for the OpenTelemetry Collector.
+
+2. Set Up OpenTelemetry Instrumentation
+
+    Add OpenTelemetry instrumentation to your Java application by using the OpenTelemetry Java agent. This agent provides automatic instrumentation for common frameworks and libraries.
+
+Ensure you download the latest version of the `opentelemetry-javaagent.jar` and place it in your project directory.
+
+Add the following dependencies in your `pom.xml` (or equivalent Gradle build file) to support OpenTelemetry instrumentation:
+
+```xml
+    <dependencies>
+        <!-- Spring Boot Web Starter -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- Optional: For health checks -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+    </dependencies>
+```
+
+#### Integrating OpenTelemetry Java Agent
+
+Include the Java agent when running your application to enable tracing.
+see [here](https://opentelemetry.io/docs/zero-code/java/agent/getting-started/) for more details
+
+1. Download the OpenTelemetry Java Agent
+
+    Get the latest version of `opentelemetry-javaagent.jar` from the [OpenTelemetry Java Agent GitHub releases](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases).
+
+2. Add the Agent to Your Application
+
+    Place the `opentelemetry-javaagent.jar` in your project as mentioned in the atchitectre structure above.
+
+3. Modify the Application's Startup Command
+
+    Include the `-javaagent` flag when starting your Java application to load the OpenTelemetry agent:
+
+    ```shell
+    java -javaagent:/path/to/opentelemetry-javaagent.jar -jar your-app.jar
+    ```
+
+4. Set Environment Variables for OpenTelemetry
+
+    Use environment variables to configure the agent, such as the OTLP endpoint and resource attributes:
+    
+    ```shell
+    export OTEL_TRACES_SAMPLER=always_on
+    export OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318
+    export OTEL_RESOURCE_ATTRIBUTES="service.name=java-app"
+    ```
+
+#### Dockerize Your Application
+
+Create a Dockerfile to build a Docker image of your Java application. Below is the essential Dockerfile to get started:
+
+#### Dockerfile
+
+```dockerfile
+# Use a Maven image to build the application
+FROM maven:3.8.6-openjdk-11-slim AS builder
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the project files
+COPY pom.xml .
+COPY src ./src
+
+# Package the application
+RUN mvn clean package -DskipTests
+
+# Use a lightweight OpenJDK image for the runtime
+FROM openjdk:11-jre-slim
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the packaged application and the OpenTelemetry agent
+COPY --from=builder /app/target/java-app-0.0.1-SNAPSHOT.jar app.jar
+COPY opentelemetry-javaagent.jar opentelemetry-javaagent.jar
+
+# Expose the application port
+EXPOSE 8080
+
+# Set environment variables for OpenTelemetry
+ENV OTEL_TRACES_SAMPLER=always_on
+ENV OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:4318"
+ENV OTEL_RESOURCE_ATTRIBUTES="service.name=java-app"
+
+# Start the application with the OpenTelemetry Java agent
+ENTRYPOINT ["java", "-javaagent:/app/opentelemetry-javaagent.jar", "-jar", "app.jar"]
+
+```
+
+#### Configure the OpenTelemetry Collector
+
+The OpenTelemetry Collector receives traces from the application and exports them to Logz.io. Create a `collector-config.yaml` file to define how the Collector should handle traces.
+
+collector-config.yaml
+
+{@include: ../../_include/tracing-shipping/collector-config.md}
+
+#### Build Docker Images
+
+Build Docker images for both the Java application and the OpenTelemetry Collector:
+
+```shell
+# Build Java application image
+cd java-app/
+docker build --platform linux/amd64 -t java-app:latest .
+
+# Build OpenTelemetry Collector image
+cd ../otel-collector/
+docker build --platform linux/amd64 -t otel-collector:latest .
+```
+#### Push Docker Images to Amazon ECR
+
+Push both images to your Amazon ECR repository:
+
+```shell
+# Authenticate Docker to Amazon ECR
+aws ecr get-login-password --region <aws-region> | docker login --username AWS --password-stdin <aws_account_id>.dkr.ecr.<region>.amazonaws.com
+
+# Tag and push images
+docker tag java-app:latest <aws_account_id>.dkr.ecr.<region>.amazonaws.com/java-app:latest
+docker push <aws_account_id>.dkr.ecr.<region>.amazonaws.com/java-app:latest
+
+docker tag otel-collector:latest <aws_account_id>.dkr.ecr.<region>.amazonaws.com/otel-collector:latest
+docker push <aws_account_id>.dkr.ecr.<region>.amazonaws.com/otel-collector:latest
+```
+
+##### Log Group Creation: 
+
+Create log groups for your Java application and OpenTelemetry Collector in CloudWatch.
+
+```shell
+aws logs create-log-group --log-group-name /ecs/java-app
+aws logs create-log-group --log-group-name /ecs/otel-collector
+```
+
+#### Define ECS Task
+
+Create a task definition (`task-definition.json`) for ECS that defines both the Java application container and the OpenTelemetry Collector container.
+
+#### task-definition.json
+
+```json
+{
+  "family": "java-app-task",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::<aws_account_id>:role/ecsTaskExecutionRole",
+  "containerDefinitions": [
+    {
+      "name": "java-app",
+      "image": "<aws_account_id>.dkr.ecr.<region>.amazonaws.com/java-app:latest",
+      "cpu": 128,
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,      
+      "environment": [],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/java-app",
+          "awslogs-region": "<aws-region>",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    },
+    {
+      "name": "otel-collector",
+      "image": "<aws_account_id>.dkr.ecr.<aws-region>.amazonaws.com/otel-collector:latest",
+      "cpu": 128,      
+      "essential": false,
+      "command": ["--config=/etc/collector-config.yaml"],
+      "environment": [
+        {
+          "name": "LOGZIO_TRACING_TOKEN",
+          "value": "<logzio_tracing_token>"
+        },
+        {
+          "name": "LOGZIO_REGION",
+          "value": "<logzio_region>"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/otel-collector",
+          "awslogs-region": "<aws-region>",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    }
+  ]
+}
+```
+
+#### Deploy to ECS
+
+Create an ECS Cluster: Create a cluster to deploy your containers:
+
+```shell
+aws ecs create-cluster --cluster-name your-app-cluster --region <aws-region>
+```
+
+Register the Task Definition:
+
+```shell
+aws ecs register-task-definition --cli-input-json file://ecs/task-definition.json
+```
+
+Create ECS Service: Deploy the task definition using a service:
+
+```shell
+aws ecs create-service \
+  --cluster your-app-cluster \
+  --service-name your-java-app-service \
+  --task-definition java-app-task \
+  --desired-count 1 \
+  --launch-type FARGATE \
+  --network-configuration "awsvpcConfiguration={subnets=[\"YOUR_SUBNET_ID\"],securityGroups=[\"YOUR_SECURITY_GROUP_ID\"],assignPublicIp=ENABLED}"
+```
+
+#### Verify Application and Tracing
+
+After deploying, run your application to generate activity that will create tracing data. Wait a few minutes, then check the Logz.io dashboard to confirm that traces are being sent correctly. 
+
+</TabItem>
+
+<TabItem value="Lambda-OpenTelemetry" label="Lambda via OpenTelemetry">
+
+Deploy this integration to auto-instrument your Java application running on AWS Lambda and send the traces to your Logz.io account. This is done by adding a dedicated layer for OpenTelemetry collector, a dedicated layer for Java auto-instrumentation and configuring environment variables of these layers. This integration will require no change to your application code.
+
+{@include: ../../_include/log-shipping/aws-region-limitation.md}
+
+:::note
+If you need an example application to test this integration, please refer to our [Java OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/java/traces/lambda-service).
+:::
+
+**Before you begin, you'll need**:
+
+- [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
+- Configured [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
+- A Lambda function with a Java application that is not yet instrumented.
+
+:::note
+Using `aws lambda update-function-configuration` with `--layers` replaces all existing layers with the specified ARN(s). To add a new layer without removing existing ones, include all desired layer ARNs in the command, both new and previously attached.
+:::
+
+:::note
+Adding environmental variables using the AWS CLI commands below, will overwrite all existing variables for your Lambda function.
+:::
+
+:::note
+This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
+:::
+
+**Packaging Your Lambda Function**. Ensure your function is packaged and uploaded as a `.zip` file containing a `lib` directory with the JAR file and the `collector.yaml` file, which will be described later.
+
+**Instrumentation adds overhead.** A 60-second timeout ensures reliable trace exports.
+
+```shell
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --timeout 60
+```
+
+
+Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of the Lambda function you want to update.
+
+#### Add the OpenTelemetry collector layer to your Lambda function
+
+This layer contains the OpenTelemetry collector that will capture data from your application.
+
+```shell
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers <<LAYER-ARN>>
+```
+
+Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Java application.
+
+Copy the appropriate `<<LAYER-ARN>>` for your Lambda architecture (amd64 or arm64) from the [latest release notes](https://github.com/logzio/opentelemetry-lambda/releases).
+
+Replace `<<REGION>>` with the code of your AWS regions. [See all available Logz.io hosting regions](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
+
+
+#### Create a configuration file for the OpenTelemetry collector
+
+By default, the OpenTelemetry collector layer exports data to the Lambda console. To customize the collector configuration, you need to add a `collector.yaml` to your function and specify its location via the `OPENTELEMETRY_COLLECTOR_CONFIG_URI` environment variable.
+The `collector.yaml` file will have the following configuration:
+
+```yaml
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: "0.0.0.0:4317"
+      http:
+        endpoint: "0.0.0.0:4318"
+exporters:
+  logzio/traces:
+    account_token: "<<TRACING-SHIPPING-TOKEN>>"
+    region: "<<LOGZIO_ACCOUNT_REGION_CODE>>"
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      exporters: [logzio/traces]
+```
+
+{@include: ../../_include/tracing-shipping/replace-tracing-token.html}
+
+{@include: ../../_include/tracing-shipping/tail-sampling.md}
+
+#### Direct the OpenTelemetry collector to the configuration file
+
+Add `OPENTELEMETRY_COLLECTOR_CONFIG_URI` variable to direct the OpenTelemetry collector to the configuration file:
+
+```shell
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --environment Variables={OPENTELEMETRY_COLLECTOR_CONFIG_URI=<<PATH_TO_YOUR_COLLECTOR.YAML>>}
+```
+
+Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Java application.
+Replace `<<PATH_TO_YOUR_COLLECTOR.YAML>>` with the actual path to your `collector.yaml` file.
+(If `collector.yaml` is located in the root directory of your application, use the path `/var/task/collector.yaml`.)
+
+#### Activate tracing for your Lambda function
+
+```shell
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --tracing-config Mode=Active
+```
+
+Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Java application.
+
+#### Add the OpenTelemetry Java Agent layer to your Lambda function
+
+The OpenTelemetry Java Agent layer automatically instruments the Java application in your Lambda function.
+Find the latest ARN for the OpenTelemetry Java Agent layer on the [OpenTelemetry Lambda GitHub Releases page](https://github.com/open-telemetry/opentelemetry-lambda/releases) under `layer-java`.
+
+```shell
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers <<LAYER-ARN>>
+```
+
+Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Java application.
+`<<LAYER_ARN>>` with the latest ARN from the GitHub releases page.
+Replace `<<REGION>>` with the code of your AWS regions, e.g. `us-east-1`.
+
+#### Add environment variable
+
+Add the following environment variables to your Lambda function:
+- `AWS_LAMBDA_EXEC_WRAPPER` to point to the otel-handler executable
+- `OTEL_JAVA_AGENT_FAST_STARTUP_ENABLED` to improve startup performance see [here](https://github.com/open-telemetry/opentelemetry-lambda/tree/main/java#java-agent)
+- `OTEL_RESOURCE_ATTRIBUTES` to set a service name
+
+```shell
+aws lambda update-function-configuration \
+  --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> \
+  --environment "Variables={AWS_LAMBDA_EXEC_WRAPPER=/opt/otel-handler,OTEL_JAVA_AGENT_FAST_STARTUP_ENABLED=true,OTEL_RESOURCE_ATTRIBUTES=service.name=my-lambda-function-java}"
+```
+
+Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Java application.
+
+
+</TabItem>
+</Tabs>

@@ -52,7 +52,7 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 
 ### Download and configure OpenTelemetry collector
 
-Create a dedicated directory on the host of your Ruby application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-releases/releases/tag/v0.82.0) that is relevant to the operating system of your host.
+Create a dedicated directory on the host of your Ruby application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-releases/releases/tag/v0.111.0) that is relevant to the operating system of your host.
 
 
 After downloading the collector, create a configuration file `config.yaml` with the following parameters:
@@ -183,19 +183,25 @@ logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 `<<LOGZIO_ACCOUNT_REGION_CODE>>` - Your Logz.io account region code. [Available regions](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
 
 
-### Define the logzio-k8s-telemetry service dns
+### Define the service DNS
 
+You'll need the following service DNS:
 
-In most cases, the service name will be `logzio-k8s-telemetry.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
-  
-If you are not sure what your cluster domain name is, you can run the following command to look it up: 
-  
+`http://<<CHART-NAME>>-otel-collector.<<NAMESPACE>>.svc.cluster.local:<<PORT>>/`.
+
+Replace `<<CHART-NAME>>` with the relevant service you're using (`logzio-k8s-telemetry`, `logzio-monitoring`).
+Replace `<<NAMESPACE>>` with your Helm chart's deployment namespace (e.g., default or monitoring).
+Replace `<<PORT>>` with the [port for your agent's protocol](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-telemetry/values.yaml#L249-L267) (Default is 4317).
+
+If you're not sure what your cluster domain name is, you can run the following command to look it up:
+
 ```shell
 kubectl run -it --image=k8s.gcr.io/e2e-test-images/jessie-dnsutils:1.3 --restart=Never shell -- \
-sh -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.default//"'
+sh -c 'nslookup kubernetes.<<NAMESPACE>> | grep Name | sed "s/Name:\skubernetes.<<NAMESPACE>>//"'
 ```
-  
+
 It will deploy a small pod that extracts your cluster domain name from your Kubernetes environment. You can remove this pod after it has returned the cluster domain name.
+
 
 ### Download instrumentation packages
 

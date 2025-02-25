@@ -34,7 +34,7 @@ sudo mkdir /opt/logzio-agent
 **2. Download OpenTelemetry tar.gz:**
 
 ```shell
-curl -fsSL "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.82.0/otelcol-contrib_0.82.0_linux_amd64.tar.gz" >./otelcol-contrib.tar.gz
+curl -fsSL "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.111.0/otelcol-contrib_0.111.0_linux_amd64.tar.gz" >./otelcol-contrib.tar.gz
 ```
  
 **3. Extract the OpenTelemetry binary:**
@@ -102,21 +102,21 @@ processors:
         match_type: strict
         metric_names: ["system.cpu.time", "system.cpu.load_average.1m", "system.cpu.load_average.5m", "system.cpu.load_average.15m", "system.cpu.utilization", "system.memory.usage", "system.memory.utilization", "system.filesystem.usage", "system.disk.io", "system.disk.io_time", "system.disk.operation_time", "system.network.connections", "system.network.io", "system.network.packets", "system.network.errors", "process.cpu.time", "process.memory.usage", "process.disk.io", "process.memory.usage", "process.memory.virtual"]
 exporters:
-  logging:
+  debug:
   logzio/logs:
     account_token: <<LOG-SHIPPING-TOKEN>>
-    region: us
+    region: <<LOGZIO_ACCOUNT_REGION_CODE>> # Default is US
     headers:
       user-agent: logzio-linux-logs
   prometheusremotewrite:
-    endpoint: https:<<LISTENER-HOST>>:8053
+    endpoint: https://<<LISTENER-HOST>>:8053
     headers:
       Authorization: Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
       user-agent: logzio-linux-metrics
     resource_to_telemetry_conversion:
       enabled: true
     target_info:
-        enabled: false
+      enabled: false
 service:
   pipelines:
     logs:
@@ -138,8 +138,11 @@ service:
     metrics:
       address: localhost:8888
 ```
+:::note 
+Ensure that your service pipeline includes the `debug` exporter in the `exporters` section.
+See the OpenTelemetry [Debug Exporter documentation](https://github.com/open-telemetry/opentelemetry-collector/blob/v0.111.0/exporter/debugexporter/README.md) for more details.
+:::
 
- 
 :::caution Important
 If OpenTelemetry metrics are already running on port 8888, edit the `address` field in the config file.
 :::

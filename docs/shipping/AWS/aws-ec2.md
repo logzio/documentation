@@ -33,7 +33,7 @@ sudo mkdir /opt/logzio-agent
 Download OpenTelemetry tar.gz:
 
 ```shell
-curl -fsSL "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.82.0/otelcol-contrib_0.82.0_linux_amd64.tar.gz" >./otelcol-contrib.tar.gz
+curl -fsSL "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.111.0/otelcol-contrib_0.111.0_linux_amd64.tar.gz" >./otelcol-contrib.tar.gz
 ```
 
 Extract the OpenTelemetry binary:
@@ -106,7 +106,7 @@ exporters:
   logging:
   logzio/logs:
     account_token: <<LOG-SHIPPING-TOKEN>>
-    region: us
+    region: <<LOGZIO_ACCOUNT_REGION_CODE>> # Default is US
   prometheusremotewrite:
     endpoint: https://<<LISTENER-HOST>>:8053
     headers:
@@ -134,7 +134,7 @@ service:
       exporters: [prometheusremotewrite]
   telemetry:
     logs:
-      level: "debug"
+      level: "info"
     metrics:
       address: localhost:8888
 ```
