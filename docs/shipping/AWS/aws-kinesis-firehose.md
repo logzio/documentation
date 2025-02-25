@@ -27,7 +27,7 @@ This project deploys instrumentation that allows shipping Cloudwatch logs to Log
 If you want to send logs from specific log groups, use `customLogGroups` instead of `services`. Since specifying `services` will automatically send all logs from those services, regardless of any custom log groups you define.
 :::
 
-##### Auto-deploy the Stack
+### Auto-deploy the Stack
 
 
 To deploy this project, click the button that matches the region you wish to deploy your stack to:
@@ -65,7 +65,7 @@ To deploy this project, click the button that matches the region you wish to dep
 | `il-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=il-central-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-il-central-1.s3.amazonaws.com/firehose-logs/0.3.0/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs-<<LISTENER-HOST>>)         |
      |
 
-##### Specify stack details
+### Specify stack details
 
 Specify the stack details as per the table below, check the checkboxes and select **Create stack**.
 
@@ -89,7 +89,7 @@ AWS limits every log group to have up to 2 subscription filters. If your chosen 
 :::
 
 
-##### Custom Log Group list exceeds 4096 characters limit
+### Custom Log Group list exceeds 4096 characters limit
 If your `customLogGroups` list exceeds the 4096 characters limit, follow the below steps:
 
 1. Open AWS [Secret Manager](https://console.aws.amazon.com/secretsmanager/)
@@ -105,7 +105,7 @@ If your `customLogGroups` list exceeds the 4096 characters limit, follow the bel
 
 
 
-##### Send logs
+### Send logs
 
 Give the stack a few minutes to be deployed.
 
@@ -115,15 +115,13 @@ Once new logs are added to your chosen log group, they will be sent to your Logz
 If you've used the `services` field, you'll have to **wait 6 minutes** before creating new log groups for your chosen services. This is due to cold start and custom resource invocation, that can cause the Lambda to behave unexpectedly.
 :::
 
-##### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
 
 
 If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
-
-
 
 
 ## Metrics
@@ -146,3 +144,65 @@ Install the pre-built dashboard to enhance the observability of your metrics.
 <!-- logzio-inject:install:grafana:dashboards ids=["6c42S4dUE98HajLbiuaShI"] -->
 
 {@include: ../../_include/metric-shipping/generic-dashboard.html}
+
+### Setup Firehose metrics via Terraform
+
+This setup includes creating a Kinesis Firehose delivery stream, CloudWatch metric stream, and necessary IAM roles.
+
+:::note
+The setup excludes the Lambda function for adding namespaces, as CloudFormation automatically triggers this during resource creation.
+:::
+
+
+```hcl
+locals {
+  metrics_namespaces = "CloudWatchSynthetics, AWS/AmazonMQ, AWS/RDS, AWS/DocDB, AWS/ElastiCache"
+  logzio_token       = jsondecode(data.aws_secretsmanager_secret_version.logzio_shipping_credentials.secret_string)["LOGZIO_TOKEN"]
+}
+
+resource "aws_kinesis_firehose_delivery_stream" "logzio_delivery_stream" {
+  name        = "logzio-delivery-stream"
+  destination = "http_endpoint"
+
+  http_endpoint_configuration {
+    url                = "https://listener-otlp-aws-metrics-stream-us.logz.io"
+    name               = "logzio_endpoint"
+    retry_duration     = 60
+    buffering_size     = 5
+    buffering_interval = 60
+    role_arn           = aws_iam_role.firehose_logging_role.arn
+    s3_backup_mode     = "FailedDataOnly"
+    access_key         = local.logzio_token
+
+    request_configuration {
+      content_encoding = "NONE"
+    }
+  }
+}
+
+resource "aws_cloudwatch_metric_stream" "logzio_metric_stream" {
+  name          = "logzio-metric-stream"
+  role_arn      = aws_iam_role.metrics_stream_role.arn
+  firehose_arn  = aws_kinesis_firehose_delivery_stream.logzio_delivery_stream.arn
+  output_format = "opentelemetry1.0"
+
+  include_filter {
+    namespace = "AWS/RDS"
+  }
+}
+```
+
+* Make sure the `URL` matches your region. [View region settings](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#opentelemetry-protocol-otlp-regions).
+
+* Replace `LOGZIO_TOKEN` with your Logz.io shipping token.
+
+
+Next, deploy your Terraform code to set up the Firehose stream and related resources, and verify that metrics are sent correctly to the Logz.io listener endpoint.
+
+:::note
+The Lambda function `logzioMetricStreamAddNamespacesLambda` has been removed from the script as the CloudFormation template automatically triggers it during creation.
+:::
+
+
+For additional namespaces or configurations, adjust the `metrics_namespaces` and `include_filter` fields as needed.
+
