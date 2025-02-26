@@ -460,7 +460,112 @@ For a complete list, see [values.yaml](https://github.com/logzio/logzio-helm/blo
 :::
 
 
-## Migrating to `logzio-monitoring` 7.0.0
+## Enable auto-instrumentation
+
+The OpenTelemetry Operator manages auto-instrumentation of workloads using OpenTelemetry instrumentation libraries, automatically generating traces and metrics.
+
+To send the instrumentation data it generates to Logz.io, you need to enable the operator within the `logzio-monitoring` chart, along with either the `logzio-apm-collector` (for traces), `logzio-k8s-telemetry` (for metrics), or both, depending on the type of data you want to forward to the Logz.io platform.
+
+
+:::caution
+The Operator does not support Windows nodes at the moment.
+:::
+
+
+### Step by step
+
+#### Step 1
+Enable the OpenTelemetry operator in the chart
+```sh
+--set otel-operator.enabled=true \
+```
+
+:::note
+It can take a few minutes for the OpenTelemetry Operator components to be installed and deployed on your cluster.
+:::
+
+#### Step 2
+Add annotations to your relevant Kubernetes object. You can annotate individual resources such as a Deployment, StatefulSet, DaemonSet, or Pod, or apply annotations at the Namespace level to instrument all pods within that namespace. 
+These annotations should specify the programming language used in your application:
+```sh
+instrumentation.opentelemetry.io/inject-<APP_LANGUAGE>: "monitoring/logzio-monitoring-instrumentation"
+```
+
+:::tip
+`<APP_LANGUAGE>` can be one of `apache-httpd`, `dotnet`, `go`, `java`, `nginx`, `nodejs` or `python`.
+:::
+
+### Multi-container pods
+By default, in multi-container pods, instrumentation is performed on the first container available in the pod spec. To fine tune which containers to instrument, add the below annotations to your pod:
+
+```sh
+instrumentation.opentelemetry.io/inject-<APP_LANGUAGE>: "monitoring/logzio-apm-collector"
+instrumentation.opentelemetry.io/<APP_LANGUAGE>-container-names: "myapp,myapp2"
+instrumentation.opentelemetry.io/inject-<APP_LANGUAGE_2>: "monitoring/logzio-apm-collector"
+instrumentation.opentelemetry.io/<APP_LANGUAGE_2>-container-names: "myapp3"
+```
+
+:::tip
+`<APP_LANGUAGE>` can be one of `apache-httpd`, `dotnet`, `go`, `java`, `nginx`, `nodejs` or `python`.
+:::
+
+## Customize Auto-instrumentation
+
+<Tabs>
+<TabItem value="customize-propagator" label="Customize Propagator" default>
+
+### Customize Propagator
+The propagator specifies how context is injected into and extracted from carriers for distributed tracing.
+By default, the propagators `tracecontext` (W3C Trace Context) and `baggage` (W3C Correlation Context) are enabled.
+You can customize this to include other formats ([full list here](https://opentelemetry.io/docs/languages/sdk-configuration/general/#otel_propagators)) or set it to "none" to disable automatic propagation.
+```sh
+--set instrumentation.propagator={tracecontext, baggage, b3}
+```
+
+</TabItem>
+<TabItem value="customize-sampler" label="Customize Sampler" default>
+
+### Add a custom Sampler
+You can specify a sampler to be used by the instrumentor. You'll need to specify the below:
+- Sampler used to sample the traces ([available options](https://opentelemetry.io/docs/languages/sdk-configuration/general/#otel_traces_sampler))
+- Sampler arguments ([Sampler type expected input](https://opentelemetry.io/docs/languages/sdk-configuration/general/#otel_traces_sampler_arg))
+
+Example:
+```shell
+--set instrumentation.sampler.type="parentbased_always_on" \
+--set instrumentation.sampler.argument="0.25"
+```
+
+
+</TabItem>
+<TabItem value="tls-certificate-requirements" label="TLS certificate requirements" default>
+
+### TLS certificate requirements
+OpenTelemetry operator requires a TLS certificate. For more details, refer to [OpenTelemetry documentation](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-operator#tls-certificate-requirement).
+
+There are 3 TLS certificate options, by default this chart is using option 2.
+
+**1.** If you have `cert-manager` installed on your cluster, you can set `otel-operator.admissionWebhooks.certManager.enabled` to true and the cert-manager will generate a self-signed certificate for the otel-operator automatically.
+
+```shell
+--set otel-operator.admissionWebhooks.certManager.enabled=true \
+```
+
+**2.** Helm will automatically create a self-signed cert and secret for you. (Enabled by default by this chart)
+
+**3.** Use your own self-signed certificate, To enable this option, set `otel-operator.admissionWebhooks.autoGenerateCert.enabled` to `false` and provide the necessary `certFile`, `keyFile` and `caFile`.
+
+```shell
+--set otel-operator.admissionWebhooks.autoGenerateCert.enabled=false \
+--set otel-operator.admissionWebhooks.certFile="<<PEM_CERT_PATH>>" \
+--set otel-operator.admissionWebhooks.keyFile="<<PEM_KEY_PATH>>" \
+--set otel-operator.admissionWebhooks.caFile="<<CA_CERT_PATH>>" \
+```
+</TabItem>
+</Tabs>
+
+
+## Migrating to `logzio-monitoring` 7.x.x
 
 ### Step 1: Update helm repositories
 Run the following command to ensure you have the latest chart versions:
