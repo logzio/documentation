@@ -239,7 +239,7 @@ Below, you'll find a guide for setting it up, along with examples of how to manu
 Run the following command:
 
 ```shell
-go get github.com/logzio/go-metrics-sdk
+go get github.com/logzio/go-metrics-sdk/v2
 ```
 
 ### Configure the exporter
@@ -249,7 +249,7 @@ Add the exporter definition to your application code:
 ```go
 import (
     "context"
-    metricsExporter "github.com/logzio/go-metrics-sdk"
+    metricsExporter "github.com/logzio/go-metrics-sdk/v2"
     "go.opentelemetry.io/otel"
     "go.opentelemetry.io/otel/attribute"
     m "go.opentelemetry.io/otel/metric"
