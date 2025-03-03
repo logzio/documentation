@@ -7,6 +7,7 @@ keywords: [Data hub, data optimization, optimization, log metrics, metrics, reco
 ---
 
 
+
 Create graphs and dashboards directly from your log files.
 
 LogMetrics utilizes the full power of PromQL, letting you visualize numeric-based data inside your logs, including latency, request time, volumes of data sent, and more.
@@ -29,9 +30,10 @@ With LogMetrics, you can create the following types of metrics:
 
 ## Configure LogMetrics
 
-:::warning note
-Log Metrics rules should be configured in the account storing the relevant logs.
-:::
+**Prerequisites:**
+
+* Log metrics rules must be configured in the account **where the relevant logs are stored**.
+* Log metrics are processed **before** drop filters, allowing you to generate metrics from logs while still filtering them out afterward.
 
 
 ### 1. Find the relevant logs
