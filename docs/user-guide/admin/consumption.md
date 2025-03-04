@@ -9,32 +9,36 @@ keywords: [account, manage account, payments, consumption, admin controls, admin
 
 Logz.io's consumption-based model allows you to tailor your budget to cover all your data monitoring needs, including logs, metrics, traces, and SIEM. This approach lets you view and analyze various data types within your account, with charges applied based on the volume of GB and Unique Metrics ingested.
 
-This model allows you to configure quota on your end, including the maximum amount of data you want ingested per data type. You pay for the data you ingest, which in return helps prevent unexpected data spikes and enable you to prioritize the most relevant data.
+This model allows you to configure quotas on your end, including the maximum amount of data you want ingested per data type. You pay for the data you ingest.
 
 The cost per GB and Unique Metrics depends on your selected pricing plan. You can review the different offerings on [Logz.io’s Pricing page](https://logz.io).
 
-
 <h2 id="usage">Usage and limits</h2>
 
-Consumption-based accounts have usage limits that define how much data can be ingested per product. Instead of reserving a fixed volume, your plan is based on a monthly or yearly budget.
+Consumption-based accounts have usage limits that define how much data (GB/UTM) can be ingested per telemetry type (Logs, Metrics, Traces, or SIEM). Instead of reserving a fixed volume of data, your plan is based on a monthly or yearly budget - the total dollar ($) amount allocated for data ingestion.
 
-There are two types of limits:
+There are two types of limits in your account:
 
-* Soft Cap (Sub-Account Limit) – Each sub-account has its own data usage limit, which can be adjusted by account admins in the Manage Accounts page.
-* Hard Cap (Overall Account Limit) – The total usage sum of all sub-account limits cannot exceed the hard cap, which is the maximum ingestion limit for the entire account.
-
-If a sub-account reaches its soft cap, data ingestion will stop unless the limit is adjusted. However, once your Hard Cap is reached, ingestion will continue, and any additional usage will be charged at On-Demand rates.
-
-Account admins can adjust a sub-account soft cap in the Manage Accounts page.
+* Soft Cap (Sub-Account Limit) – Each sub-account has an ingestion limit (GB/UTM) that can be adjusted by account admins in the [Manage Accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page. If a sub-account reaches its soft cap, data ingestion will stop until the limit is increased.
+* Hard Cap (Overall Telemetry Limit) – This is the maximum ingestion limit (GB/UTM) for a specific telemetry type across all sub-accounts. Once this limit is reached, ingestion for that telemetry type will be blocked.
 
 To increase the overall account hard cap, contact the Logz.io [Support team](mailto:help@logz.io).
 
-Account admins can track daily and monthly usage and budget in [Plan and Usage > Usage and Info](https://app.logz.io/#/dashboard/settings/plan-and-billing/usage). The dashboard provides an overview of your budget consumption, data ingestion, and any overages beyond your plan limits. Usage data updates once a day.
+Account admins can track both budget and ingestion in [Plan and Usage > Usage and Info](https://app.logz.io/#/dashboard/settings/plan-and-billing/usage). The dashboard provides an overview of budget consumption ($ spent), data ingestion (GB/UTM used), and any overages beyond plan limits. Usage data updates once a day.
 
+On-Demand charges apply only when the entire budget has been used.
+
+<!-- 
+Budget = $
+Ingestion = GB/UM
+Plan = GB
+Product = Telemetry
+Cap = GB/UM
+-->
 
 <h2 id="example"> Consumption-Based Model - Example </h2>
 
-In this example, the user's **budget is $1,000**, and the individual unit prices are:
+In this example, the **budget is $1,000**, and the individual unit prices are:
 
 
 |Data type                                      | Description       | Price |
@@ -47,15 +51,15 @@ In this example, the user's **budget is $1,000**, and the individual unit prices
 | Open 360 traces                               | Per 1GB per day   | $0.92 |
 | Open 360 security addon                       | Per 1GB per day   | $0.35 |
 
-Based on these prices, the user will pay $0.92 per 1GB per day for Open 360 logging index + 7 days hot retention period.
+Based on these prices, the cost is $0.92 per 1GB per day for Open 360 logging index + 7 days hot retention period.
 
-For Open 360 logging index + 30 days hot retention, the user will pay $1.61 per 1GB per day:
+For Open 360 logging index + 30 days hot retention, the cost will be $1.61 per 1GB per day:
 
 `$0.10 + $0.82 + ($0.03 * 23) = $1.61`
 
-$0.10 for logs, $0.82 for 7 days retention, and $0.69 for the additional 23 days retention.
+$0.10 for log ingestion, $0.82 for 7 days retention, and $0.69 for the additional 23 days retention.
 
-After one day of use, the user's budget will be updated accordingly:
+After one day of use, the budget will be updated accordingly:
 
 Budget used per 1 day:
 
@@ -67,31 +71,4 @@ Budget used per 1 day:
 | Open 360 tracing                                | 4GB            | $0.92          | $3.68               |
 | Open 360 security addon                         | 5GB            | $0.35          | $1.75               | 
 
-At the end of the day, the user spent $14.9, and has the remaining budget of $985.1.
-
-
-<!-- 
-////
-
-Caps (min/Max) 
-
-Can they send above cap - how can they increase cap 
-
-Soft cap/Hard cap 
-
-How do they pay - explain what does it mean usage based 
-
-No flexibility under logs analytics 
-
-Overage charge 
-
-
-///
-
-Overage calculations	
-How is the process done?
-Based on the flow above
-Monthly vs Annually
-
-/// -->
-
+At the end of the day, $14.9 was spent, leaving a remaining budget of $985.1.
