@@ -9,9 +9,9 @@ keywords: [account, manage account, payments, consumption, admin controls, admin
 
 Logz.io's consumption-based model allows you to tailor your budget to cover all your data monitoring needs, including logs, metrics, traces, and SIEM. This approach lets you view and analyze various data types within your account, with charges applied based on the volume of GB and Unique Metrics ingested.
 
-This model allows you to configure quota on your end, including the maximum amount of data you want ingested per data type. You pay for the data you ingest, which in return help prevent unexpected data spikes and enable you to prioritize the most relevant data.
+This model allows you to configure quota on your end, including the maximum amount of data you want ingested per data type. You pay for the data you ingest, which in return helps prevent unexpected data spikes and enable you to prioritize the most relevant data.
 
-Prices per GB and Unique Metrics vary according to your overall budget. You can review the different offerings on [Logz.io’s Pricing page](https://logz.io).
+The cost per GB and Unique Metrics depends on your selected pricing plan. You can review the different offerings on [Logz.io’s Pricing page](https://logz.io).
 
 
 <h2 id="usage">Usage and limits</h2>
@@ -25,7 +25,7 @@ There are two types of limits:
 
 If a sub-account reaches its soft cap, data ingestion will stop unless the limit is adjusted. However, once your Hard Cap is reached, ingestion will continue, and any additional usage will be charged at On-Demand rates.
 
-Account admins can adjust a sub-account’s soft cap in the Manage Accounts page.
+Account admins can adjust a sub-account soft cap in the Manage Accounts page.
 
 To increase the overall account hard cap, contact the Logz.io [Support team](mailto:help@logz.io).
 
