@@ -34,7 +34,7 @@ The second half of the page includes a table that provides an overview of all ac
 * Unit price (per GB/UTM)
 * Daily max price – The highest possible charge if usage reaches the limit
 * Retention period
-* Advanced settings – Indicates whether the account can access shared assets, have account utilization metrics, present log size, and more
+* Advanced settings – Indicates whether the account can access shared assets, have account utilization metrics, display log size, and more
 
 To create a new account, click **Create New Account**, then select the telemetry type, name, usage limit, retention, and any other required settings.
 
@@ -74,7 +74,7 @@ Based on these prices, the cost is $0.92 per 1GB per day for Open 360 logging in
 
 For Open 360 logging index + 30 days hot retention, the cost will be $1.61 per 1GB per day:
 
-`$0.10 + $0.82 + ($0.03 * 23) = $1.61`
+`$0.10 + $0.82 + ($0.03 x 23) = $1.61`
 
 $0.10 for log ingestion, $0.82 for 7 days retention, and $0.69 for the additional 23 days retention.
 
@@ -91,7 +91,3 @@ Budget used per 1 day:
 | Open 360 security addon                         | 5GB            | $0.35          | $1.75               | 
 
 At the end of the day, $14.9 was spent, leaving a remaining budget of $985.1.
-
-<h2 id="usage">Manage accounts</h2>
-
-
