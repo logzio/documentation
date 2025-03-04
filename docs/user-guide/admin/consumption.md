@@ -13,6 +13,33 @@ This model allows you to configure quotas on your end, including the maximum amo
 
 The cost per GB and Unique Metrics depends on your selected pricing plan. You can review the different offerings on [Logz.io’s Pricing page](https://logz.io).
 
+<h2 id="usage">Manage settings overview</h2>
+
+Account admins can view all consumption-related data in the [Manage Accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page.
+
+![Consumption manage account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/consumption/consumption-manage-accounts.png)
+
+At the top of the page, you'll find a graph displaying your current usage alongside key details:
+
+* Total budget consumption breakdown
+* Estimated daily maximum cost if usage reaches the limit
+* Contract start and end dates
+
+The second half of the page includes a table that provides an overview of all accounts, including:
+
+* Account name
+* Account ID
+* Telemetry data type
+* Usage limit – The maximum amount of telemetry data you can ingest
+* Unit price (per GB/UTM)
+* Daily max price – The highest possible charge if usage reaches the limit
+* Retention period
+* Advanced settings – Indicates whether the account can access shared assets, have account utilization metrics, present log size, and more
+
+To create a new account, click **Create New Account**, then select the telemetry type, name, usage limit, retention, and any other required settings.
+
+To edit an account, click the **⋮** menu next to it. You can modify all settings except the telemetry type.
+
 <h2 id="usage">Usage and limits</h2>
 
 Consumption-based accounts have usage limits that define how much data (GB/UTM) can be ingested per telemetry type (Logs, Metrics, Traces, or SIEM). Instead of reserving a fixed volume of data, your plan is based on a monthly or yearly budget - the total dollar ($) amount allocated for data ingestion.
@@ -64,3 +91,7 @@ Budget used per 1 day:
 | Open 360 security addon                         | 5GB            | $0.35          | $1.75               | 
 
 At the end of the day, $14.9 was spent, leaving a remaining budget of $985.1.
+
+<h2 id="usage">Manage accounts</h2>
+
+
