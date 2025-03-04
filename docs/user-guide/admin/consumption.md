@@ -28,14 +28,6 @@ Account admins can track both budget and ingestion in [Plan and Usage > Usage an
 
 On-Demand charges apply only when the entire budget has been used.
 
-<!-- 
-Budget = $
-Ingestion = GB/UM
-Plan = GB
-Product = Telemetry
-Cap = GB/UM
--->
-
 <h2 id="example"> Consumption-Based Model - Example </h2>
 
 In this example, the **budget is $1,000**, and the individual unit prices are:
