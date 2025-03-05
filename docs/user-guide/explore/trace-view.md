@@ -14,20 +14,22 @@ Trace View lets you to view and analyze distributed traces directly in Explore, 
 To enable Trace View in Explore, you’ll need:
 
 * An active Logz.io Tracing account.
-* A `traceID` or `trace_id` value for all traces. Most OpenTelemetry compliant tracing libraries automatically include traceID or trace_id. Use Logz.io’s collector to send your traces.
-* A `trace_id` value for all **logs correlated with traces**. Most OpenTelemetry compliant logging libraries automatically include trace context feature to populate it. Use Logz.io’s SDKs to send your trace context propagated logs.
+* A `traceID` or `trace_id` value for all **traces** and **logs correlated with traces**. Most OpenTelemetry-compliant tracing and logging libraries handle this automatically using trace context. Use Logz.io’s collector to send your traces and Logz.io’s SDKs to send trace-context-propagated logs.
 
-
-:::note
 Logs and traces are correlated using the `traceID`or `trace_id` fields. Make sure these fields have the same value in both logs and traces for proper integration with trace context.
-:::
 
 After configuring your logs and traces, expand a log entry in Explore to verify that the Trace tab displays the associated trace data.
+
+:::tip note
+Logz.io Tracing accounts have a retention period of 10 days, meaning correlated logs may no longer display traces beyond this timeframe.
+:::
 
 Supported integrations for Trace context:
 
 * [.NET](https://docs.logz.io/docs/shipping/Code/dotnet/#add-trace-context-1)
 * [Python](https://docs.logz.io/docs/shipping/Code/Python/#trace-context)
+* [Node.js](https://docs.logz.io/docs/shipping/code/node-js/)
+* [Java](https://docs.logz.io/docs/shipping/code/java/#add-opentelemetry-context)
 
 Additional integrations will be available in future updates.
 
@@ -40,7 +42,7 @@ Navigate to [Explore](https://app.logz.io/#/dashboard/explore) and select accoun
 
 Expand a log entry. The Trace tab will appear alongside the Log tab. If the log is correlated with a trace, the Trace tab displays trace data, including spans, service names, and durations. Click on a span within the trace to view the corresponding log data directly within the same interface.
 
-![open trace view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/trace-view-dec9.png)
+![traces in explore](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/trace-explore.png)
 
 
 

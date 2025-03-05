@@ -23,7 +23,7 @@ This extension is written in Go, but can be run with runtimes that support [exte
 
 ## Prerequisites
 
-* Lambda function with [supported runtime](https://docs.aws.amazon.com/lambda/latest/dg/using-extensions.html) for extensions.
+* Lambda function with [supported runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported) for extensions.
 * AWS Lambda limitations: A function can use up to five layers at a time. The total unzipped size of the function and all layers cannot exceed the unzipped deployment package size limit of 250 MB.
 
 
@@ -68,8 +68,8 @@ This command overwrites the existing function configuration. If you already have
 | Placeholder | Description | Required/Default|
 |---|---|---|
 | `<<FUNCTION-NAME>>` |  Name of the Lambda Function you want to monitor. |Required|
-| `<<LAYERS>>` | A space-separated list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.  For the ARN, see the [**ARNs** table]({@include: ../../_include/log-shipping/lambda-xtension-tablink.md}) |  |
-| `<<ENV-VARS>>`  | Key-value pairs containing environment variables that are accessible from function code during execution. Should appear in the following format: `KeyName1=string,KeyName2=string`.  For a list of all the environment variables for the extension, see the [**Lambda environment variables** table]{@include: ../../_include/log-shipping/lambda-xtension-tablink-indox.html} |  |
+| `<<LAYERS>>` | A space-separated list of function layers to add to the function's execution environment. Specify each layer by its ARN, including the version.  For the ARN, see the [**ARNs** table](https://docs.logz.io/docs/shipping/aws/lambda-extensions/#arns) |  |
+| `<<ENV-VARS>>`  | Key-value pairs containing environment variables that are accessible from function code during execution. Should appear in the following format: `KeyName1=string,KeyName2=string`.  For a list of all the environment variables for the extension, see the [**Lambda environment variables** table](https://docs.logz.io/docs/shipping/Compute/Lambda-extensions#environment-variables) |  |
 
 #### Command example
 ```shell
@@ -115,13 +115,13 @@ aws lambda update-function-configuration \
 2. In the page for the function, scroll down to the `Layers` section and choose `Add Layer`.
 ![Add layer](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lambda_extensions/lambda-x_1-2.jpg)
 
-3. Select the `Specify an ARN` option, then choose the ARN of the extension with the region code that matches your Lambda Function region from the [**ARNs** table]{@include: ../../_include/log-shipping/lambda-xtension-tablink.md}, and click the `Add` button.
+3. Select the `Specify an ARN` option, then choose the ARN of the extension with the region code that matches your Lambda Function region from the [**ARNs** table](https://docs.logz.io/docs/shipping/aws/lambda-extensions/#arns), and click the `Add` button.
 
 ![Add ARN extension](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lambda_extensions/lambda-x_1-3.jpg)
 
 ### Configure the extension parameters
 
-Add environment variables to the function, according to the [**Environment variables** table]{@include: ../../_include/log-shipping/lambda-xtension-tablink-indox.html}.
+Add environment variables to the function, according to the [**Environment variables** table](https://docs.logz.io/docs/shipping/Compute/Lambda-extensions#environment-variables).
 
 
 #### Deleting the extension

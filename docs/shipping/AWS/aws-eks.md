@@ -189,6 +189,26 @@ The default configuration uses the Prometheus receiver with the following scrape
 
 To customize your configuration, edit the `config` section in the `values.yaml` file.
 
+#### Adding addiotional filters for metrics scraping
+
+To add flexibility for the metrics filtering, you can add custom filters for the following:
+
+* Metric name (keep & drop)
+* Service names (keep & drop - only for infrastructure pipeline)
+* Namespace names
+
+Filters should be written as regex patterns, e.g., `"metric1|metric2"`.
+
+To add a custom filter, select the pipeline where the filter should be applied, and add the filter under the relevant `custom` key. 
+
+For example, to add a custom `namespace` keep filter to the application metric job, you can set:
+
+```bash
+--set prometheusFilters.namespaces.applications.keep.custom="namesapce_1|namespace_2"
+```
+
+For more information, refer to `prometheusFitlers` in [values.yaml](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-telemetry/values.yaml).
+
  
 ### Check Logz.io for your metrics
 Give your metrics some time to get from your system to ours.

@@ -86,6 +86,5 @@ To confirm that the data is available and accessible, type `calls_total` and run
 
 ![Query of calls total](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/calls-total-tracing.png)
 
-If there are no results, go through the **[Set up your Service Performance Monitoring dashboard](https://docs.logz.io/docs/user-guide/distributed-tracing/setup-spm/)** guide again to confirm that  the collector is properly configured to send the data.
 
 If you can see the query's results, but the data is not visible in your Service Performance Monitoring dashboard, contact the [Logz.io Support team](mailto:help@logz.io) for additional help.

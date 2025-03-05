@@ -130,7 +130,7 @@ service:
         - prometheusremotewrite
   telemetry:
     logs:
-      level: "debug"
+      level: "info"
 ```
 
 

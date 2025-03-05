@@ -134,7 +134,7 @@ service:
       exporters: [prometheusremotewrite]
   telemetry:
     logs:
-      level: "debug"
+      level: "info"
     metrics:
       address: localhost:8888
 ```

@@ -56,18 +56,19 @@ var logger = require('logzio-nodejs').createLogger({
 | Parameter | Description | Required/Default |
 |---|---|---|
 | token | Your Logz.io log shipping token securely directs the data to your [Logz.io account](https://app.logz.io/#/dashboard/settings/manage-tokens/log-shipping). {@include: ../../_include/log-shipping/log-shipping-token.html} | Required |
-| protocol | `http` or `https`. The value of this parameter affects the default of the `port` parameter. | `http` |
+| protocol | `http`, `https` or `udp`. The value of this parameter affects the default of the `port` parameter. | `http` |
 | host  |  {@include: ../../_include/log-shipping/listener-var.md} Replace `<<LISTENER-HOST>>` with the host [for your region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). The required port depends whether HTTP or HTTPS is used: HTTP = 8070, HTTPS = 8071. | `listener.logz.io` |
-| port | Destination port. The default port depends on the `protocol` parameter: `8070` (for HTTP) or `8071` (for HTTPS) | `8070` / `8071` |
+| port | Destination port. The default port depends on the `protocol` parameter. `8070` for HTTP, `8071` for HTTPS | `8070` / `8071` |
 | type | {@include: ../../_include/log-shipping/type.md} | `nodejs` |
 | sendIntervalMs  | Time to wait between retry attempts, in milliseconds. | `2000` (2 seconds) |
 | bufferSize  | Maximum number of messages the logger accumulates before sending them all as a bulk. | `100` |
 | numberOfRetries | Maximum number of retry attempts. | `3` |
 | debug | Set to `true` to print debug messages to the console.  | `false` |
-| callback | A callback function to call when the logger encounters an unrecoverable error. The function API is `function(err)`, where `err` is the Error object. | -- |
+| callback | A callback function to call when the logger encounters an unrecoverable error. On success: `callback()`. On error: `callback(error)` where `error` is the Error object. This function enables you to handle errors and successful transmissions independently. | -- |
 | timeout | Read/write/connection timeout, in milliseconds. | -- |
 | extraFields | JSON format. Adds your custom fields to each log. Format: `extraFields : { field_1: "val_1", field_2: "val_2" , ... }` | -- |
 | setUserAgent | Set to false to send logs without the user-agent field in the request header.  | `true` |
+| addOtelContext | Add `trace_id`, `span_id`, and `service_name` fields to logs when OpenTelemetry context is available. | Default: `true` |
 
 **Code example:**
 
@@ -94,6 +95,22 @@ For serverless environments, such as AWS Lambda, Azure Functions, or Google Clou
   ```javascript
   logger.sendAndClose();
   ```
+
+
+### Add OpenTelemetry context
+
+If you're sending traces with OpenTelemetry instrumentation (auto or manual), you can correlate your logs with the trace context. This ensures your logs include trace data, such as service name, `span_id` and `trace_id` (version >= `2.2.0`).
+
+This feature is enabled by default, To disable it, set the `AddOtelContext` param in your handler configuration to `false`, like in this example:
+
+```javascript
+var logger = require('logzio-nodejs').createLogger({
+  token: 'token',
+  type: 'no-otel-context',
+  addOtelContext: false
+});
+```
+
 
 </TabItem>
   <TabItem value="winston-logzio" label="winston-logzio">
@@ -170,6 +187,8 @@ For a complete list of your options, see the configuration parameters below.👇
 | timeout | Read/write/connection timeout, in milliseconds. | -- |
 | extraFields | Adds custom fields to each log in JSON format: `extraFields : { field_1: "val_1", field_2: "val_2" , ... }` | -- |
 | setUserAgent | Set to `false` to send logs without the user-agent field in the request header. Set to `false` if sending data from Firefox browser. | `true` |
+| addOtelContext | Add `trace_id`, `span_id`, and `service_name` fields to logs when OpenTelemetry context is available. | Default: `true` |
+
 
 ### Additional configuration options
 
@@ -233,6 +252,28 @@ var obj = {
 logger.log(obj);
 ```
 
+### Add opentelemetry context
+If you're sending traces with OpenTelemetry instrumentation (auto or manual), you can correlate your logs with the trace context. This ensures your logs include trace data, such as service name, `span_id` and `trace_id` (version >= `5.2.0`). 
+
+This feature is enabled by default. To disable it, set the `AddOtelContext` param in your handler configuration to `false`, as shown in this example:
+
+```javascript
+const winston = require('winston');
+const LogzioWinstonTransport = require('winston-logzio');
+
+const logzioWinstonTransport = new LogzioWinstonTransport({
+    level: 'info',
+    name: 'winston_logzio',
+    token: '<<SHIPPING-TOKEN>>',
+    host: '<<LISTENER-HOST>>',
+    addOtelCotext: false,
+});
+
+const logger = winston.createLogger({
+    format: winston.format.simple(),
+    transports: [logzioWinstonTransport],
+});
+```
 
 </TabItem>
   <TabItem value="Typescript" label="winston-logzio Typescript">
@@ -356,7 +397,7 @@ This integration uses the OpenTelemetry logging exporter to send logs to Logz.io
 - An active account with Logz.io
 
 :::note
-If you need an example aplication to test this integration, please refer to our [NodeJS OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/nodejs/logs).
+If you need an example application to test this integration, please refer to our [NodeJS OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/nodejs/logs).
 :::
 
 ### Configure the instrumentation
@@ -755,16 +796,14 @@ Replace <<YOUR-LAMBDA_FUNCTION_NAME>> with the name of the Lambda function you w
 This layer contains the OpenTelemetry collector that will capture data from your application.
 
 ```shell
-aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers arn:aws:lambda:<<YOUR-AWS-REGION>>:486140753397:layer:logzio-opentelemetry-collector-<<ARCHITECHTURE>>:<<VERSION>>
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers <<LAYER-ARN>>
 ```
 
 Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Node.js application.
 
-Replace `<<YOUR-AWS-REGION>>` with the code of your AWS regions, e.g. `us-east-1`.
+Copy the appropriate `<<LAYER-ARN>>` for your Lambda architecture (amd64 or arm64) from the [latest release notes](https://github.com/logzio/opentelemetry-lambda/releases).
 
-Replace `<<ARCHITECTURE>>` with the target architecture for your Lambda function, either `arm64` for ARM-based applications or `amd64` (also known as x86_64) for traditional 64-bit Intel/AMD applications.
-
-Replace `<<VERSION>>` with the latest version of the layer. You can find the latest version number by visiting the [Logz.io OpenTelemetry Lambda Releases page.](https://github.com/logzio/opentelemetry-lambda/releases)
+Replace `<<REGION>>` with the code of your AWS regions. [See all available Logz.io hosting regions](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
 
 #### Create a configuration file for the OpenTelemetry collector
 
@@ -832,7 +871,7 @@ Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function ru
 
 `<<LAYER_ARN>>` with the latest ARN from the GitHub releases page.
 
-Replace `<<YOUR-AWS-REGION>>` with the code of your AWS regions, e.g. `us-east-1`.
+Replace `<<REGION>>` with the code of your AWS regions, e.g. `us-east-1`.
 
 #### Add environment variable for the wrapper
 
@@ -931,21 +970,25 @@ logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 `<<LOGZIO_ACCOUNT_REGION_CODE>>` - Your Logz.io account region code. [Available regions](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
 
-#### Define the logzio-k8s-telemetry dns name
+#### Define the DNS name
 
-In most cases, the service name will be `logzio-k8s-telemetry.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
+You'll need the following service DNS:
 
+`http://<<CHART-NAME>>-otel-collector.<<NAMESPACE>>.svc.cluster.local:<<PORT>>/`.
 
-  
-To find your cluster domain name, run the following command:
-  
+Replace `<<CHART-NAME>>` with the relevant service you're using (`logzio-k8s-telemetry`, `logzio-monitoring`).
+Replace `<<NAMESPACE>>` with your Helm chart's deployment namespace (e.g., default or monitoring).
+Replace `<<PORT>>` with the [port for your agent's protocol](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-telemetry/values.yaml#L249-L267) (Default is 4317).
+
+If you're not sure what your cluster domain name is, you can run the following command to look it up:
+
 ```shell
 kubectl run -it --image=k8s.gcr.io/e2e-test-images/jessie-dnsutils:1.3 --restart=Never shell -- \
-shell -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.default//"'
+shell -c 'nslookup kubernetes.<<NAMESPACE>> | grep Name | sed "s/Name:\skubernetes.<<NAMESPACE>>//"'
 ```
-  
+
 This command deploys a temporary pod to extract your cluster domain name. You can remove the pod after retrieving the domain name.
-  
+
 
 {@include: ../../_include/tracing-shipping/node-steps.md}
 

@@ -330,7 +330,7 @@ This integration uses the OpenTelemetry logging exporter to send logs to Logz.io
 - An active account with Logz.io
 
 :::note
-If you need an example aplication to test this integration, please refer to our [Python OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/python/logs).
+If you need an example application to test this integration, please refer to our [Python OpenTelemetry repository](https://github.com/logzio/opentelemetry-examples/tree/main/python/logs).
 :::
 
 1. Install OpenTelemetry dependencies:
@@ -1452,10 +1452,10 @@ The OpenTelemetry Collector receives traces from the application and exports the
 
 #### Build Docker Images
 
-Build Docker images for both the Node.js application and the OpenTelemetry Collector:
+Build Docker images for both the Python application and the OpenTelemetry Collector:
 
 ```shell
-# Build Node.js application image
+# Build Python application image
 cd python-app/
 docker build --platform linux/amd64 -t your-python-app:latest .
 
@@ -1491,7 +1491,7 @@ aws logs create-log-group --log-group-name /ecs/otel-collector
 
 #### Define ECS Task
 
-Create a task definition (task-definition.json) for ECS that defines both the Node.js application container and the OpenTelemetry Collector container.
+Create a task definition (task-definition.json) for ECS that defines both the Python application container and the OpenTelemetry Collector container.
 
 #### task-definition.json
 
@@ -1638,17 +1638,24 @@ logzio-monitoring logzio-helm/logzio-monitoring -n monitoring
 `<<LOGZIO_ACCOUNT_REGION_CODE>>` - Your Logz.io account region code. [Available regions](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
 
 
-**3. Define the logzio-k8s-telemetry service DNS**
+**3. Define the service DNS**
 
-Typically, the service name will be `logzio-k8s-telemetry.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name. If you're unsude what your cluster domain name is, run the following command to find it: 
-  
+You'll need the following service DNS:
+
+`http://<<CHART-NAME>>-otel-collector.<<NAMESPACE>>.svc.cluster.local:<<PORT>>/`.
+
+Replace `<<CHART-NAME>>` with the relevant service you're using (`logzio-k8s-telemetry`, `logzio-monitoring`).
+Replace `<<NAMESPACE>>` with your Helm chart's deployment namespace (e.g., default or monitoring).
+Replace `<<PORT>>` with the [port for your agent's protocol](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-telemetry/values.yaml#L249-L267) (Default is 4317).
+
+If you're not sure what your cluster domain name is, you can run the following command to look it up:
+
 ```shell
 kubectl run -it --image=k8s.gcr.io/e2e-test-images/jessie-dnsutils:1.3 --restart=Never shell -- \
-sh -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.default//"'
+sh -c 'nslookup kubernetes.<<NAMESPACE>> | grep Name | sed "s/Name:\skubernetes.<<NAMESPACE>>//"'
 ```
-  
-This command deploys a pod to extract your cluster domain name, which can be removed after.
 
+This command deploys a pod to extract your cluster domain name, which can be removed after.
 
 **4.  Install general Python OpenTelemetry instrumentation components**
 
@@ -1825,16 +1832,14 @@ Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of the Lambda function you
 This layer contains the OpenTelemetry collector that will capture data from your application.
 
 ```shell
-aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers arn:aws:lambda:<<YOUR-AWS-REGION>>:486140753397:layer:logzio-opentelemetry-collector-<<ARCHITECHTURE>>:<<VERSION>>
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers <<LAYER-ARN>>
 ```
 
 Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Python application.
 
-Replace `<<YOUR-AWS-REGION>>` with the code of your AWS regions, e.g. `us-east-1`.
+Copy the appropriate `<<LAYER-ARN>>` for your Lambda architecture (amd64 or arm64) from the [latest release notes](https://github.com/logzio/opentelemetry-lambda/releases).
 
-Replace `<<ARCHITECTURE>>` with the target architecture for your Lambda function, either `arm64` for ARM-based applications or `amd64` (also known as x86_64) for traditional 64-bit Intel/AMD applications.
-
-Replace `<<VERSION>>` with the latest version of the layer. You can find the latest version number by visiting the [Logz.io OpenTelemetry Lambda Releases page.](https://github.com/logzio/opentelemetry-lambda/releases)
+Replace `<<REGION>>` with the code of your AWS regions. [See all available Logz.io hosting regions](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions).
 
 #### Create a configuration file for the OpenTelemetry collector
 
@@ -1898,7 +1903,7 @@ Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function ru
 
 Replace `<<LAYER_ARN>>` with the latest ARN from the GitHub releases page.
 
-Replace `<<YOUR-AWS-REGION>>` with the code of your AWS regions, e.g. `us-east-1`.
+Replace `<<REGION>>` with the code of your AWS regions, e.g. `us-east-1`.
 
 #### Add environment variable for the wrapper
 
