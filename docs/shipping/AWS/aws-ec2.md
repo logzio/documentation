@@ -16,7 +16,7 @@ drop_filter: []
 ---
 
 
-## Send your AWS EC2 logs and metrics using OpenTelemetry collector service
+## Send your AWS EC2 logs and metrics using OpenTelemetry collector service 
 
 :::note
 For a much easier and more efficient way to collect and send metrics, consider using the [Logz.io telemetry collector](https://app.logz.io/#/dashboard/integrations/collectors?tags=Quick%20Setup).

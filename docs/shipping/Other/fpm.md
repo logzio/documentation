@@ -124,7 +124,7 @@ Install the pre-built dashboard to enhance the observability of your metrics.
 
 {@include: ../../_include/metric-shipping/generic-dashboard.html}
 
-{@include: ../../_include/log-shipping/otel-filter.md}
+{@include: ../../_include/log-shipping/otel-filter.md} 
 
 ## Send FPM metrics with Telegraf
 

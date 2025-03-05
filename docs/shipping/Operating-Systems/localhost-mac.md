@@ -167,7 +167,7 @@ Copy the plist file's content:
 </plist>
 ```
 
-{@include: ../../_include/log-shipping/otel-filter.md}
+{@include: ../../_include/log-shipping/otel-filter.md} 
 
 ## Manage your OpenTelemetry on Mac
 

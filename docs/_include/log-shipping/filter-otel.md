@@ -26,3 +26,12 @@ processors:
       span:
         - resource.attributes["service.name"] == "service1"
 ```
+
+Learn more about filtering options in OpenTelemetry's [Transforming telemetry documentation](https://opentelemetry.io/docs/collector/transforming-telemetry/#basic-filtering).
+
+
+
+
+
+
+

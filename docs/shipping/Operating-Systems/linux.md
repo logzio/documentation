@@ -168,7 +168,7 @@ WantedBy=multi-user.target
 
 ```
 
-{@include: ../../_include/log-shipping/otel-filter.md}
+{@include: ../../_include/log-shipping/otel-filter.md} 
 
 ## Manage your OpenTelemetry on Localhost
 
