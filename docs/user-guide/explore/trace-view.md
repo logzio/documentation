@@ -3,7 +3,7 @@ sidebar_position: 4
 title: Traces in Explore
 description: View and investigate distributed traces directly in Explore
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-keywords: [logz.io, trace, traces, explore, traces in explore, log analysis, observability]
+keywords: [logz.io, trace, traces, explore, traces in explore, log analysis, observability, logs traces correlation]
 ---
 
 
@@ -46,7 +46,8 @@ Expand a log entry. The Trace tab will appear alongside the Log tab. If the log 
 
 
 
-## Best Practices and troubleshooting
+<!-- logs traces correlation -->
+## Best Practices and troubleshooting 
 
 Follow these tips to ensure Trace View works seamlessly and resolve any issues with missing traces:
 
@@ -60,3 +61,4 @@ Follow these tips to ensure Trace View works seamlessly and resolve any issues w
 
 
 For further assistance, contact our [support team](mailto:help@logz.io).
+
