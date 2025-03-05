@@ -151,6 +151,8 @@ If OpenTelemetry metrics are already running on port 8888, edit the `address` fi
 New-Service -Name LogzioOTELCollector -BinaryPathName "$env:APPDATA\LogzioAgent\otelcol-logzio-windows_amd64.exe --config $env:APPDATA\LogzioAgent\otel_config.yaml" -Description "Collects localhost logs/metrics and sends them to Logz.io."
 ```
 
+{@include: ../../_include/log-shipping/otel-filter.md}
+
 ## Manage your OpenTelemetry on Localhost
 
 Manage OpenTelemetry on your machine using the following commands:

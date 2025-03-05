@@ -183,6 +183,9 @@ To manage OpenTelemetry on your machine, use the following commands:
 |Delete service|`sudo systemctl stop logzioOTELCollector` `sudo systemctl disable logzioOTELCollector` `sudo systemctl reset-failed logzioOTELCollector 2>/dev/null` `sudo rm /etc/systemd/system/logzioOTELCollector.service 2>/dev/null` `sudo rm /usr/lib/systemd/system/logzioOTELCollector.service 2>/dev/null` `sudo rm /etc/init.d/logzioOTELCollector 2>/dev/null`|
 
 
+{@include: ../../_include/log-shipping/otel-filter.md}
+
+
 ## Send AWS EC2 metrics to Logz.io via Cloudwatch Metrics Stream
 
 

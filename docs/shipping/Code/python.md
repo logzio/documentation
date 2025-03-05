@@ -1007,6 +1007,7 @@ Run the following command:
 Give your metrics time to process, after which they'll be available in your [Metrics](https://app.logz.io/#/dashboard/metrics/) dashboard.
 
 
+{@include: ../../_include/log-shipping/otel-filter.md}
 
 
 </TabItem>
