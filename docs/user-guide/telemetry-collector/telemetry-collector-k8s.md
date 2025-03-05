@@ -157,15 +157,3 @@ If you have additional questions about managing your Telemetry Collector, [conta
 ## Additional resources
 
 * [View Telemetry Collector on GitHub](https://github.com/logzio/logzio-agent-manifest)
-
-
-
-
-      log_statements:
-        - context: log
-          statements:
-            # set log_level
-            - set(attributes["log_level"], "INFO")
-            - set(attributes["log_level"], "DEBUG") where (IsMatch(body, ".*\\b(?i:debug)\\b.*"))
-            - set(attributes["log_level"], "WARNING") where (IsMatch(body, ".*\\b(?i:warning|warn)\\b.*"))
-            - set(attributes["log_level"], "ERROR") where (IsMatch(body, ".*(?i:(?:error|fail|failure|exception|panic)).*"))
