@@ -19,10 +19,10 @@ Consumption-based accounts have usage limits that define how much data (GB/UTM) 
 
 There are two types of limits in your account:
 
-* Soft Cap (Sub Account Limit) – Each sub account has an ingestion limit (GB/UTM) that can be adjusted by account admins in the [Manage Accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page. If a sub account reaches its soft cap, data ingestion will stop until the limit is increased.
-* Hard Cap (Overall Telemetry Limit) – This is the maximum ingestion limit (GB/UTM) for a specific telemetry type across all sub accounts. Once this limit is reached, ingestion for that telemetry type will be blocked.
+* Total daily volume (Sub Account Limit) – Each sub account has an ingestion limit (GB/UTM) that can be adjusted by account admins in the [Manage Accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page. If a sub account reaches its Total daily volume cap, data ingestion will stop until the limit is increased.
+* Account cap (Overall Telemetry Limit) – This is the maximum ingestion limit (GB/UTM) for a specific telemetry type across all sub accounts. Once this limit is reached, ingestion for that telemetry type will be blocked.
 
-To increase the overall account hard cap, contact the Logz.io [Support team](mailto:help@logz.io).
+To increase the overall account cap, contact the Logz.io [Support team](mailto:help@logz.io).
 
 Account admins can track both budget and ingestion in [Plan and Usage > Usage and Info](https://app.logz.io/#/dashboard/settings/plan-and-billing/usage). The dashboard provides an overview of budget consumption ($ spent), data ingestion (GB/UTM used), and any overages beyond plan limits. Usage data updates once a day.
 
@@ -40,7 +40,7 @@ The page provides an overview of consumption per telemetry type, including:
 * Usage limit – The daily and total amount of telemetry data you can ingest
 * Retention period
 * Number of sub accounts
-* Overall telemetry limit (Hard cap)
+* Overall telemetry limit (Total usage cap)
 
 It also includes a breakdown of accounts and their relevant data.
 
