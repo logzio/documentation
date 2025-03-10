@@ -7,6 +7,55 @@ keywords: [release notes, logzio, logs, metrics, traces, logz.io, updates, relea
 toc_max_heading_level: 2
 ---
 
+## March 2025
+
+### Explore improvements:
+
+**Enhanced Lucene Query Editor** - Syntax highlighting and auto suggestions to streamline query building and troubleshooting.
+
+**Date Picker Updates** - Now located next to the query line, the date picker features an improved timestamp for better readability.
+
+**Trace Tab Indicator** - An indicator now appears on the Traces tab whenever trace data is linked to the log you're viewing, making it easy to spot available traces.
+
+### Core updates:
+
+Logzio-Monitoring Helm Chart:
+Added support for enabling the OpenTelemetry Operator to auto-instrument cluster applications.
+Integrated opentelemetry-operator chart (v0.79.0).
+Secret values have been centralized under global:
+
+`secrets.MetricsToken >> global.logzioMetricsToken`
+
+`secrets.TracesToken >> global.logzioTracesToken`
+
+`secrets.SpmToken >> global.logzioSpmToken`
+
+`secrets.k8sObjectsLogsToken >> global.logzioLogsToken`
+
+`secrets.env_id >> global.env_id`
+
+`secrets.LogzioRegion >> global.logzioRegion`
+
+`secrets.CustomTracingEndpoint >> global.customTracesEndpoint`
+
+Deprecate `secrets.p8s_logzio_name and secrets.ListenerHost`
+
+Added customization options for propagators, samplers, data collection types, and enabled libraries.
+
+Added OTLP receivers to the metrics pipeline for improved telemetry collection. [Read more](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-monitoring).
+
+
+Added support for [migrating to logzio-monitoring 7.x.x](https://docs.logz.io/docs/shipping/containers/kubernetes/#migrating-to-logzio-monitoring-7xx) in Kubernetes.
+
+**Logzio Collector Agent Integration:**
+
+* Updated the generated Helm command to align with the logzio-monitoring Helm Chart v7.0.0 structure.
+* Added updates to the Agent script to support the new Helm version.
+* Updated the UI to reflect the new Helm deployment structure.
+
+[Read more](https://github.com/logzio/logzio-agent-manifest).
+
+
 ## February 2025
 
 ### Explore Upgrades and Improvements
