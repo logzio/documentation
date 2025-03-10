@@ -19,26 +19,22 @@ toc_max_heading_level: 2
 
 ### Core updates:
 
-Logzio-Monitoring Helm Chart:
+**Logzio-Monitoring Helm Chart:**
+
 Added support for enabling the OpenTelemetry Operator to auto-instrument cluster applications.
+
 Integrated opentelemetry-operator chart (v0.79.0).
+
 Secret values have been centralized under global:
 
-`secrets.MetricsToken >> global.logzioMetricsToken`
-
-`secrets.TracesToken >> global.logzioTracesToken`
-
-`secrets.SpmToken >> global.logzioSpmToken`
-
-`secrets.k8sObjectsLogsToken >> global.logzioLogsToken`
-
-`secrets.env_id >> global.env_id`
-
-`secrets.LogzioRegion >> global.logzioRegion`
-
-`secrets.CustomTracingEndpoint >> global.customTracesEndpoint`
-
-Deprecate `secrets.p8s_logzio_name and secrets.ListenerHost`
+* `secrets.MetricsToken >> global.logzioMetricsToken`
+* `secrets.TracesToken >> global.logzioTracesToken`
+* `secrets.SpmToken >> global.logzioSpmToken`
+* `secrets.k8sObjectsLogsToken >> global.logzioLogsToken`
+* `secrets.env_id >> global.env_id`
+* `secrets.LogzioRegion >> global.logzioRegion`
+* `secrets.CustomTracingEndpoint >> global.customTracesEndpoint`
+* Deprecate `secrets.p8s_logzio_name and secrets.ListenerHost`
 
 Added customization options for propagators, samplers, data collection types, and enabled libraries.
 
