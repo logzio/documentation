@@ -16,7 +16,7 @@ drop_filter: []
 ---
 
 
-## Send your AWS EC2 logs and metrics using OpenTelemetry collector service 
+## Send your AWS EC2 logs and metrics using OpenTelemetry collector service
 
 :::note
 For a much easier and more efficient way to collect and send metrics, consider using the [Logz.io telemetry collector](https://app.logz.io/#/dashboard/integrations/collectors?tags=Quick%20Setup).
@@ -181,9 +181,6 @@ To manage OpenTelemetry on your machine, use the following commands:
 |Stop service|`sudo systemctl stop logzioOTELCollector`|
 |Service logs|`sudo systemctl status -l logzioOTELCollector`|
 |Delete service|`sudo systemctl stop logzioOTELCollector` `sudo systemctl disable logzioOTELCollector` `sudo systemctl reset-failed logzioOTELCollector 2>/dev/null` `sudo rm /etc/systemd/system/logzioOTELCollector.service 2>/dev/null` `sudo rm /usr/lib/systemd/system/logzioOTELCollector.service 2>/dev/null` `sudo rm /etc/init.d/logzioOTELCollector 2>/dev/null`|
-
-
-{@include: ../../_include/log-shipping/otel-filter.md}
 
 
 ## Send AWS EC2 metrics to Logz.io via Cloudwatch Metrics Stream
