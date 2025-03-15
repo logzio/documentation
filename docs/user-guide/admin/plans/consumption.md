@@ -1,5 +1,5 @@
 ---
-sidebar_position: 15
+sidebar_position: 1
 title: Consumption-Based Model
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Learn more about Logz.io's consumption based model
@@ -7,26 +7,30 @@ keywords: [account, manage account, payments, consumption, admin controls, admin
 ---
 
 
-Logz.io's consumption-based model allows you to tailor your budget to cover all your data monitoring needs, including logs, metrics, traces, and SIEM. This approach lets you view and analyze various data types within your account, with charges applied based on the volume of GB and Unique Metrics ingested.
+Logz.io's consumption-based model allows you to set a budget to cover all your data monitoring needs, including logs, metrics, traces, and SIEM. Instead of pre-allocating a fixed volume per telemetry type, you define how much you want to spend, and charges are applied based on the volume of GB and Unique Metrics ingested.
 
-This model allows you to configure quotas on your end, including the maximum amount of data you want ingested per data type. You pay for the data you ingest.
+Consumption model allows you to configure a quota and soft caps on your end, which is the maximum amount of data you want to ingest per data type. 
 
 The cost per GB and Unique Metrics depends on your selected pricing plan. You can review the different offerings on [Logz.io’s Pricing page](https://logz.io).
 
-<h2 id="usage">Usage and limits</h2>
+<h2 id="">Understanding consupmtion lingo</h2>
 
-Consumption-based accounts have usage limits that define how much data (GB/UTM) can be ingested per telemetry type (Logs, Metrics, Traces, or SIEM). Instead of reserving a fixed volume of data, your plan is based on a monthly or yearly budget - the total dollar ($) amount allocated for data ingestion.
+Consumption based accounts requires you to define the overall budget of your account, which is the dollar value, and the usage limit of how much data (GB/UTM) can be ingested per telemetry type (logs, metrics, trace, or SIEM). Instead of reserving a fixed volume of data, your plan is based on a monthly or yearly budget - the total dollar ($) amount allocated for data ingestion.
 
-There are two types of limits in your account:
+The usage limit in your account is defined by the following:
 
-* Total daily volume (Sub Account Limit) – Each sub account has an ingestion limit (GB/UTM) that can be adjusted by account admins in the [Manage Accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page. If a sub account reaches its Total daily volume cap, data ingestion will stop until the limit is increased.
-* Account cap (Overall Telemetry Limit) – This is the maximum ingestion limit (GB/UTM) for a specific telemetry type across all sub accounts. Once this limit is reached, ingestion for that telemetry type will be blocked.
+* Soft Cap (Sub Account Limit) – Each sub account has an ingestion limit (GB/UTM) that can be adjusted by account admins in the [Manage Accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page. If a sub account reaches its soft cap, data ingestion will stop until the limit is increased.
+* Hard Cap (Overall Telemetry Limit) – This is the maximum ingestion limit (GB/UTM) for a specific telemetry type across all sub accounts. Once this limit is reached, ingestion for that telemetry type will be blocked.
 
-To increase the overall account cap, contact the Logz.io [Support team](mailto:help@logz.io).
+To increase the overall account hard cap, contact the Logz.io [Support team](mailto:help@logz.io).
+
+The default hard cap is 300GB per day. 
 
 Account admins can track both budget and ingestion in [Plan and Usage > Usage and Info](https://app.logz.io/#/dashboard/settings/plan-and-billing/usage). The dashboard provides an overview of budget consumption ($ spent), data ingestion (GB/UTM used), and any overages beyond plan limits. Usage data updates once a day.
 
 On-Demand charges apply only when the entire budget has been used.
+
+
 
 
 <h2 id="usage">Manage settings overview</h2>
