@@ -16,9 +16,7 @@ Unified Dashboards provide a powerful tool for monitoring system health, analyzi
 
 With customizable visualizations and flexible querying capabilities, Logz.io dashboards help teams efficiently explore complex datasets, correlate events, and better understand their infrastructure. They allow you to:
 
-* Visualize data from multiple sources in a single view.
-* Detect anomalies and investigate issues in real time.
-* Correlate metrics, logs, and traces for deeper analysis.
+* Visualize data from metrics and logs in a single view.
 * Customize views to highlight the most relevant information for your team.
 
 Your dashboards are built using panels and queries that display visualizations like time-series graphs, tables, and more. You can configure queries, filters, and layouts to tailor dashboards to your specific monitoring needs.
