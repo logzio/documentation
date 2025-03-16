@@ -593,7 +593,7 @@ For further details, refer to the [OpenTelemetry Go Instrumentation documentatio
 <TabItem value="enable-debug-mode" label="Enable Debug" default>
 
 ### Enable debug mode
-To enabledebug mode for Opentelemetry Operator, add the `OTEL_LOG_LEVEL` environment variable with value `DEBUG`.
+To enable debug mode for Opentelemetry Operator, add the `OTEL_LOG_LEVEL` environment variable with value `DEBUG`.
 
 #### Enable debug mode for a single pod
 To enable debug mode for a specific pod, add the following environment variable directly to its spec:
