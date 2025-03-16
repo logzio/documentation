@@ -39,4 +39,4 @@ Unified Dashboards offer various panel types for you to choose from, including:
 
 To view, manage, and create your Unified Dashboards, navigate to the [Dashboards Hub](https://docs.logz.io/docs/user-guide/dashboards-hub/dashboards-hub/). Your existing Unified Dashboards are located under the Open 360 Dashboards.
 
-[Learn more about managing and configuring Unified Dashboards](https://docs.logz.io/docs/user-guide/dashboards/edit-dashboards/).
+[Learn more about managing and configuring Unified Dashboards](/docs/user-guide/dashboards/edit-dashboards/).
