@@ -603,6 +603,7 @@ spec:
   template:
     spec:
       containers:
+        - name: "<CONTAINER_NAME>"
           env:
           - name: OTEL_LOG_LEVEL
             value: "debug"
