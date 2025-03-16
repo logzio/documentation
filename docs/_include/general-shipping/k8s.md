@@ -590,6 +590,44 @@ For further details, refer to the [OpenTelemetry Go Instrumentation documentatio
 
 
 </TabItem>
+<TabItem value="enable-debug-mode" label="Enable Debug" default>
+
+### Enable debug mode
+To enabledebug mode for Opentelemetry Operator, add the `OTEL_LOG_LEVEL` environment variable with value `DEBUG`.
+
+#### Enable debug mode for a single pod
+To enable debug mode for a specific pod, add the following environment variable directly to its spec:
+
+```Yaml
+spec:
+  template:
+    spec:
+      containers:
+          env:
+          - name: OTEL_LOG_LEVEL
+            value: "debug"
+```
+
+#### Enable debug mode for all instrumented pods
+To apply debug mode to all pods instrumented by the OpenTelemetry Operator, update your Logz.io Helm chart with the following configuration, replacing <APP_LANGUAGE> with your application's programming language:
+
+```Yaml
+instrumentation:
+  <APP_LANGUAGE>:
+    extraEnv:
+    - name: OTEL_LOG_LEVEL
+      value: "debug"
+```
+
+:::tip
+`<APP_LANGUAGE>` can be one of `dotnet`, `java`, `nodejs` or `python`.
+:::
+
+:::caution
+Enabling debug mode generates highly verbose logs. It is recommended to apply it per pod and not for all pods.
+:::
+
+</TabItem>
 </Tabs>
 
 
