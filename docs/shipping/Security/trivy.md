@@ -51,9 +51,9 @@ helm repo update
 
 ```shell
 helm install -n monitoring --create-namespace \
---set env_id="<<ENV-ID>>" \
---set secrets.logzioShippingToken="<<LOG-SHIPPING-TOKEN>>" \
---set secrets.logzioListener="<<LISTENER-HOST>>" \
+--set global.env_id="<<ENV-ID>>" \
+--set global.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
 logzio-trivy logzio-helm/logzio-trivy
 ```
 
@@ -67,7 +67,7 @@ With this command, we instruct Helm to create the monitoring namespace if it doe
 |---|---|
 | `<<ENV-ID>>` | A unique name assigned to your environment's identifier, to differentiate telemetry data across various environments. If you're collecting metrics, this should match the env-id/p8s_logzio_name you used for the metrics.
 | `<<LOG-SHIPPING-TOKEN>>` | {@include: ../../_include/log-shipping/log-shipping-token.html} |
-| `<<LISTENER-HOST>>` | Replace `<<LISTENER-HOST>>` with the host for your region, without the `http/https` prefix.  |
+| `<<LOGZIO-REGION>>` | Replace `<<LOGZIO_ACCOUNT_REGION_CODE>>` with your Logz.io [region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). |
 
 
 #### Trivy Metrics
@@ -80,16 +80,12 @@ The Logz.io Telemetry chart is sending metrics of the entire cluster and not onl
 
 ```shell
 helm install  -n monitoring --create-namespace \
---set metricsOrTraces.enabled=true \
 --set logzio-k8s-telemetry.metrics.enabled=true \
---set logzio-k8s-telemetry.secrets.MetricsToken="<<METRICS-SHIPPING-TOKEN>>" \
---set logzio-k8s-telemetry.secrets.ListenerHost="https://<<LISTENER-HOST>>:8053" \
---set logzio-k8s-telemetry.secrets.p8s_logzio_name="<<ENV-ID>>" \
---set logzio-k8s-telemetry.secrets.env_id="<<ENV-ID>>" \
+--set global.logzioMetricsToken="<<METRICS-SHIPPING-TOKEN>>" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set global.env_id="<<ENV-ID>>" \
 --set securityReport.enabled=true \
---set logzio-trivy.env_id="<<ENV-ID>>" \
---set logzio-trivy.secrets.logzioShippingToken="<<LOG-SHIPPING-TOKEN>>" \
---set logzio-trivy.secrets.logzioListener="<<LISTENER-HOST>>" \
+--set global.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
@@ -129,10 +125,10 @@ You can use the following options to update the Helm chart parameters:
 | `terminationGracePeriodSeconds` | Termination period (in seconds) to wait before killing Fluentd pod process on pod shutdown. | `30` |
 | `serviceAccount.create` | Specifies whether to create a service account for the cron job. | `true` |
 | `serviceAccount.name` | Name of the service account. | `""` |
-| `secrets.enabled` | Specifies wheter to create a secret for the deployment | `true` |
-| `secrets.name` | Secret name | `"logzio-logs-secret-trivy"` |
-| `secrets.logzioShippingToken` | Your logz.io log shipping token | `""` |
-| `secrets.logzioListener` | Your logz.io listener host | `""` (defaults to us region) |
+| `secret.enabled` | Specifies wheter to create a secret for the deployment | `true` |
+| `secret.name` | Secret name | `"logzio-logs-secret-trivy"` |
+| `global.logzioLogsToken` | Your logz.io log shipping token | `""` |
+| `global.logzioRegion` | Your logz.io region code | `"us"` (defaults to us region) |
 | `scriptLogLevel` | Log level of the script that sends security risk to Logz.io. Can be one of: `DEBUG`, `INFO`, `WARNING`, `ERROR`, `CRITICAL`. | `INFO` |
 
 

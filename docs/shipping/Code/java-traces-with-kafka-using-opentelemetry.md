@@ -146,11 +146,10 @@ helm repo update
 
 ```sh
 helm install -n monitoring \
---set metricsOrTraces.enabled=true \
---set logzio-k8s-telemetry.traces.enabled=true \
---set logzio-k8s-telemetry.secrets.TracesToken="{@include: ../../_include/tracing-shipping/replace-tracing-token.html}" \
---set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO-REGION>>" \
---set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
+--set logzio-apm-collector.enabled=true \
+--set global.logzioTracesToken="{@include: ../../_include/tracing-shipping/replace-tracing-token.html}" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set global.env_id="<<CLUSTER-NAME>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ``` 
 
@@ -165,7 +164,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 
 ### Define the logzio-monitoring dns name
 
-In most cases, the dns name will be `logzio-k8s-telemetry.<<namespace>>.svc.cluster.local`, where `<<namespace>>` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
+In most cases, the dns name will be `logzio-apm-collector.<<namespace>>.svc.cluster.local`, where `<<namespace>>` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
   
 If you are not sure what your cluster domain name is, you can run the following command to look it up: 
   
@@ -223,8 +222,8 @@ If required, you can add the following optional parameters as environment variab
   
 | Parameter | Description | 
 |---|---|
-| secrets.SamplingLatency | Threshold for the span latency - all traces slower than the threshold value will be filtered in. Default 500. | 
-| secrets.SamplingProbability | Sampling percentage for the probabilistic policy. Default 10. | 
+| SamplingLatency | Threshold for the span latency - all traces slower than the threshold value will be filtered in. Default 500. | 
+| SamplingProbability | Sampling percentage for the probabilistic policy. Default 10. | 
 
 
 ##### Example
@@ -240,8 +239,8 @@ The collector will sample **ALL traces** where is some span with error with this
   
 
 ```yaml
-logzio-k8s-telemetry:
-  tracesConfig:
+logzio-apm-collector:
+  traceConfig:
     processors:
       tail_sampling:
         policies:
@@ -288,11 +287,12 @@ logzio-k8s-telemetry:
           ] 
 ```
 
-```
+```shell
 helm install -f <PATH-TO>/my_values.yaml -n monitoring \
---set logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
---set logzio.tracing_token={@include: ../../_include/tracing-shipping/replace-tracing-token.html} \
---set traces.enabled=true \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set global.env_id="<<ENV-ID>>" \
+--set global.logzioTracesToken={@include: ../../_include/tracing-shipping/replace-tracing-token.html} \
+--set logzio-apm-collector.enabled=true \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
