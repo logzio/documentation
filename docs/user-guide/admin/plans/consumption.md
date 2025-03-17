@@ -6,67 +6,58 @@ description: Learn more about Logz.io's consumption based model
 keywords: [account, manage account, payments, consumption, admin controls, admin, access control]
 ---
 
+Logz.io offers a consumption-based pricing plan that lets you to set a budget to cover all of your data monitoring needs, including logs, metrics, traces, and SIEM. 
 
-Logz.io's consumption-based model allows you to set a budget to cover all your data monitoring needs, including logs, metrics, traces, and SIEM. Instead of pre-allocating a fixed volume per telemetry type, you define how much you want to spend, and charges are applied based on the volume of GB and Unique Metrics ingested.
+Logz.io consumption plans allow you to control your spending based on actual usage rather than a fixed data allocation. You set your budget in advance, and charges apply based on your data volume (GB) and Unique Metrics (UTM) consumed. You can set ingestion caps to control how much data is ingested per telemetry type (logs, metrics, traces, and SIEM).
 
-Consumption model allows you to configure a quota and soft caps on your end, which is the maximum amount of data you want to ingest per data type. 
+The cost per GB and UTM depends on your selected pricing plan. You can review the different offerings on [Logz.io’s Pricing page](https://logz.io).
 
-The cost per GB and Unique Metrics depends on your selected pricing plan. You can review the different offerings on [Logz.io’s Pricing page](https://logz.io).
+<h2 id="start">Getting started with a consumption-based plan</h2>
 
-<h2 id="">Understanding consupmtion lingo</h2>
+To activate a consumption plan, you can either:
 
-Consumption based accounts requires you to define the overall budget of your account, which is the dollar value, and the usage limit of how much data (GB/UTM) can be ingested per telemetry type (logs, metrics, trace, or SIEM). Instead of reserving a fixed volume of data, your plan is based on a monthly or yearly budget - the total dollar ($) amount allocated for data ingestion.
+* Contact your account manager
+* [Purchase an account via AWS](/docs/admin/plans/aws-consumption/)
 
-The usage limit in your account is defined by the following:
+<h2 id="limit">Managing consumption limits</h2>
 
-* Soft Cap (Sub Account Limit) – Each sub account has an ingestion limit (GB/UTM) that can be adjusted by account admins in the [Manage Accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page. If a sub account reaches its soft cap, data ingestion will stop until the limit is increased.
-* Hard Cap (Overall Telemetry Limit) – This is the maximum ingestion limit (GB/UTM) for a specific telemetry type across all sub accounts. Once this limit is reached, ingestion for that telemetry type will be blocked.
+Consumption-based plans use budgets instead of reserved volumes. Your account includes a monthly or yearly budget and associated ingestion limits (GB/UTM). Limits help prevent unexpected overages.
 
-To increase the overall account hard cap, contact the Logz.io [Support team](mailto:help@logz.io).
+Your account has two types of ingestion limits:
 
-The default hard cap is 300GB per day. 
+* **Soft Cap** (Sub-Account Limit) - Each sub-account has a daily ingestion limit (GB/UTM) that can be adjusted by account admins on the [Manage Accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page. If a sub-account reaches this soft cap, data ingestion pauses for that sub-account until the limit is increased.
 
-Account admins can track both budget and ingestion in [Plan and Usage > Usage and Info](https://app.logz.io/#/dashboard/settings/plan-and-billing/usage). The dashboard provides an overview of budget consumption ($ spent), data ingestion (GB/UTM used), and any overages beyond plan limits. Usage data updates once a day.
+* **Hard Cap** (Overall Product Limit) - The hard cap is the total daily ingestion limit (GB/UTM) for each telemetry type across all sub-accounts combined. The sum of all sub-account soft caps cannot exceed this hard cap. Once the hard cap is reached, further ingestion for that telemetry type stops until the limit is adjusted.
 
-On-Demand charges apply only when the entire budget has been used.
+_For example, if your Logs Hard Cap is set to 100 GB and you have three sub-accounts sending log data, the combined ingestion from these sub-accounts cannot exceed 100 GB._
 
-
-
-
-<h2 id="usage">Manage settings overview</h2>
-
-Account admins can view all consumption-related data in the [Manage Accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page.
-
-![manage consumption account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/consumption/consumption-account-management.png)
-
-The page provides an overview of consumption per telemetry type, including:
-
-* Usage limit – The daily and total amount of telemetry data you can ingest
-* Retention period
-* Number of sub accounts
-* Overall telemetry limit (Total usage cap)
-
-It also includes a breakdown of accounts and their relevant data.
-
-At the bottom of the panel, you’ll find:
-
-* Account name
-* Account ID
-* Usage limit – The daily and total (account cap) amount of telemetry data you can ingest
-* Retention period
-* Advanced settings – Displays whether the account can access shared assets, view utilization metrics, and show log size
-
-To add a new account, click **Add sub account**, then enter the name, usage limits, retention period, and any other required settings. Click **Create** to finalize the account, which you can then view and edit as needed.
-
-To view and edit other telemetry types, scroll down the page. To view and monitor the budget used, navigate to [Plan and Usage > Usage and Info](https://app.logz.io/#/dashboard/settings/plan-and-billing/usage).
+The default hard cap is 300 GB for logs, 300,000 UTMs for metrics, and 150GB for tracing data. To request an increase, contact [Logz.io Support](mailto:help@logz.io).
 
 
-<!-- ![Consumption manage account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/consumption/consumption-manage-accounts.png) 
+
+Administrators can track the budget and ingestion usage from the [Plan and Usage > Usage and Info](https://app.logz.io/#/dashboard/settings/plan-and-billing/usage) page. This dashboard provides:
+
+* Current budget consumption (dollars spent)
+* Data ingestion amounts (GB/UTM used)
+* Information about overages beyond your defined plan limits
+
+Usage data is updated daily.
+
+:::tip note
+On-demand charges apply only after your entire allocated budget has been consumed. They are not relevant for Pay As You Go plans. 
+:::
+
+
+<h2 id="usage">Manage accounts overview</h2>
+
+Account admins can monitor and configure account-specific settings via the [Manage Accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page.
+
+![manage consumption account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/consumption/consumption-manage-accounts.png)
 
 At the top of the page, you'll find a graph displaying your current usage alongside key details:
 
 * Total budget consumption breakdown
-* Estimated daily maximum cost if usage reaches the limit
+* Estimated daily maximum cost if usage reaches the limit (Soft Cap)
 * Contract start and end dates
 
 The second half of the page includes a table that provides an overview of all accounts, including:
@@ -74,16 +65,15 @@ The second half of the page includes a table that provides an overview of all ac
 * Account name
 * Account ID
 * Telemetry data type
-* Usage limit – The maximum amount of telemetry data you can ingest
+* Usage limit – The maximum amount of telemetry data you can ingest per account
 * Unit price (per GB/UTM)
-* Daily max price – The highest possible charge if usage reaches the limit
-* Retention period
-* Advanced settings – Indicates whether the account can access shared assets, have account utilization metrics, and display log size
+* Daily max price – The highest possible charge if usage reaches the limit (Soft Cap)
+* Retention period per account
+* Advanced settings – Indicates whether the account can access shared assets, have account utilization metrics, present log size, and more
 
 To create a new account, click **Create New Account**, then select the telemetry type, name, usage limit, retention, and any other required settings.
 
-To edit an account, click the **⋮** menu next to it. You can modify all settings except the telemetry type. -->
-
+To edit an account, click the **⋮** menu next to it. You can modify all settings except the telemetry type.
 
 <h2 id="example"> Consumption-Based Model - Example </h2>
 
@@ -121,3 +111,24 @@ Budget used per 1 day:
 | Open 360 security addon                         | 5GB            | $0.35          | $1.75               | 
 
 At the end of the day, $14.9 was spent, leaving a remaining budget of $985.1.
+
+
+<h2 id="table">Which plan is right for you?</h2>
+
+Logz.io offers two types of consumption plans:
+
+- **Pay as You Go** - You’re billed based on your actual usage (GB or UTM), without upfront commitment.
+- **Budget + On-demand** - You set a prepaid budget for GB or UTM usage. Once your daily limit is reached, additional usage is billed on-demand.
+
+Availability by payment method:
+
+|                       | AWS (Marketplace) | Credit Card | Wire Transfer |
+|-----------------------|-------------------|-------------|---------------|
+| **Pay as You Go**     | ✔️                 | ✖️           | ✖️             |
+| **Budget + On-Demand**| ✔️                 | ✖️           | ✔️             |
+
+
+
+
+
+
