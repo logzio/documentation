@@ -6,9 +6,9 @@ description: Learn more about Logz.io's consumption based model
 keywords: [account, manage account, payments, consumption, admin controls, admin, access control]
 ---
 
-Logz.io offers a consumption-based pricing plan that lets you to set a budget to cover all of your data monitoring needs, including logs, metrics, traces, and SIEM. 
+Logz.io offers a consumption-based pricing plan that lets you set a budget to cover all of your data monitoring needs, including logs, metrics, traces, and SIEM. 
 
-Logz.io consumption plans allow you to control your spending based on actual usage rather than a fixed data allocation. You set your budget in advance, and charges apply based on your data volume (GB) and Unique Metrics (UTM) consumed. You can set ingestion caps to control how much data is ingested per telemetry type (logs, metrics, traces, and SIEM).
+With a Logz.io consumption plan, you control spending based on actual usage, rather than committing to a fixed data allocation. You set your budget in advance, and charges apply based on your data volume (GB) and Unique Metrics (UTM) consumed. You can set ingestion caps to control how much data is ingested per telemetry type (logs, metrics, traces, and SIEM).
 
 The cost per GB and UTM depends on your selected pricing plan. You can review the different offerings on [Logz.io’s Pricing page](https://logz.io).
 
@@ -23,7 +23,7 @@ To activate a consumption plan, you can either:
 
 Consumption-based plans use budgets instead of reserved volumes. Your account includes a monthly or yearly budget and associated ingestion limits (GB/UTM). Limits help prevent unexpected overages.
 
-Your account has two types of ingestion limits:
+There are two types of ingestion limits in your account:
 
 * **Soft Cap** (Sub-Account Limit) - Each sub-account has a daily ingestion limit (GB/UTM) that can be adjusted by account admins on the [Manage Accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page. If a sub-account reaches this soft cap, data ingestion pauses for that sub-account until the limit is increased.
 
@@ -115,10 +115,7 @@ At the end of the day, $14.9 was spent, leaving a remaining budget of $985.1.
 
 <h2 id="table">Which plan is right for you?</h2>
 
-Logz.io offers two types of consumption plans:
-
-- **Pay as You Go** - You’re billed based on your actual usage (GB or UTM), without upfront commitment.
-- **Budget + On-demand** - You set a prepaid budget for GB or UTM usage. Once your daily limit is reached, additional usage is billed on-demand.
+Logz.io offers two types of consumption plans to fit different needs. If you prefer flexibility, the Pay as You Go model lets you pay only for the data you use. If you want to set a budget upfront and limit unexpected costs, the Budget + On-Demand plan lets you predefine a spending cap while still allowing additional usage if needed.
 
 Availability by payment method:
 
