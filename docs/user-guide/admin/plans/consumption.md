@@ -10,8 +10,6 @@ Logz.io offers a consumption-based pricing plan that lets you set a budget to co
 
 With a Logz.io consumption plan, you control spending based on actual usage, rather than committing to a fixed data allocation. You set your budget in advance, and charges apply based on your data volume (GB) and Unique Metrics (UTM) consumed. You can set ingestion caps to control how much data is ingested per telemetry type (logs, metrics, traces, and SIEM).
 
-The cost per GB and UTM depends on your selected pricing plan. You can review the different offerings on [Logz.io’s Pricing page](https://logz.io).
-
 <h2 id="start">Getting started with a consumption-based plan</h2>
 
 To activate a consumption plan, you can either:
@@ -25,13 +23,13 @@ Consumption-based plans use budgets instead of reserved volumes. Your account in
 
 There are two types of ingestion limits in your account:
 
-* **Soft Cap** (Sub-Account Limit) - Each sub-account has a daily ingestion limit (GB/UTM) that can be adjusted by account admins on the [Manage Accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page. If a sub-account reaches this soft cap, data ingestion pauses for that sub-account until the limit is increased.
+* **Soft Cap** (Sub-Account Limit) - Each sub-account has a daily ingestion limit (GB/UTM) that can be adjusted by account admins on the [Manage Accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page. If a sub-account reaches this soft cap, data ingestion pauses for that sub-account until the limit is increased or at the end of the day. 
 
-* **Hard Cap** (Overall Product Limit) - The hard cap is the total daily ingestion limit (GB/UTM) for each telemetry type across all sub-accounts combined. The sum of all sub-account soft caps cannot exceed this hard cap. Once the hard cap is reached, further ingestion for that telemetry type stops until the limit is adjusted.
+* **Hard Cap** (Overall Product Limit) - The hard cap is the total daily ingestion limit (GB/UTM) for each telemetry type across all sub-accounts combined. The sum of all sub-account soft caps cannot exceed this hard cap. Once the hard cap is reached, further ingestion for that telemetry type stops until the limit is adjusted or at the end of the day. 
 
-_For example, if your Logs Hard Cap is set to 100 GB and you have three sub-accounts sending log data, the combined ingestion from these sub-accounts cannot exceed 100 GB._
+_For example, if your Logs *Hard Cap* is set to 100 GB and you have three sub-accounts sending log data, the combined ingestion from these sub-accounts cannot exceed 100 GB._
 
-The default hard cap is 300 GB for logs, 300,000 UTMs for metrics, and 150GB for tracing data. To request an increase, contact [Logz.io Support](mailto:help@logz.io).
+The default **Hard Cap** is 300 GB for logs, 300,000 UTMs for metrics, and 150GB for tracing data. To request an increase, contact [Logz.io Support](mailto:help@logz.io).
 
 
 
