@@ -1079,7 +1079,7 @@ baseCollectorConfig:
 
 ```sh
 helm install -f <PATH-TO>/my_values.yaml \
---set global.logzioRegion="<<LOGZIO_REGION_CODE>>" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
 --set global.logzioTracesToken="<<LOGZIO_TRACES_TOKEN>>" \
 --set enabled=true \
 --set global.env_id="<<ENV_ID>>" \

@@ -152,7 +152,7 @@ helm repo update
 helm install -n monitoring \
 --set logzio-apm-collector.enabled=true \
 --set global.logzioTracesToken="{@include: ../../_include/tracing-shipping/replace-tracing-token.html}" \
---set global.logzioRegion="<<LOGZIO-REGION>>" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
 --set global.env_id="<<CLUSTER-NAME>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
@@ -161,7 +161,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | --- | --- |
 | `<<TRACES-SHIPPING-TOKEN>>` | Your [traces shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=tracing). |
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
-| `<<LOGZIO-REGION>>` | Name of your Logz.io traces region e.g `us`, `eu`... |
+| `<<LOGZIO_ACCOUNT_REGION_CODE>>` | Name of your Logz.io traces region e.g `us`, `eu`... |
 
 
 

@@ -47,7 +47,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | Parameter | Description |
 | --- | --- |
 | `<<LOG-SHIPPING-TOKEN>>` | Your [logs shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
-| `<<LOGZIO-REGION>>` | Replace `<<LOGZIO_ACCOUNT_REGION_CODE>>` with your Logz.io [region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). |
+| `<<LOGZIO_ACCOUNT_REGION_CODE>>` | Replace `<<LOGZIO_ACCOUNT_REGION_CODE>>` with your Logz.io [region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). |
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
 
 
@@ -171,7 +171,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | --- | --- |
 | `<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>` | Your [metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=metrics). |
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
-| `<<LOGZIO-REGION>>` | Replace `<<LOGZIO_ACCOUNT_REGION_CODE>>` with your Logz.io [region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). |
+| `<<LOGZIO_ACCOUNT_REGION_CODE>>` | Replace `<<LOGZIO_ACCOUNT_REGION_CODE>>` with your Logz.io [region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). |
 
 
 Encounter an issue? See our [user guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/k8s-troubleshooting/).
@@ -226,7 +226,7 @@ Encounter an issue? See our [EKS troubleshooting guide](https://docs.logz.io/doc
 helm install -n monitoring \
 --set logzio-apm-collector.enabled=true \
 --set global.logzioTracesToken="<<TRACES-SHIPPING-TOKEN>>" \
---set global.logzioRegion="<<LOGZIO-REGION>>" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
 --set global.env_id="<<CLUSTER-NAME>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
@@ -235,7 +235,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | --- | --- |
 | `<<TRACES-SHIPPING-TOKEN>>` | Your [traces shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=traces). |
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
-| `<<LOGZIO-REGION>>` | Name of your Logz.io traces region e.g `us`, `eu`... |
+| `<<LOGZIO_ACCOUNT_REGION_CODE>>` | Name of your Logz.io traces region e.g `us`, `eu`... |
 
 
 Encounter an issue? See our [Distributed Tracing troubleshooting](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/tracing-troubleshooting/).
@@ -247,7 +247,7 @@ Encounter an issue? See our [Distributed Tracing troubleshooting](https://docs.l
 helm install -n monitoring \
 --set logzio-apm-collector.enabled=true \
 --set global.logzioTracesToken="<<TRACES-SHIPPING-TOKEN>>" \
---set global.logzioRegion="<<LOGZIO-REGION>>" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
 --set global.env_id="<<CLUSTER-NAME>>" \
 --set logzio-apm-collector.spm.enabled=true \
 --set global.logzioSpmToken={@include: ../../_include/tracing-shipping/replace-spm-token.html} \
@@ -258,7 +258,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | --- | --- |
 | `<<TRACES-SHIPPING-TOKEN>>` | Your [traces shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=traces). |
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
-| `<<LOGZIO-REGION>>` | Name of your Logz.io traces region e.g `us`, `eu`... |
+| `<<LOGZIO_ACCOUNT_REGION_CODE>>` | Name of your Logz.io traces region e.g `us`, `eu`... |
 | `<<SPM-SHIPPING-TOKEN>>` | Your [span metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=metrics). |
 
 
@@ -283,14 +283,14 @@ helm install -n monitoring \
 --set securityReport.enabled=true \
 --set global.env_id="<<CLUSTER-NAME>>" \
 --set global.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
---set global.logzioRegion="<<LISTENER-HOST>>" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
 | Parameter | Description |
 | --- | --- |
 | `<<LOG-SHIPPING-TOKEN>>` | Your [logs shipping token](https://app.logz.io/#/dashboard/settings/general). |
-| `<<LOGZIO-REGION>>` | Replace `<<LOGZIO_ACCOUNT_REGION_CODE>>` with your Logz.io [region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). |
+| `<<LOGZIO_ACCOUNT_REGION_CODE>>` | Replace `<<LOGZIO_ACCOUNT_REGION_CODE>>` with your Logz.io [region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). |
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
 
 

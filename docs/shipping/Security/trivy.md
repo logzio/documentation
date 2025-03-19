@@ -67,7 +67,7 @@ With this command, we instruct Helm to create the monitoring namespace if it doe
 |---|---|
 | `<<ENV-ID>>` | A unique name assigned to your environment's identifier, to differentiate telemetry data across various environments. If you're collecting metrics, this should match the env-id/p8s_logzio_name you used for the metrics.
 | `<<LOG-SHIPPING-TOKEN>>` | {@include: ../../_include/log-shipping/log-shipping-token.html} |
-| `<<LOGZIO-REGION>>` | Replace `<<LOGZIO_ACCOUNT_REGION_CODE>>` with your Logz.io [region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). |
+| `<<LOGZIO_ACCOUNT_REGION_CODE>>` | Replace `<<LOGZIO_ACCOUNT_REGION_CODE>>` with your Logz.io [region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). |
 
 
 #### Trivy Metrics
