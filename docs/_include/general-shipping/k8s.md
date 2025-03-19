@@ -499,14 +499,18 @@ instrumentation.opentelemetry.io/inject-<APP_LANGUAGE>: "monitoring/logzio-monit
 By default, in multi-container pods, instrumentation is performed on the first container available in the pod spec. To fine tune which containers to instrument, add the below annotations to your pod:
 
 ```sh
-instrumentation.opentelemetry.io/inject-<APP_LANGUAGE>: "monitoring/logzio-apm-collector"
+instrumentation.opentelemetry.io/inject-<APP_LANGUAGE>: "monitoring/logzio-monitoring-instrumentation"
 instrumentation.opentelemetry.io/<APP_LANGUAGE>-container-names: "myapp,myapp2"
-instrumentation.opentelemetry.io/inject-<APP_LANGUAGE_2>: "monitoring/logzio-apm-collector"
+instrumentation.opentelemetry.io/inject-<APP_LANGUAGE_2>: "monitoring/logzio-monitoring-instrumentation"
 instrumentation.opentelemetry.io/<APP_LANGUAGE_2>-container-names: "myapp3"
 ```
 
 :::tip
 `<APP_LANGUAGE>` can be one of `apache-httpd`, `dotnet`, `go`, `java`, `nginx`, `nodejs` or `python`.
+:::
+
+:::caution
+Go auto-instrumentation does not support multicontainer pods. When injecting Go auto-instrumentation the first pod should be the only pod you want instrumented.
 :::
 
 ## Customize Auto-instrumentation
@@ -561,6 +565,69 @@ There are 3 TLS certificate options, by default this chart is using option 2.
 --set otel-operator.admissionWebhooks.keyFile="<<PEM_KEY_PATH>>" \
 --set otel-operator.admissionWebhooks.caFile="<<CA_CERT_PATH>>" \
 ```
+</TabItem>
+<TabItem value="enable-go-instrumentation" label="Enable Go Instrumentation" default>
+
+### Enable Go Instrumentation
+Go Instrumentation is disabled by default in the OpenTelemetry Operator. To enable it, follow the below steps:
+
+#### Step 1
+Add the following configuration to your `values.yaml`:
+```yaml
+otel-operator:
+  manager:
+    extraArgs:
+      - "--enable-go-instrumentation=true"
+```
+
+#### Step 2
+Set the `OTEL_GO_AUTO_TARGET_EXE` environment variable in your Go application to the path of the target executable.
+
+
+:::note
+For further details, refer to the [OpenTelemetry Go Instrumentation documentation](https://github.com/open-telemetry/opentelemetry-go-instrumentation/blob/v0.21.0/docs/how-it-works.md#opentelemetry-go-instrumentation---how-it-works).
+:::
+
+
+</TabItem>
+<TabItem value="enable-debug-mode" label="Enable Debug" default>
+
+### Enable debug mode
+To enable debug mode for Opentelemetry Operator, add the `OTEL_LOG_LEVEL` environment variable with value `DEBUG`.
+
+#### Enable debug mode for a single pod
+To enable debug mode for a specific pod, add the following environment variable directly to its spec:
+
+```yaml
+spec:
+  template:
+    spec:
+      containers:
+        - name: "<CONTAINER_NAME>"
+          env:
+          - name: OTEL_LOG_LEVEL
+            value: "debug"
+```
+
+#### Enable debug mode for all instrumented pods
+To apply debug mode to all pods instrumented by the OpenTelemetry Operator, update your Logz.io Helm chart with the following configuration, replacing <APP_LANGUAGE> with your application's programming language:
+
+```yaml
+instrumentation:
+  <APP_LANGUAGE>:
+    extraEnv:
+    - name: OTEL_LOG_LEVEL
+      value: "debug"
+```
+
+:::tip
+`<APP_LANGUAGE>` can be one of `dotnet`, `java`, `nodejs` or `python`.
+:::
+
+:::caution
+Enabling debug mode generates highly verbose logs. It is recommended to apply it per pod and not for all pods.
+:::
+
 </TabItem>
 </Tabs>
 
