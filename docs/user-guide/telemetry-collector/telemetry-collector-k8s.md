@@ -94,6 +94,8 @@ To set the log level:​
 1. Locate the values.yaml file used for your Helm deployment.​
 2. Add or modify the logLevel parameter under the processors section:​
 
+The `log_level` field is assigned based on a regex match in the message field. The configuration below sets different log levels depending on keywords found in the log message:
+
 ```yaml
       log_statements:
         - context: log
@@ -105,7 +107,7 @@ To set the log level:​
             - set(attributes["log_level"], "ERROR") where (IsMatch(body, ".*(?i:(?:error|fail|failure|exception|panic)).*"))
 ```
 
-Setting a higher verbosity level like debug will provide more detailed logs, which can be helpful during troubleshooting. However, be cautious, as higher verbosity can lead to larger log volumes.​
+Setting a higher verbosity level such as DEBUG provides more detailed logs, which can help with troubleshooting. However, keep in mind that higher verbosity increases log volume.
 
 
 ## Manage your Telemetry Collector:
