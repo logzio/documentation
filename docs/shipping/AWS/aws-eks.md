@@ -250,7 +250,7 @@ helm install -n monitoring \
 --set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
 --set global.env_id="<<CLUSTER-NAME>>" \
 --set logzio-apm-collector.spm.enabled=true \
---set global.logzioSpmToken={@include: ../../_include/tracing-shipping/replace-spm-token.html} \
+--set global.logzioSpmToken="<<SPM-METRICS-SHIPPING-TOKEN>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 

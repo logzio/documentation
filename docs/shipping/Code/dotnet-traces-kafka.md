@@ -151,7 +151,7 @@ helm repo update
 ```sh
 helm install -n monitoring \
 --set logzio-apm-collector.enabled=true \
---set global.logzioTracesToken="{@include: ../../_include/tracing-shipping/replace-tracing-token.html}" \
+--set global.logzioTracesToken="<<TRACES-SHIPPING-TOKEN>>" \
 --set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
 --set global.env_id="<<CLUSTER-NAME>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
@@ -275,7 +275,7 @@ logzio-apm-collector:
 ```
 helm install -f <PATH-TO>/my_values.yaml -n monitoring \
 --set logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
---set logzio.tracing_token={@include: ../../_include/tracing-shipping/replace-tracing-token.html} \
+--set logzio.tracing_token=<<TRACES-SHIPPING-TOKEN>> \
 --set traces.enabled=true \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```

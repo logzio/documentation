@@ -319,7 +319,7 @@ helm repo update
 helm install  \
 --set enabled=true \
 --set global.logzioTracesToken="<<LOGZIO_TRACES_TOKEN>>" \
---set global.logzioRegion="<<LOGZIO_REGION_CODE>>" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
 --set global.env_id="<<ENV_ID>>" \
 logzio-apm-collector logzio-helm/logzio-apm-collector
 ```
@@ -512,7 +512,7 @@ baseCollectorConfig:
 helm install -f <PATH-TO>/my_values.yaml \
 --set enabled=true \
 --set global.logzioTracesToken="<<LOGZIO_TRACES_TOKEN>>" \
---set global.logzioRegion="<<LOGZIO_REGION_CODE>>" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
 --set global.env_id="<<ENV_ID>>" \
 logzio-apm-collector logzio-helm/logzio-apm-collector
 ```
