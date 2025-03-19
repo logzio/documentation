@@ -87,6 +87,26 @@ Manage your dropped metrics by navigating to **[Data Hub > Drop filters > Metric
 
 ## Logs optimization
 
+### Understanding logzio-signature
+
+The `logzio-signature` is a unique identifier generated for each log based on its structure. It helps in log filtering and processing by grouping logs that share the same field names and types.
+
+This identifier is derived from the following:
+
+* Field names and their data types (e.g., traceId, authIp, userId, etc.)
+* The value of the type field (which defines the log source, e.g., machine-api-prod)
+
+**Why does this matter?**
+
+Drop filters are based on `logzio-signature`, meaning logs with the same field names and types will have the same signature and be affected together. If a log has even one additional or missing field, it gets a different signature and won't be dropped.
+
+For example:
+
+Logs with identical field structures (same field names and types) share the same `logzio-signature` and will be processed similarly.
+Logs with slight structural differences (e.g., an extra exception field) will have a different signature and may not be dropped.
+
+### Dropping logs
+
 You can drop different types of logs by hovering over its line and clicking on the **Drop** button.
 
 ![Hover to drop](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/optimization-hub/hover-to-drop.png)
