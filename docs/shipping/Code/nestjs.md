@@ -95,8 +95,9 @@ const provider = new BasicTracerProvider({
             "YOUR-SERVICE-NAME", // add the name of your service
     }),
 });
-// export spans to console (useful for debugging)
-provider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()));
+//// export spans to console (useful for debugging)
+// provider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()));
+
 // export spans to opentelemetry collector
 provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
 
@@ -228,7 +229,6 @@ const provider = new BasicTracerProvider({
 	}),
 });
 provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
-provider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()));
 provider.register();
 const sdk = new opentelemetry.NodeSDK({
 	traceExporter: new opentelemetry.tracing.ConsoleSpanExporter(),
@@ -391,7 +391,6 @@ const provider = new BasicTracerProvider({
 	}),
 });
 provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
-provider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()));
 provider.register();
 const sdk = new opentelemetry.NodeSDK({
 	traceExporter: new opentelemetry.tracing.ConsoleSpanExporter(),
