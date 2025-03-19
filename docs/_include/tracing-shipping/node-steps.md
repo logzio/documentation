@@ -52,8 +52,9 @@ const provider = new BasicTracerProvider({
             "<<YOUR-SERVICE-NAME>>",
     }),
 });
-// export spans to console (useful for debugging)
-provider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()));
+//// export spans to console (useful for debugging)
+// provider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()));
+
 // export spans to opentelemetry collector
 provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
 
