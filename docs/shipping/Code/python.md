@@ -1594,7 +1594,7 @@ After deploying, run your application to generate activity that will create trac
 
 Use a Helm chart to ship traces to Logz.io via the OpenTelemetry collector. The Helm tool manages packages of preconfigured Kubernetes resources.
 
-**logzio-k8s-telemetry** allows you to ship traces from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
+**logzio-apm-collector** allows you to ship traces from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
 
  
 :::note
@@ -1627,10 +1627,12 @@ helm repo update
 
 **2.  Run the Helm deployment code**
 
-```
+```shell
 helm install  \
---set logzio-k8s-telemetry.secrets.LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>> \
---set logzio-k8s-telemetry.secrets.TracesToken=<<TRACING-SHIPPING-TOKEN>> \
+--set logzio-apm-collector.enabled=true \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set global.logzioTracesToken="<<TRACING-SHIPPING-TOKEN>>" \
+--set global.env_id="<<CLUSTER-NAME>>" \
 logzio-monitoring logzio-helm/logzio-monitoring -n monitoring
 ```
 
@@ -1642,9 +1644,8 @@ logzio-monitoring logzio-helm/logzio-monitoring -n monitoring
 
 You'll need the following service DNS:
 
-`http://<<CHART-NAME>>-otel-collector.<<NAMESPACE>>.svc.cluster.local:<<PORT>>/`.
+`http://logzio-apm-collector.<<NAMESPACE>>.svc.cluster.local:<<PORT>>/`.
 
-Replace `<<CHART-NAME>>` with the relevant service you're using (`logzio-k8s-telemetry`, `logzio-monitoring`).
 Replace `<<NAMESPACE>>` with your Helm chart's deployment namespace (e.g., default or monitoring).
 Replace `<<PORT>>` with the [port for your agent's protocol](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-telemetry/values.yaml#L249-L267) (Default is 4317).
 
@@ -1697,19 +1698,20 @@ Optional parameters can be added as environment variables:
   
 | Parameter | Description | Default |
 |---|---|---|
-| secrets.SamplingLatency | Threshold for the span latency - all traces slower than the threshold value will be filtered in. | `500` |
-| secrets.SamplingProbability | Sampling percentage for the probabilistic policy. | `10` |
+| logzio-apm-collector.SamplingLatency | Threshold for the span latency - all traces slower than the threshold value will be filtered in. | `500` |
+| logzio-apm-collector.SamplingProbability | Sampling percentage for the probabilistic policy. | `10` |
 
 ##### Example
 
-You can run the logzio-k8s-telemetry chart with a custom configuration file that takes precedence over the `values.yaml` of the chart by running the following:
+You can run the `logzio-apm-collector` chart with a custom configuration file that takes precedence over the `values.yaml` of the chart by running the following:
 
 
-```
+```shell
 helm install -f <PATH-TO>/my_values.yaml \
---set logzio-k8s-telemetry.secrets.TracesToken=<<TRACES-SHIPPING-TOKEN>> \
---set logzio-k8s-telemetry.secrets.LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>> \
---set metricsOrTraces=true \
+--set logzio-apm-collector.enabled=true \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set global.logzioTracesToken="<<TRACING-SHIPPING-TOKEN>>" \
+--set global.env_id="<<CLUSTER-NAME>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
