@@ -66,9 +66,11 @@ Install the pre-built dashboard to enhance the observability of your metrics.
 
 {@include: ../../_include/metric-shipping/aws-metrics-new.md}
 
+
 Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["5BZ6El3juQkCKCIuGm1oyC"] -->
 
 {@include: ../../_include/metric-shipping/generic-dashboard.html}
+
 
