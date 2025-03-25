@@ -10,7 +10,7 @@ Before you integrate Kubernetes you'll need:
   ```
 
 
-{@include: ../../_include/general-shipping/k8s-all-data.md} 
+{@include: ../../_include/general-shipping/k8s-all-data.md}
 
 
 ## Manual Setup
