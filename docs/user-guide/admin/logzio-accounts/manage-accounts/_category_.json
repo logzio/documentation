@@ -1,0 +1,8 @@
+{
+  "label": "Manage Logz.io Accounts",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Manage your Logz.io logs, data, metrics, and SIEM accounts."
+  }
+}
