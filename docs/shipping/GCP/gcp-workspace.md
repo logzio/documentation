@@ -46,16 +46,16 @@ Enable the following APIs in your Google Cloud project:
 - [Google Workspace Admin SDK](https://developers.google.com/admin-sdk/admin-settings)
 - [Alert Center API](https://developers.google.com/admin-sdk/alertcenter/quickstart/java#turn_on_the_api)
 
-#### Create a Service account
+#### Create a service account
 To allow [Service-to-Service interactions](https://developers.google.com/identity/protocols/oauth2#serviceaccount) to authenticate with the Google API, [create a service account](https://cloud.google.com/iam/docs/service-accounts-create#creating) for your Google Cloud project.
 
 #### Create a delegated user
-[Create a Super Admin user](https://support.google.com/search?q=workspace+how+to+assign+a+super+admin+role) that impersonates the service account, and assign it to a new role which holds the [privalages to the APIs you'd like to access](https://cloud.google.com/chronicle/docs/ingestion/default-parsers/collect-workspace-logs#:~:text=Privileges%20%3E%20Reports,Privileges%20%3E%20Groups%20%3E%20Read).
+[Create a Super Admin user](https://support.google.com/search?q=workspace+how+to+assign+a+super+admin+role) that impersonates the service account, and assign it to a new role which holds the [privileges to the APIs you'd like to access](https://cloud.google.com/chronicle/docs/ingestion/default-parsers/collect-workspace-logs#:~:text=Privileges%20%3E%20Reports,Privileges%20%3E%20Groups%20%3E%20Read).
 
-#### Create a Service account key
-[Create a Service account Key](https://cloud.google.com/iam/docs/keys-create-delete#creating) for the Service account you created at step 2. Save the key JSON file in the same path where you'll sav the API Fetcher configuration (and run the program from) later on.
+#### Create a service account key
+[Create a Service account Key](https://cloud.google.com/iam/docs/keys-create-delete#creating) for the service account you created in step 2. Save the key JSON file in the same path where you'll save the API Fetcher configuration (and run the program from) later on.
 
-#### Setup Domain wide delegations
+#### Setup domain wide delegations
 [Setup Domain wide delegations](https://support.google.com/a/answer/162106?=en#zippy=%2Cset-up-domain-wide-delegation-for-a-client) so the Service account can access the APIs you'd like to access.
 
 :::note
@@ -145,14 +145,14 @@ To send [Google Activity](https://developers.google.com/workspace/admin/reports/
 | google_ws_delegated_account | The email of the user for which the application is requesting delegated access                                                                                                                                                                      | Required          | -                                       |
 | application_name            | Specifies the [Google Workspace application](https://developers.google.com/workspace/admin/reports/reference/rest/v1/activities/list#applicationname) to fetch activity data from (e.g., `saml`, `user_accounts`, `login`, `admin`, `groups`, etc). | Required          | -                                       |
 | user_key                    | The unique ID of the user to fetch activity data for                                                                                                                                                                                                | Optional          | `all`                                   |
-| additional_fields           | Additional custom fields to add to the logs before sending to logzio                                                                                                                                                                                | Optional          | -                                       |
+| additional_fields           | Additional custom fields to add to the logs before sending to Logz.io                                                                                                                                                                                | Optional          | -                                       |
 | days_back_fetch             | The amount of days to fetch back in the first request                                                                                                                                                                                               | Optional          | 1 (day)                                 |
 | scrape_interval             | Time interval to wait between runs (unit: `minutes`)                                                                                                                                                                                                | Optional          | 1 (minute)                              |
 
 
 #### Google Workspace General Configuration Options
 
-To configure a [different Google Workspace API](https://developers.google.com/workspace/admin/reference-overview) as source, use `type` as `google_workspace`, and configure it as necessary.
+To configure a [different Google Workspace API](https://developers.google.com/workspace/admin/reference-overview) as a source, use `type` as `google_workspace`, and configure it as necessary.
 
 By default `google_workspace` API type has built in pagination settings and sets the `response_data_path` to `items` field.
 
@@ -164,12 +164,12 @@ By default `google_workspace` API type has built in pagination settings and sets
 | google_ws_delegated_account | The email of the user for which the application is requesting delegated access                                                                                             | Required          | -                                                                  |
 | scopes                      | The OAuth 2.0 scopes that you might need to request to access Google APIs                                                                                                  | Optional          | `["https://www.googleapis.com/auth/admin.reports.audit.readonly"]` |
 | data_request                | Nest here any detail relevant to the data request. (Options in [General API](https://docs.logz.io/docs/log-management/api-fetcher/#configure-your-apis))                                                                        | Required          | -                                                                  |
-| additional_fields           | Additional custom fields to add to the logs before sending to logzio                                                                                                       | Optional          | -                                                                  |
+| additional_fields           | Additional custom fields to add to the logs before sending to Logz.io                                                                                                       | Optional          | -                                                                  |
 | days_back_fetch             | The amount of days to fetch back in the first request                                                                                                                      | Optional          | 1 (day)                                                            |
 | scrape_interval             | Time interval to wait between runs (unit: `minutes`)                                                                                                                       | Optional          | 1 (minute)                                                         |
 
 
-#### Logzio output configuration options
+#### Logz.io output configuration options
 
 :::note
 To configure multiple outputs (in order to send different API data to different Logz.io accounts), please refer to [the linked docs](https://docs.logz.io/docs/log-management/api-fetcher/#add-your-logzio-listener-and-token).
@@ -177,8 +177,8 @@ To configure multiple outputs (in order to send different API data to different 
 
 | Parameter Name | Description                 | Required/Optional | Default                         |
 |----------------|-----------------------------|-------------------|---------------------------------|
-| url            | The logzio Listener address | Optional          | `https://listener.logz.io:8071` |
-| token          | The logzio shipping token   | Required          | -                               |
+| url            | The Logz.io Listener address | Optional          | `https://listener.logz.io:8071` |
+| token          | The Logz.io shipping token   | Required          | -                               |
 
 ### Run The Docker Container
 In the path where you saved your `config.yaml` and your Google Workspace Service account key JSON, run:
