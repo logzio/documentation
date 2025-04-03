@@ -183,6 +183,10 @@ To enable it:
 
 Once triggered, the AI Agent will analyze related logs, metrics, and patterns. A summary of its findings will be sent to your selected **Slack channel** and stored in the **AI Agent chat history** for future reference.
 
+:::caution note
+AI Agent Analysis runs **once every hour** and can be enabled on **up to five alerts** per account.
+:::
+
 [Learn more about AI Agent Analysis](/docs/user-guide/observability/ai-agent-analysis/).
 
 <h3 id="output"> Select alert's output format & content</h3>
