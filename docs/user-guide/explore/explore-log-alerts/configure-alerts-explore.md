@@ -161,19 +161,29 @@ Set a time period between notifications to limit how frequently recipients are n
 The system combines the **Trigger if** time interval with the **Wait time** interval to calculate how long it should snooze notifications and chooses the more extended time duration available. For example, if your trigger condition is 1 hour and the wait time is 15 Minutes, the system will snooze notifications for 1 hour before triggering them again.
 :::
 
-### Activate AI Root Cause Analysis
+### Activate AI Agent Analysis
 
 :::note
-To use AI Root Cause Analysis, make sure your alert includes a Slack notification endpoint and a clear description.
+To use AI Agent Analysis, your alert must include a **Slack notification endpoint** and a **clear description**..
 :::
 
-AI Root Cause Analysis (RCA) allows Logz.io’s AI Agent to automatically investigate the cause of an alert as soon as it’s triggered. This provides quick, actionable insights to help you understand what happened and why.
+[AI Agent Analysis](/docs/user-guide/observability/ai-agent-analysis/) enables Logz.io’s AI Agent to automatically investigate the cause of an alert the moment it’s triggered—delivering fast, actionable insights to help you understand what happened and why.
 
-To enable it, check the **Activate Automatic AI RCA** box. You’ll need to add a description to your alert, as this helps the AI generate more accurate results based on context.
+To enable it:
 
-When the alert is triggered, the AI Agent analyzes relevant logs, metrics, and patterns. A summary of its findings is sent to your Slack channel and saved in the AI Agent chat for future reference.
+* Check the Activate AI Agent Analysis box.
 
-![AI Analysis](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/ai-agent-alert-step.png)
+  ![AI Analysis](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/ai-agent-analysis-checked.png)
+
+* Click **Configure endpoint** and select the Slack channel where the report should be delivered.
+
+  ![notification endpoint](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/notification-endpoint.png)
+
+* Add a clear description to your alert—this gives the AI the context it needs to produce accurate and helpful results.
+
+Once triggered, the AI Agent will analyze related logs, metrics, and patterns. A summary of its findings will be sent to your selected **Slack channel** and stored in the **AI Agent chat history** for future reference.
+
+[Learn more about AI Agent Analysis](/docs/user-guide/observability/ai-agent-analysis/).
 
 <h3 id="output"> Select alert's output format & content</h3>
 
