@@ -10,7 +10,7 @@ Before you integrate Kubernetes you'll need:
   ```
 
 
-{@include: ../../_include/general-shipping/k8s-all-data.md}
+{@include: ../../_include/general-shipping/k8s-all-data.md}  
 
 
 ## Manual Setup
@@ -441,6 +441,47 @@ helm upgrade logzio-apm-collector logzio-helm/logzio-apm-collector -n monitoring
 :::note
 If `10s` is insufficient, try increasing it to `15s` or higher.
 :::
+
+ </TabItem>
+
+<TabItem value="adding-toleration" label="Adding Toleration" default>
+
+## Adding Tolerations for Tainted Nodes
+
+To ensure that your pods can be scheduled on nodes with taints, you need to add tolerations to the relevant sub-charts. Here is how you can configure tolerations for each sub-chart within the `logzio-monitoring` Helm chart:
+
+1. **Identify the taints on your nodes:**
+   ```shell
+   kubectl get nodes -o json | jq '"\(.items[].metadata.name) \(.items[].spec.taints)"'
+   ```
+2. **Add tolerations to the Helm install command**:
+You can add tolerations by using the --set flag in your helm install command. Replace the placeholders with your taint and subchart values.
+Replace `<SUBCHART>` with one of the following options:
+- logzio-logs-collector
+- logzio-k8s-telemetry
+- logzio-trivy
+- logzio-k8s-events
+
+```shell
+--set '<SUBCHART>.tolerations[0].key=<<TAINT-KEY>>' \
+--set '<SUBCHART>.tolerations[0].operator=<<TAINT-OPERATOR>>' \
+--set '<SUBCHART>.tolerations[0].value=<<TAINT-VALUE>>' \
+--set '<SUBCHART>.tolerations[0].effect=<<TAINT-EFFECT>>'
+```
+Replace `<<TAINT-KEY>>`, `<<TAINT-OPERATOR>>`, `<<TAINT-VALUE>>`, and `<<TAINT-EFFECT>>` with the appropriate values for your taints.
+
+For example, if you need to tolerate the CriticalAddonsOnly:NoSchedule taint for the logzio-logs-collector after installation, you could use:
+
+```shell
+helm upgrade -n monitoring \
+  --reuse-values \
+  --set 'logzio-logs-collector.tolerations[0].key=CriticalAddonsOnly' \
+  --set 'logzio-logs-collector.tolerations[0].operator=Exists' \
+  --set 'logzio-logs-collector.tolerations[0].effect=NoSchedule' \
+  logzio-monitoring logzio-helm/logzio-monitoring
+```
+
+By following these steps, you can ensure that your pods are scheduled on nodes with taints by adding the necessary tolerations to the Helm chart configuration.
 
  </TabItem>
 </Tabs>
