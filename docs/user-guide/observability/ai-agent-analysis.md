@@ -20,7 +20,7 @@ By minimizing the gap between detection and resolution, AI Agent Analysis helps 
 ## Activate AI Agent Analysis
 
 :::caution note
-AI Agent Analysis runs **once every hour** and can be enabled on **up to five alerts** per account.
+AI Agent Analysis runs **once every hour**.
 :::
 
 To enable AI Agent Analysis:
