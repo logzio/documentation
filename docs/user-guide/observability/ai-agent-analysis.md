@@ -25,13 +25,13 @@ To enable AI Agent Analysis:
 
 * Create a new alert or edit an existing one.
 
-* Scroll to the bottom of the page to find the AI Agent Analysis section, and check the box to enable it.
+* Scroll to the bottom of the alert settings page and check the box in the AI Agent Analysis section:
 
     ![AI Analysis](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/ai-agent-analysis-checked.png)
 
 * Click the **Configure endpoint** link. You'll be directed to your General Settings page.
 
-* Scroll down to the **AI Agent Analysis Endpoint** section and choose an endpoint for receiving the AI-generated analysis report. The list includes all of the Slack channels endpoints defined by you.
+* Scroll down to the **AI Agent Analysis Endpoint** section and choose an endpoint for receiving the AI-generated analysis report. The list includes all of the Slack channels from your list of defined notification endpoints.
 
     ![notification endpoint](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/notification-endpoint.png)
 

@@ -164,7 +164,7 @@ The system combines the **Trigger if** time interval with the **Wait time** inte
 ### Activate AI Agent Analysis
 
 :::note
-To use AI Agent Analysis, your alert must include a **Slack notification endpoint** and a **clear description**..
+To use AI Agent Analysis, your alert must include a **Slack notification endpoint** and a **clear description**.
 :::
 
 [AI Agent Analysis](/docs/user-guide/observability/ai-agent-analysis/) enables Logz.io’s AI Agent to automatically investigate the cause of an alert the moment it’s triggered—delivering fast, actionable insights to help you understand what happened and why.
