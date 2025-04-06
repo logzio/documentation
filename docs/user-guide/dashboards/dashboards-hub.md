@@ -1,6 +1,6 @@
 ---
 sidebar_position: 3
-title: Dashboards Hub - OLD
+title: Dashboards Hub
 description: Search, filter, and access all your dashboards in one place.
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [logz.io, dashboard, dashboards, hub, grafana, visualize, visualizations]

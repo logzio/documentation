@@ -1,120 +1,189 @@
 ---
 sidebar_position: 2
-title: Manage and configure Unified Dashboards
-description: Learn how to utilize Unified Dashboards to monitor your system.
+title: Configuration Guide
+description: Learn how to utilize Logz.io Dashboards to monitor your system.
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-keywords: [logz.io, dashboard, dashboards, hub, unified dashboards, visualize, visualizations]
-toc_max_heading_level: 2
+keywords: [logz.io, dashboard, dashboards, hub, unified dashboards, logzio dashboards, edit dashboard, visualize, visualizations]
+toc_max_heading_level: 3
 ---
 
-Unified Dashboards provide an easy tool for visualizing observable data. Customize layouts, panels, and data sources to create tailored views that enhance monitoring and troubleshooting.
+:::info note
+Logz.io Dashboards is currently in **closed beta**.
+
+To request access, contact your Logz.io account manager or reach out to [support](mailto:help@logz.io).
+:::
+
+
+Logz.io Dashboards offer a flexible, intuitive way to visualize observability data. Customize layouts, panels, and data sources to create views tailored for monitoring and troubleshooting.
 
 
 ## Create a new dashboard
 
-To create a dashboard, go to **Dashboards Hub**, click **New Dashboard**, and give it a name.
+To get started, go to the **[Dashboards Hub](https://app.logz.io/#/dashboard/dashboards-hub)**, click **Create New**, and choose **Create Dashboard** from the drop down menu.
 
-Click **Edit** and add a **Panel Group** to organize panels and improve clarity. This step is required to start adding panels. Then, click **Panel** and configure the following:
+![dashboards hub](https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/dashboards-open-apr6.png)
 
-* Name – Define a title for the panel.
-* Description (optional) – Add context about the panel’s purpose or the data it visualizes.
-* Group – Assign the panel to an existing group.
-* Type – Choose a visualization format (e.g., Time Series Chart, Gauge, Table).
+Choose a folder to nest your dashboard under—or create a new one—and give the dashboard a name.
 
-Next, define the data source and query. Choose **Prometheus Time Series Query** for metrics data or **Logs Lucene Query** for log data. Each query type has its own data source, which you can select based on your needs.
+You’ll be directed to a blank dashboard screen. Click **Edit** in the top-right corner to begin.
 
-<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/unified-dashboards/edit-panel-top.png" alt="panel-top" width="1000"/>
+### Create a panel group
 
-## Edit Panels
+Before adding panels, create a panel group to organize your content. This step is required to start building the dashboard. Click **Save** to apply the changes.
 
-### Prometheus Time Series Query
+### Create a panel
 
-For metric-based visualizations, select **Prometheus Time Series Query** as the query type, and choose a relevant data source based on the metric data you want to use.
+Once you have a panel group, click Edit again and select Panel to begin configuring.
 
-For example, to count the number of machines reporting system info for the `ec2` job, use the Jenkins Master Metrics (Prometheus) as the data source, and the following PromQL query:
+Panel configuration includes:
 
-`count by (machine) (node_uname_info{job="ec2"})`
+* Name – Panel title.
+* Description (optional) – Context or purpose of the panel.
+* Group – Assign to an existing panel group.
+* Type – Choose a visualization type (e.g., Time Series Chart, Gauge, Table).
 
-Once entered, a preview of the visualization appears in the preview section. You can also add a legend for tooltips and labels using `{{label_name}}`, by entering them in the Legend section.
+Next, define your data source and query. Select Prometheus Time Series Query for metrics, or Logs Lucene Query for logs. Each query type uses its own compatible data source:
 
-Once you're happy with your visualization, click **Add** to insert the panel into the chosen group.
+#### Prometheus Time Series Query
 
-You can add multiple PromQL expressions per group by clicking the **Add Query** button.
+To create metric-based visualizations, select **Prometheus Time Series Query** as the query type. Then, choose the relevant Prometheus data source based on where your metric data is stored.
 
-:::note
+In the PromQL Expression field, write your Prometheus query to fetch the time series you want to visualize. The query builder supports full PromQL syntax.
+
+For example, this PromQL query is searching for the rate of `calls_total` metrics, filtered and grouped dynamically:
+
+`sum by ($GroupBy)(rate(calls_total{service_name="$Service",env_id="$env",$GroupBy!="",span_kind=~"$Kind"}[5m])) >0`
+
+* `rate(calls_total[5m])`: Calculates the per-second rate of calls_total over the last 5 minutes
+* `sum by ($GroupBy)`: Groups the results by a user-selected label (e.g., endpoint, method, etc.)
+* Filters applied:
+    * `service_name="$Service"`: Filters for a specific service
+    * `env_id="$env"`: Filters by environment (like prod/dev)
+    * `$GroupBy!=""`: Ignores empty label values in the grouping field
+    * `span_kind=~"$Kind"`: Regex filter on span kind (e.g., client, server, or both)
+* `>0`: Excludes any groups that have zero traffic
+
+Once you enter your query, a preview of the visualization appears in the preview section.
+
+Use the **Legend** field to define how the series will appear in the tooltip and chart legend. You can reference Prometheus labels using double curly braces—for example:
+
+`{{$GroupBy}}`
+
+This will display the value of the label selected in the `$GroupBy` variable, dynamically.
+
+Use the **Min Step** field to define the minimum time resolution (in seconds) between data points returned in the visualization.
+
+If left empty, the query will use the scrape interval defined in your Prometheus data source.
+
+Setting a smaller step size can show more granular trends, but may increase query load.
+
+You can add additional PromQL queries to the same panel by clicking **Add Query**. This helps compare multiple metrics in one visualization.
+
+Once your query is ready, click **Add** to insert the panel into the selected dashboard group.
+
+
+:::tip note
 Make sure your PromQL expression matches the selected visualization type.
 :::
 
-<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/unified-dashboards/edit-panel-bottom.png" alt="panel-bottom" width="1000"/>
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/metrics-request-panel.png" alt="metrics-panel-bottom" width="1000"/>
 
 
-### Logs Lucene Query
+#### Logs Lucene Query
 
-For log-based visualizations, select **Logs Lucene Query** as the query type, and choose the relevant account according to the data you want to use. As you type your Lucene expression, the query builder suggests fields, values, and operators.
+For log-based visualizations, select **Logs Lucene Query** as the query type. Then, choose the relevant data source (account) that holds the log data you want to visualize.
 
-For example, to view all logs with `ERROR` log level, choose the relevant account and enter the following Lucene query:
+In the Lucene Expression field, write your query to filter the logs you want to visualize. As you type, the query builder suggests fields, values, and operators to help you build accurate and efficient queries.
 
-`loglevel:"ERROR"`
+For example, to search for logs where the `k8s_pod_name` field matches a specific pattern using a regular expression, use:
 
-You can also use the Group By option to group results. For example, group results by `__overSizedField__.error.code`.
+`k8s_pod_name:/.+-frontend-.+/`
 
-Once you're happy with your visualization, click **Add** to insert the panel into the chosen group.
+Use the **Aggregation Function** dropdown to define how the data should be summarized. Common options include:
 
-You can add multiple Lucene expressions per group by clicking the **Add Query** button.
+* Count – Total number of matching log entries
+* Avg, Sum, Min, Max – When applied to a numeric field (e.g. response time)
 
-:::note
+If the function requires a field (e.g. Sum or Avg), enter the relevant field in the Aggregation Field input.
+
+Use the **Group By** field to group the results by a specific field (e.g. status code, error type). For example, group by `log_level` to aggregate or categorize logs based on their severity.
+
+You can further refine the data shown in the panel with these options:
+
+* **Series Limit** - Limits the number of top grouped values shown in the panel. For example, setting the limit to 10 will display only your group's 10 most frequent values.
+* **Show Others** - When enabled, values beyond the Series Limit are grouped into a single "Others" bucket, which helps you visualize the full picture without cluttering the panel.
+* **Show Missing** - Displays a separate category for logs that don’t have a value for the selected group-by field. Useful for spotting missing or inconsistent data.
+
+Use the **Series Name** field to label your query results in the visualization. This is especially helpful when adding multiple queries to the same panel.
+
+To add additional queries to the same panel, click **Add Query**. This allows you to compare multiple log slices side-by-side in the same visualization.
+
+When satisfied with the setup, click **Add** to insert the panel into your dashboard group.
+
+
+:::tip note
 Make sure your Lucene expression matches the selected visualization type.
 :::
 
-<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/unified-dashboards/second-panel-bottom.png" alt="log-panel-bottom" width="1000"/>
+
+
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/edit-log-panel-apr6.png" alt="log-panel-bottom" width="1000"/>
+
+
+### Additional configurations
 
 ### Settings tab
 
-Use the Settings tab to customize panel appearance:
+Use the Settings tab to customize the panel’s appearance:
 
 * Legend – Adjust position and display mode.
+* Visual Settings – Modify line width, opacity, and other styles.
 * Y-Axis – Show/hide values and adjust formatting.
 * Thresholds – Define alerting thresholds.
-* Visual Settings – Modify line width, opacity, and other styles.
 * Query Settings – Change colors and additional parameters as needed.
 
 
-<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/unified-dashboards/settings-tab.png" alt="settings-tab" width="1000"/>
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/edit-panel-settings-apr6.png" alt="settings-tab" width="1000"/>
 
 
-### Adding Links
+### Adding links
 
 The Links tab allows you to attach external or internal resources to your panel’s header.
 
-Click the **+** icon and enter a URL. You can add a name or a tooltip to provide added information, render the variable or open it in a new tab. Click the **+** icon again to add multiple links to your panel.
+Click the **+** icon and enter a URL. You can add a name or a tooltip to provide added information, and choose whether to open in a new tab or render a variable. Click the **+** icon again to add multiple links to your panel.
 
-<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/unified-dashboards/links-tab.png" alt="links-tab" width="1000"/>
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/links-apr6.png" alt="links-tab" width="1000"/>
 
 If multiple links are added, they appear as a dropdown when clicking the link icon.
 
-<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/unified-dashboards/dropdown-panel.png" alt="links-dropdown-tab" width="1000"/>
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/dropdown-time-apr6.png" alt="links-dropdown-tab" width="1000"/>
 
 
-### View Panel JSON
+### View panel JSON
 
-The JSON tab displays the panel's raw JSON configuration, useful for:
+The JSON tab lets you view the panel’s raw configuration. Use this for:
 
-* Understanding panel settings and structure.
-* Sharing panel details with others.
-* Troubleshooting queries, panel options, or data sources.
+* Reviewing structure and settings
+* Sharing panel setup with teammates
+* Troubleshooting queries or data sources
+
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/json-view-apr6.png" alt="json-tab" width="1000"/>
 
 
-<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/unified-dashboards/json-tab.png" alt="json-tab" width="1000"/>
+## Create a new dashboard from Explore
 
+You can quickly create a new dashboard panel from the Explore view. Once you’ve built a query you want to track, click the **⋮** menu and select **Add to Dashboard**. From there, choose the target dashboard and panel group, give the panel a name, and click **Create** to add it. You can also click **Preview** to open the panel in edit mode directly inside the dashboard.
+
+Once it’s created, you'll be redirected to the dashboard view. You can continue customizing the panel or adding more panels and groups from here. Scroll up to **Create a new dashboard** for detailed steps on editing, grouping, and building out your dashboard.
 
 ## View and manage your dashboard
 
-Your dashboards display data within a selected time frame. To adjust the view, click the calendar icon and choose a predefined range or set a custom time frame. You can manually refresh the dashboard or temporarily turn off auto-refresh for up to one minute.
+Logz.io Dashboards display data within a selected time range. You can adjust the view using the calendar icon, either by selecting a predefined range or setting a custom time frame. If needed, auto-refresh can be temporarily paused for up to one minute.
 
-Panel groups can be expanded or collapsed to improve readability and organization. Click the arrow icon next to a group name to collapse it, hiding its panels while keeping it accessible. Click it again to expand the group and view all panels. This helps you focus on specific sections without cluttering the dashboard.
+To improve organization, panel groups can be collapsed or expanded. Simply click the arrow next to a group’s name to collapse it, hiding its panels while keeping the group accessible. Click it again to expand the view and display all panels in the group.
 
-To export your dashboard, click the download icon to save it as a JSON or YAML file, or click the brackets **{}** icon to view its JSON configuration.
+If you need to export your dashboard, click the download icon to save it as a JSON or YAML file. You can also view the raw JSON configuration directly by clicking the brackets icon **{}**.
 
-To edit the dashboard, click **Edit** at the top of the page. You can add new Panel Groups or Panels and modify existing ones using the pencil icon. Each panel’s query and data can be adjusted, and you can expand it for a larger view using the toggle mode icon. To rearrange panel groups, use the arrow icons, or remove them if no longer needed with the trash bin icon.
+Clicking **Edit** at the top of the page allows you to modify your dashboard layout. You can add new panel groups or panels, or update existing ones using the pencil icon. Each panel’s data and query settings can be adjusted, and you can toggle full-screen mode for a focused view. To rearrange panel groups, use the arrow icons, and remove them if needed using the trash bin icon.
 
 <img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/unified-dashboards/view-settings-edit.png" alt="view-settings-edit" width="1000"/>
