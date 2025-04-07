@@ -25,7 +25,7 @@ The logzio-monitoring Helm Chart ships your EKS Fargate telemetry (logs, metrics
 * Add Logzio-helm repository
 `helm repo add logzio-helm https://logzio.github.io/logzio-helm && helm repo update`
 
-{@include: ../../_include/general-shipping/k8s-all-data.md}
+{@include: ../../_include/general-shipping/k8s-all-data.md}  
 
 
 ## Send your logs 
@@ -36,9 +36,9 @@ Send your logs
 ```sh
 helm install -n monitoring \
 --set logs.enabled=true \
---set logzio-fluentd.secrets.logzioShippingToken="<<LOG-SHIPPING-TOKEN>>" \
---set logzio-fluentd.secrets.logzioListener="<<LISTENER-HOST>>" \
---set logzio-fluentd.env_id="<<CLUSTER-NAME>>" \
+--set global.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set global.env_id="<<CLUSTER-NAME>>" \
 --set logzio-fluentd.fargateLogRouter.enabled=true \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
@@ -47,7 +47,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | Parameter | Description |
 | --- | --- |
 | `<<LOG-SHIPPING-TOKEN>>` | Your [logs shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
-| `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
+| `<<LOGZIO_ACCOUNT_REGION_CODE>>` | Replace `<<LOGZIO_ACCOUNT_REGION_CODE>>` with your Logz.io [region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). |
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
 
 
@@ -159,12 +159,10 @@ Encounter an issue? See our [user guide](https://docs.logz.io/docs/user-guide/lo
 
 ```sh
 helm install -n monitoring \
---set metricsOrTraces.enabled=true \
 --set logzio-k8s-telemetry.metrics.enabled=true \
---set logzio-k8s-telemetry.secrets.MetricsToken="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>" \
---set logzio-k8s-telemetry.secrets.ListenerHost="<<LISTENER-HOST>>" \
---set logzio-k8s-telemetry.secrets.p8s_logzio_name="<<CLUSTER-NAME>>" \
---set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
+--set global.logzioMetricsToken="<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set global.env_id="<<CLUSTER-NAME>>" \
 --set logzio-k8s-telemetry.collector.mode=standalone \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
@@ -172,9 +170,8 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | Parameter | Description |
 | --- | --- |
 | `<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>` | Your [metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=metrics). |
-| `<<P8S-LOGZIO-NAME>>` | The name for the environment's metrics, to easily identify the metrics for each environment. |
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
-| `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
+| `<<LOGZIO_ACCOUNT_REGION_CODE>>` | Replace `<<LOGZIO_ACCOUNT_REGION_CODE>>` with your Logz.io [region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). |
 
 
 Encounter an issue? See our [user guide](https://docs.logz.io/docs/user-guide/infrastructure-monitoring/troubleshooting/k8s-troubleshooting/).
@@ -227,11 +224,10 @@ Encounter an issue? See our [EKS troubleshooting guide](https://docs.logz.io/doc
 
 ```sh
 helm install -n monitoring \
---set metricsOrTraces.enabled=true \
---set logzio-k8s-telemetry.traces.enabled=true \
---set logzio-k8s-telemetry.secrets.TracesToken="<<TRACES-SHIPPING-TOKEN>>" \
---set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO-REGION>>" \
---set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
+--set logzio-apm-collector.enabled=true \
+--set global.logzioTracesToken="<<TRACES-SHIPPING-TOKEN>>" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set global.env_id="<<CLUSTER-NAME>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
@@ -239,8 +235,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | --- | --- |
 | `<<TRACES-SHIPPING-TOKEN>>` | Your [traces shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=traces). |
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
-| `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=traces). |
-| `<<LOGZIO-REGION>>` | Name of your Logz.io traces region e.g `us`, `eu`... |
+| `<<LOGZIO_ACCOUNT_REGION_CODE>>` | Name of your Logz.io traces region e.g `us`, `eu`... |
 
 
 Encounter an issue? See our [Distributed Tracing troubleshooting](https://docs.logz.io/docs/user-guide/distributed-tracing/troubleshooting/tracing-troubleshooting/).
@@ -250,13 +245,12 @@ Encounter an issue? See our [Distributed Tracing troubleshooting](https://docs.l
 
 ```sh
 helm install -n monitoring \
---set metricsOrTraces.enabled=true \
---set logzio-k8s-telemetry.traces.enabled=true \
---set logzio-k8s-telemetry.secrets.TracesToken="<<TRACES-SHIPPING-TOKEN>>" \
---set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO-REGION>>" \
---set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
---set logzio-k8s-telemetry.spm.enabled=true \
---set logzio-k8s-telemetry.secrets.SpmToken={@include: ../../_include/tracing-shipping/replace-spm-token.html} \
+--set logzio-apm-collector.enabled=true \
+--set global.logzioTracesToken="<<TRACES-SHIPPING-TOKEN>>" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set global.env_id="<<CLUSTER-NAME>>" \
+--set logzio-apm-collector.spm.enabled=true \
+--set global.logzioSpmToken="<<SPM-METRICS-SHIPPING-TOKEN>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
@@ -264,7 +258,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | --- | --- |
 | `<<TRACES-SHIPPING-TOKEN>>` | Your [traces shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=traces). |
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
-| `<<LOGZIO-REGION>>` | Name of your Logz.io traces region e.g `us`, `eu`... |
+| `<<LOGZIO_ACCOUNT_REGION_CODE>>` | Name of your Logz.io traces region e.g `us`, `eu`... |
 | `<<SPM-SHIPPING-TOKEN>>` | Your [span metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=metrics). |
 
 
@@ -287,15 +281,16 @@ For instance, if there is a parameter called `someField` in the `logzio-telemetr
 ```sh
 helm install -n monitoring \
 --set securityReport.enabled=true \
---set logzio-trivy.env_id="<<CLUSTER-NAME>>" \
---set logzio-trivy.secrets.logzioShippingToken="<<LOG-SHIPPING-TOKEN>>" \
---set logzio-trivy.secrets.logzioListener="<<LISTENER-HOST>>" \
+--set global.env_id="<<CLUSTER-NAME>>" \
+--set global.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
 | Parameter | Description |
 | --- | --- |
 | `<<LOG-SHIPPING-TOKEN>>` | Your [logs shipping token](https://app.logz.io/#/dashboard/settings/general). |
-| `<<LISTENER-HOST>>` | Your account's [listener host](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs). |
+| `<<LOGZIO_ACCOUNT_REGION_CODE>>` | Replace `<<LOGZIO_ACCOUNT_REGION_CODE>>` with your Logz.io [region code](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). |
 | `<<CLUSTER-NAME>>` | The cluster's name, to easily identify the telemetry data for each environment. |
 
 
@@ -303,8 +298,8 @@ helm install -n monitoring \
 
 The `uninstall` command is used to remove all the Kubernetes components associated with the chart and to delete the release.  
 
-To uninstall the `logzio-k8s-telemetry` deployment, use the following command:
+To uninstall the `logzio-monitoring` deployment, use the following command:
 
 ```shell
-helm uninstall logzio-k8s-telemetry
+helm uninstall logzio-monitoring
 ```

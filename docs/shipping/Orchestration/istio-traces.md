@@ -15,7 +15,7 @@ drop_filter: []
 ---
 
 
-Deploy this integration to send traces from your Istio service mesh layers to Logz.io via the OpenTelemetry collector using **logzio-k8s-telemetry** Helm chart. The main repository for Logz.io helm charts are [logzio-helm](https://github.com/logzio/logzio-helm).
+Deploy this integration to send traces from your Istio service mesh layers to Logz.io via the OpenTelemetry collector using **logzio-apm-collector** Helm chart. The main repository for Logz.io helm charts are [logzio-helm](https://github.com/logzio/logzio-helm).
 
 **Before you begin, you'll need**:
 
@@ -41,13 +41,12 @@ helm repo update
 
 ### 2. Run the Helm deployment code
 
-```
+```shell
 helm install -n monitoring \
---set metricsOrTraces.enabled=true \
---set logzio-k8s-telemetry.traces.enabled=true \
---set logzio-k8s-telemetry.secrets.TracesToken="<<TRACING-SHIPPING-TOKEN>>" \
---set logzio-k8s-telemetry.secrets.LogzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
---set logzio-k8s-telemetry.secrets.env_id="<<CLUSTER-NAME>>" \
+--set logzio-apm-collector.enabled=true \
+--set global.logzioTracesToken="<<TRACING-SHIPPING-TOKEN>>" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set global.env_id="<<CLUSTER-NAME>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
@@ -58,9 +57,8 @@ logzio-monitoring logzio-helm/logzio-monitoring
 
 You'll need the following service DNS:
 
-`http://<<CHART-NAME>>-otel-collector.<<NAMESPACE>>.svc.cluster.local:<<PORT>>/`.
+`http://logzio-apm-collector.<<NAMESPACE>>.svc.cluster.local:<<PORT>>/`.
 
-Replace `<<CHART-NAME>>` with the relevant service you're using (`logzio-k8s-telemetry`, `logzio-monitoring`).
 Replace `<<NAMESPACE>>` with your Helm chart's deployment namespace (e.g., default or monitoring).
 Replace `<<PORT>>` with the [port for your agent's protocol](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-telemetry/values.yaml#L249-L267) (Default is 4317).
 
@@ -75,10 +73,10 @@ It will deploy a small pod that extracts your cluster domain name from your Kube
 
 ### 4. Set Istio to send traces to Logz.io
 
-Replace `<<logzio-k8s-telemetry-service-name>>` in the command below with the service name obtained in the previous step and run the command.
+Replace `<<logzio-apm-collector-service-name>>` in the command below with the service name obtained in the previous step and run the command.
 
-```
-istioctl install --set meshConfig.defaultConfig.tracing.zipkin.address=<<logzio-k8s-telemetry-service-name>>:9411 --set values.pilot.traceSampling=100.0
+```shell
+istioctl install --set meshConfig.defaultConfig.tracing.zipkin.address=<<logzio-apm-collector-service-name>>:9411 --set values.pilot.traceSampling=100.0
 ```
 
  
