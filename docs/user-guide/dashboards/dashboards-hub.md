@@ -1,5 +1,5 @@
 ---
-sidebar_position: 8
+sidebar_position: 3
 title: Dashboards Hub
 description: Search, filter, and access all your dashboards in one place.
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
