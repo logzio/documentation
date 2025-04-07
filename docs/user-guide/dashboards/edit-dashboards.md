@@ -10,12 +10,21 @@ toc_max_heading_level: 3
 :::info note
 Logz.io Dashboards is currently in **closed beta**.
 
-To request access, contact your Logz.io account manager or reach out to [support](mailto:help@logz.io).
+To request access, contact your Logz.io account manager or reach out to [support](https://logz.io/contact-us/).
 :::
 
 
 Logz.io Dashboards offer a flexible, intuitive way to visualize observability data. Customize layouts, panels, and data sources to create views tailored for monitoring and troubleshooting.
 
+## View your dashboards
+
+To access Logz.io Dashboards, click the Dashboards icon in the left-hand navigation.
+
+![dashboards hub navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/dashboards-hub-nav.png)
+
+In the Dashboards Hub, you’ll find all dashboards created by you and your teammates within the account.
+
+All users—except read-only users—can view and create dashboards.
 
 ## Create a new dashboard
 
