@@ -171,6 +171,9 @@ WantedBy=multi-user.target
 
 ```
 
+{@include: ../../_include/log-shipping/otel-filter.md} 
+
+
 ## Manage your OpenTelemetry on Localhost
 
 Manage OpenTelemetry on your machine using the following commands:

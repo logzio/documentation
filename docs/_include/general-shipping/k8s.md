@@ -10,7 +10,7 @@ Before you integrate Kubernetes you'll need:
   ```
 
 
-{@include: ../../_include/general-shipping/k8s-all-data.md}
+{@include: ../../_include/general-shipping/k8s-all-data.md}  
 
 
 ## Manual Setup
@@ -443,6 +443,47 @@ If `10s` is insufficient, try increasing it to `15s` or higher.
 :::
 
  </TabItem>
+
+<TabItem value="adding-toleration" label="Adding Toleration" default>
+
+## Adding Tolerations for Tainted Nodes
+
+To ensure that your pods can be scheduled on nodes with taints, you need to add tolerations to the relevant sub-charts. Here is how you can configure tolerations for each sub-chart within the `logzio-monitoring` Helm chart:
+
+1. **Identify the taints on your nodes:**
+   ```shell
+   kubectl get nodes -o json | jq '"\(.items[].metadata.name) \(.items[].spec.taints)"'
+   ```
+2. **Add tolerations to the Helm install command**:
+You can add tolerations by using the --set flag in your helm install command. Replace the placeholders with your taint and subchart values.
+Replace `<SUBCHART>` with one of the following options:
+- logzio-logs-collector
+- logzio-k8s-telemetry
+- logzio-trivy
+- logzio-k8s-events
+
+```shell
+--set '<SUBCHART>.tolerations[0].key=<<TAINT-KEY>>' \
+--set '<SUBCHART>.tolerations[0].operator=<<TAINT-OPERATOR>>' \
+--set '<SUBCHART>.tolerations[0].value=<<TAINT-VALUE>>' \
+--set '<SUBCHART>.tolerations[0].effect=<<TAINT-EFFECT>>'
+```
+Replace `<<TAINT-KEY>>`, `<<TAINT-OPERATOR>>`, `<<TAINT-VALUE>>`, and `<<TAINT-EFFECT>>` with the appropriate values for your taints.
+
+For example, if you need to tolerate the CriticalAddonsOnly:NoSchedule taint for the logzio-logs-collector after installation, you could use:
+
+```shell
+helm upgrade -n monitoring \
+  --reuse-values \
+  --set 'logzio-logs-collector.tolerations[0].key=CriticalAddonsOnly' \
+  --set 'logzio-logs-collector.tolerations[0].operator=Exists' \
+  --set 'logzio-logs-collector.tolerations[0].effect=NoSchedule' \
+  logzio-monitoring logzio-helm/logzio-monitoring
+```
+
+By following these steps, you can ensure that your pods are scheduled on nodes with taints by adding the necessary tolerations to the Helm chart configuration.
+
+ </TabItem>
 </Tabs>
 
 
@@ -588,6 +629,45 @@ Set the `OTEL_GO_AUTO_TARGET_EXE` environment variable in your Go application to
 For further details, refer to the [OpenTelemetry Go Instrumentation documentation](https://github.com/open-telemetry/opentelemetry-go-instrumentation/blob/v0.21.0/docs/how-it-works.md#opentelemetry-go-instrumentation---how-it-works).
 :::
 
+
+</TabItem>
+<TabItem value="enable-debug-mode" label="Enable Debug" default>
+
+### Enable debug mode
+To enable debug mode for Opentelemetry Operator, add the `OTEL_LOG_LEVEL` environment variable with value `DEBUG`.
+
+#### Enable debug mode for a single pod
+To enable debug mode for a specific pod, add the following environment variable directly to its spec:
+
+```yaml
+spec:
+  template:
+    spec:
+      containers:
+        - name: "<CONTAINER_NAME>"
+          env:
+          - name: OTEL_LOG_LEVEL
+            value: "debug"
+```
+
+#### Enable debug mode for all instrumented pods
+To apply debug mode to all pods instrumented by the OpenTelemetry Operator, update your Logz.io Helm chart with the following configuration, replacing <APP_LANGUAGE> with your application's programming language:
+
+```yaml
+instrumentation:
+  <APP_LANGUAGE>:
+    extraEnv:
+    - name: OTEL_LOG_LEVEL
+      value: "debug"
+```
+
+:::tip
+`<APP_LANGUAGE>` can be one of `dotnet`, `java`, `nodejs` or `python`.
+:::
+
+:::caution
+Enabling debug mode generates highly verbose logs. It is recommended to apply it per pod and not for all pods.
+:::
 
 </TabItem>
 </Tabs>
