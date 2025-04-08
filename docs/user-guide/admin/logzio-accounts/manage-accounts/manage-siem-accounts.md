@@ -7,72 +7,51 @@ keywords: [account, manage account, optimization, admin controls, admin, user pe
 ---
 
 
-## Manage your Cloud SIEM account
+Logz.io SIEM (Security Information and Event Management) helps security teams detect threats, investigate incidents, and respond faster—all within the same observability platform.
+
+If you're an admin of your Logz.io main account, you can manage your SIEM setup from the Manage Accounts page under **Settings > Manage Accounts**, then switch to the Security tab.
 
 
-#### Add a Cloud SIEM account
+## Manage your account
 
-You'll find your Cloud SIEM accounts
-in the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page
-of your Operations workspace. Scroll down to the bottom of the page to see them.
-
-Click **Add Security account** to open the form.
-The number of accounts you can create is listed.
-
-![Add a Cloud SIEM account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/add-security-account11.png)
+Security account usage is based on the volume of data scanned. At the top of the page, you'll see an overview of your account, including:
 
 
-#### Configure or update a Cloud SIEM account
+* Daily scan – The maximum daily indexing capacity (in GB) allocated for threat detection
+* Accounts – The number of active and available accounts for this telemetry type
 
-![Configure a Cloud SIEM account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/config-security-account.png)
+//![manage accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/manage-accounts-main-apr7.png)
 
+If you've configured a Repository account, it serves as a shared resource for SIEM content. Other Security accounts can automatically pull dashboards, visualizations, saved searches, and feeds from this central Repository. This helps streamline content management across accounts.
 
-Fill in the form:
+By default, new Security accounts automatically pull from the Repository account. You can manually disable this access for individual accounts if needed.
 
-1. **Name** (or rename) the account.
-2. **Enable Cloud SIEM on these accounts** - Select the log accounts to be secured. You'll be giving the security account **read permissions** so it can monitor and enrich the logs.
+At the bottom of the page, you’ll find a breakdown of all related accounts for this telemetry type. Each row includes:
 
-    Logs are not shipped directly to your Cloud SIEM accounts. Instead, you'll grant read-access to log accounts you want a security account to monitor.
+* Account name – The name of the main or sub-account
+* Account ID – The unique identifier for the account
+* Enable for – The number of accounts this Security account is monitoring
 
-    :::note
-    You can add the same log account to multiple Security accounts. It will be monitored by each   Security account independently.
-    :::
+## Create an account
 
-3. **Automatically pull dashboards, visualizations, and saved searches from these Security accounts** - Select which security accounts you can automatically pull shared objects from. 
+You can add up to 5 Security accounts by default. If you need the ability to add more accounts, contact your account manager or reach out to [Logz.io Sales team](mailto:sales@logz.io).
 
-  ![Shared security objects](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/add_new-account.gif)
+To create a new Security account, click **Create new account**, enter a name, and select the log accounts this Security account should monitor. When selected, the Security account is granted read access to these log accounts for the purpose of threat detection and anomaly scanning.
 
-  The security account you're configuring will automatically be able to access the OpenSearch dashboards, visualizations, and saved searches from the source accounts you add to this list, but will *not* have access to the data in these accounts.  
-  
-  This is helpful if you have multiple main accounts. 
-  
-  For example: 
+Logs are not shipped directly to Security accounts. Instead, Security accounts scan the logs from linked log accounts through granted read permissions.
 
-  + Instead of creating the same objects for each account, you can just share them! 
-  + You can use this process to keep a local backup copy of these data objects. 
-  + Create a library of data objects in your main Security account, and then enable client accounts to use objects from your main account.  
+You can assign the same log account to multiple Security accounts—they’ll be monitored independently.
 
-#### Save your changes
+Click **Create** to complete setup and add the account. The account will be visible in the table with all of the relevant data. 
 
-Click **Create**/**Apply** to save your changes.
+## Edit accounts
 
-When you first add a new account, give it a few minutes to finish setting up.
+To modify an existing Security account, click the **⋮** icon next to it and select **Edit**. You can update the account name and adjust which log accounts it can access.
 
+Click **Save changes** to apply your updates.
 
-#### Delete a Cloud SIEM account from your plan 
- 
-1. In the account details, click the **Delete** icon next to the account name.
-  ![delete](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/delete-SIEM.png)   
+## Delete an account 
 
-2. Confirm (or **Cancel**) the action. 
-  ![Confirm delete](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/confirm-delete-siem-acct.png)
+To delete a Security account, click the **⋮** icon and select **Remove account**. This will permanently delete all associated data.
 
-Logz.io Metrics lets your team curate dashboards to oversee continuous deployment, CI/CD pipelines, prevent outages, manage incidents, and remediate crashes in multi-microservice environments, hybrid infrastructures, and complex tech stacks.
-
-If you're an admin for the main account, you can manage the main account and sub accounts from the [**Manage Accounts**](https://app.logz.io/#/dashboard/settings/manage-accounts) page (**<i class="li li-gear"></i> > Settings > Manage accounts** in the navigation menu).
-
-
-The Infrastructure Monitoring plan panel is located at the bottom of the **[Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts)** page.
-
-If you don't have an Infrastructure Monitoring account yet,
-reach out to your account manager or email [the Sales team](mailto:sales@logz.io).
+This action cannot be undone.

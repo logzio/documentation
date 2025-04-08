@@ -6,113 +6,89 @@ description: Learn more on managing your log accounts in Logz.io
 keywords: [account, manage account, optimization, admin controls, admin, user permissions, permissions, access control, log, logs]
 ---
 
-Logz.io **Log Management** is where you can search and query your logs. It is optimized for debugging and troubleshooting issues as quickly and effectively as possible.
+Logz.io Log Management gives you the tools to search and query your logs with speed and precision, making it easier to debug, troubleshoot, and quickly get to the root of issues.
 
-If you're an admin for the main account, you can manage the main account and sub accounts from the [**Manage Accounts**](https://app.logz.io/#/dashboard/settings/manage-accounts) page (**<i class="li li-gear"></i> > Settings > Manage accounts** in the navigation menu).
+If you're an admin of your Logz.io main account, you can manage both the main account and any connected sub accounts from the Manage Accounts page, found under **Settings > Manage Accounts** in the navigation menu.
 
-The Log Management plan panel is located at the top of the **[Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts)** page.
+## Manage your account
 
-## Manage Log Analytics
+Your log account usage is based on the volume of data you ingest. At the top of the page, you'll see an overview of your account, including:
 
-### View Log Management plan summary
+* Daily volume – The maximum daily indexing capacity (in GB) allocated to the account
+* Hot Retention – How long logs remain immediately searchable
+* Warm Tier (if enabled) – How many days logs are accessible after leaving the Hot Tier
+* Cold Tier (if enabled) – How much archived log data is stored each month for long-term retention and compliance
+* Sub accounts – The number of active and available sub accounts for this telemetry type
 
-Your Log account is calculated based on the data you ingest. You can choose to use a [flexible volume to get more control over how you allocate space and data between your accounts.
+![manage accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/manage-accounts-main-apr7.png)
 
-You can view the total number of daily GB available and the account's retention. This summary also includes a detailed list of the available accounts, their reserved daily GB, and whether these accounts are capped, searchable, and if they include shared objects.
+If flexible volume is enabled, you can share indexing capacity between accounts. This gives you more control over resource allocation, allowing data to be used dynamically instead of reserving volume in advance.
 
-![Log plan overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/log-management-overview.png)
+At the bottom of the page, you’ll find a breakdown of all related accounts for this telemetry type. Each row includes:
 
-### View and edit account details
-
-To see the detailed information and the configurable options for each account, click the account name in the table or pie chart.
-
-![Log accounts overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/log-management-choose-account.png)
-
-Inside each account, you can view and edit the following details:
-
-* Account name (which you can change by editing it and clicking the **Apply** button)
-* Account token
-* Account retention duration
-* Reserved volume (and whether to cap this account's volume)
-
-You can add the following elements:
-
-* [Save account utilization metrics (and how often)](https://docs.logz.io/docs/user-guide/admin/account-volume-optimization/manage-account-usage/#what-are-account-utilization-metrics)
-* Save the account's log size 
-* Which accounts/sub accounts have visibility to the data in this account
-
-![Logs accounts details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/log-management-account-inner.png)
-
-### Configure which accounts can access a Logs data source
-
-Each log account can become a data source for other Logz.io Log Management accounts. To manage access to your data, you create an access list of the Logz.io main account and sub accounts that can view the data. 
-
-### To grant access to the data in a Logs account
-
-Users that are logged in to the accounts you add here will be able to read the data in this account.
-
-1. Click the account name to open its account details.
-
-2. To enable access from other accounts, click Add an account and select the relevant accounts.
-
-![Logs add account visibility](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/log-management-add-account.gif)
-
+* Account name – The name of the main or sub-account
+* Account ID – The unique identifier for the account
+* Vol (GB) – Daily indexing volume allocated to the account
+* Retention (days) – How long logs are stored in the hot tier
+* Token – The log shipping token used to send data to this account
 
 ### Main vs. sub account
 
-If you're on a Pro or Enterprise plan, you can create sub accounts to help manage user access to your data.
+If you're on a Pro or Enterprise plan, you can create sub accounts to better manage data usage and control user access to your logs.
 
-Sub accounts help you control data usage and manage user access to your logs.
+Sub accounts allow you to isolate log data by environment (e.g., production, staging, dev), assign separate data volumes and retention periods, and restrict access to sensitive information. You can route specific logs to specific sub accounts to ensure data is only visible to the right teams.
 
-You can define data volumes and retention periods for independent environments by shipping different logs to different sub accounts.
+By default, all users in your main account have access to data in all associated logging sub accounts and Timeless accounts. To limit visibility, you can segment data by sub account and manage access through account-level permissions.
 
-Sub accounts can also help you control access to sensitive data.
+## Create an account
 
-By default, all users of your main account have permission to view the data in other logging sub accounts and timeless accounts. You can route different logs to different sub accounts to limit access to data.
+Each telemetry type has a predefined limit on how many sub accounts you can create. This limit is visible at the top panel of the Manage Account page. 
 
-### Add and manage a Log Management sub account
+To create a new account, click **Create new account**, then enter a name, daily volume (GB), and retention period (in days).
 
-Sub accounts share the same setting options as the main account (See the list above). In addition, sub accounts have settings used to control access to the data.
+Click **Advanced** to adjust additional settings such as shared asset access, whether to track account utilization, and whether to save log size.
 
-To add a sub account, navigate to the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page, and click the **Add sub account** button located in the upper left corner of the Log Management account plan panel.
+Click **Create** to complete setup and add the account. The account will be visible in the table with all of the relevant data. 
 
-![Add sub account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/add-sub-account.png)
+## Edit accounts
 
-Choose the sub account name, retention, and volume options if relevant. On the right hand side, you'll have additional options for this sub account, including:
+To edit an account, click the **⋮** icon next to the account and select **Edit**.
+
+You can update the account name and click **Advanced** to configure additional settings, including which accounts/sub accounts have visibility to the data in this account, log size collection, and [account utilization metrics]((https://docs.logz.io/docs/user-guide/admin/account-volume-optimization/manage-account-usage/#what-are-account-utilization-metrics)).
+
+Click **Save changes** to apply your updates.
+
+## Manage access to log data across accounts
+
+In Logz.io, each log account can serve as a data source for other accounts—allowing you to centralize data access and reduce duplication. You can control this by configuring which main and sub accounts have access to the data through an access list.
+
+### Grant access to a logs data source
+
+To allow other accounts to view and use shared data—such as dashboards, visualizations, and queries—follow these steps:
+
+1. Open the log account you want to share data from.
+
+2. Click **Advanced**.
+
+3. In the Shared access section, select the accounts you want to grant access to from the dropdown list.
+
+These selected accounts will now be able to use the original log account as a data source, giving them visibility into its logs and shared assets.
+
+## Delete a sub account 
+
+To delete a sub account, click the **⋮** icon next to the account name and select Remove account.
+
+When deleted, the sub account’s allocated volume (GB) will be returned to the main account, and all data associated with the sub account will be permanently deleted.
+
+This action cannot be undone.
 
 
-| Settings | Description |
-|---|---|
-| **Enable main account users to access this account** | If enabled, all main account users will automatically have user-role permissions to the sub account. This means they can view the log data in the sub account. If disabled, users will need to be explicitly added to the sub account to have access to it. |
-| **Searchable from the main account** | If enabled, data stored in the sub account, can be searched directly from the main account in OpenSearch Dashboards. |
-| **Save account utilization metrics** | Logs metrics on your account utilization, such as used and expected data volume at current indexing rate (GB). |
-| **Save log size** | Adds the logSizeEnabled field to each log, stating the log's size. |
-| **Use dashboards, visualizations, and saved searches from these accounts** | Choose the main account from which these elements will be visible on the sub account. Useful if you want to be able to access your main account's data from this sub account. |
+## Troubleshooting 
 
-Click **Apply** to create the sub account.
+### Logs and usage quota don’t match
 
-If you already have a sub account and you'd like to re-configure it, choose the relevant sub account from the list and click on **Advanced options** to access these settings.
+If you notice a small number of logs ingested but a high usage quota, it may be due to logs being sent with a timestamp that doesn’t match the current day—known as backdated or future-dated logs.
 
-![Manage existing sub accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/manage-sub-accounts.gif)
+This is often seen when viewing logs with the Today time range, while the logs were shipped with a different date.
 
-
-### No correlation between your logs and usage quota
-
-You or your team see a small number of logs ingested with a high usage quota. 
-
-This happens when you apply the **Today** time frame to view logs and is the result of shipping logs with a date different from today’s date (Also known as sending Back/Future logs).
-
-
-If you encounter this issue, you can adjust the time frame settings or contact **[Logz.io's Support team](mailto:help@logz.io)** for additional info and assistance.
-
-### Delete a sub account from your plan
-
-Choose the Log Management sub account you want to delete, and click the **Delete** icon located next to its name. 
-
-Then, confirm (or Cancel) the action.
-
-### Change how many GB are reserved for each account within your plan
-
-You can edit the amount of GB reserved for each of your Log Management accounts.
-
-Choose the relevant account you'd like to edit, increase or decrease the reserved volume assigned to it, and click **Apply** to save your changes.
+To resolve this, try adjusting the time range settings. If the issue persists, contact the **[Logz.io's Support team](mailto:help@logz.io)** for help.

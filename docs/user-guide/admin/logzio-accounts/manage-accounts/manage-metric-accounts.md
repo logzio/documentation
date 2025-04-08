@@ -1,79 +1,55 @@
 ---
-sidebar_position: 5
+sidebar_position: 2
 title: Manage Metric accounts
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Learn more on managing your metric accounts in Logz.io
 keywords: [account, manage account, optimization, admin controls, admin, user permissions, permissions, access control, metrics, metric]
 ---
 
-## Manage your Infrastructure Monitoring account
+Logz.io Metrics provides powerful tools to monitor your data with precision, helping you debug, troubleshoot, and resolve issues faster.
 
-### View plan summary
+If you're an admin of your Logz.io main account, you can manage your Metrics setup from the Manage Accounts page under **Settings > Manage Accounts**, then navigate to the Metrics tab.
 
-Your Metrics account is calculated according to the unique metrics (UMs) you're using. These metrics are a combination of the metric type queries by PromQL, including counters, gauges, histograms, and summaries.
+## Manage your account
 
-You can view your daily and monthly available UMs, and a breakdown of each account’s current month’s allocations and usage percentages.
+Your Metrics usage is calculated based on the number of Unique Time Series (UTMs), which represent the distinct metric streams collected using PromQL. These include counters, gauges, histograms, and summaries.
 
-![Metrics plan overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/metrics-plan-overview.png)
+At the top of the page, you'll see a summary of your account, including:
 
-### View details and abilities for a specific account
+* Allowed unique metrics – The maximum number of daily UTMs allocated to the account
+* Sub accounts – The number of active and available sub accounts for this telemetry type
+* Retention - The retention period indicating how long your metric data is stored
 
-To see the detailed information and the configurable options for each account, click the account name in the table or pie chart.
+![Metrics account overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/metrics-account-main-apr8.png)
 
-![Metrics accounts overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/view-metrics-accounts.png)
+Below that, you’ll find a detailed table listing all related accounts for this telemetry type. Each row includes:
 
-Inside each account you can view the following details:
+* Account name – The name of the account
+* Account ID – A unique identifier for the account
+* Plan - The daily UTM allocation for the account
+* Token – The token used to ship metrics data to this account
 
-* Account name (which you can change by editing it and clicking the **Apply** button)
-* Account creation date
-* Account token
-* Summary and breakdown of the unique metrics sent to the account over the last 7 days
+## Create an account
 
-You can edit the following elements:
+You can add up to 5 metric accounts by default. If you need the ability to add more accounts, contact your account manager or reach out to [Logz.io Sales team](mailto:sales@logz.io).
 
-* Which accounts/sub accounts have visibility to the data in this account
-* Total unique metrics allocated to this specific data source, which defines how many daily unique metrics can be ingested into this data source
+To create a new account, click **Create new account**, then enter the account name, the number of allocated UTMs, and select which accounts should have read access to this account's data.
 
-![Metrics accounts details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/metrics-account-details.png)
+Click **Create** to complete the setup. The new account will appear in the table with its associated details.
 
-### Configure which accounts can access a Metrics data source
-
-Each Metrics account can become a data source for other Logz.io Metrics accounts. To manage access to your metrics data, you create an access list of the Logz.io main account and sub accounts that can view the data for each Metrics account. In the account selector, you can see the list of all the sub accounts (and main account) in the top right of the application page.
-
-#### To grant access to the data in a Metrics account
-
-If users are logged in to the accounts you add here, they'll be able to read the metrics in this account.
-
-1. Click the account name to open its account details.
-
-2. To enable access to a Metrics data source for other accounts, click Add an account and select the relevant accounts in the field below the Metrics account name.
-
-![Metrics add account visibility](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/metrics-visibility.gif)
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/metrics-new-account.png" alt="create-metric-account" width="700"/>
 
 
-### Add a Metrics account to your plan
+## Edit accounts
 
-You can add up to 5 Metrics accounts for your Infrastructure Monitoring plan. If you need the ability to add more accounts, reach out to your account manager or [Logz.io's Sales team](mailto:sales@logz.io).
+To make changes to an account, click the **⋮** icon next to it and select **Edit**. You can update the account name, adjust its UTM allocation, and modify which accounts can access its data.
 
+Click **Save changes** to apply the updates.
 
-**To create a new account**
+## Delete an account 
 
-1. Click **Add metrics account** in the upper left of the Infrastructure Monitoring account plan panel.
-2. Name the new account.
-3. Set which accounts can use it as a data source.
-4. Configure the **total monthly UMs** you want to allocate to the new account. If you don’t have UMs available, you’ll be prompted to reduce the allocation of another account.
-5. Click **Apply** to apply your changes.
+To delete an account, click the **⋮** icon and select **Remove account**.
 
-### Delete a Metrics account from your plan
+Deleting an account will return its UTM allocation to the main account. All data associated with the deleted account will be permanently removed.
 
-Choose the Metrics account you want to delete, and click the **Delete** icon located next to its name. 
-
-Then, confirm (or Cancel) the action.
-
-### Change how many UMs are allocated to each account within your plan
-
-Set how many unique metrics (UMs) are allocated to each account from the overall Infrastructure Monitoring plan. 
-
-Choose the relevant account you'd like to edit, increase or decrease the Unique metrics assigned to it, and click **Apply** to save your changes.
-
-![Allocate metrics ums](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/allocate-metrics-data.gif)
+This action cannot be undone.

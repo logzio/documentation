@@ -1,30 +1,55 @@
 ---
-sidebar_position: 2
+sidebar_position: 5
 title: Manage Timeless accounts
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Learn more on managing your timeless accounts in Logz.io
 keywords: [account, manage account, optimization, admin controls, admin, user permissions, permissions, access control, timeless]
 ---
 
+Logz.io Timeless accounts allow you to aggregate critical logs or metrics into dedicated accounts with endless retention—ensuring long-term visibility into the data that matters most.
+
+If you're an admin of your Logz.io main account, you can manage your Timeless setup from the Manage Accounts page under **Settings > Manage Accounts**, then switch to the Timeless tab.
+
+## Manage your account
+
+Your Timeless account usage is based on the volume of data ingested. Timeless accounts work with optimizers, allowing you to save a subset of your logs for as long as you need them. You can store key metrics that you want to track in your timeless accounts. Each timeless account contains its own index, which you can search from your main account.
+
+At the top of the page, you'll see an overview of your account, including:
+
+* Volume – The maximum daily indexing capacity (in GB) allocated to the account
+* Available volume – The maximum overall capacity (in GB) allocated to the account
+* Accounts – The number of active and available accounts for this telemetry type
+
+![manage accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/manage-accounts-main-apr7.png)
+
+At the bottom of the page, you’ll find a breakdown of all related accounts for this telemetry type. Each row includes:
+
+* Account name – The name of the main or sub-account
+* Account ID – The unique identifier for the account
+* Vol (GB) – Daily indexing volume allocated to the account
+* Optimizers - List of optimizers applied on this account 
+* Usage - Percentage of useage from overall available volume
+
+
+## Create an account
+
+To create a new Timeless account, click **Create new account**, enter a name, select the volume you want to allocate for this account, and select which accounts should have read and write permissions to this account's data.
+
+Click **Create** to complete setup and add the account. The account will be visible in the table with all of the relevant data. 
+
+## Edit accounts
+
+To modify an existing Security account, click the **⋮** icon next to it and select **Edit**. You can update the account name and adjust which log accounts it can access.
+
+Click **Save changes** to apply your updates.
+
+## Delete an account 
+
+To delete a Security account, click the **⋮** icon and select **Remove account**. This will permanently delete all associated data.
+
+This action cannot be undone.
+
 ## Create or manage a timeless account
-
-
-While your main account and sub accounts
-are better suited for short-term monitoring of your log data,
-they're not really a cost-effective way to view long-term patterns and trends.
-That's where **timeless** accounts come in.
-
-Timeless accounts work with optimizers,
-allowing you to save a subset of your logs for as long as you need them.
-You can store key metrics that you want to track in your timeless accounts.
-Each timeless account contains its own Elasticsearch index,
-which you can search from your main account.
-
-If you're an admin for the main account, you can manage the main account and sub accounts from the [**Manage Accounts**](https://app.logz.io/#/dashboard/settings/manage-accounts) page (**<i class="li li-gear"></i> > Settings > Manage accounts** in the navigation menu).
-
-
-![Timeless accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/accounts--timeless-accounts.png)
-
 
 
 ##### Select or add a timeless account
