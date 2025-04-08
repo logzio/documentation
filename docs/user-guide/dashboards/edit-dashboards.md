@@ -138,6 +138,37 @@ Make sure your Lucene expression matches the selected visualization type.
 
 <img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/edit-log-panel-apr6.png" alt="log-panel-bottom" width="1000"/>
 
+### Variables
+
+Variables are dynamic placeholders that let you customize and filter dashboards without editing individual panel queries. Logz.io dashboards include **built-in variables** that are automatically available for use. These variables adapt to the dashboard context—like the selected time range or dashboard name—and are useful for building dynamic queries.
+
+In addition, you can define your own variables and use them throughout your dashboard—in queries, labels, legends, or titles. This makes dashboards more flexible and easier to maintain. Instead of manually updating each query, you can change the variable’s value.
+
+For example, instead of hardcoding a specific namespace, you can create a namespace variable and use it in a PromQL query like this:
+
+`sum(rate(http_requests_total{namespace="$namespace"}[5m]))`
+
+When you select a value like `production` or `staging`, the dashboard automatically updates all panels that use that variable.
+
+#### Create variables
+
+Click **Edit > Variables** to open the variables menu. Then click **Add Variable** to create a new one. Fill in the following fields:
+
+* Name – The identifier that references the variable in queries, labels, and panels (e.g., `$environment`). Must contain at least one character.
+* Display Label (optional) – Appears in the dashboard UI. If left blank, the Name is used as the label.
+* Description (optional) – Add context to help users understand the purpose of the variable.
+* Type – Choose between Text or List.
+* Preview Values – (Optional) View sample values for validation.
+* Value – Set the default or initial value for the variable.
+* Constant – Toggle this on to make the value fixed and not user-selectable.
+
+Click **Add** to save the variable and make it available in your dashboard. Use the variable by referencing it with a dollar sign (e.g., `$service`, `$env_id`).
+
+#### Edit variables
+
+Select a variable from the list and click the pencil icon to edit it. You can modify all fields, including the display label, type, and value.
+
+Note: If you update a variable that's used across panels, dashboards, or queries, it may impact functionality or display incorrect data if not updated consistently.
 
 ### Additional configurations
 
@@ -164,8 +195,6 @@ Click the **+** icon and enter a URL. You can add a name or a tooltip to provide
 <img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/links-apr6.png" alt="links-tab" width="1000"/>
 
 If multiple links are added, they appear as a dropdown when clicking the link icon.
-
-<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/dropdown-time-apr6.png" alt="links-dropdown-tab" width="1000"/>
 
 
 ### View panel JSON
