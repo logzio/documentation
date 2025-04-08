@@ -201,8 +201,6 @@ Select a variable from the list and click the pencil icon to edit it. You can mo
 
 Note: If you update a variable that's used across panels, dashboards, or queries, it may impact functionality or display incorrect data if not updated consistently.
 
-### Additional configurations
-
 ### Settings tab
 
 Use the Settings tab to customize the panel’s appearance:
