@@ -1,6 +1,6 @@
 ---
 sidebar_position: 1
-title: Manage Accounts
+title: Manage Accounts Overview
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Manage your main and sub accounts in Logz.io
 keywords: [account, manage account, user management, admin controls, admin, user permissions, permissions, access control]
