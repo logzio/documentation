@@ -150,19 +150,50 @@ For example, instead of hardcoding a specific namespace, you can create a namesp
 
 When you select a value like `production` or `staging`, the dashboard automatically updates all panels that use that variable.
 
-#### Create variables
+![dashboards variables](https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/dashboard-variables-apr8.png)
+
+
+#### Create Text type variables
 
 Click **Edit > Variables** to open the variables menu. Then click **Add Variable** to create a new one. Fill in the following fields:
 
 * Name – The identifier that references the variable in queries, labels, and panels (e.g., `$environment`). Must contain at least one character.
 * Display Label (optional) – Appears in the dashboard UI. If left blank, the Name is used as the label.
 * Description (optional) – Add context to help users understand the purpose of the variable.
-* Type – Choose between Text or List.
+* Type – Choose Text.
 * Preview Values – (Optional) View sample values for validation.
 * Value – Set the default or initial value for the variable.
 * Constant – Toggle this on to make the value fixed and not user-selectable.
 
 Click **Add** to save the variable and make it available in your dashboard. Use the variable by referencing it with a dollar sign (e.g., `$service`, `$env_id`).
+
+![dashboards variables text](https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/variable-text-apr8.png)
+
+#### Create List type variables
+
+Click **Edit > Variables** to open the variables menu. Then click **Add Variable** to create a new one. Fill in the following fields:
+
+* Name – The identifier that references the variable in queries, labels, and panels (e.g., `$environment`). Must contain at least one character.
+* Display Label (optional) – Appears in the dashboard UI. If left blank, the Name is used as the label.
+* Description (optional) – Add context to help users understand the purpose of the variable.
+* Type – Select List from the dropdown.
+
+List variables display as dropdown menus in the dashboard. They let users filter panels by selecting from a predefined set of values, which you can reference in queries, legends, titles, and more.
+
+Next, configure the list settings:
+
+* Source – Select where the list values will come from (e.g., static list, label values).
+* Values – Type each value and press Enter to add it to the list.
+* Capturing Regexp Filter (optional) – Use a regular expression to filter the returned values.
+* Sort – Define how to sort the values (e.g., alphabetical, ascending).
+* Allow Multiple Values – Enables selection of more than one value at a time.
+* Allow All Option – Adds an "All" option that selects every value in the list.
+
+
+Click **Add** to save the variable. You can now reference it throughout your dashboard using the $ prefix (e.g., `$service`, `$env_id`).
+
+![dashboards variables list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/list-variable-apr8.png)
+
 
 #### Edit variables
 
