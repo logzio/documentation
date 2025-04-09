@@ -12,8 +12,6 @@ You'll need to know your account's region to configure shippers to send data to 
 
 All services related to your account are hosted in the same region. This means you'll ship logs, sign in, and access the API from the same region as your account. However, note that with respect to the **[AI Agent](https://docs.logz.io/docs/user-guide/observability/faq/)**, if your data is hosted in Canada (Central), then we will use the AI model that is hosted in `us-east-1`, and if your data is hosted in Europe (London), then we will use the AI model that is hosted in `eu-central-1`.
 
-
-
 ## How to look up your account region
 
 You can find your account's region by selecting [**<i class="li li-gear"></i> > Settings > General**](https://app.logz.io/#/dashboard/settings/general) from the top menu. Your two-letter region code is at the start of the region designation. 
