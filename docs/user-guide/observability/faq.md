@@ -57,7 +57,7 @@ To provide feedback or report issues, click the **Share Your Feedback** button l
 
 ### Where is the model hosted?
 
-The model is hosted within the same region in which your Logz.io data is hosted. 
+The model is hosted within the same region in which your Logz.io data is hosted. However, if your data is hosted in Canada (Central), then we will use the AI model that is hosted in `us-east-1`, and if your data is hosted in Europe (London), then we will use the AI model that is hosted in `eu-central-1`.
 
 ### Can account admins see my queries and chat history?
 
