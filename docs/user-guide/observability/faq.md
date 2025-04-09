@@ -24,7 +24,9 @@ The AI Agent can help you with queries related to log analysis, infrastructure m
 
 ### Is AI Agent available to all users?
 
-AI Agent is currently available to all Logz.io users whose data is hosted in the EU, Australia, and US regions.
+Yes, it is. Note that if your data is hosted in Canada (Central), we use an AI model hosted in `us-east-1`, and if your data is hosted in Europe (London), we use an AI model hosted in `eu-central-1`.
+
+When generating insights, we temporarily send a minimal portion of data to a secure Large Language Model (LLM) instance. This data is not stored or retained by the model—it's used only for generating the response and then discarded.
 
 ### Is AI Agent accessible via API?
 
