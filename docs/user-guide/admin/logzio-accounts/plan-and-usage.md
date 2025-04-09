@@ -6,42 +6,35 @@ description: Track your daily and monthly data usage and consumption
 keywords: [account, manage account, usage, admin controls, admin, user permissions, permissions, access control]
 ---
 
-Logz.io provides you with dashboards to easily track your daily and monthly usage. These dashboards let you monitor your overall usage and understand whether you're about to go over your plan limits.
+Logz.io provides built-in dashboards to help you track daily and monthly usage across Log Management, Infrastructure Monitoring, and Distributed Tracing. These dashboards help you monitor your consumption and anticipate when you're approaching your plan limits.
 
-To access these dashboards, login to your Logz.io account and navigate to [Settings > Plan and usage > Usage & Info](https://app.logz.io/#/dashboard/settings/plan-and-billing/usage).
+To access them, log in to your Logz.io account and navigate to [Settings > Plan and usage > Usage & Info](https://app.logz.io/#/dashboard/settings/plan-and-billing/usage).
 
 The dashboards on this page represent the different Logz.io products you use: Log Management, Infrastructure Monitoring, and Distributed Tracing. 
 
+![Usage and info dashboards](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/usage-and-info-main-apr9.png)
 
-![Usage and info dashboards](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/usage-and-info-overview.png)
+Each dashboard corresponds to one of your active Logz.io products. Use the date picker to select a start date—data will be shown from that date through today. You can also toggle the Include sub accounts option to view usage across all associated accounts.
 
-The default view includes a 30 days overview of your Logs account, and you can change and adjust the filters according to your desired view. 
+Each telemetry dashboard provides a high-level overview, including:
 
-You can apply any of the following filters:
+* Your current daily plan
+* The number of days the plan was exceeded
+* Total volume (GB) consumed beyond the plan
 
-* **Date Range** - Set a custom range or choose from one of the existing presets.
-* **Logs sub accounts** - Choose which Log accounts/sub accounts you'd like to view.
-* **Metrics data sources** - Choose which Metric accounts/sub accounts you'd like to view.
-* **Tracing data sources** - Choose which Tracing accounts/sub accounts you'd like to view.
+Below the summary, you'll find several charts that visualize usage across different scenarios—for example, main vs. sub account usage, consumption over retention days, and restored data (if available).
 
-![Plan filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/plan-filters.png)
+Charts display usage trends by day and split data between main and sub accounts. Hover over any column for more details, click a column to drill down by hour or week, and use the arrows in the top right to navigate between levels of detail.
 
+![Drill down view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/click-on-dashboard-apr9.png)
 
-The dashboard gives a quick overview of the current daily plan, the number of days you exceeded your plan, and the total GB consumed above the existing plan.
+Click the **⋮** menu for options to **view a summary** or **download the data as a CSV**. The CSV includes:
 
-The chart displays the same information, divided into days and accounts. If you choose to view multiple accounts, you'll be able to differentiate them according to their color. You can hover over the different columns in each chart to get a detailed view of daily GB consumption.
+* Date
+* Exceeded plan limit (GB)
+* Within plan usage (GB)
+* Daily plan (GB)
 
-![Usage and info dashboards](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/usage-hover-multiple.png)
+![export data](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/export-data-apr9.png)
 
-To download your data, hover over the dashboard you're interested in, click on the top right menu and choose **Download data**. The .CSV file includes:
-
-* **Date**
-* **Account key number**
-* **Account name**
-* **Amount of GB used**
-
-![Download your data](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/download-data.png)
-
-Periscope powers these dashboards, and you can view them separately from the Logz.io app by clicking on the **Open in a new tab** option at the screen's top right corner.
-
-![New tab](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/new-tab.png)
+These dashboards are powered by QuickSight. To open a dashboard in a separate tab, click **Open in a new tab** in the top right corner.
