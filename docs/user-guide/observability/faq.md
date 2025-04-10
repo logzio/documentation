@@ -22,10 +22,6 @@ AI Agent is part of Logz.io's Observability IQ suite. It provides a chat-driven,
 
 The AI Agent can help you with queries related to log analysis, infrastructure monitoring, troubleshooting issues, and other aspects of using the Logz.io Platform.
 
-### Is AI Agent available to all users?
-
-AI Agent is currently available to all Logz.io users whose data is hosted in the EU, Australia, and US regions.
-
 ### Is AI Agent accessible via API?
 
 No. To access AI Agent, you must use Logz.io's app.
@@ -53,7 +49,11 @@ To provide feedback or report issues, click the **Share Your Feedback** button l
 
 ### Where is the model hosted?
 
-The model is hosted within the same region in which your Logz.io data is hosted. 
+The model is hosted within the same region in which your Logz.io data is hosted. However, due to current AWS region availability, if your data is hosted in Canada (Central), then we will use the AI model that is hosted in `us-east-1`, and if your data is hosted in Europe (London), then we will use the AI model that is hosted in `eu-central-1`.
+
+This setup is temporary and will be updated as AWS expands support for hosting AI models in additional regions.
+
+When generating insights, a minimal portion of your data is temporarily sent to a secure Large Language Model (LLM) instance. This data is **not stored or retained** — it’s used solely to generate the response and is immediately discarded.
 
 ### Can account admins see my queries and chat history?
 

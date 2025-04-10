@@ -10,7 +10,9 @@ Logz.io maintains clusters worldwide so that it can host your account in a regio
 
 You'll need to know your account's region to configure shippers to send data to Logz.io. It is also important if you're using the Logz.io API.
 
-All services related to your account are hosted in the same region. This means you'll ship logs, sign in, and access the API from the same region as your account.
+All services related to your account are hosted in the same region. This means you’ll ship logs, sign in, and access the API from the region associated with your account.
+
+For exceptions related to the **AI Agent**, see the note in the [AI Agent FAQ](https://docs.logz.io/docs/user-guide/observability/faq/).
 
 
 ## How to look up your account region
