@@ -6,15 +6,16 @@ description: Manage your main and sub accounts in Logz.io
 keywords: [account, manage account, user management, admin controls, admin, user permissions, permissions, access control]
 ---
 
-Each Logz.io plan starts with a main account, and you can expand your account to send additional logs, data, metrics, and so on.
+Each Logz.io plan starts with a main account, which you can expand by creating sub accounts to send additional logs, metrics, and other telemetry data.
 
-The following guide will help you get familiarized with your Logz.io account, understand how to use it, and provide some additional tips and tricks.
+This guide will help you understand how to configure and manage your Logz.io account, and offers helpful tips for customizing your setup to suit your organization’s needs.
 
 
 
 ## Configuration options
 
-There are several different configurations you can apply to your account, including:
+Logz.io offers several configuration options to help you manage data access, storage, and security across your account.
+
 
 ### Access control (Pro and Enterprise plans)
 
@@ -22,7 +23,7 @@ You can control access to different sets of data by shipping your logs to sub ac
 
 ### Flexible volume
 
-You can make the most of your plan’s indexing capacity by switching to flexible volume. Flexible volume makes it easier to ensure that accounts don’t max out their indexing capacity. [Explore flexible volume options](https://docs.logz.io/docs/user-guide/admin/logzio-accounts/flexible-volume/).
+Flexible volume allows you to optimize indexing capacity across accounts, reducing the risk of hitting daily limits. [Explore flexible volume options](https://docs.logz.io/docs/user-guide/admin/logzio-accounts/flexible-volume/).
 
 
 :::note
@@ -31,17 +32,24 @@ You can include up to 200 sub accounts when flexible volume is enabled. To add m
 
 ### Long-term storage
 
-Optimizers are great for analyzing long-term patterns and trends on aggregated data.
+Logz.io provides three storage tiers - Hot, Warm, and Cold, designed to balance access speed, retention needs, and cost efficiency. Each tier supports different data usage patterns, allowing you to tailor your storage strategy to fit specific operational and compliance requirements.
 
-You can use [data optimizers](https://docs.logz.io/docs/user-guide/log-management/long-term-storage/configure-optimizers/) to copy select data from your logs and store them long-term in a timeless account. Data stored in timeless accounts is easily searched and continuously available without requiring additional steps to restore the data. [Explore timeless accounts](https://docs.logz.io/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts#timeless).
+* **Hot Tier** is used for real-time access to recent data and is enabled by default.
+* **Warm Tier** is ideal for logs that are accessed less frequently but still need to remain readily available for analysis and troubleshooting.
+* **Cold Tier** is optimized for long-term storage at a lower cost. It’s best suited for archived data that is rarely accessed but must be retained for regulatory or historical purposes.
+
+For users with a **Timeless** account, Logz.io also offers Optimizers - tools for analyzing long-term trends on aggregated data. Optimizers let you extract and copy selected log data into a Timeless account, where it remains searchable and continuously available—without needing to be restored.
+
+* [Configure data optimizers](https://docs.logz.io/docs/user-guide/log-management/long-term-storage/configure-optimizers/) 
+* Learn more about[timeless accounts](https://docs.logz.io/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts#timeless)
 
 ### Archive and restore data
 
-You can connect your Logz.io accounts to an S3 bucket or Azure Blob Storage to archive your logs. [Explore archiving options](https://docs.logz.io/docs/user-guide/data-hub/archive-restore/archive-and-restore/).
+You can connect your Logz.io accounts to an S3 bucket to archive your logs. [Explore archiving options](https://docs.logz.io/docs/user-guide/data-hub/archive-restore/archive-and-restore/).
 
 Before searching archived data, you’ll need to restore it to its own temporary account. [Explore data restoring options](https://docs.logz.io/docs/user-guide/data-hub/archive-restore/restore-archived-logs/).
 
-### Two Factor Authentication
+### Two Factor Authentication (2FA)
 
 You can add an extra layer of security to your Logz.io account by enabling the Two Factor Authentication (2FA) toggle. 
 
@@ -65,6 +73,7 @@ Once you toggle the 2FA option, you'll receive an email guiding you on setting u
 | **Save log size** | Adds a [new field](/docs/user-guide/admin/account-volume-optimization/manage-account-usage/#what-happens-when-i-save-log-size) to incoming logs. This new field is called `LogSize`, and it contains the log size in bytes. |
 | **Use objects from the selected accounts** | Gives the account access to OpenSearch Dashboards objects (dashboards, visualizations, saved searches) stored in other accounts under the same plan. |
 
+<!--
 ## Manage your accounts
 
 Account admins have various options when it comes to managing the account. For further information, check out the following guides:
@@ -74,3 +83,5 @@ Account admins have various options when it comes to managing the account. For f
 * [Manage your **Infrastructure Monitoring** (Metrics) account](/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts#metrics)
 * [Manage your **Distributed Tracing** account](/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts#tracing)
 * [Manage your **Timeless** account](/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts#timeless)
+
+-->
