@@ -50,6 +50,8 @@ Click **Advanced** to adjust additional settings such as shared asset access, wh
 
 Click **Create** to complete setup and add the account. The account will be visible in the table with all of the relevant data. 
 
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/create-new-account-apr14.png" alt="create-log-account" width="700"/>
+
 ## Edit accounts
 
 To edit an account, click the **⋮** icon next to the account and select **Edit**.
@@ -73,6 +75,9 @@ To allow other accounts to view and use shared data—such as dashboards, visual
 3. In the Shared access section, select the accounts you want to grant access to from the dropdown list.
 
 These selected accounts will now be able to use the original log account as a data source, giving them visibility into its logs and shared assets.
+
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/add-accounts-log-apr14.png" alt="manage-log-account" width="700"/>
+
 
 ## Delete a sub account 
 

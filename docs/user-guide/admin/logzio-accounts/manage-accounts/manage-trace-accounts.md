@@ -11,6 +11,9 @@ Logz.io Tracing provides powerful tools to search and analyze span data, helping
 
 If you're an admin of your Logz.io main account, you can manage your Tracing setup from the Manage Accounts page under **Settings > Manage Accounts**, then switch to the Tracing tab.
 
+![Tracing account overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/tracing-main-account.png)
+
+
 ## Manage your account
 
 Tracing accounts are based on spans: individual units of work in a distributed system. Each span represents a named, timed operation.
@@ -39,7 +42,7 @@ Lastly, define which accounts should have read access to this account’s data.
 
 Click **Create** to complete the setup. The new account will appear in the table.
 
-<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/" alt="yearly" width="700"/>
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/tracing-new-account.png" alt="new-account" width="700"/>
 
 
 ## Edit accounts
@@ -85,22 +88,10 @@ To update the multiplier, go to **Manage Accounts > Tracing**, select the accoun
 
 If a Tracing account exceeds its quota, first check whether enough of your overall span quota is allocated to that account.
 
-Navigate to **[Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts)** > Tracing. You'll see how many spans you currently have and their distribution across your account.
+Navigate to **[Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts)** > Tracing. You'll see how many spans you currently have.
 
-//![Distributed Tracing account overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/span-usage-2-jul.png)
+You can add more spans from the overall quota to prevent your Tracing account from getting suspended, increasing your monthly and daily limit multiplier for this account.
 
-In this example, the overall quota is 600M monthly spans, when only 450M are allocated to the **Sock Shop Tracing** account.
-
-You can add more spans from the overall quota to prevent your Tracing account from getting suspended, increasing both your monthly and daily limit for this account.
-
-If you have several Tracing accounts but don't have any available spans from your monthly quota, you can allocate spans between the different accounts.
-
-![Distributed Tracing allocation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/tracing-allocating-spans-jul.png)
-
-In this example, all of the monthly spans quota is divided between 2 Tracing accounts. 
-
-By moving 50M monthly spans to the **Sock Shop Tracing DEV** account, you can prevent the dev account from getting suspended.
-
-![Distributed Tracing reallocation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/reallocate-spans-jul.png)
+If you have several Tracing accounts but no available spans from your monthly quota, you can allocate spans between the different accounts.
 
 If there are no available spans to allocate, you can contact [Logz.io Support team](mailto:help@logz.io) to temporarily increase the quota limit.
