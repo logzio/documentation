@@ -20,9 +20,12 @@ Below are instructions for configuring each type of telemetry data individually.
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs>
-<TabItem value="log-data" label="Logs" default>
 
+<Tabs defaultValue="log-data" values={[
+  { label: 'Logs', value: 'log-data' },
+  { label: 'Deployment Events', value: 'deployment-events' },
+]}>
+<TabItem value="log-data">
 
 ## Send your Logs
 
@@ -102,7 +105,7 @@ Adding `log_type` annotation with a custom value will be parsed into a `log_type
 
 
 </TabItem>
-<TabItem value="deployment-data" label="Deployment Events" default>
+<TabItem value="deployment-events">
 
 
 ## Send deployment events logs
