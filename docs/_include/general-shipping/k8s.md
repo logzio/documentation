@@ -20,17 +20,9 @@ Below are instructions for configuring each type of telemetry data individually.
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+<Tabs>
+<TabItem value="log-data" label="Logs" default>
 
-<Tabs defaultValue="log-data" values={[
-  { label: 'Logs', value: 'log-data' },
-  { label: 'Deployment Events', value: 'deployment-events' },
-  { label: 'Metrics', value: 'metrics-data' },
-  { label: 'Tracing and SPM', value: 'tracing-data' },
-  { label: 'K8S Objects', value: 'k8s-obj-data' },
-  { label: 'Trivy', value: 'trivy-data' },
-  { label: 'EKS Fargate', value: 'eks-fargate-data' },
-    ]}>
-<TabItem value="log-data">
 
 ## Send your Logs
 
@@ -110,7 +102,7 @@ Adding `log_type` annotation with a custom value will be parsed into a `log_type
 
 
 </TabItem>
-<TabItem value="deployment-events">
+<TabItem value="deployment-data" label="Deployment Events" default>
 
 
 ## Send deployment events logs
@@ -160,7 +152,7 @@ Encounter an issue? See our [troubleshooting guide](https://docs.logz.io/docs/us
 
 
 </TabItem>
-<TabItem value="metrics-data">
+<TabItem value="metrics-data" label="Metrics" default>
 
 
 ## Send your metrics
@@ -200,7 +192,7 @@ For example, for a parameter called `someField` in the `logzio-k8s-telemetry`'s 
 
 
  </TabItem>
-<TabItem value="tracing-data">
+<TabItem value="tracing-data" label="Tracing and SPM" default>
 
 
 ## Send your traces
@@ -267,7 +259,7 @@ For example, for a parameter called `someField` in the `logzio-apm-collector`'s 
 
 
  </TabItem>
-<TabItem value="k8s-obj-data">
+<TabItem value="k8s-obj-data" label="K8S Objects" default>
 
 
 ## Send Metrics with Kubernetes object logs
@@ -296,7 +288,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 
 
  </TabItem>
-<TabItem value="trivy-data">
+<TabItem value="trivy-data" label="Trivy" default>
 
 
 ## Scan your cluster for security vulnerabilities
@@ -317,7 +309,7 @@ helm install -n monitoring --create-namespace \
 
 
  </TabItem>
-<TabItem value="eks-fargate-data">
+<TabItem value="eks-fargate-data" label="EKS Fargate" default>
 
 
 
