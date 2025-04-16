@@ -379,6 +379,7 @@
 /docs/user-guide/distributed-tracing/setup-spm/	                                /docs/user-guide/app360/service-list/
 /docs/user-guide/distributed-tracing/spm/	                                /docs/user-guide/app360/service-list/
 /docs/shipping/aws/aws-kafka/	                                /docs/shipping/aws/aws-msk/
+/docs/k8s-360/unified-helm-chart/#adding-tolerations-for-tainted-nodes	                                /docs/k8s-360/unified-helm-chart/#advanced-configuration-and-troubleshooting
 # Shippers				
 /shipping/				/docs/category/send-your-data/
 /user-guide/log-shipping/				/docs/category/send-your-data/
