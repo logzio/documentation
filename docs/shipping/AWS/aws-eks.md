@@ -147,7 +147,7 @@ For example:
 --set logzio-fluentd.daemonset.tolerations[0].key=node-role.kubernetes.io/master --set logzio-fluentd.daemonset.tolerations[0].effect=NoSchedule
 ```
 
-:::node
+:::note
 You need to use `Helm` client with version `v3.9.0` or above.
 :::
 
