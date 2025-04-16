@@ -28,6 +28,38 @@ The logzio-monitoring Helm Chart ships your EKS Fargate telemetry (logs, metrics
 {@include: ../../_include/general-shipping/k8s-all-data.md}  
 
 
+## Running Logz.io on EKS Auto Mode Clusters
+
+If you're deploying Logz.io’s Helm chart on EKS Auto mode, you’ll need to manually configure tolerations and node affinity for each sub-chart you plan to install. This ensures compatibility with the scheduling constraints and taints used by EKS Auto mode.
+
+EKS Auto mode nodes typically include the following taint:
+
+```yaml
+key: "CriticalAddonsOnly"
+effect: "NoSchedule"
+```
+
+To support this, update each sub-chart in your Helm configuration with the following:
+
+```yaml
+tolerations:
+  - key: "CriticalAddonsOnly"
+    operator: "Exists"
+    effect: "NoSchedule"
+
+affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: eks.amazonaws.com/compute-type
+              operator: In
+              values:
+                - auto
+```
+
+If you’re not targeting specific compute types, you can also set affinity to empty to bypass affinity constraints.
+
 ## Send your logs 
  
 
