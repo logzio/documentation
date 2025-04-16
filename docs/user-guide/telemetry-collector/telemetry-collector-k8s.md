@@ -85,7 +85,29 @@ Click **Save changes** to continue.
 
 ![Define collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/define-collector-k8-dec.png)
 
+### Optional - Configure log level
 
+You can adjust the verbosity of the logs by setting the log level. This allows you to control the amount and type of information logged, which can be useful for debugging or monitoring purposes.​
+
+To set the log level:​
+
+1. Locate the values.yaml file used for your Helm deployment.​
+2. Add or modify the logLevel parameter under the processors section:​
+
+The `log_level` field is assigned based on a regex match in the message field. The configuration below sets different log levels depending on keywords found in the log message:
+
+```yaml
+      log_statements:
+        - context: log
+          statements:
+            # set log_level
+            - set(attributes["log_level"], "INFO")
+            - set(attributes["log_level"], "DEBUG") where (IsMatch(body, ".*\\b(?i:debug)\\b.*"))
+            - set(attributes["log_level"], "WARNING") where (IsMatch(body, ".*\\b(?i:warning|warn)\\b.*"))
+            - set(attributes["log_level"], "ERROR") where (IsMatch(body, ".*(?i:(?:error|fail|failure|exception|panic)).*"))
+```
+
+Setting a higher verbosity level such as DEBUG provides more detailed logs, which can help with troubleshooting. However, keep in mind that higher verbosity increases log volume.
 
 
 ## Manage your Telemetry Collector:
