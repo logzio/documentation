@@ -12,11 +12,11 @@ If you're an admin of your Logz.io main account, you can manage your Metrics set
 
 ## Manage your account
 
-Your Metrics usage is calculated based on the number of Unique Time Series (UTMs), which represent the distinct metric streams collected using PromQL. These include counters, gauges, histograms, and summaries.
+Your Metrics usage is calculated based on the number of Unique Time Series (UTSs), which represent the distinct metric streams collected using PromQL. These include counters, gauges, histograms, and summaries.
 
 At the top of the page, you'll see a summary of your account, including:
 
-* Allowed unique metrics – The maximum number of daily UTMs allocated to the account
+* Allowed unique metrics – The maximum number of daily UTSs allocated to the account
 * Sub accounts – The number of active and available sub accounts for this telemetry type
 * Retention - The retention period indicating how long your metric data is stored
 
@@ -26,14 +26,14 @@ Below that, you’ll find a detailed table listing all related accounts for this
 
 * Account name – The name of the account
 * Account ID – A unique identifier for the account
-* Plan - The daily UTM allocation for the account
+* Plan - The daily UTS allocation for the account
 * Token – The token used to ship metrics data to this account
 
 ## Create an account
 
 You can add up to 5 metric accounts by default. If you need the ability to add more accounts, contact your account manager or reach out to [Logz.io Sales team](mailto:sales@logz.io).
 
-To create a new account, click **Create new account**, then enter the account name, the number of allocated UTMs, and select which accounts should have read access to this account's data.
+To create a new account, click **Create new account**, then enter the account name, the number of allocated UTSs, and select which accounts should have read access to this account's data.
 
 Click **Create** to complete the setup. The new account will appear in the table with its associated details.
 
@@ -42,7 +42,7 @@ Click **Create** to complete the setup. The new account will appear in the table
 
 ## Edit accounts
 
-To make changes to an account, click the **⋮** icon next to it and select **Edit**. You can update the account name, adjust its UTM allocation, and modify which accounts can access its data.
+To make changes to an account, click the **⋮** icon next to it and select **Edit**. You can update the account name, adjust its UTS allocation, and modify which accounts can access its data.
 
 Click **Save changes** to apply the updates.
 
@@ -50,6 +50,6 @@ Click **Save changes** to apply the updates.
 
 To delete an account, click the **⋮** icon and select **Remove account**.
 
-Deleting an account will return its UTM allocation to the main account. All data associated with the deleted account will be permanently removed.
+Deleting an account will return its UTS allocation to the main account. All data associated with the deleted account will be permanently removed.
 
 This action cannot be undone.
