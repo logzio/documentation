@@ -10,7 +10,7 @@ logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
 metrics_dashboards: []
-metrics_alerts: []
+metrics_alerts: ['3emd5myHx9uqY4U272loav']
 drop_filter: []
 ---
 
