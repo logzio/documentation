@@ -106,6 +106,10 @@ The default graph view groups all fields. Customize the visualization by:
 * Adjusting the time interval or Y-axis scale.
 * Adding [Deployment markers](https://docs.logz.io/docs/user-guide/explore/deployment-markers/).
 
+:::note
+When using Group by, the graph displays **up to 10 values**. Any additional values are grouped under **Other**.
+:::
+
 <img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/visualize-feb17.png" alt="visualize" width="700"/>
 
 
