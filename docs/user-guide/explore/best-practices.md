@@ -74,6 +74,10 @@ For example, `LogSize` lets you select the size of the logs you're interested in
 
 The Visualize button provides additional ways to explore your data. Use it to switch to a **group-by** view, **compare data** to a previous time frame, adjust **time intervals**, and add **deployment markers** to track trends after a deployment.
 
+:::note
+When using Group by, the graph displays **up to 10 values**. Any additional values are grouped under **Other**.
+:::
+
 
 ## Edit log table view
 
