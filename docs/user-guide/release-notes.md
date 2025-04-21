@@ -58,6 +58,8 @@ Upgrade dependencies:
 * `k8s.io/apimachinery: v0.32.0 -> v0.32.2`
 * `k8s.io/client-go: v0.32.0 -> v0.32.2`
 
+[View on GitHub](https://github.com/logzio/logzio-helm/tree/master/charts/prometheus-alerts-migrator).
+
 **Released the Logzio Terrform provider integration with version v1.17.1:**
 
 * Upgrade logzio_client_terraform to 1.23.2
@@ -68,9 +70,13 @@ Upgrade Grafana API for compatibility with Grafana 10
 Only relevant if you're using **Grafana 10** in Logz.io. If you're on an earlier version, no upgrade is needed.
 ::
 
-* Grafana Contact Point teams now refers to Microsoft Teams Workflows Contact Point. The old teams endpoint was deprecated.
-* Default notification policy contact point changed from default-email to `grafana-default-email`
-* Webhook Contact Point now supports authorization_credentials
+Breaking changes:
+* Grafana Alerts API `exec_err_state` field is no longer configurable, always defaults to `OK`
+* Grafana Contact Point `teams` now refers to Microsoft Teams Workflows Contact Point. The old `teams` endpoint was deprecated
+* Default notification policy contact point changed from `default-email` to `grafana-default-email`
+* Webhook Contact Point now supports `authorization_credentials`
+
+[View on GitHub](https://github.com/logzio/terraform-provider-logzio).
 
 
 
