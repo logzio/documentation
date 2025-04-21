@@ -76,6 +76,7 @@ The Visualize button provides additional ways to explore your data. Use it to sw
 
 :::note
 When using Group by, the graph displays **up to 10 values**. Any additional values are grouped under **Other**.
+Entries with empty or undefined values for the selected field will appear under **Missing**.
 :::
 
 
