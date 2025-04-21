@@ -23,6 +23,8 @@ The new Parsing Rules API allows you to manage your Sawmill pipelines programmat
 
 Use the API to create, update, and manage parsing rule, streamlining how you handle custom log transformations across environments.
 
+_Note: The Parsing Rules API requires enablement. Contact your [account manager](mailto:sales@logz.io) to request access._
+
 ### Core Updates:
 
 **Updated Logzio API Fetcher version 2.0.0:**
