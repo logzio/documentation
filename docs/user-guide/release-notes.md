@@ -68,7 +68,7 @@ Upgrade Grafana API for compatibility with Grafana 10
 
 :::tip note
 Only relevant if you're using **Grafana 10** in Logz.io. If you're on an earlier version, no upgrade is needed.
-::
+:::
 
 Breaking changes:
 * Grafana Alerts API `exec_err_state` field is no longer configurable, always defaults to `OK`
