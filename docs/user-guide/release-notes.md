@@ -7,6 +7,90 @@ keywords: [release notes, logzio, logs, metrics, traces, logz.io, updates, relea
 toc_max_heading_level: 2
 ---
 
+## April 2025
+
+### Logz.io Dashboards (Beta)
+
+Over the next few weeks we’re rolling out Logz.io Dashboards, an intuitive hub for visualizing and exploring your observability data in one centralized view.
+
+Designed for monitoring, investigations, and collaborative troubleshooting, Logz.io Dashboards bring together logs and metrics in a unified experience.
+
+_Note: Logz.io Dashboards are currently in beta. Contact your account manager or [support](mailto:help@logz.io) to request access._
+
+### Log Parsing API
+
+The new Parsing Rules API allows you to manage your Sawmill pipelines programmatically—giving you greater flexibility and automation for your log processing workflows.
+
+Use the API to create, update, and manage parsing rule, streamlining how you handle custom log transformations across environments.
+
+_Note: The Parsing Rules API requires enablement. Contact your [account manager](mailto:sales@logz.io) to request access._
+
+### Core Updates:
+
+**Updated Logzio API Fetcher version 2.0.0:**
+
+* Added Google Workspace support
+* Added option to configure multiple Logz.io outputs
+
+[View on GitHub](https://github.com/logzio/logzio-api-fetcher/tree/2.0.0).
+
+**Updated the logzio-monitoring Chart integration with version v7.1.2:**
+
+* Upgrade opentelemetry-operator chart to ~0.82.0
+* Upgrade logzio-fluentd chart to 1.0.1
+* Upgrade ARM and AMD fluentd image version to v1.18.0-debian-logzio-amd64-1.3 and v1.18.0-debian-logzio-arm64-1.3
+
+[View on GitHub](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-monitoring).
+
+**Released the Prometheus Alerts Migrator Helm Chart integration with version v3.0.0**
+
+:::tip note
+Only upgrade to v3.0.0 if you're using Grafana 10 in Logz.io. This version is **not compatible** with earlier Grafana versions.
+:::
+
+* Upgrade logzio/prometheus-alerts-migrator image v1.2.1-> v1.3.0:
+* Upgrade GoLang version to 1.24
+
+Upgrade dependencies:
+* `logzio_terraform_client: 1.22.0 -> v1.23.2`
+* `prometheus/alertmanager: v0.28.0 -> v0.28.1`
+* `prometheus/common: v0.61.0 -> v0.62.0`
+* `prometheus/prometheus: v0.301.0 -> v0.302.1`
+* `k8s.io/api: v0.32.0 -> v0.32.2`
+* `k8s.io/apimachinery: v0.32.0 -> v0.32.2`
+* `k8s.io/client-go: v0.32.0 -> v0.32.2`
+
+[View on GitHub](https://github.com/logzio/logzio-helm/tree/master/charts/prometheus-alerts-migrator).
+
+**Released the Logzio Terrform provider integration with version v1.17.1:**
+
+* Upgrade logzio_client_terraform to 1.23.2
+
+Upgrade Grafana API for compatibility with Grafana 10
+
+:::tip note
+Only relevant if you're using **Grafana 10** in Logz.io. If you're on an earlier version, no upgrade is needed.
+:::
+
+Breaking changes:
+* Grafana Alerts API `exec_err_state` field is no longer configurable, always defaults to `OK`
+* Grafana Contact Point `teams` now refers to Microsoft Teams Workflows Contact Point. The old `teams` endpoint was deprecated
+* Default notification policy contact point changed from `default-email` to `grafana-default-email`
+* Webhook Contact Point now supports `authorization_credentials`
+
+[View on GitHub](https://github.com/logzio/terraform-provider-logzio).
+
+
+
+
+
+
+
+
+
+
+
+
 ## March 2025
 
 ### Explore improvements:

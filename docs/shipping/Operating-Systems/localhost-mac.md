@@ -174,6 +174,7 @@ Copy the plist file's content:
 
 {@include: ../../_include/log-shipping/otel-filter.md} 
 
+
 ## Manage your OpenTelemetry on Mac
 
 Manage OpenTelemetry on your machine using the following commands:

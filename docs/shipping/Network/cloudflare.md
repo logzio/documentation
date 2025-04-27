@@ -103,6 +103,11 @@ You can customize the endpoints to collect data by adding or modifying the confi
 | pagination_off          | True if builtin pagination should be off, False otherwise                                                                                   | Optional          | `False`           |
 
 ### Logzio output configuration options
+
+:::note
+To configure multiple outputs (in order to send different API data to different Logz.io accounts), please refer to [the linked docs](https://docs.logz.io/docs/log-management/api-fetcher/#add-your-logzio-listener-and-token).
+:::
+
 | Parameter Name | Description                 | Required/Optional | Default                         |
 |----------------|-----------------------------|-------------------|---------------------------------|
 | url            | The logzio Listener address (You can find the relevant `<<LISTENER-HOST>>` [here](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs).) | Optional          | `https://listener.logz.io:8071` |

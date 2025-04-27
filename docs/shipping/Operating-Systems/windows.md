@@ -153,6 +153,7 @@ New-Service -Name LogzioOTELCollector -BinaryPathName "$env:APPDATA\LogzioAgent\
 
 {@include: ../../_include/log-shipping/otel-filter.md} 
 
+
 ## Manage your OpenTelemetry on Localhost
 
 Manage OpenTelemetry on your machine using the following commands:

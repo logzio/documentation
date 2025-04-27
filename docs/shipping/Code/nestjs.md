@@ -95,8 +95,9 @@ const provider = new BasicTracerProvider({
             "YOUR-SERVICE-NAME", // add the name of your service
     }),
 });
-// export spans to console (useful for debugging)
-provider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()));
+//// export spans to console (useful for debugging)
+// provider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()));
+
 // export spans to opentelemetry collector
 provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
 
@@ -228,7 +229,6 @@ const provider = new BasicTracerProvider({
 	}),
 });
 provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
-provider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()));
 provider.register();
 const sdk = new opentelemetry.NodeSDK({
 	traceExporter: new opentelemetry.tracing.ConsoleSpanExporter(),
@@ -286,7 +286,7 @@ Give your traces some time to get from your system to ours, and then open [Traci
 
 You can use a Helm chart to ship Traces to Logz.io via the OpenTelemetry collector. The Helm tool is used to manage packages of preconfigured Kubernetes resources that use charts.
 
-**logzio-k8s-telemetry** allows you to ship traces from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
+**logzio-apm-collector** allows you to ship traces from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
 
  
 :::note
@@ -315,13 +315,13 @@ helm repo update
 	
 #### Run the Helm deployment code
 
-```
+```sh
 helm install  \
---set secrets.LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>> \
---set secrets.TracesToken=<<TRACING-SHIPPING-TOKEN>> \
---set traces.enabled=true \
---set secrets.env_id=<<ENV_ID>> \
-logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
+--set enabled=true \
+--set global.logzioTracesToken="<<LOGZIO_TRACES_TOKEN>>" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set global.env_id="<<ENV_ID>>" \
+logzio-apm-collector logzio-helm/logzio-apm-collector
 ```
 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
@@ -331,9 +331,8 @@ logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 
 You'll need the following service DNS:
 
-`http://<<CHART-NAME>>-otel-collector.<<NAMESPACE>>.svc.cluster.local:<<PORT>>/`.
+`http://logzio-apm-collector.<<NAMESPACE>>.svc.cluster.local:<<PORT>>/`.
 
-Replace `<<CHART-NAME>>` with the relevant service you're using (`logzio-k8s-telemetry`, `logzio-monitoring`).
 Replace `<<NAMESPACE>>` with your Helm chart's deployment namespace (e.g., default or monitoring).
 Replace `<<PORT>>` with the [port for your agent's protocol](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-telemetry/values.yaml#L249-L267) (Default is 4317).
 
@@ -392,7 +391,6 @@ const provider = new BasicTracerProvider({
 	}),
 });
 provider.addSpanProcessor(new SimpleSpanProcessor(exporter));
-provider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()));
 provider.register();
 const sdk = new opentelemetry.NodeSDK({
 	traceExporter: new opentelemetry.tracing.ConsoleSpanExporter(),
@@ -446,12 +444,12 @@ If required, you can add the following optional parameters as environment variab
   
 | Parameter | Description | 
 |---|---|
-| secrets.SamplingLatency | Threshold for the span latency - all traces slower than the threshold value will be filtered in. Default 500. | 
-| secrets.SamplingProbability | Sampling percentage for the probabilistic policy. Default 10. | 
+| SamplingLatency | Threshold for the span latency - all traces slower than the threshold value will be filtered in. Default 500. | 
+| SamplingProbability | Sampling percentage for the probabilistic policy. Default 10. | 
 
 #### Example
 
-You can run the logzio-k8s-telemetry chart with your custom configuration file that takes precedence over the `values.yaml` of the chart.
+You can run the `logzio-apm-collector` chart with your custom configuration file that takes precedence over the `values.yaml` of the chart.
 
 For example:
 
@@ -509,13 +507,13 @@ baseCollectorConfig:
         ] 
 ```
 
-```
+```sh
 helm install -f <PATH-TO>/my_values.yaml \
---set secrets.LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>> \
---set secrets.TracesToken=<<TRACING-SHIPPING-TOKEN>> \
---set traces.enabled=true \
---set secrets.env_id=<<ENV_ID>> \
-logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
+--set enabled=true \
+--set global.logzioTracesToken="<<LOGZIO_TRACES_TOKEN>>" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set global.env_id="<<ENV_ID>>" \
+logzio-apm-collector logzio-helm/logzio-apm-collector
 ```
 
 Replace `<PATH-TO>` with the path to your custom `values.yaml` file.
@@ -530,10 +528,10 @@ Replace `<PATH-TO>` with the path to your custom `values.yaml` file.
 
 The uninstall command is used to remove all the Kubernetes components associated with the chart and to delete the release.  
 
-To uninstall the `logzio-k8s-telemetry` deployment, use the following command:
+To uninstall the `logzio-apm-collector` deployment, use the following command:
 
 ```shell
-helm uninstall logzio-k8s-telemetry
+helm uninstall logzio-apm-collector
 ```
 
 

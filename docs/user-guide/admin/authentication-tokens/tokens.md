@@ -25,6 +25,10 @@ You can click any **Token** to copy it with one-click.
 
 ## Shared tokens for dashboard sharing
 
+:::note
+Shared tokens are intended for use with log data only. They are not supported for sharing metrics data.
+:::
+
 To share dashboards or other elements, use a **Shared Token**. These tokens allow you to share visualizations with anyone, even if they don't have access to your account.
 
 * **Secure Sharing**: Set an expiration date and attach filters to limit data access and ensure security. Delete tokens that are no longer needed.

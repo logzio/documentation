@@ -36,10 +36,3 @@ processors:
 ```
 
 Learn more about filtering options in OpenTelemetry's [Transforming telemetry documentation](https://opentelemetry.io/docs/collector/transforming-telemetry/#basic-filtering).
-
-
-
-
-
-
-

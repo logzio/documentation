@@ -7,10 +7,10 @@ os: ['windows', 'linux']
 filters: ['AWS', 'Database']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-rds.svg
 logs_dashboards: ['2IzSk7ZLwhRFwaqAQg4e2U']
-logs_alerts: []
+logs_alerts: ['2xZGJAzoa37R60Be9ZAaAR']
 logs2metrics: []
 metrics_dashboards: ['5azSSei1AhiJPCV7yptVI7']
-metrics_alerts: []
+metrics_alerts: ['2xZGJAzoa37R60Be9ZAaAR']
 drop_filter: []
 ---
 
@@ -203,6 +203,7 @@ Install the pre-built dashboard to enhance the observability of your metrics.
 
 
 {@include: ../../_include/metric-shipping/aws-metrics-new.md}
+
 
 
 

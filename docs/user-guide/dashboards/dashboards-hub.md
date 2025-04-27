@@ -1,5 +1,5 @@
 ---
-sidebar_position: 8
+sidebar_position: 3
 title: Dashboards Hub
 description: Search, filter, and access all your dashboards in one place.
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
@@ -23,4 +23,6 @@ The Dashboards Hub simplifies dashboard management by providing a fast and organ
 
 You can create a dashboard from the Dashboards Hub.
 
-Click **+ New Dashboard**, then choose your telemetry source: logs or metrics. You'll be redirected to the appropriate creation page: OpenSearch Dashboards for log visualizations or Grafana for metrics.
+Click **+ New Dashboard**, then choose your telemetry source: logs or metrics. 
+
+You'll be redirected to the appropriate creation page: **OpenSearch Dashboards** for log visualizations or **Grafana** for metrics.

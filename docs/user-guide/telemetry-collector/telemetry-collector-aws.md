@@ -22,7 +22,7 @@ To configure the Telemetry Collector, you must be logged into your **main** Logz
 This integration is only compatible with Amazon Linux version 2 on EC2. The use of version 1 is deprecated.
 :::
 
-![Start collecting button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/aws-shippers.png)
+![Start collecting button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/shippers-aws-apr24.png)
 
 ## Prerequisite
 
