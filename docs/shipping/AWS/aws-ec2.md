@@ -7,8 +7,8 @@ os: ['windows', 'linux']
 filters: ['AWS', 'Compute']
 recommendedFor: ['DevOps Engineer']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-ec2.svg
-logs_dashboards: []
-logs_alerts: []
+logs_dashboards: ['6AJEM9FdpE5HqXem42edp', '7xaHadrh2fJ8dJ5liH4g2S']
+logs_alerts: ['4Mkw0OICZz7xnZZjlGWX9x', '72Yry8pK5OfiGdPOV2y9RZ']
 logs2metrics: []
 metrics_dashboards: ['2oLvCy5p914pM9m5pLoD6u', 'YGbSr3PrMIIJanIUb8u24']
 metrics_alerts: ['7pnMXCMcUcoERzsIM0nZ9O', '22sfot5B5YjITiWjNrlD9M']
@@ -198,6 +198,7 @@ This integration creates a Kinesis Data Firehose delivery stream that links to y
 
 
 {@include: ../../_include/metric-shipping/aws-metrics-new.md}
+
 
 
 {@include: ../../_include/metric-shipping/generic-dashboard.html}

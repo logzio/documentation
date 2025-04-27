@@ -5,6 +5,7 @@ description: This guide outlines the steps for configuring the Logz.io API Fetch
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [logz.io, opensearch dashboards, log analysis, observability]
 slug: /log-management/api-fetcher/
+toc_max_heading_level: 3
 ---
 
 The Logz.io API Fetcher supports both auth and OAuth APIs and includes specific implementations for Azure Graph, Office365 Message Trace reports, Cloudflare and 1Password.
@@ -65,6 +66,29 @@ apis:
     additional_fields:
       type: 1password
 
+  - name: Dockerhub audit logs example
+    type: dockerhub
+    dockerhub_token: <<DOCKERHUB_PASSWORD>>
+    dockerhub_user: <<DOCKERHUB_USERNAME>>
+    url: https://hub.docker.com/v2/auditlogs/<<dockerhub_account>>
+    next_url: https://hub.docker.com/v2/auditlogs/logzio?from={res.logs.[0].timestamp}
+    days_back_fetch: 7
+    scrape_interval: 1
+    refresh_token_interval: 20
+    additional_fields:
+      type: dockerhub-audit
+      eventType: auditevents
+
+  - name: google activity example
+    type: google_activity
+    google_ws_sa_file_name: credentials_file.json
+    google_ws_delegated_account: user@example.com
+    application_name: login
+    additional_fields:
+      type: google_activity
+    days_back_fetch: 7
+    scrape_interval: 5
+
   - name: general example
     type: general
     url: https://first/request/url
@@ -97,7 +121,13 @@ Create a local config file `config.yaml`.
 
 ### Add Your Logz.io Listener and Token
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 Insert your Logz.io listener URL and token into the config to begin the setup process.
+
+<Tabs>
+ <TabItem value="Single-Output" label="Single Output" default>
 
 ```yaml
 logzio:
@@ -105,21 +135,44 @@ logzio:
   token: <<LOG-SHIPPING-TOKEN>>
 ```
 
+  </TabItem>
+ <TabItem value="Multi-Outputs" label="Multiple Output" default>
+
+ ```yaml
+apis:
+  - name: input 1
+    ...
+  - name: input 2
+    ...
+
+logzio:
+  - url: https://<<LISTENER-HOST>>:8071
+   token: <<LOG-SHIPPING-TOKEN_1>>
+   inputs: 
+     - input 1
+     - input 2
+
+  - url: https://<<LISTENER-HOST>>:8071
+    token: <<LOG-SHIPPING-TOKEN_2>>
+    inputs: [ "input 1" ]
+```
+
+  </TabItem>
+</Tabs>
+
 {@include: ../../_include/log-shipping/log-shipping-token.md}
 
 {@include: ../../_include/log-shipping/listener-var.html}
 
 ### Configure your APIs
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 <Tabs>
  <TabItem value="General-Settings" label="General API" default>
 
   #### General API Settings
 
-## Configuration
+To configure a general API, set `type` to `general` in the API configuration.
+
 | Parameter Name     | Description                                                                                                                       | Required/Optional | Default                     |
 |--------------------|-----------------------------------------------------------------------------------------------------------------------------------|-------------------|-----------------------------|
 | name               | Name of the API (custom name)                                                                                                     | Optional          | the defined `url`           |
@@ -130,7 +183,7 @@ import TabItem from '@theme/TabItem';
 | pagination         | Pagination settings if needed (see [options below](#pagination-configuration-options))                                            | Optional          | -                           |
 | next_url           | If needed to update the URL in next requests based on the last response. Supports using variables ([see below](#using-variables)) | Optional          | -                           |
 | response_data_path | The path to the data inside the response                                                                                          | Optional          | response root               |
-| additional_fields  | Additional custom fields to add to the logs before sending to logzio                                                              | Optional          | Add `type` as `api-fetcher` |
+| additional_fields  | Additional custom fields to add to the logs before sending to Logz.io                                                              | Optional          | Add `type` as `api-fetcher` |
 | scrape_interval    | Time interval to wait between runs (unit: `minutes`)                                                                              | Optional          | 1 (minute)                  |
 
 ## Pagination Configuration Options
@@ -207,13 +260,16 @@ And in the call after it, it would update again according to the response and th
 
 #### General OAuth API Settings
 
+To configure a general OAuth API, set `type` to `oauth` in the API configuration.
+
+
 | Parameter Name    | Description                                                                                                                   | Required/Optional | Default                     |
 |-------------------|-------------------------------------------------------------------------------------------------------------------------------|-------------------|-----------------------------|
 | name              | Name of the API (custom name)                                                                                                 | Optional          | the defined `url`           |
 | token_request     | Nest here any detail relevant to the request to get the bearer access token. | Required          | -                           |
 | data_request      | Nest here any detail relevant to the data request.                           | Required          | -                           |
 | scrape_interval   | Time interval to wait between runs (unit: `minutes`)                                                                          | Optional          | 1 (minute)                  |
-| additional_fields | Additional custom fields to add to the logs before sending to logzio                                                          | Optional          | Add `type` as `api-fetcher` |
+| additional_fields | Additional custom fields to add to the logs before sending to Logz.io                                                          | Optional          | Add `type` as `api-fetcher` |
 
 </TabItem>
 <TabItem value="Azure" label="Azure API" default>
@@ -228,7 +284,7 @@ Below fields are relevant for **all Azure API types**
 | azure_ad_client_id    | The Azure AD Client id                                                                              | Required          | -           |
 | azure_ad_secret_value | The Azure AD Secret value                                                                           | Required          | -           |
 | data_request          | Nest here any detail relevant to the data request. | Required          | -           |
-| additional_fields | Additional custom fields to add to the logs before sending to logzio | Optional          | -                 |
+| additional_fields | Additional custom fields to add to the logs before sending to Logz.io | Optional          | -                 |
 | days_back_fetch       | The amount of days to fetch back in the first request                                               | Optional          | 1 (day)     |
 | scrape_interval       | Time interval to wait between runs (unit: `minutes`)                                                | Optional          | 1 (minute)  |
 
@@ -240,7 +296,7 @@ The below fields are relevant **in addition** to the required ones listed under 
 |--------------------------------|----------------------------------------------------------------------|-------------------|-------------------|
 | date_filter_key                | The name of key to use for the date filter in the request URL params | Optional          | `createdDateTime` |
 | data_request.url               | The request URL                                                      | Required          | -                 |
-| additional_fields | Additional custom fields to add to the logs before sending to logzio | Optional          | -                 |
+| additional_fields | Additional custom fields to add to the logs before sending to Logz.io | Optional          | -                 |
 
 #### Azure Mail Reports
 By default `azure_mail_reports` API type has built in pagination settings and sets the `response_data_path` to `d.results` field.  
@@ -251,7 +307,7 @@ The below fields are relevant **in addition** to the required ones listed under 
 | start_date_filter_key          | The name of key to use for the start date filter in the request URL params. | Optional          | `startDate` |
 | end_date_filter_key            | The name of key to use for the end date filter in the request URL params.   | Optional          | `EndDate`   |
 | data_request.url               | The request URL                                                             | Required          | -           |
-| additional_fields | Additional custom fields to add to the logs before sending to logzio        | Optional          | -           |
+| additional_fields | Additional custom fields to add to the logs before sending to Logz.io        | Optional          | -           |
 
 </TabItem>
 <TabItem value="Cloudflare" label="Cloudflare" default>
@@ -266,7 +322,7 @@ By default `cloudflare` API type has built in pagination settings and sets the `
 | cloudflare_bearer_token | The Cloudflare Bearer token                                                                                                                 | Required          | -                 |
 | url                     | The request URL                                                                                                                             | Required          | -                 |
 | next_url                | If needed to update the URL in next requests based on the last response. Supports using variables. | Optional          | -                 |
-| additional_fields       | Additional custom fields to add to the logs before sending to logzio                                                                        | Optional          | -                 |
+| additional_fields       | Additional custom fields to add to the logs before sending to Logz.io                                                                        | Optional          | -                 |
 | days_back_fetch         | The amount of days to fetch back in the first request. Applies a filter on `since` parameter.                                               | Optional          | -                 |
 | scrape_interval         | Time interval to wait between runs (unit: `minutes`)                                                                                        | Optional          | 1 (minute)        |
 | pagination_off          | True if builtin pagination should be off, False otherwise                                                                                   | Optional          | `False`           |
@@ -283,14 +339,68 @@ By default `1password` API type has built in pagination settings and sets the `r
 | onepassword_bearer_token | The 1Password Bearer token                                                                      | Required          | -                 |
 | url                      | The request URL                                                                                 | Required          | -                 |
 | method                   | The request method (`GET` or `POST`)                                                            | Optional          | `GET`             |
-| additional_fields        | Additional custom fields to add to the logs before sending to logzio                            | Optional          | -                 |
+| additional_fields        | Additional custom fields to add to the logs before sending to Logz.io                            | Optional          | -                 |
 | days_back_fetch          | The amount of days to fetch back in the first request. Applies a filter on 1password `start_time` parameter. | Optional          | -                 |
 | scrape_interval          | Time interval to wait between runs (unit: `minutes`)                                            | Optional          | 1 (minute)        |
 | onepassword_limit        | 1Password limit for number of events to return in a single request (allowed range: 100 to 1000) | Optional          | 100               |
 | pagination_off           | True if builtin pagination should be off, False otherwise                                       | Optional          | `False`           |
 
   </TabItem>
+<TabItem value="DockerHub" label="DockerHub" default>
 
+#### DockerHub API Settings
+The `dockerhub` API type is used to fetch audit logs from DockerHub. It supports pagination and allows filtering logs based on a date range.
+
+| Parameter Name         | Description                                                                           | Required/Optional | Default           |
+|------------------------|---------------------------------------------------------------------------------------|-------------------|-------------------|
+| name                   | Name of the API (custom name)                                                         | Optional          | the defined `url` |
+| dockerhub_user         | DockerHub username                                                                    | Required          | -                 |
+| dockerhub_token        | DockerHub personal access token or password                                           | Required          | -                 |
+| url                    | The request URL                                                                       | Required          | -                 |
+| next_url               | URL for the next page of results (used for pagination)                                | Optional          | -                 |
+| method                 | The request method (`GET` or `POST`)                                                  | Optional          | `GET`             |
+| days_back_fetch        | Number of days to fetch back in the first request. Adds a filter on `from` parameter. | Optional          | -1                |
+| refresh_token_interval | Interval in minutes to refresh the JWT token                                          | Optional          | 30 (minute)       |
+| scrape_interval        | Time interval to wait between runs (unit: `minutes`)                                  | Optional          | 1 (minute)        |
+| additional_fields      | Additional custom fields to add to the logs before sending to Logz.io                  | Optional          | -                 |
+
+  </TabItem>
+<TabItem value="GoogleWorkspace" label="Google Workspace" default>
+
+#### Google Workspace API Settings
+By default `google_workspace` API type has built in pagination settings and sets the `response_data_path` to `items` field.
+
+| Parameter Name              | Description                                                                                                                                                                | Required/Optional | Default                                                            |
+|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------|--------------------------------------------------------------------|
+| name                        | Name of the API (custom name)                                                                                                                                              | Optional          | `Google Workspace`                                                 |
+| google_ws_sa_file_name      | The name of the service account credentials file. **Required unless** `google_ws_sa_file_path` is set.                                                                     | Required*         | `""`                                                               |
+| google_ws_sa_file_path      | The path to the service account credentials file. **Required unless** `google_ws_sa_file_name` is set. Use this if mounting the file to a different path than the default. | Optional*         | `./src/shared/<google_ws_sa_file_name>`                            |
+| google_ws_delegated_account | The email of the user for which the application is requesting delegated access                                                                                             | Required          | -                                                                  |
+| scopes                      | The OAuth 2.0 scopes that you might need to request to access Google APIs                                                                                                  | Optional          | `["https://www.googleapis.com/auth/admin.reports.audit.readonly"]` |
+| data_request                | Nest here any detail relevant to the data request. (Options in [General API](https://docs.logz.io/docs/log-management/api-fetcher/#configure-your-apis))                                                                        | Required          | -                                                                  |
+| additional_fields           | Additional custom fields to add to the logs before sending to Logz.io                                                                                                       | Optional          | -                                                                  |
+| days_back_fetch             | The amount of days to fetch back in the first request                                                                                                                      | Optional          | 1 (day)                                                            |
+| scrape_interval             | Time interval to wait between runs (unit: `minutes`)                                                                                                                       | Optional          | 1 (minute)                                                         |
+
+
+#### Google Workspace Activities
+You can configure the Google Workspace activities endpoint using the `google_workspace` API.  
+However, for easier setup, we provide a dedicated `google_activity` API type.
+
+| Parameter Name              | Description                                                                                                                                                                                                                                         | Required/Optional | Default                                 |
+|-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------|-----------------------------------------|
+| name                        | Name of the API (custom name)                                                                                                                                                                                                                       | Optional          | `Google Workspace`                      |
+| google_ws_sa_file_name      | The name of the service account credentials file. **Required unless** `google_ws_sa_file_path` is set.                                                                                                                                              | Required*         | `""`                                    |
+| google_ws_sa_file_path      | The path to the service account credentials file. **Required unless** `google_ws_sa_file_name` is set. Use this if mounting the file to a different path than the default.                                                                          | Optional*         | `./src/shared/<google_ws_sa_file_name>` |
+| google_ws_delegated_account | The email of the user for which the application is requesting delegated access                                                                                                                                                                      | Required          | -                                       |
+| application_name            | Specifies the [Google Workspace application](https://developers.google.com/workspace/admin/reports/reference/rest/v1/activities/list#applicationname) to fetch activity data from (e.g., `saml`, `user_accounts`, `login`, `admin`, `groups`, etc). | Required          | -                                       |
+| user_key                    | The unique ID of the user to fetch activity data for                                                                                                                                                                                                | Optional          | `all`                                   |
+| additional_fields           | Additional custom fields to add to the logs before sending to Logz.io                                                                                                                                                                                | Optional          | -                                       |
+| days_back_fetch             | The amount of days to fetch back in the first request                                                                                                                                                                                               | Optional          | 1 (day)                                 |
+| scrape_interval             | Time interval to wait between runs (unit: `minutes`)                                                                                                                                                                                                | Optional          | 1 (minute)                              |
+
+
+  </TabItem>
 </Tabs>
 
 

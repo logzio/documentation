@@ -9,7 +9,7 @@ logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['1EhgOtbCtQxzsWh6FJjme8']
+metrics_dashboards: ['5oFBj0BIKo4M5XLZpwjSgl']
 metrics_alerts: []
 drop_filter: []
 ---
@@ -36,6 +36,7 @@ Install the pre-built dashboard to enhance the observability of your metrics.
 
 
 {@include: ../../_include/metric-shipping/aws-metrics-new.md}
+
 
 Install the pre-built dashboard to enhance the observability of your metrics.
 

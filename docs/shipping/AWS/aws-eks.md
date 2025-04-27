@@ -25,7 +25,7 @@ The logzio-monitoring Helm Chart ships your EKS Fargate telemetry (logs, metrics
 * Add Logzio-helm repository
 `helm repo add logzio-helm https://logzio.github.io/logzio-helm && helm repo update`
 
-{@include: ../../_include/general-shipping/k8s-all-data.md}
+{@include: ../../_include/general-shipping/k8s-all-data.md}  
 
 
 ## Send your logs 
@@ -147,7 +147,7 @@ For example:
 --set logzio-fluentd.daemonset.tolerations[0].key=node-role.kubernetes.io/master --set logzio-fluentd.daemonset.tolerations[0].effect=NoSchedule
 ```
 
-:::node
+:::note
 You need to use `Helm` client with version `v3.9.0` or above.
 :::
 

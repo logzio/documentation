@@ -6,11 +6,11 @@ product: ['logs', 'metrics']
 os: []
 filters: ['AWS', 'Load Balancer']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/aws-app-elb.svg
-logs_dashboards: []
-logs_alerts: []
+logs_dashboards: ['58iIWQ0zmLzuJJdorwW0VP']
+logs_alerts: ['4lUfBvUA6KAiA3A5XNpVrn']
 logs2metrics: []
-metrics_dashboards: ['5BZ6El3juQkCKCIuGm1oyC']
-metrics_alerts: []
+metrics_dashboards: ['qD8AQ3Spt7Iy8nSFZfuog']
+metrics_alerts: ['2Srtx54yucVZ3mVMwc3aBv']
 drop_filter: []
 ---
 
@@ -66,9 +66,11 @@ Install the pre-built dashboard to enhance the observability of your metrics.
 
 {@include: ../../_include/metric-shipping/aws-metrics-new.md}
 
+
 Install the pre-built dashboard to enhance the observability of your metrics.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["5BZ6El3juQkCKCIuGm1oyC"] -->
 
 {@include: ../../_include/metric-shipping/generic-dashboard.html}
+
 
