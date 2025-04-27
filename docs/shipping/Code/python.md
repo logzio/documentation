@@ -1353,62 +1353,25 @@ Give your traces time to process, after which they'll be available in your [Trac
 
 This guide provides an overview of deploying your Python application on Amazon ECS, using OpenTelemetry to collect and send tracing data to Logz.io. It offers a step-by-step process for setting up OpenTelemetry instrumentation and deploying both the application and OpenTelemetry Collector sidecar in an ECS environment.
 
-#### Prerequisites
+### Prerequisites
 
 Before you begin, ensure you have the following prerequisites in place:
 
-- AWS CLI configured with access to your AWS account.
-- Docker installed for building images.
 - AWS IAM role with sufficient permissions to create and manage ECS resources.
-- Amazon ECR repository for storing the Docker images.
 - Python 3.x and pip installed locally for development and testing.
 
 :::note
 For a complete example, refer to [this repo](https://github.com/logzio/opentelemetry-examples/tree/main/python/traces/ecs-service).
 :::
 
-#### Architecture Overview
-
-The deployment will involve two main components:
-
-1. Python Application Container
-
-   A container running your Python application, instrumented with OpenTelemetry to capture traces.
-
-2. OpenTelemetry Collector Sidecar
-
-   A sidecar container that receives telemetry data from the application, processes it, and exports it to Logz.io.
-
-The architecture is structured as follows:
-
-```
-project-root/
-├── python-app/                      # Your Python application directory
-│   ├── app.py                       # Python application entry point
-│   ├── Dockerfile                   # Dockerfile to build Python application image
-│   └── requirements.txt             # Python dependencies, includes OpenTelemetry
-├── ecs/
-│   └── task-definition.json         # ECS task definition file
-└── otel-collector
-     ├── collector-config.yaml        # OpenTelemetry Collector configuration
-     └── Dockerfile                   # Dockerfile for the Collector
-```
-
-#### Steps to Deploy the Application
-
-1. Project Structure Setup
-
-   Ensure your project structure follows the architecture outline. You should have a directory for your Python application and a separate directory for the OpenTelemetry Collector.
-
-2. Set Up OpenTelemetry Instrumentation
+### Set Up OpenTelemetry Instrumentation
 
    Add OpenTelemetry instrumentation to your Python application by including the necessary OpenTelemetry packages and configuring the tracing setup. This can be done by installing the `opentelemetry-distro` and `opentelemetry-instrumentation-flask` packages and using them to instrument your Flask app.
 
-Install dependencies:
+1. **Install dependencies**
 
-#### requirements.txt
-
-```
+```text
+## requirements.txt
 flask
 opentelemetry-distro
 opentelemetry-exporter-otlp
@@ -1417,83 +1380,91 @@ opentelemetry-instrumentation-flask
 
 The package `opentelemetry-instrumentation-flask` handles the automatic instrumentation of Flask at runtime.
 
-#### Dockerize Your Application
+2. **Modify the Application's Startup Command**
 
-Create a Dockerfile to build a Docker image of your Python application. Below is the Dockerfile to get started:
+    Include `opentelemetry-instrument` when starting your Python application to load the OpenTelemetry agent when containerizing your application:
 
-#### Dockerfile
+    ```shell
+    opentelemetry-instrument python app.py
+    ```
 
-```dockerfile
-FROM python:3.8-slim
+3. **Set Environment Variables for OpenTelemetry**
 
-WORKDIR /app
+    Use environment variables to configure the agent, such as the OTLP endpoint and resource attributes either when containerizing your application:
+    ```shell
+    ENV OTEL_TRACES_SAMPLER=always_on
+    ENV OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:4317"
+    ENV OTEL_RESOURCE_ATTRIBUTES="service.name=<SERVICE_NAME>"
+    ```
 
-COPY . .
+    or in the application ECS task defenition under `Environment` parameter:
+    ```json
+    "environment": [
+      {
+        "name": "OTEL_TRACES_SAMPLER",
+        "value": "always_on"
+      },
+      {
+        "name": "OTEL_EXPORTER_OTLP_ENDPOINT",
+        "value": "http://localhost:4317"
+      },
+      {
+        "name": "OTEL_RESOURCE_ATTRIBUTES",
+        "value": "service.name=<SERVICE_NAME>"
+      },
+    ],
+    ```
 
-RUN pip install --no-cache-dir -r requirements.txt
+    :::note
+    Replace `<SERVICE_NAME>` with your wanted tracing service name.
+    :::
 
-# Set environment variables for OpenTelemetry configuration
-ENV OTEL_TRACES_SAMPLER=always_on
-ENV OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:4317"
-ENV OTEL_RESOURCE_ATTRIBUTES="service.name=python-app"
+### Configure the OpenTelemetry Collector
 
-EXPOSE 5000
+The OpenTelemetry Collector receives traces from the application and exports them to Logz.io.
 
-CMD ["opentelemetry-instrument", "python", "app.py"]
-```
+1. **Create AWS SSM Parameter**
 
-#### Configure the OpenTelemetry Collector
-
-The OpenTelemetry Collector receives traces from the application and exports them to Logz.io. Create a `collector-config.yaml` file to define how the Collector should handle traces.
-
-#### collector-config.yaml
+Go to AWS Systems Manager >> Parameter Store >> Create parameter:
+- Set **Name** to `logzioOtelConfig.yaml`
+- Keep **Type** as `String` and **Data type** as `text`
+- In **Value** paste the below configuration:
 
 {@include: ../../_include/tracing-shipping/collector-config.md}
 
-#### Build Docker Images
+2. **Create Role to allow the ECS task to acess the SSM Parameter**
 
-Build Docker images for both the Python application and the OpenTelemetry Collector:
-
-```shell
-# Build Python application image
-cd python-app/
-docker build --platform linux/amd64 -t your-python-app:latest .
-
-# Build OpenTelemetry Collector image
-cd ../otel-collector/
-docker build --platform linux/amd64 -t otel-collector:latest .
+Copy the ARN of the SSM parameter that was created in step [1].
+- Create an [IAM Policy](https://us-east-1.console.aws.amazon.com/iam) and add it the below permissions:
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "ssm:GetParameters",
+      "Resource": [
+        "<ARN_FROM_STEP_1>"
+      ]
+    }
+  ]
+}
 ```
 
-#### Push Docker Images to Amazon ECR
+- Add the policy to your existing task [IAM Role](https://us-east-1.console.aws.amazon.com/iam) or create a new one and attach the policy to it.
+- If you created a new role for the ECS task, copy the Role ARN, as you'll need it later.
 
-Push both images to your Amazon ECR repository:
-
-```shell
-# Authenticate Docker to Amazon ECR
-aws ecr get-login-password --region <aws-region> | docker login --username AWS --password-stdin <aws_account_id>.dkr.ecr.<region>.amazonaws.com
-
-# Tag and push images
-docker tag your-python-app:latest <aws_account_id>.dkr.ecr.<region>.amazonaws.com/your-python-app:latest
-docker push <aws_account_id>.dkr.ecr.<region>.amazonaws.com/your-python-app:latest
-
-docker tag otel-collector:latest <aws_account_id>.dkr.ecr.<region>.amazonaws.com/otel-collector:latest
-docker push <aws_account_id>.dkr.ecr.<region>.amazonaws.com/otel-collector:latest
-```
-
-##### Log Group Creation: 
+### Log Group Creation: 
 
 Create log groups for your Python application and OpenTelemetry Collector in CloudWatch.
 
 ```shell
-aws logs create-log-group --log-group-name /ecs/python-app
 aws logs create-log-group --log-group-name /ecs/otel-collector
 ```
 
-#### Define ECS Task
+### Define ECS Task
 
 Create a task definition (task-definition.json) for ECS that defines both the Python application container and the OpenTelemetry Collector container.
-
-#### task-definition.json
 
 ```json
 {
@@ -1502,28 +1473,11 @@ Create a task definition (task-definition.json) for ECS that defines both the Py
   "requiresCompatibilities": ["FARGATE"],
   "cpu": "256",
   "memory": "512",
-  "executionRoleArn": "arn:aws:iam::<aws_account_id>:role/ecsTaskExecutionRole",
+  "executionRoleArn": "arn:aws:iam::<AWS_ACCOUNT_ID>:role/ecsTaskExecutionRole",
+  "taskRoleArn": "<TASK_ROLE_ARN>",
   "containerDefinitions": [
     {
-      "name": "your-python-app",
-      "image": "<aws_account_id>.dkr.ecr.<region>.amazonaws.com/your-python-app:latest",
-      "cpu": 128,
-      "portMappings": [
-        {
-          "containerPort": 5000,
-          "protocol": "tcp"
-        }
-      ],
-      "essential": true,
-      "environment": [],
-      "logConfiguration": {
-        "logDriver": "awslogs",
-        "options": {
-          "awslogs-group": "/ecs/your-python-app",
-          "awslogs-region": "<aws-region>",
-          "awslogs-stream-prefix": "ecs"
-        }
-      }
+      <Your existing Python application container definitions>
     },
     {
       "name": "otel-collector",
@@ -1531,21 +1485,18 @@ Create a task definition (task-definition.json) for ECS that defines both the Py
       "cpu": 128,
       "essential": false,
       "command": ["--config=/etc/collector-config.yaml"],
-      "environment": [
-        {
-          "name": "LOGZIO_TRACING_TOKEN",
-          "value": "<logzio_tracing_token>"
-        },
-        {
-          "name": "LOGZIO_REGION",
-          "value": "<logzio_region>"
-        }
+      "environment": [],
+      "secrets": [
+          {
+              "name": "OTEL_CONFIG",
+              "valueFrom": "logzioOtelConfig.yaml"
+          }
       ],
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
           "awslogs-group": "/ecs/otel-collector",
-          "awslogs-region": "<aws-region>",
+          "awslogs-region": "<AWS-REGION>",
           "awslogs-stream-prefix": "ecs"
         }
       }
@@ -1553,33 +1504,6 @@ Create a task definition (task-definition.json) for ECS that defines both the Py
   ]
 }
 ```
-
-#### Deploy to ECS
-
-- Create an ECS Cluster: Create a cluster to deploy your containers:
-
-  ```shell
-  aws ecs create-cluster --cluster-name your-app-cluster --region <aws-region>
-  ```
-
-- Register the Task Definition:
-
-  ```shell
-  aws ecs register-task-definition --cli-input-json file://ecs/task-definition.json
-  ```
-
-- Create ECS Service: Deploy the task definition using a service:
-
-  ```shell
-  aws ecs create-service \
-    --cluster your-app-cluster \
-    --service-name your-python-app-service \
-    --task-definition your-python-app-task \
-    --desired-count 1 \
-    --launch-type FARGATE \
-    --network-configuration "awsvpcConfiguration={subnets=[\"YOUR_SUBNET_ID\"],securityGroups=[\"YOUR_SECURITY_GROUP_ID\"],assignPublicIp=ENABLED}" \
-    --region <aws-region> \
-  ```
 
 #### Verify Application and Tracing
 
