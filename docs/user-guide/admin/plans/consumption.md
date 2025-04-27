@@ -15,7 +15,7 @@ With a Logz.io consumption plan, you control spending based on actual usage, rat
 To activate a consumption plan, you can either:
 
 * Contact your account manager
-* [Purchase an account via AWS](/docs/admin/plans/aws-consumption/)
+* Purchase an account via AWS
 
 <h2 id="limit">Managing consumption limits</h2>
 
@@ -109,21 +109,3 @@ Budget used per 1 day:
 | Open 360 security addon                         | 5GB            | $0.35          | $1.75               | 
 
 At the end of the day, $14.9 was spent, leaving a remaining budget of $985.1.
-
-
-<h2 id="table">Which plan is right for you?</h2>
-
-Logz.io offers two types of consumption plans to fit different needs. If you prefer flexibility, the Pay as You Go model lets you pay only for the data you use. If you want to set a budget upfront and limit unexpected costs, the Budget + On-Demand plan lets you predefine a spending cap while still allowing additional usage if needed.
-
-Availability by payment method:
-
-|                       | AWS (Marketplace) | Credit Card | Wire Transfer |
-|-----------------------|-------------------|-------------|---------------|
-| **Pay as You Go**     | ✔️                 | ✖️           | ✖️             |
-| **Budget + On-Demand**| ✔️                 | ✖️           | ✔️             |
-
-
-
-
-
-
