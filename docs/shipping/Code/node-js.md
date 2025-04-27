@@ -1260,6 +1260,13 @@ Create a task definition (task-definition.json) for ECS that defines both the No
 }
 ```
 
+:::note
+Replace:
+- `<AWS-REGION>` with your AWS account region name
+- `<AWS_ACCOUNT_ID>` with your AWS account ID
+- `"<TASK_ROLE_ARN>` with the ARN of the role that was created in step [2]
+:::
+
 ### Verify Application and Tracing
 
 After deploying, run your application to generate activity that will create tracing data. Wait a few minutes, then check the Logz.io dashboard to confirm that traces are being sent correctly.
