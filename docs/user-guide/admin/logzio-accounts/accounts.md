@@ -41,7 +41,7 @@ Logz.io provides three storage tiers - Hot, Warm, and Cold, designed to balance 
 For users with a **Timeless** account, Logz.io also offers Optimizers - tools for analyzing long-term trends on aggregated data. Optimizers let you extract and copy selected log data into a Timeless account, where it remains searchable and continuously available—without needing to be restored.
 
 * [Configure data optimizers](https://docs.logz.io/docs/user-guide/log-management/long-term-storage/configure-optimizers/) 
-* Learn more about[timeless accounts](https://docs.logz.io/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts#timeless)
+* Learn more about [timeless accounts](https://docs.logz.io/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts#timeless)
 
 ### Archive and restore data
 

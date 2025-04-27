@@ -56,7 +56,7 @@ Click **Create** to complete setup and add the account. The account will be visi
 
 To edit an account, click the **⋮** icon next to the account and select **Edit**.
 
-You can update the account name and click **Advanced** to configure additional settings, including which accounts/sub accounts have visibility to the data in this account, log size collection, and [account utilization metrics]((https://docs.logz.io/docs/user-guide/admin/account-volume-optimization/manage-account-usage/#what-are-account-utilization-metrics)).
+You can update the account name and click **Advanced** to configure additional settings, including which accounts/sub accounts have visibility to the data in this account, log size collection, and [account utilization metrics](https://docs.logz.io/docs/user-guide/admin/account-volume-optimization/manage-account-usage/#what-are-account-utilization-metrics).
 
 Click **Save changes** to apply your updates.
 

@@ -28,7 +28,7 @@ At the bottom of the page, you’ll find a breakdown of all related accounts for
 * Account ID – The unique identifier for the account
 * Vol (GB) – Daily indexing volume allocated to the account
 * Optimizers - List of optimizers applied on this account 
-* Usage - Percentage of useage from overall available volume
+* Usage - Percentage of usage from overall available volume
 
 
 ## Create an account
