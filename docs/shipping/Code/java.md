@@ -1194,7 +1194,7 @@ Replace `/path/to/` with the path where you mount the `opentelemetry-javaagent.j
     ENV OTEL_RESOURCE_ATTRIBUTES="service.name=<SERVICE_NAME>"
     ```
 
-    or in the application ECS task defenition under `Environment` parameter:
+    or in the application ECS task definition under `Environment` parameter:
     ```json
     "environment": [
       {

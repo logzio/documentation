@@ -1397,7 +1397,7 @@ The package `opentelemetry-instrumentation-flask` handles the automatic instrume
     ENV OTEL_RESOURCE_ATTRIBUTES="service.name=<SERVICE_NAME>"
     ```
 
-    or in the application ECS task defenition under `Environment` parameter:
+    or in the application ECS task definition under `Environment` parameter:
     ```json
     "environment": [
       {
@@ -1432,7 +1432,7 @@ Go to AWS Systems Manager >> Parameter Store >> Create parameter:
 
 {@include: ../../_include/tracing-shipping/collector-config.md}
 
-2. **Create Role to allow the ECS task to acess the SSM Parameter**
+2. **Create Role to allow the ECS task to access the SSM Parameter**
 
 Copy the ARN of the SSM parameter that was created in step [1].
 - Create an [IAM Policy](https://us-east-1.console.aws.amazon.com/iam) and add it the below permissions:
