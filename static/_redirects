@@ -382,7 +382,7 @@
 /docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts/	                                /docs/category/manage-logzio-accounts/
 /docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts/*	                                /docs/category/manage-logzio-accounts/
 /docs/k8s-360/unified-helm-chart/#adding-tolerations-for-tainted-nodes	                                /docs/k8s-360/unified-helm-chart/#advanced-configuration-and-troubleshooting
-/docs/user-guide/admin/plans/consumption/	                                /docs/user-guide/admin/consumption/
+/docs/user-guide/admin/consumption/	                                /docs/user-guide/admin/plans/consumption/
 # Shippers				
 /shipping/				/docs/category/send-your-data/
 /user-guide/log-shipping/				/docs/category/send-your-data/
