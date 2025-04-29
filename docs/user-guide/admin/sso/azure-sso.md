@@ -86,9 +86,9 @@ Next, navigate to **API Permissions**, and click **Add a permission**.
 
 Add the three following permissions to your account:
 
-  1. Select the **APIs my organization uses** tab on the right side menu, and click on **Windows Azure Active Directory**. Next, choose **Application permissions** > **Directory.Read.All** and add the permission.
+  1. Select the **APIs my organization uses** tab on the right side menu, and click on **Microsoft Graph**. Next, choose **Application permissions** > **Directory.Read.All** and add the permission.
 
-  ![Add read all permission](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/add-permission-jul3.png)
+  ![Add read all permission](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/azure/microsoft-graph-apr24.png)
   
   2. Click **Add a permission**. Under **Microsoft APIs** select **Microsoft Graph**.
   Choose **Application permissions**, and search for **Group**. Choose **Group:ReadAll**, and click Add permissions.
