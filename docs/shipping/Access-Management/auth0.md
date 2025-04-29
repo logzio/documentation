@@ -14,7 +14,7 @@ metrics_alerts: []
 drop_filter: []
 ---
 
-## Deafult configuration - a custom log stream using webhooks
+## Default configuration - a custom log stream using webhooks
 
 Auth0 is an easy to implement, adaptable authentication and authorization platform. Deploy this integration to ship Auth0 events from your Auth0 account to Logz.io using custom log stream via webhooks.
 

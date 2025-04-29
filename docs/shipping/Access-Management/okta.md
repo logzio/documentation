@@ -21,6 +21,10 @@ This guide explains two ways to forward Okta logs to Logz.io: via **Event Hooks*
 
 ## Okta Event Hook Integration
 
+:::note
+[Project's GitHub repo](https://github.com/logzio/okta-events-hook)
+:::
+
 This section walks you through setting up an Okta Event Hook that sends selected System Log events to Logz.io. The integration uses custom headers (`logzio_token`, `logzio_region`) for authentication and region routing.
 
 ### Prerequisites
@@ -161,7 +165,7 @@ For more details on root directory mounting, see [Docker's documentation](https:
 |---|---|
 | LOGZIO_TOKEN (Required) | {@include: ../../_include/log-shipping/log-shipping-token.html} |
 | LOGZIO_LISTENER_HOST (Required) | {@include: ../../_include/log-shipping/listener-var.html}  |
-| LOG_LEVEL (Optional)                                      | Logstash Log Level (deafult: `info`)                                                                                                      |
+| LOG_LEVEL (Optional)                                      | Logstash Log Level (default: `info`)                                                                                                      |
 
 **5. Confirm logs in Logz.io**
 
