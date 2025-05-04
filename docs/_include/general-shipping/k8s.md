@@ -490,7 +490,7 @@ To enable automatic resource detection, set the following flags in your chart in
 :::
 
 :::tip
-To enable resource detection only for a specific sub chart, set `--set <<SUB_CHART_NANE>>.resourceDetection.enabled=true` instead of configuring it globally. 
+To enable resource detection only for a specific sub chart, set `--set <<SUB_CHART_NAME>>.resourceDetection.enabled=true` instead of configuring it globally. 
 :::
 
 ## Custom resource detection
