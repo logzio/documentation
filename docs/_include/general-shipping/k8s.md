@@ -475,8 +475,6 @@ helm upgrade -n monitoring \
 By following these steps, you can ensure that your pods are scheduled on nodes with taints by adding the necessary tolerations to the Helm chart configuration.
 
  </TabItem>
-
- <Tabs>
 <TabItem value="resource-detection" label="Resource Detection" default>
 
 ## Auto resource detection
