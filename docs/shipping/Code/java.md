@@ -140,7 +140,7 @@ For more details, see the [Log4j documentation](https://logging.apache.org/log4j
 | Parameter          | Default                              | Explained  | Required/Optional  |
 | ------------------ | ------------------------------------ | ----- | ----- |
 | **logzioToken**              | *None*                                 | Your Logz.io log shipping token. {@include: ../../_include/log-shipping/log-shipping-token.html} Begin with `$` to use an environment variable or system property with the specified name. For example, `$LOGZIO_TOKEN` uses the LOGZIO_TOKEN environment variable. | Required |
-| **logzioType**               | *java*                                 | The [log type](https://support.logz.io/hc/en-us/articles/209486049-What-is-Type-). Can't contain spaces. | Optional |
+| **logzioType**               | *java*                                 | The [log type](https://docs.logz.io/docs/user-guide/data-hub/log-parsing/default-parsing/#built-in-log-types). Can't contain spaces. | Optional |
 | **logzioUrl**               | *https://listener.logz.io:8071*                                 | Listener URL and port.    {@include: ../../_include/log-shipping/listener-var.html}  | Required |
 | **drainTimeoutSec**       | *5*                                    | How often the appender drains the buffer, in seconds. | Required |
 | **socketTimeoutMs**       | *10 * 1000*                                    | Socket timeout during log shipment. | Required |
