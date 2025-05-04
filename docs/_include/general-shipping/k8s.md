@@ -345,26 +345,9 @@ logzio-monitoring logzio-helm/logzio-monitoring
 </Tabs>
 
 
-## Advanced Configuration and Troubleshooting
-
+## Advanced Configuration
 
 <Tabs>
-<TabItem value="pull-rate-limit-issue" label="Pull Rate Limit" default>
-
-## Handling image pull rate limit
-
-Docker Hub pull rate limits could result in the following error: `You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limits`. To avoid this, use the `--set` commands below to access an alternative image repository:
-
-```shell
---set logzio-k8s-telemetry.image.repository=ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib
---set logzio-k8s-telemetry.prometheus-pushgateway.image.repository=public.ecr.aws/logzio/prom-pushgateway
---set logzio-fluentd.image=public.ecr.aws/logzio/logzio-fluentd
---set logzio-fluentd.daemonset.init.containerImage=public.ecr.aws/docker/library/busybox
---set logzio-trivy.image=public.ecr.aws/logzio/trivy-to-logzio
-```
-
-
- </TabItem>
 <TabItem value="json-logs" label="Parse JSON Logs" default>
 
 
@@ -415,32 +398,6 @@ helm upgrade <RELEASE_NAME> logzio-helm/logzio-monitoring \
 * Replace `<RELEASE_NAME>` with the name of your Helm release.
 * Replace `<SERVICE>` with the appropriate service name: `ask`, `eks` or `gke`.
 
-
- </TabItem>
-
-<TabItem value="resolve-readiness-probe-and-liveness-probe-failures" label="Readiness probe and Liveness probe failures" default>
-
-## Resolve Readiness probe and Liveness probe failures
-
-If, after installing the chart, the `logzio-apm-collector` or `logzio-spm-collector` (if you enabled SPM) pod fails to get scheduled on a node, and describing the pod shows the following errors:
-
-```txt
-Readiness probe failed: HTTP probe failed with statuscode: 503
-Liveness probe failed: HTTP probe failed with statuscode: 503
-```
-
-Try increasing the initial delay for the liveness and readiness probes:
-
-```sh
-helm upgrade logzio-apm-collector logzio-helm/logzio-apm-collector -n monitoring \
---set livenessProbe.initialDelaySeconds=10 \
---set readinessProbe.initialDelaySeconds=10 \
---reuse-values
-```
-
-:::note
-If `10s` is insufficient, try increasing it to `15s` or higher.
-:::
 
  </TabItem>
 
@@ -516,6 +473,30 @@ helm upgrade -n monitoring \
 ```
 
 By following these steps, you can ensure that your pods are scheduled on nodes with taints by adding the necessary tolerations to the Helm chart configuration.
+
+ </TabItem>
+
+ <Tabs>
+<TabItem value="resource-detection" label="Resource Detection" default>
+
+## Auto resource detection
+To enable automatic resource detection, set the following flags in your chart installation:
+
+```sh
+--set global.resourceDetection.enabled=true \
+--set global.distribution="<<CLOUD_PROVIDER>>"
+```
+
+:::note
+`<<CLOUD_PROVIDER>>` is one of `eks`, `aks` or `gke`. If `distribution` is unset or unrecognized, resource detection will be enabled for all environments by default.
+:::
+
+:::tip
+To enable resource detection only for a specific sub chart, set `--set <<SUB_CHART_NANE>>.resourceDetection.enabled=true` instead of configuring it globally. 
+:::
+
+## Custom resource detection
+To customize resource detection settings, add the [OpenTelemetry `resourcedetection` processor](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/resourcedetectionprocessor) to the sub-chart configuration within your `values.yaml` file.
 
  </TabItem>
 </Tabs>
@@ -706,6 +687,50 @@ Enabling debug mode generates highly verbose logs. It is recommended to apply it
 </TabItem>
 </Tabs>
 
+## Troubleshooting
+
+<Tabs>
+<TabItem value="pull-rate-limit-issue" label="Pull Rate Limit" default>
+
+## Handling image pull rate limit
+
+Docker Hub pull rate limits could result in the following error: `You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limits`. To avoid this, use the `--set` commands below to access an alternative image repository:
+
+```shell
+--set logzio-k8s-telemetry.image.repository=ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib
+--set logzio-k8s-telemetry.prometheus-pushgateway.image.repository=public.ecr.aws/logzio/prom-pushgateway
+--set logzio-fluentd.image=public.ecr.aws/logzio/logzio-fluentd
+--set logzio-fluentd.daemonset.init.containerImage=public.ecr.aws/docker/library/busybox
+--set logzio-trivy.image=public.ecr.aws/logzio/trivy-to-logzio
+```
+
+ </TabItem>
+<TabItem value="resolve-readiness-and-liveness-probe-failures" label="Readiness and Liveness probe failures" default>
+
+## Resolve Readiness probe and Liveness probe failures
+
+If, after installing the chart, the `logzio-apm-collector` or `logzio-spm-collector` (if you enabled SPM) pod fails to get scheduled on a node, and describing the pod shows the following errors:
+
+```txt
+Readiness probe failed: HTTP probe failed with statuscode: 503
+Liveness probe failed: HTTP probe failed with statuscode: 503
+```
+
+Try increasing the initial delay for the liveness and readiness probes:
+
+```sh
+helm upgrade logzio-apm-collector logzio-helm/logzio-apm-collector -n monitoring \
+--set livenessProbe.initialDelaySeconds=10 \
+--set readinessProbe.initialDelaySeconds=10 \
+--reuse-values
+```
+
+:::note
+If `10s` is insufficient, try increasing it to `15s` or higher.
+:::
+
+ </TabItem>
+</Tabs>
 
 ## Migrating to `logzio-monitoring` 7.x.x
 
