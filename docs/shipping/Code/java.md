@@ -1220,7 +1220,7 @@ Replace `<SERVICE_NAME>` with your wanted tracing service name.
 
 The OpenTelemetry Collector receives traces from the application and exports them to Logz.io.
 
-1. **Create AWS SSM Parameter**
+##### 1. **Create AWS SSM Parameter**
 
 Go to AWS Systems Manager >> Parameter Store >> Create parameter:
 - Set **Name** to `logzioOtelConfig.yaml`
@@ -1229,9 +1229,9 @@ Go to AWS Systems Manager >> Parameter Store >> Create parameter:
 
 {@include: ../../_include/tracing-shipping/collector-config.md}
 
-2. **Create Role to allow the ECS task to acess the SSM Parameter**
+##### 2. **Create Role to allow the ECS task to acess the SSM Parameter**
 
-Copy the ARN of the SSM parameter that was created in step [1].
+Copy the ARN of the SSM parameter that was created in step [[1]](https://docs.logz.io/docs/shipping/code/java/#1-create-aws-ssm-parameter).
 - Create an [IAM Policy](https://us-east-1.console.aws.amazon.com/iam) and add it the below permissions:
 ```json
 {
@@ -1250,7 +1250,7 @@ Copy the ARN of the SSM parameter that was created in step [1].
 - Add the policy to your existing task [IAM Role](https://us-east-1.console.aws.amazon.com/iam) or create a new one and attach the policy to it.
 - If you created a new role for the ECS task, copy the Role ARN, as you'll need it later.
 
-3. **Create log groups for your OpenTelemetry Collector in CloudWatch.**
+##### 3. **Create log groups for your OpenTelemetry Collector in CloudWatch.**
 
 You can either do so from [AWS Console](https://us-east-1.console.aws.amazon.com/cloudwatch), or via AWS CLI:
 ```shell
@@ -1306,7 +1306,7 @@ Create a task definition for ECS that defines both your Java application contain
 Replace:
 - `<AWS-REGION>` with your AWS account region name
 - `<AWS_ACCOUNT_ID>` with your AWS account ID
-- `"<TASK_ROLE_ARN>` with the ARN of the role that was created in step [2]
+- `<TASK_ROLE_ARN>` with the ARN of the role that was created in step [2]
 :::
 
 #### Verify Application and Tracing
