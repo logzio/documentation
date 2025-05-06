@@ -25,6 +25,10 @@ You can use the Terraform Logz.io Provider to manage users and log accounts in L
 
 The following Logz.io API endpoints are supported by this provider:
 
+:::caution note
+The latest Terraform version is **not compatible with Grafana 8.5**. If you're using Grafana 8.5, use an earlier Terraform version to avoid configuration issues.
+:::
+
 * [User management](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/user)
 * [Notification channels](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/grafana_notification_policy)
 * [Sub accounts](https://github.com/logzio/terraform-provider-logzio/tree/master/examples/subaccount)
