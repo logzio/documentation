@@ -14,54 +14,90 @@ metrics_alerts: []
 drop_filter: []
 ---
 
-Okta is an enterprise-grade, identity management service, built for the cloud, but compatible with many on-premises applications.
 
-To ship Okta logs,
-you'll deploy a Docker container
-to collect the logs and forward them to Logz.io using Logstash.
+Okta is an enterprise-grade identity management service built for the cloud, and it integrates with both cloud and on-premises applications.
 
-You can send logs from multiple Okta tenants and any Okta domain.
+This guide explains two ways to forward Okta logs to Logz.io: via **Event Hooks** or a **legacy Docker-based** solution.
+
+## Okta Event Hook Integration
 
 :::note
-If you want to ship from multiple Okta tenants over the same docker, you'll need to use the latest configuration using a tenants-credentials.yml file. Otherwise, you can continue using the previous configuration without a tenants-credentials.yml.
+[Project's GitHub repo](https://github.com/logzio/okta-events-hook)
+:::
+
+This section walks you through setting up an Okta Event Hook that sends selected System Log events to Logz.io. The integration uses custom headers (`logzio_token`, `logzio_region`) for authentication and region routing.
+
+### Prerequisites
+
+- **Okta Admin Access** – To configure event hooks
+- **Logz.io shipping token** (32 characters) 
+- **Logz.io region** – e.g., `us`, `au`, `eu`, `uk`, `ca`
+
+### Configure Okta Event Hook for Logz.io
+
+**1. Create the Event Hook in Okta**
+
+Sign in to the Okta Admin Console and navigate to **Workflow → Event Hooks**.
+
+Click **Create Event Hook** and enter the following:
+
+* Set the **Name** to something like `LogzIoEventHook`
+* Use this **Endpoint URL**:
+   ```
+   https://okta.listener-logz.io
+   ```
+
+Next, add **Authentication & Headers**:
+
+* `logzio_token`: your Logz.io shipping token
+* `logzio_region`: your Logz.io region (`us`, `au`, `eu`, `ca`, `uk`)
+
+Choose one or more **events to subscribe** to, e.g., `user.lifecycle.deactivate` or `user.session.start`.
+
+**Save** the Events Hook. Okta will send a one-time GET request with an `x-okta-verification-challenge` header to verify the endpoint and ownership.
+
+**2. Preview & Test the Hook**
+
+Use Okta's **Preview** feature to simulate an event and inspect the payload.
+
+**Trigger** an actual event in Okta and confirm it appears in your Logz.io dashboard.
+
+## Legacy Docker-Based Solution
+
+If you prefer using Docker to ship Okta logs, follow this guide. This method collects and forwards logs to Logz.io using Logstash.
+
+You can send logs from multiple Okta tenants and domains.
+
+:::note
+If you want to ship from multiple Okta tenants over the same Docker, you'll need to use the latest configuration using a tenants-credentials.yml file. Otherwise, you can continue using the previous configuration without a tenants-credentials.yml.
 :::
 
 :::note
 [Project's GitHub repo](https://github.com/logzio/logzio-okta/)
 :::
 
-**Before you begin, you'll need**:
+### Prerequisites
 
 * Okta administrator privileges
 * Port 5050 available - Logz.io Logstash endpoint receives logs from port 5050.
 
  
 
-### Get the API token and Okta domain from Okta
+**1. Get Okta API Token and Domain**
 
-In the Okta developer console,
-navigate to **API > Tokens**.
-Create a token and paste it in your text editor.
+Navigate to **API → Tokens** in the Okta developer console. Generate a token and save it.
 
-![Create Okta API token](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/okta-create-token.png)
+Next, go to **Authorization Servers** and copy your Okta domain from the **Issuer URI** column (e.g., `dev-123456.okta.com`).
 
-Click the **Authorization Servers** tab.
-Copy your Okta domain from the **Issuer URI** column,
-and paste it in your text editor. In the following example, you'd have copied "dev-123456.okta.com".
+**2. Create `tenants-credentials.yml`**
 
-![Okta URL](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/okta-issuer-uri.png)
-
-
-### Create your tenants-credentials YAML
-
-Build your tenants-credentials.yml:  
-To create the file run the following command as root and then open the file in your text editor:
+Run the following command as root 
 
 ```
 mkdir /etc/logzio-okta && touch /etc/logzio-okta/tenants-credentials.yml
 ```
 
-Insert your tenants credentials into the YAML file in the following format:
+Open the file in your text editor, and insert your tenants credentials into the YAML file in the following format:
 
 ```yml
 tenants_credentials:
@@ -69,7 +105,7 @@ tenants_credentials:
       okta_domain: <<OKTA-DOMAIN>>
 ```
 
-This shipper supports up to 50 tenants. For multiple tenants, add your Okta API key and domain for each tenant. See the following example:
+Add multiple tenants by repeating the format above. For example:
 
 ```yml
 tenants_credentials:
@@ -81,7 +117,7 @@ tenants_credentials:
       okta_domain: logzio-dev-123.oktapreview.com
 ```
 
-#### Parameters
+This shipper supports **up to 50 tenants**.
 
 | Parameter | Description |
 |---|---|
@@ -93,12 +129,10 @@ tenants_credentials:
 YAML files are sensitive to spaces and tabs. It's a good idea to run your code through a YAML validator to make sure that its structure is correct. It's a good idea to run it through a YAML validator to rule out indentation errors, clean up extra characters, and check that it is valid. ([Yamllint.com](http://www.yamllint.com/) is a great choice.)
 :::
  
+Save the file in your working directory. That's the same one you're running the Docker from.
 
 
-Save the file in your working directory. That's the same one you're running the docker from.
-
-
-### Pull the Docker image
+**3. Pull Docker image**
 
 Download the logzio/logzio-okta image:
 
@@ -106,9 +140,9 @@ Download the logzio/logzio-okta image:
 docker pull logzio/logzio-okta
 ```
 
-### Run the Docker image
+**4. Run the Docker image**
 
-Replace the placeholders in the code sample below before running it. Then run:
+Replace the placeholders in the code sample below before running it:
 
 ```shell
 docker run \
@@ -120,21 +154,21 @@ docker run \
 -t logzio/logzio-okta 
 ```
 
-For Mac users: To fix issues with mounting files from root directory please add the path ‘/etc/logzio-okta’ to your Docker File Sharing.
-Click [here](https://medium.com/effy-tech/fixing-the-var-folders-error-in-docker-for-mac-v2-2-3-2a40e776132d) for a guide on how to fix this issue - using docker desktop or manually edit your Docker configuration file.  
-For more information about mounting files from root directory click [here](https://docs.docker.com/docker-for-mac/osxfs/#namespaces).
+For macOS users: To resolve issues with mounting files from the root directory, add `/etc/logzio-okta` to your Docker File Sharing settings.
+
+You can follow [this guide](https://medium.com/effy-tech/fixing-the-var-folders-error-in-docker-for-mac-v2-2-3-2a40e776132d) to update the setting via Docker Desktop or by manually editing your Docker configuration file.
+
+For more details on root directory mounting, see [Docker's documentation](https://docs.docker.com/docker-for-mac/osxfs/#namespaces).
+
 
 | Parameter | Description |
 |---|---|
 | LOGZIO_TOKEN (Required) | {@include: ../../_include/log-shipping/log-shipping-token.html} |
 | LOGZIO_LISTENER_HOST (Required) | {@include: ../../_include/log-shipping/listener-var.html}  |
-| LOG_LEVEL (Optional)                                      | Logstash Log Level (deafult: `info`)                                                                                                      |
+| LOG_LEVEL (Optional)                                      | Logstash Log Level (default: `info`)                                                                                                      |
 
+**5. Confirm logs in Logz.io**
 
-### Check Logz.io for your logs
-
-Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
+Check [Explore](https://app.logz.io/#/dashboard/explore) to verify incoming logs.
 
 If you still don't see your logs, see [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/).
-
- 
