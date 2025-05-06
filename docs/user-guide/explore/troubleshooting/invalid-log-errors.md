@@ -8,6 +8,9 @@ keywords: [logz.io, troubleshooting, invalid logs, log analysis, observability]
 
 Invalid log errors can occur in several scenarios. In this document, we'll discuss the different types of log errors and common methods for solving the issue.
 
+:::note
+Logz.io no longer changes the log’s `type` field when errors are detected. Instead, tags are added to help you identify and troubleshoot issues.
+:::
 
 
 ## Field mapping types
@@ -42,12 +45,12 @@ Dynamic mappings are automatically determined as logs are received, meaning the 
 
 Mapping errors occur when different data types are sent to the same field. For example, if field `weather` receives the numeric value `35` and then gets the value `hot`, it'll result in a mapping error since the same field can't contain two different types of inputs.
 
-The **`type`** field is changed to **`logzio-index-failure`**,  and the **`tags`** field is added to the log to identify the issue.
+The original log type is preserved, and a tag is added to the log to indicate the issue.
 
 ![Fail log example](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/logzio-index-fail.png)
 
 
-When a specific log type encounters too many mapping parsing exceptions, the problematic field will either be eliminated or flatten and renamed by the support team.
+When a log type encounters repeated mapping exceptions, the problematic field may be eliminated or flattened and renamed by the support team.
 
 If a field is removed, its data is stored in a new entry called `logzio_removed_fields`, which holds all removed entries for that log type and their corresponding values for reference.
 
@@ -83,7 +86,9 @@ Learn more about **[creating and managing sub accounts](https://docs.logz.io/doc
 
 ### What causes an invalid log? 
 
-When a log that includes specific issues is received, the log is flattened and ingested, the **`type`** field is changed to **`logzio-invalid-log`**,  and the **`tags`** field is added to the log to identify the issue.
+When a log contains specific issues, it is flattened and ingested with a tag indicating the problem. The original `type` field is preserved.
+
+
 
 ![Invalid log example](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/invalid_log_eg-dec2021.png)
 
