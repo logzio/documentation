@@ -164,6 +164,7 @@
 /user-guide/sending-data-to-logzio/				/docs/user-guide/admin/sending-data-to-logzio/
 /user-guide/integrations/endpoints.html				/docs/user-guide/integrations/notification-endpoints/endpoints/
 /user-guide/integrations/servicenow.html				/docs/user-guide/integrations/notification-endpoints/servicenow/
+/user-guide/integrations/servicenow				/docs/user-guide/integrations/notification-endpoints/servicenow/
 /user-guide/integrations/resolved-metrics-alerts.html				/docs/user-guide/integrations/notification-endpoints/opsgenie/
 /user-guide/integrations/custom-endpoints.html				/docs/user-guide/integrations/notification-endpoints/custom-endpoints/
 /user-guide/integrations/ms-teams.html				/docs/user-guide/integrations/notification-endpoints/ms-teams/
