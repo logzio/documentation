@@ -30,7 +30,7 @@ Bitdefender is an antivirus software. This integration allows you to send Bitdef
 * Log in to your Bitdefender GravityZone Control Center.
 * Click the username in the upper-right corner and select **My Account**.
 * Go to **API keys** and click **+ Add** (top left).
-* Enable **Event Push Service API** and **REST API**.
+* Enable **Event Push Service API**.
 * Click **Save**.
 
 ### Copy the Bitdefender GravityZone API Access URL
@@ -39,7 +39,7 @@ Open **Control Center API** and copy the **Access URL**. Keep it handy for the f
 
 It is needed to replace the placeholder `<<ACCESS_URL>>` below.
 
-![Copy Bitdefender API ACCESS URL](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-integrations/bitdefender.png)
+<!--![Copy Bitdefender API ACCESS URL](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-integrations/bitdefender.png)-->
 
 
 ### Encode the API Key in Base64
