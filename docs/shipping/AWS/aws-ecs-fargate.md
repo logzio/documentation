@@ -144,7 +144,10 @@ If you’d like to use a centralized log collection setup instead of the OpenTel
 
 ### 4. Configure OpenTelemetry
 
-Configure the following code:
+Set up the OpenTelemetry Collector to receive, process, and forward your logs to Logz.io.
+
+Use the following configuration as a starting point, adjusting values as needed for your environment:
+
 
 ```yaml
 receivers:
