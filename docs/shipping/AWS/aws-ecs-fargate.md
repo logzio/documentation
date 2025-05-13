@@ -25,7 +25,98 @@ Go to your AWS [System Manager > Parameter Store](https://us-east-1.console.aws.
 
 * Set the **Name** to `logzioOtelConfig.yaml`.
 * Keep **Type** as `string` and **Data type** as `text`.
-* In the **Value** field, paste **Otel config**.
+* In the **Value** field, use the following configuration as a starting point, adjusting values as needed for your environment:
+
+```yaml
+receivers:
+  awsxray:
+    endpoint: '0.0.0.0:2000'
+    transport: udp
+  otlp:
+    protocols:
+      grpc:
+        endpoint: '0.0.0.0:4317'
+      http:
+        endpoint: '0.0.0.0:4318'
+  awsecscontainermetrics: null
+  fluentforward:
+    endpoint: 'unix:///var/run/fluent.sock'
+processors:
+  batch:
+    send_batch_size: 10000
+    timeout: 1s
+  tail_sampling:
+    policies:
+      - name: policy-errors
+        type: status_code
+        status_code:
+          status_codes:
+            - ERROR
+      - name: policy-slow
+        type: latency
+        latency:
+          threshold_ms: 1000
+      - name: policy-random-ok
+        type: probabilistic
+        probabilistic:
+          sampling_percentage: 10
+  transform/log_type:
+    error_mode: ignore
+    log_statements:
+      - context: resource
+        statements:
+          - set(attributes["type"], "ecs-fargate") where attributes["type"] == nil
+exporters:
+  logzio/traces:
+    account_token: '${LOGZIO_TRACE_TOKEN}'
+    region: '${LOGZIO_REGION}'
+  prometheusremotewrite:
+    endpoint: '${LOGZIO_LISTENER}'
+    external_labels:
+      aws_env: ecs-fargate
+    headers:
+      Authorization: 'Bearer ${LOGZIO_METRICS_TOKEN}'
+    resource_to_telemetry_conversion:
+      enabled: true
+    target_info:
+      enabled: false
+  logzio/logs:
+    account_token: '${LOGZIO_LOGS_TOKEN}'
+    region: '${LOGZIO_REGION}'
+service:
+  pipelines:
+    traces:
+      receivers:
+        - awsxray
+        - otlp
+      processors:
+        - batch
+      exporters:
+        - logzio/traces
+    metrics:
+      receivers:
+        - otlp
+        - awsecscontainermetrics
+      processors:
+        - batch
+      exporters:
+        - prometheusremotewrite
+    logs:
+      receivers:
+        - fluentforward
+        - otlp
+      processors:
+        - transform/log_type
+        - batch
+      exporters:
+        - logzio/logs
+  telemetry:
+    logs:
+      level: info
+
+```
+
+...
 
 Save the new SSM parameter and keep its ARN handy - you’ll need it for the next step.
 
@@ -50,7 +141,9 @@ Click Create policy, choose the **JSON** tab under **Specify permissions**, and 
 }
 ```
 
-Create the policy and give it a name (e.g., `LogzioOtelSSMReadAccess`). Go to [IAM > Roles](https://us-east-1.console.aws.amazon.com/iam/home#/roles) and either:
+Create the policy and give it a name (e.g., `LogzioOtelSSMReadAccess`). 
+
+Go to [IAM > Roles](https://us-east-1.console.aws.amazon.com/iam/home#/roles) and either:
 
 * Attach the new policy to your existing ECS task role, or
 * Create a new IAM role for the ECS task and attach the policy during setup.
@@ -142,101 +235,6 @@ Update your existing ECS tasks to include the OpenTelemetry Collector by:
 If you’d like to use a centralized log collection setup instead of the OpenTelemetry Collector, reach out to [Logz.io Support](mailto:help@logz.io) or your Customer Success Manager for guidance.
 :::
 
-### 4. Configure OpenTelemetry
-
-Set up the OpenTelemetry Collector to receive, process, and forward your logs to Logz.io.
-
-Use the following configuration as a starting point, adjusting values as needed for your environment:
-
-
-```yaml
-receivers:
-  awsxray:
-    endpoint: '0.0.0.0:2000'
-    transport: udp
-  otlp:
-    protocols:
-      grpc:
-        endpoint: '0.0.0.0:4317'
-      http:
-        endpoint: '0.0.0.0:4318'
-  awsecscontainermetrics: null
-  fluentforward:
-    endpoint: 'unix:///var/run/fluent.sock'
-processors:
-  batch:
-    send_batch_size: 10000
-    timeout: 1s
-  tail_sampling:
-    policies:
-      - name: policy-errors
-        type: status_code
-        status_code:
-          status_codes:
-            - ERROR
-      - name: policy-slow
-        type: latency
-        latency:
-          threshold_ms: 1000
-      - name: policy-random-ok
-        type: probabilistic
-        probabilistic:
-          sampling_percentage: 10
-  transform/log_type:
-    error_mode: ignore
-    log_statements:
-      - context: resource
-        statements:
-          - set(attributes["type"], "ecs-fargate") where attributes["type"] == nil
-exporters:
-  logzio/traces:
-    account_token: '${LOGZIO_TRACE_TOKEN}'
-    region: '${LOGZIO_REGION}'
-  prometheusremotewrite:
-    endpoint: '${LOGZIO_LISTENER}'
-    external_labels:
-      aws_env: ecs-fargate
-    headers:
-      Authorization: 'Bearer ${LOGZIO_METRICS_TOKEN}'
-    resource_to_telemetry_conversion:
-      enabled: true
-    target_info:
-      enabled: false
-  logzio/logs:
-    account_token: '${LOGZIO_LOGS_TOKEN}'
-    region: '${LOGZIO_REGION}'
-service:
-  pipelines:
-    traces:
-      receivers:
-        - awsxray
-        - otlp
-      processors:
-        - batch
-      exporters:
-        - logzio/traces
-    metrics:
-      receivers:
-        - otlp
-        - awsecscontainermetrics
-      processors:
-        - batch
-      exporters:
-        - prometheusremotewrite
-    logs:
-      receivers:
-        - fluentforward
-        - otlp
-      processors:
-        - transform/log_type
-        - batch
-      exporters:
-        - logzio/logs
-  telemetry:
-    logs:
-      level: info
-
-```
 
 ## Send Logs via Kineses Firehose
 
