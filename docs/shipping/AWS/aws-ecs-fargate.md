@@ -94,27 +94,27 @@ Update your existing ECS tasks to include the OpenTelemetry Collector by:
           "env:OTEL_CONFIG"
       ],
       "environment": [
-                {
-                    "name": "LOGZIO_LOGS_TOKEN",
-                    "value": "${LOGZIO_LOGS_TOKEN}"
-                },
-                {
-                    "name": "LOGZIO_METRICS_TOKEN",
-                    "value": "${LOGZIO_METRICS_TOKEN}"
-                },
-                {
-                    "name": "LOGZIO_TRACE_TOKEN",
-                    "value": "${LOGZIO_TRACE_TOKEN}"
-                },
-                {
-                    "name": "LOGZIO_REGION",
-                    "value": "${LOGZIO_REGION}"
-                },
-                {
-                    "name": "LOGZIO_LISTENER",
-                    "value": "${LOGZIO_LISTENER}"
-                },
-            ],
+          {
+              "name": "LOGZIO_LOGS_TOKEN",
+              "value": "${LOGZIO_LOGS_TOKEN}"
+          },
+          {
+              "name": "LOGZIO_METRICS_TOKEN",
+              "value": "${LOGZIO_METRICS_TOKEN}"
+          },
+          {
+              "name": "LOGZIO_TRACE_TOKEN",
+              "value": "${LOGZIO_TRACE_TOKEN}"
+          },
+          {
+              "name": "LOGZIO_REGION",
+              "value": "${LOGZIO_REGION}"
+          },
+          {
+              "name": "LOGZIO_LISTENER",
+              "value": "${LOGZIO_LISTENER}"
+          },
+      ],
       "secrets": [
           {
               "name": "OTEL_CONFIG",
