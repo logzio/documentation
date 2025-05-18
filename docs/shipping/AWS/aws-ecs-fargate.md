@@ -621,15 +621,14 @@ For every container you want to collect **logs** from, add the following `logCon
 
 ```json
  "logConfiguration": {
-                "logDriver": "awsfirelens",
-                "options": {
-                    "Name": "opentelemetry",
-                    "Host": "<CENTRAL_COLLECTOR_HOST_OR_IP>",
-                    "Port": "24284",
-                    "TLS": "off"
-                }
-            },
-
+  "logDriver": "awsfirelens",
+  "options": {
+    "Name": "opentelemetry",
+    "Host": "<CENTRAL_COLLECTOR_HOST_OR_IP>",
+    "Port": "24284",
+    "TLS": "off"
+  }
+},
 ```
 
 #### For Traces
