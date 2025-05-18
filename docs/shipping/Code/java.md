@@ -65,7 +65,7 @@ JDK 11+:
     <dependency>
         <groupId>io.logz.log4j2</groupId>
         <artifactId>logzio-log4j2-appender</artifactId>
-        <version>2.0.1</version>
+        <version>2.3.0</version>
     </dependency>
 ```
 
@@ -78,7 +78,9 @@ The appender also requires a logger implementation:
     </dependency>
 ```
 
-Find the logzio-log4j2-appender artifact in the [Maven central repo](https://search.maven.org/artifact/io.logz.log4j2/logzio-log4j2-appender).
+:::note
+You can find the `logzio-log4j2-appender` artifact in the [Maven central repo](https://central.sonatype.com/artifact/io.logz.log4j2/logzio-log4j2-appender).
+:::
 
 ### Appender configuration
 
@@ -310,7 +312,7 @@ JDK 11+:
 <dependency>
     <groupId>io.logz.logback</groupId>
     <artifactId>logzio-logback-appender</artifactId>
-    <version>2.0.1</version>
+    <version>2.4.0</version>
 </dependency>
 ```
 
@@ -333,8 +335,9 @@ Logback classic:
 </dependency>
 ```
 
-Find logzio-log4j2-appender artifact in the [Maven central repo](https://search.maven.org/artifact/io.logz.log4j2/logzio-log4j2-appender).
-
+:::note
+You can find the `logzio-logback-appender` artifact in the [Maven central repo](https://central.sonatype.com/artifact/io.logz.logback/logzio-logback-appender).
+:::
 
 #### Appender configuration
 
