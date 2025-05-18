@@ -20,7 +20,7 @@ import TabItem from '@theme/TabItem';
 
 Amazon ECS Fargate is a serverless compute engine for containers that lets you run tasks without managing servers. Use it to send logs, metrics, and traces to Logz.io to monitor your data.
 
-## Send Logs, Metrics, and Traces via OpenTelemetry
+## Send Logs, Metrics, and Traces via OpenTelemetry as side car
 
 ### 1. Create an SSM Parameter to store the OTEL configuration
 
@@ -161,7 +161,7 @@ Update your existing ECS tasks to include the OpenTelemetry Collector by:
 
 ```json
 {
-  "family": "...",
+  "family": "<YOUR_WANTED_TASK_DEFINITION_FAMILY_NAME>",
   "networkMode": "awsvpc",
   "requiresCompatibilities": ["FARGATE"],
   "cpu": "256",
@@ -460,7 +460,7 @@ processors:
     log_statements:
       - context: resource
         statements:
-          - set(attributes["type"], "ecs-fargate") where attributes["type"] == nil
+          - set(resource.attributes["type"], "ecs-fargate") where resource.attributes["type"] == nil
 
 exporters:
   logzio/traces:
