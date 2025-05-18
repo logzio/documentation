@@ -539,21 +539,21 @@ Create a new ECS task for the OpenTelemetry Collector
       "name": "otel-collector",
       "image": "otel/opentelemetry-collector-contrib",
       "cpu": 0,
-     "portMappings": [
-{
-    "name": "otel-collector-4317",
-    "hostPort": 4317,
-    "protocol": "tcp",
-    "containerPort": 4317,
-    "appProtocol": "grpc"
-},
-{
-    "name": "otel-collector-4318",
-    "hostPort": 4318,
-    "protocol": "tcp"
-    "containerPort": 4318,
-}
-      ],      
+      "portMappings": [
+          {
+              "name": "otel-collector-4317",
+              "hostPort": 4317,
+              "protocol": "tcp",
+              "containerPort": 4317,
+              "appProtocol": "grpc"
+          },
+          {
+              "name": "otel-collector-4318",
+              "hostPort": 4318,
+              "protocol": "tcp"
+              "containerPort": 4318,
+          }
+      ],
       "essential": false,
       "command": [
           "--config",
