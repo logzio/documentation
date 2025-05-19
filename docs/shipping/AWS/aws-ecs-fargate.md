@@ -15,133 +15,408 @@ drop_filter: []
 toc_max_heading_level: 2
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-AWS Fargate is a serverless compute engine for building applications without managing servers.
-This template will create a new collector container to send your AWS ECS Fargate traces and metrics to Logz.io using AWS OTel Collector.
-ECS logs will be sent to logz.io with aws firehose
+Amazon ECS Fargate is a serverless compute engine for containers that lets you run tasks without managing servers. Use it to send logs, metrics, and traces to Logz.io to monitor your data.
 
-**Only `awsecscontainermetrics` receiver metrics are collected by default**
+## Send Logs, Metrics, and Traces via OpenTelemetry as side car
 
-**Make your ecs fargate logs are being sent to cloudwatch**
+### 1. Create an SSM Parameter to store the OTEL configuration
 
-## Prerequisites
+Go to your AWS [System Manager > Parameter Store](https://us-east-1.console.aws.amazon.com/systems-manager/parameters?region=us-east-1&tab=Table):
 
-* An Amazon ECS Fargate cluster
-* Applications instrumented with OpenTelemetry SDK (for Traces)
+* Set the **Name** to `logzioOtelConfig.yaml`.
+* Keep **Type** as `string` and **Data type** as `text`.
+* In the **Value** field, use the following configuration as a starting point, adjusting values as needed for your environment:
 
-Next, you'll need to configure your CloudFormation template and point the OTLP exporter.
+```yaml
+receivers:
+  awsxray:
+    endpoint: '0.0.0.0:2000'
+    transport: udp
+  otlp:
+    protocols:
+      grpc:
+        endpoint: '0.0.0.0:4317'
+      http:
+        endpoint: '0.0.0.0:4318'
+  awsecscontainermetrics: null
+  fluentforward:
+    endpoint: 'unix:///var/run/fluent.sock'
+processors:
+  batch:
+    send_batch_size: 10000
+    timeout: 1s
+  tail_sampling:
+    policies:
+      - name: policy-errors
+        type: status_code
+        status_code:
+          status_codes:
+            - ERROR
+      - name: policy-slow
+        type: latency
+        latency:
+          threshold_ms: 1000
+      - name: policy-random-ok
+        type: probabilistic
+        probabilistic:
+          sampling_percentage: 10
+  transform/log_type:
+    error_mode: ignore
+    log_statements:
+      - context: resource
+        statements:
+          - set(resource.attributes["type"], "ecs-fargate") where resource.attributes["type"] == nil
+exporters:
+  logzio/traces:
+    account_token: '${LOGZIO_TRACE_TOKEN}'
+    region: '${LOGZIO_REGION}'
+  prometheusremotewrite:
+    endpoint: '${LOGZIO_LISTENER}'
+    external_labels:
+      aws_env: ecs-fargate
+    headers:
+      Authorization: 'Bearer ${LOGZIO_METRICS_TOKEN}'
+    resource_to_telemetry_conversion:
+      enabled: true
+    target_info:
+      enabled: false
+  logzio/logs:
+    account_token: '${LOGZIO_LOGS_TOKEN}'
+    region: '${LOGZIO_REGION}'
+service:
+  pipelines:
+    traces:
+      receivers:
+        - awsxray
+        - otlp
+      processors:
+        - batch
+      exporters:
+        - logzio/traces
+    metrics:
+      receivers:
+        - otlp
+        - awsecscontainermetrics
+      processors:
+        - batch
+      exporters:
+        - prometheusremotewrite
+    logs:
+      receivers:
+        - fluentforward
+        - otlp
+      processors:
+        - transform/log_type
+        - batch
+      exporters:
+        - logzio/logs
+  telemetry:
+    logs:
+      level: info
 
-## Choose the CloudFormation template
+```
 
-We support two types of CloudFormation stacks:
+Save the new SSM parameter and keep its ARN handy - you’ll need it for the next step.
 
-* Option 1 collects all logs from ECS clusters and also gathers metrics and traces from a single cluster. 
-* Option 2 is designed only for metrics and traces. To collect metrics and traces from multiple clusters without logs, deploy multiple instances of Option 2.
+### 2. Create IAM Role to allow the ECS task to access the SSM Parameter
 
-### Option 1: Logs, Metrics, and Traces
+Go to [IAM > Policies](https://us-east-1.console.aws.amazon.com/iam/home#/policies).
 
-Click **Launch Stack** below to deploy the CloudFormation template. This will automatically create the required resources and configurations for the AWS OTel Collector.
+Click Create policy, choose the **JSON** tab under **Specify permissions**, and paste the following:
 
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "ssm:GetParameters",
+      "Resource": [
+        "<ARN_OF_SECRET_PARAMETER_FROM_STEP_1>"
+      ]
+    }
+  ]
+}
+```
 
-| Region           | Deployment                                                                                                                                                                                                                                                                                                                                           |
-|------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `us-east-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/ecs-fargate/ecs-fargate-0.0.2/sam-template.yaml&stackName=logzio-ecs-fargate&param_logzioLogsToken=<<LOG-SHIPPING-TOKEN>>&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs-<<LISTENER-HOST>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053)           |
-| `us-east-2`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-us-east-2.s3.amazonaws.com/ecs-fargate/ecs-fargate-0.0.2/sam-template.yaml&stackName=logzio-ecs-fargate&param_logzioLogsToken=<<LOG-SHIPPING-TOKEN>>&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs-<<LISTENER-HOST>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053)           |
-| `us-west-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-us-west-1.s3.amazonaws.com/ecs-fargate/ecs-fargate-0.0.2/sam-template.yaml&stackName=logzio-ecs-fargate&param_logzioLogsToken=<<LOG-SHIPPING-TOKEN>>&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs-<<LISTENER-HOST>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053)           |
-| `us-west-2`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-us-west-2.s3.amazonaws.com/ecs-fargate/ecs-fargate-0.0.2/sam-template.yaml&stackName=logzio-ecs-fargate&param_logzioLogsToken=<<LOG-SHIPPING-TOKEN>>&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs-<<LISTENER-HOST>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053)           |
-| `eu-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-eu-central-1.s3.amazonaws.com/ecs-fargate/ecs-fargate-0.0.2/sam-template.yaml&stackName=logzio-ecs-fargate&param_logzioLogsToken=<<LOG-SHIPPING-TOKEN>>&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs-<<LISTENER-HOST>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053)     |
-| `eu-north-1`     | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-north-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-eu-north-1.s3.amazonaws.com/ecs-fargate/ecs-fargate-0.0.2/sam-template.yaml&stackName=logzio-ecs-fargate&param_logzioLogsToken=<<LOG-SHIPPING-TOKEN>>&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs-<<LISTENER-HOST>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053)         |
-| `eu-west-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-eu-west-1.s3.amazonaws.com/ecs-fargate/ecs-fargate-0.0.2/sam-template.yaml&stackName=logzio-ecs-fargate&param_logzioLogsToken=<<LOG-SHIPPING-TOKEN>>&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs-<<LISTENER-HOST>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053)           |
-| `eu-west-2`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-eu-west-2.s3.amazonaws.com/ecs-fargate/ecs-fargate-0.0.2/sam-template.yaml&stackName=logzio-ecs-fargate&param_logzioLogsToken=<<LOG-SHIPPING-TOKEN>>&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs-<<LISTENER-HOST>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053)           |
-| `eu-west-3`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-3#/stacks/create/review?templateURL=https://logzio-aws-integrations-eu-west-3.s3.amazonaws.com/ecs-fargate/ecs-fargate-0.0.2/sam-template.yaml&stackName=logzio-ecs-fargate&param_logzioLogsToken=<<LOG-SHIPPING-TOKEN>>&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs-<<LISTENER-HOST>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053)           |
-| `sa-east-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=sa-east-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-sa-east-1.s3.amazonaws.com/ecs-fargate/ecs-fargate-0.0.2/sam-template.yaml&stackName=logzio-ecs-fargate&param_logzioLogsToken=<<LOG-SHIPPING-TOKEN>>&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs-<<LISTENER-HOST>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053)           |
-| `ap-northeast-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-northeast-1.s3.amazonaws.com/ecs-fargate/ecs-fargate-0.0.2/sam-template.yaml&stackName=logzio-ecs-fargate&param_logzioLogsToken=<<LOG-SHIPPING-TOKEN>>&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs-<<LISTENER-HOST>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053) |
-| `ap-northeast-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-northeast-2.s3.amazonaws.com/ecs-fargate/ecs-fargate-0.0.2/sam-template.yaml&stackName=logzio-ecs-fargate&param_logzioLogsToken=<<LOG-SHIPPING-TOKEN>>&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs-<<LISTENER-HOST>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053) |
-| `ap-northeast-3` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-3#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-northeast-3.s3.amazonaws.com/ecs-fargate/ecs-fargate-0.0.2/sam-template.yaml&stackName=logzio-ecs-fargate&param_logzioLogsToken=<<LOG-SHIPPING-TOKEN>>&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs-<<LISTENER-HOST>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053) |
-| `ap-south-1`     | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-south-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-south-1.s3.amazonaws.com/ecs-fargate/ecs-fargate-0.0.2/sam-template.yaml&stackName=logzio-ecs-fargate&param_logzioLogsToken=<<LOG-SHIPPING-TOKEN>>&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs-<<LISTENER-HOST>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053)         |
-| `ap-southeast-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-southeast-1.s3.amazonaws.com/ecs-fargate/ecs-fargate-0.0.2/sam-template.yaml&stackName=logzio-ecs-fargate&param_logzioLogsToken=<<LOG-SHIPPING-TOKEN>>&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs-<<LISTENER-HOST>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053) |
-| `ap-southeast-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-southeast-2.s3.amazonaws.com/ecs-fargate/ecs-fargate-0.0.2/sam-template.yaml&stackName=logzio-ecs-fargate&param_logzioLogsToken=<<LOG-SHIPPING-TOKEN>>&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs-<<LISTENER-HOST>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053) |
-| `ca-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ca-central-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ca-central-1.s3.amazonaws.com/ecs-fargate/ecs-fargate-0.0.2/sam-template.yaml&stackName=logzio-ecs-fargate&param_logzioLogsToken=<<LOG-SHIPPING-TOKEN>>&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs-<<LISTENER-HOST>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053)     |
+Create the policy and give it a name (e.g., `LogzioOtelSSMReadAccess`). 
 
+Go to [IAM > Roles](https://us-east-1.console.aws.amazon.com/iam/home#/roles) and either:
 
-### Option 2: Metrics and Traces Only
+* Attach the new policy to your existing ECS task role, or
+* Create a new IAM role for the ECS task and attach the policy during setup.
 
-| Region           | Deployment                                                                                                                                                                                                                                                                                                                                           |
-|------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `us-east-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/ecs-fargate/ecs-fargate_collector-0.0.1/sam-template.yaml&stackName=logzio-ecs-fargate&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053)           |
-| `us-east-2`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-us-east-2.s3.amazonaws.com/ecs-fargate/ecs-fargate_collector-0.0.1/sam-template.yaml&stackName=logzio-ecs-fargate&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053)           |
-| `us-west-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-us-west-1.s3.amazonaws.com/ecs-fargate/ecs-fargate_collector-0.0.1/sam-template.yaml&stackName=logzio-ecs-fargate&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053)           |
-| `us-west-2`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-us-west-2.s3.amazonaws.com/ecs-fargate/ecs-fargate_collector-0.0.1/sam-template.yaml&stackName=logzio-ecs-fargate&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053)           |
-| `eu-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-eu-central-1.s3.amazonaws.com/ecs-fargate/ecs-fargate_collector-0.0.1/sam-template.yaml&stackName=logzio-ecs-fargate&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053)     |
-| `eu-north-1`     | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-north-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-eu-north-1.s3.amazonaws.com/ecs-fargate/ecs-fargate_collector-0.0.1/sam-template.yaml&stackName=logzio-ecs-fargate&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053)         |
-| `eu-west-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-eu-west-1.s3.amazonaws.com/ecs-fargate/ecs-fargate_collector-0.0.1/sam-template.yaml&stackName=logzio-ecs-fargate&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053)           |
-| `eu-west-2`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-eu-west-2.s3.amazonaws.com/ecs-fargate/ecs-fargate_collector-0.0.1/sam-template.yaml&stackName=logzio-ecs-fargate&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053)           |
-| `eu-west-3`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-3#/stacks/create/review?templateURL=https://logzio-aws-integrations-eu-west-3.s3.amazonaws.com/ecs-fargate/ecs-fargate_collector-0.0.1/sam-template.yaml&stackName=logzio-ecs-fargate&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053)           |
-| `sa-east-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=sa-east-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-sa-east-1.s3.amazonaws.com/ecs-fargate/ecs-fargate_collector-0.0.1/sam-template.yaml&stackName=logzio-ecs-fargate&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053)           |
-| `ap-northeast-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-northeast-1.s3.amazonaws.com/ecs-fargate/ecs-fargate_collector-0.0.1/sam-template.yaml&stackName=logzio-ecs-fargate&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053) |
-| `ap-northeast-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-northeast-2.s3.amazonaws.com/ecs-fargate/ecs-fargate_collector-0.0.1/sam-template.yaml&stackName=logzio-ecs-fargate&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053) |
-| `ap-northeast-3` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-3#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-northeast-3.s3.amazonaws.com/ecs-fargate/ecs-fargate_collector-0.0.1/sam-template.yaml&stackName=logzio-ecs-fargate&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053) |
-| `ap-south-1`     | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-south-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-south-1.s3.amazonaws.com/ecs-fargate/ecs-fargate_collector-0.0.1/sam-template.yaml&stackName=logzio-ecs-fargate&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053)         |
-| `ap-southeast-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-southeast-1.s3.amazonaws.com/ecs-fargate/ecs-fargate_collector-0.0.1/sam-template.yaml&stackName=logzio-ecs-fargate&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053) |
-| `ap-southeast-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-southeast-2.s3.amazonaws.com/ecs-fargate/ecs-fargate_collector-0.0.1/sam-template.yaml&stackName=logzio-ecs-fargate&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053) |
-| `ca-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ca-central-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ca-central-1.s3.amazonaws.com/ecs-fargate/ecs-fargate_collector-0.0.1/sam-template.yaml&stackName=logzio-ecs-fargate&param_LogzioTracingToken=<<TRACING-SHIPPING-TOKEN>>&param_LogzioMetricsToken=<<METRICS-SHIPPING-TOKEN>>&param_LogzioRegion=<<LOGZIO_ACCOUNT_REGION_CODE>>&param_LogzioListenerUrl=https://<<LISTENER-HOST>>:8053)     |
+If you created a new role, save its ARN — you’ll need it in the next step.
 
-### Point the OTLP exporter to the new collector
+### 3. Container per Task Definition
 
-Update your application's OTLP exporter configuration to send data to the new collector container running in your ECS Fargate tasks.
+Update your existing ECS tasks to include the OpenTelemetry Collector by:
 
-### Check Logz.io for your data
-
-Allow some time for your data to be processed and appear in Logz.io.
+* Adding a FireLens log configuration to any of your existing task definition
+* Adding a sidecar container running the OpenTelemetry Collector
 
 
-## Required parameters
+```json
+{
+  "family": "<YOUR_WANTED_TASK_DEFINITION_FAMILY_NAME>",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::<AWS_ACCOUNT_ID>:role/ecsTaskExecutionRole",
+  "taskRoleArn": "<TASK_ROLE_ARN_FROM_STEP_2>",
+  "containerDefinitions": [
+    {
+        … <Existing container definition>,
+       "logConfiguration": {
+                "logDriver": "awsfirelens",
+                "options": {
+                    "Name": "opentelemetry"
+                }
+            }
+    },
+    {
+      "name": "otel-collector",
+      "image": "otel/opentelemetry-collector-contrib",
+      "cpu": 0,      
+      "essential": false,
+      "command": [
+          "--config",
+          "env:OTEL_CONFIG"
+      ],
+      "environment": [
+          {
+              "name": "LOGZIO_LOGS_TOKEN",
+              "value": "${LOGZIO_LOGS_TOKEN}"
+          },
+          {
+              "name": "LOGZIO_METRICS_TOKEN",
+              "value": "${LOGZIO_METRICS_TOKEN}"
+          },
+          {
+              "name": "LOGZIO_TRACE_TOKEN",
+              "value": "${LOGZIO_TRACE_TOKEN}"
+          },
+          {
+              "name": "LOGZIO_REGION",
+              "value": "${LOGZIO_REGION}"
+          },
+          {
+              "name": "LOGZIO_LISTENER",
+              "value": "${LOGZIO_LISTENER}"
+          },
+      ],
+      "secrets": [
+          {
+              "name": "OTEL_CONFIG",
+              "valueFrom": "logzioOtelConfig.yaml"
+          }
+      ],
+      // Optional: Use this to keep logs for debugging and troubleshooting
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/otel-collector",
+          "awslogs-region": "<AWS-REGION>",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    },
+    "firelensConfiguration": {
+         "type": "fluentbit"
+    }
+  ]
+}
+```
 
-The CloudFormation template requires the following parameters:
-
-**Traces and metrics**
-
-| Parameter            | Description                                                                                                            |
-|----------------------|------------------------------------------------------------------------------------------------------------------------|
-| `ClusterName`        | The name of your ECS cluster from which you want to collect metrics.                                                   |
-| `CreateIAMRoles`        | Specifies whether to create default IAM roles (True or False).                                                         |
-| `ExecutionRoleArn`   | The role ARN you want to use as the ECS task role. (Optional, only required if you set `CreateIAMRoles` to False)      |
-| `SecurityGroups`     | The role ARN you want to use as the ECS execution role. (Optional, only required if you set `CreateIAMRoles` to False) |
-| `Subnets`            | The list of SecurityGroupIds in your Virtual Private Cloud (VPC).                                                      |
-| `LogzioTracingToken` | Your Logz.io tracing account token.                                                                                    |
-| `LogzioMetricsToken` | Your Logz.io metrics account token.                                                                                    |
-| `LogzioRegion`       | Your Logz.io region. for example: `us`                                                                                 |
-| `LogzioListenerUrl`  | Your Logz.io listener URL. for example: `https://listener.logz.io:8053`                                                |
-
-**Logs**
-
-| Parameter                                  | Description                                                                                                                |
-|--------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
-| `logzioLogsToken`                          | Your Logz.io logs account token.                                                                                           |
-| `LogzioListener`                           | Your Logz.io listener URL. for example: `https://aws-firehose-logs-listener.logz.io`                                       |
-| `logzioType`                               | The log type you'll use with this shipping method. This can be a built-in log type, or your custom log type.               |
-| `services`                                 | A comma-separated list of services you want to collect logs from.                                                          |
-| `customLogGroups`                          | A comma-separated list of custom log groups to collect logs from, or the ARN of the Secret parameter ([explanation below](https://docs.logz.io/docs/shipping/aws/aws-ecs-fargate/#custom-log-group-list-exceeds-4096-characters-limit)) storing the log groups list if it exceeds 4096 characters.                                                                                                                                                                                | -                 |
-| `useCustomLogGroupsFromSecret`             | If you want to provide list of `customLogGroups` which exceeds 4096 characters, set to `true` and configure your customLogGroups as [defined below](https://docs.logz.io/docs/shipping/aws/aws-ecs-fargate/#custom-log-group-list-exceeds-4096-characters-limit).                                               | `false`           |
-| `triggerLambdaTimeout`                     | The amount of seconds that Lambda allows a function to run before stopping it, for the trigger function.                   |
-| `triggerLambdaMemory`                      | Trigger function's allocated CPU proportional to the memory configured, in MB.                                             |
-| `triggerLambdaLogLevel`                    | Log level for the Lambda function. Can be one of: debug, info, warn, error, fatal, panic.                                  |
-| `httpEndpointDestinationIntervalInSeconds` | The length of time, in seconds, that Kinesis Data Firehose buffers incoming data before delivering it to the destination.  |
-| `httpEndpointDestinationSizeInMBs`         | The size of the buffer, in MBs, that Kinesis Data Firehose uses for incoming data before delivering it to the destination. |
+:::note
+If you’d like to use a centralized log collection setup instead of the OpenTelemetry Collector, reach out to [Logz.io Support](mailto:help@logz.io) or your Customer Success Manager for guidance.
+:::
 
 
-## Resources and Configuration
+## Send Logs and Metrics via Kineses Firehose
 
-The CloudFormation template creates several resources to set up the AWS OTel Collector and send metrics and traces to Logz.io. Here is a summary of the resources created by the template and the permissions granted to the IAM policies:
+<Tabs>
+  <TabItem value="logs-via-firehose" label="Send Logs" default>
 
-### AWS::ECS::TaskDefinition
-The `ECSTaskDefinition` resource defines the container properties, such as the image, command, environment variables, and log configuration for the AWS OTel Collector container. It also sets the task and execution roles, network mode, and required compatibilities.
 
-### AWS::ECS::Service
-The `ECSReplicaService` resource creates an Amazon ECS service with the specified task definition, desired count, scheduling strategy, and network configuration. It associates the service with the provided ECS cluster.
+This project deploys instrumentation that allows shipping Cloudwatch logs to Logz.io, with a Firehose Delivery Stream. It uses a Cloudformation template to create a Stack that deploys:
 
-### AWS::SSM::Parameter
-The `CollectorConfigParameter` resource creates an AWS Systems Manager (SSM) parameter to store the collector's configuration. The configuration defines the receivers, processors, exporters, and service pipelines for traces and metrics. The applied configuration will be:
+* Firehose Delivery Stream with Logz.io as the stream's destination.
+* Lambda function that adds Subscription Filters to Cloudwatch Log Groups, as defined by user's input.
+* Roles, log groups, and other resources that are necessary for this instrumentation.
+
+
+:::note
+If you want to send logs from specific log groups, use `customLogGroups` instead of `services`. Since specifying `services` will automatically send all logs from those services, regardless of any custom log groups you define.
+:::
+
+### Auto-deploy the Stack
+
+
+To deploy this project, click the button that matches the region you wish to deploy your stack to:
+
+| Region           | Deployment                                                                                                                                                                                                                                                                                                                                                                     |
+|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `us-east-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs)           |
+| `us-east-2`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-us-east-2.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs)           |
+| `us-west-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-us-west-1.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs)           |
+| `us-west-2`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-us-west-2.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs)           |
+| `eu-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-eu-central-1.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs)      |
+| `eu-central-2`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-central-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-eu-central-2.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs)     |
+| `eu-north-1`     | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-north-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-eu-north-1.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs)         |
+| `eu-west-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-eu-west-1.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs)           |
+| `eu-west-2`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-eu-west-2.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs)           |
+| `eu-west-3`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-3#/stacks/create/review?templateURL=https://logzio-aws-integrations-eu-west-3.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs)           |
+| `eu-south-1`     | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-south-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-eu-south-1.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs)             |
+| `eu-south-2`     | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-south-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-eu-south-2.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs)             |
+| `sa-east-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=sa-east-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-sa-east-1.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs)             |
+| `ap-northeast-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-northeast-1.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs) |
+| `ap-northeast-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-northeast-2.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs) |
+| `ap-northeast-3` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-3#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-northeast-3.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs) |
+| `ap-south-1`     | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-south-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-south-1.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs)         |
+| `ap-south-2`     | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-south-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-south-2.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs)         |
+| `ap-southeast-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-southeast-1.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs) |
+| `ap-southeast-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-southeast-2.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs) |
+| `ap-southeast-3` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-3#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-southeast-3.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs) |
+| `ap-southeast-4` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-4#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-southeast-4.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs) |
+| `ap-east-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-east-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ap-east-1.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs)         |
+| `ca-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ca-central-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ca-central-1.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs)     |
+| `ca-west-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ca-west-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-ca-west-1.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs)         |
+| `af-south-1`     | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=af-south-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-af-south-1.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs)         |
+| `me-south-1`     | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=me-south-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-me-south-1.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs)         |
+| `me-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=me-central-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-me-central-1.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs)     |
+| `il-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=il-central-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-il-central-1.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs)         |
+
+
+### Specify stack details
+
+Specify the stack details as per the table below, check the checkboxes and select **Create stack**.
+
+| Parameter                                  | Description                                                                                                                                                                                                                                              | Required/Default  |
+|--------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------|
+| `logzioToken`                              | The [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship logs to.                                                                                                                                                   | **Required**      |
+| `logzioListener`                           | Listener host.                                                                                                                                                                                                                                           | **Required**      |
+| `logzioType`                               | The log type you'll use with this Lambda. This can be a [built-in log type](https://docs.logz.io/docs/user-guide/data-hub/log-parsing/default-parsing/#built-in-log-types), or a custom log type.                                                                                 | `logzio_firehose` |
+| `services`                                 | A comma-seperated list of services you want to collect logs from. Supported options are: `apigateway`, `rds`, `cloudhsm`, `cloudtrail`, `codebuild`, `connect`, `elasticbeanstalk`, `ecs`, `eks`, `aws-glue`, `aws-iot`, `lambda`, `macie`, `amazon-mq`. | -                 |
+| `customLogGroups`                          | A comma-separated list of custom log groups to collect logs from, or the ARN of the Secret parameter ([explanation below](https://docs.logz.io/docs/shipping/aws/aws-kinesis-firehose/#custom-log-group-list-exceeds-4096-characters-limit)) storing the log groups list if it exceeds 4096 characters. **Note**: You can also specify a prefix of the log group names by using a wildcard at the end (e.g., `prefix*`). This will match all log groups that start with the specified prefix.                                                                                                                                                                                | -                 |
+| `useCustomLogGroupsFromSecret`             | If you want to provide list of `customLogGroups` which exceeds 4096 characters, set to `true` and configure your customLogGroups as [defined below](https://docs.logz.io/docs/shipping/aws/aws-kinesis-firehose/#custom-log-group-list-exceeds-4096-characters-limit).                                               | `false`           |
+| `triggerLambdaTimeout`                     | The amount of seconds that Lambda allows a function to run before stopping it, for the trigger function.                                                                                                                                                 | `60`              |
+| `triggerLambdaMemory`                      | Trigger function's allocated CPU proportional to the memory configured, in MB.                                                                                                                                                                           | `512`             |
+| `triggerLambdaLogLevel`                    | Log level for the Lambda function. Can be one of: `debug`, `info`, `warn`, `error`, `fatal`, `panic`                                                                                                                                                     | `info`            |
+| `httpEndpointDestinationIntervalInSeconds` | The length of time, in seconds, that Kinesis Data Firehose buffers incoming data before delivering it to the destination                                                                                                                                 | `60`              |
+| `httpEndpointDestinationSizeInMBs`         | The size of the buffer, in MBs, that Kinesis Data Firehose uses for incoming data before delivering it to the destination                                                                                                                                | `5`               |
+
+
+:::caution
+AWS limits every log group to have up to 2 subscription filters. If your chosen log group already has 2 subscription filters, the trigger function won't be able to add another one.
+:::
+
+
+### Custom Log Group list exceeds 4096 characters limit
+If your `customLogGroups` list exceeds the 4096 characters limit, follow the below steps:
+
+1. Open AWS [Secret Manager](https://console.aws.amazon.com/secretsmanager/)
+2. Click `Store a new secret`
+   - Choose `Other type of secret`
+   - For `key` use `logzioCustomLogGroups`
+   - In `value` store your comma-separated custom log groups list
+   - Name your secret, for example as `LogzioCustomLogGroups`
+   - Copy the new secret's ARN
+3. In your stack, Set: 
+   - `customLogGroups` to your secret ARN that you copied in step 2
+   - `useCustomLogGroupsFromSecret` to `true`
+
+</TabItem>
+<TabItem value="metrics-via-firehose" label="Send Metrics" default>
+
+
+Deploy this integration to send your AWS ECS Metrics via Firehose to Logz.io.
+
+This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon Kinesis Data Firehose metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
+
+
+{@include: ../../_include/metric-shipping/aws-metrics-new.md}
+
+
+{@include: ../../_include/metric-shipping/generic-dashboard.html}
+
+### Setup Firehose metrics via Terraform
+
+This setup includes creating a Kinesis Firehose delivery stream, CloudWatch metric stream, and necessary IAM roles.
+
+:::note
+The setup excludes the Lambda function for adding namespaces, as CloudFormation automatically triggers this during resource creation.
+:::
+
+
+```hcl
+locals {
+  metrics_namespaces = "CloudWatchSynthetics, AWS/AmazonMQ, AWS/RDS, AWS/DocDB, AWS/ElastiCache"
+  logzio_token       = jsondecode(data.aws_secretsmanager_secret_version.logzio_shipping_credentials.secret_string)["LOGZIO_TOKEN"]
+}
+
+resource "aws_kinesis_firehose_delivery_stream" "logzio_delivery_stream" {
+  name        = "logzio-delivery-stream"
+  destination = "http_endpoint"
+
+  http_endpoint_configuration {
+    url                = "https://listener-otlp-aws-metrics-stream-us.logz.io"
+    name               = "logzio_endpoint"
+    retry_duration     = 60
+    buffering_size     = 5
+    buffering_interval = 60
+    role_arn           = aws_iam_role.firehose_logging_role.arn
+    s3_backup_mode     = "FailedDataOnly"
+    access_key         = local.logzio_token
+
+    request_configuration {
+      content_encoding = "NONE"
+    }
+  }
+}
+
+resource "aws_cloudwatch_metric_stream" "logzio_metric_stream" {
+  name          = "logzio-metric-stream"
+  role_arn      = aws_iam_role.metrics_stream_role.arn
+  firehose_arn  = aws_kinesis_firehose_delivery_stream.logzio_delivery_stream.arn
+  output_format = "opentelemetry1.0"
+
+  include_filter {
+    namespace = "AWS/RDS"
+  }
+}
+```
+
+* Make sure the `URL` matches your region. [View region settings](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#opentelemetry-protocol-otlp-regions).
+
+* Replace `LOGZIO_TOKEN` with your Logz.io shipping token.
+
+
+Next, deploy your Terraform code to set up the Firehose stream and related resources, and verify that metrics are sent correctly to the Logz.io listener endpoint.
+
+:::note
+The Lambda function `logzioMetricStreamAddNamespacesLambda` has been removed from the script as the CloudFormation template automatically triggers it during creation.
+:::
+
+
+For additional namespaces or configurations, adjust the `metrics_namespaces` and `include_filter` fields as needed.
+
+</TabItem>
+</Tabs>
+
+## Send Logs and Traces via centeralized container
+
+### 1. Create an SSM Parameter to store the OTEL configuration
+
+Go to your AWS [System Manager > Parameter Store](https://us-east-1.console.aws.amazon.com/systems-manager/parameters?region=us-east-1&tab=Table):
+
+* Set the **Name** to `logzioOtelConfig.yaml`.
+* Keep **Type** as `string` and **Data type** as `text`.
+* In the **Value** field, use the following configuration as a starting point, adjusting values as needed for your environment:
 
 ```yaml
 receivers:
@@ -154,299 +429,208 @@ receivers:
         endpoint: "0.0.0.0:4317"
       http:
         endpoint: "0.0.0.0:4318"
-  awsecscontainermetrics:
+  fluentforward:
+    endpoint: 0.0.0.0:24284
+
 processors:
   batch:
     send_batch_size: 10000
     timeout: 1s
+  tail_sampling:
+    policies:
+      [
+        {
+          name: policy-errors,
+          type: status_code,
+          status_code: {status_codes: [ERROR]}
+        },
+        {
+          name: policy-slow,
+          type: latency,
+          latency: {threshold_ms: 1000}
+        }, 
+        {
+          name: policy-random-ok,
+          type: probabilistic,
+          probabilistic: {sampling_percentage: 10}
+        }        
+      ]
+  transform/log_type:
+    error_mode: ignore
+    log_statements:
+      - context: resource
+        statements:
+          - set(resource.attributes["type"], "ecs-fargate") where resource.attributes["type"] == nil
+
 exporters:
   logzio/traces:
-    account_token: ${LOGZIO_TRACING_TOKEN}
+    account_token: ${LOGZIO_TRACE_TOKEN}
     region: ${LOGZIO_REGION}
-  prometheusremotewrite:
-    endpoint: ${LOGZIO_LISTENER_URL}
-    external_labels:
-      aws_env: fargate-ecs
-    headers:
-      Authorization: "Bearer ${LOGZIO_METRICS_TOKEN}"
-    resource_to_telemetry_conversion:
-      enabled: true
-    target_info:
-        enabled: false
+  logzio/logs:
+    account_token: ${LOGZIO_LOGS_TOKEN}
+    region: ${LOGZIO_REGION}
+
 service:
   pipelines:
     traces:
-      receivers: [ awsxray,otlp ]
+      receivers: [ awsxray, otlp ]
       processors: [ batch ]
       exporters: [ logzio/traces ]
-    metrics:
-      receivers: [ otlp, awsecscontainermetrics ]
-      exporters: [ prometheusremotewrite ]
+    logs:
+      receivers: [ fluentforward, otlp ]
+      processors: [ transform/log_type, batch ]
+      exporters: [ logzio/logs ]
   telemetry:
     logs:
       level: "info"
+
 ```
-### AWS::Lambda::Function
-The `logzioFirehoseSubscriptionFiltersFunction` Lambda function is designed to handle the process of filtering log data for Logz.io, and add and remove cloudwatch logs subscription filters
 
-### AWS::Events::Rule
-The `logGroupCreationEvent` rule listens for AWS API calls via CloudTrail, specifically focusing on CreateLogGroup events from the logs.amazonaws.com event source. When such an event occurs, it triggers the Logz.io subscription filter function.
-
-### AWS::KinesisFirehose::DeliveryStream
-A Kinesis Firehose delivery stream configured to send logs to Logz.io. Logs that fail to deliver are backed up to an S3 bucket.
-
-### AWS::S3::Bucket
-An S3 bucket used to store backup logs that fail to deliver via Kinesis Firehose.
-
-### IAM Roles
-1.  **ECSTaskRole**: This role is assumed by the ECS tasks and allows them to call AWS services on your behalf. The role is created with the following properties:
-    *   RoleName: AWSOTelRole
-2.  **ECSExecutionRole**: The ECS container agent assumes this role, allowing it to make calls to the Amazon ECS API on your behalf. The role is created with the following properties:
-    *   RoleName: AWSOTelExecutionRole
-3. **firehoseSubscriptionFilterLambdaRole**: This IAM role is assumed by the Lambda function when it runs. It has permissions to:
-    * Create, access, and manage CloudWatch logs.
-    * Manage CloudWatch Logs Subscription Filters.
-    * Assume other roles.
-4. **logzioS3DestinationFirehoseRole**: IAM role assumed by Kinesis Firehose when interacting with the S3 bucket for backup purposes. The role has permissions to perform basic S3 operations like `PutObject`, `GetObject`, and `ListBucket`.
-
-### IAM Policies
-1.  **AWSOpenTelemetryPolicy**: This policy is attached to the ECSTaskRole and grants the following permissions:
-    *   Allows the collector to create, describe, and put log events into CloudWatch Logs.
-    *   Allows the collector to send trace data to AWS X-Ray using PutTraceSegments and PutTelemetryRecords actions.
-    *   Allows the collector to fetch sampling rules, targets, and statistic summaries from AWS X-Ray.
-    *   Allows the collector to get parameters from AWS Systems Manager (SSM) Parameter Store.
-2.  **AmazonECSTaskExecutionRolePolicy**: This managed policy is attached to the ECSExecutionRole and grants the following permissions:
-
-    *   Allows the collector to register and deregister tasks and task definitions in Amazon ECS.
-    *   Allows the collector to access and manage container instances, clusters, and services.
-    *   Allows the collector to access and manage Elastic Load Balancing resources.
-3.  **CloudWatchLogsFullAccess**: This managed policy is attached to the ECSExecutionRole and grants full access to Amazon CloudWatch Logs.
-
-4.  **AmazonSSMReadOnlyAccess**: This managed policy is attached to the ECSExecutionRole and grants read-only access to the AWS Systems Manager services and resources.
+Save the new SSM parameter and keep its ARN handy - you’ll need it for the next step.
 
 
-By creating and attaching these IAM roles and policies, the AWS OTel Collector is granted the necessary permissions to collect and send metrics and traces from your ECS Fargate cluster to Logz.io. The template also configures the collector to use the specified Logz.io tokens, region, and listener URL.
+### 2. Create IAM Role to allow the ECS task to access the SSM Parameter
 
-## Ensuring Connectivity Between the Application Containers and the Collector Container
+Go to [IAM > Policies](https://us-east-1.console.aws.amazon.com/iam/home#/policies).
 
-To ensure seamless connectivity between your application containers and the AWS OTel Collector container, you need to properly configure your Amazon VPC, subnets, and security groups.
-
-### Amazon VPC and Subnets
-The application containers and the AWS OTel Collector container must be launched in the same Amazon VPC and share at least one common subnet. This ensures that they can communicate with each other using private IP addresses. When deploying the CloudFormation template, make sure to provide the correct VPC subnet IDs in the `Subnets` parameter.
-
-### Security Groups
-To allow your application containers to send traces and metrics to the AWS OTel Collector container, you need to configure the security groups for both sets of containers.
-
-1.  **Application Containers Security Group**: Modify the security group associated with your application containers to allow outbound traffic to the OTel Collector's ports (4317 for gRPC and 4318 for HTTP). Ensure that the rules are restricted to the IP address range of the VPC or the security group associated with the OTel Collector container. This configuration allows your application containers to send data to the collector container.
-
-2.  **AWS OTel Collector Container Security Group**: Create or modify the security group for the AWS OTel Collector container to allow inbound traffic on ports 4317 (gRPC) and 4318 (HTTP) from the application containers' security group. This configuration ensures the collector container accepts incoming data from your application containers.
-
-
-When deploying the CloudFormation template, provide the collector container's security group ID in the `SecurityGroups` parameter.
-
-By properly configuring your Amazon VPC, subnets, and security groups, you can ensure that your application containers can send metrics and traces to the AWS OTel Collector container, which in turn forwards the data to Logz.io.
-
-
-## Manual configuration: Send logs from AWS Fargate to Logz.io
-
-### Build the task execution role
-
-In the [IAM Console](https://console.aws.amazon.com/iam/home#/roles$new?step=type), create a new role.
-
-* Under **AWS Service**, keep the default selection.
-* Under **Choose a use case**:
-  * Select **Elastic Container** Service.
-  * Select **Elastic Container Service** Task (scroll to the bottom).
-  * Click **Next: Permissions** and select **AmazonECSTaskExecutionRolePolicy**.
-  * Click **Next: Tags**, then **Next: Review**.
-* Set the **Role Name** to `logzioEcsTaskExecutionRole`, then click **Create Role**.
-
-Once created, open the role's Summary page, copy the Role ARN, and save it for later.
-
-* Click the newly created role to go to its **Summary** page.
-* Copy the **Role ARN** (at the top of the page) and save it for later. You will need it for the deployment JSON.
-
-### Create a Fluent Bit task definition
-
-In the ECS Console, go to the [Task Definitions](https://eu-central-1.console.aws.amazon.com/ecs/home?region=eu-central-1#/taskDefinitions) page.
-
-* Click **Create new Task Definition**.
-* Choose **Fargate** and click **Next step**.
-* Scroll to the **Volumes** section and select **Configure via JSON**.
-* Replace the default JSON with the following:
+Click Create policy, choose the **JSON** tab under **Specify permissions**, and paste the following:
 
 ```json
 {
-  "family": "logzio-fargate-task",
-  "requiresCompatibilities": [ "FARGATE" ],
-  "containerDefinitions": [
+  "Version": "2012-10-17",
+  "Statement": [
     {
-      "name": "logzio-log-router",
-      "image": "amazon/aws-for-fluent-bit:latest",
-      "essential": true,
-      "firelensConfiguration": {
-        "type": "fluentbit",
-        "options": { "enable-ecs-log-metadata": "true" }
-      },
-      "logConfiguration": {
-        "logDriver": "awslogs",
-        "options": {
-          "awslogs-group": "/aws/ecs/logzio-fargate-logs",
-          "awslogs-region": "<<AWS-REGION>>",
-          "awslogs-stream-prefix": "aws/ecs"
-        }
-      }
-    },
-    {
-      "name": "app",
-      "essential": true,
-      "image": "<<YOUR-APP-IMAGE>>",
-      "logConfiguration": {
-        "logDriver": "awsfirelens",
-        "options": {
-          "Name": "Http",
-          "Host": "<<LISTENER-HOST>>",
-          "URI": "/?token=<<LOG-SHIPPING-TOKEN>>&type=fargate",
-          "Port": "8071",
-          "tls": "on",
-          "tls.verify": "off",
-          "Format": "json_lines"
-        }
-      }
+      "Effect": "Allow",
+      "Action": "ssm:GetParameters",
+      "Resource": [
+        "<ARN_OF_SECRET_PARAMETER_FROM_STEP_1>"
+      ]
     }
-  ],
-  "cpu": "256",
-  "executionRoleArn": "arn:aws:iam::<<AWS-ACCOUNT-ID>>:role/logzioEcsTaskExecutionRole",
-  "memory": "512",
-  "volumes": [ ],
-  "placementConstraints": [ ],
-  "networkMode": "awsvpc",
-  "tags": [ ]
+  ]
 }
 ```
 
-Replace the placeholders (<< >>) with your values:
+Create the policy and give it a name (e.g., `LogzioOtelSSMReadAccess`). 
 
-**Parameters in `logzio-log-router`**
+Go to [IAM > Roles](https://us-east-1.console.aws.amazon.com/iam/home#/roles) and either:
 
-| Parameter | Description |
-|---|---|
-| logConfiguration.options.awslogs-group | In the CloudWatch left menu, select **Logs > Log groups**, and then click **Actions > Create log group**. Give the **Log Group Name** `/aws/ecs/logzio-fargate-logs`. |
-| logConfiguration.options.awslogs-region | The [AWS region](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) of your cluster. |
+* Attach the new policy to your existing ECS task role, or
+* Create a new IAM role for the ECS task and attach the policy during setup.
 
+If you created a new role, save its ARN — you’ll need it in the next step.
 
-**Parameters in app**
+### 3. Create a ceneralized container
 
-| Parameter | Description |
-|---|---|
-| image | Replace `<<YOUR-APP-IMAGE>>` with the name of the image you want to ship logs from. |
-| logConfiguration.options.Host | The host [for your region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#available-regions). |
-| logConfiguration.options.URI | Your Logz.io account token. {@include: ../../_include/log-shipping/log-shipping-token.html} |
-
-**Remaining parameters**
-
-| Parameter | Description |
-|---|---|
-| executionRoleArn | Replace `<<AWS-ACCOUNT-ID>>` with your [AWS account Id](https://console.aws.amazon.com/billing/home?#/account). |
+Create a new ECS task for the OpenTelemetry Collector 
 
 
-When you're done, click **Save**, and then click **Create**.
-
-### Run the task on your cluster
-
-Open your Task Definition page and click **Actions > Run Task**.
-
-Click **Switch to launch type**, and fill in these details:
-
-* For **Launch Type**, select **FARGATE**.
-* For **Cluster**, select your cluster.
-* For **Subnets**, select a subnet from your cluster.
-
-Click **Run task**.
-
-The logs created by the Fluent Bit shipper are in Cloudwatch
-under the `/aws/ecs/logzio-fargate-logs` log group.
-
-### Check Logz.io for your logs
-
-Give your logs some time to get from your system to ours,
-and then open [Explore](https://app.logz.io/#/dashboard/explore).
-
-You'll be able to find these logs by searching for `type:{{fargate}}`.
-
-
-## Manual configuration: Send metrics from AWS Fargate to Logz.io
-
-There are a few alternatives to collect metrics for your ECS Fargate cluster:
-
-### Attach OpenTelemetry Collector Sidecar to Your Application Task
-
-You can attach an OpenTelemetry collector sidecar to your ECS application task. This method allows you to collect a variety of metrics from your containerized applications. Note that this requires a deployment per task.
-
-### Collect ECS Metrics from CloudWatch
-
-You can use the [CloudWatch Metrics Stream integration](https://github.com/logzio/cloudwatch-metrics-helpers) to collect ECS metrics such as CPU and memory utilization directly from CloudWatch. This integration also includes an option to enable AWS Container Insights for enhanced ECS container metrics at the cluster level.
-
-### Understanding where your Metrics come from
-
-The source of your metrics in Logz.io depends on the integration method you select:
-
-* **OpenTelemetry Collector Sidecar** - Uses the `awsecscontainermetricsreceiver` to collect and send container-level metrics from within your Fargate tasks. [View the available metrics](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/main/receiver/awsecscontainermetricsreceiver/README.md#available-metrics).
-* **[ECS CloudWatch](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-metrics.html#best-practices-cloudwatch-metrics)** - Collects cluster and service-level metrics from the AWS/ECS namespace, providing insights into CPU, memory utilization, and scaling activity.
-**[Container Insights CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-ECS.html)** – Extends CloudWatch monitoring by gathering per-task metrics, including CPU, memory, and EBS filesystem utilization, from the ECS/ContainerInsights namespace.
-
-Each integration provides different data, so choose the option that best fits your monitoring needs.
-
-:::tip note
-Enabling AWS Container Insights may incur additional charges from AWS.
-:::
-
-
-## Adding extra configuration to your Fluent Bit task 
-
-### Create an extra.conf file
-
-Create an `extra.conf` file with the extra configuration. For example:
-
-```conf
-[FILTER]
-    Name record_modifier
-    Match *
-    Record app-version ${APP_VERSION}
-```
-
-### Upload the extra.conf file
-
-* Upload the `extra.conf` file to S3 (if your Fluent Bit is on EC2).
-* Upload the `extra.conf` file to the container image or on a volume that's mounted in the container.
-
-### Update the task definition file
-
-Add the path to the extra.conf file to the task definition file as follows.
-
-For the configuration file on S3:
 
 ```json
-"firelensConfiguration": {
-				"type": "fluentbit",
-				"options": {
-					"config-file-type": "s3",
-					"config-file-value": "arn:aws:s3:::<<PATH-TO-YOUR-EXTRA-CONF>>/extra.conf"
-				}
-			}
+{
+  "family": "...",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::<AWS_ACCOUNT_ID>:role/ecsTaskExecutionRole",
+  "taskRoleArn": "<TASK_ROLE_ARN_FROM_STEP_2>",
+  "containerDefinitions": [
+     {
+      "name": "otel-collector",
+      "image": "otel/opentelemetry-collector-contrib",
+      "cpu": 0,
+      "portMappings": [
+          {
+              "name": "otel-collector-4317",
+              "hostPort": 4317,
+              "protocol": "tcp",
+              "containerPort": 4317,
+              "appProtocol": "grpc"
+          },
+          {
+              "name": "otel-collector-4318",
+              "hostPort": 4318,
+              "protocol": "tcp"
+              "containerPort": 4318,
+          }
+      ],
+      "essential": false,
+      "command": [
+          "--config",
+          "env:OTEL_CONFIG"
+      ],
+      "environment": [
+          {
+              "name": "LOGZIO_LOGS_TOKEN",
+              "value": "${LOGZIO_LOGS_TOKEN}"
+          },
+          {
+              "name": "LOGZIO_METRICS_TOKEN",
+              "value": "${LOGZIO_METRICS_TOKEN}"
+          },
+          {
+              "name": "LOGZIO_TRACE_TOKEN",
+              "value": "${LOGZIO_TRACE_TOKEN}"
+          },
+          {
+              "name": "LOGZIO_REGION",
+              "value": "${LOGZIO_REGION}"
+          },
+          {
+              "name": "LOGZIO_LISTENER",
+              "value": "${LOGZIO_LISTENER}"
+          },
+      ]
+      "secrets": [
+          {
+              "name": "OTEL_CONFIG",
+              "valueFrom": "logzioOtelConfig.yaml"
+          }
+      ],
+      // Optional: Use this to keep logs for debugging and troubleshooting
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/otel-collector",
+          "awslogs-region": "<AWS-REGION>",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    },
+    "firelensConfiguration": {
+         "type": "fluentbit"
+    }
+  ]
+}
+
 ```
 
-For the configuration file on the container image or on a volume mounted in the container:
+When enabling debugging, you may need to create a CloudWatch log group for your OpenTelemetry Collector.
+
+You can do this via the AWS Console or using the AWS CLI:
+
+`aws logs create-log-group --log-group-name /ecs/otel-collector`
+
+### 4. Configure FireLens per container for Logs or Traces
+
+To enable telemetry collection, you’ll need to add a FireLens log configuration to each relevant container in your ECS task definition.
+
+#### For Logs
+
+For every container you want to collect **logs** from, add the following `logConfiguration` block to its task definition:
 
 ```json
-"firelensConfiguration": {
-				"type": "fluentbit",
-				"options": {
-					"config-file-type": "file",
-					"config-file-value": "<<PATH-TO-YOUR-EXTRA-CONF>>/extra.conf"
-				}
-			}
+ "logConfiguration": {
+  "logDriver": "awsfirelens",
+  "options": {
+    "Name": "opentelemetry",
+    "Host": "<CENTRAL_COLLECTOR_HOST_OR_IP>",
+    "Port": "24284",
+    "TLS": "off"
+  }
+},
 ```
 
-Replace `<<PATH-TO-YOUR-EXTRA-CONF>>` with the path to the extra.conf file. For example, for S3, `yourbucket/yourdirectory/extra.conf`.
+#### For Traces
 
+For each application you want to collect **traces** from, configure the instrumentation to send trace data to the centralized OpenTelemetry Collector container as its endpoint.
