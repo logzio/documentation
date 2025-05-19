@@ -19,9 +19,9 @@ Amazon ECS Fargate is a serverless compute engine for containers that lets you r
 
 ## Send Logs, Metrics, and Traces via OpenTelemetry as side car
 
-### 1. Create an SSM Parameter to store the OTEL configuration
+### 1. Set Up the SSM Parameter
 
-Go to your AWS [System Manager > Parameter Store](https://us-east-1.console.aws.amazon.com/systems-manager/parameters?region=us-east-1&tab=Table):
+Go to your AWS [System Manager > Parameter Store](https://us-east-1.console.aws.amazon.com/systems-manager/parameters?region=us-east-1&tab=Table) to create an SSM Parameters to store the OTEL configuration:
 
 * Set the **Name** to `logzioOtelConfig.yaml`.
 * Keep **Type** as `string` and **Data type** as `text`.
@@ -118,7 +118,9 @@ service:
 
 Save the new SSM parameter and keep its ARN handy - you’ll need it for the next step.
 
-### 2. Create IAM Role to allow the ECS task to access the SSM Parameter
+### 2. Grant ECS Task Access to SSM
+
+Create IAM role to allow the ECS task to access the SSM Parameter.
 
 Go to [IAM > Policies](https://us-east-1.console.aws.amazon.com/iam/home#/policies).
 
@@ -148,7 +150,7 @@ Go to [IAM > Roles](https://us-east-1.console.aws.amazon.com/iam/home#/roles) an
 
 If you created a new role, save its ARN — you’ll need it in the next step.
 
-### 3. Container per Task Definition
+### 3. Add OpenTelemetry to Task Definition
 
 Update your existing ECS tasks to include the OpenTelemetry Collector by:
 
@@ -254,8 +256,7 @@ This project deploys instrumentation that allows shipping Cloudwatch logs to Log
 If you want to send logs from specific log groups, use `customLogGroups` instead of `services`. Since specifying `services` will automatically send all logs from those services, regardless of any custom log groups you define.
 :::
 
-### Auto-deploy the Stack
-
+### Auto Deploy via CloudFormation
 
 To deploy this project, click the button that matches the region you wish to deploy your stack to:
 
@@ -292,7 +293,7 @@ To deploy this project, click the button that matches the region you wish to dep
 | `il-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=il-central-1#/stacks/create/review?templateURL=https://logzio-aws-integrations-il-central-1.s3.amazonaws.com/firehose-logs/0.3.2/sam-template.yaml&stackName=logzio-firehose&param_logzioToken=<<LOG-SHIPPING-TOKEN>>&param_logzioListener=https://aws-firehose-logs<<LISTENER-HOST>>&param_services=ecs)         |
 
 
-### Specify stack details
+### Set Stack Parameters
 
 Specify the stack details as per the table below, check the checkboxes and select **Create stack**.
 
@@ -316,7 +317,8 @@ AWS limits every log group to have up to 2 subscription filters. If your chosen 
 :::
 
 
-### Custom Log Group list exceeds 4096 characters limit
+### Handle Large Log Group Lists
+
 If your `customLogGroups` list exceeds the 4096 characters limit, follow the below steps:
 
 1. Open AWS [Secret Manager](https://console.aws.amazon.com/secretsmanager/)
@@ -611,7 +613,7 @@ You can do this via the AWS Console or using the AWS CLI:
 
 `aws logs create-log-group --log-group-name /ecs/otel-collector`
 
-### 4. Configure FireLens per container for Logs or Traces
+### 4. Enable FireLens for Logs and Traces
 
 To enable telemetry collection, you’ll need to add a FireLens log configuration to each relevant container in your ECS task definition.
 
