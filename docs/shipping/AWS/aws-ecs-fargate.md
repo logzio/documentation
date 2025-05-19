@@ -21,7 +21,7 @@ Amazon ECS Fargate is a serverless compute engine for containers that lets you r
 
 ### 1. Set Up the SSM Parameter
 
-Go to your AWS [System Manager > Parameter Store](https://us-east-1.console.aws.amazon.com/systems-manager/parameters?region=us-east-1&tab=Table) to create an SSM Parameters to store the OTEL configuration:
+Go to your AWS [System Manager > Parameter Store](https://us-east-1.console.aws.amazon.com/systems-manager/parameters?region=us-east-1&tab=Table) to create an SSM Parameter to store the OTEL configuration:
 
 * Set the **Name** to `logzioOtelConfig.yaml`.
 * Keep **Type** as `string` and **Data type** as `text`.
@@ -120,7 +120,7 @@ Save the new SSM parameter and keep its ARN handy - you’ll need it for the nex
 
 ### 2. Grant ECS Task Access to SSM
 
-Create IAM role to allow the ECS task to access the SSM Parameter.
+Create an IAM role to allow the ECS task to access the SSM Parameter.
 
 Go to [IAM > Policies](https://us-east-1.console.aws.amazon.com/iam/home#/policies).
 
