@@ -15,8 +15,6 @@ drop_filter: []
 toc_max_heading_level: 2
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 Amazon ECS Fargate is a serverless compute engine for containers that lets you run tasks without managing servers. Use it to send logs, metrics, and traces to Logz.io to monitor your data.
 
@@ -238,6 +236,9 @@ If you’d like to use a centralized log collection setup instead of the OpenTel
 
 
 ## Send Logs and Metrics via Kineses Firehose
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 <Tabs>
   <TabItem value="logs-via-firehose" label="Send Logs" default>
