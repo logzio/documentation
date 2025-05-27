@@ -414,7 +414,7 @@ Run the following command to list the taints on your nodes:
 kubectl get nodes -o json | jq '"\(.items[].metadata.name) \(.items[].spec.taints)"'
 ```
 
-2. **Add globsl tolerations to the Helm install command**:
+2. **Add global tolerations to the Helm install command**:
 
 You can add global tolerations by using the `--set` flag in your `helm install` or `helm upgrade` command. Replace the placeholders with the appropriate values for your taints.
 
