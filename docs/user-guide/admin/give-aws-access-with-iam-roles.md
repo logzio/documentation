@@ -116,6 +116,38 @@ and then paste the **External ID** you've copied and saved in your text editor.
 
 Click **Next: Permissions** to continue.
 
+### Set the trust relationship (Required)
+
+:::caution note
+This step is **required**. If the trust relationship is not configured correctly, Logz.io will not be able to assume the IAM role and access your AWS resources.
+:::
+
+After the role is created, go to the **Trust relationships** tab and verify it looks like this:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::<LOGZ_IO_ACCOUNT_ID>:root"
+      },
+      "Action": "sts:AssumeRole",
+      "Condition": {
+        "StringEquals": {
+          "sts:ExternalId": "logzio:aws:extid:<YOUR_EXTERNAL_ID>"
+        }
+      }
+    }
+  ]
+}
+```
+
+If the trust relationship is missing or incorrect, Logz.io will not be able to connect to your S3 bucket.
+
+
+
 ### Attach the policy to the role
 
 Type the name of your new policy in the search box.
