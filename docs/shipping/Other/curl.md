@@ -19,6 +19,22 @@ drop_filter: []
 
 cURL is a command line utility for transferring data, useful for testing configurations or troubleshooting connectivity to Logz.io. You can upload JSON or plain text files.
 
+## Send plain text as a JSON payload
+
+To send a single text log line using cURL, use the following command. This sends your message as a JSON payload:
+
+```shell
+curl --location 'https://listener.logz.io:8071?token=<<SHIPPING_TOKEN>>&type=text' \
+--header 'Content-Type: application/json' \
+--data '{"<<test>>": "<<support>>"}'
+```
+
+Replace `<<SHIPPING_TOKEN>>` with your account's shipping token.
+
+This method sends a JSON-formatted string, where the text is treated as the log message content.
+
+
+
 ## Upload a JSON log file
 
 **Limitations**
@@ -49,6 +65,10 @@ Allow some time for data ingestion, then open [Open Search Dashboards](https://a
 Encounter an issue? See our [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/) guide.
 
  
+
+
+
+
 ## Upload a plain text log file
 
 
