@@ -45,7 +45,7 @@ You can also set a **threshold** for the drop filter to manage when logs are exc
 When you set a threshold, a `LogSize` field is automatically added to your logs.
 
 :::tip note
-Threshold rules run every 15 minutes.
+Threshold rules run every 5 minutes. For example, if your threshold is set to 1 GB and 5 GB of logs are shipped within a 5 minute window, all 5 GB will be ingested. The drop rule will only apply in the next interval.
 :::
 
 Confirm the settings by checking the acknowledgment box and clicking **Apply filter** to activate.
