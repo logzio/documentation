@@ -7,6 +7,63 @@ keywords: [release notes, logzio, logs, metrics, traces, logz.io, updates, relea
 toc_max_heading_level: 2
 ---
 
+## May 2025
+
+### Data source variables in Logz.io dashboards
+
+You can now define Log Datasource variables in your dashboards, making it easier to switch between data sources at runtime.
+
+This feature brings you one step closer to unified observability — flexible dashboards that adapt to your data context.
+
+[Create a dashboard](https://app.logz.io/#/dashboard/dashboards-hub)
+
+### AI Agent Analysis (Beta)
+
+Introducing AI Agent Analysis, a new feature that helps accelerate incident response by automatically investigating alerts in your Logz.io environment.
+
+When an alert is triggered, the AI Agent analyzes related logs, metrics, and patterns to uncover root causes and surface key findings. Insights are sent directly to a designated Slack channel and stored in the AI Agent chat for future reference.
+
+*Note: AI Agent Analysis is currently in beta. Functionality and results may change as we continue to gather user feedback and improve the experience. To get early access, contact your account manager or reach out to Support.*
+
+[Create an alert](https://app.logz.io/#/dashboard/alerts/v2019/new)
+
+### Core Updates
+
+**Logz.io Monitoring Integration upgraded to v7.1.1**
+
+This release includes subchart upgrades and expanded configuration options:
+
+All subcharts now support `global.tolerations`
+`logzio-fluentd` upgraded to v1.0.2
+`logzio-k8s-telemetry` upgraded to v5.0.4
+`logzio-logs-collector` upgraded to v2.0.1
+`logzio-apm-collector` upgraded to v1.2.1
+`logzio-trivy` upgraded to v1.0.1
+`logzio-k8s-events` updated to v1.0.1, now with support for `tolerations` and `global.tolerations`
+
+**Logz.io Agent Manifest Integration upgraded to v2.0.2**
+
+This release adds support for the OTLP receiver on:
+* `localhost` for Windows, macOS, and Linux
+* EC2 Linux instances
+
+**New: Logz.io Logback Appender v2.3.0**
+Introduced the `<executor>` configuration option to allow specifying a custom `ScheduledExecutorService` for background log-sending tasks.
+
+**Logz.io Monitoring Chart Integration upgraded to v7.3.0**
+
+* `logzio-apm-collector` upgraded to v1.2.3
+    Added support for automatic resource detection using the `distribution` and `resourceDetection.enabled` flags.
+* `logzio-logs-collector` upgraded to v2.0.2
+    Now also supports automatic resource detection via `distribution` and `resourceDetection.enabled`
+* `logzio-k8s-telemetry` upgraded to v5.2.0
+    * Exposes the collector metrics port by default
+    * Adds support for `podDisruptionBudget` and `topologySpreadConstraints`
+    * Includes automatic resource detection support using `distribution` and `resourceDetection.enabled`
+* Operator await job Now dynamically determines the webhook path based on the release namespace and chart name
+* `opentelemetry-operator` chart upgraded to ~0.86.2
+
+
 ## April 2025
 
 ### Logz.io Dashboards (Beta)
