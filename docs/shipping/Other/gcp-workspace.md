@@ -1,7 +1,7 @@
 ---
-id: GCP-Workspace
-title: GCP Workspace
-overview: Send Google Cloud Workspace metrics to your Logz.io account.
+id: Google-Workspace
+title: Google Workspace
+overview: Send Google Workspace logs and metrics to your Logz.io account.
 product: ['logs', 'metrics', 'siem']
 os: ['windows', 'linux']
 filters: ['GCP', 'Other']
