@@ -155,7 +155,7 @@ Sample data can be sent in either JSON or Table formats. Toggle the button to se
 
 If the rule includes any aggregation or group by field, the notification output will send the aggregated results by default.
 
-
+**Note: When using Table format, the output is stored as a snapshot and is retained for 30 days before being automatically deleted.**
 
 
 ![Add email](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/siem-add-email-dec.gif)
@@ -271,6 +271,8 @@ Choose the endpoints or email addresses you want to notify when the rule trigger
 #### Select rule output format & content
 
 Choose whether notifications display sample data in JSON or Table format. Aggregated results are included by default if applicable.
+
+**Note: When using Table format, the output is stored as a snapshot and is retained for 30 days before being automatically deleted.**
 
 
 ![Add email](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/siem-add-email-dec.gif)

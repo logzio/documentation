@@ -197,6 +197,10 @@ Sample data can be sent in either **JSON** or **Table** formats. Toggle the butt
 
 If the alert includes any aggregation or group by field, the notification output will send the aggregated results by default.
 
+:::tip note
+When using Table format, the output is stored as a snapshot and is retained for 30 days before being automatically deleted.
+:::
+
 ![Output format](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/output_aggregated_aug2021.png)
 
 To be selective about the output, click **<i class="li li-plus"></i> Add a field** and select a field from the dropdown list. If you want, you can also add a sorting rule and a regex filter. [Learn more about regex filters for alert notifications](https://docs.logz.io/docs/user-guide/explore/explore-log-alerts/regex-filters/).

@@ -17,10 +17,7 @@ and drop filters (which allow you to stop ingestion of some logs).
 
 ## What are account utilization metrics? {#what-are-account-utilization-metrics}
 
-
-Account utilization metrics capture a snapshot
-of your account usage in regular increments
-Logz.io starts logging your usage after your account reaches 10 MB in size.
+Account utilization metrics provide regular snapshots of your usage. Logz.io begins tracking once your account exceeds 10 MB. These snapshots are retained for 30 days before being automatically deleted.
 
 ## Enabling account utilization metrics and log size
 
