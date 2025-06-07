@@ -71,7 +71,7 @@ The following fields are used for flexible volume accounts.
 |---|---|
 |is_flexible| Indicates whether the account is fixed or flexible (Boolean)|
 |cap_volume| Optional maximum data volume for the account, in GB. This value can be 0: That is, the account has unlimited access to shared volume.|
-|expected_volume_in_GB_EOD| An estimate of how much data the account will be used by the end of the day, in GB. The estimation is based on how much data was sent until the current hour. |
+|expected_volume_in_GB_EOD| An estimate of how much data the account will use by the end of the day, in GB. The estimation is based on how much data was sent until the current hour. |
 |reserved_volume| Volume guaranteed for the account per calendar day, in GB. This value can be 0: That is, no reserved volume is configured for the account. |
 |used_from_shareable| The amount of data used from the shareable volume, in GB|
 
