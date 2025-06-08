@@ -6,6 +6,10 @@ description: Create and view custom log parsing rules
 keywords: [log parsing, parsing rule, parsing, parsing hub, log parser, logz.io parsing]
 ---
 
+:::tip note
+Parsing Rules Hub is currently in **beta**. We're actively improving it based on user feedback, so functionality and abilities may evolve over time.
+:::
+
 
 The Parsing Rules Hub lets you create and manage custom parsing rules to structure your logs as they arrive. This feature supports multiple parsing methods and provides a centralized view of all rules configured in your account.
 
