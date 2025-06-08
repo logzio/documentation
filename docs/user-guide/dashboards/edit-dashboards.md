@@ -7,12 +7,6 @@ keywords: [logz.io, dashboard, dashboards, hub, unified dashboards, logzio dashb
 toc_max_heading_level: 3
 ---
 
-:::info note
-Logz.io Dashboards is currently in **closed beta**.
-
-To request access, contact your Logz.io account manager or reach out to [support](https://logz.io/contact-us/).
-:::
-
 
 Logz.io Dashboards offer a flexible, intuitive way to visualize observability data. Customize layouts, panels, and data sources to create views tailored for monitoring and troubleshooting.
 
