@@ -7,11 +7,13 @@ keywords: [logz.io, reports, share data, log analysis, observability]
 ---
 
 
-Logz.io reports enable you to automatically distribute dashboards on a regular schedule via **Slack** and **email**.
+Logz.io reports enable you to automatically distribute dashboards on a regular schedule via **Slack** and **email**. Each time a report is created, Logz.io generates a snapshot of the selected dashboard, which includes the visual data at the time of creation. 
+
+These snapshots are stored for 30 days and then automatically deleted.
 
 ## Create a report
 
-There are two main methods to create a report: Directly from an existing dashboard or manually.
+There are two main methods to create a report: directly from a dashboard or from the Reports page.
 
 * Open a dashboard and click **Create report** from the menu.
 
@@ -22,12 +24,9 @@ There are two main methods to create a report: Directly from an existing dashboa
   <img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/reports-from-navigation.png" alt="plus" width="600"/>
 
 
-
 ## Configure a report
 
-In the [Create a report](https://app.logz.io/#/dashboard/scheduled-reports/create) page, choose a name for your report. The name will be shown as the email subject or Slack heading.
-
-Write a description that will be included in the message body. The description should provide some context for why recipients are receiving the report.
+On the [Create a report](https://app.logz.io/#/dashboard/scheduled-reports/create) page, choose a name for your report. This name appears in the email subject or Slack heading. Write a description to include in the message body, giving context to recipients.
 
 ### Select a dashboard and time range
 
@@ -37,7 +36,7 @@ Next, select the time range for the dashboard. Under **For this time range**, se
 
 ### Set the schedule
 
-Use the ***Cron scheduler*** to specify when reports are sent and set the **desired time zone** for accurate timing
+Use the ***Cron scheduler*** to specify when reports are sent and set the **desired time zone** for accurate timing.
 
 You can use an online tool such as the
 [Quartz Cron Expression Generator](https://www.freeformatter.com/cron-expression-generator-quartz.html#cronexpressionexamples/) to easily translate your requirements into a cron expression. The scheduler can be used to set up advanced schedules, like the last day of every month, or the last Thursday of the month at a specific hour.
@@ -53,7 +52,7 @@ You can send the report to users via **email** or **Slack**. To add a Slack chan
 
 <!-- ![Logz.io report scheduling form](https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/new-report.png)-->
 
-Your report can include a direct link to view a live dashboard in Logz.io with the relevant data. This option is enabled by default, and recipients will need to log in to Logz.io to see it. Disable this option by unchecking the box.
+Your report can include a direct link to view a live dashboard in Logz.io with the relevant data. This option is enabled by default, and recipients will need to log into Logz.io to see it. Disable this option by unchecking the box.
 
 Admins can add custom logos to the reports. **When the report is emailed**, the custom logo will appear in the email body and the PDF header. To upload the logo, navigate to [General Settings > Logo for reports](https://app.logz.io/#/dashboard/settings/general).
 

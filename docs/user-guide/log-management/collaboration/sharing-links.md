@@ -23,7 +23,7 @@ Learn more about the different [types of tokens](https://docs.logz.io/docs/user-
 
 Open the dashboard or saved query you would like to share. When you share an item, you can decide whether to share it as a snapshot or a saved object.
 
-* **Snapshot** - Converts the time selection to absolute dates, allowing recipients to view the exact data you're seeing. For example, if you send a snapshot for the last 24 hours, recipients will receive a dashboard with a fixed date range. Note that this link is short-lived based on your log retention policy; once the logs expire, the dashboard will no longer display data.
+* **Snapshot** – Converts the time range to absolute dates, so recipients see exactly what you saw at the time of sharing. For example, a snapshot of “last 24 hours” will show a fixed time window. Snapshots are retained for 30 days, after which they are automatically deleted. If the underlying logs expire before that (based on your retention policy), the dashboard may no longer display data.
 
 * **Saved object** - Shares the dashboard with a relative time selection, meaning the dashboard will load with its default time selection and filters. This option keeps the link updated automatically if changes are made to the dashboard, so recipients always see the latest version without needing a new link.
 
