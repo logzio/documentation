@@ -2,7 +2,7 @@
 sidebar_position: 1
 title: Manage Log accounts
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: Learn more on managing your log accounts in Logz.io
+description: Learn how to manage your log accounts in Logz.io
 keywords: [account, manage account, optimization, admin controls, admin, user permissions, permissions, access control, log, logs]
 ---
 
@@ -42,7 +42,7 @@ By default, all users in your main account have access to data in all associated
 
 ## Create an account
 
-Each telemetry type has a predefined limit on how many sub accounts you can create. This limit is visible at the top panel of the Manage Account page. 
+Each telemetry type has a predefined limit on how many sub accounts you can create. This limit is visible at the top of the Manage Account page. 
 
 To create a new account, click **Create new account**, then enter a name, daily volume (GB), and retention period (in days).
 
@@ -56,7 +56,17 @@ Click **Create** to complete setup and add the account. The account will be visi
 
 To edit an account, click the **⋮** icon next to the account and select **Edit**.
 
-You can update the account name and click **Advanced** to configure additional settings, including which accounts/sub accounts have visibility to the data in this account, log size collection, and [account utilization metrics](https://docs.logz.io/docs/user-guide/admin/account-volume-optimization/manage-account-usage/#what-are-account-utilization-metrics).
+You can update the account name, retention period, and flexible volume options (if enabled).
+
+### Shared resources and usage tracking
+
+Click **Advanced** to configure which resources you want to share from this account. Use the dropdown menu or start typing to select the accounts that should have access to the shared assets.
+
+To track account utilization, check the box. This logs data such as current and projected indexing volume (in GB), based on your account’s indexing rate. You can use this data to build visualizations or create alerts by running the following query in Explore: `type:logzio_account_utilization`.
+
+Read more about [account utilization metrics](https://docs.logz.io/docs/user-guide/admin/account-volume-optimization/manage-account-usage/#what-are-account-utilization-metrics).
+
+To record the size of each log, check the Save Log Size box. This adds a `LogSize` field to every log, showing its size in bytes.
 
 Click **Save changes** to apply your updates.
 
@@ -96,4 +106,4 @@ If you notice a small number of logs ingested but a high usage quota, it may be 
 
 This is often seen when viewing logs with the Today time range, while the logs were shipped with a different date.
 
-To resolve this, try adjusting the time range settings. If the issue persists, contact the **[Logz.io's Support team](mailto:help@logz.io)** for help.
+To resolve this, adjust the time range settings. If the issue persists, contact the **[Logz.io's Support team](mailto:help@logz.io)** for assistance.
