@@ -89,7 +89,7 @@ To add your integration to an existing contact in Uptime.com, click on or type t
 
 Adding a dedicated or a new contact cannot be done within the integrations screen.
 
-To add a nw contact, navigate to [Notifications > Contacts](https://app.uptime.com/contact-groups). You can create a **New Contact** or add the integration to an existing contact. In both cases, select the Logz.io option from the Integrations dropdown.
+To add a new contact, navigate to [Notifications > Contacts](https://app.uptime.com/contact-groups). You can create a **New Contact** or add the integration to an existing contact. In both cases, select the Logz.io option from the Integrations dropdown.
 
 
 ## Assign Integration Contact to a Check
