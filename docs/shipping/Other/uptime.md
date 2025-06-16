@@ -38,7 +38,7 @@ Integration with Uptime.com allows for the following:
 
 2. Navigate to [Settings > Manage tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs), click Data shipping tokens, and copy the **Listener URL**. 
 
-![Copy listener URL](https://dytvr9ot2sszz.cloudfront.net/logz-docs/uptime/data-shipping-listener-url.png)
+![Copy listener URL](https://dytvr9ot2sszz.cloudfront.net/logz-docs/uptime/data-shipping-listener-url-500.png)
 
 3. Log in to your [Uptime.com account](https://uptime.com/accounts/login).
 
@@ -50,7 +50,7 @@ Integration with Uptime.com allows for the following:
 When creating a new Logz.io integration, the Listener URL field is pre-filled with the default value listener.logz.io. If the default URL is not shown, enter the correct URL manually.
 :::
 
-![Enter listener URL](https://dytvr9ot2sszz.cloudfront.net/logz-docs/uptime/uptime-enter-listener-url.png)
+![Enter listener URL](https://dytvr9ot2sszz.cloudfront.net/logz-docs/uptime/uptime-enter-listener-url-500.png)
 
 6. Go back to Logz.io [Settings > Manage tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs), and click Data shipping tokens. Copy both the **Log** and **Metrics** shipping tokens.
 
@@ -62,7 +62,7 @@ If you do not have a Metrics token in Logz.io, navigate to [Settings > Manage Ac
 
 7. In Uptime.com, paste the shipping tokens into the appropriate fields:
 
-![data shipping token](https://dytvr9ot2sszz.cloudfront.net/logz-docs/uptime/data-shipping-tokens.png)
+![data shipping token](https://dytvr9ot2sszz.cloudfront.net/logz-docs/uptime/data-shipping-tokens-500.png)
 
 8. Save the new Uptime.com integration. It may take a few minutes for data to appear in Logz.io.
 
