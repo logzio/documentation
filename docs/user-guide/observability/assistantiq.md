@@ -6,17 +6,17 @@ image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.
 keywords: [AI, observability, AI agent, Assistant, iq, logs, metrics, traces, siem, insights, analysis, services, logz.io]
 ---
 
-AI Agent is part of Logz.io's Observability IQ suite. It provides an AI-powered, chat-based interface that lets you engage in a dynamic conversation with your data. Use it to move beyond passive data viewing and get real-time insights about your metrics, anomalies, trends, and the overall health of your environment.
+The AI Agent is part of Logz.io’s Observability IQ suite. It provides an AI-powered, chat-based interface that lets you engage in a dynamic conversation with your data. Use it to go beyond passive data viewing and gain real-time insights into your metrics, anomalies, trends, and overall system health.
 
 AI Agent is available in [Explore](https://app.logz.io/#/dashboard/explore), and as part of [Kubernetes 360](https://app.logz.io/#/dashboard/observability/k8s360), and [App 360](https://app.logz.io/#/dashboard/spm/service-overview).
 
-The agent suggests a few queries you can run on your data to help you start the analysis and deep-dive, or you can type your own questions.
+The agent suggests queries to help you start your analysis, or you can type in your own questions.
 
-The answers are based on the data currently shown on your dashboard. Once you change the query, apply filters, or change the time period, any new answer from the agent will be based on the newly generated data. 
+The answers are based on the data currently shown on your dashboard. If you change the query, apply filters, or adjust the time range, any new responses from the agent will reflect the updated data.
 
-You can now leverage the insights from your dialog and enhance data analysis to make informed decisions.
+Leverage these insights to enhance your analysis and make informed decisions.
 
-![AI Agent screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/ai-agent-dec3.png)
+![AI Agent screen](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/ai-agent-june12.png)
 
 ## Using AI Agent
 
@@ -26,22 +26,21 @@ Use the agent to analyze trends in latency, throughput, error rate, and HTTP sta
 
 To get started with AI Agent, select one of the pre-built questions or type a custom query according to what you'd like to analyze.
 
-_Once you provide input to the agent, the **dashboard's data** will be shared with Claude3._
+_Once you interact with the agent, the current **dashboard data** is shared with Claude 3._
 
-<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/ai-agent-feb5.png" alt="ai-agent-screen" width="700"/>
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/ai-agent-results-june12.png" alt="ai-agent-screen" width="700"/>
 
-### Choose data source
+### Turn AI Agent insights into dashboards and alerts
 
-Depending on your analysis needs, you can refine the data source to get the most relevant insights:
+When the AI Agent identifies a spike, trend, or drop, you can turn that analysis into a dashboard panel (if you're using Logz.io Dashboards), or create an alert to track these insights.
 
-* **All available data** - Utilize all available data, including logs and documentation.
-* **Using search results** - Generates answers based on the data currently displayed on your dashboard, including logs, queries, filters, etc.
-* **User guide** - Pulls information from Logz.io's user guides to answer questions about features and usage.
-* **Data shipping guide** - Provides insights from integration and data shipping guides to assist with configuration and setup.
+**Create an alert** directly from a graph or result to track ongoing issues. The system will redirect you to the Create Alert page with all relevant data pre-filled.
 
-:::note
-Some data sources may not be available in all observability tools, including Explore, App 360, and Kubernetes 360.
-:::
+**Add to dashboard** if you're using Logz.io Dashboards. You can insert the visualization into a new or existing dashboard for continued monitoring.
+
+**Open the preview** to view the related logs in Explore.
+
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/actions-from-agent.gif" alt="actions-from-agent" width="700"/>
 
 ### View chat history
 
@@ -51,15 +50,17 @@ To access your chat history, open the AI Agent interface and click the History b
 
 <img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/ai-history.png" alt="ai-agent-history" width="700"/>
 
+### Start a new conversation
+
+If you want to start a new investigation, click the pencil icon at the top. You'll be directed to the AI Agent main window, where you can choose one of the pre-generated questions or write your own query.
+
 ## AI Agent Root Cause Analyzer
 
 Logz.io's Root Cause Analyzer (RCA) leverages GenAI to diagnose the root causes of exceptions within applications. By analyzing context and data, RCA delivers deep insights and actionable recommendations, streamlining the troubleshooting process and accelerating root cause analysis.
 
-RCA adapts dynamically to the specific context of each problem, functioning like a knowledgeable team member who understands the nuances of the issue and provides accurate and effective analysis.
+RCA dynamically adapts to the specific context of each issue, functioning like a knowledgeable team member. It understands the situation, identifies the information needed for analysis, and proactively gathers relevant data to provide accurate and effective analysis.
 
-It comprehends the situation, identifies the necessary information for thorough analysis, and proactively seeks the data required.
-
-<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/rca/rca-feb5.png" alt="rca-popup" width="700"/>
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/rca/ai-agent-rca-june12.png" alt="rca-popup" width="700"/>
 
 
 ### How to use RCA
