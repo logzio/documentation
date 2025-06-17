@@ -119,8 +119,8 @@ helm install -n monitoring --create-namespace \
 --set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
 --set global.env_id="<<CLUSTER-NAME>>" \
 --set global.customLogsEndpoint="<<CUSTOM-HOST>>" \
+--set deployEvents.enabled=true \
 logzio-monitoring logzio-helm/logzio-monitoring
-
 ```
 
 | Parameter | Description |
