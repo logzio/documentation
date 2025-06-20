@@ -6,11 +6,11 @@ product: ['logs', 'metrics']
 os: []
 filters: ['AWS', 'Load Balancer']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/PrivateLink.svg
-logs_dashboards: ['']
-logs_alerts: ['']
+logs_dashboards: []
+logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ['']
-metrics_alerts: ['']
+metrics_dashboards: []
+metrics_alerts: []
 drop_filter: []
 ---
 
