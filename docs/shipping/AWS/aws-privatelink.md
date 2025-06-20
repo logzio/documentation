@@ -14,7 +14,7 @@ metrics_alerts: []
 drop_filter: []
 ---
 
-AWS PrivateLink allows you to establish a private and secure connection between your AWS VPC and Logz.io—keeping your data entirely within the AWS network and never exposed to the public internet. This is ideal for isolated environments or organizations with strict compliance and security requirements.
+AWS PrivateLink allows you to establish a private and secure connection between your AWS VPC and Logz.io, keeping your data entirely within the AWS network and never exposed to the public internet. This is ideal for isolated environments or organizations with strict compliance and security requirements.
 
 ***AWS PrivateLink is available for customers on supported Logz.io plans. To enable the integration, contact your account manager or [support team](mailto:help@logz.io) to request access and receive your PrivateLink service name.***
 
