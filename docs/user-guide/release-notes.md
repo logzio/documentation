@@ -25,7 +25,7 @@ The Dashboards Beta now includes several new capabilities:
 * Explore integration - Send visualizations from Explore directly to a dashboard with one click.
 * Improved tables and filters - Use new column types (e.g., links, gauges) and enhanced filters for more actionable dashboards.
 
-Note: Logz.io Dashboards are in beta. To join, contact your account manager or [Logz.io support](help@logz.io).
+Note: Logz.io Dashboards are in beta. To join, contact your account manager or [Logz.io support](mailto:help@logz.io).
 
 ### Core Updates
 

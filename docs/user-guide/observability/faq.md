@@ -95,7 +95,7 @@ In addition to model-level controls, Logz.io implements internal safeguards to m
 
 ### Can the AI functions be turned off?
 
-Yes. To disable the AI Agent on your account, contact [Logz.io support team](help@logz.io). 
+Yes. To disable the AI Agent on your account, contact [Logz.io support team](mailto:help@logz.io). 
 
 ### How do I provide feedback or report issues with the AI Agent?​
 
