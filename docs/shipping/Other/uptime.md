@@ -1,6 +1,6 @@
 ---
 id: uptime-data
-title: Uptime
+title: Uptime.com
 overview: Monitor website and API uptime with global coverage and forward alerts directly to Logz.io for unified observability.
 product: ['metrics', 'logs']
 os: ['windows', 'linux']
