@@ -76,8 +76,6 @@ Some endpoints require a particular attribute/payload. For example, [Microsoft T
 
 You can enhance your alert notifications with data pulled from the triggered alert.
 
-For example, you can add a 
-
 For example, you can add a **View in Explore** drilldown link to a notification using the following:
 
 ```
