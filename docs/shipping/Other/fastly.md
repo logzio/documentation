@@ -28,7 +28,7 @@ Before creating your Fastly endpoint, review the URL Parameters Reference to und
 |-----------|----------|-------------|---------|
 | `service_id` | Yes | Your Fastly Service ID | `service_id=YOUR_SERVICE_ID` |
 | `token` | Yes | Your Logz.io logs shipping token | `token=LOGZIO_SHIPPING_TOKEN` |
-| `host` / `listener` | Yes | The Logz.io listener host address (may vary by region) | `host=listener.logz.io` or `host=listener-eu.logz.io` |
+| `host` | Yes | The Logz.io listener host address (may vary by region) | `host=listener.logz.io` or `host=listener-eu.logz.io` |
 | `type` | No | Custom log type to be assigned in Logz.io (default: `fastly-logs`) | `type=my-custom-logs` |
 | `debug` | No | Set to `true` to enable debug logging (default: `false`) | `debug=true` |
 
