@@ -56,27 +56,43 @@ To get started, send your AWS Account ID and the region you'll connect from to y
 
     * Select the **VPC** where the endpoint should be established.
 
-    * Choose the **subnets** where the endpoint will be deployed.
+    * Choose the **subnets** in which the endpoint will be deployed.
 
-    * Select **security groups**. Make sure it allows outbound traffic for the specific endpoint IPs on the required ports.
+    * Select **security groups**. Make sure they allow outbound traffic for the specific endpoint IPs on the required ports.
 
-### 3. Enable and validate the endpoint
+### 3. Validate and enable the endpoint
 
 After creating the endpoint, contact [Logz.io support](mailto:help@logz.io) to validate the connection. Confirm the endpoint shows an **Available** status.
 
-In AWS Endpoints, click on **Actions > Modify Private DNS Name**, select **Enable for this endpoint** and click **Save changes**. 
+Verify PrivateLink connectivity before enabling DNS resolution:
+
+```
+echo $'{"message":"hello there", "counter": 1}\n{"message":"hello again", "counter": 2}' | curl -XPOST "https://<VPC ENDPOINT IP ADDRESS>:8071?token=<TOKEN>&type=test_http_bulk" --data-binary @-
+```
+
+In AWS Endpoints, click **Actions > Modify Private DNS Name**, select **Enable for this endpoint** and click **Save changes**. 
 
 :::note
-**This step is critical. Without Private DNS enabled, you will not be able to send data to Logz.io.**
+**The Private DNS Name is critical. Without it enabled, you cannot send data to Logz.io through PrivateLink.**
 :::
 
 ### 4. Verify the connection
 
-Confirm that the VPC endpoint is active and that data is flowing.
+Confirm that the VPC endpoint is active and data is flowing:
+
+```
+echo $'{"message":"hello world", "counter": 1}\n{"message":"hello there", "counter": 2}' | curl -vvv -XPOST "https://<LOGZ SHIPPING ADDRESS>:8071?token=<TOKEN>&type=test_http_bulk" --data-binary @-
+```
 
 ![Create endpoint](https://dytvr9ot2sszz.cloudfront.net/logz-docs/vpc-hello-world.png)
 
-In Logz.io, check **[Explore](https://app.logz.io/#/dashboard/explore)** to confirm that logs and metrics are being received.
+In Logz.io, check **[Explore](https://app.logz.io/#/dashboard/explore)** to confirm that logs and metrics are being received through PrivateLink.
+
+## Disable PrivateLink
+
+To temporarily stop sending data through PrivateLink, you don’t need to delete the VPC endpoint, simply disable DNS resolution for it.
+
+Deleting the VPC endpoint is irreversible. If you delete the endpoint, you'll need to request approval from Logz.io again before creating a new one.
 
 
 If you encounter any issues or need further assistance, contact [Logz.io support](mailto:help@logz.io).
