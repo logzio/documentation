@@ -66,7 +66,7 @@ After creating the endpoint, contact [Logz.io support](mailto:help@logz.io) to v
 
 Verify PrivateLink connectivity before enabling DNS resolution:
 
-```
+```bash
 echo $'{"message":"hello there", "counter": 1}\n{"message":"hello again", "counter": 2}' | curl -XPOST "https://<VPC ENDPOINT IP ADDRESS>:8071?token=<TOKEN>&type=test_http_bulk" --data-binary @-
 ```
 
@@ -80,7 +80,7 @@ In AWS Endpoints, click **Actions > Modify Private DNS Name**, select **Enable f
 
 Confirm that the VPC endpoint is active and data is flowing:
 
-```
+```bash
 echo $'{"message":"hello world", "counter": 1}\n{"message":"hello there", "counter": 2}' | curl -vvv -XPOST "https://<LOGZ SHIPPING ADDRESS>:8071?token=<TOKEN>&type=test_http_bulk" --data-binary @-
 ```
 
