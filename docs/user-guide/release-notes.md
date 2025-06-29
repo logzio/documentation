@@ -7,6 +7,43 @@ keywords: [release notes, logzio, logs, metrics, traces, logz.io, updates, relea
 toc_max_heading_level: 2
 ---
 
+## June 2025
+
+### AI Agent
+
+Use insight cards to create alerts or dashboards.
+
+You can now take action directly from your AI Agent conversations. The AI Agent generates dashboards and visualizations as part of its analysis. Found something useful? Add it to your dashboards with one click, or turn it into an alert to track issues, monitor changes, and move seamlessly from investigation to observability.
+
+To get started, start a conversation with the [AI Agent](https://docs.logz.io/docs/user-guide/observability/assistantiq/) and turn your data into actionable dashboards and alerts.
+
+### Logz.io Dashboards (Beta)
+
+The Dashboards Beta now includes several new capabilities:
+
+* Unified telemetry view - Visualize logs, metrics, and traces together in a single dashboard to maintain full context during investigations.
+* Explore integration - Send visualizations from Explore directly to a dashboard with one click.
+* Improved tables and filters - Use new column types (e.g., links, gauges) and enhanced filters for more actionable dashboards.
+
+Note: Logz.io Dashboards are in beta. To join, contact your account manager or [Logz.io support](mailto:help@logz.io).
+
+### Core Updates
+
+**docker-logs-collector upgraded to v0.1.2**
+* Base image updated to Debian Bookworm for improved `glibc` compatibility.
+* Added support for the `LOGZIO_BULK_SIZE_MB` environment variable (1–9MB; default 2MB).
+* Output plugin now pulled from the `fluent-bit-logzio-output` GitHub release assets.
+
+[View on GitHub](https://github.com/logzio/docker-logs-collector)
+
+**fluent-bit-logzio-output upgraded to v0.6.3**
+* Fixed a critical stack overflow crash under high load.
+* Introduced `logzio_bulk_size_mb` parameter (1–9MB; default 2MB) for tuning batch size before compression.
+* Plugin binaries now distributed via GitHub release assets. Update your download method as noted in the README.
+
+[View on GitHub](https://github.com/logzio/fluent-bit-logzio-output)
+
+
 ## May 2025
 
 ### Data source variables in Logz.io dashboards
