@@ -34,7 +34,7 @@ curl --location 'https://listener.logz.io:8071?token=<<SHIPPING_TOKEN>>&type=tex
 Replace `<<SHIPPING_TOKEN>>` with your account's shipping token.
 
 :::note
-The request body is a list of logs in minified JSON format, with each log separated by a newline (\n).
+The request body is a list of logs in minified JSON format, with each log separated by a newline `(\n)`.
 :::
 
 This method sends a JSON-formatted string, where the text is treated as the log message content.
