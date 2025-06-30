@@ -1,8 +1,10 @@
 ---
 sidebar_position: 4
+title: Custom Endpoints
+description: Integrate Logz.io with custom endpoints
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+keywords: [endpoint, custom endpoint, configure endpoint, logz.io, integration]
 ---
-
-# Custom Endpoints
 
 
 Integrate with your favorite tools using a custom webhook. Configuring a custom endpoint will allow you to send Logz.io notifications to your preferred apps,
@@ -74,10 +76,10 @@ Some endpoints require a particular attribute/payload. For example, [Microsoft T
 
 You can enhance your alert notifications with data pulled from the triggered alert.
 
-For example, you can add a **View in OpenSearch Dashboards** drilldown link to a notification using the following:
+For example, you can add a **View in Explore** drilldown link to a notification using the following:
 
 ```
-"alert_view_link": "{{&alert_app_url}}#/view-triggered-alert?from={{&alert_timeframe_start_epoch_millis}}&to={{&alert_timeframe_end_epoch_millis}}&definitionId={{&alert_definition_id}}&switchToAccountId={{&account_id}}"
+"explore_view_link": "{{&alert_app_url}}#/view-in-explore?&triggeredId={{&triggered_id}}&switchToAccountId={{&account_id}}"
 ```
 
 Logz.io notifications use [Mustache templating](https://mustache.github.io/).
