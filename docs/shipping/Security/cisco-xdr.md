@@ -5,7 +5,7 @@ overview: Cisco XDR connects the breadth of Cisco's integrated security portfoli
 product: ['logs']
 os: ['windows', 'linux']
 filters: ['Security']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/securex-logo.png # TODO: Replace with Cisco XDR logo if available
+logo:?
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
