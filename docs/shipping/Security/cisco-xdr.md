@@ -5,7 +5,7 @@ overview: Cisco XDR connects the breadth of Cisco's integrated security portfoli
 product: ['logs']
 os: ['windows', 'linux']
 filters: ['Security']
-logo:?
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/cisco-xdr.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
@@ -15,7 +15,9 @@ drop_filter: []
 ---
 
 
-> **Deprecation Notice:** Cisco SecureX is deprecated. Please use Cisco XDR for new integrations. This guide describes how to collect Cisco XDR events using the Logz.io API Fetcher.
+> **Deprecation Notice:** Cisco SecureX is deprecated. Use Cisco XDR for new integrations. 
+
+This guide describes how to collect Cisco XDR events using the Logz.io API Fetcher.
 
 :::note
 [Project's GitHub repo](https://github.com/logzio/logzio-api-fetcher)
@@ -30,7 +32,7 @@ docker pull logzio/logzio-api-fetcher:latest
 
 ### Create a local directory for this integration
 
-You will need a dedicated directory to use it as mounted directory for the Docker container of the Logz.io API fetcher.
+You will need a dedicated directory to mount into the Docker container of the Logz.io API fetcher.
 
 ```shell
 mkdir logzio-api-fetcher
@@ -58,7 +60,7 @@ apis:
       body:
         query: <xdr_query>
         limit: 1000
-      response_data_path: data 
+      response_data_path: data
     additional_fields:
       product: cisco_xdr
       source_type: security_event
@@ -75,8 +77,8 @@ apis:
 | data_request.pagination | Pagination settings if needed | Optional | - |
 | data_request.next_url | If needed to update the URL in next requests based on the last response | Optional | - |
 | data_request.response_data_path | The path to the data inside the response | Optional | response root |
-| additional_fields | Additional custom fields to add to the logs before sending to logzio | Optional | - |
-| scrape_interval | Time interval to wait between runs (unit: `minutes`) | Optional | 1 (minute) |
+| additional_fields | Additional custom fields to add to the logs before sending to Logz.io | Optional | - |
+| scrape_interval | Time interval to wait between runs (in minutes) | Optional | 1 (minute) |
 
 
 ### Authentication
@@ -91,9 +93,9 @@ Create an empty text file named last_start_dates.txt in the same directory as th
 touch last_start_dates.txt
 ```
 
-After every successful iteration of an API, the last start date of the next iteration will be written to last_start_dates.txt. Each line starts with the API name and ends with the last start date.
+After every successful iteration of an API, the last start date of the next iteration will be written to last_start_dates.txt. Each line begins with the API name and ends with the most recent start date.
 
-If you stopped the container, you can continue from the exact place you stopped, by adding the date to the API filters in the configuration.
+If you stop the container, you can resume exactly where you left off by adding the date to the API filters in the configuration.
 
 ### Run the Docker container
 In the path where you saved your `config.yaml`, run:
@@ -106,7 +108,7 @@ logzio/logzio-api-fetcher
 
 ### Stop the Docker container
 
-When you stop the container, the code will run until the iteration is completed. To make sure it will finish the iteration on time, please give it a grace period of 30 seconds when you run the `docker stop` command.
+When you stop the container, the code continues running until the current iteration is finished. To make sure it will finish the iteration on time, please give it a grace period of 30 seconds when you run the `docker stop` command.
 
 ```shell
 docker stop -t 30 logzio-api-fetcher
@@ -114,11 +116,9 @@ docker stop -t 30 logzio-api-fetcher
 
 ### Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours,
-and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for data of your custom field product value or type `api_fetcher` to see the incoming Cisco XDR logs.
+Give your logs a few moments to reach Logz.io. To view the incoming Cisco XDR logs, open [Explore](https://app.logz.io/#/dashboard/explore) and filter by your custom field’s product value or use the keyword `api_fetcher`.
 
-If you still don't see your logs,
-see log shipping troubleshooting.
+If you still don't see your logs, refer to the [log shipping troubleshooting](https://docs.logz.io/docs/explore/troubleshooting/shipping-log-troubleshooting/).
 
  
 
