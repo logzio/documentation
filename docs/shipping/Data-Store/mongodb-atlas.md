@@ -42,7 +42,7 @@ receivers:
     private_key: <<YOUR-MONGODB-ATLAS-PRIVATE-KEY>>
 
 exporters:
-  logging:
+  debug:
   prometheusremotewrite:
     endpoint: https://<<LISTENER-HOST>>:8053
     headers:
@@ -68,6 +68,11 @@ service:
       processors: [batch]
       exporters: [logging, prometheusremotewrite]
 ```
+
+:::note
+Ensure that your service pipeline includes the `debug` exporter in the `exporters` section.
+See the OpenTelemetry [Debug Exporter documentation](https://github.com/open-telemetry/opentelemetry-collector/blob/v0.111.0/exporter/debugexporter/README.md) for more details.
+:::
 
 {@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
 * Replace `<<YOUR-MONGODB-ATLAS-PUBLIC-KEY>>` with the public key to your MongoDB Atlas organization or project.
