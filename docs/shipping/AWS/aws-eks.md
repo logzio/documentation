@@ -14,19 +14,27 @@ metrics_alerts: []
 drop_filter: []
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 The logzio-monitoring Helm Chart ships your EKS Fargate telemetry (logs, metrics, traces and security reports) to your Logz.io account.
  
 
 ## Prerequisites 
 
 * [Helm](https://helm.sh/)
-
-
 * Add Logzio-helm repository
-`helm repo add logzio-helm https://logzio.github.io/logzio-helm && helm repo update`
+  `helm repo add logzio-helm https://logzio.github.io/logzio-helm && helm repo update`
+
+<Tabs>
+<TabItem value="send-all-data" label="Send All Telemetry Data" default>
 
 {@include: ../../_include/general-shipping/k8s-all-data.md}  
 
+
+</TabItem>
+<TabItem value="auto-mode-clusters" label="EKS Auto Mode Clusters" default>
 
 ## Running Logz.io on EKS Auto Mode Clusters
 
@@ -39,14 +47,33 @@ key: "CriticalAddonsOnly"
 effect: "NoSchedule"
 ```
 
-To support this, update each sub-chart in your Helm configuration with the following:
+You can configure tolerations globally for all sub-charts using global tolerations (recommended), by using values.yaml:
 
 ```yaml
-tolerations:
-  - key: "CriticalAddonsOnly"
-    operator: "Exists"
-    effect: "NoSchedule"
+global:
+  tolerations:
+    - key: "CriticalAddonsOnly"
+      operator: "Exists"
+      effect: "NoSchedule"
+```
 
+Or by using command line flags:
+
+```bash
+--set 'global.tolerations[0].key=CriticalAddonsOnly' \
+--set 'global.tolerations[0].operator=Exists' \
+--set 'global.tolerations[0].effect=NoSchedule'
+```
+
+#### Node affinity configuration
+
+Set affinity to empty to bypass affinity constraints. This allows pods to be scheduled on any available nodes, including EKS Auto mode nodes:
+
+`affinity: {}`
+
+If targeting specific compute types, configure the nodeAffinity to explicitly target EKS Auto mode nodes:
+
+```yaml
 affinity:
   nodeAffinity:
     requiredDuringSchedulingIgnoredDuringExecution:
@@ -58,12 +85,24 @@ affinity:
                 - auto
 ```
 
-If you’re not targeting specific compute types, you can also set affinity to empty to bypass affinity constraints.
+
+If you're using an older version of the Helm chart or need per-chart customization, you'll need to manually configure tolerations and node affinity for each sub-chart you plan to install:
+
+```yaml
+tolerations:
+  - key: "CriticalAddonsOnly"
+    operator: "Exists"
+    effect: "NoSchedule"
+```
+
+For affinity configuration in this approach, refer to the Node Affinity Configuration section above.
+
+</TabItem>
+</Tabs>
 
 ## Send your logs 
  
-
-Send your logs
+To send your logs, run the following:
 
 ```sh
 helm install -n monitoring \
