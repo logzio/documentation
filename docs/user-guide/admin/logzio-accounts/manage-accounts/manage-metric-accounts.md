@@ -53,3 +53,11 @@ To delete an account, click the **⋮** icon and select **Remove account**.
 Deleting an account will return its UTS allocation to the main account. All data associated with the deleted account will be permanently removed.
 
 This action cannot be undone.
+
+## Configure your account limits
+
+You can adjust your account’s daily volume and data retention period to fit your current monitoring needs.
+
+To make changes, go to the [Plan and usage](https://app.logz.io/#/dashboard/settings/plan-and-billing/plan) page, select the telemetry type you want to update, and click **Update plan**.
+
+To edit your metrics account, select Infrastructure Monitoring. From there, you can modify the Time series (TS) and billing cycle (monthly or yearly). When you're ready, click **Proceed to checkout** to apply the changes.
