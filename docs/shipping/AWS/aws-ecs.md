@@ -173,3 +173,110 @@ Install the pre-built dashboard to enhance the observability of your metrics.
 <!-- logzio-inject:install:grafana:dashboards ids=["4pY46CjyNMoHWGB3gjgQWd"] -->
 
 {@include: ../../_include/metric-shipping/generic-dashboard.html}
+
+## Configure AWS to forward traces to Logz.io
+
+**Before you begin, you'll need:**
+
+An application instrumented with an OpenTelemetry instrumentation or any other supported instrumentations based on OpenTracing, Zipkin or Jaeger.
+
+* [Instrument Java application](https://docs.logz.io/docs/shipping/Code/Java/#traces)
+* [Instrument Node.js application](https://docs.logz.io/docs/shipping/Code/Node-js/#traces)
+* [Instrument Python application](https://docs.logz.io/docs/shipping/Code/Python/)
+
+### Configure the OpenTelemetry Collector
+
+The OpenTelemetry Collector receives traces from the application and exports them to Logz.io.
+
+#### 1. **Create AWS SSM Parameter**
+
+Go to AWS Systems Manager >> Parameter Store >> Create parameter:
+- Set **Name** to `logzioOtelConfig.yaml`
+- Keep **Type** as `String` and **Data type** as `text`
+- In **Value** paste the below configuration:
+
+{@include: ../../_include/tracing-shipping/collector-config.md}
+
+#### 2. **Create Role to allow the ECS task to access the SSM Parameter**
+
+Copy the ARN of the SSM parameter that was created in step [[1]](https://docs.logz.io/docs/shipping/code/java/#1-create-aws-ssm-parameter).
+- Create an [IAM Policy](https://us-east-1.console.aws.amazon.com/iam) and add it to the following permissions:
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "ssm:GetParameters",
+      "Resource": [
+        "<ARN_FROM_STEP_1>"
+      ]
+    }
+  ]
+}
+```
+- Add the policy to your existing task [IAM Role](https://us-east-1.console.aws.amazon.com/iam) or create a new one and attach the policy to it.
+- If you created a new role for the ECS task, copy the Role ARN, as you'll need it later.
+
+#### 3. **Create log groups for your OpenTelemetry Collector in CloudWatch.**
+
+You can either do so from [AWS Console](https://us-east-1.console.aws.amazon.com/cloudwatch), or via AWS CLI:
+```shell
+aws logs create-log-group --log-group-name /ecs/otel-collector
+```
+
+### Define ECS Task
+
+Create a task definition for ECS that defines both your application container and the OpenTelemetry Collector container:
+```json
+{
+  "family": "<APP>-app-task",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::<AWS_ACCOUNT_ID>:role/ecsTaskExecutionRole",
+  "taskRoleArn": "<TASK_ROLE_ARN>",
+  "containerDefinitions": [
+    {
+        <Your existing application container definitions>
+    },
+    {
+      "name": "otel-collector",
+      "image": "otel/opentelemetry-collector-contrib",
+      "cpu": 128,      
+      "essential": false,
+      "command": [
+          "--config",
+          "env:OTEL_CONFIG"
+      ],
+      "environment": [],
+      "secrets": [
+          {
+              "name": "OTEL_CONFIG",
+              "valueFrom": "logzioOtelConfig.yaml"
+          }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/otel-collector",
+          "awslogs-region": "<AWS-REGION>",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    }
+  ]
+}
+```
+
+:::note
+Replace:
+- `<AWS-REGION>` with your AWS account region name
+- `<AWS_ACCOUNT_ID>` with your AWS account ID
+- `<TASK_ROLE_ARN>` with the ARN of the role that was created in step [2]
+:::
+
+### Verify Application and Tracing
+
+After deploying, run your application to generate activity that will create tracing data. Wait a few minutes, then check the Logz.io dashboard to confirm that traces are being sent correctly. 

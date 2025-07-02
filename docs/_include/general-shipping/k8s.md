@@ -96,9 +96,25 @@ For a parameter called `someField` in the `logzio-logs-collector`'s `values.yaml
 --set logzio-logs-collector.someField="my new value"
 ```
 
-
 Adding `log_type` annotation with a custom value will be parsed into a `log_type` field with the same value.
 
+#### Default Log Level Detection
+
+By default, the `logzio-logs-collector` sets a `log_level` attribute by scanning for keywords in the log message (e.g., `error`, `debug`, `warning`). This is useful when logs don’t include an explicit log level field.
+
+If your logs already include a `level`, `severity`, or similar field, and you want to use it instead, you can override the default transformation to use your existing field:
+
+```shell
+helm install -n monitoring --create-namespace \
+  --set logs.enabled=true \
+  --set global.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
+  --set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+  --set global.env_id="<<CLUSTER-NAME>>" \
+  --set logzio-logs-collector.config.processors.transform/log_level.log_statements[0].statements[0]='set(attributes["log_level"], body["level"])' \
+  logzio-monitoring logzio-helm/logzio-monitoring
+```
+
+This prevents the collector from overriding your original log level with keyword-based detection.
 
 
 </TabItem>
