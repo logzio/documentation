@@ -35,6 +35,13 @@ With LogMetrics, you can create the following types of metrics:
 * Log metrics rules must be configured in the account **where the relevant logs are stored**.
 * Log metrics are processed **before** drop filters, allowing you to generate metrics from logs while still filtering them out afterward.
 
+### Field name format
+
+:::caution note
+Fields with dot notation (e.g., kubernetes.labels.app) are treated as nested structures. As a result, these fields are incompatible with LogMetrics, which expect flat field names.
+
+If your log data contains fields with dots and you need to use them with LogMetrics, contact the [Logz.io support team](mailto:help@logz.io).
+:::
 
 ### 1. Find the relevant logs
 

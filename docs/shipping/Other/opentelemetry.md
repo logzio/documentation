@@ -46,7 +46,7 @@ Add the following to the exporters section of your `config.yaml`:
 ```yaml
 exporters:
   logzio/logs:
-    account_token: <<LOGS-SHIPPING-TOKEN>>
+    account_token: <<LOG-SHIPPING-TOKEN>>
     region: <<LOGZIO_ACCOUNT_REGION_CODE>>
     headers:
       user-agent: logzio-opentelemetry-logs

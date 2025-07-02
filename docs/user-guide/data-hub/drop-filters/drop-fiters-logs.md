@@ -13,7 +13,7 @@ Drop filters check if incoming logs match specific criteria exactly, based on fi
 
 To get started with Drop Log Filters, navigate to [Data Hub > Drop Filters > Log](https://app.logz.io/#/dashboard/tools/logs-drop-filters).
 
-![Drop filters logs overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/drop-filters/drop-filters-dec24.png)
+![Drop filters logs overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/drop-filters/drop-filters-apr24.png)
 
 The drop filters table lists all filters, whether active or not. Each filter has a rule, description, threshold, and status. You can easily switch any filter on or off whenever you like, and the changes will take effect in about a minute.
 
@@ -45,7 +45,7 @@ You can also set a **threshold** for the drop filter to manage when logs are exc
 When you set a threshold, a `LogSize` field is automatically added to your logs.
 
 :::tip note
-Threshold rules run every 15 minutes.
+Threshold rules run every 5 minutes. For example, if your threshold is set to 1 GB and 5 GB of logs are shipped within a 5 minute window, all 5 GB will be ingested. The drop rule will only apply in the next interval.
 :::
 
 Confirm the settings by checking the acknowledgment box and clicking **Apply filter** to activate.

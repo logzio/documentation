@@ -26,11 +26,9 @@ At the end of this process, your Azure function will forward logs from an Azure 
 :::
 
 
-## Configuration
+## Setting up Log Shipping from Azure
 
-### Setting up Log Shipping from Azure
-
-#### Deploy the Logz.io Python Template👇 
+### Deploy the Logz.io Python Template👇 
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Flogzio%2Fazure-serverless%2Fmaster%2Fdeployments%2Fazuredeploylogs.json)
 
@@ -46,7 +44,7 @@ This deployment will create the following services:
 * Log Analytics Workspace
 * Application Insights
 
-#### Configure the Template
+### Configure the Template
 
 Use these settings when configuring the template:
 
@@ -63,11 +61,13 @@ Use these settings when configuring the template:
 | logType         | The type of the logs being processed (default: eventHub).               |
 
 
-*Required fields.
+:::note
+`*` marks required fields.
+:::
 
 After setting the parameters, click **Review + Create**, and then **Create** to deploy.
 
-#### Stream Azure Service Data
+### Stream Azure Service Data
 
 Configure your Azure services to stream logs to the newly created Event Hub. For each service:
 
@@ -76,19 +76,19 @@ Configure your Azure services to stream logs to the newly created Event Hub. For
 
 For more details, see [Microsoft's documentation](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs).
 
-##### Verify Data Reception in Logz.io
+#### Verify Data Reception in Logz.io
 
 Allow some time for data to flow from Azure to Logz.io, then check your Logz.io account. You should see logs of the type `eventHub` in Logz.io.
 
-##### Backup for Unshipped Logs
+#### Backup for Unshipped Logs
 
 The deployment includes a backup mechanism for logs that fail to ship to Logz.io. By default, these logs are stored in the **failedlogbackup** blob container, but this can be customized to a different container name of your choice during the setup process.
 
-##### Post-Deployment Configuration
+#### Post-Deployment Configuration
 
 To modify configuration after deployment, visit your Function App's **Configuration** tab. You can adjust settings such as `LogzioURL`, `LogzioToken`, `bufferSize`, and more.
 
-#### Check Logz.io for your logs
+### Check Logz.io for your logs
 
 Give your data some time to get from your system to ours, and then open your [Logz.io Open Search Dashboards account](https://app.logz.io/#/dashboard/osd/discover?).
 If everything went according to plan, you should see logs of the `type:eventHub` in Open Search Dashboards.
@@ -105,7 +105,7 @@ As an alternative to the Azure Template, you can use Terraform to set up your lo
 - Terraform installed on your local machine.
 - Azure CLI installed and configured with your Azure account credentials.
 
-#### Steps to Deploy using Terraform
+### Steps to Deploy using Terraform
 
 1. **Obtain the Terraform Configuration**: Use curl to download only the `azuredeploylogs.tf` and `variables.tf` files from the GitHub repository.
 

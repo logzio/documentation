@@ -1,7 +1,7 @@
 {
-  "label": "GCP",
+  "label": "Google",
   "position": 11,
   "customProps": {
-    "description": "Send data from your GCP services."
+    "description": "Send data from your Google services."
   }
 }

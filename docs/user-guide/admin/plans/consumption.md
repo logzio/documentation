@@ -4,7 +4,6 @@ title: Consumption-Based Model
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Learn more about Logz.io's consumption based model
 keywords: [account, manage account, payments, consumption, admin controls, admin, access control]
-slug: /docs/user-guide/admin/consumption/
 ---
 
 Logz.io offers a consumption-based pricing plan that lets you set a budget to cover all of your data monitoring needs, including logs, metrics, traces, and SIEM. 

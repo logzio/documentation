@@ -70,6 +70,7 @@ For a list of options, see the configuration parameters below the code block. ðŸ
     Workers 1
     logzio_token <<LOG-SHIPPING-TOKEN>>
     logzio_url   https://<<LISTENER-HOST>>:8071
+    id <<YOUR-OUTPUT-ID>>
 ```
 
 ### Parameters 
@@ -84,6 +85,7 @@ For a list of options, see the configuration parameters below the code block. ðŸ
 | proxy_host | Support HTTP proxy processing. | Optional, supported format: `<PROXY_HOST>:<PROXY_PORT>` |
 | proxy_user | Support HTTP proxy user authentication. | Optional, default is `""` |
 | proxy_pass | Support HTTP proxy password authentication. | Optional, default is `""` |
+| id | Replace `<<YOUR-OUTPUT-ID>>` with your output ID. e.g: `logzio_output_1` . Recommended to set explicitly. | Required |
 
 
 ### Run Fluent Bit with the Logz.io plugin
@@ -138,7 +140,7 @@ For a list of options, see the configuration parameters below the code block. ðŸ
     Match *
     logzio_token <<LOG-SHIPPING-TOKEN>>
     logzio_url   https://<<LISTENER-HOST>>:8071
-    id <<any string>>
+    id <<YOUR-OUTPUT-ID>>
 ```
 
 ###  Parameters
@@ -149,7 +151,7 @@ For a list of options, see the configuration parameters below the code block. ðŸ
 | logzio_url  | Listener URL and port. {@include: ../../_include/log-shipping/listener-var.html}  | `https://listener.logz.io:8071` |
 | logzio_type   | {@include: ../../_include/log-shipping/type.md} | `logzio-fluent-bit` |
 | logzio_debug    | Set to `true` to print debug messages to stdout. | `false` |
-| id | Output id. Mandatory when using multiple outputs. | `logzio_output_1` |
+| id | Replace `<<YOUR-OUTPUT-ID>>` with your output ID. e.g: `logzio_output_1` . Recommended to set explicitly. | Required |
 
 
 

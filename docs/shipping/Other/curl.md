@@ -17,7 +17,34 @@ drop_filter: []
 
  
 
-cURL is a command line utility for transferring data, useful for testing configurations or troubleshooting connectivity to Logz.io. You can upload JSON or plain text files.
+cURL is a command line utility for transferring data, useful for testing configurations or troubleshooting connectivity to Logz.io. You can upload JSON or plain text files. 
+
+## Send plain text as a JSON payload
+
+1. Download [cURL](https://curl.haxx.se/download.html).
+
+2. To send a single text log line using cURL, use the following command. This sends your message as a JSON payload:
+
+```shell
+curl --location 'https://listener.logz.io:8071?token=<<SHIPPING_TOKEN>>&type=text' \
+--header 'Content-Type: application/json' \
+--data '{"<<test>>": "<<support>>"}'
+```
+
+Replace `<<SHIPPING_TOKEN>>` with your account's shipping token.
+
+:::note
+The request body is a list of logs in minified JSON format, with each log separated by a newline `(\n)`.
+:::
+
+This method sends a JSON-formatted string, where the text is treated as the log message content.
+
+3. View your logs
+
+Allow some time for data ingestion, then open [Explore](https://app.logz.io/#/dashboard/explore).
+
+
+
 
 ## Upload a JSON log file
 
@@ -44,11 +71,15 @@ cat /path/to/log/file | curl -X POST "https://<<LISTENER-HOST>>:8071?token=<<LOG
 
 3. View your logs
 
-Allow some time for data ingestion, then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
+Allow some time for data ingestion, then open [Explore](https://app.logz.io/#/dashboard/explore).
 
 Encounter an issue? See our [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/) guide.
 
  
+
+
+
+
 ## Upload a plain text log file
 
 
@@ -77,7 +108,7 @@ Replace the placeholders to match your specifics. (They are indicated by the dou
 
 3. View your logs
 
-Allow some time for data ingestion, then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
+Allow some time for data ingestion, then open [Explore](https://app.logz.io/#/dashboard/explore).
 
 Encounter an issue? See our [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/) guide.
 

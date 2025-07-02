@@ -1,6 +1,6 @@
 {
   "label": "Log Parsing",
-  "position": 7,
+  "position": 8,
   "link": {
     "type": "generated-index",
     "description": "Everything you need to know about log parsing in Logz.io."
