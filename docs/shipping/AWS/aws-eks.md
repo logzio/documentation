@@ -86,7 +86,7 @@ affinity:
 ```
 
 
-If you're using an older version of the Helm chart or need per-chart customization, you'll need to manually configure tolerations and node affinity for each sub-chart you plan to install:
+If you're using a version of the Helm chart older than v7.1.3 or need per-chart customization, you'll need to manually configure tolerations and node affinity for each sub-chart you plan to install:
 
 ```yaml
 tolerations:
