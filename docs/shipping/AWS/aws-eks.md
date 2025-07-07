@@ -14,24 +14,95 @@ metrics_alerts: []
 drop_filter: []
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
 The logzio-monitoring Helm Chart ships your EKS Fargate telemetry (logs, metrics, traces and security reports) to your Logz.io account.
  
 
 ## Prerequisites 
 
 * [Helm](https://helm.sh/)
-
-
 * Add Logzio-helm repository
-`helm repo add logzio-helm https://logzio.github.io/logzio-helm && helm repo update`
+  `helm repo add logzio-helm https://logzio.github.io/logzio-helm && helm repo update`
+
+<Tabs>
+<TabItem value="send-all-data" label="Send All Telemetry Data" default>
 
 {@include: ../../_include/general-shipping/k8s-all-data.md}  
 
 
+</TabItem>
+<TabItem value="auto-mode-clusters" label="EKS Auto Mode Clusters" default>
+
+## Running Logz.io on EKS Auto Mode Clusters
+
+If you're deploying Logz.io’s Helm chart on EKS Auto mode, you’ll need to manually configure tolerations and node affinity for each sub-chart you plan to install. This ensures compatibility with the scheduling constraints and taints used by EKS Auto mode.
+
+EKS Auto mode nodes typically include the following taint:
+
+```yaml
+key: "CriticalAddonsOnly"
+effect: "NoSchedule"
+```
+
+You can configure tolerations globally for all sub-charts using global tolerations (recommended), by using values.yaml:
+
+```yaml
+global:
+  tolerations:
+    - key: "CriticalAddonsOnly"
+      operator: "Exists"
+      effect: "NoSchedule"
+```
+
+Or by using command line flags:
+
+```bash
+--set 'global.tolerations[0].key=CriticalAddonsOnly' \
+--set 'global.tolerations[0].operator=Exists' \
+--set 'global.tolerations[0].effect=NoSchedule'
+```
+
+#### Node affinity configuration
+
+Set affinity to empty to bypass affinity constraints. This allows pods to be scheduled on any available nodes, including EKS Auto mode nodes:
+
+`affinity: {}`
+
+If targeting specific compute types, configure the nodeAffinity to explicitly target EKS Auto mode nodes:
+
+```yaml
+affinity:
+  nodeAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      nodeSelectorTerms:
+        - matchExpressions:
+            - key: eks.amazonaws.com/compute-type
+              operator: In
+              values:
+                - auto
+```
+
+
+If you're using a version of the Helm chart older than v7.1.3 or need per-chart customization, you'll need to manually configure tolerations and node affinity for each sub-chart you plan to install:
+
+```yaml
+tolerations:
+  - key: "CriticalAddonsOnly"
+    operator: "Exists"
+    effect: "NoSchedule"
+```
+
+For affinity configuration in this approach, refer to the Node Affinity Configuration section above.
+
+</TabItem>
+</Tabs>
+
 ## Send your logs 
  
-
-Send your logs
+To send your logs, run the following:
 
 ```sh
 helm install -n monitoring \
