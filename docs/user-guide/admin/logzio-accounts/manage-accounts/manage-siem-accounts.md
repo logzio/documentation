@@ -57,3 +57,11 @@ Click **Save changes** to apply your updates.
 To delete a Security account, click the **⋮** icon and select **Remove account**. This will permanently delete all associated data.
 
 This action cannot be undone.
+
+## Configure your account limits
+
+You can adjust your account’s daily volume and data retention period to fit your current monitoring needs.
+
+To make changes, go to the [Plan and usage](https://app.logz.io/#/dashboard/settings/plan-and-billing/plan) page, select the telemetry type you want to update, and click **Update plan**.
+
+From there, you can modify the Daily SIEM volume (GB) and billing cycle (monthly or yearly). When you're ready, click **Proceed to checkout** to apply the changes.
