@@ -905,7 +905,8 @@
 /shipping/log-sources/guardduty.html				/docs/shipping/aws/guardduty/
 /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-route-53.html/1000				/docs/shipping/aws/aws-route-53/
 /user-guide/infrastructure-monitoring/metrics-dashboards/redis.html/1000				/docs/shipping/database/redis/
-docs/shipping/Other/App360				/docs/shipping/Other/Service-Performance-Monitoring-App360
+/docs/shipping/Other/App360				/docs/shipping/Other/Service-Performance-Monitoring-App360
+/docs/shipping/Security/Cisco-SecureX/				/docs/shipping/Security/Cisco-XDR/
 # API				
 /docs/logz/logz-io-api				https://api-docs.logz.io/docs/logz/logz-io-api/
 /api/index.html				https://api-docs.logz.io/docs/logz/logz-io-api/
