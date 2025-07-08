@@ -182,7 +182,7 @@ An application instrumented with an OpenTelemetry instrumentation or any other s
 
 * [Instrument Java application](https://docs.logz.io/docs/shipping/Code/Java/#traces)
 * [Instrument Node.js application](https://docs.logz.io/docs/shipping/Code/Node-js/#traces)
-* [Instrument Python application](https://docs.logz.io/docs/shipping/Code/Python/)
+* [Instrument Python application](https://docs.logz.io/docs/shipping/Code/Python/#traces)
 
 ### Configure the OpenTelemetry Collector
 

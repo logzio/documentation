@@ -1435,7 +1435,7 @@ Go to AWS Systems Manager >> Parameter Store >> Create parameter:
 #### 2. **Create Role to allow the ECS task to access the SSM Parameter**
 
 Copy the ARN of the SSM parameter that was created in step [[1]](https://docs.logz.io/docs/shipping/code/python/#1-create-aws-ssm-parameter).
-- Create an [IAM Policy](https://us-east-1.console.aws.amazon.com/iam) and add it to the permissions below:
+- Create an [IAM Policy](https://us-east-1.console.aws.amazon.com/iam) that includes the following permissions:
 ```json
 {
   "Version": "2012-10-17",
