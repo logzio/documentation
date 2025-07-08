@@ -575,7 +575,7 @@ This query:
 * Filters to only show pods where the `team` label equals `team123`
 * Groups results by namespace, pod, and environment ID
 
-=======
+</TabItem>
 <TabItem value="loglevel-detect" label="Log Level Detection" default>
 
 ## Default Log Level Detection
