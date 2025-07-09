@@ -7,6 +7,50 @@ keywords: [release notes, logzio, logs, metrics, traces, logz.io, updates, relea
 toc_max_heading_level: 2
 ---
 
+## July 2025
+
+### Logz.io Dashboards
+
+Logz.io Dashboards are now generally available to all customers, providing an interface for visualizing and exploring your observability data. This release includes several additional capabilities:
+
+**New Metrics Builder in Logz.io Dashboards**
+Logz.io Dashboards now include a Metrics Builder - a new interface for constructing PromQL queries. Users can browse available metrics, labels, and values, with PromQL expressions generated in real time based on their selections. This helps simplify data exploration and query building, eliminating the need to write PromQL manually.
+
+**Drilldown links**
+You can now make any table cell clickable by turning column values into customizable links. To set this up, go to Column Settings, click Link, and enable the Enabling Link option. This allows for quick and easy drilldowns directly from your tables.
+
+**Dashboard Management via API**
+You can now manage Logz.io Dashboards using our API - create, update, delete, and retrieve dashboards as needed. This provides a flexible way to access and automate native dashboards, streamlining dashboard operations. For full details, see the API documentation.
+
+**Migrating Dashboards from OpenSearch Dashboards or Grafana**
+You can now migrate your existing dashboards from OpenSearch Dashboards or Grafana into Logz.io Dashboards. [Contact our support team](mailto:help@logz.io) to get started with the migration process.
+
+[Try it now in your Logz.io Dashboard](https://app.logz.io/#/dashboard/dashboards-hub).
+
+### Core Updates
+
+**Logz.io Agent Manifest Integration upgraded to v2.0.6**
+* Added traces and span metrics pipelines for Linux, Linux EC2, macOS, and Windows
+* Upgraded OpenTelemetry version from `v0.82.0` to `v0.109.0`
+* Introduced new parameters for localhost types: `samplingLatency`, `samplingProbability`, `isSpanMetrics`
+* Added OpenTelemetry templates for traces and span metrics
+* Added localhost end-to-end tests for Linux, macOS, and Windows
+
+[View on GitHub](https://github.com/logzio/logzio-agent-manifest)
+
+**Logz.io Monitoring Helm Chart upgraded to v7.3.1**
+* Upgraded logzio-k8s-telemetry chart to `v5.2.1`
+    * Fixed Pod Disruption Budget selector label for the SPM collector (Contributed by @jod972)
+    * Added `PriorityClassName` support for the SPM collector (Contributed by @jod972)
+    * Added configurable replica counts for Traces and SPM collectors
+* Upgraded `logzio-logs-collector` chart to `v2.1.0`
+    * Updated `otel/opentelemetry-collector-contrib` image to `v0.127.0`
+        *  Note: The `time` attribute has been removed from the log record. The log timestamp is now only available under `@timestamp` in Logz.io.
+
+
+[View on GitHub](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-monitoring)
+
+
 ## June 2025
 
 ### AI Agent
@@ -25,7 +69,7 @@ The Dashboards Beta now includes several new capabilities:
 * Explore integration - Send visualizations from Explore directly to a dashboard with one click.
 * Improved tables and filters - Use new column types (e.g., links, gauges) and enhanced filters for more actionable dashboards.
 
-Note: Logz.io Dashboards are in beta. To join, contact your account manager or [Logz.io support](help@logz.io).
+Note: Logz.io Dashboards are in beta. To join, contact your account manager or [Logz.io support](mailto:help@logz.io).
 
 ### Core Updates
 

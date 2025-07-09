@@ -1,7 +1,7 @@
 ---
-id: GCP-Workspace
-title: GCP Workspace
-overview: Send Google Cloud Workspace metrics to your Logz.io account.
+id: Google-Workspace
+title: Google Workspace
+overview: Send Google Workspace logs and metrics to your Logz.io account.
 product: ['logs', 'metrics', 'siem']
 os: ['windows', 'linux']
 filters: ['GCP', 'Other']
@@ -21,17 +21,6 @@ import TabItem from '@theme/TabItem';
 
 ## Logs
 You can send your data to Logz.io using one of the following methods:
-
-<Tabs>
- <TabItem value="GCP-Pubsub" label="Google Pub\Sub" default>
-
-### Google Cloud Pub/Sub
-Forward Google Workspace Logs to Google Cloud Platform (GCP) and use Logz.io’s Pub/Sub integration to forward the data to Logz.io.
-
-{@include: ../../_include/general-shipping/gcp-logs.md}
-
-  </TabItem>
-  <TabItem value="API-Fetcher" label="Google API" default>
 
 ### Google Workspace API
 Extract data directly from the Google Workspace API and forward it to Logz.io using the Logz.io API Fetcher.
@@ -206,9 +195,6 @@ When you want to stop the container, to make sure it will finish the iteration o
 ```shell
 docker stop -t 30 logzio-api-fetcher
 ```
-
-  </TabItem>
-</Tabs>
 
 ### Check Logz.io for your logs
 

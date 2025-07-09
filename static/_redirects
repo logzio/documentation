@@ -381,9 +381,9 @@
 /docs/user-guide/distributed-tracing/spm/	                                /docs/user-guide/app360/service-list/
 /docs/shipping/aws/aws-kafka/	                                /docs/shipping/aws/aws-msk/
 /docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts/	                                /docs/category/manage-logzio-accounts/
-/docs/user-guide/admin/logzio-accounts/manage-the-main-account-and-sub-accounts/*	                                /docs/category/manage-logzio-accounts/
 /docs/k8s-360/unified-helm-chart/#adding-tolerations-for-tainted-nodes	                                /docs/k8s-360/unified-helm-chart/#advanced-configuration-and-troubleshooting
 /docs/user-guide/admin/consumption/	                                /docs/user-guide/admin/plans/consumption/
+/docs/shipping/GCP/GCP-Workspace/	                                /docs/shipping/GCP/Google-Workspace/
 # Shippers				
 /shipping/				/docs/category/send-your-data/
 /user-guide/log-shipping/				/docs/category/send-your-data/
@@ -905,7 +905,8 @@
 /shipping/log-sources/guardduty.html				/docs/shipping/aws/guardduty/
 /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-route-53.html/1000				/docs/shipping/aws/aws-route-53/
 /user-guide/infrastructure-monitoring/metrics-dashboards/redis.html/1000				/docs/shipping/database/redis/
-docs/shipping/Other/App360				/docs/shipping/Other/Service-Performance-Monitoring-App360
+/docs/shipping/Other/App360				/docs/shipping/Other/Service-Performance-Monitoring-App360
+/docs/shipping/Security/Cisco-SecureX/				/docs/shipping/Security/Cisco-XDR/
 # API				
 /docs/logz/logz-io-api				https://api-docs.logz.io/docs/logz/logz-io-api/
 /api/index.html				https://api-docs.logz.io/docs/logz/logz-io-api/
