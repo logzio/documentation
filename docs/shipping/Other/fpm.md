@@ -71,7 +71,7 @@ processors:
 
 
 exporters:
- logging:
+ debug:
  logzio/logs:
    account_token: <<LOG-SHIPPING-TOKEN>>
    region: <<LOGZIO_ACCOUNT_REGION_CODE>> # Default is US
@@ -96,6 +96,11 @@ service:
    metrics:
      address: localhost:8899
 ```
+
+:::note
+Ensure that your service pipeline includes the `debug` exporter in the `exporters` section.
+See the OpenTelemetry [Debug Exporter documentation](https://github.com/open-telemetry/opentelemetry-collector/blob/v0.111.0/exporter/debugexporter/README.md) for more details.
+:::
 
 @include: ../../_include/log-shipping/log-shipping-token.html}
 

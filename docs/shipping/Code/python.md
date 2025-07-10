@@ -704,7 +704,7 @@ receivers:
       http:
 
 exporters:
-  logging:
+  debug:
     loglevel: info
   prometheusremotewrite:
     endpoint: "<<LISTENER-HOST>>:<PORT>>" # example: https://listener.logz.io:8053
@@ -720,6 +720,11 @@ service:
       receivers: [otlp]
       exporters: [logging,prometheusremotewrite]
 ```
+
+:::note
+Ensure that your service pipeline includes the `debug` exporter in the `exporters` section.
+See the OpenTelemetry [Debug Exporter documentation](https://github.com/open-telemetry/opentelemetry-collector/blob/v0.111.0/exporter/debugexporter/README.md) for more details.
+:::
 
 Replace the placeholders to match your data:
 
@@ -959,7 +964,7 @@ receivers:
 
 ```yaml
 exporters:
- logging:
+ debug:
  prometheusremotewrite:
    resource_to_telemetry_conversion:
      enabled: true
@@ -967,6 +972,11 @@ exporters:
    headers:
      Authorization: Bearer <<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
 ```
+
+:::note
+Ensure that your service pipeline includes the `debug` exporter in the `exporters` section.
+See the OpenTelemetry [Debug Exporter documentation](https://github.com/open-telemetry/opentelemetry-collector/blob/v0.111.0/exporter/debugexporter/README.md) for more details.
+:::
 
 {@include: ../../_include/log-shipping/listener-var.html}
 
@@ -1162,7 +1172,7 @@ exporters:
     account_token: "<<TRACING-SHIPPING-TOKEN>>"
     region: "<<LOGZIO_ACCOUNT_REGION_CODE>>"
 
-  logging:
+  debug:
 
 processors:
   batch:
@@ -1202,6 +1212,10 @@ service:
       exporters: [logging, logzio/traces]
 ```
  
+:::note
+Ensure that your service pipeline includes the `debug` exporter in the `exporters` section.
+See the OpenTelemetry [Debug Exporter documentation](https://github.com/open-telemetry/opentelemetry-collector/blob/v0.111.0/exporter/debugexporter/README.md) for more details.
+:::
 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
