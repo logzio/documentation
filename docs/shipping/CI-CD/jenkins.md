@@ -121,7 +121,8 @@ If you still don't see your logs, see [Filebeat troubleshooting](https://docs.lo
 
 
 ## Metrics
-
+<Tabs>
+  <TabItem value="telegraf" label="Telegraf" default>
 To send your Prometheus-format Jenkins metrics to Logz.io, you need to add the **inputs.prometheus** and **outputs.http** plug-ins to your Telegraf configuration file.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["7bmikAb2xNPTy7PESlBqXY"] -->
@@ -158,6 +159,134 @@ Now you need to configure the input plug-in to enable Telegraf to scrape the Jen
 
 {@include: ../../_include/metric-shipping/telegraf-outputs.md}
 {@include: ../../_include/general-shipping/replace-placeholders-prometheus.html}
+  
+  </TabItem>
+  
+  <TabItem value="opentelemetry-collector" label="OpenTelemetry Collector" default>
+
+## Sending Jenkins Metrics to Logz.io with OpenTelemetry
+
+This guide provides step-by-step instructions for configuring a Jenkins server to send metrics to your Logz.io account using the official Jenkins OpenTelemetry plugin and an OpenTelemetry Collector.
+
+We cover two common setup methods: using **Docker** for a containerized environment and a **Local/Native** installation for running directly on a host machine.
+
+### Prerequisites
+
+Before you begin, make sure you have:
+
+* A **Logz.io account** with access to the Metrics tab.
+* Your **Logz.io Metrics Shipping Token**.
+* Your account's **Logz.io Listener Host**. You can find the correct host for your region in the [Logz.io 
+documentation](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/
+#supported-regions-for-prometheus-metrics).
+* **Docker** installed and running (for the Docker setup).
+* **Java 11 or 17** installed on your system (for the Local/Native setup).
+
+### Step 1: Configure the OpenTelemetry Collector
+
+Create a file named `config.yaml` with the following content (applies to both setup methods):
+
+```yaml
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        # The collector listens on gRPC port 4317 on all available network interfaces.
+        endpoint: '0.0.0.0:4317'
+
+exporters:
+  prometheusremotewrite:
+    endpoint: 'https://<<YOUR-LOGZIO-LISTENER-HOST>>:8053'
+    headers:
+      Authorization: 'Bearer <<YOUR-LOGZIO-METRICS-TOKEN>>'
+
+processors:
+  batch:
+
+service:
+  pipelines:
+    metrics:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [prometheusremotewrite]
+```
+
+Replace the placeholders:
+
+* `<<YOUR-LOGZIO-LISTENER-HOST>>` – your account's listener host (for example `listener.logz.io` or `listener-eu.logz.io`).
+* `<<YOUR-LOGZIO-METRICS-TOKEN>>` – your Logz.io Metrics Shipping Token.
+
+### Step 2: Install and Run Jenkins & the Collector
+
+Choose the installation method that matches your environment.
+
+#### Method A: Docker Setup
+
+1. **Create a Docker network**
+
+   ```bash
+   docker network create jenkins-net
+   ```
+
+2. **Run the OpenTelemetry Collector container**
+
+   ```bash
+   docker run --name otel-collector -d --network jenkins-net -p 4317:4317 -v $(pwd)/config.yaml:/etc/otelcol-contrib/config.yaml otel/opentelemetry-collector-contrib:latest
+   ```
+
+3. **Run the Jenkins container**
+
+   ```bash
+   docker run --name jenkins-server -d --network jenkins-net -p 8080:8080 jenkins/jenkins:lts-jdk11
+   ```
+
+#### Method B: Local/Native Setup
+
+> **Note:** If you haven't already set up Jenkins, follow the [official Jenkins installation guide](https://www.jenkins.io/doc/book/installing/) for your operating system before proceeding with the steps below.
+
+1. **Download and run the Collector**
+
+   ```bash
+   # Make the binary executable (macOS/Linux)
+   chmod +x ./otelcol-contrib
+
+   # Run the collector
+   ./otelcol-contrib --config ./config.yaml
+   ```
+
+2. **Download and run Jenkins**
+
+   ```bash
+   java -jar jenkins.war
+   ```
+
+### Step 3: Configure the Jenkins OpenTelemetry Plugin
+
+1. Open `http://localhost:8080` in your browser and finish the Jenkins setup wizard.
+2. Go to **Manage Jenkins › Plugins › Available** and install the **OpenTelemetry** plugin (restart if prompted).
+3. Go to **Manage Jenkins › Configure System › OpenTelemetry** and set:
+   * **OTLP Endpoint**
+     * Docker setup: `http://otel-collector:4317`
+     * Local setup: `http://localhost:4317`
+   * **Authentication**: *No Authentication*
+4. Click **Save**.
+
+### Step 4: Verify the Integration
+
+1. Run a Pipeline job a few times to generate metrics.
+2. In Logz.io, open **Metrics › Metrics Explorer**.
+3. Search for metrics starting with `jenkins_` (for example `jenkins_job_duration_milliseconds_sum`, `jenkins_job_success_count`). Seeing these metrics confirms the integration is working.
+
+### Troubleshooting
+
+| Symptom | Possible Cause & Fix |
+|---------|----------------------|
+| `UnknownHostException` (Docker) | Jenkins and Collector containers are not on the same Docker network. Ensure both `docker run` commands include `--network jenkins-net`. |
+| `permission denied` or “malware” warning (Local) | Make the Collector executable (`chmod +x`) and, on macOS, remove the quarantine attribute (`xattr -d com.apple.quarantine <file>`). |
+| `Connection refused` | Ensure the Collector is running and that the OTLP endpoint value matches your setup (`otel-collector` for Docker, `localhost` for Local). |
+| No metrics in Logz.io | Check the listener host and token in `config.yaml` and review Collector logs (`docker logs otel-collector` or terminal output) for exporter errors. |
+
+</Tabs>
 
 #### Check Logz.io for your metrics
 
