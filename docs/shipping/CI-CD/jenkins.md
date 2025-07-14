@@ -121,6 +121,10 @@ If you still don't see your logs, see [Filebeat troubleshooting](https://docs.lo
 
 
 ## Metrics
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 <Tabs>
   <TabItem value="telegraf" label="Telegraf" default>
 To send your Prometheus-format Jenkins metrics to Logz.io, you need to add the **inputs.prometheus** and **outputs.http** plug-ins to your Telegraf configuration file.
