@@ -181,8 +181,7 @@ Before you begin, make sure you have:
 * A **Logz.io account** with access to the Metrics tab.
 * Your **Logz.io Metrics Shipping Token**.
 * Your account's **Logz.io Listener Host**. You can find the correct host for your region in the [Logz.io 
-documentation](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/
-#supported-regions-for-prometheus-metrics).
+documentation](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/#supported-regions-for-prometheus-metrics).
 * **Docker** installed and running (for the Docker setup).
 * **Java 11 or 17** installed on your system (for the Local/Native setup).
 
