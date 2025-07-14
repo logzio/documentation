@@ -268,12 +268,17 @@ Choose the installation method that matches your environment.
 
 1. Open `http://localhost:8080` in your browser and finish the Jenkins setup wizard.
 2. Go to **Manage Jenkins › Plugins › Available** and install the **OpenTelemetry** plugin (restart if prompted).
+
+IMAGE // opentelemetry-plugin.png
+
 3. Go to **Manage Jenkins › Configure System › OpenTelemetry** and set:
    * **OTLP Endpoint**
      * Docker setup: `http://otel-collector:4317`
      * Local setup: `http://localhost:4317`
    * **Authentication**: *No Authentication*
 4. Click **Save**.
+
+IMAGE // jenkins-otel-config.png
 
 ### Step 4: Verify the Integration
 
@@ -289,6 +294,8 @@ Choose the installation method that matches your environment.
 | `permission denied` or “malware” warning (Local) | Make the Collector executable (`chmod +x`) and, on macOS, remove the quarantine attribute (`xattr -d com.apple.quarantine <file>`). |
 | `Connection refused` | Ensure the Collector is running and that the OTLP endpoint value matches your setup (`otel-collector` for Docker, `localhost` for Local). |
 | No metrics in Logz.io | Check the listener host and token in `config.yaml` and review Collector logs (`docker logs otel-collector` or terminal output) for exporter errors. |
+
+  </TabItem>
 
 </Tabs>
 
