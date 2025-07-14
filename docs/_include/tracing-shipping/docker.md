@@ -62,7 +62,7 @@ service:
     traces:
       receivers: [otlp]
       processors: [tail_sampling, batch]
-      exporters: [logging, logzio/traces]
+      exporters: [debug, logzio/traces]
 ```
  
 :::note

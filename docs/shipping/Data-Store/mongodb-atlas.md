@@ -66,7 +66,7 @@ service:
     metrics:
       receivers: [mongodbatlas]
       processors: [batch]
-      exporters: [logging, prometheusremotewrite]
+      exporters: [debug, prometheusremotewrite]
 ```
 
 :::note

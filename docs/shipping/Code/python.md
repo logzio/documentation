@@ -718,7 +718,7 @@ service:
   pipelines:
     metrics:
       receivers: [otlp]
-      exporters: [logging,prometheusremotewrite]
+      exporters: [debug,prometheusremotewrite]
 ```
 
 :::note
@@ -997,7 +997,7 @@ service:
    metrics:
      receivers: [prometheus]
      processors: [resourcedetection/system]
-     exporters: [prometheusremotewrite, logging]
+     exporters: [prometheusremotewrite, debug]
 ```
 
 **5. Start the Collector**
@@ -1209,7 +1209,7 @@ service:
     traces:
       receivers: [otlp]
       processors: [tail_sampling, batch]
-      exporters: [logging, logzio/traces]
+      exporters: [debug, logzio/traces]
 ```
  
 :::note
