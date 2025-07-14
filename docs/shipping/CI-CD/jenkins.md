@@ -283,7 +283,7 @@ IMAGE // jenkins-otel-config.png
 
 1. Run a Pipeline job a few times to generate metrics.
 2. In Logz.io, open **Metrics › Metrics Explorer**.
-3. Search for metrics starting with `jenkins_` (for example `jenkins_job_duration_milliseconds_sum`, `jenkins_job_success_count`). Seeing these metrics confirms the integration is working.
+3. Search for metrics starting with `jenkins_` (for example `jenkins_queue_waiting`, `jenkins_agents_total`). Seeing these metrics confirms the integration is working.
 
 ### Troubleshooting
 
