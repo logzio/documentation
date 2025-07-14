@@ -168,8 +168,6 @@ Now you need to configure the input plug-in to enable Telegraf to scrape the Jen
   
   <TabItem value="opentelemetry-collector" label="OpenTelemetry Collector" default>
 
-## Sending Jenkins Metrics to Logz.io with OpenTelemetry
-
 This guide provides step-by-step instructions for configuring a Jenkins server to send metrics to your Logz.io account using the official Jenkins OpenTelemetry plugin and an OpenTelemetry Collector.
 
 We cover two common setup methods: using **Docker** for a containerized environment and a **Local/Native** installation for running directly on a host machine.
