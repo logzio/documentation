@@ -243,7 +243,9 @@ Choose the installation method that matches your environment.
 
 #### Method B: Local/Native Setup
 
-> **Note:** If you haven't already set up Jenkins, follow the [official Jenkins installation guide](https://www.jenkins.io/doc/book/installing/) for your operating system before proceeding with the steps below.
+:::note
+If you haven't already set up Jenkins, follow the [official Jenkins installation guide](https://www.jenkins.io/doc/book/installing/) for your operating system before proceeding with the steps below.
+:::
 
 1. **Download and run the Collector**
 
