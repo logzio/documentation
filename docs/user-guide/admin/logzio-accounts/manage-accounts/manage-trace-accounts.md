@@ -81,7 +81,13 @@ If an account exceeds this cap, it will stop ingesting spans for the rest of the
 
 To update the multiplier, go to **Manage Accounts > Tracing**, select the account, click Edit, and change the **Daily limit multiplier**.
 
+## Configure your account limits
 
+You can adjust your account’s daily volume and data retention period to fit your current monitoring needs.
+
+To make changes, go to the [Plan and usage](https://app.logz.io/#/dashboard/settings/plan-and-billing/plan) page, select the telemetry type you want to update, and click **Update plan**.
+
+From there, you can modify the Monthly spans (Million Spans) and billing cycle (monthly or yearly). When you're ready, click **Proceed to checkout** to apply the changes.
 
 
 ## Troubleshooting Span Quota Issues

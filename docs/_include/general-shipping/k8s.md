@@ -10,7 +10,7 @@ Before you integrate Kubernetes you'll need:
   ```
 
 
-{@include: ../../_include/general-shipping/k8s-all-data.md}  
+{@include: ../../_include/general-shipping/k8s-all-data.md}    
 
 
 ## Manual Setup
@@ -96,10 +96,7 @@ For a parameter called `someField` in the `logzio-logs-collector`'s `values.yaml
 --set logzio-logs-collector.someField="my new value"
 ```
 
-
 Adding `log_type` annotation with a custom value will be parsed into a `log_type` field with the same value.
-
-
 
 </TabItem>
 <TabItem value="deployment-data" label="Deployment Events" default>
@@ -190,8 +187,7 @@ For example, for a parameter called `someField` in the `logzio-k8s-telemetry`'s 
 --set logzio-k8s-telemetry.someField="my new value"
 ```
 
-
- </TabItem>
+</TabItem>
 <TabItem value="tracing-data" label="Tracing and SPM" default>
 
 
@@ -497,6 +493,110 @@ To enable resource detection only for a specific sub chart, set `--set <<SUB_CHA
 To customize resource detection settings, add the [OpenTelemetry `resourcedetection` processor](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/resourcedetectionprocessor) to the sub-chart configuration within your `values.yaml` file.
 
  </TabItem>
+
+<TabItem value="enrich-metrics" label="Enrich Metrics" default>
+
+## Enrich metrics with pod labels and annotations
+
+Kubernetes pods often contain valuable metadata in their labels and annotations that you may want to include in your monitoring and alerting queries. The `kube-state-metrics` component can be configured to expose this metadata.
+
+:::note
+This metadata is not automatically included in other metrics. You must join it using PromQL expressions.
+:::
+
+### Collecting Pod Labels as Metrics
+
+To expose pod labels as part of your metrics:
+
+1. Enable the `kube_pod_labels` metric in the Prometheus filters:
+
+  ```bash
+  --set logzio-k8s-telemetry.prometheusFilters.metrics.infrastructure.keep.custom="kube_pod_labels"
+  ```
+
+2. Allow `kube-state-metrics` to collect all pod labels:
+
+  ```bash
+  --set "logzio-k8s-telemetry.kube-state-metrics.metricLabelsAllowlist[0]=pods=[*]"
+  ```
+
+### Collecting Pod Annotations as Metrics
+
+1. Enable the `kube_pod_annotations` metric in the Prometheus filters:
+
+  ```bash
+  --set logzio-k8s-telemetry.prometheusFilters.metrics.infrastructure.keep.custom="kube_pod_annotations"
+  ```
+
+2. Configure `kube-state-metrics` to collect all pod annotations:
+
+  ```bash
+  --set "logzio-k8s-telemetry.kube-state-metrics.metricAnnotationsAllowList[0]=pods=[*]"
+  ```
+
+### Enabling Both Pod Labels and Annotations
+
+To enable both pod labels and annotations collection, use the following helm upgrade command:
+
+```bash
+helm upgrade -n monitoring --create-namespace \
+  --reuse-values \
+  --set logzio-k8s-telemetry.prometheusFilters.metrics.infrastructure.keep.custom="kube_pod_labels,kube_pod_annotations" \
+  --set "logzio-k8s-telemetry.kube-state-metrics.metricLabelsAllowlist[0]=pods=[*]" \
+  --set "logzio-k8s-telemetry.kube-state-metrics.metricAnnotationsAllowList[0]=pods=[*]" \
+  logzio-monitoring logzio-helm/logzio-monitoring
+  ```
+
+Once configured, the pod metadata will be available through separate metrics:
+
+`kube_pod_labels` - Contains all pod labels
+`kube_pod_annotations` - Contains all pod annotations
+
+`kube_pod_labels` and `kube_pod_annotations` **must be explicitly included** in your Prometheus filters, since they are the metric names that contain the collected metadata.
+
+Label and annotation keys are automatically prefixed with `label_` (e.g., `team=devops` becomes `label_team="devops"`).
+
+### Example PromQL Join
+
+To combine pod metadata with other metrics, use PromQL joins. For example, to get OOMKilled containers filtered by team label:
+
+```promql
+sum by(namespace, pod, env_id) (
+  kube_pod_container_status_terminated_reason{reason="OOMKilled"} 
+  * on(pod) group_left() 
+  kube_pod_labels{label_team="team123"}
+)
+```
+
+This query:
+
+* Finds containers that were terminated due to OOMKilled
+* Joins with pod labels data using the `pod` label
+* Filters to only show pods where the `team` label equals `team123`
+* Groups results by namespace, pod, and environment ID
+
+</TabItem>
+<TabItem value="loglevel-detect" label="Log Level Detection" default>
+
+## Default Log Level Detection
+
+By default, the `logzio-logs-collector` sets a `log_level` attribute by scanning for keywords in the log message (e.g., `error`, `debug`, `warning`). This is useful when logs don’t include an explicit log level field.
+
+If your logs already include a `level`, `severity`, or similar field, and you want to use it instead, you can override the default transformation to use your existing field:
+
+```shell
+helm install -n monitoring --create-namespace \
+  --set logs.enabled=true \
+  --set global.logzioLogsToken="<<LOG-SHIPPING-TOKEN>>" \
+  --set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+  --set global.env_id="<<CLUSTER-NAME>>" \
+  --set logzio-logs-collector.config.processors.transform/log_level.log_statements[0].statements[0]='set(attributes["log_level"], body["<<YOUR_LEVEL_FIELD_NAME>>"])' \
+  logzio-monitoring logzio-helm/logzio-monitoring
+```
+
+This prevents the collector from overriding your original log level with keyword-based detection.
+
+</TabItem>
 </Tabs>
 
 
