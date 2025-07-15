@@ -266,16 +266,16 @@ Choose the installation method that matches your environment.
 1. Open `http://localhost:8080` in your browser and finish the Jenkins setup wizard.
 2. Go to **Manage Jenkins › Plugins › Available** and install the **OpenTelemetry** plugin (restart if prompted).
 
-IMAGE // opentelemetry-plugin.png
+![OpenTelemetry Plugin](https://dytvr9ot2sszz.cloudfront.net/logz-docs/opentelemetry-plugin.png)
 
 3. Go to **Manage Jenkins › Configure System › OpenTelemetry** and set:
    * **OTLP Endpoint**
      * Docker setup: `http://otel-collector:4317`
      * Local setup: `http://localhost:4317`
-   * **Authentication**: *No Authentication*
+   * **Authentication**: *No authentication*
 4. Click **Save**.
 
-IMAGE // jenkins-otel-config.png
+![OpenTelemetry Plugin](https://dytvr9ot2sszz.cloudfront.net/logz-docs/jenkins-otel-config.png)
 
 ### Step 4: Verify the Integration
 
