@@ -57,11 +57,16 @@ Deploy this integration to ship all `Org` logs from your Control Plane account t
 kind: org
 name: <<ORG_NAME>>
 spec:
-  logging:
+  debug:
     logzio:
       credentials: //secret/<<OPAQUE-SECRET-NAME>> 
       listenerHost: <<LISTENER-HOST>>
 ```
+
+:::note
+Ensure that your service pipeline includes the `debug` exporter in the `exporters` section.
+See the OpenTelemetry [Debug Exporter documentation](https://github.com/open-telemetry/opentelemetry-collector/blob/v0.111.0/exporter/debugexporter/README.md) for more details.
+:::
 
 Replace `<<ORG_NAME>>` with your organization's name.
 
