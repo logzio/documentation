@@ -12,30 +12,23 @@ Once you've sent your data to Logz.io, you can search and query your logs to ide
 
 Explore supports an enhanced version of Lucene, offering autocomplete suggestions and syntax highlighting to help you build faster, more accurate queries.
 
-As you type, Lucene displays available fields, variables, and operators, making it easier to construct queries. If there's an error in your syntax, hover over the error indicator to get feedback that guides you toward a solution and a valid search.
+As you type, Lucene displays available fields, values, and operators, helping you construct queries quickly. If your query contains a syntax error, hover over the error indicator to get feedback and fix it easily.
 
-For example, you can quickly search for logs where `logSize` exceeds a specific value or find messages containing certain words.
+To run a quick search, just type a word or phrase:
 
-![numeric filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/logsize-bigger-feb24.png)
+`error`
 
+Use field-specific filters:
 
-To perform range-based searches, the field must be mapped as a numeric value (e.g., long, float, double). Use the following syntax to find values within a range.
+`logSize:[1200 TO 1500]`
 
-For example, to find all logs where logSize is between 1200 and 1500:
-
-`LogSize:[1200 TO 1500]`
-
-To refine your search further, combine multiple conditions. Find logs where logSize is between 2000 and 3000 and the eventType is MODIFIED:
+Or combine multiple filters to narrow results:
 
 `LogSize:[2000 TO 3000] AND eventType:MODIFIED`
 
-Find logs where logSize is between 2000 and 3000 and the logzio-signature is in the range 700000000 to 710000000:
+![numeric filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/logsize-bigger-feb24.png)
 
-`LogSize:[2000 TO 3000] AND logzio-signature:[700000000 TO 710000000]`
-
-To exclude specific values from your search, use the NOT operator. For example, to find logs where `logSize` is between 2000 and 3000, but exclude logs from `agent-k8s`:
-
-`LogSize:[2000 TO 3000] AND type NOT "agent-k8s"`
+Want to get more out of your searches? Learn how to use wildcards, regex, fuzzy logic, proximity matches, field existence checks, and more in our full [Lucene Query Syntax Guide](https://docs.logz.io/docs/user-guide/explore/lucene-best-practices/).
 
 ## Keyboard Shortcuts
 
