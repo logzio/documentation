@@ -5,5 +5,5 @@
     "type": "generated-index",
     "description": "User Guide for Logz.io."
   },
-  className: 'section-title.tutorial'
+  "className": "section-title.tutorial"
 }
