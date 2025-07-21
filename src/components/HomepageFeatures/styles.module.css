@@ -1,3 +1,5 @@
+/* stylelint-disable docusaurus/copyright-header */
+
 .features {
   display: flex;
   align-items: center;
@@ -5,39 +7,72 @@
   width: 100%;
 }
 
-.featureSvg {
-  height: 50px;
-  width: 50px;
-}
-
 .featureCard {
-  display: block;
-  padding: 20px;
+  border: 1px solid #e3e3e3;
+  box-shadow: 2px 2px 4px #e3e3e3;
   margin: 10px;
-  background-color: var(--ifm-background-color);
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  height: 200px;
+  max-width: 280px;
   text-decoration: none;
   color: inherit;
 }
 
 .featureCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid #5d83f7;
+  text-decoration: none;
+  color: inherit;
+}
+
+.featureSvg {
+  height: 50px;
+  width: 50px;
+  margin-top: 20px;
 }
 
 .featuresContainer {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  max-width: 1200px; /* Adjust this value as needed */
+  margin: 0 auto;
 }
 
 .centeredRow {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Centers the row */
+  justify-content: center;
+  width: 100%;
 }
 
 .smallCard {
-  height: 60%; /* Adjust this value as per your requirement */
+  height: auto; /* Adjust as needed */
+  padding-top: 20px;
+}
+
+.smallCard h3 {
+  font-size: 1rem; /* Adjust as needed */
+}
+
+.smallCard p {
+  font-size: 0.9rem; /* Adjust as needed */
+}
+
+.searchContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.searchTitle {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.searchBarWrapper {
+  width: 100%;
+  max-width: 900px;
 }

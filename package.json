@@ -29,7 +29,8 @@
     "tslib": "^2.5.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "2.4.0"
+    "@docusaurus/module-type-aliases": "2.4.0",
+    "@docusaurus/theme-classic": "^3.8.1"
   },
   "browserslist": {
     "production": [

@@ -2,6 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
+import SearchBar from '@theme/SearchBar';
 
 const FeatureList = [
   {
@@ -95,6 +96,12 @@ export default function HomepageFeatures() {
   return (
     <section className={styles.features}>
       <div className={clsx('container', styles.featuresContainer)}>
+        <div className={styles.searchContainer}>
+          <h1 className={styles.searchTitle}>Search our documentation</h1>
+          <div className={styles.searchBarWrapper}>
+            <SearchBar />
+          </div>
+        </div>
         <div className={clsx('row', styles.centeredRow)}>
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />
