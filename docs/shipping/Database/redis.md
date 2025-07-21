@@ -276,7 +276,7 @@ receivers:
      source: redis
     
 exporters:
- logging:
+ debug:
  logzio/logs:
    account_token: "<<LOG-SHIPPING-TOKEN>>"
    region: "<<LOGZIO_ACCOUNT_REGION_CODE>>"
@@ -306,6 +306,11 @@ service:
      exporters: [prometheusremotewrite]
      processors: [resourcedetection/system]
 ```
+
+:::note
+Ensure that your service pipeline includes the `debug` exporter in the `exporters` section.
+See the OpenTelemetry [Debug Exporter documentation](https://github.com/open-telemetry/opentelemetry-collector/blob/v0.111.0/exporter/debugexporter/README.md) for more details.
+:::
 
 {@include: ../../_include/p8s-shipping/replace-prometheus-token.html}
 
@@ -387,7 +392,7 @@ receivers:
     
 
 exporters:
- logging:
+ debug:
  logzio/logs:
    account_token: "<<LOG-SHIPPING-TOKEN>>"
    region: "<<LOGZIO_ACCOUNT_REGION_CODE>>"
@@ -407,6 +412,12 @@ service:
      processors: [resourcedetection/system]
      exporters: [logzio/logs]
 ```
+
+:::note
+Ensure that your service pipeline includes the `debug` exporter in the `exporters` section.
+See the OpenTelemetry [Debug Exporter documentation](https://github.com/open-telemetry/opentelemetry-collector/blob/v0.111.0/exporter/debugexporter/README.md) for more details.
+:::
+
 
 {@include: ../../_include/log-shipping/listener-var.html} 
 

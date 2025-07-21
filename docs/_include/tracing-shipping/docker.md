@@ -25,7 +25,7 @@ exporters:
     headers:
       user-agent: logzio-opentelemetry-traces
 
-  logging:
+  debug:
 
 processors:
   batch:
@@ -62,9 +62,13 @@ service:
     traces:
       receivers: [otlp]
       processors: [tail_sampling, batch]
-      exporters: [logging, logzio/traces]
+      exporters: [debug, logzio/traces]
 ```
  
+:::note
+Ensure that your service pipeline includes the `debug` exporter in the `exporters` section.
+See the OpenTelemetry [Debug Exporter documentation](https://github.com/open-telemetry/opentelemetry-collector/blob/v0.111.0/exporter/debugexporter/README.md) for more details.
+:::
 
 {@include: ../../_include/tracing-shipping/replace-tracing-token.html}
 
