@@ -126,9 +126,13 @@ appender.logzioAppender.LogzioType = myAwesomeType
 appender.logzioAppender.LogzioUrl = https://<<LISTENER-HOST>>:8071
 
 # Root logger level
-rootLogger.level = debug
+rootLogger.level = info
 # Root logger referring to logzio appender
 rootLogger.appenderRef.logzioAppender.ref = logzioAppender
+
+# To enable debug mode for troubleshooting, comment out the 'info' line above and uncomment the lines below:
+# appender.logzioAppender.debug = true
+# rootLogger.level = debug
 ```
 
 
@@ -813,7 +817,7 @@ import io.micrometer.logzio.LogzioMeterRegistry;
 class MicrometerLogzio {
 
    public static void main(String[] args) {
-       // initilize config
+       // initialize config
       LogzioConfig logzioConfig = new LogzioConfig() {
          @Override
          public String get(String key) {
@@ -946,9 +950,9 @@ For more information about other binders check out the [Micrometer-core](https:/
 | Name | Behavior | 
 | ---- | ---------- | 
 | Counter           | Metric value can only go up or be reset to 0, calculated per `counter.increment(value);` call. |
-| Gauge             | Metric value can arbitrarily increment or decrement, values can set automaticaly by tracking `Collection` size or manually by `gauge.set(value)`.  | 
+| Gauge             | Metric value can arbitrarily increment or decrement, values can set automatically by tracking `Collection` size or manually by `gauge.set(value)`.  | 
 | DistributionSummary | Captured metric values via `summary.record(value)`. Outputs a distribution of `count`,`sum` and `max` for the recorded values during the push interval. |
-| Timer       | Mesures timing. Metric values recorded by `timer.record()` call. |
+| Timer       | Measures timing. Metric values recorded by `timer.record()` call. |
 
 For more details, see the Micrometer [documentation](https://micrometer.io/docs/concepts).
 
@@ -1185,7 +1189,7 @@ Add OpenTelemetry instrumentation to your Java application by using the [OpenTel
     ```
 
 :::note
-Replace `/path/to/` with the path where you mount the `opentelemetry-javaagent.jar` in your application contaier.
+Replace `/path/to/` with the path where you mount the `opentelemetry-javaagent.jar` in your application container.
 :::
 
 3. **Set Environment Variables for OpenTelemetry**
