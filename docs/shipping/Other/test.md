@@ -5,7 +5,7 @@ overview: Data standardization
 product: ['logs']
 os: ['windows', 'linux']
 filters: ['Other']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/kafka2.svg
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/logz-symbol.svg
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
