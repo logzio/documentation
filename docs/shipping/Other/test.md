@@ -1,5 +1,5 @@
 ---
-id: data-standardization
+id: data-standardization2
 title: Data Standardization
 overview: Data standardization
 product: ['logs']
