@@ -10,9 +10,164 @@ slug: /distributed-tracing/troubleshooting/tracing-troubleshooting/
 
 Setting up a Distributed Tracing account might require some additional help. In this doc, we'll walk through troubleshooting some common issues. 
 
+## Post install troubleshooting
+
+There are a few common issues that may prevent data from reaching Logz.io. Use the following checklist to validate your setup:
+
+**1. No traces showing in the UI**
+
+Even if installation succeeded, you might not see any trace data. To troubleshoot:
+
+* Confirm that your application is sending traces to the correct collector endpoint.
+
+* Check the collector/agent logs for connection errors or dropped spans.
+
+* Ensure that the correct token is configured for the tracing account.
+
+**2. Missing service or operation names**
+
+If the UI doesn’t show services or operations in the dropdown menus:
+
+* Restart the collector to re-send metadata (especially in OTEL setups).
+
+* Verify that your instrumentation sets the service.name resource attribute.
+
+* Search for recent trace logs in Open Search Dashboards to confirm data is reaching Logz.io.
+
+**3. Metrics dashboards showing "No data"**
+
+If you’re using Service Performance Monitoring and dashboards show no results:
+
+* Make sure your metrics account is configured to receive tracing-related metrics (like `calls_total`).
+
+* Confirm that the collector is configured to export metrics as well as traces.
+
+**4. Use debug mode to test setup**
+
+If you’re still unsure whether trace data is being collected:
+
+* Temporarily enable a debug exporter in your collector config to log incoming spans locally.
+
+* Run a trace from your application and check the collector output.
+
+This can help confirm that data is generated and received before reaching Logz.io.
+
+## Routing data to the collector
+
+When Tracing data doesn't appear in your account, one of the most common root causes is misconfigured instrumentation or data not reaching the collector. Before diving into deeper debugging steps, it’s important to verify that your application is correctly set up to export tracing data.
+
+Your instrumented application needs to send telemetry data (traces, metrics, or logs) to the OpenTelemetry Collector using the OTLP protocol.
+
+Set environment variables to configure the destination collector and other tracing options.
+
+If your collector runs on the same host or as a sidecar, set the OTLP endpoint to localhost:
+
+```shell
+ENV OTEL_TRACES_SAMPLER=always_on
+ENV OTEL_EXPORTER_OTLP_ENDPOINT="http://localhost:4317"
+ENV OTEL_RESOURCE_ATTRIBUTES="service.name=<SERVICE_NAME>"
+```
+
+If you're running your app on ECS, define the environment variables in your task definition:
+
+```json
+"environment": [
+  {
+    "name": "OTEL_TRACES_SAMPLER",
+    "value": "always_on"
+  },
+  {
+    "name": "OTEL_EXPORTER_OTLP_ENDPOINT",
+    "value": "http://localhost:4317"
+  },
+  {
+    "name": "OTEL_RESOURCE_ATTRIBUTES",
+    "value": "service.name=<SERVICE_NAME>"
+  }
+]
+```
+
+Replace <SERVICE_NAME> with the name you'd like to appear in your Tracing UI.
 
 
-## Distributed Tracing is not showing data in Service/Operations dropdown lists
+If the collector runs in another service or namespace, set the OTLP endpoint to its DNS or internal IP:
+
+```shell
+ENV OTEL_EXPORTER_OTLP_ENDPOINT="http://otel-collector.monitoring.svc.cluster.local:4317"
+```
+
+Make sure the collector is reachable and exposes the OTLP receiver on that port.
+
+
+## Debug mode for instrumentation and collector
+
+To enable debug mode for Opentelemetry Operator, add the `OTEL_LOG_LEVEL` environment variable with value `DEBUG`.
+
+### Enable debug mode for a single pod
+To enable debug mode for a specific pod, add the following environment variable directly to its spec:
+
+```yaml
+spec:
+  template:
+    spec:
+      containers:
+        - name: "<CONTAINER_NAME>"
+          env:
+          - name: OTEL_LOG_LEVEL
+            value: "debug"
+```
+
+### Enable debug mode for all instrumented pods
+To apply debug mode to all pods instrumented by the OpenTelemetry Operator, update your Logz.io Helm chart with the following configuration, replacing <APP_LANGUAGE> with your application's programming language:
+
+```yaml
+instrumentation:
+  <APP_LANGUAGE>:
+    extraEnv:
+    - name: OTEL_LOG_LEVEL
+      value: "debug"
+```
+
+:::tip
+`<APP_LANGUAGE>` can be one of `dotnet`, `java`, `nodejs` or `python`.
+:::
+
+:::caution
+Enabling debug mode generates highly verbose logs. It is recommended to apply it per pod and not for all pods.
+:::
+
+### Debugging with the Collector
+
+To troubleshoot data routing issues in your OpenTelemetry Collector, you can use the built-in debug exporter. This exporter prints telemetry data directly to the console or logs, making it easy to validate what the collector is receiving.
+
+To enable it, add this to your Collector config:
+
+```yaml
+exporters:
+  debug:
+    verbosity: detailed  # or: basic, normal
+    sampling_initial: 5
+    sampling_thereafter: 200
+```
+
+Then attach it to the relevant pipeline:
+
+```yaml
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      exporters: [debug]
+```
+
+With verbosity: `detailed`, you'll get full trace/span info, which is useful to check attributes like `service.name`, `trace ID`, `span.kind`, and verify routing logic.
+
+This debug output is for local validation only and not intended for production.
+
+For more, see [OpenTelemetry Collector Debug Exporter](https://github.com/open-telemetry/opentelemetry-collector/blob/v0.111.0/exporter/debugexporter/README.md).
+
+
+### Distributed Tracing is not showing data in Service/Operations dropdown lists
 
 You’ve logged into your Distributed Tracing search screen, and you can’t see any data in Service and Operation lists.
 
@@ -21,7 +176,7 @@ You’ve logged into your Distributed Tracing search screen, and you can’t see
 Several scenarios can cause this:
 
 
-### Account token misconfiguration in OTEL collector
+#### Account token misconfiguration in OTEL collector
 
 Distributed Tracing spans are sent to Logz.io and indexed in a Distributed Tracing account the same way as logs. If the spans are sent as expected, you should be able to see them in Open Search Dashboards, the same way you search for logs.
 
@@ -43,7 +198,7 @@ Once your logs appear in Open Search Dashboards, navigate to **Distributed Traci
 
 If there's no data in the Service/Operation dropdown lists, continue to the next step:
 
-### Lost Service and Operation data
+#### Lost Service and Operation data
 
 Service and Operation data reach Logz.io separately from your spans. That's why you might see data in your Tracing account in Open Search Dashboards (as explained in the previous step), but you won't be able to see data in your Service and Operation lists.
 
@@ -53,7 +208,7 @@ After restarting the collector, navigate back to **Distributed Tracing > [Search
 
 If you still can't see data in the Service and Operation lists, contact [Logz.io's Support team](mailto:help@logz.io) for additional help.
 
-### Distributed Tracing Search screen not showing search results
+#### Distributed Tracing Search screen not showing search results
 
 When you're trying to search any combination of parameters in **[Distributed Tracing > Search](https://app.logz.io/#/dashboard/jaeger/),** and the search screen does not yield any results, follow these steps to resolve the issue:
 
@@ -72,7 +227,7 @@ When you're trying to search any combination of parameters in **[Distributed Tra
 
 
 
-## Service Performance Monitoring dashboard showing no data
+### Service Performance Monitoring dashboard showing no data
 
 Your Service Performance Monitoring dashboard shows a **No Data** message across all elements in your dashboard.
 
