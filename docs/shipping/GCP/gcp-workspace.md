@@ -16,9 +16,6 @@ drop_filter: []
 
 Google Workspace is a collection of cloud computing, productivity and collaboration tools, software and products developed and marketed by Google.
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 ## Logs
 You can send your data to Logz.io using one of the following methods:
 
