@@ -52,6 +52,18 @@ If you’re still unsure whether trace data is being collected:
 
 This can help confirm that data is generated and received before reaching Logz.io.
 
+**5. Missing data after installing the chart**
+
+If you've installed the Logz.io Helm chart for tracing but no data appears in the UI:
+
+* Check that the collector pods are running and healthy.
+
+* Ensure your instrumented applications are correctly configured to send traces to the OTLP endpoint exposed by the chart (e.g., `otel-collector.monitoring.svc.cluster.local:4317`).
+
+* Verify that your token and endpoint are set correctly in your app’s environment variables.
+
+* Use the debug exporter to confirm data is reaching the collector.
+
 ## Routing data to the collector
 
 When Tracing data doesn't appear in your account, one of the most common root causes is misconfigured instrumentation or data not reaching the collector. Before diving into deeper debugging steps, it’s important to verify that your application is correctly set up to export tracing data.
@@ -87,7 +99,7 @@ If you're running your app on ECS, define the environment variables in your task
 ]
 ```
 
-Replace <SERVICE_NAME> with the name you'd like to appear in your Tracing UI.
+Replace <SERVICE_NAME> with the name you want to appear in the Tracing UI.
 
 
 If the collector runs in another service or namespace, set the OTLP endpoint to its DNS or internal IP:
