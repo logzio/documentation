@@ -60,7 +60,7 @@ This document describes the way to get logs from your system to Logz.io using an
      logstash:
        hosts: ["<<LISTENER-HOST>>:5015"]  
        ssl:
-         certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+         certificate_authorities: ['/etc/pki/tls/certs/AAACertificateServices.crt']
    ```
 7. {@include: ../../_include/log-shipping/listener-var.html}
 8. Save the changes.

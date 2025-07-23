@@ -4,5 +4,5 @@ For HTTPS shipping, download the Logz.io public certificate to your certificate 
 
 
 ```shell
-sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/AAACertificateServices.crt --create-dirs -o /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
+sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/AAACertificateServices.crt --create-dirs -o /etc/pki/tls/certs/AAACertificateServices.crt
 ```

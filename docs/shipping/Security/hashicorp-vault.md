@@ -102,7 +102,7 @@ processors:
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
   ssl:
-    certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+    certificate_authorities: ['/etc/pki/tls/certs/AAACertificateServices.crt']
 ```
 
 If you're running Filebeat 7 to 8.1, paste the code block below instead:
@@ -151,7 +151,7 @@ processors:
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
   ssl:
-    certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+    certificate_authorities: ['/etc/pki/tls/certs/AAACertificateServices.crt']
 ```
 
 

@@ -69,7 +69,7 @@ For HTTPS shipping, download the Logz.io public certificate to your certificate 
 
 
 ```shell
-curl https://raw.githubusercontent.com/logzio/public-certificates/master/AAACertificateServices.crt --create-dirs -o C:\ProgramData\filebeat\COMODORSADomainValidationSecureServerCA.crt
+curl https://raw.githubusercontent.com/logzio/public-certificates/master/AAACertificateServices.crt --create-dirs -o C:\ProgramData\filebeat\AAACertificateServices.crt
 ```
 
 ### Configure Filebeat
@@ -108,7 +108,7 @@ curl https://raw.githubusercontent.com/logzio/public-certificates/master/AAACert
        #  - "Audit.General"
        #  - "DLP.All"
        # Use the following settings to enable certificate-based authentication:
-       #var.certificate: "C:\ProgramData\filebeat1\COMODORSADomainValidationSecureServerCA.crt"
+       #var.certificate: "C:\ProgramData\filebeat1\AAACertificateServices.crt"
        # var.key: "/path/to/private_key.pem"
        # var.key_passphrase: "myPrivateKeyPassword"
        # Client-secret based authentication:
@@ -158,7 +158,7 @@ curl https://raw.githubusercontent.com/logzio/public-certificates/master/AAACert
      logstash:
        hosts: ["<<LISTENER-HOST>>:5015"]
        ssl:
-         certificate_authorities: ['C:\ProgramData\filebeat\COMODORSADomainValidationSecureServerCA.crt']
+         certificate_authorities: ['C:\ProgramData\filebeat\AAACertificateServices.crt']
    ```
   
    * {@include: ../../_include/log-shipping/log-shipping-token.md}

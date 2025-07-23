@@ -80,7 +80,7 @@ $InputFileSeverity info
 $InputFilePersistStateInterval 20000
 $InputRunFileMonitor
 
-$DefaultNetstreamDriverCAFile /etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt
+$DefaultNetstreamDriverCAFile /etc/pki/tls/certs/AAACertificateServices.crt
 $ActionSendStreamDriver gtls
 $ActionSendStreamDriverMode 1
 $ActionSendStreamDriverAuthMode x509/name
