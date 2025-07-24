@@ -1,0 +1,82 @@
+# ABOUT THIS FILE
+# This sample config file contains elements for Filebeat v6.x and v7.x
+# Read through the comments and remove any lines not required for your
+# configuration.
+
+############################# Input #####################################
+filebeat.inputs:
+- type: log
+  paths:
+  - /path/to/log/file.log
+
+  fields:
+    # For JSON logs, set to `json`. For plain log lines, set to `plain`
+    logzio_codec: plain
+
+    # Your Logz.io account token. You can find your token at
+    #  https://app.logz.io/#/dashboard/settings/manage-accounts
+    token: LOGZIO-TOKEN
+
+    # Logz.io uses log type to parse your logs. Logs of the same type are
+    #  parsed the same way. For more information, see
+    #  https://docs.logz.io/user-guide/log-shipping/built-in-log-types.html
+    #
+    # For custom parsing you can:
+    #  - Configure Logstash in your system
+    #  - Use the Data Parsing wizard
+    #    (https://app.logz.io/#/dashboard/data-parsing/)
+    #  - Get help from the Support team (email help@logz.io)
+    type: LOG-TYPE
+
+  # fields_under_root must be set to `true`. Do not change this option.
+  fields_under_root: true
+  encoding: utf-8
+  ignore_older: 3h
+
+  # If your plain text logs span multiple lines, uncomment the `multiline`
+  # option. On the `pattern` line, give a Filebeat-supported regex pattern.
+  # Filebeat combines lines when it finds the regex pattern. Supported regex
+  # patterns are at https://www.elastic.co/guide/en/beats/filebeat/current/regexp-support.html
+  #multiline:
+  #  pattern: # Regex pattern to match
+  #  negate: true
+  #  match: after
+
+
+# For Filebeat 6.x, uncomment this line and remove the `filebeat.registry.path`
+# line below
+# registry_file: /var/lib/filebeat/registry
+
+# For Filebeat 7.x, use this line and remove the `registry_file` line above
+filebeat.registry.path: /var/lib/filebeat
+
+# This block keeps logs shipped by Filebeat 7 compatible with Logz.io. It's
+# optional for Filebeat 6.
+processors:
+- rename:
+    fields:
+    - from: "agent"
+      to: "filebeat_agent"
+    ignore_missing: true
+- rename:
+    fields:
+    - from: "log.file.path"
+      to: "source"
+    ignore_missing: true
+
+
+############################# Output ##########################################
+output:
+  logstash:
+    # Use the Logz.io listener URL for your region. For help finding your
+    # region's listener URL, see:
+    # https://docs.logz.io/user-guide/accounts/account-region.html
+    hosts: ["listener.logz.io:5015"]
+
+    ssl:
+      # For Linux, download the Logz.io public certificate to this folder.
+      # Run this command:
+      #   `sudo curl https://raw.githubusercontent.com/logzio/public-certificates/master/AAACertificateServices.crt --create-dirs -o /etc/pki/tls/certs/AAACertificateServices.crt`
+      # For Windows, replace the filepath with the certificate's location.
+      certificate_authorities:
+        - '/etc/pki/tls/certs/AAACertificateServices.crt'
