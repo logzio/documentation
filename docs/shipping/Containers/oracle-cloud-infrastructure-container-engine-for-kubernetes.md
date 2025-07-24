@@ -121,7 +121,7 @@ filebeat.yml: |-
     logstash:
       hosts: ["${LOGZIO_LOGS_LISTENER_HOST}:5015"]
       ssl:
-        certificate_authorities: ['/etc/pki/tls/certs/AAACertificateServices.crt']
+        certificate_authorities: ['/etc/pki/tls/certs/SectigoRSADomainValidationSecureServerCA.crt']
 ```
 
 Run the following to deploy your custom Filebeat configuration:
