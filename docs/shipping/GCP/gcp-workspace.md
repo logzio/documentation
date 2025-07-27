@@ -5,7 +5,7 @@ overview: Send Google Workspace logs and metrics to your Logz.io account.
 product: ['logs', 'metrics', 'siem']
 os: ['windows', 'linux']
 filters: ['GCP', 'Other']
-logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/google-workspace.svg
+logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/Google-Workspace-stack.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
