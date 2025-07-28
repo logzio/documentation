@@ -10,7 +10,7 @@ To collect CloudWatch metrics, you'll deploy a docker compose file that uses con
 ##### Download the docker-compose.yml file
 
 ```
-curl https://raw.githubusercontent.com/logzio/logzio-aws-metrics/main/docker-compose.yml -o docker-compose.yml
+curl https://raw.githubusercontent.com/logzio/docs/_include/shipping-config-samples/docker-compose.yml -o docker-compose.yml
 ```
 
 ##### Define the environment variables

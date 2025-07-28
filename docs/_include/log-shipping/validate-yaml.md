@@ -2,6 +2,8 @@
 
 When you're done adding your sources, click **Make the config file** to download it.
 
-You can compare it to our [sample configuration](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/logz-filebeat-config.yml) if you have questions.
+You can compare it to our [sample configuration](https://raw.githubusercontent.com/logzio/docs/_include/shipping-config-samples/logz-filebeat-config.yml) if you have questions.
 
 Validate the file using a YAML validator tool, such as ([Yamllint.com](http://www.yamllint.com/).
+
+
