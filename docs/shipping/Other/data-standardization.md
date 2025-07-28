@@ -26,10 +26,10 @@ Logz.io expects incoming logs to include the following standardized fields:
 
 | Field name | Description | 
 | -- | -- |
-| `level` |	Log level (e.g., `INFO`, `ERROR`, `DEBUG`) using OTEL's logging SDK |
-| `service_name` | Service or component name, from OTEL resource attributes |
+| `level` |	Log level (e.g., `INFO`, `ERROR`, `DEBUG`) |
+| `service_name` | Service or component name |
 | `env_id` | Environment identifier (e.g., `prod`, `staging`) |
-| `host_name` | Hostname or IP, injected by OTEL's default resource attributes |
+| `host_name` | Hostname or IP |
 | `trace_id` | Trace ID for distributed tracing, if available |
 | `span_id` | Span ID for distributed tracing, if available |
 | `message` | The log body or message, ideally structured as key-value pairs |
@@ -38,7 +38,7 @@ If you're using a custom integration, you need to map your fields to these expec
 
 * Map `severity` - `level`
 * Map `component` - `service_name`
-* Inject `trace_id` and `span_id` using OTEL SDK or HTTP headers if available
+* Inject `trace_id` and `span_id`
 * Override `@timestamp` if a custom timestamp is included (with timezone info)
 
 ## Integrations with standardization implemented
@@ -47,12 +47,11 @@ These integrations already support data standardization:
 
 * **OpenTelemetry SDKs** – Supports all fields using semantic conventions. Supported languages include: [.NET](https://docs.logz.io/docs/shipping/Code/dotnet/), [Python](https://docs.logz.io/docs/shipping/Code/Python/), [Java](https://docs.logz.io/docs/shipping/Code/Java/), [Go](https://docs.logz.io/docs/shipping/Code/GO/), [Node.js](https://docs.logz.io/docs/shipping/Code/Node-js/), [PHP](https://docs.logz.io/docs/shipping/Code/php/), and [Rust](https://docs.logz.io/docs/shipping/Code/Rust/).
 
-* **Kubernetes** – Uses annotations and labels; trace context via OTEL sidecar or agent. Supported languages include: [Kubernetes](http://docs.logz.io/docs/shipping/Containers/Kubernetes/), [FluentD logs](http://docs.logz.io/docs/shipping/other/fluentd-data/), and [Trivy security event logs](http://docs.logz.io/docs/shipping/security/trivy/).
-
+* **Kubernetes** - Uses annotations and labels; trace context is captured via OTEL sidecar or agent and can be explored in the [Traces view in Explore](https://docs.logz.io/docs/user-guide/explore/trace-view/#configure-trace-view).
 
 * **AWS (CloudWatch, Lambda)** – Injects trace context with AWS X-Ray; environment metadata via environment variables. Supported languages include: [CloudFront](https://docs.logz.io/docs/shipping/aws/aws-cloudfront/), [API Gateway](https://docs.logz.io/docs/shipping/AWS/AWS-API-Gateway/), [Node.js traces on AWS Lambda via OpenTelemetry](https://docs.logz.io/docs/shipping/code/node-js/#traces), [Classic ELB](https://docs.logz.io/docs/shipping/AWS/Amazon-Classic-ELB/), [App ELB](https://docs.logz.io/docs/shipping/AWS/AWS-App-ELB/), [Network ELB](https://docs.logz.io/docs/shipping/AWS/AWS-Network-ELB/), [AppRunner](https://docs.logz.io/docs/shipping/AWS/AWS-AppRunner/), [Athena](https://docs.logz.io/docs/shipping/AWS/AWS-Athena/), [Control Tower](https://docs.logz.io/docs/shipping/AWS/AWS-Control-Tower/), [Cost and Usage Reports](https://docs.logz.io/docs/shipping/aws/aws-cost-and-usage-reports/), [EC2](https://docs.logz.io/docs/shipping/AWS/AWS-EC2/), [EC2 Fargate](https://docs.logz.io/docs/shipping/AWS/AWS-ECS-Fargate/), [ECS](https://docs.logz.io/docs/shipping/AWS/AWS-ECS/), [EKS](https://docs.logz.io/docs/shipping/AWS/aws-eks/), [DynamoDB](https://docs.logz.io/docs/shipping/AWS/AWS-DynamoDB/), [Cross Account](https://docs.logz.io/docs/shipping/AWS/AWS-cross-account/), [SQS](https://docs.logz.io/docs/shipping/AWS/aws-SQS/), [Lambda Extensions](https://docs.logz.io/docs/shipping/AWS/Lambda-extensions/), [Go traces on AWS Lambda via OpenTelemetry](https://docs.logz.io/docs/shipping/Code/GO/#traces), [FSx](https://docs.logz.io/docs/shipping/AWS/AWS-FSx/), [GuardDuty](https://docs.logz.io/docs/shipping/AWS/GuardDuty/), [S3 Access](https://docs.logz.io/docs/shipping/AWS/AWS-S3-Access/), [S3 Bucket](https://docs.logz.io/docs/shipping/AWS/AWS-S3-Bucket/), [Route 53](https://docs.logz.io/docs/shipping/AWS/AWS-Route-53/), [RDS](https://docs.logz.io/docs/shipping/AWS/AWS-RDS/), [Lambda](https://docs.logz.io/docs/shipping/AWS/AWS-Lambda/), and [MSK](https://docs.logz.io/docs/shipping/AWS/AWS-MSK/).
 
-* **HTTPS/OTLP APIs** – Header-based trace injection; field mapping required.
+**HTTPS/OTLP APIs** - When using custom HTTP requests, ensure the payload follows the field naming conventions outlined in the [official HTTP shipping documentation](https://docs.logz.io/docs/shipping/code/http/).
 
 ## Support and migration
 
