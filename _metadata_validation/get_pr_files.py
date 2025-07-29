@@ -26,6 +26,7 @@ def get_pr_files():
         if len(files) == 0:
             break
         for file in files:
+            print(f"file in pr: {file[file_name_field]}")
             files_in_pr.append(file[file_name_field])
         page_number += 1
 
