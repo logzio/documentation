@@ -1,0 +1,36 @@
+# configmap
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: filebeat-config
+  namespace: kube-system
+  labels:
+    k8s-app: filebeat
+data:
+  filebeat.yml: |-
+    filebeat.autodiscover:
+      providers:
+        - type: kubernetes
+          node: ${NODE_NAME}
+          hints.enabled: true
+          hints.default_config:
+            type: container
+            paths:
+              - /var/log/containers/*-${data.kubernetes.container.id}.log
+          include_annotations: '*'
+
+    processors:
+      - add_cloud_metadata: ~
+    fields:
+      logzio_codec: ${LOGZIO_CODEC}
+      token: ${LOGZIO_LOGS_SHIPPING_TOKEN}
+      cluster: ${CLUSTER_NAME}
+      type: ${LOGZIO_TYPE}
+    fields_under_root: true
+    ignore_older: ${IGNORE_OLDER}
+    output:
+      logstash:
+        hosts: ["${LOGZIO_LOGS_LISTENER_HOST}:5015"]
+        ssl:
+          certificate_authorities: ['/etc/pki/tls/certs/AAACertificateServices.crt']
+---
