@@ -65,7 +65,7 @@ Now click **OK** to exit all those dialogs you just opened. 😬
 
 Download the
 [Logz.io public certificate]({@include: ../../_include/log-shipping/certificate-path.md})
-to `C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt`
+to `C:\ProgramData\Winlogbeat\AAACertificateServices.crt`
 on your machine.
 
 ### Configure Windows input
@@ -129,7 +129,7 @@ Winlogbeat can have one output only, so remove any other `output` entries.
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
   ssl:
-    certificate_authorities: ['C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt']
+    certificate_authorities: ['C:\ProgramData\Winlogbeat\AAACertificateServices.crt']
 ```
 
 ### Restart Winlogbeat

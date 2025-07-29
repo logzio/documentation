@@ -62,7 +62,7 @@ Run the relevant command for your type of deployment.
 ##### Deploy the standard configuration
 
 ```shell
-kubectl apply -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-filebeat-oke.yaml -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/filebeat-standard-configuration.yaml
+kubectl apply -f https://raw.githubusercontent.com/logzio/documentation/refs/heads/master/docs/_include/general-shipping/shipping-config-samples/shipping-config-samples/k8s-filebeat-oke.yaml -f https://raw.githubusercontent.com/logzio/documentation/refs/heads/master/docs/_include/general-shipping/shipping-config-samples/filebeat-standard-configuration.yaml
 ```
 
 ##### Deploy the standard configuration with Filebeat autodiscover enabled
@@ -70,17 +70,17 @@ kubectl apply -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipp
 Autodiscover allows you to adapt settings as changes happen. By defining configuration templates, the autodiscover subsystem can monitor services as they start running.  See Elastic documentation to [learn more about Filebeat Autodiscover](https://www.elastic.co/guide/en/beats/filebeat/current/configuration-autodiscover.html). 
 
 ```shell
-kubectl apply -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-filebeat-oke.yaml -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/filebeat-autodiscovery-configuration.yaml
+kubectl apply -f https://raw.githubusercontent.com/logzio/documentation/refs/heads/master/docs/_include/general-shipping/shipping-config-samples/k8s-filebeat-oke.yaml -f https://raw.githubusercontent.com/logzio/documentation/refs/heads/master/docs/_include/general-shipping/shipping-config-samples/filebeat-autodiscovery-configuration.yaml
 ```
 
 ##### Deploy a custom configuration
 
-If you want to apply your own custom configuration, download the standard `configmap.yaml` file from the [Logz.io GitHub repo](https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/filebeat-standard-configuration.yaml) and apply your changes. Make sure to keep the file structure unchanged.
+If you want to apply your own custom configuration, download the standard `configmap.yaml` file from the [Logz.io GitHub repo](https://raw.githubusercontent.com/logzio/documentation/refs/heads/master/docs/_include/general-shipping/shipping-config-samples/filebeat-standard-configuration.yaml) and apply your changes. Make sure to keep the file structure unchanged.
 
 Run the following command to download the file:
 
 ```shell
-wget https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/filebeat-standard-configuration.yaml
+wget https://raw.githubusercontent.com/logzio/documentation/refs/heads/master/docs/_include/general-shipping/shipping-config-samples/filebeat-standard-configuration.yaml
 ```
 
 Apply your custom configuration to the parameters under `filebeat.yml` and only there. The filebeat.yml field contains a basic Filebeat configuration. You should not change the 'output' field (indicated in the example below). See Elastic documentation to [learn more about Filebeat configuration options](https://www.elastic.co/guide/en/beats/filebeat/current/configuring-howto-filebeat.html).
@@ -121,13 +121,13 @@ filebeat.yml: |-
     logstash:
       hosts: ["${LOGZIO_LOGS_LISTENER_HOST}:5015"]
       ssl:
-        certificate_authorities: ['/etc/pki/tls/certs/SectigoRSADomainValidationSecureServerCA.crt']
+        certificate_authorities: ['/etc/pki/tls/certs/AAACertificateServices.crt']
 ```
 
 Run the following to deploy your custom Filebeat configuration:
 
 ```shell
-kubectl apply -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipping-config-samples/k8s-filebeat-oke.yaml -f <<Your-custom-configuration-file.yaml>>
+kubectl apply -f https://raw.githubusercontent.com/logzio/documentation/refs/heads/master/docs/_include/general-shipping/shipping-config-samples/k8s-filebeat-oke.yaml -f <<Your-custom-configuration-file.yaml>>
 ```
 
 #### Check Logz.io for your logs
