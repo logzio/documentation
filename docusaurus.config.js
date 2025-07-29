@@ -197,7 +197,7 @@ const config = {
                 href: 'https://logzio-support.atlassian.net/servicedesk/customer/portals',
               },
               {
-                label: 'Notices for 3rd Party Software included with the Logz.io Platform',
+                label: 'Notices for Third Party Software included with the Logz.io Platform',
                 to: 'https://dytvr9ot2sszz.cloudfront.net/logz-docs/legal/3rd-party-software-included-with-the-logz.io-platform-sep-2022.pdf',
               },
               {
