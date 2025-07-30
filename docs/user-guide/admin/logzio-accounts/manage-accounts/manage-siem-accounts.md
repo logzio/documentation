@@ -28,7 +28,7 @@ By default, new Security accounts automatically pull from the Repository account
 
 At the bottom of the page, you’ll find a breakdown of all related accounts for this telemetry type. Each row includes:
 
-* Account name – The name of the main or sub-account
+* Account name – The name of the main or sub-account.  Special characters such as `<`, `>`, `:`, `\"`, `/`, `\\`, `|`, `?`, `*` are not supported.
 * Account ID – The unique identifier for the account
 * Enable for – The number of accounts this Security account is monitoring
 

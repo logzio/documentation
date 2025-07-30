@@ -66,7 +66,7 @@ Once you toggle the 2FA option, you'll receive an email guiding you on setting u
 | Settings | Description |
 |---|---|
 | **Token** | The default [token](https://docs.logz.io/docs/user-guide/admin/authentication-tokens/tokens/) for the account. Each account has a set of different tokens which you can use to configure shippers, send data to your account, allow access, and more. Keep these tokens secure. |
-| **Account name** | Your account name. You can edit and update it at any time. |
+| **Account name** | Name of the account. Special characters such as `<`, `>`, `:`, `\"`, `/`, `\\`, `|`, `?`, `*` are not supported. You can edit and update the name at any time. |
 | **Total daily volume** | The maximum volume of logs/data you can ship per calendar day. The index resets every day at midnight (00:00 UTC). |
 | **Retention** | The number of days your data is kept in storage. _Note that retention is measured in days, not hours. Retention of 2 days allows you to view logs from yesterday to today, and it's not the equivalent of 48 hours._  |
 | **Save account utilization metrics** | You can enable this option to log [account utilization metrics](/docs/user-guide/admin/account-volume-optimization/manage-account-usage/#what-are-account-utilization-metrics). Depending on the required granularity, metrics can be calculated every 10, 30, or 60 minutes. Utilization data is stored in a separate index as the log type: `logzio_account_utilization`. |
