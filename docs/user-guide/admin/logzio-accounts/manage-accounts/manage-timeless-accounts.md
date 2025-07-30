@@ -24,7 +24,7 @@ At the top of the page, you'll see an overview of your account, including:
 
 At the bottom of the page, you’ll find a breakdown of all related accounts for this telemetry type. Each row includes:
 
-* Account name – The name of the main or sub-account.  Special characters such as `<`, `>`, `:`, `\"`, `/`, `\\`, `|`, `?`, `*` are not supported.
+* Account name – The name of the main or sub-account. Special characters such as `<`, `>`, `:`, `\"`, `/`, `\\`, `|`, `?`, `*` are not supported.
 * Account ID – The unique identifier for the account
 * Vol (GB) – Daily indexing volume allocated to the account
 * Optimizers - List of optimizers applied on this account 
