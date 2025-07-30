@@ -24,7 +24,7 @@ At the top of the page, you'll see a summary of your account, including:
 
 Below that, you’ll find a detailed table listing all related accounts for this telemetry type. Each row includes:
 
-* Account name – The name of the account
+* Account name – Name of the account. Special characters such as `<`, `>`, `:`, `\"`, `/`, `\\`, `|`, `?`, `*` are not supported.
 * Account ID – A unique identifier for the account
 * Plan - The daily UTS allocation for the account
 * Token – The token used to ship metrics data to this account
