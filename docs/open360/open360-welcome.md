@@ -10,6 +10,8 @@ The redesigned Logz.io interface is here - faster, cleaner, and built to support
 
 New Logz.io customers already have access to Open360. To try it out, reach out to your account manager.
 
+![Open 360 AI Dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/open360ai/open360ai-explore.png)
+
 ## Why this matters
 
 We’re evolving Logz.io into a unified observability platform. The new Open360 experience is designed to help you:
