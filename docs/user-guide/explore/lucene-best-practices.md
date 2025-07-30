@@ -36,23 +36,47 @@ Use parentheses to group conditions:
 
 ## Wildcards
 
-Wildcards are special characters (`*` and `?`) used in search queries to match one or more unknown characters in a word or value. These can’t be the first character in a term or field name.
+Wildcards are special characters used in Lucene query syntax to match unknown or variable text. They’re useful for partial matches or uncertain values.
 
-Search using partial matches:
+Wildcards **cannot** be the first character in a term or field name due to performance limitations.
 
-**Single character:**
+Use Wildcards to search using partial matches:
+
+**Single character (?): Matches exactly one character**
 
 `k8s-19-demo-us-east-?-demo`
 
 This would match `k8s-19-demo-us-east-1-demo`, `k8s-19-demo-us-east-2-demo`, but not `k8s-19-demo-us-east-12-demo` because `?` matches only one character.
 
-**Multiple characters:**
+**Multiple characters (*): Matches zero or more characters**
 
 `k8s_container_name:aws-*`
 
 This matches values like `aws-load-balancer-controller-leader`, `aws-node`, `aws-init`, and any other that starts with `aws-`.
 
 ![wildcard query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lucene/wildcard-lucene.png)
+
+### Performance considerations
+
+Wildcard queries, especially leading wildcards, can be resource-intensive and slow to run. To avoid performance issues, leading wildcards are disabled.
+
+You can search for `key:prod` or `key:*prod*`, but not `key:*prod` (wildcard at the start).
+
+### Alternatives to Wildcards
+
+Analyzed text fields tokenize longer strings to support full-text search on individual terms.
+
+Tokenization can mean indexing the words in a sentence, or breaking up a complex naming structure into stand-alone naming components to support more robust filtering options.
+
+The tokenizing processor can use different predefined characters as delimiters to cut up the string into shorter terms. These can be spaces, periods, slashes, underscores, etc.
+
+To change a field mapping, navigate to [Data Hub > Field mappings](https://app.logz.io/#/dashboard/tools/field-mapping). Search for the field name, hover over it, and select the analyzed mapping option. The field will be explicitly mapped.
+
+![Explicit field mapping in Logz.io](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-mapping/kibana-field-mapping_aug2021.png)
+
+**Need something custom?**
+
+If you need advanced matching or more flexible search behavior, [contact support](mailto:help@logz.io) to request a customized solution.
 
 ## Range queries
 

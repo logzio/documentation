@@ -75,7 +75,7 @@ logzio/docker-logs-collector:latest
 | ADDITIONAL_FIELDS | Include additional fields with every message sent, formatted as `"fieldName1:fieldValue1,fieldName2:fieldValue2"`.| _optional_ |
 | SET_FIELDS | Set fields with every message sent, formatted as `"fieldName1:fieldValue1,fieldName2:fieldValue2"`. | _optional_ |
 | LOG_LEVEL | Set log level for Fluent Bit. Allowed values: `debug`, `info`, `warning`, `error`.| _Default_: `info` |
-| MULTILINE_START_STATE_RULE** | Regular expression for the start state rule of multiline parsing. See [Fluent Bit's official documentation](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/multiline-parsing#rules-definition) for further info.| _optional_ (Example: `^Exception`) |
+| MULTILINE_START_STATE_RULE | Regular expression for the start state rule of multiline parsing. See [Fluent Bit's official documentation](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/multiline-parsing#rules-definition) for further info.| _optional_ (Example: `^Exception`) |
 | MULTILINE_CUSTOM_RULES | Custom rules for multiline parsing, separated by semicolons `;`.| _optional_ (Example: `^\\sat\\s;^Caused by:`) |
 | READ_FROM_HEAD | Specify if Fluent Bit should read logs from the beginning.|_Default_: `true`|
 | OUTPUT_ID | Specify the output ID for Fluent Bit logs.|_Default_: `output_id`|

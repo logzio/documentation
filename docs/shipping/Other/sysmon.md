@@ -30,7 +30,7 @@ Sysmon (System Monitor) is a Windows system service that monitors and logs syste
 
 Download the
 [Logz.io public certificate]({@include: ../../_include/log-shipping/certificate-path.md})
-to `C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt`
+to `C:\ProgramData\Winlogbeat\AAACertificateServices.crt`
 on your machine.
 
 ### Configure Windows applications as an input
@@ -69,7 +69,7 @@ processors:
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"] 
   ssl:
-    certificate_authorities: ['C:\ProgramData\Winlogbeat\COMODORSADomainValidationSecureServerCA.crt']
+    certificate_authorities: ['C:\ProgramData\Winlogbeat\AAACertificateServices.crt']
 ```
 
 
