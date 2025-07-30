@@ -6,7 +6,7 @@ image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.
 keywords: [Open360, Logz.io, observability, dashboards, logs, metrics, traces, alerts, AI, monitoring, platform, onboarding, unified interface, home dashboard, getting started]
 ---
 
-The redesigned Logz.io interface is here — faster, cleaner, and built to support your entire observability workflow from a single platform.
+The redesigned Logz.io interface is here - faster, cleaner, and built to support your entire observability workflow from a single platform.
 
 New Logz.io customers already have access to Open360. To try it out, reach out to your account manager.
 
