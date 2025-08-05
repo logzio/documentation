@@ -114,7 +114,7 @@ Instead of this:
 output.logstash:
   hosts: ["listenerlogz.io:5015"]
   ssl:
-    certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+    certificate_authorities: ['/etc/pki/tls/certs/AAACertificateServices.crt']
 ```
 
 The code should look like this:
@@ -124,7 +124,7 @@ output:
   logstash:
     hosts: ["listener.logz.io:5015"]  
     ssl:
-      certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+      certificate_authorities: ['/etc/pki/tls/certs/AAACertificateServices.crt']
 ```
 
 ### Problem: Connection error
@@ -177,7 +177,7 @@ Test-NetConnection listener.logz.io -Port 5015
 Confirm that you have downloaded and placed the correct certificate in the correct location.
 
 * To find the location of the certificate, open the filebeat.yml file and search for the field `certificate_authorities`. In our example configuration, we recommend the following location:
-certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+certificate_authorities: ['/etc/pki/tls/certs/AAACertificateServices.crt']
 
 <h3 id="server-access"> Check if your server has access to the Logz.io listener</h3>
 

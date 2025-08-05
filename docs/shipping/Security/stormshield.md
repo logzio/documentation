@@ -77,7 +77,7 @@ Still in the same configuration file, check if Logz.io is already an output. If 
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"] 
   ssl:
-    certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+    certificate_authorities: ['/etc/pki/tls/certs/AAACertificateServices.crt']
 ```
 
 {@include: ../../_include/log-shipping/listener-url.html} 

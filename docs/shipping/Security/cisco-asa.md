@@ -103,7 +103,7 @@ If Logz.io is not an output, add it now.
 output.logstash:
   hosts: ["<<LISTENER-HOST>>:5015"]
   ssl:
-    certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+    certificate_authorities: ['/etc/pki/tls/certs/AAACertificateServices.crt']
 ```
 
 ### Start Filebeat

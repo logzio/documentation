@@ -80,7 +80,7 @@ By default, syslog will be forwarded over port 514. Feel free to adjust this, ba
    output.logstash:
      hosts: ["<<LISTENER-HOST>>:5015"]
      ssl:
-       certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+       certificate_authorities: ['/etc/pki/tls/certs/AAACertificateServices.crt']
    ```
   
    * Replace `<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>` with the address of your server running Filebeat.
