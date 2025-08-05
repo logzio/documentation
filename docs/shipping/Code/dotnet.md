@@ -1197,10 +1197,6 @@ If you need an example application to test this integration, please refer to our
    });   
    var app = builder.Build();
    ```
-:::caution note
-`otlpOptions.Headers` contains two separate headers:
-`Authorization=Bearer {logzioToken}` - Your authentication token, and `user-agent=logzio-dotnet-logs-otlp` - The client identifier. Make sure not to treat the full string as a single header.
-:::
    
    Replace `YOUR-SERVICE-NAME` with the required service name.
 
