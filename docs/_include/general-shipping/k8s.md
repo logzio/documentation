@@ -3,8 +3,7 @@ Before you integrate Kubernetes you'll need:
 ## Prerequisites 
 
 * [Helm](https://helm.sh/)
-* Add Logzio-helm repository
-
+* Add Logzio-helm repository:
   ```shell
   helm repo add logzio-helm https://logzio.github.io/logzio-helm && helm repo update
   ```
@@ -597,6 +596,37 @@ helm install -n monitoring --create-namespace \
 This prevents the collector from overriding your original log level with keyword-based detection.
 
 </TabItem>
+
+<TabItem value="own-secrets" label="Managing custom secrets" default>
+
+If you're managing your own secret for one or more Logz.io Helm sub-charts, make sure to include the following flags in your Helm command:
+
+```shell
+--set sub-chart-name.secret.name="<<NAME-OF-SECRET>>" \
+--set sub-chart-name.secret.enabled=false \
+```
+
+:::caution Important
+This change does not apply to the `logzio-k8s-telemetry` chart.
+:::
+
+
+Replace `sub-chart-name` with the name of the sub chart for which you're managing secrets.
+
+For example, if you're managing secrets for both `logzio-logs-collector` and for `logzio-trivy`, use:
+
+```shell
+helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --version 7.0.0 \
+--set global.logzioRegion="<<LOGZIO-REGION>>" \
+--set global.env_id="<<ENV-ID>>" \
+--set logzio-logs-collector.secret.name="<<NAME-OF-SECRET>>" \
+--set logzio-logs-collector.secret.enabled=false \
+--set logzio-trivy.secret.name="<<NAME-OF-SECRET>>" \
+--set logzio-trivy.secret.enabled=false \
+--reuse-values
+```
+
+</TabItem>
 </Tabs>
 
 
@@ -1021,31 +1051,4 @@ Make sure to update your Instrumentation service endpoint from `logzio-monitorin
 </Tabs>
 
 
-### Managing own secret
-If you manage your own secret for the Logz.io charts, please also add to your command:
-
- ```shell
---set sub-chart-name.secret.name="<<NAME-OF-SECRET>>" \
---set sub-chart-name.secret.enabled=false \
-```
-
-:::caution Important
-This change is not relevant for the `logzio-k8s-telemetry` chart.
-:::
-
-
-Replace `sub-chart-name` with the name of the sub chart which you manage the secrets for.
-
-For example, if you manage secret for both `logzio-logs-collector` and for `logzio-trivy`, use:
-
- ```shell
-helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --version 7.0.0 \
---set global.logzioRegion="<<LOGZIO-REGION>>" \
---set global.env_id="<<ENV-ID>>" \
---set logzio-logs-collector.secret.name="<<NAME-OF-SECRET>>" \
---set logzio-logs-collector.secret.enabled=false \
---set logzio-trivy.secret.name="<<NAME-OF-SECRET>>" \
---set logzio-trivy.secret.enabled=false \
---reuse-values
-```
 
