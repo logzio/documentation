@@ -37,17 +37,3 @@ For the record, notification endpoints and dashboard annotations are not importe
 1. [Configure notification endpoints](/docs/user-guide/integrations/notification-endpoints/endpoints).
 1. [Recreate your dashboard annotations](/docs/user-guide/infrastructure-monitoring/log-correlations/annotations/).
 1. [Explore your Prometheus metrics](/docs/user-guide/Infrastructure-monitoring/introduction-to-prometheus/explore-metrics-prometheusZ).
-
-
-
-
-<!--
-1. Highlight the value:
-Hosted, managed & enterprise grade - Secured, user management etc..
-Full system view
-Long retention (Will be coming later)
-Integrated to the logs management and tracing.
-
-2. Highlight the simplicity in shipping the metrics as well what it means on their environment:  - They will be able to reduce their retention.
-implication from resource standpoint : It will require more CPU and memory
- -->
