@@ -194,7 +194,7 @@ AI Agent Analysis runs **once every hour**.
 When triggered, the alert will send out a notification with sample data.
 
 :::note
-When an alert fires, the engine captures the first logs that match the alert condition within the exact second the condition is met. Logs ingested later in that same second may not appear in the sample list. With evaluation windows as short as one second, partial samples are normal.
+When an alert fires, the engine captures the first logs that match the alert condition within the exact second the condition is met. Logs ingested later in that same second may not appear in the sample list.
 :::
 
 Sample data can be sent in either **JSON** or **Table** formats. Toggle the button to select your preferred format.
