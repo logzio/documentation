@@ -362,7 +362,7 @@ To parse JSON Logs using the fluentd chart, configure the following processor us
 </filter>
 ```
 
-Instructions of using `configmap.extraConfig` can be found [here](https://github.com/logzio/logzio-helm/tree/master/charts/fluentd#configuration).
+Instructions for using `configmap.extraConfig` can be found [here](https://github.com/logzio/logzio-helm/tree/master/charts/fluentd#configuration).
 
 
 </TabItem>
@@ -391,7 +391,7 @@ helm upgrade <RELEASE_NAME> logzio-helm/logzio-monitoring \
 ```
 
 * Replace `<RELEASE_NAME>` with the name of your Helm release.
-* Replace `<SERVICE>` with the appropriate service name: `ask`, `eks` or `gke`.
+* Replace `<SERVICE>` with the appropriate service name: `aks`, `eks` or `gke`.
 
 
  </TabItem>
@@ -638,7 +638,7 @@ logzio-apm-collector.monitoring.svc.cluster.local:<<PORT>>
 
 :::note
 Replace `<<PORT>>` based on the protocol your agent uses:
-- 4317 for OTLP GRCP
+- 4317 for OTLP GRPC
 - 4318 for OTLP HTTP
 For a complete list, see [values.yaml](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-apm-collector/values.yaml#L71).
 :::
@@ -694,7 +694,7 @@ instrumentation.opentelemetry.io/<APP_LANGUAGE_2>-container-names: "myapp3"
 :::
 
 :::caution
-Go auto-instrumentation does not support multicontainer pods. When injecting Go auto-instrumentation the first pod should be the only pod you want instrumented.
+Go auto-instrumentation does not support multicontainer pods. When injecting Go auto-instrumentation, only the first container in the pod will be instrumented.
 :::
 
 ## Customize Auto-instrumentation
@@ -714,7 +714,7 @@ You can customize this to include other formats ([full list here](https://opente
 <TabItem value="customize-sampler" label="Customize Sampler" default>
 
 ### Add a custom Sampler
-You can specify a sampler to be used by the instrumentor. You'll need to specify the below:
+You can specify a sampler to be used by the instrumenter. You'll need to specify the below:
 - Sampler used to sample the traces ([available options](https://opentelemetry.io/docs/languages/sdk-configuration/general/#otel_traces_sampler))
 - Sampler arguments ([Sampler type expected input](https://opentelemetry.io/docs/languages/sdk-configuration/general/#otel_traces_sampler_arg))
 
@@ -769,7 +769,7 @@ Set the `OTEL_GO_AUTO_TARGET_EXE` environment variable in your Go application to
 
 
 :::note
-For further details, refer to the [OpenTelemetry Go Instrumentation documentation](https://github.com/open-telemetry/opentelemetry-go-instrumentation/blob/v0.21.0/docs/how-it-works.md#opentelemetry-go-instrumentation---how-it-works).
+For further details, refer to the [OpenTelemetry Go instrumentation documentation](https://github.com/open-telemetry/opentelemetry-go-instrumentation/blob/v0.21.0/docs/how-it-works.md#opentelemetry-go-instrumentation---how-it-works).
 :::
 
 
@@ -777,7 +777,7 @@ For further details, refer to the [OpenTelemetry Go Instrumentation documentatio
 <TabItem value="enable-debug-mode" label="Enable Debug" default>
 
 ### Enable debug mode
-To enable debug mode for Opentelemetry Operator, add the `OTEL_LOG_LEVEL` environment variable with value `DEBUG`.
+To enable debug mode for OpenTelemetry Operator, add the `OTEL_LOG_LEVEL` environment variable with value `DEBUG`.
 
 #### Enable debug mode for a single pod
 To enable debug mode for a specific pod, add the following environment variable directly to its spec:
