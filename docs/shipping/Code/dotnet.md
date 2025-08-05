@@ -1180,7 +1180,8 @@ If you need an example application to test this integration, please refer to our
    var builder = WebApplication.CreateBuilder(args);   
    const string serviceName = "YOUR-SERVICE-NAME";
    const string logzioEndpoint = "https://otlp-listener.logz.io/v1/logs";
-   const string logzioToken = "<LOG-SHIPPING-TOKEN>";   
+   const string logzioToken = "<LOG-SHIPPING-TOKEN>";
+
    builder.Logging.AddOpenTelemetry(options =>
    {
        options
@@ -1196,6 +1197,7 @@ If you need an example application to test this integration, please refer to our
    });   
    var app = builder.Build();
    ```
+   
    Replace `YOUR-SERVICE-NAME` with the required service name.
 
    {@include: ../../_include/log-shipping/log-shipping-token.md}
