@@ -110,7 +110,7 @@ logger.on_emit(
 )
 ```
 
-### Rails integration example
+### Rails integration example 
 
 Standalone Ruby script:
 
