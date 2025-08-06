@@ -113,7 +113,7 @@ logger.on_emit(
 ### Rails integration example 
 
 Standalone Ruby script:
-
+  
 ```ruby
 #!/usr/bin/env ruby
 require_relative 'opentelemetry_config'
