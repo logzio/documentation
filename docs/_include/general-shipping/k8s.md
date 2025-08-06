@@ -610,10 +610,39 @@ If you're managing your own secret for one or more Logz.io Helm sub-charts, make
 This change does not apply to the `logzio-k8s-telemetry` chart.
 :::
 
-
 Replace `sub-chart-name` with the name of the sub chart for which you're managing secrets.
 
-For example, if you're managing secrets for both `logzio-logs-collector` and for `logzio-trivy`, use:
+### Required Secret Keys
+
+When creating your own secrets, ensure they include the following keys based on the charts you're using:
+
+**Common keys (Required for all charts)**
+* `env-id`
+* `logzio-listener-region`
+
+**Chart-specific keys:**
+
+APM Chart ([logzio-apm](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-apm-collector/values.yaml#L361-L362)):
+* `logzio-traces-token`
+* `logzio-spm-token`
+
+Logs Chart ([logzio-logs-collector](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-logs-collector/values.yaml#L277-L278)):
+* `logzio-logs-token`
+
+Telemetry Chart ([logzio-k8s-telemetry](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-telemetry/templates/secrets.yaml)):
+* `logzio-metrics-shipping-token`
+* `logzio-k8s-objects-logs-token`
+* `logzio-metrics-listener`
+* `logzio-traces-shipping-token`
+* `logzio-spm-shipping-token`
+
+Trivy Chart ([logzio-trivy](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-trivy/templates/secret.yaml)) and K8s Events Chart ([logzio-k8s-events](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-k8s-events/templates/secret.yaml)):
+* `logzio-log-shipping-token`
+* `logzio-log-listener`
+
+### Example
+
+For example, if you're managing secrets for both `logzio-logs-collector` and `logzio-trivy`, your secret should look like this:
 
 ```shell
 helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --version 7.0.0 \
