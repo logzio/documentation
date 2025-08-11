@@ -1,0 +1,8 @@
+{
+  "label": "Settings",
+  "position": 8,
+  "link": {
+    "type": "generated-index",
+    "description": "Configure and manage your Logz.io account."
+  },
+}

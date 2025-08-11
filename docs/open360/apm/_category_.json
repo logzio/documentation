@@ -1,8 +1,8 @@
 {
   "label": "Logz.io APM",
-  "position": 8,
+  "position": 4,
   "link": {
     "type": "generated-index",
-    "description": "Learn how to APM"
+    "description": "View your services' performance and health."
   },
 }
