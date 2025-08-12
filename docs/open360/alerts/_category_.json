@@ -1,0 +1,8 @@
+{
+  "label": "Alerts",
+  "position": 6,
+  "link": {
+    "type": "generated-index",
+    "description": "Create and manage your log and metric alerts."
+  },
+}

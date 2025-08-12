@@ -1,6 +1,6 @@
 {
-  "label": "Logz.io Explore",
-  "position": 3,
+  "label": "Explore",
+  "position": 2,
   "link": {
     "type": "generated-index",
     "description": "Logz.io Explore provides a unified dashboard that allows you to monitor and analyze your data, quickly identifying and troubleshooting issues across your entire system."

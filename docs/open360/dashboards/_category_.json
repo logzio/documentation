@@ -1,6 +1,6 @@
 {
-  "label": "Logz.io's Dashboards",
-  "position": 8,
+  "label": "Logz.io Dashboards",
+  "position": 3,
   "link": {
     "type": "generated-index",
     "description": "Learn how to create, edit, and utilize Logz.io's dashboards"
