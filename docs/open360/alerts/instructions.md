@@ -9,17 +9,22 @@ keywords: [Open 360, Alerts, AI Agent, Playbook, instructions, ai agent analysis
 
 When you enable AI Agent Analysis, you can add instructions that act as a step-by-step playbook. The agent reads them when the alert fires and uses the instructions to run the right checks and suggest next steps.
 
-### Add instructions
-
-In the alert editor, enable **AI Agent Analysis**, select **+ instructions**, enter your text, choose **Save & Confirm**, then save the alert.
-
 ### How it works
 
-Instructions are tied to the alert rule and run on every trigger. Use them to specify what to check, where to look, and what to try next. 
+Instructions are saved on the alert rule and run on every trigger. The AI Agent reads them as a playbook to decide what to check, where to look, and what to do next.
 
-When creating **metric alerts**, you'll need to link a dashboard and panel for additional context.
+Write in plain text, up to 2,000 characters. You can reference dashboards, panels, queries, links, and any other resources in your environment.
 
-Next, you can use the instructions to reference the dashboards, panels, queries, links, or any other element in your environment that can help the analysis. Instructions support plain text, and up to 2,000 characters.
+Instructions work for both log and metric alerts. For **metric alerts**, you'll need to link a dashboard and panel first to give the analysis the needed context.
+
+
+### Add instructions
+
+In the alert editor, enable **AI Agent Analysis**, and select **+ Add Instructions**.
+
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/open360/alerts/ai-agent-analysis-step.png" alt="edit-alerts" width="700"/>
+
+Next, enter your instructions, choose **Save & Confirm**, then save the alert.
 
 ### Writing guidelines 
 
