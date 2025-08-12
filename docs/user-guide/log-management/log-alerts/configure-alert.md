@@ -182,6 +182,10 @@ The system combines the **Trigger if** time interval with the **Wait time** inte
 
 When triggered, the alert will send out a notification with sample data.
 
+:::note
+When an alert fires, the engine captures the first logs that match the alert condition within the exact second the condition is met. Logs ingested later in that same second may not appear in the sample list.
+:::
+
 Sample data can be sent in either **JSON** or **Table** formats. Toggle the button to select your preferred format.
 
 If the alert includes any aggregation or group by field, the notification output will send the aggregated results by default.

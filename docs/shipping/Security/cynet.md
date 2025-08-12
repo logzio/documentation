@@ -84,7 +84,7 @@ These instructions are based on UDP. If you want to use TCP, make sure your sysl
    output.logstash: 
      hosts: ["<<LISTENER-HOST>>:5015"]
      ssl:
-       certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
+       certificate_authorities: ['/etc/pki/tls/certs/AAACertificateServices.crt']
    ```
  
    * 9000 is the port we suggest. If you use a different port, replace the default values with your parameters.

@@ -3,8 +3,7 @@ Before you integrate Kubernetes you'll need:
 ## Prerequisites 
 
 * [Helm](https://helm.sh/)
-* Add Logzio-helm repository
-
+* Add Logzio-helm repository:
   ```shell
   helm repo add logzio-helm https://logzio.github.io/logzio-helm && helm repo update
   ```
@@ -363,7 +362,7 @@ To parse JSON Logs using the fluentd chart, configure the following processor us
 </filter>
 ```
 
-Instructions of using `configmap.extraConfig` can be found [here](https://github.com/logzio/logzio-helm/tree/master/charts/fluentd#configuration).
+Instructions for using `configmap.extraConfig` can be found [here](https://github.com/logzio/logzio-helm/tree/master/charts/fluentd#configuration).
 
 
 </TabItem>
@@ -392,7 +391,7 @@ helm upgrade <RELEASE_NAME> logzio-helm/logzio-monitoring \
 ```
 
 * Replace `<RELEASE_NAME>` with the name of your Helm release.
-* Replace `<SERVICE>` with the appropriate service name: `ask`, `eks` or `gke`.
+* Replace `<SERVICE>` with the appropriate service name: `aks`, `eks` or `gke`.
 
 
  </TabItem>
@@ -597,6 +596,66 @@ helm install -n monitoring --create-namespace \
 This prevents the collector from overriding your original log level with keyword-based detection.
 
 </TabItem>
+
+<TabItem value="own-secrets" label="Managing custom secrets" default>
+
+If you're managing your own secret for one or more Logz.io Helm sub-charts, make sure to include the following flags in your Helm command:
+
+```shell
+--set sub-chart-name.secret.name="<<NAME-OF-SECRET>>" \
+--set sub-chart-name.secret.enabled=false \
+```
+
+:::caution Important
+This change does not apply to the `logzio-k8s-telemetry` chart.
+:::
+
+Replace `sub-chart-name` with the name of the sub chart for which you're managing secrets.
+
+### Required Secret Keys
+
+When creating your own secrets, ensure they include the following keys based on the charts you're using:
+
+**Common keys (Required for all charts)**
+* `env-id`
+* `logzio-listener-region`
+
+**Chart-specific keys:**
+
+APM Chart ([logzio-apm](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-apm-collector/values.yaml#L361-L362)):
+* `logzio-traces-token`
+* `logzio-spm-token`
+
+Logs Chart ([logzio-logs-collector](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-logs-collector/values.yaml#L277-L278)):
+* `logzio-logs-token`
+
+Telemetry Chart ([logzio-k8s-telemetry](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-telemetry/templates/secrets.yaml)):
+* `logzio-metrics-shipping-token`
+* `logzio-k8s-objects-logs-token`
+* `logzio-metrics-listener`
+* `logzio-traces-shipping-token`
+* `logzio-spm-shipping-token`
+
+Trivy Chart ([logzio-trivy](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-trivy/templates/secret.yaml)) and K8s Events Chart ([logzio-k8s-events](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-k8s-events/templates/secret.yaml)):
+* `logzio-log-shipping-token`
+* `logzio-log-listener`
+
+### Example
+
+For example, if you're managing secrets for both `logzio-logs-collector` and `logzio-trivy`, your secret should look like this:
+
+```shell
+helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --version 7.0.0 \
+--set global.logzioRegion="<<LOGZIO-REGION>>" \
+--set global.env_id="<<ENV-ID>>" \
+--set logzio-logs-collector.secret.name="<<NAME-OF-SECRET>>" \
+--set logzio-logs-collector.secret.enabled=false \
+--set logzio-trivy.secret.name="<<NAME-OF-SECRET>>" \
+--set logzio-trivy.secret.enabled=false \
+--reuse-values
+```
+
+</TabItem>
 </Tabs>
 
 
@@ -608,7 +667,7 @@ logzio-apm-collector.monitoring.svc.cluster.local:<<PORT>>
 
 :::note
 Replace `<<PORT>>` based on the protocol your agent uses:
-- 4317 for OTLP GRCP
+- 4317 for OTLP GRPC
 - 4318 for OTLP HTTP
 For a complete list, see [values.yaml](https://github.com/logzio/logzio-helm/blob/master/charts/logzio-apm-collector/values.yaml#L71).
 :::
@@ -664,7 +723,7 @@ instrumentation.opentelemetry.io/<APP_LANGUAGE_2>-container-names: "myapp3"
 :::
 
 :::caution
-Go auto-instrumentation does not support multicontainer pods. When injecting Go auto-instrumentation the first pod should be the only pod you want instrumented.
+Go auto-instrumentation does not support multicontainer pods. When injecting Go auto-instrumentation, only the first container in the pod will be instrumented.
 :::
 
 ## Customize Auto-instrumentation
@@ -684,7 +743,7 @@ You can customize this to include other formats ([full list here](https://opente
 <TabItem value="customize-sampler" label="Customize Sampler" default>
 
 ### Add a custom Sampler
-You can specify a sampler to be used by the instrumentor. You'll need to specify the below:
+You can specify a sampler to be used by the instrumenter. You'll need to specify the below:
 - Sampler used to sample the traces ([available options](https://opentelemetry.io/docs/languages/sdk-configuration/general/#otel_traces_sampler))
 - Sampler arguments ([Sampler type expected input](https://opentelemetry.io/docs/languages/sdk-configuration/general/#otel_traces_sampler_arg))
 
@@ -739,7 +798,7 @@ Set the `OTEL_GO_AUTO_TARGET_EXE` environment variable in your Go application to
 
 
 :::note
-For further details, refer to the [OpenTelemetry Go Instrumentation documentation](https://github.com/open-telemetry/opentelemetry-go-instrumentation/blob/v0.21.0/docs/how-it-works.md#opentelemetry-go-instrumentation---how-it-works).
+For further details, refer to the [OpenTelemetry Go instrumentation documentation](https://github.com/open-telemetry/opentelemetry-go-instrumentation/blob/v0.21.0/docs/how-it-works.md#opentelemetry-go-instrumentation---how-it-works).
 :::
 
 
@@ -747,7 +806,7 @@ For further details, refer to the [OpenTelemetry Go Instrumentation documentatio
 <TabItem value="enable-debug-mode" label="Enable Debug" default>
 
 ### Enable debug mode
-To enable debug mode for Opentelemetry Operator, add the `OTEL_LOG_LEVEL` environment variable with value `DEBUG`.
+To enable debug mode for OpenTelemetry Operator, add the `OTEL_LOG_LEVEL` environment variable with value `DEBUG`.
 
 #### Enable debug mode for a single pod
 To enable debug mode for a specific pod, add the following environment variable directly to its spec:
@@ -1021,31 +1080,4 @@ Make sure to update your Instrumentation service endpoint from `logzio-monitorin
 </Tabs>
 
 
-### Managing own secret
-If you manage your own secret for the Logz.io charts, please also add to your command:
-
- ```shell
---set sub-chart-name.secret.name="<<NAME-OF-SECRET>>" \
---set sub-chart-name.secret.enabled=false \
-```
-
-:::caution Important
-This change is not relevant for the `logzio-k8s-telemetry` chart.
-:::
-
-
-Replace `sub-chart-name` with the name of the sub chart which you manage the secrets for.
-
-For example, if you manage secret for both `logzio-logs-collector` and for `logzio-trivy`, use:
-
- ```shell
-helm upgrade logzio-monitoring logzio-helm/logzio-monitoring -n monitoring --version 7.0.0 \
---set global.logzioRegion="<<LOGZIO-REGION>>" \
---set global.env_id="<<ENV-ID>>" \
---set logzio-logs-collector.secret.name="<<NAME-OF-SECRET>>" \
---set logzio-logs-collector.secret.enabled=false \
---set logzio-trivy.secret.name="<<NAME-OF-SECRET>>" \
---set logzio-trivy.secret.enabled=false \
---reuse-values
-```
 
