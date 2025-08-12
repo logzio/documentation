@@ -15,13 +15,15 @@ In the alert editor, enable **AI Agent Analysis**, select **+ instructions**, en
 
 ### How it works
 
-Instructions are tied to the alert rule and run on every trigger. Use them to specify what to check, where to look, and what to try next. You can reference dashboards, panels, and links. Plain text only, up to 2,000 characters.
+Instructions are tied to the alert rule and run on every trigger. Use them to specify what to check, where to look, and what to try next. 
 
-For **metric alerts**, you can link a dashboard and panel to add context.
+When creating **metric alerts**, you'll need to link a dashboard and panel for additional context.
+
+Next, you can use the instructions to reference the dashboards, panels, queries, links, or any other element in your environment that can help the analysis. Instructions support plain text, and up to 2,000 characters.
 
 ### Writing guidelines 
 
-For best results,keep it short, specific, and action-oriented. Use the exact names of dashboards, panels, services, or anything else in your environment that can help the analysis.
+For best results, keep it short, specific, and action-oriented. Use the exact names of dashboards, panels, services, etc. 
 
 For example:
 
