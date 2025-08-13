@@ -93,17 +93,18 @@ export GOOGLE_APPLICATION_CREDENTIALS=/path/to/your/gcp-credentials.json
 ### Step 3: Create the Collector configuration
 
 Create `config.yaml` with the following content:
+Make sure to replace `<<YOUR-GCP-PROJECT-ID>>` with your Google Cloud Platform Project ID.
 
 ```yaml
 receivers:
   googlecloudmonitoring/project_1:
     collection_interval: 2m
-    project_id: "your-gcp-project-id"
+    project_id: "<<YOUR-GCP-PROJECT-ID>>"
     metrics_list:
       - metric_descriptor_filter: "metric.type = starts_with(\"compute.googleapis.com\")"
   googlecloudmonitoring/project_2:
     collection_interval: 2m
-    project_id: "your-gcp-project-id"
+    project_id: "<<YOUR-GCP-PROJECT-ID>>"
     metrics_list:
       - metric_name: "connectors.googleapis.com/flex/instance/cpu/usage_time"
 processors:
@@ -214,6 +215,7 @@ kubectl get secret google-cloud-credentials -n monitoring | cat
 ### Step 3: Configure Helm values
 
 Create or update your `values.yaml` for the `logzio-monitoring` umbrella chart (nest under `logzio-k8s-telemetry`):
+Make sure to replace `<<YOUR-GCP-PROJECT-ID>>` with your Google Cloud Platform Project ID.
 
 ```yaml
 logzio-k8s-telemetry:
@@ -243,12 +245,12 @@ logzio-k8s-telemetry:
     receivers:
       googlecloudmonitoring/project_1:
         collection_interval: 2m
-        project_id: "your-gcp-project-id"
+        project_id: "<<YOUR-GCP-PROJECT-ID>>"
         metrics_list:
           - metric_descriptor_filter: "metric.type = starts_with(\"compute.googleapis.com\")"
       googlecloudmonitoring/project_2:
         collection_interval: 2m
-        project_id: "your-gcp-project-id"
+        project_id: "<<YOUR-GCP-PROJECT-ID>>"
         metrics_list:
           - metric_name: "connectors.googleapis.com/flex/instance/cpu/usage_time"            
     service:
