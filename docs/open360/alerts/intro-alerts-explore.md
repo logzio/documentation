@@ -1,15 +1,14 @@
 ---
 sidebar_position: 2
-title: Understanding Log Alerts
+title: Understanding Alerts
 description: Monitor your environment with log alerts
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [logz.io, alerts, log alerts, log analysis, explore, observability]
 ---
 
+Alerts are essential for ensuring you’re notified of critical events. Setting up the right alert is a cornerstone of proactive development, DevOps, and validation practices.
 
-Log alerts are essential for ensuring you’re notified of critical events. Setting up the right alerts is a cornerstone of proactive development, DevOps, and validation practices.
-
-Logz.io alerts leverage the Explore Dashboard search queries to continuously monitor your logs and notify you when specific conditions are met. Alerts can range from simple searches or filters to complex queries with multiple conditions and varying thresholds.
+Logz.io alerts help you continuously monitor logs and metrics data and notify you when specific conditions are met.
 
 ### Create a log alert
 
@@ -24,6 +23,10 @@ You'll be redirected to the Create an alert page, where you can continue configu
 To manually build an alert, navigate to **[Alerts > + New alert](https://app.logz.io/#/dashboard/alerts/v2019/new)** to configure and create an alert.
 
 ![Alert from dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/alerts/new-alert-oct21.png)
+
+### Create a metric alert
+
+Create a metric alert. 
 
 ### Review existing alerts
 
