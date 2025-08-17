@@ -6,7 +6,7 @@ image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.
 keywords: [logz.io, dashboard, dashboards, hub, unified dashboards, logzio dashboards, logz dashboard, visualize, visualizations]
 ---
 
-Logz.io Dashboards deliver a feature-rich, intuitive experience for visualizing and exploring your observability data—all in one place.
+Logz.io Dashboards deliver a feature-rich, intuitive experience for visualizing and exploring your observability data, all in one place.
 
 From real-time performance monitoring to anomaly detection and cross-team troubleshooting, dashboards empower users and AI Agents alike to gain centralized visibility and act faster.
 
@@ -23,7 +23,7 @@ Whether you’re monitoring infrastructure health, investigating issues, or opti
 * Collaborate efficiently with shared dashboards and common views
 * Accelerate root cause analysis using AI-powered context
 
-Built with flexible querying and visualization options, dashboards let teams move quickly from high-level overviews to detailed investigations—without context switching.
+Built with flexible querying and visualization options, dashboards let teams move quickly from high-level overviews to detailed investigations, without context switching.
 
 <h2 id="which">Which visualization can I create?</h2>
 
@@ -42,8 +42,8 @@ Each panel is powered by customizable queries and filters to give you full contr
 
 <h2 id="where">How do I get started with Logz.io Dashboards?</h2>
 
-To view, create, and manage your dashboards, go to the [Dashboards Hub](https://docs.logz.io/docs/user-guide/dashboards-hub/dashboards-hub/).
+To view, create, and manage your dashboards, go to the [Dashboards Hub](https://docs.logz.io/docs/open360/dashboards/dashboards-hub/).
 
-You’ll find all your dashboards—organized by telemetry type—in one place.
+You’ll find all your dashboards, organized by telemetry type, in one place.
 
-[Learn more about managing and configuring Unified Dashboards](/docs/user-guide/dashboards/edit-dashboards/).
+[Learn more about managing and configuring Unified Dashboards](https://docs.logz.io/docs/open360/dashboards/edit-dashboards/).

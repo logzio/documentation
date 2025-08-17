@@ -41,17 +41,3 @@ You can change the Saved Search viewing ordering by choosing ascending, descendi
 Once you find a Saved Search you want to manage, hover over it to view an additional menu where you can delete it, edit its name, or add it to your favorites, pinning it to the top of the list. 
 
 <img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/saved-search/saved-search-sub-menu.png" alt="saved-sub-menu" width="500"/>
-
-## Import Saved Searches from OpenSearch Dashboards
-
-Logz.io automatically imports all Saved Searches from OpenSearch Dashboards to Explore.
-
-To manually import your saved searches from OpenSearch Dashboards to the new Explore dashboard, follow these steps:
-
-* **Generate an Empty State**: In the Saved Search search bar, enter a search query that you know will return no results, for example, `jjjjj`.
-
-* **Trigger the Import Prompt**: When no saved searches are found, you'll see a message indicating this and a button to import your saved searches.
-
-* **Import Saved Searches**: Click the button to import all your saved searches from OpenSearch Dashboards into Explore. This process automatically imports all of your Saved Searches.
-
-<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/saved-search/import-saved-search.png" alt="import-saved-searches" width="500"/>

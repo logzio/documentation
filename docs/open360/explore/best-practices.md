@@ -42,13 +42,6 @@ Explore uses the same editor as VS Code, so most of its shortcuts will work here
 
 Looking for a shortcut that isn’t available? [Let us know](mailto:help@logz.io), and we’ll consider adding it!
 
-
-## Simple Search
-
-Simple Search offers an autocomplete feature to help you build queries by selecting fields, conditions, and values—similar to Lucene but with a more streamlined approach.
-
-Click the search bar or start typing to see available fields, parameters, and conditions. To add a custom value, type it in and click the + sign. You can also enter free text, which will automatically convert into a Lucene query.
-
 ## Filters
 
 Use the side panel to refine your search by selecting specific accounts and exploring all available fields in your logs.
