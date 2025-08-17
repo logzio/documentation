@@ -1,9 +1,9 @@
 ---
 sidebar_position: 2
 title: Understanding Alerts
-description: Monitor your environment with log alerts
+description: Monitor your environment with Logz.io alerts
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-keywords: [logz.io, alerts, log alerts, log analysis, explore, observability]
+keywords: [logz.io, alerts, log alerts, metric alerts, log analysis, explore, observability]
 ---
 
 Alerts are essential for ensuring you’re notified of critical events. Setting up the right alert is a cornerstone of proactive development, DevOps, and validation practices.

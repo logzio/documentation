@@ -6,7 +6,7 @@ image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.
 keywords: [logz.io, dashboard, dashboards, hub, grafana, visualize, visualizations]
 ---
 
-The Dashboards Hub is your central space for managing and accessing all dashboards in one place. It consolidates dashboards from different telemetry sources, such as logs (OpenSearch Dashboards) and metrics (Grafana), into a single, convenient view—making it easy to find and open the dashboards you need.
+The Dashboards Hub is your central space for managing and accessing all dashboards in one place. It consolidates dashboards from different telemetry sources, such as logs (OpenSearch Dashboards) and metrics (Grafana), into a single, convenient view, making it easy to find and open the dashboards you need.
 
 Access the [Dashboards Hub](https://app.logz.io/#/dashboard/dashboards-hub) from the Home Dashboard screen under Dashboards.
 

@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-title: Configuration Guide
+title: Dashboards Configuration Guide
 description: Learn how to utilize Logz.io Dashboards to monitor your system.
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [logz.io, dashboard, dashboards, hub, unified dashboards, logzio dashboards, edit dashboard, visualize, visualizations]
@@ -14,46 +14,49 @@ Logz.io Dashboards offer a flexible, intuitive way to visualize observability da
 
 To access Logz.io Dashboards, click the Dashboards icon in the left-hand navigation.
 
-![dashboards hub navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/dashboards-hub-nav.png)
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/open360/dashboards/360-dashboards-nav.png" alt="dashboard-navigation" width="700"/>
 
-In the Dashboards Hub, you’ll find all dashboards created by you and your teammates within the account.
 
-All users—except read-only users—can view and create dashboards.
+The page includs all dashboards created by you and your teammates within the account.
+
+All users (except read-only users) can view and create dashboards.
 
 ## Create a new dashboard
 
-To get started, go to the **[Dashboards Hub](https://app.logz.io/#/dashboard/dashboards-hub)**, click **Create New**, and choose **Create Dashboard** from the drop down menu.
+To get started, navigate to **[Dashboards](https://app.logz.io/#/dashboard/dashboards-hub)**, click **Create New**, and choose **Create Dashboard** from the drop down menu.
 
-![dashboards hub](https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/dashboards-open-apr6.png)
+![create new dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/open360/dashboards/360-create-dashboard.png)
 
-Choose a folder to nest your dashboard under—or create a new one—and give the dashboard a name.
-
-You’ll be directed to a blank dashboard screen. Click **Edit** in the top-right corner to begin.
+Choose a folder to nest your dashboard under, or create a new one, and give your dashboard a name. Once you click create, you'll be directed to a blank dashboard screen.
 
 ### Create a panel group
 
-Before adding panels, create a panel group to organize your content. This step is required to start building the dashboard. Click **Save** to apply the changes.
+The first thing you need to do is create a panel group to organize your content. This step is required to start building a dashboard. Click **Panel Group**, give it a name, and click **Add**.
+
+You can create as many panel groups as needed, which will help you organize your dashboard better and optimize your view.
 
 ### Create a panel
 
-Once you have a panel group, click Edit again and select Panel to begin configuring.
-
-Panel configuration includes:
+Once you have a panel group, it's time to add a panel. Click on it to open the configuration menu, where you can add the following:
 
 * Name – Panel title.
+* Panel Group - The group in which you want to nest this panel. 
 * Description (optional) – Context or purpose of the panel.
-* Group – Assign to an existing panel group.
-* Type – Choose a visualization type (e.g., Time Series Chart, Gauge, Table).
+* Visualization Type – Choose a visualization type (e.g., Time Series Chart, Gauge, Table, etc.).
 
-Next, define your data source and query. Select Prometheus Time Series Query for metrics, or Logs Lucene Query for logs. Each query type uses its own compatible data source:
+Next, define your data source and query. 
+
+You can select Prometheus Time Series Query for metrics data, or Logs Lucene Query for logs data. Each query type uses its own compatible data source and has different options:
 
 #### Prometheus Time Series Query
 
 To create metric-based visualizations, select **Prometheus Time Series Query** as the query type. Then, choose the relevant Prometheus data source based on where your metric data is stored.
 
-In the PromQL Expression field, write your Prometheus query to fetch the time series you want to visualize. The query builder supports full PromQL syntax.
+You can build your own PromQL Expression by typing your query, or use the Metrics Browser to navigate your data and build an expression by selecting the relevant metrics, labels, and values. 
 
-For example, this PromQL query is searching for the rate of `calls_total` metrics, filtered and grouped dynamically:
+![metrics browser](https://dytvr9ot2sszz.cloudfront.net/logz-docs/open360/dashboards/360-metrics-browser.png)
+
+If you prefer to write your own PromQL query, you can use the following example as guidance. Here, it searches for the rate of `calls_total` metrics, filtered and grouped dynamically:
 
 `sum by ($GroupBy)(rate(calls_total{service_name="$Service",env_id="$env",$GroupBy!="",span_kind=~"$Kind"}[5m])) >0`
 
@@ -68,13 +71,13 @@ For example, this PromQL query is searching for the rate of `calls_total` metric
 
 Once you enter your query, a preview of the visualization appears in the preview section.
 
-Use the **Legend** field to define how the series will appear in the tooltip and chart legend. You can reference Prometheus labels using double curly braces—for example:
+Use the **Legend** field to define how the series will appear in the tooltip and chart legend. You can reference Prometheus labels using double curly braces, for example:
 
 `{{$GroupBy}}`
 
 This will display the value of the label selected in the `$GroupBy` variable, dynamically.
 
-Use the **Min Step** field to define the minimum time resolution (in seconds) between data points returned in the visualization.
+Use the **Time Interval in Minutes** field to define the minimum time resolution between data points returned in the visualization.
 
 If left empty, the query will use the scrape interval defined in your Prometheus data source.
 
