@@ -24,9 +24,9 @@ To manually build an alert, navigate to **[Alerts > + New alert](https://app.log
 
 ![Alert from dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/alerts/new-alert-oct21.png)
 
-### Create a metric alert
+<!-- ### Create a metric alert
 
-Create a metric alert. 
+Create a metric alert. -->
 
 ### Review existing alerts
 
