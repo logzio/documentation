@@ -43,6 +43,32 @@ Example of log data that **cannot** be used for alerts or visualizations:
 
 Some log shipping methods allow you to parse a JSON array into individual events, ensuring that logs are fully parsed and mapped by Logz.io for better use in alerts and visualizations.
 
+### Using array fields in visualizations and queries
+
+:::note
+Array field queries and visualizations using array fields can only be performed in OpenSearch Dashboards' Discover interface.
+:::
+
+Once your JSON arrays are parsed into individual events, you can leverage these array fields in your visualizations and search queries for enhanced log analysis.
+
+#### Using array fields in visualizations
+
+When creating visualizations, you can select array fields just like any other field. For example, if you have an array field called `array_field.field`, you can use this field to create charts, graphs, or other visualizations to analyze patterns in your array data
+
+This allows you to visualize trends, distributions, and patterns within the data that was originally nested in JSON arrays.
+
+#### Querying array fields
+
+Use array fields in your search queries in Discover to filter and find specific log events. Here's an example of how to query an array field:
+
+`array_field.field:"test"`
+
+This query will return all log events where the `array_field.field` contains the value "test". You can use standard Lucene query syntax with array fields, including:
+
+* Exact matches: `array_field.field:"exact_value"`
+* Wildcard searches: `array_field.field:"test*"`
+* Multiple conditions: `array_field.field:"test" AND other_field:"value"`
+
 ### Shipping methods that support arrays
 
 * The [Logz.io Kinesis Lambda function](https://docs.logz.io/shipping/log-sources/kinesis.html) - The parameter `MESSAGES_ARRAY` controls the option to parse an array of JSON objects into discrete events.
