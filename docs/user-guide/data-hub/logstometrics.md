@@ -21,7 +21,7 @@ With LogMetrics, you can create the following types of metrics:
 
 |**Metric**|**Type**|**Example query**|
 |----------|--------|-----------------|
-|Count|Counter|`rate(metric_name_count{foo=”bar”}[5m])`|
+|Count|Counter|`rate(metric_name_count{foo="bar"}[5m])`|
 |Sum|Gauge|`sum(metric_name_field_sum{}) by (foo)`|
 |Average|Gauge|`avg(metric_name_field_avg{}) by (foo)`|
 |Minimum|Gauge|`min(metric_name_field_min{}) by (foo)`|
@@ -47,7 +47,7 @@ If your log data contains nested fields or fields with dots and you want to use 
 
 You can create a LogMetric from OpenSearch Dashboards by clicking the **Create Metric** button at the top. This button becomes enabled whenever you apply a filter to your search. 
 
-Note that Lucene queries, free text search, "is between" filters, and regular expressions (regex) **are not supported**. Filters must use exact values only.
+Note that Lucene queries, free text search, "is between" filters, and regular expressions (regex) **are not supported**. Filters must match exact values only.
 
 
 ![OSD to metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/logs2metrics/osd-to-metric.png)
