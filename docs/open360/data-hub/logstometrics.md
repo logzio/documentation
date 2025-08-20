@@ -10,14 +10,14 @@ keywords: [Data hub, data optimization, optimization, log metrics, metrics, reco
 
 Create graphs and dashboards directly from your log files.
 
-LogMetrics utilizes the full power of PromQL, letting you visualize numeric-based data inside your logs, including latency, request time, volumes of data sent, and more.
+Log Metrics utilizes the full power of PromQL, letting you visualize numeric-based data inside your logs, including latency, request time, volumes of data sent, and more.
 
 By converting log data into metrics, you get a visual representation of your logs which you can monitor in real-time without paying for growing data volumes.
 
 
 ## Which types of metrics can you create?
 
-With LogMetrics, you can create the following types of metrics:
+With Log Metrics, you can create the following types of metrics:
 
 |**Metric**|**Type**|**Example query**|
 |----------|--------|-----------------|
@@ -28,7 +28,7 @@ With LogMetrics, you can create the following types of metrics:
 |Maximum|Gauge|`max(metric_name_field_max{}) by (foo)`|
 
 
-## Configure LogMetrics
+## Configure Log Metrics
 
 **Prerequisites:**
 
@@ -38,9 +38,8 @@ With LogMetrics, you can create the following types of metrics:
 ### Field name format
 
 :::caution note
-Fields with dot notation (e.g., kubernetes.labels.app) are treated as nested structures. As a result, these fields are incompatible with LogMetrics, which expect flat field names.
-
-If your log data contains fields with dots and you need to use them with LogMetrics, contact the [Logz.io support team](mailto:help@logz.io).
+This feature only supports flat field names. Fields that are nested or contain a dot (`.`) in their path, such as `kubernetes.labels.app` or `user.id`, aren’t supported. Simple fields such as `service`, `host`, or `status_code`, are supported.
+If your log data contains nested fields or fields with dots and you want to use them, contact the [Logz.io support team](mailto:help@logz.io).
 :::
 
 ### 1. Find the relevant logs
@@ -52,7 +51,7 @@ Note that Lucene queries, free text search, "is between" filters, and regular ex
 
 ![OSD to metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/logs2metrics/osd-to-metric.png)
 
-You can also create a custom LogMetrics by navigating to [**Data Hub > LogMetrics > New Metric**](https://app.logz.io/#/dashboard/logs-to-metrics/new).
+You can also create a custom Log Metrics rule by navigating to [**Data Hub > Log to Metrics > New Metric**](https://app.logz.io/#/dashboard/logs-to-metrics/new).
 
 
 ### 2. Name your LogMetric
@@ -74,21 +73,21 @@ Next, choose how you would like to aggregate your data: by log count, fields, or
 Use the dropdown to select which Metrics account will store the metrics output. The metrics are saved in 1-minute granularity and downsampled later for best performance. Retention is based on the settings of the chosen metrics account.
 
 
-Next, you can add a description. The description is visible on the main LogMetrics page. We recommend making your description helpful so both you and your team members will be able to understand their purpose.
+Next, you can add a description. The description is visible on the main Log Metrics page. We recommend making your description helpful so both you and your team members will be able to understand their purpose.
 
 Finally, you can add labels to your metrics. Labels are static values that can be helpful for filtering. For example, you can use labels to create filtered visualizations and dashboards.
 
-Click **Save** to create your LogMetrics. 
+Click **Save** to create your Log Metrics. 
 
 
 
-## View and manage your LogMetrics
+## View and manage your Log Metrics
 
-After saving your LogMetrics, you can view and manage it on the main [Log Metrics](https://app.logz.io/#/dashboard/logs-to-metrics/definitions) page. 
+After saving your Log Metrics, you can view and manage it on the main [Log Metrics](https://app.logz.io/#/dashboard/logs-to-metrics/definitions) page. 
 
 ![Logs to metrics main page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/logs2metrics/logmetrics-main.png)
 
-Toggle the **Status** button to disable/enable the LogMetrics. In addition, you can hover over the relevant metric to view additional abilities, including:
+Toggle the **Status** button to disable/enable the Log Metrics. In addition, you can hover over the relevant metric to view additional abilities, including:
 
 * **Explore in metrics** - view the dashboard in Grafana.
 * **Edit** - Edit the existing metric.
@@ -98,7 +97,7 @@ Toggle the **Status** button to disable/enable the LogMetrics. In addition, you 
 
 #### Additional information
 
-LogMetrics has the following requirements:
+Log Metrics has the following requirements:
 
 * You can only use field filters. Lucene's free text is not supported.
 * The values are case-sensitive. Make sure you’re using the correct values.
@@ -146,8 +145,8 @@ This happens because every station in the pipeline evaluates some aspect of ship
 
 <h3 id="avg-dropped">Solution</h3>
 
-There are sevaral things you can do to alleviate the dropped data:
+There are several things you can do to alleviate the dropped data:
 
-* Ensure that all integrations properly configure logs to send with timestamps or refrain from sending any timestamps at all.
+* Ensure that all integrations properly configure logs to send with timestamps or refrain from sending any timestamps at all
 * Verify that the target Logz.io metrics plan has enough space to accommodate the required amount of UTS
 * Avoid sending big batches of logs at a time. This can hurt the latency and can lead to lost data points

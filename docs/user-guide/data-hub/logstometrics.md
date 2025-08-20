@@ -38,10 +38,10 @@ With LogMetrics, you can create the following types of metrics:
 ### Field name format
 
 :::caution note
-Fields with dot notation (e.g., kubernetes.labels.app) are treated as nested structures. As a result, these fields are incompatible with LogMetrics, which expect flat field names.
-
-If your log data contains fields with dots and you need to use them with LogMetrics, contact the [Logz.io support team](mailto:help@logz.io).
+This feature only supports flat field names. Fields that are nested or contain a dot (`.`) in their path, such as `kubernetes.labels.app` or `user.id`, aren’t supported. Simple fields such as `service`, `host`, or `status_code`, are supported.
+If your log data contains nested fields or fields with dots and you want to use them, contact the [Logz.io support team](mailto:help@logz.io).
 :::
+
 
 ### 1. Find the relevant logs
 
@@ -146,7 +146,7 @@ This happens because every station in the pipeline evaluates some aspect of ship
 
 <h3 id="avg-dropped">Solution</h3>
 
-There are sevaral things you can do to alleviate the dropped data:
+There are several things you can do to alleviate the dropped data:
 
 * Ensure that all integrations properly configure logs to send with timestamps or refrain from sending any timestamps at all.
 * Verify that the target Logz.io metrics plan has enough space to accommodate the required amount of UTS
