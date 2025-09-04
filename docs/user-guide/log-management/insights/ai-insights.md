@@ -44,4 +44,4 @@ Otherwise, you can click the **Filter out value** option to exclude the issue fr
 
 ![Insights AI info](https://dytvr9ot2sszz.cloudfront.net/logz-docs/insights/filter-out-insights.gif)
 
-Read more about **[Logz.io integration with Generative AI Into the Open 360 Platform](https://logz.io/news-posts/logzio-integrates-generative-ai-open-360/)**
+Read more about **[Logz.io integration with Generative AI Into the Open 360 AI Platform](https://logz.io/news-posts/logzio-integrates-generative-ai-open-360/)**
