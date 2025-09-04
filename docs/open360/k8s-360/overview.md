@@ -9,7 +9,7 @@ slug: /open360/k8s-360/overview/
 
 <Tags tags={frontMatter.tags} />
 
-Kubernetes 360 is part of Logz.io's Open 360, a unified platform combining a true log analytics solution, the best Prometheus metrics monitoring, and the value of distributed tracing powered by Jaeger.
+Kubernetes 360 is part of Logz.io's Open 360 AI, a unified platform combining a true log analytics solution, the best Prometheus metrics monitoring, and the value of distributed tracing powered by Jaeger.
 
 Kubernetes 360 lets R&D and engineering teams monitor and troubleshoot applications deployed in Kubernetes environments.
 
