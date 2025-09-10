@@ -19,9 +19,9 @@ drop_filter: []
 
 ### Docker collector
 
-Docker is a set of platform-as-a-service products that deliver software in containers. This integration is a Docker container that can use either Filebeat or Fluent Bit to collect logs from other Docker containers and forward them to your Logz.io account.
+Docker is a set of platform-as-a-service products that deliver software in containers. This integration is a Docker container that uses Fluent Bit to collect logs from other Docker containers and forward them to your Logz.io account.
 
-To use docker-collector-logs, you'll set environment variables when you run the container. The Docker logs directory and docker.sock are mounted to the container, enabling Filebeat or Fluent Bit to collect logs and metadata.
+To use docker-logs-collector, you'll set environment variables when you run the container. The Docker logs directory and docker.sock are mounted to the container, enabling Fluent Bit to collect logs and metadata.
 
 
 import Tabs from '@theme/Tabs';
@@ -37,7 +37,7 @@ import TabItem from '@theme/TabItem';
 
 #### Pull the Docker image
 
-Download the logzio/docker-collector-logs image.
+Download the logzio/docker-logs-collector image.
 
 ```shell
 docker pull logzio/docker-logs-collector:latest
@@ -83,90 +83,8 @@ logzio/docker-logs-collector:latest
 
 
 </TabItem>
-<TabItem value="filebeat-docker" label="Filebeat" default>
-
-:::note
-[Project's GitHub repo](https://github.com/logzio/docker-collector-logs/)
-:::
-
-
-##### Upgrading to a newer version
-
-* When upgrading to a newer version of docker-collector-logs while it is already running, logs within the `ignoreOlder` timeframe may be resent. To minimize log duplicates, configure the `ignoreOlder` parameter of the new container to a lower value (e.g., `20m`).
-
-* Version 0.1.0 of docker-collector-logs includes breaking changes. Refer to the [change log](https://github.com/logzio/docker-collector-logs#change-log) for further details.
-
-
-#### Pull the Docker image
-
-Download the logzio/docker-collector-logs image.
-
-```shell
-docker pull logzio/docker-collector-logs
-```
-
-#### Run the Docker image
-  
-
-For a complete list of options, see the parameters below the code block.👇
-  
-##### Docker
-
-```shell
-docker run --name docker-collector-logs \
---env LOGZIO_TOKEN="<<LOG-SHIPPING-TOKEN>>" \
--v /var/run/docker.sock:/var/run/docker.sock:ro \
--v /var/lib/docker/containers:/var/lib/docker/containers \
-logzio/docker-collector-logs
-```
-  
-##### Docker Swarm
-
-```shell
-docker service create --name docker-collector-logs \
---env LOGZIO_TOKEN="<<LOG-SHIPPING-TOKEN>>" \
---mount type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock \
---mount type=bind,source=/var/lib/docker/containers,target=/var/lib/docker/containers \
---mode global logzio/docker-collector-logs
-```  
-
-#### Parameters
-
-| Parameter | Description | Field Type |
-|---|---|---|
-| LOGZIO_TOKEN | Your Logz.io account token. {@include: ../../_include/log-shipping/log-shipping-token.html}   | Required |
-| LOGZIO_REGION | Logz.io region code to ship the logs to. This region code changes depending on the region your account is hosted in. For example, accounts in the EU region have region code `eu`. If you don't specify this parameter, the default value will be used. For more information, see [Account region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/) on the Logz.io Docs. | _Default_: (US region) |
-| LOGZIO_TYPE | The log type you'll use with this Docker. {@include: ../../_include/log-shipping/type.md} | _Default_: Docker image name |
-| LOGZIO_CODEC | Set to `json` if shipping JSON logs. Otherwise, set to `plain` for plain text format. | _Default_: `plain` |
-| ignoreOlder |  Set a time limit on back shipping logs. Upgrading to a newer version of docker-collector-logs while it is already running will cause it to resend logs that are within the `ignoreOlder` timeframe. You can minimize log duplicates by setting the `ignoreOlder` parameter of the new docker to a lower value (for example, `20m`). | _Default_: `3h` |
-| LOGZIO_URL  |  URL for your account listener host. The URL changes depending on the region your account is hosted in. You can skip this parameter if you specify `LOGZIO_REGION`. If neither `LOGZIO_URL` nor `LOGZIO_REGION` is specified, the default value will be used. For more information, see [Account region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/) on the Logz.io Docs. | _Default_: `listener.logz.io:5015` |
-| additionalFields | Include additional fields with every message sent, formatted as `"fieldName1=fieldValue1;fieldName2=fieldValue2"`. To use an environment variable, format as `"fieldName1=fieldValue1;fieldName2=$ENV_VAR_NAME"`. In that case, the environment variable should be the only value in the field. If the environment variable can't be resolved, the field is omitted. | _optional_ |
-| matchContainerName | Comma-separated list of containers you want to collect the logs from. If a container's name partially matches a name on the list, that container's logs are shipped. Otherwise, its logs are ignored. **Note: Can't be used with skipContainerName** | _optional_ |
-| skipContainerName | Comma-separated list of containers you want to ignore. If a container's name partially matches a name on the list, that container's logs are ignored. Otherwise, its logs are shipped. **Note: Can't be used with matchContainerName** | _optional_ |
-| includeLines | Comma-separated list of regular expressions to match the lines that you want to include. **Note**: Regular expressions in this list should not contain commas. | _optional_ |
-| excludeLines | Comma-separated list of regular expressions to match the lines that you want to exclude. **Note**: Regular expressions in this list should not contain commas. | _optional_ |
-| renameFields | Rename fields with every message sent, formatted as `"oldName,newName;oldName2,newName2"`. To use an environment variable, format as `"oldName,newName;oldName2,$ENV_VAR_NAME"`. When using an environment variable, it should be the only value in the field. If the environment variable can't be resolved, the field will be omitted. | _optional_ |
-| HOSTNAME | Include your host name to display it for the field `agent.name`. If no value is entered, `agent.name`displays the container id.| _Default_: `''` |
-| multilinePattern | Include your regex pattern. See [Filebeat's official documentation](https://www.elastic.co/guide/en/beats/filebeat/7.12/multiline-examples.html#multiline) for more information. | _Default_: `''` |
-| multilineNegate |Include `'true'` to negate the pattern. **Note**: Cannot be used without multilinePattern. See [Filebeat's official documentation](https://www.elastic.co/guide/en/beats/filebeat/7.12/multiline-examples.html#multiline) for more information.| `'false'`  |
-| multilineMatch | Specifies how Filebeat combines matching lines into an event. The settings are `after` or `before`. The behavior of these settings depends on what you specify for negate. **Note**: Cannot be used without multilinePattern. See [Filebeat's official documentation](https://www.elastic.co/guide/en/beats/filebeat/7.12/multiline-examples.html#multiline) for more information.| _Default_: `'after'` |
-| LOG_LEVEL | Set log level for the collector. Allowed values are: `debug`, `info`, `warning`, `error` | _Default_: `info` |
-| INPUT_ENCODING | Here is a full list of [valid encodings](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-input-container.html#_encoding) you can use. | _Default_: `utf-8` |
-
-
-:::note
-By default, logs from docker-collector-logs and docker-collector-metrics containers are ignored.
-:::
-  
-
-</TabItem>
 </Tabs>
 
-
-
-
-
- 
 
 #### Check Logz.io for your logs
 
