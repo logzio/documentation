@@ -10,4 +10,4 @@ slug: /open360/k8s-360/unified-helm-chart/
 The logzio-monitoring Helm Chart ships your Kubernetes telemetry (logs, metrics, traces and security reports) to your Logz.io account.
 
 
-{@include: ../../_include/general-shipping/k8s.md}     
+{@include: ../../_include/general-shipping/k8s.md}      
