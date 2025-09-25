@@ -431,7 +431,10 @@ helm upgrade -n monitoring \
   logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
-> **Note:** Global tolerations are supported in all subcharts starting from version `7.2.0`.
+:::note 
+Global tolerations are supported in all subcharts starting from version `7.2.0`.
+:::
+
 ## Adding Tolerations for Tainted Nodes
 
 To ensure that your pods can be scheduled on nodes with taints, you need to add tolerations to the relevant sub-charts. Here is how you can configure tolerations for each sub-chart within the `logzio-monitoring` Helm chart:
