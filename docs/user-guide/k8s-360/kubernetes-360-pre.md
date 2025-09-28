@@ -75,7 +75,7 @@ To ensure your Kubernetes 360 dashboard is up and running, you'll need to send t
 
 
 
-### Additional Kubernetes metrics
+### Additional Kubernetes metrics 
 
 To enrich your services and infrastructure data **even further**, we recommend sending the following metrics as well:
 
