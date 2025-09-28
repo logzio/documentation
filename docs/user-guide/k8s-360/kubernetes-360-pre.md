@@ -71,6 +71,7 @@ To ensure your Kubernetes 360 dashboard is up and running, you'll need to send t
 |	kube_replicaset_owner	|	p8s_logzio_name, namespace, owner_kind, owner_name, replicaset	| 
 |	kube_deployment_created	|	p8s_logzio_name, namespace, deployment	| 
 |	kube_deployment_status_condition	|	p8s_logzio_name, namespace, deployment, status	| 
+|   container_cpu_cfs_throttled_seconds_total | p8s_logzio_name, namespace, pod, container |
 
 
 ### Additional Kubernetes metrics
