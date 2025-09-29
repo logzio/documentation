@@ -27,124 +27,107 @@ Ruby OpenTelemetry logging support is experimental. This guide provides the most
 
 * Ruby 3.1 or later
 * Bundler for dependency management
-* A Logz.io account with a shipping token
+* A Logz.io account with a log shipping token
 
 
 ### Install dependencies (gems)
 
+_If your Gemfile already contains `opentelemetry-exporter-otlp` (for tracing or metrics), leave that gem in your Gemfile and run `bundle update opentelemetry-exporter-otlp` to upgrade it._
+
+Run a single `bundle add` command from your project root:
+
 ```bash
 bundle add opentelemetry-sdk \
-  opentelemetry-exporter-otlp \
   opentelemetry-logs-api \
   opentelemetry-logs-sdk \
   opentelemetry-exporter-otlp-logs
 ```
-
 The `opentelemetry-exporter-otlp-logs` gem provides experimental OTLP-over-HTTP exporter for logs.
+
+Finish the install by running:
+
+```bash
+bundle install
+```
 
 ### Set OpenTelemetry environment variables
 
 ```bash
-export OTEL_LOGS_EXPORTER=otlp
-export OTEL_EXPORTER_OTLP_LOGS_PROTOCOL=http/protobuf
-export OTEL_EXPORTER_OTLP_LOGS_ENDPOINT=https://otlp-listener.logz.io/v1/logs
-export OTEL_EXPORTER_OTLP_LOGS_HEADERS="Authorization=Bearer <LOG-SHIPPING-TOKEN>,user-agent=logzio-ruby-logs-otlp"
-export OTEL_RESOURCE_ATTRIBUTES="service.name=<YOUR-SERVICE-NAME>"
+export OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf
+export OTEL_EXPORTER_OTLP_ENDPOINT=https://otlp-listener.logz.io/v1/logs
+export OTEL_EXPORTER_OTLP_HEADERS="Authorization=Bearer <LOG-SHIPPING-TOKEN>,user-agent=logzio-ruby-logs-otlp"
+export OTEL_SERVICE_NAME=<YOUR-SERVICE-NAME>
 ```
 
 Replace `<LOG-SHIPPING-TOKEN>` with your Logz.io shipping token and `<YOUR-SERVICE-NAME>` with your service name.
 
-### Initialize OpenTelemetry in Rails
+If the application already exports traces or metrics with a different OTLP endpoint, ensure that endpoint ends with `/v1/logs` so logs are routed correctly.
 
-Add this configuration to your Ruby application (at the top of your main file):
+### Instrument the application
+
+Add the block below at the top of your main script. For **Rails**, create `config/initializers/opentelemetry_logs.rb` with the code.
 
 ```ruby
 require 'opentelemetry/sdk'
-require 'opentelemetry/exporter/otlp/logs'
-require 'opentelemetry/logs/sdk'
+require 'opentelemetry-logs-sdk'
+require 'opentelemetry/exporter/otlp_logs'
 
 OpenTelemetry::SDK.configure do |c|
   c.service_name = ENV['OTEL_SERVICE_NAME'] || 'ruby-service'
-  
-  # Configure logs
+
   c.logger_provider = OpenTelemetry::SDK::Logs::LoggerProvider.new.tap do |provider|
-    exporter = OpenTelemetry::Exporter::OTLP::Logs::Exporter.new(
-      endpoint: ENV['OTEL_EXPORTER_OTLP_LOGS_ENDPOINT'],
-      headers: Hash[ENV['OTEL_EXPORTER_OTLP_LOGS_HEADERS'].split(',').map { |h| h.split('=', 2) }]
+    exporter = OpenTelemetry::Exporter::OTLP::Logs::LogsExporter.new(
+      endpoint: ENV['OTEL_EXPORTER_OTLP_ENDPOINT'],
+      headers:  Hash[ENV.fetch('OTEL_EXPORTER_OTLP_HEADERS', '').split(',').map { |h| h.split('=', 2) }]
     )
-    
     processor = OpenTelemetry::SDK::Logs::Export::BatchLogRecordProcessor.new(exporter)
     provider.add_log_record_processor(processor)
   end
 end
 ```
 
-For Rails specifically: Create `config/initializers/opentelemetry_logs.rb` with the above code.
+### Emit log records
 
-
-### Emit logs
-
-Anywhere in your app:
+Anywhere in the codebase you can obtain a logger and emit log entries:
 
 ```ruby
-# Get the logger
-logger = OpenTelemetry.logger_provider.logger('your-app-logger')
+logger = OpenTelemetry.logger_provider.logger('app-logger')
 
-# Emit different log levels
 logger.on_emit(
   body: 'User login successful',
   severity_text: 'INFO',
-  attributes: {
-    'user.id' => '123',
-    'action' => 'login'
-  }
+  attributes: { 'user.id' => '123', 'action' => 'login' }
 )
 
 logger.on_emit(
   body: 'Database connection failed',
   severity_text: 'ERROR',
-  attributes: {
-    'error.type' => 'ConnectionError',
-    'database' => 'users_db'
-  }
+  attributes: { 'error.type' => 'ConnectionError', 'database' => 'users_db' }
 )
 ```
 
-### Rails integration example 
+### Run and verify
 
-Standalone Ruby script:
+Run the application as usual, for example:
 
-```ruby
-#!/usr/bin/env ruby
-require_relative 'opentelemetry_config'
-
-logger = OpenTelemetry.logger_provider.logger('my-script')
-
-logger.on_emit(
-  body: 'Script started',
-  severity_text: 'INFO',
-  attributes: { 'version' => '1.0.0' }
-)
-
-# Your application logic here
-puts "Processing data..."
-
-logger.on_emit(
-  body: 'Processing complete',
-  severity_text: 'INFO',
-  attributes: { 'records_processed' => '1000' }
-)
+```bash
+bundle exec ruby <<your_app.rb>>
 ```
 
-### Run the application
+Generate activity that triggers log statements.
 
-`bundle exec ruby your_app.rb`
+Open Explore in the Logz.io UI, filter by the service name you set, and confirm that the new log entries appear after a short ingestion delay.
 
-Generate some traffic; the logs will stream to Logz.io in OTLP format.
+### Troubleshooting
 
-### Verify in Logz.io
+* A `Bundler::GemRequireError` about duplicate gems means `opentelemetry-exporter-otlp` appears twice in the Gemfile with different version constraints. Keep one line and run `bundle install` again.
 
-Open Explore, select the service name you set, and confirm the new log entries are present. Allow a few minutea for ingestion.
+* A `LoadError` for `opentelemetry/logs/sdk` indicates the require path is incorrect. Use `require 'opentelemetry-logs-sdk'`.
+
+* An `OpenTelemetry::SDK::ConfigurationError` mentioning an invalid URL usually means `OTEL_EXPORTER_OTLP_ENDPOINT` is unset or malformed. Confirm the full HTTPS URL ends with `/v1/logs`.
+
+Once the endpoint and headers are valid, logs flow automatically through the exporter and become searchable in your Logz.io account.
+
 
 ## Traces
 
