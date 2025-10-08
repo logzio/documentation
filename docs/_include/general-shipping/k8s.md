@@ -396,7 +396,7 @@ helm upgrade <RELEASE_NAME> logzio-helm/logzio-monitoring \
 
  </TabItem>
 
-<TabItem value="adding-toleration" label="Adding Toleration" default>
+<TabItem value="global-configurations" label="Global configurations" default>
 
 ## Adding Global Tolerations
 
@@ -503,25 +503,6 @@ Specific chart settings will **override** the global setting. For example `sub-c
 :::important
 The global settings **do not apply** to the following sub charts: `otel-operator`, `trivy-operator` (subchart of `logzio-trivy`), `prometheus-node-exporter`, `prometheus-pushgateway` and `kube-state-metrics` (subcharts of `logzio-telemetry`).
 :::
-
-## Handling image pull rate limit
-
-On frequently replaced nodes (for example, spot clusters), Docker Hub pull limits can interrupt upgrades:
-
-```
-You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limits.
-```
-
-In these cases, use the following `--set` commands to use alternative image repositories:
-
-```shell
---set logzio-k8s-telemetry.image.repository=ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib
---set logzio-k8s-telemetry.prometheus-pushgateway.image.repository=public.ecr.aws/logzio/prom-pushgateway
---set logzio-fluentd.image=public.ecr.aws/logzio/logzio-fluentd
---set logzio-trivy.image=public.ecr.aws/logzio/trivy-to-logzio
-```
-
-These overrides keep pulls within provider limits without changing chart defaults.
 
  </TabItem>
 <TabItem value="resource-detection" label="Resource Detection" default>
