@@ -396,7 +396,7 @@ helm upgrade <RELEASE_NAME> logzio-helm/logzio-monitoring \
 
  </TabItem>
 
-<TabItem value="adding-toleration" label="Adding Toleration" default>
+<TabItem value="global-configurations" label="Global configurations" default>
 
 ## Adding Global Tolerations
 
@@ -431,7 +431,10 @@ helm upgrade -n monitoring \
   logzio-monitoring logzio-helm/logzio-monitoring
 ```
 
-> **Note:** Global tolerations are supported in all subcharts starting from version `7.2.0`.
+:::note 
+Global tolerations are supported in all subcharts starting from version `7.2.0`.
+:::
+
 ## Adding Tolerations for Tainted Nodes
 
 To ensure that your pods can be scheduled on nodes with taints, you need to add tolerations to the relevant sub-charts. Here is how you can configure tolerations for each sub-chart within the `logzio-monitoring` Helm chart:
@@ -468,6 +471,38 @@ helm upgrade -n monitoring \
 ```
 
 By following these steps, you can ensure that your pods are scheduled on nodes with taints by adding the necessary tolerations to the Helm chart configuration.
+
+### Adding Global `affinity` and `nodeSelector` Settings
+
+:::note
+Supported in **versions `7.8.0`+**
+:::
+
+You can set `affinity` and `nodeSelector` once under `global` and apply them to all enabled `logzio-monitoring` subcharts. For example:
+
+```yaml
+global:
+  nodeSelector:
+    mylabel: "my value"
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: topology.kubernetes.io/zone
+            operator: In
+            values:
+            - my-random-val
+            - my-other-val
+```
+
+:::important
+Specific chart settings will **override** the global setting. For example `sub-chart-name.affinity` will take precedence over the `global.affinity`.
+:::
+
+:::important
+The global settings **do not apply** to the following sub charts: `otel-operator`, `trivy-operator` (subchart of `logzio-trivy`), `prometheus-node-exporter`, `prometheus-pushgateway` and `kube-state-metrics` (subcharts of `logzio-telemetry`).
+:::
 
  </TabItem>
 <TabItem value="resource-detection" label="Resource Detection" default>

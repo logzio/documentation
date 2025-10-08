@@ -7,6 +7,182 @@ keywords: [release notes, logzio, logs, metrics, traces, logz.io, updates, relea
 toc_max_heading_level: 2
 ---
 
+## September 2025
+
+### Open 360 AI
+
+*Open 360 AI is being enabled gradually. To get access, reach out to your Logz.io account manager or to [Logz.io’s support team](mailto:help@logz.io).*
+
+* **Rename dashboards**
+
+    Manage your existing dashboards and rename them directly from the dashboard page.
+
+    Click title > enter the new name > save. The new name will be visible to all users across the account.
+
+    [Create and manage your dashboards](https://app.logz.io/360/dashboards/dashboards-hub)
+
+* **Alert annotations on dashboards**
+
+    See alerts in context, right in your dashboards. When an alert that’s linked to a panel fires or changes state, a vertical marker appears on that panel’s timeline; hover to see details and jump to the alert.
+
+    Try it: In [Unified Alerts](https://app.logz.io/360/alerts/triggered), link your alert to a dashboard panel, then open the dashboard to see the markers.
+
+### Parsing Hub updates
+
+Updated the parsing hub and parsing rules to provide additional capabilities, including the ability to edit parsing rules and create multiple rules per log type - one active at a time.
+
+[Create and manage your parsing rules](https://app.logz.io/#/dashboard/parsing-rules-hub)
+
+### Core Update
+
+**Fluent Bit Helm chart v0.0.8**
+
+* Upgraded `fluent-bit-logzio-output` image to `0.6.3`
+* Prevent potential stack overflow: default bulk size now 2 MB
+* Added `logzio_bulk_size_mb` (1–9 MB)
+* Add required `id` to Logz.io output configuration
+
+[View on GitHub](https://github.com/logzio/fluent-bit-logzio-output)
+
+**Azure Serverless integration v0.0.4**
+
+* Added support for custom listener URLs in ARM templates
+    * “CUSTOM” option in `LogzioURL` parameter
+    * `CustomLogzioURL` parameter for specifying custom listener URLs
+* Azure Key Vault token storage
+    * Params: `UseKeyVaultForToken` to enable Key Vault usage
+    * `LogzioTokenSecretUri` for specifying Key Vault secret URI 
+    * `KeyVaultResourceId` for existing Key Vault resource ID
+    * Function App now created with system-assigned managed identity
+    * Automatic RBAC role assignment ("Key Vault Secrets User") on existing Key Vault
+    * Supports versioned and versionless secret references
+
+[View on GitHub](https://github.com/logzio/azure-serverless)
+
+**logzio-monitoring chart v7.8.0**
+
+* Upgraded `logzio-logs-collector` to version `2.3.0`
+    * Global `nodeSelector` and `affinity` support across subcharts
+    * Upgraded `otel/opentelemetry-collector-contrib` image to version `0.133.0`
+* Upgraded `logzio-apm-collector` chart to version `1.4.0` 
+    * Global `nodeSelector` and `affinity` support across subcharts
+    * Upgraded OpenTelemetry Collector from version `0.129.0` to `0.133.0`
+* Upgraded `logzio-k8s-events` chart to version `2.0.0`
+    * Global `nodeSelector` and `affinity` support across subcharts
+    * **Breaking changes**: Deprecated `nodeArchitectures` setting (can now be configured directly under `affinity`).
+* Upgraded logzio-k8s-telemetry chart to version `5.7.0`
+    * Global `nodeSelector` and `affinity` support across subcharts
+* Upgraded logzio-trivy chart to version `1.1.0`
+    * Global `nodeSelector` and `affinity` support across subcharts
+    * Upgrade Trivy-Operator version to version `0.28.0`
+* Upgraded `opentelemetry-operator` chart to version `~0.93.1`
+
+[View on GitHub](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-monitoring)
+
+
+## August 2025
+
+### Meet Open 360 AI: AI-Powered Observability Is Here
+
+We’ve launched Open 360 AI, our next-generation observability experience, built for both humans and AI agents. The new platform unifies logs, metrics, traces, and dashboards, using AI to accelerate root cause analysis, simplify data exploration, and automate troubleshooting.
+
+With Open 360 AI, you can ask questions in plain language, investigate alerts, build dashboards, and surface insights, so your team spends less time chasing data and more time resolving issues.
+
+We’re rolling it out gradually. To get early access, contact your account manager or [Logz.io's support team](mailto:help@logz.io).
+
+### Explore Update: Relative Time Range Input is Now Available
+
+You can now manually enter relative time ranges in Explore (e.g. “Last 17 minutes”, “Last 3 weeks”), right from the top of the time picker. This gives you more control when zooming into incidents, troubleshooting outside standard presets, or viewing data in a custom timeframe.
+
+[Try it out in Explore](https://app.logz.io/#/dashboard/explore)
+
+### New: MS Teams Integration for AI Alert Analysis
+
+Receive AI-generated alert analyses directly in Microsoft Teams, making it easier to stay on top of incidents without leaving your collaboration tool.
+
+[Connect MS Teams to your new or existing alerts](https://app.logz.io/#/dashboard/triggers/alert-definitions)
+
+### Core Updates
+
+**AWS Firehose Logs Integration v0.4.2**
+
+* Added support for new AWS namespaces
+* Added support for filter patterns in subscription filters
+* Improved stack parameter descriptions
+* Increased default timeout
+* Smarter error handling: skips retries on `LimitExceededException`
+
+[View on GitHub](https://github.com/logzio/firehose-logs)
+
+
+**Logz.io API Fetcher v2.0.1**
+
+* Added support for Cisco XDR
+
+[View on GitHub](https://github.com/logzio/logzio-api-fetcher)
+
+
+**Logz.io APM Collector v1.2.4**
+
+* Upgraded OpenTelemetry Collector from `v0.123.0` to `v0.129.0`
+* `logzioexporter` now exports logs and traces in OTLP format
+
+[View on GitHub](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-apm-collector)
+
+
+**Logz.io Terraform Provider v1.18.0**
+
+* Upgraded `logzio_client_terraform` to `v1.24.0`
+* Added support for warm retention settings in `sub_accounts`
+* Added `snap_search_retention_days` to create/update requests
+* Added read-only account fields: `is_capped`, `shared_gb`, `total_time_based_daily_gb`, and `is_owner`
+
+[View on GitHub](https://github.com/logzio/terraform-provider-logzio/tree/master)
+
+**Logz.io Monitoring Helm Chart v7.4.0**
+
+* Upgraded `logzio-k8s-telemetry` chart to `v5.3.1`
+* Upgraded `logzio-logs-collector` chart to `v2.2.0`
+* Upgraded `logzio-apm-telemetry` chart to `v1.3.0`
+* Upgraded `logzio-apm-collector` chart to `v1.2.4`
+* Upgraded `opentelemetry-operator` chart to `~0.90.4`
+* Upgraded OpenTelemetry Collector from `v0.123.0` to `v0.129.0`
+* Changed Java instrumentation default endpoint to `otlp/grpc` (was `otlp/http`)
+* Added support for include/exclude filter syntax for metrics, logs, and traces across subcharts
+* Supports advanced filtering via the `filters` key in `values.yaml` or `--set` flags
+* `logzioexporter` now exports logs and traces in OTLP format
+
+[View on GitHub](https://github.com/logzio/logzio-helm/pull/633)
+
+
+**docker-collector-logs v0.5.0**
+
+* Upgraded Filebeat OSS to `v9.0.4`
+* **Breaking change**: Replaced deprecated `container` input with `filestream` container parser
+* Upgraded Python base image to `v3.14.0`
+* Updated listener certificate to `AAACertificateServices.crt`
+
+[View on GitHub](https://github.com/logzio/docker-collector-logs)
+
+
+**logzio-mysql-logs v1.3.0**
+
+* Upgraded Filebeat OSS to `v9.0.4`
+* Upgraded Ubuntu base image to `24.04`
+* Updated listener certificate to `AAACertificateServices.crt`
+* Updated Kubernetes deployment to use the `v1.3.0` image
+* Improved Filebeat execution and cleanup scripts
+
+[View on GitHub](https://github.com/logzio/logzio-mysql-logs)
+
+**Prometheus Alerts Migrator Chart v3.0.1**
+
+* Upgraded `logzio/prometheus-alerts-migrator` image from `v1.3.0` to `v1.3.1`
+* Enforced 40-character limit on auto-generated Grafana folder UIDs to avoid runtime exceptions
+
+[View on GitHub](https://github.com/logzio/logzio-helm/tree/master/charts/prometheus-alerts-migrator)
+
+
 ## July 2025
 
 ### Logz.io Dashboards
@@ -17,7 +193,7 @@ Logz.io Dashboards are now generally available to all customers, providing an in
 Logz.io Dashboards now include a Metrics Builder - a new interface for constructing PromQL queries. Users can browse available metrics, labels, and values, with PromQL expressions generated in real time based on their selections. This helps simplify data exploration and query building, eliminating the need to write PromQL manually.
 
 **Drilldown links**
-You can now make any table cell clickable by turning column values into customizable links. To set this up, go to Column Settings, click Link, and enable the Enabling Link option. This allows for quick and easy drilldowns directly from your tables.
+You can now make any table cell clickable by turning column values into customizable links. To set this up, go to Column Settings, click Link, and enable the `Enabling Link` option. This allows for quick and easy drilldowns directly from your tables.
 
 **Dashboard Management via API**
 You can now manage Logz.io Dashboards using our API - create, update, delete, and retrieve dashboards as needed. This provides a flexible way to access and automate native dashboards, streamlining dashboard operations. For full details, see the API documentation.
@@ -69,7 +245,7 @@ The Dashboards Beta now includes several new capabilities:
 * Explore integration - Send visualizations from Explore directly to a dashboard with one click.
 * Improved tables and filters - Use new column types (e.g., links, gauges) and enhanced filters for more actionable dashboards.
 
-Note: Logz.io Dashboards are in beta. To join, contact your account manager or [Logz.io support](mailto:help@logz.io).
+Note: Logz.io Dashboards are in beta. To join, contact your account manager or [Logz.io's support team](mailto:help@logz.io).
 
 ### Core Updates
 
@@ -200,7 +376,7 @@ Upgrade dependencies:
 
 [View on GitHub](https://github.com/logzio/logzio-helm/tree/master/charts/prometheus-alerts-migrator).
 
-**Released the Logzio Terrform provider integration with version v1.17.1:**
+**Released the Logzio Terraform provider integration with version v1.17.1:**
 
 * Upgrade logzio_client_terraform to 1.23.2
 
