@@ -18,7 +18,7 @@ drop_filter: []
 
 This project deploys instrumentation that allows shipping Cloudwatch logs to Logz.io, with a Firehose Delivery Stream. It uses a Cloudformation template to create a Stack that deploys:
 
-* Firehose Delivery Stream with Logz.io as the stream's destination.
+* Firehose Delivery Stream with Logz.io as the stream's destination. [View GitHub repo](https://github.com/logzio/firehose-logs). 
 * Lambda function that adds Subscription Filters to Cloudwatch Log Groups, as defined by user's input.
 * Roles, log groups, and other resources that are necessary for this instrumentation.
 

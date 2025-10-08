@@ -22,6 +22,8 @@ For a much easier and more efficient way to collect and send telemetry, consider
 
 Deploy this integration to forward your Amazon API Gateway logs to Logz.io using AWS Firehose
 
+[View AWS logs GitHub repository](https://github.com/logzio/firehose-logs).
+
 
 ### Auto-deploy the Stack in the relevant region
 
