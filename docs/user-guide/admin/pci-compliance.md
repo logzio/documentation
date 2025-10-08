@@ -22,7 +22,7 @@ Logz.io's PCI compliance solution is compatible with all levels,
 including the most stringent PCI level 1 requirements.
 
 :::note Read More
-For more information on PCI compliance and DDS (Data Security Standard), see the PCI Security Standards Council's [resources](https://www.pcisecuritystandards.org/).
+For more information on PCI compliance and DSS (Data Security Standard), see the PCI Security Standards Council's [resources](https://www.pcisecuritystandards.org/).
 :::
 
 ## Enable PCI compliance
