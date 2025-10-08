@@ -46,13 +46,13 @@ In your **Logz.io account**, go to **Settings > Notification Endpoints** and cli
 
 ![Notification endpoints](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/notification-endpoints.png)
 
-Choose **PagerDuty** as the endpoint type. Enter a name and optional description, then paste the **Integration Key** you copied from PagerDuty. 
+Choose **PagerDuty** as the endpoint type. Enter a name and optional description, then paste the **Integration Key** copied from PagerDuty. 
 
 Before using the endpoint, click **Run the test** to verify that Logz.io can send data to PagerDuty successfully.
 
 Click **Add a new endpoint** to save.
 
-![Add a new endpoints](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/add-an-endpoint-pager.png)
+![Add a new endpoint](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/add-an-endpoint-pager.png)
 
 
 :::note
@@ -67,7 +67,24 @@ In the **Select notification recipients** section, choose the **PagerDuty** endp
 
 ![Select PagerDuty endpoints](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/choose-pagerduty-from-list.png)
 
-Once triggered, the alert will send a notification to PagerDuty, which will generate a new incident based on your PagerDuty service settings.
+When triggered, the alert sends a notification to PagerDuty, which generates a new incident based on your service settings.
+
+## PagerDuty integration with Logz.io's RCA capabilities
+
+Connect PagerDuty incidents to Logz.io’s Root Cause Analyzer (RCA) so each incident triggers an automatic analysis and send findings back to PagerDuty.
+
+### How it works
+
+Within PagerDuty’s Incident Workflows, a new action is available: “Initiate RCA in Logz.io”. No custom scripting is needed - the action is built-in.
+
+When an incident triggers, Logz.io automatically runs AI-powered Root Cause Analysis (RCA) across logs, metrics, traces, and deployments. Results are returned directly inside PagerDuty notifications (email, Slack, etc.), shortening investigation time.
+
+Logz.io’s RCA uses historical PagerDuty incidents to learn how similar issues were resolved, and builds dynamic playbooks based on those past actions, so users don’t need to manually maintain RCA instructions. Optionally, teams can embed existing Confluence/Jira runbooks or add instructions in plain English.
+
+Read more about Logz.io's [AI Agent Root Cause Analyzer](https://docs.logz.io/docs/user-guide/observability/assistantiq/#ai-agent-root-cause-analyzer).
+
+![Pagerduty Logz.io RCA](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/pagerrca.png)
+
 
 ## Troubleshooting
 
