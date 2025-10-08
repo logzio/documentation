@@ -23,6 +23,8 @@ This project deploys instrumentation that allows shipping Cloudwatch logs to Log
 * Lambda function that adds Subscription Filters to Cloudwatch Log Groups, as defined by user's input.
 * Roles, log groups, and other resources that are necessary for this instrumentation.
 
+[View AWS logs GitHub repository](https://github.com/logzio/firehose-logs).
+
 
 :::note
 If you want to send logs from specific log groups, use `customLogGroups` instead of `services`. Since specifying `services` will automatically send all logs from those services, regardless of any custom log groups you define.

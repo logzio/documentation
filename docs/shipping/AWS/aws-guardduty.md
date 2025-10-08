@@ -32,6 +32,8 @@ You'll need to create a new EventBridge rule that will send your GuardDuty findi
 
 ### Auto-deploy the Stack in the relevant region
 
+[View AWS logs GitHub repository](https://github.com/logzio/firehose-logs).
+
 This integration will deploy a Firehose connection with your AWS services to forward logs to Logz.io
 To deploy this project, click the button that matches the region you wish to deploy your stack to:
 
