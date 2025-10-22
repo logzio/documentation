@@ -16,7 +16,7 @@ Once you provide input, the AI Agent will have access to relevant data from your
 
 ### Is my data used to train the AI model?
 
-No. Logz.io uses the AWS Bedrock, which does not use your data for training. Your data is not shared with AWS or any third-party providers for model training purposes.
+No. Logz.io uses AWS Bedrock, which does not use your data for training. Your data is not shared with AWS or any third-party providers for model training purposes.
 
 You can read more about this [here](https://aws.amazon.com/bedrock/faqs/#product-faqs#bedrock-faqs#security-and-privacy).
 
@@ -36,7 +36,7 @@ Your data is handled by Logz.io and AWS (being Logz.io’s sub-processor) in acc
 
 ### In what Geographic region is my data stored?
 
-Logz.io aims to host the model in the same region in which you elected to store  your Logz.io account data, however, due to current AWS limitations, this is not always possible:
+Logz.io aims to host the model in the same region in which you elected to store your Logz.io account data, however, due to current AWS limitations, this is not always possible:
 
 If your data is hosted in Canada (Central), we will use the AI model hosted in `us-east-1`; and if your data is hosted in Europe (London), we will use the AI model hosted in `eu-central-1`. 
 
@@ -95,7 +95,7 @@ In addition to model-level controls, Logz.io implements internal safeguards to m
 
 ### Can the AI functions be turned off?
 
-Yes. To disable the AI Agent on your account, contact [Logz.io support team](mailto:help@logz.io). 
+Yes. To disable the AI Agent on your account, contact [Logz.io Support](mailto:help@logz.io). 
 
 ### How do I provide feedback or report issues with the AI Agent?​
 
