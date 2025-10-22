@@ -10,7 +10,7 @@ AI Agent is part of Logz.io’s Observability IQ suite. It helps enhance system 
 
 ### What data can the AI Agent access upon activation?​
 
-The AI Agent activates when you enter a prompt in its interface, currently available in **[Explore](https://app.logz.io/#/dashboard/explore)**, **[Kubernetes 360](https://app.logz.io/#/dashboard/observability/k8s360)**, and **[App 360](https://app.logz.io/#/dashboard/spm/services/table)**. 
+The AI Agent activates when you enter a prompt in its interface, currently available in [**Explore**](https://app.logz.io/360/explore), [**Kubernetes**](https://app.logz.io/360/k8s360), and [**APM**](https://app.logz.io/360/apm/services). 
 
 Once you provide input, the AI Agent will have access to relevant data from your Logz.io account, including all of your log data, current query,  graphs, etc. This setup allows the AI Agent to interact directly with the data you're analyzing, delivering tailored insights and suggestions.
 
