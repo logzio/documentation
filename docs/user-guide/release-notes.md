@@ -200,7 +200,7 @@ Upgrade dependencies:
 
 [View on GitHub](https://github.com/logzio/logzio-helm/tree/master/charts/prometheus-alerts-migrator).
 
-**Released the Logzio Terrform provider integration with version v1.17.1:**
+**Released the Logzio Terraform provider integration with version v1.17.1:**
 
 * Upgrade logzio_client_terraform to 1.23.2
 
