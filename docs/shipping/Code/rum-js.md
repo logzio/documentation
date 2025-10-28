@@ -42,7 +42,7 @@ LogzioRUM.init({
   customAttributes: {
     //// Optional, extra fields containing user metadata to be sent with each event
     //// example:
-    // user.mame: user.name,
+    // user.name: user.name,
     // user.id: user.id,
     // "user.role": user.role
   },
