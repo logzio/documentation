@@ -33,7 +33,7 @@ LogzioRUM.init({
   tokens: {
     traces: <<LOGZIO_TRACES_TOKEN>>,
     logs: <<LOGZIO_LOGS_TOKEN>>,       // Required unless enable.errorTracking, enable.consoleLogs and enable.viewEvents are set to false
-    metrics: <<LOGZIO_METRICS_TOKEN>>, // Required unless enable.performanceMonitoring and enable.frustrationDetection are set to false
+    metrics: <<LOGZIO_METRICS_TOKEN>>, // Required unless enable.webVitals and enable.frustrationDetection are set to false
   },
   service: {
     name: <<SERVICE_NAME>>,        // Optional
