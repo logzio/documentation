@@ -35,6 +35,9 @@ LogzioRUM.init({
     logs: <<LOGZIO_LOGS_TOKEN>>,       // Required unless enable.errorTracking, enable.consoleLogs and enable.viewEvents are set to false
     metrics: <<LOGZIO_METRICS_TOKEN>>, // Required unless enable.webVitals and enable.frustrationDetection are set to false
   },
+  endpoint: {
+    url: "<<LOGZIO_RUM_URL>>",
+  }
   service: {
     name: <<SERVICE_NAME>>,        // Optional
     version: <<SERVICE_VERSION>>,  // Optional
@@ -57,6 +60,8 @@ LogzioRUM.init({
 | tokens.traces                              | The Logz.io traces shipping token                                                                                                             | Required          | -                           |
 | tokens.logs                                | The Logz.io logs shipping token. **Required unless** `enable.errorTracking`, `enable.consoleLogs` and `enable.viewEvents` are set to `false`. | Required\*        | -                           |
 | tokens.metrics                             | The Logz.io metrics shipping token. **Required unless** `enable.webVitals` and `enable.frustrationDetection` are set to `false`.              | Required\*        | -                           |
+| endpoint.url                               | Endpoint URL to send the collected data to in OTLP. endpoint.                                                                                 | Required          | -                           |
+| endpoint.addSuffix                         | Whether to append data type suffixes (`/traces`, `/metrics`, `/logs`) to the endpoint URL.                                                    | Optional          | `false`                     |
 | service.name                               | The name of the service being monitored.                                                                                                      | Optional          | `""`                        |
 | service.version                            | The version of the service being monitored.                                                                                                   | Optional          | `""`                        |
 | session.maxDurationMs                      | The maximum duration of a session in ms.                                                                                                      | Optional          | `4 * 60 * 60 * 1000` (`4h`) |
@@ -80,8 +85,6 @@ LogzioRUM.init({
 | frustrationThresholds.rageClickCount       | The number of clicks within `rageClickIntervalMs` to consider a click as a rage click.                                                        | Optional          | `3`                         |
 | frustrationThresholds.rageClickIntervalMs  | The time interval in milliseconds to consider for rage clicks.                                                                                | Optional          | `1000` (`1s`)               |
 | frustrationThresholds.heavyLoadThresholdMs | The time in milliseconds to consider a page load as heavy.                                                                                    | Optional          | `2000` (`2s`)               |
-| customEndpoint.url                         | Custom endpoint URL to override the default Logz.io endpoint.                                                                                 | Optional          | `""`                        |
-| customEndpoint.addSuffix                   | Whether to append data type suffixes (`/traces`, `/metrics`, `/logs`) to the custom endpoint URL.                                             | Optional          | `true`                      |
 | logLevel                                   | The log level of the RUM library.                                                                                                             | Optional          | `info`                      |
 
 
