@@ -26,7 +26,9 @@ You may also be interested in the API methods included in [**Archive logs**](htt
 
 ## Set up Archive and restore in AWS
 
-
+:::danger note
+To allow Logz.io to archive data into your bucket, you **must enable ACLs ([Access Control Lists](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html))** for the S3 bucket. Without ACLs, Logz.io cannot write data even if IAM permissions are configured.
+:::
 
 **Before you begin, you'll need**:
 

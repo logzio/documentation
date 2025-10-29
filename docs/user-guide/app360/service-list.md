@@ -3,7 +3,7 @@ sidebar_position: 1
 title: Services
 description: View your services' performance and health in Logz.io's Services
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-keywords: [traces, logs, metrics, services, service overview, logz.io, spanmetrics, otel spanmetrics]
+keywords: [traces, logs, metrics, services, service overview, logz.io, spanmetrics, otel spanmetrics, otel span metrics]
 ---
 
 # Services
