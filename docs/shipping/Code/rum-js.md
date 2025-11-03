@@ -37,7 +37,7 @@ LogzioRUM.init({
   },
   endpoint: {
     url: "<<LOGZIO_RUM_URL>>",
-  }
+  },
   service: {
     name: <<SERVICE_NAME>>,        // Optional
     version: <<SERVICE_VERSION>>,  // Optional
@@ -47,7 +47,10 @@ LogzioRUM.init({
     //// example:
     // user.name: user.name,
     // user.id: user.id,
-    // "user.role": user.role
+    // "user.role": user.role,
+
+    //// recommended: add env field (prod, dev, staging...)
+    env_id: "prod"
   },
 });
 ```
@@ -120,3 +123,14 @@ LogzioRUM.init({
 
 ### Step 2
 The `traceparent` header is not CORS-safelisted, so you need to configure your backend to accept it and use it in your backend tracing implementation.
+
+## Collected metrics
+
+| Metric                              | Metric name                    | Type            | Unit             | Description                                                                                                       |
+| ----------------------------------- | ------------------------------ | --------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **FCP** (First Contentful Paint)    | `logzio_rum_fcp`               | histogram       | ms               | Time to first visible paint                                                                                       |
+| **LCP** (Largest Contentful Paint)  | `logzio_rum_lcp`               | histogram       | ms               | Time until the largest visible element renders                                                                    |
+| **CLS** (Cumulative Layout Shift)   | `logzio_rum_cls`               | histogram       | score (unitless) | Visual stability across the session                                                                               |
+| **INP** (Interaction to Next Paint) | `logzio_rum_inp`               | histogram       | ms               | Response time to next paint after user interactions                                                               |
+| **TTFB** (Time to First Byte)       | `logzio_rum_ttfb`              | histogram       | ms               | Time from navigation start to first byte received                                                                 |
+| Frustration count                   | `logzio_rum_frustration_count` | counter (delta) | unitless         | Number of interactions classified as “frustration” (e.g., dead-click / rage-click / error-click) during the view. |
