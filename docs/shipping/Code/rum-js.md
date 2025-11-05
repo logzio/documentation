@@ -28,12 +28,13 @@ npm install @logzio/browser
 Call `LogzioRUM.init()` to initialize the RUM client. **This should be done as early as possible in your application lifecycle.**
 
 ```javascript
+import { LogzioRUM } from '@logzio/browser';
+
 LogzioRUM.init({
   region: <<LOGZIO_REGION_CODE>>,
   tokens: {
     traces: <<LOGZIO_TRACES_TOKEN>>,
-    logs: <<LOGZIO_LOGS_TOKEN>>,       // Required unless enable.errorTracking, enable.consoleLogs and enable.viewEvents are set to false
-    metrics: <<LOGZIO_METRICS_TOKEN>>, // Required unless enable.webVitals and enable.frustrationDetection are set to false
+    logs: <<LOGZIO_LOGS_TOKEN>>, // Required unless enable.errorTracking, enable.consoleLogs, enable.viewEvents, and enable.webVitals are all set to false
   },
   endpoint: {
     url: "<<LOGZIO_RUM_URL>>",
@@ -49,7 +50,7 @@ LogzioRUM.init({
     // user.id: user.id,
     // "user.role": user.role,
 
-    //// recommended: add env field (prod, dev, staging...)
+    // recommended: add env field (prod, dev, staging...)
     env_id: "prod"
   },
 });
@@ -57,39 +58,37 @@ LogzioRUM.init({
 
 ### Configuration Options
 
-| Parameter Name                             | Description                                                                                                                                   | Required/Optional | Default                     |
-|--------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|-------------------|-----------------------------|
-| region                                     | The Logz.io account region code (e.g., `us`, `eu`, `au`, `uk`, `ca`)                                                                          | Required          | `us`                        |
-| tokens.traces                              | The Logz.io traces shipping token                                                                                                             | Required          | -                           |
-| tokens.logs                                | The Logz.io logs shipping token. **Required unless** `enable.errorTracking`, `enable.consoleLogs` and `enable.viewEvents` are set to `false`. | Required\*        | -                           |
-| tokens.metrics                             | The Logz.io metrics shipping token. **Required unless** `enable.webVitals` and `enable.frustrationDetection` are set to `false`.              | Required\*        | -                           |
-| endpoint.url                               | Endpoint URL for sending OTLP data.                                                                                 | Required          | -                           |
-| endpoint.addSuffix                         | Whether to append data type suffixes (`/traces`, `/metrics`, `/logs`) to the endpoint URL.                                                    | Optional          | `false`                     |
-| service.name                               | The name of the service being monitored.                                                                                                      | Optional          | `""`                        |
-| service.version                            | The version of the service being monitored.                                                                                                   | Optional          | `""`                        |
-| session.maxDurationMs                      | The maximum duration of a session in ms.                                                                                                      | Optional          | `4 * 60 * 60 * 1000` (`4h`) |
-| session.timeoutMs                          | If a user is inactive for this duration, the session will end.                                                                                | Optional          | `15 * 60 * 1000` (`15m`)    |
-| enable.userActions                         | Enable user actions tracking.                                                                                                                 | Optional          | `true`                      |
-| enable.navigation                          | Enables SPA route change detection and treats them as new views.                                                                              | Optional          | `true`                      |
-| enable.documentLoad                        | Enables the initial page load span.                                                                                                           | Optional          | `true`                      |
-| enable.resourceLoad                        | Enable resource loading tracking such as XHR, fetch, scripts, images.                                                                         | Optional          | `true`                      |
-| enable.errorTracking                       | Enable exceptions tracking.                                                                                                                   | Optional          | `true`                      |
-| enable.frustrationDetection                | Enable frustration detection such as rage clicks, dead clicks and heavy load times.                                                           | Optional          | `true`                      |
-| enable.webVitals                           | Enable performance monitoring. If turned off, no metrics will be sent.                                                                        | Optional          | `true`                      |
-| enable.viewEvents                          | Enable view end log event which contains the duration to indicate the current session state.                                                  | Optional          | `false`                     |
-| enable.consoleLogs                         | Enable console logs tracking. If turned off, no console logs will be sent.                                                                    | Optional          | `false`                     |
-| environmentData.collectOS                  | Enable collection of user operating system name, version and type information.                                                                | Optional          | `true`                      |
-| environmentData.collectBrowser             | Enable collection of user browser name, version and engine                                                                                    | Optional          | `true`                      |
-| environmentData.collectDevice              | Enable collection of user device type and screen dimensions                                                                                   | Optional          | `true`                      |
-| environmentData.collectLanguage            | Enable collection of user language and timezone                                                                                               | Optional          | `true`                      |
-| customAttributes                           | Extra fields containing data to be sent with each event. (such as user context)                                                               | Optional          | `{}`                        |
-| propagateTraceHeaderCorsUrls               | A list of Backend URLs to propagate the trace header to.                                                                                      | Optional          | `[]`                        |
-| samplingRate                               | The rate in which spans are sampled.                                                                                                          | Optional          | `100`(%)                    |
-| frustrationThresholds.rageClickCount       | The number of clicks within `rageClickIntervalMs` to consider a click as a rage click.                                                        | Optional          | `3`                         |
-| frustrationThresholds.rageClickIntervalMs  | The time interval in milliseconds to consider for rage clicks.                                                                                | Optional          | `1000` (`1s`)               |
-| frustrationThresholds.heavyLoadThresholdMs | The time in milliseconds to consider a page load as heavy.                                                                                    | Optional          | `2000` (`2s`)               |
-| logLevel                                   | The log level of the RUM library.                                                                                                             | Optional          | `info`                      |
-
+| Parameter Name                             | Description                                                                                                                                                            | Required/Optional | Default                     |
+| ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | --------------------------- |
+| region                                     | The Logz.io account region code (e.g., `us`, `eu`, `au`, `uk`, `ca`)                                                                                                   | Required          | `us`                        |
+| tokens.traces                              | The Logz.io traces shipping token                                                                                                                                      | Required          | -                           |
+| tokens.logs                                | The Logz.io logs shipping token. **Required unless** `enable.errorTracking`, `enable.consoleLogs`, `enable.viewEvents`, and `enable.webVitals` are all set to `false`. | Required\*        | -                           |
+| endpoint.url                               | Endpoint URL to send the collected data to in OTLP.                                                                                                                    | Required          | -                           |
+| endpoint.addSuffix                         | Whether to append data type suffixes (`/traces`, `/logs`) to the endpoint URL.                                                                                         | Optional          | `false`                     |
+| service.name                               | The name of the service being monitored.                                                                                                                               | Optional          | `""`                        |
+| service.version                            | The version of the service being monitored.                                                                                                                            | Optional          | `""`                        |
+| session.maxDurationMs                      | The maximum duration of a session in ms.                                                                                                                               | Optional          | `4 * 60 * 60 * 1000` (`4h`) |
+| session.timeoutMs                          | If a user is inactive for this duration, the session will end.                                                                                                         | Optional          | `15 * 60 * 1000` (`15m`)    |
+| enable.userActions                         | Enable user actions tracking.                                                                                                                                          | Optional          | `true`                      |
+| enable.navigation                          | Enables SPA route change detection and treats them as new views.                                                                                                       | Optional          | `true`                      |
+| enable.documentLoad                        | Enables the initial page load span.                                                                                                                                    | Optional          | `true`                      |
+| enable.resourceLoad                        | Enable resource loading tracking such as XHR, fetch, scripts, images.                                                                                                  | Optional          | `true`                      |
+| enable.errorTracking                       | Enable exceptions tracking.                                                                                                                                            | Optional          | `true`                      |
+| enable.frustrationDetection                | Enable frustration detection such as rage clicks, dead clicks and heavy load times. Frustration signals will be marked on trace spans.                                 | Optional          | `true`                      |
+| enable.webVitals                           | Enable web vitals tracking (FCP, LCP, CLS, INP, TTFB). Web vitals will be emitted as logs.                                                                             | Optional          | `true`                      |
+| enable.viewEvents                          | Enable view end log event which contains the duration to indicate the current session state.                                                                           | Optional          | `false`                     |
+| enable.consoleLogs                         | Enable console logs tracking. If turned off, no console logs will be sent.                                                                                             | Optional          | `false`                     |
+| environmentData.collectOS                  | Enable collection of user operating system name, version and type information.                                                                                         | Optional          | `true`                      |
+| environmentData.collectBrowser             | Enable collection of user browser name, version and engine                                                                                                             | Optional          | `true`                      |
+| environmentData.collectDevice              | Enable collection of user device type and screen dimensions                                                                                                            | Optional          | `true`                      |
+| environmentData.collectLanguage            | Enable collection of user language and timezone                                                                                                                        | Optional          | `true`                      |
+| customAttributes                           | Extra fields containing data to be sent with each event. (such as user context)                                                                                        | Optional          | `{}`                        |
+| propagateTraceHeaderCorsUrls               | A list of Backend URLs to propagate the trace header to.                                                                                                               | Optional          | `[]`                        |
+| samplingRate                               | The rate in which spans are sampled.                                                                                                                                   | Optional          | `100`(%)                    |
+| frustrationThresholds.rageClickCount       | The number of clicks within `rageClickIntervalMs` to consider a click as a rage click.                                                                                 | Optional          | `3`                         |
+| frustrationThresholds.rageClickIntervalMs  | The time interval in milliseconds to consider for rage clicks.                                                                                                         | Optional          | `1000` (`1s`)               |
+| frustrationThresholds.heavyLoadThresholdMs | The time in milliseconds to consider a page load as heavy.                                                                                                             | Optional          | `2000` (`2s`)               |
+| logLevel                                   | The log level of the RUM library.                                                                                                                                      | Optional          | `'info'`                    |
 
 ## Dynamically inject attributes
 You can dynamically inject attributes that will be added to all data generated by the library by using the `LogzioRUM.setAttributes()` method.
@@ -124,13 +123,29 @@ LogzioRUM.init({
 ### Step 2
 The `traceparent` header is not CORS-safelisted, so you need to configure your backend to accept it and use it in your backend tracing implementation.
 
-## Collected metrics
+## Collected Data
 
-| Metric                              | Metric name                    | Type            | Unit             | Description                                                                                                       |
-| ----------------------------------- | ------------------------------ | --------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------- |
-| **FCP** (First Contentful Paint)    | `logzio_rum_fcp`               | histogram       | ms               | Time to first visible paint                                                                                       |
-| **LCP** (Largest Contentful Paint)  | `logzio_rum_lcp`               | histogram       | ms               | Time until the largest visible element renders                                                                    |
-| **CLS** (Cumulative Layout Shift)   | `logzio_rum_cls`               | histogram       | score (unitless) | Visual stability across the session                                                                               |
-| **INP** (Interaction to Next Paint) | `logzio_rum_inp`               | histogram       | ms               | Response time to next paint after user interactions                                                               |
-| **TTFB** (Time to First Byte)       | `logzio_rum_ttfb`              | histogram       | ms               | Time from navigation start to first byte received                                                                 |
-| Frustration count                   | `logzio_rum_frustration_count` | counter (delta) | unitless         | Number of interactions classified as “frustration” (e.g., dead-click / rage-click / error-click) during the view. |
+### Web Vitals (Logs)
+
+When `enable.webVitals` is set to `true`, the SDK collects and emits the following web vitals as log events:
+
+| Metric                              | Description                                         | Unit             |
+| ----------------------------------- | --------------------------------------------------- | ---------------- |
+| **FCP** (First Contentful Paint)    | Time to first visible paint                         | ms               |
+| **LCP** (Largest Contentful Paint)  | Time until the largest visible element renders      | ms               |
+| **CLS** (Cumulative Layout Shift)   | Visual stability across the session                 | score (unitless) |
+| **INP** (Interaction to Next Paint) | Response time to next paint after user interactions | ms               |
+| **TTFB** (Time to First Byte)       | Time from navigation start to first byte received   | ms               |
+
+Each web vital log includes detailed attribution data to help diagnose performance issues.
+
+### Frustration Signals (Traces)
+
+When `enable.frustrationDetection` is set to `true`, the SDK detects and marks spans with frustration attributes:
+
+| Frustration Type | Description                                                        |
+| ---------------- | ------------------------------------------------------------------ |
+| Dead Click       | User clicks on an element that doesn't trigger any visible action  |
+| Rage Click       | Multiple rapid clicks on the same element (configurable threshold) |
+| Error Click      | Click followed immediately by an error                             |
+| Heavy Load       | Page or navigation load exceeds threshold (configurable)           |
