@@ -33,10 +33,20 @@ sudo mkdir /opt/logzio-agent
 
 **2. Download OpenTelemetry tar.gz:**
 
+##### For amd64 architecture:
 ```shell
-curl -fsSL "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.111.0/otelcol-contrib_0.111.0_linux_amd64.tar.gz" >./otelcol-contrib.tar.gz
+curl -fsSL "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.138.0/otelcol-contrib_0.138.0_linux_amd64.tar.gz" >./otelcol-contrib.tar.gz
 ```
- 
+
+##### For arm64 architecture:
+```shell
+curl -fsSL "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.138.0/otelcol-contrib_0.138.0_linux_arm64.tar.gz" >./otelcol-contrib.tar.gz
+```
+
+##### For s390x architecture:
+```shell
+curl -fsSL "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.138.0/otelcol-contrib_0.138.0_linux_s390x.tar.gz" >./otelcol-contrib.tar.gz
+```
 **3. Extract the OpenTelemetry binary:**
 
 ```shell
@@ -117,6 +127,8 @@ exporters:
       enabled: true
     target_info:
       enabled: false
+    add_metric_suffixes: false
+
 service:
   pipelines:
     logs:
@@ -136,7 +148,13 @@ service:
     logs:
       level: "info"
     metrics:
-      address: localhost:8888
+      readers:
+        - pull:
+            exporter:
+              prometheus:
+                host: '0.0.0.0'
+                port: 8888
+
 ```
 :::note 
 Ensure that your service pipeline includes the `debug` exporter in the `exporters` section.
@@ -183,7 +201,11 @@ Manage OpenTelemetry on your machine using the following commands:
 |Start service|`sudo systemctl start logzioOTELCollector`|
 |Stop service|`sudo systemctl stop logzioOTELCollector`|
 |Service logs|`sudo systemctl status -l logzioOTELCollector`|
-|Delete service|`sudo systemctl stop logzioOTELCollector` `sudo systemctl reset-failed logzioOTELCollector 2>/dev/null` `sudo rm /etc/systemd/system/logzioOTELCollector.service 2>/dev/null` `sudo rm /usr/lib/systemd/system/logzioOTELCollector.service 2>/dev/null` `sudo rm /etc/init.d/logzioOTELCollector 2>/dev/null`|
+|Delete service #1|`sudo systemctl stop logzioOTELCollector` |
+|Delete service #2|`sudo systemctl reset-failed logzioOTELCollector 2>/dev/null` |
+|Delete service #3|`sudo rm /etc/systemd/system/logzioOTELCollector.service 2>/dev/null`|
+|Delete service #4|`sudo rm /usr/lib/systemd/system/logzioOTELCollector.service 2>/dev/null` |
+|Delete service #5|`sudo rm /etc/init.d/logzioOTELCollector 2>/dev/null`|
 
 
 ## Send data through rsyslog 
