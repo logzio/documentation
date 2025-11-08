@@ -11,7 +11,7 @@ toc_max_heading_level: 3
 Integrations Dashboards are currently in beta and available only in Open 360 AI. To enable access, contact [Support](mailto:help@logz.io) or your account manager.
 :::
 
-Integrations Dashboards are prebuilt, Logz.io-provided dashboards for your integrations. They give immediate visibility into key metrics, performance, and error trends—no manual setup required. Use them as-is to monitor your environment, or duplicate a dashboard to edit and adapt it to your needs.
+Integrations Dashboards are prebuilt, Logz.io-provided dashboards for your integrations. They give immediate visibility into key metrics, performance, and error trends - no manual setup required. Use them as-is to monitor your environment, or duplicate a dashboard to edit and adapt it to your needs.
 
 ### Find & filter
 
