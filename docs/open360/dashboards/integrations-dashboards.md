@@ -17,6 +17,8 @@ Integrations Dashboards are prebuilt, Logz.io-provided dashboards for your integ
 
 Open [Dashboards](https://app.logz.io/360/dashboards/dashboards-hub) and expand the Integrations Dashboards folder.
 
+<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/dashboards-folder.png" alt="dashboard-navigation" width="700"/>
+
 The list shows all dashboards provisioned from your installed integrations.
 
 Use the **Categories** filter to switch views between your custom dashboards and ones created by Logz.io.
