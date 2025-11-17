@@ -31,7 +31,7 @@ curl --location 'https://<<LISTENER-HOST>>:8071?token=<<LOG-SHIPPING-TOKEN>>&typ
 --data '{"<<FIELD>>": "<<VALUE>>"}'
 ```
 
-Replace `<<SHIPPING_TOKEN>>` with your account's shipping token.
+Replace `<<LOG-SHIPPING-TOKEN>>` with your account's shipping token.
 
 :::note
 The request body is a list of logs in minified JSON format, with each log separated by a newline `(\n)`.
