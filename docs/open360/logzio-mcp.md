@@ -11,7 +11,7 @@ The Logz.io Public API MCP (Model Context Protocol) server allows LLM clients (C
 ### Prerequisites
 
 * A Logz.io API token (create in your Logz.io account settings).
-* A Metrics API token (request via [Logz.io Support](mailto:help@logz.io)).
+* A Metrics API token ([create via API](https://api-docs.logz.io/docs/logz/manage-api-tokens)).
 * A supported LLM client with MCP integration. Setup instructions vary per client.
 
 ## Setup
