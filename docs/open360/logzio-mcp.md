@@ -36,7 +36,7 @@ Below is a generic example configuration:
 }
 ```
 
-Replace `<<YOUR-LOGZIO-API-TOKEN>>` and `<<YOUR-LOGZIO-METRIC-API-TOKEN>>` with your actual tokens. To get `<<YOUR-LOGZIO-METRIC-API-TOKEN>>`, [contact the support team](mailto:help@logz.io).
+Replace `<<YOUR-LOGZIO-API-TOKEN>>` and `<<YOUR-LOGZIO-METRIC-API-TOKEN>>` with your actual tokens.
 
 The domain prefix (`api`) is region-specific. For example:
 
