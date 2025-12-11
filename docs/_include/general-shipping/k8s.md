@@ -303,7 +303,7 @@ Override OBI settings:
 > OBI has limitations with gRPC and HTTP/2 protocols. See [Context Propagation Guide](https://github.com/logzio/logzio-helm/blob/master/charts/obi/CONTEXT_PROPAGATION.md) for details.
 
 
- </TabItem>
+</TabItem>
 <TabItem value="k8s-obj-data" label="K8S Objects" default>
 
 ## Send Metrics with Kubernetes object logs
