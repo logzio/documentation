@@ -251,11 +251,6 @@ For example, for a parameter called `someField` in the `logzio-apm-collector`'s 
 ```shell
 --set logzio-apm-collector.someField="my new value"
 ```
-
-
- </TabItem>
-<TabItem value="k8s-obj-data" label="K8S Objects" default>
-
 ## Enable eBPF Auto-instrumentation (OBI)
 
 Avilable from `logzio-monitoring` version `7.9.2`
@@ -307,6 +302,9 @@ Override OBI settings:
 > [!WARNING]
 > OBI has limitations with gRPC and HTTP/2 protocols. See [Context Propagation Guide](https://github.com/logzio/logzio-helm/blob/master/charts/obi/CONTEXT_PROPAGATION.md) for details.
 
+
+ </TabItem>
+<TabItem value="k8s-obj-data" label="K8S Objects" default>
 
 ## Send Metrics with Kubernetes object logs
 
