@@ -258,6 +258,8 @@ For example, for a parameter called `someField` in the `logzio-apm-collector`'s 
 
 ## Enable eBPF Auto-instrumentation (OBI)
 
+Avilable from `logzio-monitoring` version `7.9.2`
+
 OpenTelemetry eBPF Instrumentation (OBI) provides zero-code auto-instrumentation for Kubernetes applications using eBPF technology. It automatically captures HTTP/S requests, gRPC calls, and database queries without requiring code changes or application restarts.
 
 ### Prerequisites
