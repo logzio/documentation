@@ -252,8 +252,91 @@ For example, for a parameter called `someField` in the `logzio-apm-collector`'s 
 --set logzio-apm-collector.someField="my new value"
 ```
 
+</TabItem>
+<TabItem value="obi-ebpf-instrumentation" label="OBI ebpf instrumentation" default>
 
- </TabItem>
+## Enable eBPF Auto-instrumentation (OBI)
+
+Avilable from `logzio-monitoring` version `7.9.2`
+
+OpenTelemetry eBPF Instrumentation (OBI) provides zero-code auto-instrumentation for Kubernetes applications using eBPF technology. It automatically captures HTTP/S requests, gRPC calls, and database queries without requiring code changes or application restarts.
+
+### Prerequisites
+
+- Kubernetes 1.19+
+- Linux kernel 5.8+ (for full eBPF support)
+- Privileged security context with specific capabilities
+- Container runtime: containerd, CRI-O, or Docker
+
+### Install OBI chart along with logzio-monitoring
+```bash
+helm install logzio-monitoring logzio-helm/logzio-monitoring \
+  --set obi.enabled=true \
+  --set logzio-apm-collector.enabled=true \
+  --set global.logzioTracesToken="<<TRACES-SHIPPING-TOKEN>>" \
+  --set global.logzioRegion="<<LOGZIO-REGION>>"
+```
+
+OBI will automatically send traces to the `logzio-apm-collector` service within the cluster.
+
+## Configuration
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `obi.enabled` | Enable OBI deployment | `false` |
+| `obi.traces.endpoint` | OTLP endpoint for traces | `""` |
+| `obi.traces.token` | Authentication token for traces | `""` |
+| `obi.metrics.endpoint` | OTLP endpoint for metrics | `""` |
+| `obi.metrics.token` | Authentication token for metrics | `""` |
+| `obi.network.enabled` | Enable network flow metrics | `false` |
+| `obi.image.repository` | OBI container image | `otel/ebpf-instrument` |
+| `obi.image.tag` | OBI container image tag | `main` |
+| `obi.config` | OBI configuration file | `multiple` |
+
+For full configuration options: [values.yaml](https://github.com/logzio/logzio-helm/blob/master/charts/obi/values.yaml)
+
+###  Direct otlp export authentication
+Configure authentication tokens for OTLP endpoints:
+
+```yaml
+traces:
+  endpoint: "https://otlp-listener.logz.io"
+  token: "your-traces-token-here"
+metrics:
+  endpoint: "https://otlp-listener.logz.io"
+  token: "your-metrics-token-here"
+```
+
+OBI will automatically send traces to the `logzio-apm-collector` service within the cluster.
+
+### Service Discovery
+By default, OBI instruments all applications in all namespaces. Customize via `config.discovery`:
+
+```yaml
+config:
+  discovery:
+    instrument:
+      - k8s_namespace: "production"
+    exclude_instrument:
+      - k8s_namespace: "kube-system"
+```
+Full configuration options avilable in [opentelemetry ebpf instrumentation (obi) docs](https://opentelemetry.io/docs/zero-code/obi/configure/service-discovery/)
+
+
+### Context Propagation
+- **gRPC/HTTP/2**: Network-level propagation doesn't support these protocols. Go services can use library-level injection.
+- **Polyglot Services**: Full support for Go; partial support for other languages (HTTP/1.x only).
+- **Encrypted Traffic**: HTTPS packet inspection not possible; use library injection or service mesh.
+
+See [CONTEXT_PROPAGATION.md](./CONTEXT_PROPAGATION.md) for detailed information.
+
+#### OBI docs refrences:
+- [OBI Official Documentation](https://opentelemetry.io/docs/zero-code/obi/)
+- [Configuration Options](https://opentelemetry.io/docs/zero-code/obi/configure/options/)
+- [Service Discovery](https://opentelemetry.io/docs/zero-code/obi/configure/service-discovery/)
+
+
+</TabItem>
 <TabItem value="k8s-obj-data" label="K8S Objects" default>
 
 
