@@ -252,6 +252,9 @@ For example, for a parameter called `someField` in the `logzio-apm-collector`'s 
 --set logzio-apm-collector.someField="my new value"
 ```
 
+</TabItem>
+<TabItem value="obi-ebpf-instrumentation" label="OBI ebpf instrumentation" default>
+
 ## Enable eBPF Auto-instrumentation (OBI)
 
 Avilable from `logzio-monitoring` version `7.9.2`
