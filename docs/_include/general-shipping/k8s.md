@@ -310,6 +310,7 @@ Override OBI settings:
 </TabItem>
 <TabItem value="k8s-obj-data" label="K8S Objects" default>
 
+
 ## Send Metrics with Kubernetes object logs
 
 :::caution Important
