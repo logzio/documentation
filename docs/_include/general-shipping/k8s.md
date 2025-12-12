@@ -268,16 +268,43 @@ OpenTelemetry eBPF Instrumentation (OBI) provides zero-code auto-instrumentation
 - Privileged security context with specific capabilities
 - Container runtime: containerd, CRI-O, or Docker
 
-### Enable OBI
-
-To enable OBI with the logzio-monitoring chart:
-
-```shell
+### Install OBI chart along with logzio-monitoring
+```bash
 helm install logzio-monitoring logzio-helm/logzio-monitoring \
   --set obi.enabled=true \
   --set logzio-apm-collector.enabled=true \
   --set global.logzioTracesToken="<<TRACES-SHIPPING-TOKEN>>" \
   --set global.logzioRegion="<<LOGZIO-REGION>>"
+```
+
+OBI will automatically send traces to the `logzio-apm-collector` service within the cluster.
+
+## Configuration
+
+| Parameter | Description | Default |
+|-----------|-------------|---------|
+| `obi.enabled` | Enable OBI deployment | `false` |
+| `obi.traces.endpoint` | OTLP endpoint for traces | `""` |
+| `obi.traces.token` | Authentication token for traces | `""` |
+| `obi.metrics.endpoint` | OTLP endpoint for metrics | `""` |
+| `obi.metrics.token` | Authentication token for metrics | `""` |
+| `obi.network.enabled` | Enable network flow metrics | `false` |
+| `obi.image.repository` | OBI container image | `otel/ebpf-instrument` |
+| `obi.image.tag` | OBI container image tag | `main` |
+| `obi.config` | OBI configuration file | `multiple` |
+
+For full configuration options: [values.yaml](https://github.com/logzio/logzio-helm/blob/master/charts/obi/values.yaml)
+
+###  Direct otlp export authentication
+Configure authentication tokens for OTLP endpoints:
+
+```yaml
+traces:
+  endpoint: "https://otlp-listener.logz.io"
+  token: "your-traces-token-here"
+metrics:
+  endpoint: "https://otlp-listener.logz.io"
+  token: "your-metrics-token-here"
 ```
 
 OBI will automatically send traces to the `logzio-apm-collector` service within the cluster.
@@ -293,18 +320,20 @@ config:
     exclude_instrument:
       - k8s_namespace: "kube-system"
 ```
+Full configuration options avilable in [opentelemetry ebpf instrumentation (obi) docs](https://opentelemetry.io/docs/zero-code/obi/configure/service-discovery/)
 
-### Configuration Options
 
-Override OBI settings:
+### Context Propagation
+- **gRPC/HTTP/2**: Network-level propagation doesn't support these protocols. Go services can use library-level injection.
+- **Polyglot Services**: Full support for Go; partial support for other languages (HTTP/1.x only).
+- **Encrypted Traffic**: HTTPS packet inspection not possible; use library injection or service mesh.
 
-```shell
---set obi.hostNetwork=true \
---set obi.network.enabled=true
-```
+See [CONTEXT_PROPAGATION.md](./CONTEXT_PROPAGATION.md) for detailed information.
 
-> [!WARNING]
-> OBI has limitations with gRPC and HTTP/2 protocols. See [Context Propagation Guide](https://github.com/logzio/logzio-helm/blob/master/charts/obi/CONTEXT_PROPAGATION.md) for details.
+#### OBI docs refrences:
+- [OBI Official Documentation](https://opentelemetry.io/docs/zero-code/obi/)
+- [Configuration Options](https://opentelemetry.io/docs/zero-code/obi/configure/options/)
+- [Service Discovery](https://opentelemetry.io/docs/zero-code/obi/configure/service-discovery/)
 
 
 </TabItem>
