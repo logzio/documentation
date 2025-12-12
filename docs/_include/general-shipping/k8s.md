@@ -253,7 +253,61 @@ For example, for a parameter called `someField` in the `logzio-apm-collector`'s 
 ```
 
 </TabItem>
+<TabItem value="obi-ebpf-instrumentation" label="OBI ebpf instrumentation" default>
 
+## Enable eBPF Auto-instrumentation (OBI)
+
+Avilable from `logzio-monitoring` version `7.9.2`
+
+OpenTelemetry eBPF Instrumentation (OBI) provides zero-code auto-instrumentation for Kubernetes applications using eBPF technology. It automatically captures HTTP/S requests, gRPC calls, and database queries without requiring code changes or application restarts.
+
+### Prerequisites
+
+- Kubernetes 1.19+
+- Linux kernel 5.8+ (for full eBPF support)
+- Privileged security context with specific capabilities
+- Container runtime: containerd, CRI-O, or Docker
+
+### Enable OBI
+
+To enable OBI with the logzio-monitoring chart:
+
+```shell
+helm install logzio-monitoring logzio-helm/logzio-monitoring \
+  --set obi.enabled=true \
+  --set logzio-apm-collector.enabled=true \
+  --set global.logzioTracesToken="<<TRACES-SHIPPING-TOKEN>>" \
+  --set global.logzioRegion="<<LOGZIO-REGION>>"
+```
+
+OBI will automatically send traces to the `logzio-apm-collector` service within the cluster.
+
+### Service Discovery
+By default, OBI instruments all applications in all namespaces. Customize via `config.discovery`:
+
+```yaml
+config:
+  discovery:
+    instrument:
+      - k8s_namespace: "production"
+    exclude_instrument:
+      - k8s_namespace: "kube-system"
+```
+
+### Configuration Options
+
+Override OBI settings:
+
+```shell
+--set obi.hostNetwork=true \
+--set obi.network.enabled=true
+```
+
+> [!WARNING]
+> OBI has limitations with gRPC and HTTP/2 protocols. See [Context Propagation Guide](https://github.com/logzio/logzio-helm/blob/master/charts/obi/CONTEXT_PROPAGATION.md) for details.
+
+
+</TabItem>
 <TabItem value="k8s-obj-data" label="K8S Objects" default>
 
 
