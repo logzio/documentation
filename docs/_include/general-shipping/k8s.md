@@ -322,6 +322,29 @@ config:
 ```
 Full configuration options avilable in [opentelemetry ebpf instrumentation (obi) docs](https://opentelemetry.io/docs/zero-code/obi/configure/service-discovery/)
 
+### Security context
+Default daemonset security context:
+```yaml
+securityContext:
+  privileged: false
+  runAsUser: 0
+  runAsGroup: 0
+  readOnlyRootFilesystem: true
+  capabilities:
+    # Minimal required capabilities for application observability
+    # ref: https://opentelemetry.io/docs/zero-code/obi/security/
+    add:
+      - BPF                 
+      - PERFMON               
+      - SYS_PTRACE        
+      - DAC_READ_SEARCH       
+      - CHECKPOINT_RESTORE   
+      - CAP_KILL 
+      - NET_RAW     
+      - SYS_ADMIN           
+    drop:
+      - ALL
+```
 
 ### Context Propagation
 - **gRPC/HTTP/2**: Network-level propagation doesn't support these protocols. Go services can use library-level injection.
