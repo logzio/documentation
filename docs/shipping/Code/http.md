@@ -103,40 +103,6 @@ Response: "Logging token is missing" or "Logging token is not valid".
 #### 413 REQUEST ENTITY TOO LARGE
 
 Request body size exceeds 10 MB.
- 
-</TabItem>
-  <TabItem value="tcp" label="Bulk uploads over TCP">
-
-To ship logs directly to the Logz.io listener, send them as minified JSON files over an HTTP/HTTPS connection.
-
-### JSON log structure
-
-
-Follow these practices when shipping JSON logs over TCP:
-
-
-* Each log must be a single-line JSON object.
-* Each log line must be 500,000 bytes or less.
-* Each log line must be followed by a `\n` (even the last log).
-* Include your account token as a top-level property: `{ ... "token": "<<LOG-SHIPPING-TOKEN>>" , ... }`.
-
-### Send TLS/SSL streams over TCP
-
-
-{@include: ../../_include/log-shipping/certificate.md}
-
-
-### Send the logs
-
-Using the downloaded certificate, send logs to TCP port 5052 on your region's listener host. For details on finding your account's region, refer to the [Account region](https://docs.logz.io/docs/user-guide/admin/hosting-regions/account-region/) section.
-
-
-## Check Logz.io for your logs
-
-
-Allow some time for data ingestion, then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
-
-Encounter an issue? See our [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/) guide.
 
 </TabItem>
 <TabItem value="http-otlp" label="Protobuf via OpenTelemetry" default>

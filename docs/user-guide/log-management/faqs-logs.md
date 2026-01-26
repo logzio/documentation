@@ -58,11 +58,9 @@ This information is also available in the Logz.io Docs, in [**Ship your data > L
 
 Other options: 
 
-- [Logstash](https://app.logz.io/#/dashboard/send-your-data/log-sources/logstash): This method requires outside communication on port 5006 (encrypted) or port 5050 (unencrypted).
-- [Rsyslog](https://app.logz.io/#/dashboard/send-your-data/log-sources/rsyslog): This method requires outside communication on port 5001.
 - [Fluentd](https://app.logz.io/#/dashboard/send-your-data/log-sources/fluentd): This method requires outside communication on port 8071.
 
-This information is also available in the Logz.io Docs **Ship your data** section in the [Filebeat](https://docs.logz.io/shipping/log-sources/filebeat.html), [Logstash](https://docs.logz.io/shipping/log-sources/logstash.html), [Rsyslog over TLS](https://docs.logz.io/shipping/log-sources/rsyslog.html), and [Fluentd](https://docs.logz.io/shipping/log-sources/fluentd.html) topics.
+This information is also available in the Logz.io Docs **Ship your data** section in the [Filebeat](https://docs.logz.io/shipping/log-sources/filebeat.html), and [Fluentd](https://docs.logz.io/shipping/log-sources/fluentd.html) topics.
 
 
 ## Logs written to cloud storage
