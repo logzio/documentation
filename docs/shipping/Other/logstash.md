@@ -23,7 +23,7 @@ For most other cases, we recommend using [Filebeat](/docs/shipping/other/filebea
 These instructions apply to Logstash running on MacOS, Linux and Windows.
 
 
-## Shipping with Logstash over TCP - Encrypted
+## Shipping with Logstash over HTTP
 
 **Before you begin, you'll need**: JDK, [Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html)
 
