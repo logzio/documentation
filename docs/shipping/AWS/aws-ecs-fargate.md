@@ -206,7 +206,7 @@ Update your existing ECS tasks to include the OpenTelemetry Collector by:
           {
               "name": "LOGZIO_LISTENER",
               "value": "${LOGZIO_LISTENER}"
-          },
+          }
       ],
       "secrets": [
           {
@@ -214,6 +214,9 @@ Update your existing ECS tasks to include the OpenTelemetry Collector by:
               "valueFrom": "logzioOtelConfig.yaml"
           }
       ],
+      "firelensConfiguration": {
+         "type": "fluentbit"
+      },
       // Optional: Use this to keep logs for debugging and troubleshooting
       "logConfiguration": {
         "logDriver": "awslogs",
@@ -223,9 +226,6 @@ Update your existing ECS tasks to include the OpenTelemetry Collector by:
           "awslogs-stream-prefix": "ecs"
         }
       }
-    },
-    "firelensConfiguration": {
-         "type": "fluentbit"
     }
   ]
 }
