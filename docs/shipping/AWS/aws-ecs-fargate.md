@@ -206,7 +206,7 @@ Update your existing ECS tasks to include the OpenTelemetry Collector by:
           {
               "name": "LOGZIO_LISTENER",
               "value": "${LOGZIO_LISTENER}"
-          },
+          }
       ],
       "secrets": [
           {
