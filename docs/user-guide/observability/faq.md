@@ -32,10 +32,10 @@ Currently, the system does not support hard spending limits for AI usage. We rec
 
 ### AI Usage Pricing Table
 
-| AI Service | Description | Volume | Price | Unit |
-| :--- | :--- | :--- | :--- | :--- |
-| **AI Chat** | Interactive natural language processing and generative AI assistance via chat interface | 1 Million Tokens | $10.00 | 1,000 units |
-| **AI Agents (OrionIQ)** | Specialized AI-driven task automation and data processing agents | 1 Invocation | Alert Analysis: $10.00 (Others vary) | Alert Analysis: 1,000 units |
+| AI Service | Description | Volume | Price |
+| :--- | :--- | :--- | :--- |
+| **AI Chat** | Interactive natural language processing and generative AI assistance via chat interface | 1 Million Tokens | $10.00 |
+| **AI Agents (OrionIQ)** | Specialized AI-driven task automation and data processing agents | 1 Invocation | Alert Analysis: $10.00 (Others vary) |
 
 
 
