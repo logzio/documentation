@@ -1,17 +1,17 @@
 ---
 sidebar_position: 3
-title: AI Agent FAQ - Usage, Security, and Privacy 
-description: Answers to common questions about Logz.io’s AI Agent, including usage, security, data access, and privacy.
+title: AI FAQ - Usage, Security, and Privacy 
+description: Answers to common questions about Logz.io’s AI, including usage, security, data access, and privacy.
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [AI, observability, Assistant, iq, logs, metrics, traces, siem, insights, analysis, services, logz.io]
 ---
 
-AI Agent is part of Logz.io’s Observability IQ suite. It helps enhance system monitoring and management by enabling an active dialogue with your data. You can access it from **[Explore](https://app.logz.io/#/dashboard/explore)**, **[Kubernetes 360](https://app.logz.io/#/dashboard/observability/k8s360)**, and **[App 360](https://app.logz.io/#/dashboard/spm/services/table)**, allowing you to transition from observing data to actively acquiring immediate insights on your metrics, identifying anomalies, discerning trends, and assessing the well-being of your ecosystem in real time.
+AI Agent and AI Chat are part of Logz.io’s Observability IQ suite. It helps enhance system monitoring and management by enabling an active dialogue with your data. You can access it from **[Explore](https://app.logz.io/#/dashboard/explore)**, **[Kubernetes 360](https://app.logz.io/#/dashboard/observability/k8s360)**, and **[App 360](https://app.logz.io/#/dashboard/spm/services/table)**, allowing you to transition from observing data to actively getting immediate insights on your metrics, identifying anomalies, discerning trends, and assessing the well-being of your ecosystem in real time.
 
 ## Pricing and Usage
 
 ### Why is AI usage no longer complimentary?
-During our introductory period, we offered AI features at no extra cost to allow users to explore their potential. To continue providing access to the industry’s most advanced models and ensure platform stability as usage scales, we are moving to a paid usage model.
+During our BETA period, we offered AI features at no extra cost to allow users to explore their potential. To continue providing access to the industry’s most advanced models and ensure platform stability as usage scales, we are moving to a paid usage model.
 
 ### When does this change go into effect?
 Billing for AI Chat and AI Alert Analysis invocations will begin on **March 1st, 2026**. Any usage prior to this date remains complimentary.
@@ -19,13 +19,13 @@ Billing for AI Chat and AI Alert Analysis invocations will begin on **March 1st,
 ### What is a "Token"?
 * **Definition**: Tokens are the building blocks of AI processing (roughly 750 words per 1,000 tokens).
 * **Billing**: We bill in units of **1 million tokens** to provide transparent and scalable pricing for high-volume users.
-* **Scope**: This includes both the prompt you send (input) and the AI's response (output).
+* **Scope**: This includes both the prompt and data you shared (input) and the AI's response (output).
 
 ### What is an "Invocation"?
 An invocation is counted every time an AI Agent (like Alert Analysis) is triggered—whether via an automated alert or an API call.
 
 ### How can I estimate my future bill?
-You can view your current consumption by navigating to **Settings > Admin > Plan and usage**. Under the **Usage** tab, you will find a detailed breakdown of your AI token consumption and agent invocations for the current billing period.
+You can view your current consumption by navigating to **Settings > Admin > Plan and usage**. Under the **Usage** tab, you will find a detailed breakdown of your AI token consumption and AI agent invocations for the current billing period.
 
 ### Can I set a spending limit?
 Currently, the system does not support hard spending limits for AI usage. We recommend monitoring your usage via the **Plan and usage** dashboard to stay aligned with your team's budget.
