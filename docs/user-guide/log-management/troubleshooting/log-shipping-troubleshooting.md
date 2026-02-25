@@ -78,13 +78,7 @@ You can find the correct port for your shipping method in the table below.
 | JSON file upload over HTTPS             | 8071 |
 | log file upload over HTTP               | 8021 |
 | log file upload over HTTPS              | 8022 |
-| Logstash                                | 5050 |
-| Logstash-forwarder                      | 5005 |
-| Logstash over SSL                       | 5006 |
 | NXLog                                   | 8010 |
-| rsyslog                                 | 5000 |
-| rsyslog over TLS                        | 5001 |
-| TLS/SSL over TCP                        | 5052 |
 
 ### If you see "Connected to listener-group.logz-data.com"
 

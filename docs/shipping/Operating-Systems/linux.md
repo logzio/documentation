@@ -33,10 +33,20 @@ sudo mkdir /opt/logzio-agent
 
 **2. Download OpenTelemetry tar.gz:**
 
+##### For amd64 architecture:
 ```shell
-curl -fsSL "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.111.0/otelcol-contrib_0.111.0_linux_amd64.tar.gz" >./otelcol-contrib.tar.gz
+curl -fsSL "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.138.0/otelcol-contrib_0.138.0_linux_amd64.tar.gz" >./otelcol-contrib.tar.gz
 ```
- 
+
+##### For arm64 architecture:
+```shell
+curl -fsSL "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.138.0/otelcol-contrib_0.138.0_linux_arm64.tar.gz" >./otelcol-contrib.tar.gz
+```
+
+##### For s390x architecture:
+```shell
+curl -fsSL "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.138.0/otelcol-contrib_0.138.0_linux_s390x.tar.gz" >./otelcol-contrib.tar.gz
+```
 **3. Extract the OpenTelemetry binary:**
 
 ```shell
@@ -117,6 +127,8 @@ exporters:
       enabled: true
     target_info:
       enabled: false
+    add_metric_suffixes: false
+
 service:
   pipelines:
     logs:
@@ -136,7 +148,13 @@ service:
     logs:
       level: "info"
     metrics:
-      address: localhost:8888
+      readers:
+        - pull:
+            exporter:
+              prometheus:
+                host: '0.0.0.0'
+                port: 8888
+
 ```
 :::note 
 Ensure that your service pipeline includes the `debug` exporter in the `exporters` section.
@@ -183,43 +201,8 @@ Manage OpenTelemetry on your machine using the following commands:
 |Start service|`sudo systemctl start logzioOTELCollector`|
 |Stop service|`sudo systemctl stop logzioOTELCollector`|
 |Service logs|`sudo systemctl status -l logzioOTELCollector`|
-|Delete service|`sudo systemctl stop logzioOTELCollector` `sudo systemctl reset-failed logzioOTELCollector 2>/dev/null` `sudo rm /etc/systemd/system/logzioOTELCollector.service 2>/dev/null` `sudo rm /usr/lib/systemd/system/logzioOTELCollector.service 2>/dev/null` `sudo rm /etc/init.d/logzioOTELCollector 2>/dev/null`|
-
-
-## Send data through rsyslog 
-
-**Before you begin, you'll need**:
-
-* Root access
-* Port 5000 open 
-
-### Run the rsyslog configuration script
-
-{@include: ../../_include/log-shipping/log-shipping-token.html}
-
-{@include: ../../_include/log-shipping/listener-var.html} 
-
-```shell
-curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslog.tar.gz \
-  && tar xzf logzio-rsyslog.tar.gz \
-  && sudo rsyslog/install.sh -t linux -a "<<LOG-SHIPPING-TOKEN>>" -l "<<LISTENER-HOST>>"
-```
-
-
-The above assumes the following defaults:
-
-* Log location - `/var/log/`
-* Log type - `syslog`
-
-### Check Logz.io for your logs
-
-Allow some time for data ingestion, then open your [metrics dashboard](https://app.logz.io/#/dashboard/metrics).
-
-Encounter an issue? See our [log shipping troubleshooting](https://docs.logz.io/docs/user-guide/log-management/troubleshooting/log-shipping-troubleshooting/) guide.
-
- 
- 
-
-{@include: ../../_include/log-shipping/rsyslog-troubleshooting.md} 
-
-  
+|Delete service #1|`sudo systemctl stop logzioOTELCollector` |
+|Delete service #2|`sudo systemctl reset-failed logzioOTELCollector 2>/dev/null` |
+|Delete service #3|`sudo rm /etc/systemd/system/logzioOTELCollector.service 2>/dev/null`|
+|Delete service #4|`sudo rm /usr/lib/systemd/system/logzioOTELCollector.service 2>/dev/null` |
+|Delete service #5|`sudo rm /etc/init.d/logzioOTELCollector 2>/dev/null`|

@@ -26,12 +26,12 @@ cURL is a command line utility for transferring data, useful for testing configu
 2. To send a single text log line using cURL, use the following command. This sends your message as a JSON payload:
 
 ```shell
-curl --location 'https://listener.logz.io:8071?token=<<SHIPPING_TOKEN>>&type=text' \
+curl --location 'https://<<LISTENER-HOST>>:8071?token=<<LOG-SHIPPING-TOKEN>>&type=text' \
 --header 'Content-Type: application/json' \
---data '{"<<test>>": "<<support>>"}'
+--data '{"<<FIELD>>": "<<VALUE>>"}'
 ```
 
-Replace `<<SHIPPING_TOKEN>>` with your account's shipping token.
+Replace `<<LOG-SHIPPING-TOKEN>>` with your account's shipping token.
 
 :::note
 The request body is a list of logs in minified JSON format, with each log separated by a newline `(\n)`.

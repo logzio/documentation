@@ -288,7 +288,6 @@
 /docs/user-guide/Infrastructure-monitoring/integrations/notification-endpoints/endpoints/				/docs/user-guide/integrations/notification-endpoints/endpoints/
 /contributors/daniel-tk				/
 /contributors/rhershenhoren				/
-/:splat				/
 /technical-notes/chain-of-trust/ 				/
 /contributors/afishler				/
 /user-guide/distributed-tracing/tracing-instrumentation				/docs/user-guide/distributed-tracing/set-up-tracing/get-started-tracing/#set-up-instrumentation
@@ -1201,3 +1200,4 @@
 /docs/logz/get-cloud-trail				https://api-docs.logz.io/docs/logz/get-cloud-trail/
 /docs/logz/put-alert-rules-by-uid				https://api-docs.logz.io/docs/logz/put-alert-rules-by-uid/
 /docs/logz/put-alert-rules-by-uid/				https://api-docs.logz.io/docs/logz/put-alert-rules-by-uid/
+/:splat				/
