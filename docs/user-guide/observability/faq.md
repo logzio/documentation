@@ -28,8 +28,7 @@ An invocation is counted every time an AI Agent (like Alert Analysis) is trigger
 You can view your current consumption by navigating to **Settings > Admin > Plan and usage**. Under the **Usage** tab, you will find a detailed breakdown of your AI token consumption and AI agent invocations for the current billing period.
 
 ### Can I set a spending limit?
-Currently, the system does not support hard spending limits for AI usage. We recommend monitoring your usage via the **Plan and usage** dashboard to stay aligned with your team's budget.
-
+Yes, Head over to Settings > Admin > Plan and usage and select the AI tab. You can set separate spending caps for both Chat and AI Agents to keep your costs predictable.
 ### AI Usage Pricing Table
 
 | AI Service | Description | Volume | Price |
