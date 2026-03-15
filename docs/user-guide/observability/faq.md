@@ -13,9 +13,6 @@ AI Agent and AI Chat are part of Logz.io’s Observability IQ suite. It helps en
 ### Why is AI usage no longer complimentary?
 During our BETA period, we offered AI features at no extra cost to allow users to explore their potential. To continue providing access to the industry’s most advanced models and ensure platform stability as usage scales, we are moving to a paid usage model.
 
-### When does this change go into effect?
-Billing for AI Chat and AI Alert Analysis invocations will begin on **March 1st, 2026**. Any usage prior to this date remains complimentary.
-
 ### What is a "Token"?
 * **Definition**: Tokens are the building blocks of AI processing (roughly 750 words per 1,000 tokens).
 * **Billing**: We bill in units of **1 million tokens** to provide transparent and scalable pricing for high-volume users.
@@ -29,6 +26,7 @@ You can view your current consumption by navigating to **Settings > Admin > Plan
 
 ### Can I set a spending limit?
 Yes, Head over to Settings > Admin > Plan and usage and select the AI tab. You can set separate spending caps for both Chat and AI Agents to keep your costs predictable.
+
 ### AI Usage Pricing Table
 
 | AI Service | Description | Volume | Price |
