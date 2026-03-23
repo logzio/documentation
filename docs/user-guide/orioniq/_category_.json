@@ -1,0 +1,8 @@
+{
+  "label": "OrionIQ",
+  "position": 8,
+  "link": {
+    "type": "generated-index",
+    "description": "OrionIQ lets you create, configure, and run AI agents that automatically analyze your observability data."
+  }
+}
