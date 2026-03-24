@@ -10,7 +10,7 @@ The OrionIQ Marketplace provides a catalog of pre-built agent templates that you
 
 To access the Marketplace, navigate to **OrionIQ > Marketplace** in the left navigation menu.
 
-![OrionIQ Marketplace](/img/orioniq/orioniq-marketplace.png)
+![OrionIQ Marketplace](https://dytvr9ot2sszz.cloudfront.net/logz-docs/orioniq/orioniq-marketplace.png)
 
 ## Browse agent templates
 

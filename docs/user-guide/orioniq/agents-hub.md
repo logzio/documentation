@@ -10,7 +10,7 @@ The Agents Hub is the central place to manage and monitor all of your OrionIQ ag
 
 To open the Agents Hub, navigate to **OrionIQ > Agents Hub** in the left navigation menu.
 
-![Agents Hub overview](/img/orioniq/orioniq-agents-hub.png)
+![Agents Hub overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/orioniq/orioniq-agents-hub.png)
 
 ## Agents tab
 
@@ -42,11 +42,11 @@ Click the **Capping** button to manage invocation limits across your agents. Thi
 
 The **Invocations** tab displays the run history for all agents. Each row represents a single invocation and includes the agent name, type, trigger method, who created it, the execution time, and the outcome (for example, Success).
 
-![Invocations tab showing agent run history](/img/orioniq/orioniq-invocations.png)
+![Invocations tab showing agent run history](https://dytvr9ot2sszz.cloudfront.net/logz-docs/orioniq/orioniq-invocations.png)
 
 Click on any invocation to open the **Agent Invocation Details** panel, which contains three tabs:
 
-![Agent Invocation Details panel](/img/orioniq/orioniq-invocation-details.png)
+![Agent Invocation Details panel](https://dytvr9ot2sszz.cloudfront.net/logz-docs/orioniq/orioniq-invocation-details.png)
 
 ### Input
 
