@@ -20,7 +20,7 @@ Once Warm Tier has been enabled on your Logz.io account, you can assign it to on
 
 <img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/data-tiers/warm-tier-configuration-nov29.png" alt="warm-tier-button" width="700"/>
 
-Data transitions to the Warm Tier **only after** stored in the Hot Tier. All Hot Tier data moves to the Warm Tier based on the retention period you configure. When enabling the Warm Tier, the minimum retention period for the Hot Tier is set to 4 days.
+Data transitions to the Warm Tier **only after** stored in the Hot Tier. All Hot Tier data moves to the Warm Tier based on the retention period you configure. When enabling the Warm Tier, the minimum retention period for the Hot Tier is set to 7 days.
 
 :::caution note
 Hot tier retention days cannot be changed while the Warm Tier is active.
