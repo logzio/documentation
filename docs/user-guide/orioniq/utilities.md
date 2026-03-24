@@ -10,7 +10,7 @@ Utilities connect your OrionIQ agents to external systems, giving them access to
 
 To access Utilities, navigate to **OrionIQ > Utilities** in the left navigation menu.
 
-![OrionIQ Utilities](/img/orioniq/orioniq-utilities.png)
+![OrionIQ Utilities](https://dytvr9ot2sszz.cloudfront.net/logz-docs/orioniq/orioniq-utilities.png)
 
 ## Browse available utilities
 

@@ -10,7 +10,7 @@ The Usage & Performance Dashboard gives you a high-level view of how your OrionI
 
 To access the dashboard, navigate to **OrionIQ > Usage & Performance Report** in the left navigation menu.
 
-![Usage & Performance Dashboard](/img/orioniq/orioniq-usage-performance.png)
+![Usage & Performance Dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/orioniq/orioniq-usage-performance.png)
 
 ## Dashboard filters
 

@@ -14,7 +14,7 @@ To create a new agent, navigate to **OrionIQ > Create New Agent** in the left na
 
 The **Create** tab provides an interactive Agent Builder where you describe what your agent should do in natural language. Be specific about the signals the agent should look for, the scope of data it should analyze, and the expected output.
 
-![Create New Agent - Agent Builder](/img/orioniq/orioniq-create-agent.png)
+![Create New Agent - Agent Builder](https://dytvr9ot2sszz.cloudfront.net/logz-docs/orioniq/orioniq-create-agent.png)
 
 For example:
 
@@ -32,7 +32,7 @@ You can add additional instructions at any time to expand the scope of your agen
 
 Switch to the **Configure** tab to set the agent's properties and behavior.
 
-![Configure tab with agent settings](/img/orioniq/orioniq-configure-agent.png)
+![Configure tab with agent settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/orioniq/orioniq-configure-agent.png)
 
 ### General information
 
