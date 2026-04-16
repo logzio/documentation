@@ -1,6 +1,7 @@
 
 :::note
 This integration is based on [`logzio-google-pubsub`](https://github.com/logzio/logzio-google-pubsub).
+The integration is only shipping the operation actions logs and not the actuale service data. 
 :::
 
 **Before you begin, you'll need**:
