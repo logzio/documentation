@@ -44,3 +44,17 @@ The table includes the following details:
 
 
 ![Rollup table](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Infrastructure-monitoring/rollups/rollup-table.png)
+
+## Rolled-Up Counter Metrics Behavior
+
+:::caution Important
+When applying rollups to counter metrics, the result may appear non-monotonic (e.g., dropping to 0), even though it is still a counter.
+
+This happens because rollups aggregate multiple time series, which can introduce resets in the data. This effect is more noticeable over short time ranges.
+
+How to interpret correctly
+Use functions like 'rate()' or 'increase()'
+Results should remain consistent with the original metric for calculations
+
+While the graph may look different, the underlying data is still valid.
+:::
