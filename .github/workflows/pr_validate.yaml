@@ -101,7 +101,7 @@ jobs:
           python _manifest/manifest_generator.py
           echo "Copying file into manifest path"
           cp ${{env.MANIFEST_PATH}} static/manifest.json
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: stefanzweifel/git-auto-commit-action@b863ae1933cb653a53c021fe36dbb774e1fb9403
         id: auto_commit_manifest
         if: steps.create_manifest.outputs.skip_next_step != 'true' && steps.create_manifest.outcome == 'success'
         with:
