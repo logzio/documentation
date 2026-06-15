@@ -38,10 +38,18 @@ Below is a generic example configuration:
 
 Replace `<<YOUR-LOGZIO-API-TOKEN>>` and `<<YOUR-LOGZIO-METRIC-API-TOKEN>>` with your actual tokens.
 
-The domain prefix (`api`) is region-specific. For example:
+The domain prefix (`api`) is region-specific. Those are the regions available:
 
-* `https://api.logz.io/mcp` (US)
-* `https://api-eu.logz.io/mcp` (EU)
+* `https://api.logz.io/mcp` (US) us-east-1
+* `https://api-eu.logz.io/mcp` (EU) eu-central-1
+* `https://api-uk.logz.io/mcp` (UK) eu-west-2
+* `https://api-au.logz.io/mcp` (AP) ap-southeast-2
+* `https://api-jp.logz.io/mcp` (AP) ap-northeast-1
+* `https://api-ca.logz.io/mcp` (CA) ca-central-1
+
+
+
+
 
 After setup is complete, you can query your Logz.io data. Ask questions about your logs, metrics, dashboards, or alerts - the MCP server will expose the right tools so your client can fetch results in context.
 
@@ -79,7 +87,7 @@ Tools for searching, filtering, and managing logs:
 
 | Tool | Description | Parameters | API Link |
 | ---- | ----------- | ---------- | ---------- |
-| `search_logs` | Search logs with Elasticsearch DSL. | `query` (object, required), `size` (int, optional), `from` (int, optional), `sort` (array, optional) | [Link](https://api-docs.logz.io/docs/logz/search) |
+| `search_logs` | Search logs with Elasticsearch DSL. | `query` (object, required), `size` (int, optional), `from` (int, optional), `sort` (array, optional) , day_offset(int 0 or positive, optional) | [Link](https://api-docs.logz.io/docs/logz/search) |
 | `scroll_logs` | Scroll through large sets of log data. | `query` (object, optional), `scroll_id` (string, optional), `size` (int, optional), `scroll` (string, optional) | [Link](https://api-docs.logz.io/docs/logz/scroll) |
 | `search_logs_simple` | Full-text search across all log fields. | `search_term` (string, required), `size` (int, optional), `from` (int, optional) | [Link](https://api-docs.logz.io/docs/logz/search) |
 | `search_logs_by_timestamp` | Search logs within a specific time range. | `start_time` (string, required), `end_time` (string, required), `search_term` (string, optional), `size` (int, optional), `from` (int, optional) | [Link](https://api-docs.logz.io/docs/logz/search) |
@@ -119,6 +127,48 @@ Tools for alerts and insights:
 * Use ISO-8601/RFC3339 timestamps for metrics and log queries.
 * Start with smaller query sizes to validate setup before scaling.
 * Secure your tokens; do not hard-code in public repos.
+
+## OAuth 2.0 Support for Logz.io MCP Server
+
+The MCP server supports OAuth 2.0 Authorization Code flow with PKCE, allowing third-party tools such as **AWS Bedrock Agent** to connect without manually sharing static API tokens.
+
+Existing integrations that pass `X-API-Token` directly continue to work unchanged.
+
+---
+
+### How it works
+
+```
+AWS Bedrock Agent 
+or Similar Client         MCP Server                    User
+       |                                  |                           |
+       |── GET /.well-known/...  ────────>|                           |
+       |<─ OAuth metadata ───────────────|                           |
+       |                                  |                           |
+       |── POST /register ───────────────>|                           |
+       |<─ { client_id, client_secret } ─|                           |
+       |                                  |                           |
+       |── redirect user to /authorize ──────────────────────────────>|
+       |                                  |<── enters Logz.io token ─|
+       |<── redirect with ?code=... ──────────────────────────────────|
+       |                                  |                           |
+       |── POST /token (code + PKCE) ────>|                           |
+       |<─ { access_token } ─────────────|                           |
+       |                                  |                           |
+       |── POST /mcp  Authorization: Bearer <token>  ──────────────>|
+```
+
+1. The agent discovers OAuth metadata at `/.well-known/oauth-authorization-server`.
+2. The agent registers as a client via `POST /register`.
+3. The user is redirected to `/authorize` where they enter their Logz.io API token.
+4. The server issues an authorization code and redirects back to the agent.
+5. The agent exchanges the code for a JWT access token via `POST /token`.
+6. The agent attaches `Authorization: Bearer <token>` to every MCP request.
+7. The server decrypts the token and injects the Logz.io API token transparently.
+
+The Logz.io API token is **never sent to the agent** — it is encrypted inside the JWT and only the MCP server can read it.
+
+---
 
 For additional help, contact [Logz.io's Support](mailto:help@logz.io).
 
