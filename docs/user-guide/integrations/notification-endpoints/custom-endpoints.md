@@ -79,7 +79,7 @@ You can enhance your alert notifications with data pulled from the triggered ale
 For example, you can add a **View in Explore** drilldown link to a notification using the following:
 
 ```
-"explore_view_link": "{{&alert_app_url}}#/view-in-explore?&triggeredId={{&triggered_id}}&switchToAccountId={{&account_id}}"
+"explore_view_link": "{{&alert_app_url}}#/view-in-explore?&triggeredId={{&alert_event_id}}&switchToAccountId={{&account_id}}"
 ```
 
 Logz.io notifications use [Mustache templating](https://mustache.github.io/).
