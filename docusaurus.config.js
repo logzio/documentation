@@ -56,9 +56,6 @@ const config = {
             }
           }
         ],
-        injectedHtmlTags: {
-          preBodyTags: [`<link rel="stylesheet" href="https://cdn.example.com/style.css" type="text/css">`]
-        }
       },
     ],
     [
