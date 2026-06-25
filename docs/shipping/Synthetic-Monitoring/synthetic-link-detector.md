@@ -2,14 +2,13 @@
 id: synthetic-link-detector-synthetic
 title: Synthetic Link Detector
 overview: Deploy this integration to collect data on broken links in a web page, and to get additional data about the links.
-product: ['metrics']
+product: ['logs']
 os: ['windows', 'linux']
 filters: ['Synthetic Monitoring']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/link.png
 logs_dashboards: []
 logs_alerts: []
 logs2metrics: []
-metrics_dashboards: ["4l4xVZhvqsrJWO7rZwOxgx", "1NiBMzN5DvQZ8BjePpUtvQ"]
 metrics_alerts: []
 drop_filter: []
 ---
@@ -74,7 +73,6 @@ Install the pre-built dashboard to enhance the observability of your data.
 
 <!-- logzio-inject:install:grafana:dashboards ids=["4l4xVZhvqsrJWO7rZwOxgx", "1NiBMzN5DvQZ8BjePpUtvQ"] -->
 
-{@include: ../../_include/metric-shipping/generic-dashboard.html}
 
 
 
