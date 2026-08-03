@@ -67,5 +67,4 @@ The include regex, exclude regex, and highlight terms all live in the URL, so a 
 ## Related
 
 * [Intro to Explore](/docs/open360/explore/new-explore/)
-* [Surrounding Logs](/docs/open360/explore/surrounding-logs/) — context around a single log, once you've found it
 * [Log Patterns](/docs/open360/explore/patterns/) — what's flooding the stream in the first place

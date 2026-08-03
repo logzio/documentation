@@ -160,7 +160,6 @@ When a log carries Kubernetes metadata, expanding it shows an inline strip of me
 |---|---|
 | Watch logs arrive in real time | [Live Tail](/docs/open360/explore/live-tail/) |
 | Find what's flooding your volume | [Log Patterns](/docs/open360/explore/patterns/) |
-| Read what happened around one log | [Surrounding Logs](/docs/open360/explore/surrounding-logs/) |
 | Investigate errors | [Exceptions](/docs/open360/explore/exceptions/) |
 | Reuse a search | [Saved Search](/docs/open360/explore/save-search/) |
 | Mark releases on the graph | [Deployment Markers](/docs/open360/explore/deployment-markers/) |
