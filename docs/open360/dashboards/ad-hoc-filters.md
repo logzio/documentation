@@ -10,22 +10,31 @@ Ad hoc filters let you narrow a whole dashboard from the toolbar — pick a fiel
 
 This is the difference between a dashboard that answers one question and a dashboard you can interrogate. When someone asks "is this happening in production too", you add a filter instead of building a second dashboard.
 
-<img src="/img/open360/dashboard-ad-hoc-filters.png" alt="Ad hoc filter bar on a Unified Dashboard" width="900"/>
+<img src="/img/open360/dashboard-ad-hoc-filters.png" alt="Opening the ad hoc filter builder on a Unified Dashboard" width="900"/>
+
+The **Ad-Hoc Filter** control sits in the dashboard toolbar, alongside the dashboard's own variables.
 
 ## Add a filter
 
-Select **Add filter** in the dashboard toolbar, then choose:
+Select **Ad-Hoc Filter** in the dashboard toolbar and fill in the form:
 
-1. **A datasource.** Filters apply per datasource, and the picker groups them and labels each as **Metrics** or **Logs**. A dashboard mixing Prometheus and OpenSearch panels can carry separate filters for each.
-2. **A field.**
-3. **An operator** and, where relevant, **values**.
-
-| Operator | Meaning |
+| Field | What it does |
 |---|---|
-| **is one of** | Field matches any of the selected values |
-| **is not one of** | Field matches none of the selected values |
-| **exists** | Field is present, whatever its value |
-| **does not exist** | Field is absent |
+| **Datasource** | Which datasource the filter applies to. The picker groups them and labels each as **Metrics** or **Logs**, so a dashboard mixing Prometheus and OpenSearch panels can carry separate filters for each. |
+| **Label / Field** | The label (metrics) or field (logs) to filter on. |
+| **Operator** | How to compare — see below. |
+| **Values** | One or more values, added as chips. Only shown for the operators that need them. |
+
+Then select **Apply**. Nothing changes until you do, so you can build the filter without the dashboard reloading under you.
+
+| Operator | Shown as | Meaning |
+|---|---|---|
+| **is one of** | `=*` | Field matches any of the selected values |
+| **is not one of** | `!=*` | Field matches none of the selected values |
+| **exists** | `*` | Field is present, whatever its value |
+| **does not exist** | `!*` | Field is absent |
+
+The operator list shows each symbol next to its name, which is handy if you also read the query it produces.
 
 `exists` and `does not exist` take no values — they're the ones to reach for when you're chasing a labelling or instrumentation gap rather than a specific value.
 
