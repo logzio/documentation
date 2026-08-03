@@ -33,9 +33,6 @@ A few names are reserved by the system and can't be used, and a folder name can'
 
 The hub is also where you bring a dashboard in from elsewhere, including Grafana and OpenSearch Dashboards definitions. See [Import Dashboards](/docs/open360/dashboards/import-dashboards/).
 
-### Sharing and visibility
-
-Row actions include sharing, which is also how a dashboard is made private. See [Private Dashboards](/docs/open360/dashboards/private-dashboards/).
 
 ## Create a new Dashboard
 

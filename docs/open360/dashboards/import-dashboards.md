@@ -10,8 +10,6 @@ You can import a dashboard definition into Unified Dashboards, either one export
 
 The part that decides whether an import is useful or broken is **datasource mapping**: the source dashboard points at datasources that don't exist in your account, and you have to say what they correspond to here.
 
-<img src="/img/open360/dashboard-import-mapping.png" alt="Dashboard import with datasource mapping" width="900"/>
-
 ## Import a dashboard
 
 From the Dashboards Hub, choose to import a dashboard, then:
