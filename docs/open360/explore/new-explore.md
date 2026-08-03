@@ -10,6 +10,20 @@ Explore provides a unified dashboard for monitoring your data, offering a quick 
 
 <!-- ![Explore dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/explore-aug21.png)-->
 
+## Explore modes
+
+Explore queries each kind of telemetry from its own tab. Tabs are independent — each keeps its own query, filters, timeframe, and columns — so you can keep one investigation open while starting another. Double-click a tab to rename it.
+
+| Tab | What you query | Guide |
+|---|---|---|
+| **Logs** | Log data with Lucene | This page |
+| **Metrics** | Metrics with PromQL, ad hoc or via a query builder | [Metrics in Explore](/docs/open360/explore/explore-metrics/) |
+| **Traces** | Individual spans across your services | [Span Search in Explore](/docs/open360/explore/spans/) |
+
+A tab is disabled when the account has no data of that type — for example, Metrics requires a metrics account and Traces requires a tracing account.
+
+The rest of this page covers the Logs tab.
+
 ### Query and search
 
 Explore uses an enhanced **Lucene** query language for log searches, featuring autocomplete suggestions and syntax highlighting for faster, more accurate queries. Start typing to view available fields and operators. For example, you can search for logs where `logSize` exceeds a certain value or find messages containing specific words.
@@ -103,6 +117,8 @@ When using Group by, the graph displays **up to 10 values**. Any additional valu
 Entries with empty or undefined values for the selected field will appear under **Missing**.
 :::
 
+You can group by numeric and boolean fields as well as strings. Grouping by a boolean field shows the split as a percentage of the total, which is a quick way to read something like success versus failure without writing two queries.
+
 <img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/open360/explore/360-explore-visualize.png" alt="visualize" width="700"/>
 
 ### Table Density
@@ -123,10 +139,32 @@ The ⋮ menu offers additional options for Explore, including:
 * **Add to Dashboard**: Quickly add the current view to one of your existing dashboards. [Learn more about Logz.io Dashboards](https://docs.logz.io/docs/open360/dashboards/logzio-dashboards/).
 * **Create Alert**: Opens an alert configuration with your current filters applied.
 * **Copy Link**: Generates a URL with your current view, which you can share with team members. You need to be logged in to Logz.io to view it.
-* **Export CSV**: Exports up to 50,000 logs to a CSV file, including the timestamp and log message.
+* **Export CSV**: Exports up to 50,000 logs to a CSV file, including the timestamp and log message. Exports include warm-tier data when your selected timeframe reaches into it.
 * **Turn UTC On**: You can view your data in either UTC or your browser’s local time zone. For clarity, the time column in your log table will display the active time zone.
 
 <img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/open360/explore/360-explore-menu.png" alt="side-menu" width="700"/>
+
+### When a search returns nothing
+
+If your query matches no logs in the selected timeframe, Explore offers to widen the timeframe for you rather than leaving you to guess. It steps up through 1 minute, 15 minutes, 1 hour, 24 hours and 7 days, stopping at your account's retention limit.
+
+This usually settles the first question worth asking about an empty result: whether the query is wrong, or whether you were simply looking at the wrong window.
+
+### Kubernetes context in an expanded log
+
+When a log carries Kubernetes metadata, expanding it shows an inline strip of metrics for the pod or container that produced it. You get the resource picture alongside the log without leaving Explore, which is often enough to tell a code problem from a resource problem.
+
+## More in Explore
+
+| Task | Guide |
+|---|---|
+| Watch logs arrive in real time | [Live Tail](/docs/open360/explore/live-tail/) |
+| Find what's flooding your volume | [Log Patterns](/docs/open360/explore/patterns/) |
+| Read what happened around one log | [Surrounding Logs](/docs/open360/explore/surrounding-logs/) |
+| Investigate errors | [Exceptions](/docs/open360/explore/exceptions/) |
+| Reuse a search | [Saved Search](/docs/open360/explore/save-search/) |
+| Mark releases on the graph | [Deployment Markers](/docs/open360/explore/deployment-markers/) |
+| Write better queries | [Lucene Best Practices](/docs/open360/explore/lucene-best-practices/) |
 
 
 
