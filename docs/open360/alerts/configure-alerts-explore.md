@@ -187,6 +187,19 @@ Once triggered, the AI Agent will analyze related logs, metrics, and patterns. A
 AI Agent Analysis runs **once every hour**.
 :::
 
+#### Recipients for the analysis
+
+By default the analysis goes to the same recipients as the alert itself. You can instead select recipients manually, which is worth doing when the analysis is for a different audience than the page — for example the owning team gets the alert, while a shared channel gets the write-up.
+
+#### Runbook and instructions
+
+Alongside the analysis you can attach a **runbook** and **instructions**. Both are context the analysis draws on as well as guidance for whoever picks the alert up, so they do double duty:
+
+* **Instructions** — what the responder should do. Also see [Alert Instructions](/docs/open360/alerts/instructions/).
+* **Runbook** — the procedure to follow, for alerts with an established response.
+
+An alert with a clear description, instructions and a runbook produces a noticeably more useful analysis than a bare query, because the model has something to reason against beyond the raw data.
+
 [Learn more about AI Agent Analysis](/docs/user-guide/observability/ai-agent-analysis/).
 
 <h3 id="output"> Select alert's output format & content</h3>

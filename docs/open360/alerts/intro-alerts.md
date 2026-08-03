@@ -40,6 +40,24 @@ Click on the corresponding column header to filter alerts chronologically by **n
 
 ![Alert definitions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/explore-dashboard/alerts/alerts-oct21.png)
 
+Alerts has two tabs: **Configurations** for the alerts you've defined, and **Status** for what has actually fired.
+
+On the Configurations tab, each alert shows whether it came from logs or metrics, its **Name**, **Severity**, **Tags**, **Created By**, **Last Modified**, and an **Active** toggle.
+
+The **Active** toggle turns an alert off without deleting it — the right move for an alert that's noisy during a migration or a known incident, since you keep its configuration and history.
+
+Severity is one of Info, Low, Medium, High or Severe.
+
+:::note
+Users with read-only permissions can view alerts but not create, edit or delete them, so the editing controls described below won't appear for them.
+:::
+
+To see what has actually fired rather than what's configured, switch to the [Status tab](/docs/open360/alerts/triggered-alerts/).
+
+:::note
+Metric alerts created here don't appear under Open Source Apps → Metrics → Alert Rules. The two are managed separately.
+:::
+
 ### Manage Log alerts
 
 You can manage alerts individually or in bulk.
