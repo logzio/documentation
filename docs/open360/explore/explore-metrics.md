@@ -40,7 +40,9 @@ Select the **Metrics Browser** to construct a query from what's actually in your
 
 <img src="/img/open360/metrics-browser.png" alt="Metrics Browser with the query builder strip" width="900"/>
 
-Work left to right: pick a **metric**, then narrow by **label** and **value**. A query preview updates as you go, so you can see the PromQL the browser is writing and learn the syntax from it.
+Work left to right: pick a **metric**, then narrow by **label** and **value**. Each column shows how much there is to choose from — a busy account might offer several hundred metrics and a couple of hundred labels — and values only load once you've selected a label. A query preview updates as you go, so you can see the PromQL the browser is writing and learn the syntax from it.
+
+When the preview looks right, select **Set Expression** to send it to the editor, where you can keep editing it by hand.
 
 The builder strip adapts to the kind of metric you're working with:
 
@@ -62,8 +64,10 @@ For Counter and Gauge you can then aggregate with `sum`, `avg`, `min`, `max`, `c
 
 * **Line** or **Bar**.
 * **Stacked** or **Unstacked**.
-* **Step** — the resolution between data points. Leave it on `auto` to let the timeframe decide, or set an explicit step when you want a consistent resolution across comparisons. A larger step means fewer, coarser points.
+* **Step (min)** — the minimum resolution between data points, **in minutes**. Leave it on `auto` to let the timeframe decide, or set an explicit step when you want a consistent resolution across comparisons. A larger step means fewer, coarser points.
 * **Legend** — a template for series names, defaulting to `{{label}}`. Use it to build readable names out of label values instead of reading raw series selectors.
+
+The number of series returned is shown alongside these controls, which is the quickest way to notice a query has fanned out far wider than you intended.
 
 Below the chart, the results table has two views: **table** for parsed rows, and **raw** for the unformatted response when you need to see exactly what came back.
 
