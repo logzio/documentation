@@ -12,7 +12,11 @@ Live Tail streams logs into Explore as they arrive, like `tail -f` across your w
 
 ## Start and stop the stream
 
-Select **Live logging** in Explore. The stream opens on your current account, and you can change which accounts it follows from the selector.
+Live Tail is a timeframe, not a separate page. Open the time picker in Explore, select the **Live** tab, and apply. The log table switches to streaming and the picker reads **Live**.
+
+The stream follows the account you were already querying. **Account selection is disabled while live** — to stream a different account, leave live mode, switch account, and go back in.
+
+A counter above the table shows how many logs are in view and how many have been received, so you can tell a quiet system from a stalled one at a glance.
 
 The state is always visible, so you know whether what you're looking at is current:
 
