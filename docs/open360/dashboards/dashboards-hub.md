@@ -19,6 +19,21 @@ The Dashboards Hub simplifies dashboard management by providing a fast and organ
 * Search & Filter – Use the search bar or tags to quickly find dashboards. Start typing to filter results, or click tags to refine your view. Click a dashboard to open it in a new tab.
 * Favorites – Pin frequently used dashboards to keep them at the top for instant access.
 
+### Tags
+
+Dashboards carry free-form tags. Tags are the difference between a hub you search and a hub you browse — once a few dozen dashboards exist, a consistent tag per team or service is worth more than any naming convention.
+
+### Folders
+
+Dashboards live in folders, and the hub can be scoped to a single folder so you see only its contents. Folders can be created, renamed and deleted from the hub, and navigating by folder name is often faster than searching when you know roughly where something lives.
+
+A few names are reserved by the system and can't be used, and a folder name can't be empty.
+
+### Import a dashboard
+
+The hub is also where you bring a dashboard in from elsewhere, including Grafana and OpenSearch Dashboards definitions. See [Import Dashboards](/docs/open360/dashboards/import-dashboards/).
+
+
 ## Create a new Dashboard
 
 You can create a dashboard from the Dashboards Hub.
