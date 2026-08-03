@@ -10,7 +10,9 @@ A dashboard tells you something changed. A drilldown is how you find out why wit
 
 Configure a panel with drilldowns and clicking into it opens the logs, traces, or dashboard that explains it — already scoped to the series you clicked and the time range you were looking at.
 
-<img src="/img/open360/dashboard-drilldown-drawer.png" alt="Drilldown drawer showing related logs for a clicked series" width="900"/>
+<img src="/img/open360/dashboard-drilldown-menu.png" alt="Drilldown options on a clicked chart series" width="900"/>
+
+Selecting a point on a chart pins its tooltip and offers the drilldowns configured for that panel — here a target dashboard alongside related logs and traces.
 
 ## What a drilldown can open
 
@@ -57,7 +59,9 @@ A drilldown carries the time range you were looking at, so the target opens on t
 
 ## How readers trigger it
 
-Drilldowns are offered where the click makes sense: on a chart, from the tooltip for the series you hovered; on a table, from a configured column. If a panel has no drilldown configured, clicking it does nothing — which is why a dashboard that's had drilldowns added is noticeably more useful than one that hasn't.
+Drilldowns are offered where the click makes sense: on a chart, from the tooltip for the series you clicked; on a table, from a configured column. The tooltip lists each configured target — dashboards by their menu label, plus **View Related Logs** and **View Related Traces** where those are enabled.
+
+If a panel has no drilldown configured, clicking it does nothing — which is why a dashboard that's had drilldowns added is noticeably more useful than one that hasn't.
 
 ## Practical notes
 

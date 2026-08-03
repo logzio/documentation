@@ -8,6 +8,10 @@ keywords: [logz.io, dashboards, unified dashboards, panel types, visualizations,
 
 A Unified Dashboard panel pairs a **query** with a **visualization**. This page lists the visualizations available and what each is good for.
 
+<img src="/img/open360/dashboard-panel-variety.png" alt="A dashboard combining stat panels, time series and a table" width="900"/>
+
+Most useful dashboards mix panel types: single values for the headline numbers, time series for the shape, and a table for the detail.
+
 Every panel can query **metrics** (Prometheus / PromQL) or **logs** (OpenSearch / Lucene) — see [Dashboards Configuration Guide](/docs/open360/dashboards/edit-dashboards/) for how to write the queries themselves.
 
 ## Time series and trends
