@@ -234,6 +234,27 @@ The JSON tab lets you view the panel’s raw configuration. Use this for:
 <img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/json-view-apr6.png" alt="json-tab" width="1000"/>
 
 
+### Annotations
+
+Time series panels can show annotations — markers on the time axis for events such as deploys — with a tooltip on hover giving the event's detail. They're what turns "latency rose at 14:20" into "latency rose when we shipped", without needing a second panel.
+
+### Create an alert from a panel
+
+A panel that already describes something worth watching can become an alert directly, pre-filled from its query rather than rebuilt by hand. The alert type follows the panel: a metrics query produces a metric alert, a Lucene query produces a log alert.
+
+Not every panel can be turned into an alert, because alerts support a narrower set of queries than dashboards do. The panel tells you why when it can't, and the usual reasons are:
+
+| Reason | Detail |
+|---|---|
+| Mixed sources | The panel combines metrics and logs queries. |
+| Too many queries | Metric alerts support up to **5** queries; log alerts support **one**. |
+| Too many group-by fields | Log alerts support up to **3** group-by fields. |
+| Math not supported | Log alerts don't support math expressions, and some operators, transformations and nested expressions aren't supported at all. |
+| Unresolved variable | The panel uses a variable that currently has no value. |
+| No query | Nothing to alert on. |
+
+If a panel is ineligible, the usual fix is to split it — one query per alert — rather than to simplify the panel you actually want to look at.
+
 ## Create a new dashboard from Explore
 
 You can quickly create a new dashboard panel from the Explore view. Once you’ve built a query you want to track, click the **⋮** menu and select **Add to Dashboard**. From there, choose the target dashboard and panel group, give the panel a name, and click **Create** to add it. You can also click **Preview** to open the panel in edit mode directly inside the dashboard.
