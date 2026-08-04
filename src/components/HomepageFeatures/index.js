@@ -5,10 +5,10 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Logz.io quick start guide',
-    link: "/docs/user-guide/quick-start/",
+    title: 'Open 360 AI',
+    link: "/docs/category/open360/",
     Svg: require('@site/static/img/quick-start.svg').default,
-    description: <>Learn how to make the most out of the Logz.io platform.</>,
+    description: <>Explore, dashboards, APM, alerts and AI in the redesigned Logz.io platform.</>,
   },
   {
     title: 'AI Agent',
