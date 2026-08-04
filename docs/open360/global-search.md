@@ -10,6 +10,14 @@ Global search finds things across your account from the search control in the to
 
 It's the fastest way to reach a dashboard whose exact name you've half-forgotten, and it beats navigating by menu once an account has more than a handful of saved objects.
 
+## Open it with a shortcut
+
+Press **Ctrl + K** to open global search from anywhere in the product.
+
+Note that it's `Ctrl` on every platform, including macOS — `Cmd + K` won't open it.
+
+The shortcut also works while you're inside the embedded open-source apps, such as OpenSearch Dashboards and Grafana, so you don't have to click out of them first to go somewhere else.
+
 ## What it searches
 
 Results are grouped by where they came from:

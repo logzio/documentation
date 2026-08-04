@@ -23,14 +23,16 @@ If results look stale after you've changed something, that banner is why. Select
 ## Warm data elsewhere
 
 * **CSV export** — exports include warm-tier data when your timeframe covers it, so you don't need a separate route to get older logs out.
-* **Dashboards** — panels can query warm-tier data where their datasource is configured for it.
 * **Accounts** — warm tier is configured per account; see the account management docs for enabling and sizing it.
+
+:::note
+Dashboards don't support warm-tier data. Panels query your primary retention only, so a dashboard won't show warm data even when its time range covers it — use Explore for that.
+:::
 
 ## Practical notes
 
 * Narrow the timeframe before you narrow anything else. On warm data, a smaller window is the difference between a query you wait on and one you don't.
-* Expect warm queries to take longer than hot ones. That's the trade you made for the cheaper storage, not a fault.
-* Because the query doesn't auto-run, you can safely build up a complex search — filters, columns, group-by — and pay for it once.
+* Expect warm queries to take longer than hot ones.
 
 ## Related
 

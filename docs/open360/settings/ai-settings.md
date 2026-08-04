@@ -25,16 +25,6 @@ Saving confirms with *AI monthly limits updated*.
 
 Limits are monthly, so they reset on your billing cycle rather than rolling continuously.
 
-## Subscription details
-
-The same page shows your AI subscription — what you're entitled to and the period it applies to — so you can compare a limit you're about to set against what you've actually bought.
-
-## Practical notes
-
-* Set a limit before handing AI features to a team. It's a far more comfortable conversation than an unexpected line on a bill.
-* A limit of `0` is the way to switch a category off while keeping the feature configured, rather than unpicking the configuration.
-* Access is restricted to those who can see billing for the account, so most users won't have this page.
-
 :::note
 AI Settings is being rolled out. If you don't see it under Plan and usage, it isn't enabled for your account yet — contact [Logz.io support](https://logz.io/support-page/).
 :::
