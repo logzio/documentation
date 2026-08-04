@@ -18,6 +18,15 @@ Community plans limit the number of alerts that may be enabled. See the official
 You cannot configure alerts using the `logzio-alert` log type. This type is ignored by the alerts engine.
 :::
 
+### Choose the alert type
+
+An alert watches either logs or metrics, and you pick which when you name it:
+
+* **Log alert** — a Lucene query over your log data. This is the default and what the rest of this page describes.
+* **Metrics alert** — a PromQL query over your metrics. Currently marked **Beta**.
+
+The type determines the query editor you get, so switch it before writing the query rather than after. For metrics alerts, see [Metrics alerts](#metrics-alerts) below.
+
 ### Name the alert
 
 Give your alert a meaningful name. When your alert triggers, its name is used as the email subject or notification heading.
@@ -93,6 +102,28 @@ You can set the trigger condition time frame between 5 minutes and up to 24 hour
 
 
 ![Alert trigger thresholds](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alerts--trigger-settings_aug2021.png)
+
+### Metrics alerts {#metrics-alerts}
+
+A **Metrics alert** watches a PromQL query instead of a Lucene one. The rest of the form — scheduling, recipients, severity, metadata, AI analysis — works the same way.
+
+For each query you set:
+
+* **Data source** — which metrics datasource to query. Select it before writing the query, since it determines what's available.
+* **PromQL** — the expression to evaluate. Syntax is validated, so a malformed query is reported as you write rather than silently never firing.
+
+You can add up to **5 queries** to one metrics alert, and combine them with a **math expression** — which is how you alert on a ratio rather than an absolute number. An error rate, for example, is failures divided by total, and that's an expression over two queries rather than a single one.
+
+Two ways to skip writing the query by hand:
+
+* **From Explore** — build the query in the [Metrics tab](/docs/open360/explore/explore-metrics/), then use **Create alert** from the actions menu. The PromQL comes with you.
+* **From a dashboard panel** — a panel that already shows the thing you want to watch can be turned into an alert, pre-filled from its query. See [Dashboards Configuration Guide](/docs/open360/dashboards/edit-dashboards/) for the eligibility rules.
+
+Proving the query returns what you expect in Explore first, then promoting it to an alert, is considerably faster than debugging an alert that never fires.
+
+:::note
+Metric alerts created here don't appear under Open Source Apps → Metrics → Alert Rules. The two systems are managed separately.
+:::
 
 ### Configure alert scheduling
 
@@ -186,6 +217,19 @@ Once triggered, the AI Agent will analyze related logs, metrics, and patterns. A
 :::caution note
 AI Agent Analysis runs **once every hour**.
 :::
+
+#### Recipients for the analysis
+
+By default the analysis goes to the same recipients as the alert itself. You can instead select recipients manually, which is worth doing when the analysis is for a different audience than the page — for example the owning team gets the alert, while a shared channel gets the write-up.
+
+#### Runbook and instructions
+
+Alongside the analysis you can attach a **runbook** and **instructions**. Both are context the analysis draws on as well as guidance for whoever picks the alert up, so they do double duty:
+
+* **Instructions** — what the responder should do. Also see [Alert Instructions](/docs/open360/alerts/instructions/).
+* **Runbook** — the procedure to follow, for alerts with an established response.
+
+An alert with a clear description, instructions and a runbook produces a noticeably more useful analysis than a bare query, because the model has something to reason against beyond the raw data.
 
 [Learn more about AI Agent Analysis](/docs/user-guide/observability/ai-agent-analysis/).
 
