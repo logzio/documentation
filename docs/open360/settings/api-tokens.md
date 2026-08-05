@@ -10,19 +10,11 @@ API tokens under **Settings → Manage Tokens → API tokens** now carry a **rol
 
 For creating and deleting tokens, and how each account type gets its own tokens, see [Manage API Tokens](https://docs.logz.io/docs/user-guide/admin/authentication-tokens/api-tokens/) — that part is unchanged. This page covers roles.
 
-:::note
-API token roles are rolling out gradually. If you don't see a **Role** column, it isn't enabled for your account yet — contact [Logz.io support](https://logz.io/support-page/).
-:::
-
 ## Roles
 
-| Role | Meaning |
-|---|---|
-| **Admin** | Full access. The default for any token, including tokens created before roles existed. |
-| **User** | Standard access. |
-| **Read-only** | Read-only access — the one to reach for when a token only needs to pull data out, such as an export job or a read-only integration. |
+A token can be assigned **Admin**, **User**, or **Read-only** — the same roles and the same per-feature access as [user roles](https://docs.logz.io/docs/user-guide/admin/users/users/#access-level-per-role). See that page for exactly what each role can and can't do.
 
-Every token created here gets **Admin** by default, so if you want a scoped token, set the role explicitly rather than leaving it at the default.
+Every token created here gets **Admin** by default, including tokens created before roles existed, so if you want a scoped token, set the role explicitly rather than leaving it at the default.
 
 ## Set a token's role
 
