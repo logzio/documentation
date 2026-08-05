@@ -12,7 +12,7 @@ For creating and deleting tokens, and how each account type gets its own tokens,
 
 ## Roles
 
-A token can be assigned **Admin**, **User**, or **Read-only** — the same roles and the same per-feature access as [user roles](https://docs.logz.io/docs/user-guide/admin/users/users/#access-level-per-role). See that page for exactly what each role can and can't do.
+A token can be assigned **Admin**, **User**, or **Read-only** — the same roles and the same per-feature access as [user roles](/docs/user-guide/admin/users/#access-level-per-role). See that page for exactly what each role can and can't do.
 
 Every token created here gets **Admin** by default, including tokens created before roles existed, so if you want a scoped token, set the role explicitly rather than leaving it at the default.
 
