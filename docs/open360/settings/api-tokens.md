@@ -16,18 +16,17 @@ API token roles are rolling out gradually. If you don't see a **Role** column, i
 
 ## Roles
 
-| Role | Assignable | Meaning |
-|---|---|---|
-| **Admin** | Yes | Full access. The default for any token, including tokens created before roles existed. |
-| **User** | Yes | Standard access. |
-| **Read-only** | Yes | Read-only access — the one to reach for when a token only needs to pull data out, such as an export job or a read-only integration. |
-| **Custom** | No | A fine-grained permission set assigned outside this UI. Custom-role tokens can't be edited here — their role can only be changed through whatever set it in the first place. |
+| Role | Meaning |
+|---|---|
+| **Admin** | Full access. The default for any token, including tokens created before roles existed. |
+| **User** | Standard access. |
+| **Read-only** | Read-only access — the one to reach for when a token only needs to pull data out, such as an export job or a read-only integration. |
 
 Every token created here gets **Admin** by default, so if you want a scoped token, set the role explicitly rather than leaving it at the default.
 
 ## Set a token's role
 
-Select the **Role** column on an existing token to change it, or set it while creating a new one. Read-only and User can be switched freely; a **Custom**-role token shows its role but can't be edited from this table.
+Select the **Role** column on an existing token to change it, or set it while creating a new one.
 
 ## Why this matters
 
