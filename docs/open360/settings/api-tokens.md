@@ -28,12 +28,6 @@ Every token created here gets **Admin** by default, so if you want a scoped toke
 
 Select the **Role** column on an existing token to change it, or set it while creating a new one.
 
-## Why this matters
-
-A leaked or over-shared token used to mean full account access, whatever it was actually for. Scoping tokens by role means the blast radius of a leaked token matches what it was issued for — a Read-only token used in a dashboard export script can't be used to modify anything, even if it ends up somewhere it shouldn't.
-
-If you're issuing a token for something read-only — a metrics scrape, a log export, a BI integration — set it to **Read-only** rather than leaving the Admin default.
-
 ## Related
 
 * [Manage API Tokens](https://docs.logz.io/docs/user-guide/admin/authentication-tokens/api-tokens/)
