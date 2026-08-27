@@ -46,11 +46,17 @@ Match the product's own words, not an older doc's:
 | Agents / Invocations (the Agents Hub tabs) | — |
 | Alert AI Analysis (the alert and rule step) | — |
 
-## Open question for the docs team
+## Agreed follow-up: the AI docs refactor
 
 `docs/open360/observability/` and `docs/user-guide/observability/` are the SAME three pages twice — the "Observability IQ" category at both `/docs/category/observability-iq/` and `/docs/category/observability-iq-1/`, holding `assistantiq.md` (AI Agent), `ai-agent-analysis.md`, and `faq.md`. Their content also overlaps the OrionIQ pages.
 
-Consolidating or deleting them is a **migration, not a cleanup**: 20 inbound links across 14+ pages point at them, and `onBrokenLinks: 'throw'` means every one has to be repointed, with `static/_redirects` entries for the public URLs. Don't do it as a side effect of a sync run — it needs a decision on which tree survives.
+**The direction is decided** (ralongit, PR #960): AI documentation should sit where it sits in the product.
+
+* Open 360 and Cloud SIEM inner pages keep only what belongs to them: a reference to the **OrionIQ chat drawer** from the relevant nested doc (Explore, Dashboards, App 360, K8s 360, …), and the **Alert AI Analysis** agents.
+* Everything else AI-related lives in the **OrionIQ** section only.
+* The **FAQ** gets split per platform — one for Open 360, one for OrionIQ — rather than one page covering both.
+
+This is a **migration, not a cleanup**, and it's a separate PR: 20 inbound links across 14+ pages point into those pages, `onBrokenLinks: 'throw'` means every one has to be repointed, and each removed public URL needs a `static/_redirects` entry. Don't attempt it as a side effect of a sync run.
 
 ## Recurring documentation patterns
 
@@ -112,3 +118,10 @@ Notes for next time:
 * **Documenting the unreleased.** See the lessons section above.
 * **Missing surfaces.** The Triggers menu, the Management tab, the Settings page, and most of the agent editor were all shipped and undocumented. A commit-history scan will not find these — they predate the window. Walk the product's nav and tabs against the doc tree once per run, not just the diff.
 * **Two pages the scan missed entirely** because they live outside `docs/user-guide/orioniq/`: the alert AI Analysis section (whose Slack-endpoint requirement ORIONIQ-1298 had made obsolete) and the SIEM security rules page, which never documented Alert AI Analysis at all. Grep the whole `docs/` tree for AI surfaces, not just the OrionIQ directory.
+
+Second round, same PR:
+
+* **Deleting a stale field is not the same as documenting what replaced it.** The agent editor's "Payload (JSON)" is now the **Agent Definition** section — five friendly fields (Runbook, Guidelines, **Agent tools**, Output detail, Structured output, from `AgentEdit/agent-definition-fields.constants.ts`) with the raw JSON behind an **Advanced · Agent Definition** accordion. Dropping the old row without naming those read as a deletion. `SPEC_FRIENDLY_FIELDS` and `AGENT_KIND_OPTIONS` carry the labels and help text verbatim.
+* **`spec.agents` (Agent tools) drives the Data Sources picker**, and the form refuses to save until every declared lane has a source. Two sections that look independent in the doc are coupled in the product.
+* **Alert / rule AI Analysis creates a real agent**, editable in the Agents Hub like any other — so Integrations, Agent tools and its own daily cap are all configurable, none of which the alert form itself shows. The copy is in `AIAgentRCA/RcaNotes.tsx` ("Configure agent after saving", "Agent configuration is managed in the Agent Hub").
+* **AI Agent Analysis output is stored in the agent's invocation history, NOT in "AI Agent chat history."** That phrasing was inherited from the existing page and is wrong; the analysis never lands in a chat.

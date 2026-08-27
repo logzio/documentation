@@ -46,7 +46,21 @@ The configuration is a series of sections. Work through them in order.
 
 ### Agent Definition
 
-The structured specification the agent runs from, generated for you on the **Create** tab. You can edit it directly here. Fields sent on an API invocation override the matching fields in the definition.
+The specification the agent runs from, generated for you on the **Create** tab. You can refine it field by field here:
+
+| Field | Description |
+|---|---|
+| **Runbook** | Mandatory step-by-step procedure the agent follows, in order. |
+| **Guidelines** | Custom instructions for the agent. |
+| **Agent tools** | Which tool set the agent uses: **Log agent**, **Metric agent**, **Logs + Metrics (deep)**, or **Integration agent**. This decides what the agent can query, so it has to match the data sources you pick below. |
+| **Output detail** | Response verbosity — **Summary** or **Detailed**. Ignored when a structured output schema is set. |
+| **Structured output** | A JSON Schema for the agent's response, enforced at inference. Use it when a downstream system consumes the output. |
+
+The raw JSON behind these fields is under **Advanced · Agent Definition**, which is where the agent's payload lives. Fields sent on an API invocation override the matching fields in it — see the [OrionIQ API](/docs/user-guide/orioniq/api/).
+
+:::note
+Structured output schemas must be flat: properties can be primitives or arrays of primitives, with no nested objects.
+:::
 
 ### Configuration
 
@@ -76,6 +90,8 @@ Account-wide limits are set separately — see [Settings → Capping](/docs/user
 ### Data Sources
 
 Pick the observability platform and accounts this agent can query. Toggle the scope chips to choose Logs, Metrics, or both — each scope has its own accounts list.
+
+Which scopes you have to fill in follows the **Agent tools** you chose above: an agent declaring a logs tool set needs a logs data source, and the agent won't save until every declared scope has one.
 
 ### Integrations
 

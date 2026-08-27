@@ -172,7 +172,19 @@ Security rules support the same AI-powered investigation as alerts. In the **Ale
 
 Give the rule a clear description — that description is the context the AI uses, so a vague one produces a vague analysis.
 
-Each analysis appears in the OrionIQ [Agents Hub](/docs/user-guide/orioniq/agents-hub/), where you can read it in full and rate it. Account-wide AI limits are set in [OrionIQ Settings → Capping](/docs/user-guide/orioniq/settings/#capping).
+Every run is stored in the agent's invocation history, where you can read the full analysis and rate it — see the Invocations tab of the OrionIQ [Agents Hub](/docs/user-guide/orioniq/agents-hub/). Account-wide AI limits are set in [OrionIQ Settings → Capping](/docs/user-guide/orioniq/settings/#capping).
+
+#### Configure the agent
+
+Turning the toggle on creates an OrionIQ agent for the rule, and you can update it at any time. Select **Configure agent after saving** to open it right after you save, or manage it later from the Agents Hub — the rule form links to it with **Manage in Agent Hub**.
+
+The agent is editable like any other, so beyond the settings above you can:
+
+* Set its instructions, guidelines, and **Agent tools**.
+* Give it **Integrations** — Slack, Jira, Confluence, and the rest — so the analysis can draw on them.
+* Adjust its own daily cap and soft limit, independently of your account-wide caps.
+
+See [Create an Agent](/docs/user-guide/orioniq/create-agent/) for what each section does.
 
 :::note
 Alert AI Analysis requires AI features to be enabled on your account. If the step is missing or the toggle is unavailable, contact [Logz.io support](https://logz.io/support-page/).
