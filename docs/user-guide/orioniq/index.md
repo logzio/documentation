@@ -20,6 +20,10 @@ You can access OrionIQ from the left navigation menu. The OrionIQ section includ
 
 **[Usage & Performance Dashboard](/docs/user-guide/orioniq/usage-performance/)**: Monitor agent usage statistics, track invocation volume, review feedback trends, and evaluate overall agent performance.
 
+**[Memory](/docs/user-guide/orioniq/memory/)**: Give OrionIQ lasting context about your environment, your services, and how you work.
+
+**[OrionIQ API](/docs/user-guide/orioniq/api/)**: Trigger agents from external systems, poll for results, submit feedback, and manage the lessons agents learn.
+
 :::note
 OrionIQ uses AI to analyze your data. Always review agent results and check for accuracy.
 :::

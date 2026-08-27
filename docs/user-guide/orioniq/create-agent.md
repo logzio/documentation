@@ -40,7 +40,7 @@ Switch to the **Configure** tab to set the agent's properties and behavior.
 |---|---|
 | **Agent Name** | A descriptive name for your agent. |
 | **Description** | A brief explanation of what the agent does. |
-| **Payload (JSON)** | Optional JSON payload to pass additional parameters to the agent. |
+| **Payload (JSON)** | Optional JSON payload to pass additional parameters to the agent. Fields sent on an API invocation override the matching fields here. |
 
 ### Trigger
 
@@ -48,7 +48,7 @@ Choose how the agent will run by selecting a trigger type:
 
 | Trigger | Description |
 |---|---|
-| **API** | The agent runs when called via the OrionIQ API. Use this for on-demand or externally triggered invocations. |
+| **API** | The agent runs when called via the [OrionIQ API](/docs/user-guide/orioniq/api/). Use this for on-demand or externally triggered invocations. |
 | **Scheduled** | The agent runs automatically at defined intervals (for example, every 3 hours or once a day). |
 | **Deployment** | The agent runs automatically when a deployment event is detected. |
 | **Alert** | The agent runs automatically when a Logz.io alert is triggered. |
@@ -73,5 +73,5 @@ Use the **Active** toggle to enable or disable the agent. When disabled, the age
 Once you've reviewed the agent definition and configured the settings, click **Create Agent**. The agent becomes available in the [Agents Hub](/docs/user-guide/orioniq/agents-hub/) where you can monitor its invocations and manage its settings.
 
 :::note
-You can edit an agent's instructions, trigger, and notification settings at any time from the Agents Hub.
+You can edit an agent's instructions, trigger, and notification settings at any time from the Agents Hub. Users with the Read-only role can't create or edit agents.
 :::
