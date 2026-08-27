@@ -160,6 +160,36 @@ If the rule includes any aggregation or group by field, the notification output 
 
 ![Add email](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/siem-add-email-dec.gif)
 
+### *(Optional)* Alert AI Analysis
+
+Security rules support the same AI-powered investigation as alerts. In the **Alert AI Analysis** step, turn the toggle on and Logz.io's AI Agent investigates the cause of the rule the moment it triggers, then delivers its findings to the recipients you choose.
+
+| Setting | Description |
+|---|---|
+| **Recipients** | By default the analysis goes to the same recipients as the rule. You can instead select recipients manually — useful when the write-up is for a different audience than the page. |
+| **Runbook** | The procedure to follow for this rule. The analysis draws on it as context, and it guides whoever picks the rule up. |
+| **Daily invocation cap** | The maximum analyses per day for this rule. Set 0 to block it completely, or leave it empty for unlimited. A **soft limit** sends a warning notification without blocking. |
+
+Give the rule a clear description — that description is the context the AI uses, so a vague one produces a vague analysis.
+
+Every run is stored in the agent's invocation history, where you can read the full analysis and rate it — see the Invocations tab of the OrionIQ [Agents Hub](/docs/user-guide/orioniq/agents-hub/). Account-wide AI limits are set in [OrionIQ Settings → Capping](/docs/user-guide/orioniq/settings/#capping).
+
+#### Configure the agent
+
+Turning the toggle on creates an OrionIQ agent for the rule, and you can update it at any time. Select **Configure agent after saving** to open it right after you save, or manage it later from the Agents Hub — the rule form links to it with **Manage in Agent Hub**.
+
+The agent is editable like any other, so beyond the settings above you can:
+
+* Set its instructions, guidelines, and **Agent tools**.
+* Give it **Integrations** — Slack, Jira, Confluence, and the rest — so the analysis can draw on them.
+* Adjust its own daily cap and soft limit, independently of your account-wide caps.
+
+See [Create an Agent](/docs/user-guide/orioniq/create-agent/) for what each section does.
+
+:::note
+Alert AI Analysis requires AI features to be enabled on your account. If the step is missing or the toggle is unavailable, contact [Logz.io support](https://logz.io/support-page/).
+:::
+
 ### Save your rule
 Click Save to save your rule. If the thresholds are passed and the rule is triggered, Logz.io will log the rule and send the configured notifications.
 

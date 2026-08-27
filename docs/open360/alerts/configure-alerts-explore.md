@@ -195,7 +195,7 @@ The system combines the **Trigger if** time interval with the **Wait time** inte
 ### Activate AI Agent Analysis
 
 :::note
-To use AI Agent Analysis, your alert must include a **Slack notification endpoint** and a **clear description**.
+Give the alert a **clear description**. That description is the context the AI uses, so a vague one produces a vague analysis.
 :::
 
 [AI Agent Analysis](/docs/user-guide/observability/ai-agent-analysis/) enables Logz.io’s AI Agent to automatically investigate the cause of an alert the moment it’s triggered—delivering fast, actionable insights to help you understand what happened and why.
@@ -206,17 +206,29 @@ To enable it:
 
   ![AI Analysis](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/ai-agent-analysis-checked.png)
 
-* Click **Configure endpoint** and select the Slack channel where the report should be delivered.
+* Choose who receives the analysis — see [Recipients for the analysis](#recipients-for-the-analysis) below.
 
   ![notification endpoint](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/notification-endpoint.png)
 
 * Add a clear description to your alert—this gives the AI the context it needs to produce accurate and helpful results.
 
-Once triggered, the AI Agent will analyze related logs, metrics, and patterns. A summary of its findings will be sent to your selected **Slack channel** and stored in the **AI Agent chat history** for future reference.
+Once triggered, the AI Agent will analyze related logs, metrics, and patterns. A summary of its findings is sent to the recipients you chose, and every run is stored in the agent's **invocation history**, where you can read the full analysis and rate it — see the Invocations tab of the OrionIQ [Agents Hub](/docs/user-guide/orioniq/agents-hub/).
 
 :::caution note
 AI Agent Analysis runs **once every hour**.
 :::
+
+#### Configure the agent
+
+Enabling AI Agent Analysis creates an OrionIQ agent for the alert. Select **Configure agent after saving** to open it right after you save, or manage it later from the Agents Hub — the alert form links to it with **Manage in Agent Hub**.
+
+The agent is editable like any other, so beyond the settings on this page you can:
+
+* Set its instructions, guidelines, and **Agent tools**.
+* Give it **Integrations** — Slack, Jira, Confluence, and the rest — so the analysis can draw on them.
+* Adjust its own **daily invocation cap** and soft limit, independently of your account-wide caps.
+
+See [Create an Agent](/docs/user-guide/orioniq/create-agent/) for what each section does.
 
 #### Recipients for the analysis
 

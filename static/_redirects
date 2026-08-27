@@ -1200,4 +1200,8 @@
 /docs/logz/get-cloud-trail				https://api-docs.logz.io/docs/logz/get-cloud-trail/
 /docs/logz/put-alert-rules-by-uid				https://api-docs.logz.io/docs/logz/put-alert-rules-by-uid/
 /docs/logz/put-alert-rules-by-uid/				https://api-docs.logz.io/docs/logz/put-alert-rules-by-uid/
+# OrionIQ: Utilities renamed to Integrations
+/docs/user-guide/orioniq/utilities/				/docs/user-guide/orioniq/integrations/
+/docs/user-guide/orioniq/utilities				/docs/user-guide/orioniq/integrations/
+
 /:splat				/

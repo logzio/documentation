@@ -1,29 +1,22 @@
 ---
 sidebar_position: 1
 title: AI Settings
-description: Set monthly limits on Logz.io AI usage and review your AI subscription from Plan and usage.
+description: Find and manage your account's AI usage, limits, and budget from the OrionIQ Platform.
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 keywords: [logz.io, ai settings, ai usage, ai limits, capping, plan and usage, billing, orioniq, observability]
 ---
 
-AI features consume usage that's billed, so Logz.io gives you a place to cap it. **AI Settings** lives under **Settings → Plan and usage** and does two things: sets monthly limits, and shows your AI subscription details.
+AI features consume usage that's billed, so Logz.io gives you a place to cap it.
 
-Find it before you roll AI features out to a team, not after.
+Account-level AI settings — usage, limits, and budget configuration — are managed in the OrionIQ Platform, on its **Capping** page: see [OrionIQ Settings → Capping](/docs/user-guide/orioniq/settings/#capping) for the limits you can set and how soft limits work.
 
-## Set monthly limits
+The **AI Settings** tab under **Settings → Plan and usage** links to the same place, so you can get there from the Logz.io console too.
 
-Two limits can be set independently, each with its own on/off toggle:
+Find these limits before you roll AI features out to a team, not after.
 
-| Limit | Caps |
-|---|---|
-| **Chat** | AI chat usage |
-| **Invocations** | Agent invocations |
+## If AI is disabled
 
-Turn a limit on and enter a monthly value; leave it off and the limit reads **No limit set**. A limit must be zero or greater — setting `0` is valid and effectively disables that kind of usage rather than being rejected as invalid.
-
-Saving confirms with *AI monthly limits updated*.
-
-Limits are monthly, so they reset on your billing cycle rather than rolling continuously.
+Your account has separate entitlements for AI chat and for agent invocations. When AI features are disabled on your account, the AI Settings tab shows a notice and AI features aren't available. Contact [Logz.io support](https://logz.io/support-page/) to enable them.
 
 :::note
 AI Settings is being rolled out. If you don't see it under Plan and usage, it isn't enabled for your account yet — contact [Logz.io support](https://logz.io/support-page/).
@@ -32,4 +25,5 @@ AI Settings is being rolled out. If you don't see it under Plan and usage, it is
 ## Related
 
 * [Plan and usage](https://docs.logz.io/docs/user-guide/admin/logzio-accounts/plan-and-usage/)
+* [OrionIQ](/docs/user-guide/orioniq/)
 * [AI Agent FAQ](/docs/open360/observability/faq/)
