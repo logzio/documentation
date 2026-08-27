@@ -160,6 +160,24 @@ If the rule includes any aggregation or group by field, the notification output 
 
 ![Add email](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/siem-add-email-dec.gif)
 
+### *(Optional)* Alert AI Analysis
+
+Security rules support the same AI-powered investigation as alerts. In the **Alert AI Analysis** step, turn the toggle on and Logz.io's AI Agent investigates the cause of the rule the moment it triggers, then delivers its findings to the recipients you choose.
+
+| Setting | Description |
+|---|---|
+| **Recipients** | By default the analysis goes to the same recipients as the rule. You can instead select recipients manually — useful when the write-up is for a different audience than the page. |
+| **Runbook** | The procedure to follow for this rule. The analysis draws on it as context, and it guides whoever picks the rule up. |
+| **Daily invocation cap** | The maximum analyses per day for this rule. Set 0 to block it completely, or leave it empty for unlimited. A **soft limit** sends a warning notification without blocking. |
+
+Give the rule a clear description — that description is the context the AI uses, so a vague one produces a vague analysis.
+
+Each analysis appears in the OrionIQ [Agents Hub](/docs/user-guide/orioniq/agents-hub/), where you can read it in full and rate it. Account-wide AI limits are set in [OrionIQ Settings → Capping](/docs/user-guide/orioniq/settings/#capping).
+
+:::note
+Alert AI Analysis requires AI features to be enabled on your account. If the step is missing or the toggle is unavailable, contact [Logz.io support](https://logz.io/support-page/).
+:::
+
 ### Save your rule
 Click Save to save your rule. If the thresholds are passed and the rule is triggered, Logz.io will log the rule and send the configured notifications.
 

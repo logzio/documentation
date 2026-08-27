@@ -1,14 +1,14 @@
 ---
-sidebar_position: 8
+sidebar_position: 9
 title: OrionIQ API
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: Trigger OrionIQ agents, poll for results, send follow-ups, submit feedback, and manage learned lessons using the OrionIQ API.
-keywords: [OrionIQ, API, agents, trigger agent, agent run, feedback, lessons, api token, automation]
+description: Trigger OrionIQ agents, poll for results, send follow-ups, and submit feedback using the OrionIQ API.
+keywords: [OrionIQ, API, agents, trigger agent, agent run, feedback, api token, automation]
 ---
 
 Agents configured with the **API** trigger run on demand when you call the OrionIQ API. Use it to start a run from a CI pipeline, an incident workflow, or any external system, then poll for the result.
 
-To find an agent's ID and a ready-to-copy request for each endpoint, open the agent in the [Agents Hub](/docs/user-guide/orioniq/agents-hub/) and go to the **API** section of its configuration.
+To get an agent's ID and a ready-to-copy request for each endpoint, open the agent's actions menu in the [Agents Hub](/docs/user-guide/orioniq/agents-hub/) and select **API References**.
 
 ## Authentication
 
@@ -146,7 +146,7 @@ A disabled agent does not start new runs, whatever its trigger configuration.
 POST /v2/ai-agent/<<AGENT-ID>>/feedback
 ```
 
-Rates one or more runs. Feedback appears in the [Usage & Performance Dashboard](/docs/user-guide/orioniq/usage-performance/) and, for eligible accounts, feeds the lessons the agent learns.
+Rates one or more runs. Feedback appears in the [Usage & Performance Dashboard](/docs/user-guide/orioniq/usage-performance/).
 
 ### Sample request
 
@@ -199,53 +199,6 @@ GET /v2/ai-agent/<<AGENT-ID>>/feedback/<session-id>
 
 Returns the feedback record for a run, in the same shape as a single entry in the Submit feedback response. Returns `404` when the run has no feedback.
 
-## List learned lessons
-
-```
-GET /v2/ai-agent/<<AGENT-ID>>/lessons
-```
-
-Returns the lessons the agent has learned from feedback. A lesson records a situation the agent met, the rule it derived, and why.
-
-### Response
-
-```json
-{
-  "lessons": [
-    {
-      "lessonId": "<lesson-id>",
-      "status": "active",
-      "situation": "<when this applies>",
-      "rule": "<what the agent should do>",
-      "whyNote": "<why the lesson exists>",
-      "feedbackRef": "<feedback-id>"
-    }
-  ]
-}
-```
-
-Only `active` lessons are added to the agent's instructions on later runs.
-
-## Enable or disable a lesson
-
-```
-PUT /v2/ai-agent/<<AGENT-ID>>/lessons/<lesson-id>/status
-```
-
-Turns a lesson on or off. Use this to retire a lesson the agent should stop applying.
-
-### Sample request
-
-```shell
-curl -X PUT \
-  https://<<API-URL>>/v2/ai-agent/<<AGENT-ID>>/lessons/<lesson-id>/status \
-  -H 'Content-Type: application/json' \
-  -H 'X-API-TOKEN: <<API-TOKEN>>' \
-  -d '{"enabled": false}'
-```
-
-`enabled` is required and must be a boolean; anything else returns `400`. The response returns the updated lesson in the same shape as a List learned lessons entry, with `status` set to `active` or `disabled`. An unknown lesson returns `404`.
-
 :::note
-Agents don't have to be reachable over the API to be rated. Runs started by a Scheduled, Deployment, or Alert trigger can be rated from the Agents Hub, and the same feedback and lessons endpoints apply to them.
+Agents don't have to be reachable over the API to be rated. Runs started by a Scheduled, Deployment, or Alert trigger can be rated from the Agents Hub, and the same feedback endpoints apply to them.
 :::

@@ -4,15 +4,16 @@ Operational memory for the OrionIQ API documentation sync bot. Maintained by the
 
 ## Purpose
 
-Scan the default branches of `logzio/Artemis`, `logzio/OIQ-AI-service`, and `logzio/gaia-hermes-ws` for changes that affect OrionIQ's public-facing surface, audit this repo against them, and open a PR with the doc updates.
+Scan the default branches of `logzio/Artemis`, `logzio/OIQ-AI-service`, `logzio/gaia-hermes-ws`, and `logzio/oiq-resources` for changes that affect OrionIQ's public-facing surface, audit this repo against them, and open a PR with the doc updates.
 
 ## Where the code lives
 
 | Repo | Default branch | What's relevant |
 |---|---|---|
-| `gaia-hermes-ws` | `master` | `app-ai/` — the OrionIQ backend. **`app-ai/src/routes/public.routes.ts` is the definitive list of customer-callable endpoints** (`exposedTo: ['PUBLIC_API']`, prefix `/v2`). `app-ai/src/routes/orion-iq*.routes.ts` are the browser-facing BFF (`/app-ai/*`) — not customer API, but they drive the UI the user guide describes. `app-ai/CLAUDE.md` is a high-quality, current description of endpoints, capping, and audit behavior. |
-| `Artemis` | `main` | `apps/orioniq/` — the OrionIQ standalone UI. **The single best source of user-facing copy**: `constants.ts` files next to each page carry the exact labels, tooltips, and guidance text the product shows. `columns.tsx` files give the real table columns. |
+| `gaia-hermes-ws` | `master` | `app-ai/` — the OrionIQ backend. **`app-ai/src/routes/public.routes.ts` is the definitive list of customer-callable endpoints** (`exposedTo: ['PUBLIC_API']`, prefix `/v2`). `app-ai/src/routes/orion-iq*.routes.ts` are the browser-facing BFF (`/app-ai/*`) — not customer API, but they drive the UI the user guide describes. `app-ai/CLAUDE.md` is a high-quality, current description of endpoints, capping, and audit behavior. Alert and SIEM-rule AI Analysis live in `app-ui/src/pages/Alerts/AlertForm/.../AIAgentRCA/` — the SIEM rule form reuses the same stepper (`modelName="rule"`), so a change there hits both products. |
+| `Artemis` | `main` | `apps/orioniq/` — the OrionIQ standalone UI. **The single best source of user-facing copy**: `constants.ts` files next to each page carry the exact labels, tooltips, and guidance text the product shows. `columns.tsx` files give the real table columns. `src/constants.ts` `ORIONIQ_NAV_ITEMS` is the authoritative nav — check page names against it before writing a nav path. |
 | `OIQ-AI-service` | `main` | `ai_service/`, `ai_backend/` — the AI/agent runtime. Mostly internal, but features surface through app-ai (for example, lessons in `ai_backend/knowledgebase/lessons/`). Pair its commits with the gaia commit that exposes them. |
+| `oiq-resources` | `main` | **The catalog data, and the only correct source for it.** `integrations/*.json` — one file per integration (646 as of 2026-08), each with `name`, `categories`, `auth`, `popularityRank`; `integrations/skills/` holds their query skills. `marketplace/templates/*.json` — the live agent templates (5 shipping, plus a `future/` folder that is NOT live), each with `agentType` and `display.category`. Never hand-write a category list or an integration name — derive it from these files. |
 
 ## Canonical source for the public API
 
@@ -34,6 +35,23 @@ Base URL and auth: `X-API-TOKEN` header; `AgentApiDocs.tsx` hardcodes `https://a
 * **API doc style:** endpoint heading, a fenced block with method and path, a `curl` sample with `X-API-TOKEN`, then a field table and a JSON response block.
 * Tables are the house style for field, column, and option lists. Prose stays short.
 
+## Product vocabulary
+
+Match the product's own words, not an older doc's:
+
+| Say | Not |
+|---|---|
+| Integrations | Utilities |
+| Build an Agent (the button) | + Create New Agent |
+| Agents / Invocations (the Agents Hub tabs) | — |
+| Alert AI Analysis (the alert and rule step) | — |
+
+## Open question for the docs team
+
+`docs/open360/observability/` and `docs/user-guide/observability/` are the SAME three pages twice — the "Observability IQ" category at both `/docs/category/observability-iq/` and `/docs/category/observability-iq-1/`, holding `assistantiq.md` (AI Agent), `ai-agent-analysis.md`, and `faq.md`. Their content also overlaps the OrionIQ pages.
+
+Consolidating or deleting them is a **migration, not a cleanup**: 20 inbound links across 14+ pages point at them, and `onBrokenLinks: 'throw'` means every one has to be repointed, with `static/_redirects` entries for the public URLs. Don't do it as a side effect of a sync run — it needs a decision on which tree survives.
+
 ## Recurring documentation patterns
 
 * A change to an Agents Hub or Usage & Performance column lands in an Artemis `columns.tsx`; the doc's column table needs the same row. These drift often.
@@ -41,6 +59,16 @@ Base URL and auth: `X-API-TOKEN` header; `AgentApiDocs.tsx` hardcodes `https://a
 * Capping and budget copy lives in `apps/orioniq/src/pages/Settings/components/CappingSettings/constants.ts`. Quote it rather than paraphrasing — the wording is deliberate (for example, the trial/free budget is never described as "monthly", because it doesn't reset).
 * Don't document Consul-configured dollar amounts or thresholds. They're per-environment and change without a code change.
 * Code comments can be stale even when the code isn't. `orion-iq-memory-docs.routes.ts` still says user docs come from an in-memory mock, months after that was replaced. Verify against the commit that changed the behavior.
+* **Renaming a page needs a redirect.** Add it to `static/_redirects` **above** the trailing `/:splat` catch-all — Netlify matches in order, so a rule after it never fires.
+* A page's twin can have drifted. The two `configure-alerts-explore.md` copies had different sections before this run, not just different URLs — diff them rather than assuming they match.
+* Auth methods, categories, and integration names are catalog data. As of 2026-08 the catalog has **no OAuth integrations at all** (580 `apiKey`, 56 `basicAuth`, 6 keyless) — so don't document an auth method just because the UI has a code path for it.
+
+## Shipped in code but NOT in the product — do not document
+
+An endpoint existing in `public.routes.ts` is not proof a feature is available to customers. Check for a UI before documenting it, and when in doubt ask the feature's owner.
+
+* **Agent lessons** (`GET /v2/ai-agent/:agentId/lessons`, `PUT .../lessons/:lessonId/status`, ORIONIQ-1491 / ORIONIQ-1144). The endpoints are live and the backend learns from feedback, but there is **no lessons UI anywhere** in `Artemis` or `app-ui`, and rollout is gated per account. Documented in the first run and removed on review. Document it when the UI lands.
+* The in-app API reference (`Artemis` `apps/orioniq/.../AgentEdit/api-endpoints.ts`) is a good signal here: it lists what the product actually exposes, and it did **not** list the lessons endpoints.
 
 ## Known gaps not yet documented
 
@@ -74,3 +102,13 @@ Notes for next time:
 * Clones arrive shallow (50 commits). Deepen with `git fetch --shallow-since=<date> origin <branch>` before scanning.
 * Filtering by commit message alone over-reports. Most `feat(ai-service)` commits are internal; the ones that matter touch `public.routes.ts`, a `columns.tsx`, or a `constants.ts` with user-facing copy.
 * Resolve GitHub usernames for PR assignment from a commit's `author.login` — several authors commit with a `logz.io` email that isn't their username.
+
+### 2026-08-27 — review round on PR #960
+
+13 review comments. What they were actually about, so the next run doesn't repeat them:
+
+* **Invented content.** The pre-existing Integrations category list was wrong in every row — the real 16 categories are in `oiq-resources`. Same class of error for auth methods. Lesson: never carry forward an existing doc's factual list without checking it against source; the bot inherited these and left them.
+* **Wrong vocabulary.** "Utilities" is not a product word. Read `ORIONIQ_NAV_ITEMS` first.
+* **Documenting the unreleased.** See the lessons section above.
+* **Missing surfaces.** The Triggers menu, the Management tab, the Settings page, and most of the agent editor were all shipped and undocumented. A commit-history scan will not find these — they predate the window. Walk the product's nav and tabs against the doc tree once per run, not just the diff.
+* **Two pages the scan missed entirely** because they live outside `docs/user-guide/orioniq/`: the alert AI Analysis section (whose Slack-endpoint requirement ORIONIQ-1298 had made obsolete) and the SIEM security rules page, which never documented Alert AI Analysis at all. Grep the whole `docs/` tree for AI surfaces, not just the OrionIQ directory.

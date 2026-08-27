@@ -34,15 +34,27 @@ Switch to the **Configure** tab to set the agent's properties and behavior.
 
 ![Configure tab with agent settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/orioniq/orioniq-configure-agent.png)
 
-### General information
+The configuration is a series of sections. Work through them in order.
+
+### General Information
 
 | Field | Description |
 |---|---|
 | **Agent Name** | A descriptive name for your agent. |
 | **Description** | A brief explanation of what the agent does. |
-| **Payload (JSON)** | Optional JSON payload to pass additional parameters to the agent. Fields sent on an API invocation override the matching fields here. |
+| **Active** | Enable or disable the agent. When disabled, it won't run regardless of its trigger. For an alert-linked agent this is managed from the alert definition. |
 
-### Trigger
+### Agent Definition
+
+The structured specification the agent runs from, generated for you on the **Create** tab. You can edit it directly here. Fields sent on an API invocation override the matching fields in the definition.
+
+### Configuration
+
+| Field | Description |
+|---|---|
+| **Type** | The agent type. Determines how the agent is priced and which data it can reach. |
+| **Trigger** | How the agent runs — see below. |
+| **Schedule** | For a Scheduled trigger, the interval the agent runs on. |
 
 Choose how the agent will run by selecting a trigger type:
 
@@ -53,9 +65,21 @@ Choose how the agent will run by selecting a trigger type:
 | **Deployment** | The agent runs automatically when a deployment event is detected. |
 | **Alert** | The agent runs automatically when a Logz.io alert is triggered. |
 
-### Daily invocation cap
+### Daily Invocation Cap
 
-Each agent invocation incurs a cost. You can set a maximum number of invocations per day to control your usage budget. Leave this field empty for unlimited invocations, or set it to 0 to fully block the agent from running.
+Each agent invocation incurs a cost. Set the maximum number of invocations per day to control your usage budget. Leave it empty for unlimited invocations, or set it to 0 to block the agent completely.
+
+You can also set a **soft limit**: when daily invocations reach it, a warning notification is sent but invocations are not blocked.
+
+Account-wide limits are set separately — see [Settings → Capping](/docs/user-guide/orioniq/settings/#capping).
+
+### Data Sources
+
+Pick the observability platform and accounts this agent can query. Toggle the scope chips to choose Logs, Metrics, or both — each scope has its own accounts list.
+
+### Integrations
+
+Connect third-party tools — Slack, Jira, Confluence, and the rest — that this agent can use as context. Only integrations your account has already connected are available here; connect new ones from the [Integrations](/docs/user-guide/orioniq/integrations/) page.
 
 ### Notification recipients
 
@@ -63,10 +87,6 @@ Configure where agent results are sent after each invocation. You can select fro
 
 - **Email addresses** of team members.
 - **Pre-configured notification endpoints** such as Slack channels, Microsoft Teams webhooks, or custom API endpoints.
-
-### Activation
-
-Use the **Active** toggle to enable or disable the agent. When disabled, the agent will not run regardless of its trigger configuration.
 
 ## Finalize and create
 
