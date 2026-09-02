@@ -82,7 +82,7 @@ Users with the Read-only role have full read access to OrionIQ. They can:
 * View the [Usage & Performance Dashboard](/docs/user-guide/orioniq/usage-performance/), connected [Integrations](/docs/user-guide/orioniq/integrations/), [Memory](/docs/user-guide/orioniq/memory/), and the [Marketplace](/docs/user-guide/orioniq/marketplace/) — including agent templates they may want to request.
 * Use OrionIQ chat.
 
-They can't create, edit, activate, delete, or manually trigger agents, and they can't install a marketplace agent or connect an integration.
+They can't create, edit, activate, delete, or manually trigger agents, stop a running invocation, install a marketplace agent, or connect an integration.
 
 ## Invocations tab
 
@@ -95,10 +95,16 @@ An invocation ends in one of the following outcomes:
 | **Success** | The run completed and produced a result. |
 | **Failed** | The run ended in an error. |
 | **Running** | The run is still in progress. |
-| **Stopped** | You stopped the run before it finished. Any steps it completed are kept. |
+| **Stopped** | You stopped the run before it finished. |
 | **Incomplete** | The run couldn't finish — it timed out, ran out of context, or hit an internal error. The reason is shown with the output. |
 
 ![Invocations tab showing agent run history](https://dytvr9ot2sszz.cloudfront.net/logz-docs/orioniq/orioniq-invocations.png)
+
+### Stop a running invocation
+
+While an invocation is **Running**, its row shows a **Stop invocation** button in place of Re-invoke, and the same button is in the footer of the **Agent Invocation Details** panel. Stopping is asynchronous: the button confirms only that the request went through, and the run finishes on its own as **Stopped** a few seconds later.
+
+A stopped run usually has no output, since most stops happen mid-reasoning — the **Output** tab notes that the invocation was stopped instead of showing a report. You can only stop an invocation from the account it ran in.
 
 Click on any invocation to open the **Agent Invocation Details** panel, which contains three tabs:
 
