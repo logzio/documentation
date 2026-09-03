@@ -80,6 +80,15 @@ A connection reports one of these statuses:
 
 Open a connection's actions menu to **Configure** its credentials, **Revalidate** it against the provider, or **Disconnect** it.
 
+## Agent permissions
+
+By default, agents can only read from a connected integration. To let an agent write to one too — opening a ticket, updating an alert, and so on — grant write access at two levels:
+
+1. **Account-wide**, in **OrionIQ > Settings > Account > Agent permissions** (admins only). This is the account's master switch: while it's set to **Read**, no individual connection can be given write access, whatever that connection's own setting.
+2. **Per connection**, in the connect form or **Configure**. Integrations that support write actions show an **Agent permissions** choice of **Read** or **Read & Write**. It's only selectable once the account-wide setting allows it.
+
+Both levels must allow write for an agent to actually write through a given connection. Not every integration supports write actions — those show Read only, with no choice to make.
+
 ## Logz.io API access
 
 The Logz.io integration is connected by default and gives agents access to your observability data. You can also grant agents scoped access to the Logz.io public API, per account:
