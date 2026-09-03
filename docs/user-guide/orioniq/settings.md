@@ -25,6 +25,9 @@ Settings that apply to everyone on the account.
 |---|---|
 | **OrionIQ name** | The name everyone on the account uses to address the assistant. It appears in the sidebar. |
 | **OrionIQ Regions** | Where your account data is stored (**Data hosting**) and where the LLM serving OrionIQ runs (**LLM model hosting**). Both are set during account provisioning and can't be edited. |
+| **Agent permissions** | What OrionIQ agents may do on connected integrations account-wide — **Read** or **Read & Write**. Read by default. Admins only. |
+
+While **Agent permissions** is set to Read, no individual connection can be granted write access. Turning it on to Read & Write doesn't grant write access to every connection by itself — each connection still needs write enabled on it, in [Integrations](/docs/user-guide/orioniq/integrations/#agent-permissions-on-a-connection).
 
 ## Capping
 

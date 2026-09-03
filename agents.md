@@ -125,3 +125,25 @@ Second round, same PR:
 * **`spec.agents` (Agent tools) drives the Data Sources picker**, and the form refuses to save until every declared lane has a source. Two sections that look independent in the doc are coupled in the product.
 * **Alert / rule AI Analysis creates a real agent**, editable in the Agents Hub like any other — so Integrations, Agent tools and its own daily cap are all configurable, none of which the alert form itself shows. The copy is in `AIAgentRCA/RcaNotes.tsx` ("Configure agent after saving", "Agent configuration is managed in the Agent Hub").
 * **AI Agent Analysis output is stored in the agent's invocation history, NOT in "AI Agent chat history."** That phrasing was inherited from the existing page and is wrong; the analysis never lands in a chat.
+
+### 2026-09-03 — daily run, 2026-09-01 → 2026-09-03
+
+First run since #960. Scanned `Artemis`, `OIQ-AI-service`, and `gaia-hermes-ws` commits on their default branches since 2026-09-01, and `oiq-resources` since the same window (its catalog is read at HEAD, not diffed — see below).
+
+**Documented, both shipped with live UI, no feature flag:**
+
+* **Agent write-consent controls (ORIONIQ-1179)** — 4-repo chain: schema (`oiq-resources` #80, `enableWrite` on 52/642 integrations + 48 write skill guides), backend (`OIQ-AI-service` #434), BFF (`gaia-hermes-ws` #16930), UI (`Artemis` #130). Account-wide master in **Settings → Account → Agent permissions**; per-connection **Agent permissions** (Read / Read & Write) in the connect/edit dialog, gated on the account master being on. Documented in `settings.md` and a new `integrations.md#agent-permissions-on-a-connection` section.
+* **Stop a running invocation (ORIONIQ-1504)** — `gaia-hermes-ws` #17011 (`POST /app-ai/internal/agent-runs/:runId/stop`, internal route) + `Artemis` #212 (**Stop invocation** button, row action and detail-panel footer). The `Stopped` outcome was *already* documented in `agents-hub.md` from the #960 run — only the action to trigger it was missing. Added a line under the outcomes table and a note in the Output tab section. UI status label is literally **"Stopped"**, distinct from the API's `canceled` value in `api.md` — the two aren't the same string; don't merge them into one term in a future edit.
+
+**Investigated, not documented — still no product surface:**
+
+* **Agent lessons** (`gaia-hermes-ws` #17018, provenance fix + new internal `DELETE .../lessons/:lessonId`) and **`Artemis` #201** (feedback-learning DAL calls, `oiq-feedback-learning` flag — confirmed still absent from flag admin). Same call as #960: no UI, don't document. This is the second run in a row this endpoint has come up; if it recurs, check flag state again rather than assuming it's still off.
+* **`Artemis` #178 / #225** — `apps/orioniq-be` backend extraction, gated behind `oiq-artemis-be` (off by default). Frontend still calls `/app-ai/...`. Nothing customer-visible yet; re-check when the flag flips, since it re-prefixes the whole public API surface.
+
+**Checked and excluded as out of scope:**
+
+* `oiq-resources` #90 (PagerDuty: 8→65 operations, new required region config) — real, but this repo doesn't document per-integration operations or connect-dialog fields (see the Catalog table above, which only lists categories). No page needed unless that convention changes.
+* `Artemis` #238 (smoke-test auth headers), #241 (CSS fix), #198 (removed UI-only provenance markers + reworded API-access copy — reads as internal cleanup, not a doc-facing change) — no public behavior change.
+* `OIQ-AI-service` #465 (dependency bump) — no application change.
+
+**Process note:** none of the ~10 PRs in this window's body or comments had an image marked "use this for docs" — several `Artemis` PRs (#130 among them) carried unlabeled screenshots. Don't lift them without an explicit label, per the workflow instructions.

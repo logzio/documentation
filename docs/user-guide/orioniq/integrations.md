@@ -52,6 +52,14 @@ Click **Connect** on an integration and provide its credentials. Which method an
 | **Basic Auth** | Connect with an email address and API token. |
 | **None** | A few public data sources, such as MITRE ATT&CK and Hacker News, need no credentials at all. |
 
+### Agent permissions on a connection
+
+Integrations OrionIQ has cleared for write actions show an **Agent permissions** choice in the connect (or edit) dialog: **Read** or **Read & Write**. Read lets agents only view data from the integration. Read & Write also lets agents act on it — for example, opening a ticket.
+
+Read & Write is selectable only once an admin turns on **Agent permissions** for the whole account, in [Settings → Account](/docs/user-guide/orioniq/settings/#account). While the account is set to Read, the per-connection choice stays disabled. You can always set a connection back to Read, even while the account-wide setting is off.
+
+Not every integration supports write — the choice appears only where OrionIQ has a write action to offer.
+
 ## Management
 
 The **Management** tab lists your account's connections:
