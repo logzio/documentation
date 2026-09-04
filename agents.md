@@ -68,6 +68,7 @@ This is a **migration, not a cleanup**, and it's a separate PR: 20 inbound links
 * **Renaming a page needs a redirect.** Add it to `static/_redirects` **above** the trailing `/:splat` catch-all — Netlify matches in order, so a rule after it never fires.
 * A page's twin can have drifted. The two `configure-alerts-explore.md` copies had different sections before this run, not just different URLs — diff them rather than assuming they match.
 * Auth methods, categories, and integration names are catalog data. As of 2026-08 the catalog has **no OAuth integrations at all** (580 `apiKey`, 56 `basicAuth`, 6 keyless) — so don't document an auth method just because the UI has a code path for it.
+* **A count column can become a navigation surface.** The Integrations Management table's "Used by" cell went from a plain hover tooltip to a real button opening a modal with links onward (ORIONIQ-1585). The invocation drawer got the reverse links the same week (ORIONIQ-1613: Agent definition / Agent invocations from a run, View invocations from the agent form). When either the Integrations or Agents Hub surface changes, check whether it added or removed a cross-link to the other — these two features shipped independently but both close the same kind of "you can get there but not back" gap.
 
 ## Shipped in code but NOT in the product — do not document
 
@@ -160,3 +161,17 @@ Scanned commits merged to each repo's default branch in the last ~24h. Two Orion
 * `gaia-hermes-ws` #16982 (APPZ-3175, SIEM risk score) — not OrionIQ, out of scope.
 
 **Habit confirmed working:** checked out and pushed to this PR's actual head ref (`claude/dreamy-turing-zq08bt`) via `git fetch origin <branch>:<branch>` before committing, per last cycle's note. Also worth stating precisely: a UI feature can be fully shipped (proxied end-to-end, BFF included) without ever touching `public.routes.ts` — grep that file, but don't treat a miss there as "not real yet" if the BFF route and UI are both merged. The 2026-08-31 cycle's dashboard-investigation call was the opposite case (UI/BFF absent, correctly deferred); this cycle's two features are the case where BFF-only is the final state, not a waypoint.
+
+### 2026-09-04 — daily scan (since 2026-09-03), doc changes made
+
+Scanned commits merged to each repo's default branch in the last ~24h.
+
+* `Artemis` (`main`) — 13 commits. Two are OrionIQ-facing and both are Artemis-only (no gaia/BFF change at all — extends the 2026-09-02 note that a feature can ship without touching `public.routes.ts`: these ship without touching gaia in any way):
+  * **ORIONIQ-1585** (#253) — Integrations page UI fixes. The Management tab's **Used by** count is now a clickable button opening a modal that lists the agents using a connection, each with links to its invocations and its definition. The connect/configure dialogs show an integration's full description (previously ellipsized, hover-only). A Logz.io account with sub-accounts now counts, and rolls up its **Needs attention** status, as a single connection instead of one row per sub-account. (The configure dialog's scope table also got a sticky-header `DataTable` migration and a design-system tooltip z-index fix — both layout/internal, no doc wording change.) Updated `integrations.md`.
+  * **ORIONIQ-1613** (#242) — invocation feedback moves from inside the Output tab's scrolling body to a footer rail visible on every tab (a rating is about the run, not one tab). A thumb now registers immediately (optimistic UI) and opens a note composer; dismiss is **Skip**, not Cancel, since the rating already posted. Fixed a dead end where a rated-but-uncommented run showed no way to add a note at all. Rating a still-running invocation is now blocked. New navigation: **Agent definition** and **Agent invocations** links from a run (both new — the reverse links from the agent list already existed, these two didn't), and **View invocations** from the agent's own configuration form. Updated `agents-hub.md`.
+  * Not documented: #17027/#17024-style analytics-event registration commits, `#245` (retiring the already-dead `oiq-hermes` feature flag — nothing read it), `#252`/`#247` (`orioniq-be` vendor syncs, internal), `#251`/`#140`/`#213` (design-system component polish, not OrionIQ-specific product behavior), and two `chore: version packages` commits.
+* `gaia-hermes-ws` (`master`) — 5 commits. `ORIONIQ-1626` (#17031) changes only internal billing/consumption attribution (which `triggerSource` an alert-driven RCA 2.0 invocation reports for usage accounting) — no customer-visible surface. `ORIONIQ-1618`/`ORIONIQ-1609` (#17027/#17024) register PostHog analytics events only, no UI/API change. The other two (`APPZ-3300`, `APPZ-3261`) are AI Observability / Explore Traces — out of OrionIQ scope per the filter rule.
+* `OIQ-AI-service` (`main`) — zero commits in the window.
+* `oiq-resources` (`main`) — zero commits in the window.
+
+Both merged PRs were authored by Gavriel-M — assigned as the PR's author.
