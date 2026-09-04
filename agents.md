@@ -85,6 +85,12 @@ An endpoint existing in `public.routes.ts` is not proof a feature is available t
 * **Agent audit log** provenance columns (ORIONIQ-1531) are undocumented; unclear whether the audit log is customer-visible.
 * **User journeys** (in-product tours, ORIONIQ-1432) are undocumented and probably don't need docs.
 
+## Slack notification mechanics
+
+The bot's instructions say to post the PR link immediately, then **edit that same message** in place once Netlify comments its Deploy Preview link on the PR (never post the preview link as a second message or thread reply). As of 2026-09-04, the Slack MCP tools available to this bot (`slack_send_message`, `slack_send_message_draft`, `slack_schedule_message`, reactions, canvas, search/read) include **no message-edit / `chat.update` equivalent**. There is no way to satisfy that instruction literally with current tooling.
+
+Until an edit-capable tool is added, the practical fallback is a threaded reply on the original notification with the preview link once it lands (clearly worse than an edit, but better than leaving the team without the link at all) — note this deviation explicitly when it happens rather than silently substituting it.
+
 ## Run log
 
 ### 2026-08-27 — initial run, 3 months of history (since 2026-05-27)
@@ -174,4 +180,4 @@ Scanned commits merged to each repo's default branch in the last ~24h.
 * `OIQ-AI-service` (`main`) — zero commits in the window.
 * `oiq-resources` (`main`) — zero commits in the window.
 
-Both merged PRs were authored by Gavriel-M — assigned as the PR's author.
+Both merged PRs were authored by Gavriel-M — assigned as the PR's author. PR: [#967](https://github.com/logzio/documentation/pull/967). Slack notification posted in `#orion-iq-team` before the Netlify preview link existed — see "Slack notification mechanics" above for why it won't get edited when the link lands.
