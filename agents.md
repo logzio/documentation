@@ -181,3 +181,15 @@ Scanned commits merged to each repo's default branch in the last ~24h.
 * `oiq-resources` (`main`) — zero commits in the window.
 
 Both merged PRs were authored by Gavriel-M — assigned as the PR's author. PR: [#967](https://github.com/logzio/documentation/pull/967). Slack notification posted in `#orion-iq-team` before the Netlify preview link existed — see "Slack notification mechanics" above for why it won't get edited when the link lands.
+
+### 2026-09-05 — daily scan (since 2026-09-04), no additional doc changes
+
+Checked #967 first for unresolved reviewer feedback per the "address comments first" rule — none; its only comment is the Netlify bot's deploy-preview notice, and the Slack thread already carries the preview link (see the 2026-09-04 entry).
+
+Scanned commits merged to each repo's default branch since the last run:
+
+* `Artemis` (`main`), `gaia-hermes-ws` (`master`), `OIQ-AI-service` (`main`) — zero commits in the window.
+* `oiq-resources` (`main`) — one PR, #93 (ralongit): both Salesforce integrations (`salesforce.json`, `salesforce-service-cloud.json`) switch from a pasted, 2h-expiring access token to a Connected App's OAuth2 client-credentials flow (`salesforce_access_token` → `salesforce_client_id` + `salesforce_client_secret`; `healthCheck` becomes a token-exchange probe). Explicitly **BREAKING for already-connected tenants** — they must re-enter credentials as a key/secret pair.
+  Checked whether that needed a doc update: the projected field this repo actually documents is the top-level `auth` bucket, and it's unchanged — both integrations stay `"auth": { "apiKey": { ... } }` before and after, only the secrets/configs *inside* that bucket were renamed. `integrations.md`'s Connect table (API Key / Basic Auth / None) and the "no OAuth integrations in the catalog" note above are both still accurate. This is the same class of change as the 2026-09-02 PagerDuty entry — a per-connector credential-field change, not a change to the auth-method bucket — so, consistent with that precedent, **no doc change**.
+
+No PR opened this run; folded into the still-open #967, which needed no updates as a result.
