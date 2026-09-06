@@ -193,3 +193,16 @@ Scanned commits merged to each repo's default branch since the last run:
   Checked whether that needed a doc update: the projected field this repo actually documents is the top-level `auth` bucket, and it's unchanged — both integrations stay `"auth": { "apiKey": { ... } }` before and after, only the secrets/configs *inside* that bucket were renamed. `integrations.md`'s Connect table (API Key / Basic Auth / None) and the "no OAuth integrations in the catalog" note above are both still accurate. This is the same class of change as the 2026-09-02 PagerDuty entry — a per-connector credential-field change, not a change to the auth-method bucket — so, consistent with that precedent, **no doc change**.
 
 No PR opened this run; folded into the still-open #967, which needed no updates as a result.
+
+### 2026-09-06 — daily scan (since 2026-09-05), no additional doc changes
+
+Checked #967 first for unresolved reviewer feedback per the "address comments first" rule — still none; CI (`PR validation`, Netlify deploy preview) is green on the current head, `mergeable_state` is `blocked` (pending required review/approval, not a check failure or a merge conflict — nothing for this bot to fix).
+
+Scanned commits merged to each repo's default branch since the last run:
+
+* `Artemis` (`main`) — zero commits since 2026-09-03 (last merge: #253).
+* `OIQ-AI-service` (`main`) — zero commits since 2026-09-01 (last merge: #465).
+* `gaia-hermes-ws` (`master`) — zero commits since 2026-09-03 (last merge: #17031).
+* `oiq-resources` (`main`) — zero commits since 2026-09-04 (last merge: #93, already reviewed and found not doc-worthy on 2026-09-05).
+
+All four repos: nothing merged in the last ~24h window. No PR opened this run; folded into the still-open #967, which needed no updates as a result. No new Slack notification sent — the 2026-09-04 post and its preview-link reply already cover #967, and nothing changed that the team needs to hear about again.
