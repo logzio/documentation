@@ -74,7 +74,7 @@ builder.Services.AddOpenTelemetry()
 var app = builder.Build();
 ```
 
-You can configure the otlp endpoint and protocol using envurinment variables:
+You can configure the otlp endpoint and protocol using environment variables:
   - OTEL_EXPORTER_OTLP_ENDPOINT (The destination of your otel collector 'http://localhost:4318`)
   - OTEL_EXPORTER_OTLP_PROTOCOL (`grpc` or `http/protubuf`)
 
@@ -180,7 +180,7 @@ It will deploy a small pod that extracts your cluster domain name from your Kube
 
 ### Configure your .NET Kafka application to send spans to `logzio-monitoring`
 
-You can configure the otlp endpoint and protocol using envurinment variables:
+You can configure the otlp endpoint and protocol using environment variables:
   - OTEL_EXPORTER_OTLP_ENDPOINT (The destination of your otel collector `<<logzio-monitoring-service-dns>>`)
   - OTEL_EXPORTER_OTLP_PROTOCOL (`grpc` or `http/protubuf`)
 
