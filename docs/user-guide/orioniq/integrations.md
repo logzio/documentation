@@ -54,7 +54,7 @@ Click **Connect** on an integration and provide its credentials. Which method an
 
 ## Management
 
-The **Management** tab lists your account's connections:
+The **Management** tab lists your account's connections. A Logz.io account with sub-accounts appears as a single connection here — its **Needs attention** status reflects the account or any of its sub-accounts.
 
 | Column | Description |
 |---|---|
@@ -62,7 +62,7 @@ The **Management** tab lists your account's connections:
 | **Space** | The space the connection belongs to. |
 | **Status** | The connection's health — see below. |
 | **Connected by** | The user who created the connection. |
-| **Used by** | How many agents use the connection. |
+| **Used by** | How many agents use the connection. Click the count to see which ones, with a link to each agent's invocations and its definition. |
 | **Connection** | The connection's name, and the authentication method it uses. |
 | **Updated by** | The user who last changed the connection. |
 | **Updated at** | When the connection was last changed. |
@@ -78,7 +78,7 @@ A connection reports one of these statuses:
 | **Unreachable** | The provider couldn't be reached. |
 | **Needs credentials** | The connection has no usable credentials. |
 
-Open a connection's actions menu to **Configure** its credentials, **Revalidate** it against the provider, or **Disconnect** it.
+Open a connection's actions menu to **Configure** its credentials, **Revalidate** it against the provider, or **Disconnect** it. Both the connect and configure dialogs show the integration's full description under its name.
 
 ## Agent permissions
 

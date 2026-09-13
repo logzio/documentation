@@ -22,6 +22,10 @@ In the code blocks below:
 
 A request with a missing or invalid token returns `401`.
 
+:::note
+If AI features are disabled for the account, [Run an agent](#run-an-agent) and [Send a follow-up](#send-a-follow-up) return `403`. Polling for a result, enabling or disabling an agent, and feedback stay available either way, so you can still retrieve a run you already started and turn an agent off. See [AI Settings](/docs/open360/settings/ai-settings/) for enabling AI on an account.
+:::
+
 ## Run an agent
 
 ```

@@ -16,7 +16,7 @@ Find these limits before you roll AI features out to a team, not after.
 
 ## If AI is disabled
 
-Your account has separate entitlements for AI chat and for agent invocations. When AI features are disabled on your account, the AI Settings tab shows a notice and AI features aren't available. Contact [Logz.io support](https://logz.io/support-page/) to enable them.
+AI features on your account — chat and agent invocations alike — are controlled by a single account-wide AI usage setting. When AI features are disabled on your account, the AI Settings tab shows a notice and AI features aren't available. Contact [Logz.io support](https://logz.io/support-page/) to enable them.
 
 :::note
 AI Settings is being rolled out. If you don't see it under Plan and usage, it isn't enabled for your account yet — contact [Logz.io support](https://logz.io/support-page/).
