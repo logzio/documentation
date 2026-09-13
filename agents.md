@@ -288,3 +288,18 @@ Scanned commits merged to each repo's default branch since the last run:
 * `oiq-resources` (`main`) — zero commits since 2026-09-09 (last merge: the `slack_user_token` revert, already logged in the 2026-09-10 entry).
 
 No PR opened this run; folded into the still-open #967, which needed no content updates as a result — only this log entry and the "Known gaps" escalation above. Assignees unchanged. No new Slack notification sent — nothing here is new information for the team beyond what #967's thread already carries, and the composer feature shipping doesn't change what's in the PR itself.
+
+### 2026-09-13 — daily scan (since 2026-09-11), no additional doc changes
+
+Checked #967 first for unresolved reviewer feedback per the "address comments first" rule — still none (only the Netlify bot's deploy-preview comment, zero reviews); both check runs (`PR validation`, Netlify deploy preview) are green on the current head, `mergeable_state` still `blocked` on pending review, not on anything this bot can act on.
+
+No 2026-09-12 entry exists in this log — that cycle appears not to have run or logged. This scan used `since=2026-09-11T00:00:00Z` on every repo to cover the gap along with the normal window, so nothing was lost.
+
+Scanned commits merged to each repo's default branch in that window:
+
+* `Artemis` (`main`) — zero commits since 2026-09-10 (last merge: #278, already logged).
+* `gaia-hermes-ws` (`master`) — 2 commits, both out of OrionIQ scope: `APPZ-3322` (#17050, account-switcher crash fix on the dashboard import-preview route — a general Open 360/SIEM navigation bug, not OrionIQ) and `APPZ-3332` (#17064, AI Observability trace-waterfall — drops the default Service column from the AI run detail drawer). AI Observability is the Jaeger/OpenSearch trace viewer for AI spans, out of OrionIQ scope per the standing filter rule, consistent with the 2026-09-04/07/11 verdicts on the same product.
+* `OIQ-AI-service` (`main`) — zero commits since 2026-09-08 (last merge: #476, already logged).
+* `oiq-resources` (`main`) — zero commits since 2026-09-09 (last merge: the `slack_user_token` revert, already logged in the 2026-09-10 entry).
+
+No PR opened this run; folded into the still-open #967, which needed no content updates as a result — only this log entry. Assignees unchanged. No new Slack notification sent — nothing here is new information for the team beyond what #967's thread already carries.
