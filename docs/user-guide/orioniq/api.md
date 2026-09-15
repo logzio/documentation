@@ -45,7 +45,7 @@ Starts a new run and returns immediately with a session ID. The run itself is as
 ### Sample request
 
 ```shell
-curl -X POST \
+curl -X POST -L \
   https://<<API-URL>>/v2/ai-agent/<<AGENT-ID>> \
   -H 'Content-Type: application/json' \
   -H 'X-API-TOKEN: <<API-TOKEN>>' \
@@ -93,7 +93,7 @@ Returns the current status of a run. Poll this endpoint until the status is term
 ### Sample request
 
 ```shell
-curl -X GET \
+curl -X GET -L \
   https://<<API-URL>>/v2/ai-agent/<<AGENT-ID>>/<session-id> \
   -H 'Content-Type: application/json' \
   -H 'X-API-TOKEN: <<API-TOKEN>>'
@@ -163,7 +163,7 @@ Rates one or more runs. Feedback appears in the [Usage & Performance Dashboard](
 ### Sample request
 
 ```shell
-curl -X POST \
+curl -X POST -L \
   https://<<API-URL>>/v2/ai-agent/<<AGENT-ID>>/feedback \
   -H 'Content-Type: application/json' \
   -H 'X-API-TOKEN: <<API-TOKEN>>' \
