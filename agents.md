@@ -306,6 +306,19 @@ Scanned commits merged to each repo's default branch in that window:
 
 No PR opened this run; folded into the still-open #967, which needed no content updates as a result — only this log entry. Assignees unchanged. No new Slack notification sent — nothing here is new information for the team beyond what #967's thread already carries.
 
+### 2026-09-14 — daily scan (since 2026-09-13), no additional doc changes
+
+Checked #967 first for unresolved reviewer feedback per the "address comments first" rule — still none (only the Netlify bot's deploy-preview comment, zero reviews); both check runs (`PR validation`, Netlify deploy preview) are green on the current head, `mergeable_state` still `blocked` on pending review, not on anything this bot can act on.
+
+Scanned commits merged to each repo's default branch since the last run:
+
+* `Artemis` (`main`) — zero commits since 2026-09-10 (last merge: #278, already logged).
+* `gaia-hermes-ws` (`master`) — one commit, #17063 (`ORIONIQ-1650`): repoints `app-ai`'s post-deploy smoke gate from a browser wait on `/app-ai/chat-modes` (which never fires — `request.provider.ts` rewrites `/app-ai/*` to `/orioniq-be/*` at the transport, so the browser never issues that request) to a direct node-side `GET /app-ai/chat-modes` call authenticated with the smoke user's session token. Follow-up to `ORIONIQ-1648` (#17055, logged 2026-09-10), which fixed a different blocker on the same gate. Pure CI/deploy-smoke plumbing — same public `/v2`-adjacent contract, same response shape, nothing UI- or API-facing changed. **No doc change.**
+* `OIQ-AI-service` (`main`) — zero commits since 2026-09-08 (last merge: #476, already logged).
+* `oiq-resources` (`main`) — zero commits since 2026-09-09 (last merge: the `slack_user_token` revert, already logged in the 2026-09-10 entry).
+
+No PR opened this run; folded into the still-open #967, which needed no content updates as a result — only this log entry. Assignees unchanged. No new Slack notification sent — nothing here is new information for the team beyond what #967's thread already carries.
+
 ### 2026-09-15 — daily scan (since 2026-09-13), doc changes made
 
 Checked #967 first for unresolved reviewer feedback per the "address comments first" rule — still none (only the Netlify bot's deploy-preview comment, zero reviews); `mergeable_state` still `blocked` on pending review, not on anything this bot can act on.
