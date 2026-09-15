@@ -26,6 +26,10 @@ A request with a missing or invalid token returns `401`.
 If AI features are disabled for the account, [Run an agent](#run-an-agent) and [Send a follow-up](#send-a-follow-up) return `403`. Polling for a result, enabling or disabling an agent, and feedback stay available either way, so you can still retrieve a run you already started and turn an agent off. See [AI Settings](/docs/open360/settings/ai-settings/) for enabling AI on an account.
 :::
 
+:::note
+If the account has reached its configured AI usage cap, [Run an agent](#run-an-agent) and [Send a follow-up](#send-a-follow-up) return `429` (`errorCode: "CAP_EXCEEDED"`). See [OrionIQ Settings → Capping](/docs/user-guide/orioniq/settings/#capping) for usage and budget limits.
+:::
+
 ## Run an agent
 
 ```
