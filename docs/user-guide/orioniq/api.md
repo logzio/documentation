@@ -22,6 +22,18 @@ In the code blocks below:
 
 A request with a missing or invalid token returns `401`.
 
+:::note
+Requests may receive a `307 Temporary Redirect` to an equivalent path, as part of an ongoing backend migration. The redirect preserves the request method and body, so make sure your HTTP client follows redirects — `curl` needs `-L`; most other HTTP clients and libraries follow by default.
+:::
+
+:::note
+If AI features are disabled for the account, [Run an agent](#run-an-agent) and [Send a follow-up](#send-a-follow-up) return `403`. Polling for a result, enabling or disabling an agent, and feedback stay available either way, so you can still retrieve a run you already started and turn an agent off. See [AI Settings](/docs/open360/settings/ai-settings/) for enabling AI on an account.
+:::
+
+:::note
+If the account has reached its configured AI usage cap, [Run an agent](#run-an-agent) and [Send a follow-up](#send-a-follow-up) return `429` (`errorCode: "CAP_EXCEEDED"`). See [OrionIQ Settings → Capping](/docs/user-guide/orioniq/settings/#capping) for usage and budget limits.
+:::
+
 ## Run an agent
 
 ```
@@ -33,7 +45,7 @@ Starts a new run and returns immediately with a session ID. The run itself is as
 ### Sample request
 
 ```shell
-curl -X POST \
+curl -X POST -L \
   https://<<API-URL>>/v2/ai-agent/<<AGENT-ID>> \
   -H 'Content-Type: application/json' \
   -H 'X-API-TOKEN: <<API-TOKEN>>' \
@@ -81,7 +93,7 @@ Returns the current status of a run. Poll this endpoint until the status is term
 ### Sample request
 
 ```shell
-curl -X GET \
+curl -X GET -L \
   https://<<API-URL>>/v2/ai-agent/<<AGENT-ID>>/<session-id> \
   -H 'Content-Type: application/json' \
   -H 'X-API-TOKEN: <<API-TOKEN>>'
@@ -151,7 +163,7 @@ Rates one or more runs. Feedback appears in the [Usage & Performance Dashboard](
 ### Sample request
 
 ```shell
-curl -X POST \
+curl -X POST -L \
   https://<<API-URL>>/v2/ai-agent/<<AGENT-ID>>/feedback \
   -H 'Content-Type: application/json' \
   -H 'X-API-TOKEN: <<API-TOKEN>>' \
