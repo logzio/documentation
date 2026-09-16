@@ -339,3 +339,22 @@ Scanned commits merged to each repo's default branch since the last run:
 Doc changes made: `docs/user-guide/orioniq/api.md` gets a `429`/`CAP_EXCEEDED` cap-exceeded note.
 
 One doc-review PR updated (not opened new): [#967](https://github.com/logzio/documentation/pull/967) — description rewritten to add today's cap-exceeded note under ORIONIQ-1625, alongside the existing ORIONIQ-1585/1613/1625 scope. Assignees updated to add RoyiSitbon (author of the app-ai→orioniq-be redirect-shim architecture change this cycle documents in the tables above) and yotamloe (author of the one OIQ-AI-service commit in this window), alongside Gavriel-M (author of #285/#284, and of every prior ORIONIQ-1625 PR this PR already covers).
+
+### 2026-09-16 — daily scan (since 2026-09-15), no doc changes
+
+Checked #967 first for unresolved reviewer feedback per the "address comments first" rule — both review threads (the ticket-reference question and the redirect-usability question) are resolved, no new comments since 2026-09-15T06:40. The Netlify deploy preview is live: https://deploy-preview-967--deluxe-empanada-3ebf3b.netlify.app. `mergeable_state` is `clean`.
+
+Scanned commits merged to each repo's default branch since the last run:
+
+* `Artemis` (`main`) — 5 commits:
+  * **#304** (galangel, "let agent-runs/search return only the fields a caller needs") — a payload/query-cost optimization on `POST /orioniq-be/agent-runs/search`. Checked `orion-iq.routes.ts`: this route is registered in the BFF route table, not `ai.routes.ts` (the customer-callable list this repo's `api.md` tracks) — confirmed by the PR's own "Not in this PR" section, which names Artemis web (unchanged, sends no `fields`) and OrionIQ Mobile (a separate repo, outside this scan) as the only callers. Additive `fields` allow-list, no response-shape change for an existing caller, no route added or removed. **No doc change.**
+  * **#288** (RoyiSitbon) — consolidates the three mesh services' vendored `@logz-pkg` tarballs into one shared, version-named root `vendor/` plus a weekly gaia-sync job. Build/deploy infra only, no product-surface change. RoyiSitbon is already an assignee from the 2026-09-15 entry above.
+  * **#279** (amir-noyman) — replaces `MenuItem`'s inheritance from `Button` with a shared, unstyled `Pressable` primitive, so a future `Button` layout change can't re-centre every menu row again. A design-system component fix (no route, schema, or copy change, and no OrionIQ-specific behavior) — this repo doesn't document Artemis's internal component library. No doc change, no assignee action.
+  * `#306`, `#305` — `chore: version packages`, no code.
+* `OIQ-AI-service` (`main`) — zero commits since 2026-09-15.
+* `gaia-hermes-ws` (`master`) — 2 commits, both out of OrionIQ scope: **APPZ-3333** (#17076) shapes HTTP span names in the AI Observability trace waterfall, and **APPZ-3151** (#17075) adds a global metrics series-limit setting to Perses unified dashboards. AI Observability (the Jaeger/OpenSearch trace viewer) and Perses dashboards are both separate products from OrionIQ, consistent with the standing filter rule applied on every prior cycle.
+* `oiq-resources` (`main`) — zero commits since 2026-09-09.
+
+Doc changes made: none — the one in-scope commit (#304) is an internal BFF optimization with no customer-visible surface change.
+
+PR #967 updated (not opened new): body left as-is — no content to add. Assignees updated to add galangel (author of #304, the one Artemis commit this cycle that touches `orioniq-be` and was reviewed for scope), alongside the existing RoyiSitbon, yotamloe, Gavriel-M. No new Slack notification sent — nothing here is new information for the team beyond what #967's thread already carries.
