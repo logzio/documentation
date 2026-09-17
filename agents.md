@@ -358,3 +358,21 @@ Scanned commits merged to each repo's default branch since the last run:
 Doc changes made: none — the one in-scope commit (#304) is an internal BFF optimization with no customer-visible surface change.
 
 PR #967 updated (not opened new): body left as-is — no content to add. Assignees updated to add galangel (author of #304, the one Artemis commit this cycle that touches `orioniq-be` and was reviewed for scope), alongside the existing RoyiSitbon, yotamloe, Gavriel-M. No new Slack notification sent — nothing here is new information for the team beyond what #967's thread already carries.
+
+### 2026-09-17 — daily scan (since 2026-09-16), no doc changes
+
+No agent PR was open at scan time — #967 merged 2026-09-16T08:45:50Z (merge commit `3b821d8`). This is a memory-only PR: nothing here needed a doc content change, so there is nothing to fold in and nothing new to open a content PR for. Recorded anyway per the "maintain agents.md every run" rule, so the recheck flags below survive to the next cycle.
+
+Scanned commits merged to each repo's default branch since the last run:
+
+* `Artemis` (`main`) — 18 commits, none needing a doc change:
+  * **#307** (galangel, ORIONIQ-1656) — moves the new-chat "For you" suggestion cards from a client-driven Bedrock call to a server-owned `POST /orioniq-be/generate/chat-suggestions`. Confirmed via `orion-iq-generate.routes.ts` and `ROUTES.md`: registered alongside `orion-iq-analytics/identify-*`, not in `ai.routes.ts` (the customer-callable table `api.md` tracks) — internal/BFF, same class as prior analytics-registration commits this log has already skipped. Also deprecates (does not remove) `POST /services/bedrock-ai`; removal is tracked on ORIONIQ-1657 — recheck then. **No doc change.**
+  * **#328** (Gavriel-M, ORIONIQ-1660) — the rail logo now opens a workspace flyout (Open 360 AI / Cloud SIEM / OrionIQ), fixing a one-way door out of OrionIQ, plus a dark-theme contrast fix and a drag-floor bump. Real, fully-shipped UI, but it's cross-product nav chrome — same category as the 2026-09-11 sidenav account-selector (#276) and 2026-09-09 sidenav scroll-fade (#215) calls, both "no doc change." Applied the same standard here.
+  * The rest: vendor-sync / weekly-job CI fixes (#319, #316, #314, #288), `chore: version packages` ×6, test-only changes (#325, #323), a `serve:mesh` script fix (#310), and a deploy gate on the onboarding survey (#308) — infra/tooling, no product surface.
+* `OIQ-AI-service` (`main`) — 2 commits, both backend-only, neither reachable by a customer:
+  * **#472** (kevkle, ORIONIQ-1500) — adds the OIHV hypothesize stage; `spec.profile` enum gains `"oihv"` (contract 3.9.0 → 3.10.0, additive). Confirmed flag-gated (`RCA_OIHV_SUPERGRAPH_ENABLED`) and set only by this repo's own `oihv-escalation-snapshot` tooling (`request_models.py`: "'oihv' selects the OIHV supergraph (flag-gated)"). No caller in `Artemis` or `gaia-hermes-ws` sets it. **Not documented** — same "shipped in code, not in the product" shape as the 2026-08-31/09-07/09-09 entries.
+  * **#478** (augment770-dev, ORIONIQ-1620) — new `spec.knowledgeBase.accountDocs` field lets a request grant per-file read/read-write access to the account's knowledge-base documents (contract 3.8.0 → 3.9.0, additive). The PR's own "Agent builder" section says the grant is meant to be authored by the Agent Builder, but no `Artemis` commit in this or any prior scanned window adds a UI for it, and `api.md`'s documented `context.*` request fields don't include a `spec` object at all. **Not documented — recheck once an Artemis Agent Builder PR surfaces it.**
+* `gaia-hermes-ws` (`master`) — 8 commits, 7 out of OrionIQ scope (APPZ-3369/3367/3368/3326/3361/3004/3356 — SIEM Summary, Data Hub Metrics, OSD deep links, Pendo removal). The 8th, **ORIONIQ-1625** (#17070, Gavriel-M), is further cleanup of already-dead legacy-chat leftovers (dead locals, stale e2e assertions) that the 2026-09-09/10 entries already logged as removed; it also fixes an unrelated pre-existing bug in the Explore exceptions-search dictionary join, which is not an OrionIQ surface. **No doc change.**
+* `oiq-resources` (`main`) — zero commits since 2026-09-09.
+
+No PR opened for doc content — nothing here needs one. No new Slack notification sent — nothing here is new information for the team.
