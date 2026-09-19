@@ -72,6 +72,7 @@ This is a **migration, not a cleanup**, and it's a separate PR: 20 inbound links
 * Auth methods, categories, and integration names are catalog data. As of 2026-08 the catalog has **no OAuth integrations at all** (580 `apiKey`, 56 `basicAuth`, 6 keyless) — so don't document an auth method just because the UI has a code path for it.
 * **A count column can become a navigation surface.** The Integrations Management table's "Used by" cell went from a plain hover tooltip to a real button opening a modal with links onward (ORIONIQ-1585). The invocation drawer got the reverse links the same week (ORIONIQ-1613: Agent definition / Agent invocations from a run, View invocations from the agent form). When either the Integrations or Agents Hub surface changes, check whether it added or removed a cross-link to the other — these two features shipped independently but both close the same kind of "you can get there but not back" gap.
 * **A per-connector secret's required/optional-ness is catalog depth, not something this repo documents** — same bucket as per-connector operation coverage (2026-09-02 PagerDuty) and credential-field renames (2026-09-05 Salesforce). `oiq-resources`#94 made the Slack `slack_user_token` optional, then a same-day follow-up commit reverted just that part (connection saves broke — `type_to_required_secrets` in `ai_backend`'s loader isn't wired to `optional_secrets` yet, so a provided-but-optional secret is rejected as unexpected). Neither direction touched this repo: it doesn't document per-integration required-secret lists, only the top-level `auth` bucket shape, which never changed.
+* **`alert-digest` (and now `alert-tuning-report`) keep landing on `oiq-resources` `main` and getting reverted same-day.** 2026-08-13→09-08: `alert-digest` alone, added then reverted. 2026-09-17: both templates added together (PR #97) and both reverted ~5 minutes after merge, no stated reason either time. As of 2026-09-17 neither has stayed merged, so `marketplace.md`'s 5-template list is still accurate — don't treat a same-day merge of either as live without checking `marketplace/templates/` on `main` afterward. `Artemis` has already pre-wired billing config for both agent types ahead of either shipping for real (`orioniq-be`'s `AlertDigest`/`AlertTuningReport` pricing, PR #290, 2026-09-17) — that config is inert, not evidence the templates are live.
 
 ## Shipped in code but NOT in the product — do not document
 
@@ -358,3 +359,58 @@ Scanned commits merged to each repo's default branch since the last run:
 Doc changes made: none — the one in-scope commit (#304) is an internal BFF optimization with no customer-visible surface change.
 
 PR #967 updated (not opened new): body left as-is — no content to add. Assignees updated to add galangel (author of #304, the one Artemis commit this cycle that touches `orioniq-be` and was reviewed for scope), alongside the existing RoyiSitbon, yotamloe, Gavriel-M. No new Slack notification sent — nothing here is new information for the team beyond what #967's thread already carries.
+
+### 2026-09-17 — daily scan (since 2026-09-16), no doc changes
+
+No agent PR was open at scan time — #967 merged 2026-09-16T08:45:50Z (merge commit `3b821d8`). This is a memory-only PR: nothing here needed a doc content change, so there is nothing to fold in and nothing new to open a content PR for. Recorded anyway per the "maintain agents.md every run" rule, so the recheck flags below survive to the next cycle.
+
+Scanned commits merged to each repo's default branch since the last run:
+
+* `Artemis` (`main`) — 18 commits, none needing a doc change:
+  * **#307** (galangel, ORIONIQ-1656) — moves the new-chat "For you" suggestion cards from a client-driven Bedrock call to a server-owned `POST /orioniq-be/generate/chat-suggestions`. Confirmed via `orion-iq-generate.routes.ts` and `ROUTES.md`: registered alongside `orion-iq-analytics/identify-*`, not in `ai.routes.ts` (the customer-callable table `api.md` tracks) — internal/BFF, same class as prior analytics-registration commits this log has already skipped. Also deprecates (does not remove) `POST /services/bedrock-ai`; removal is tracked on ORIONIQ-1657 — recheck then. **No doc change.**
+  * **#328** (Gavriel-M, ORIONIQ-1660) — the rail logo now opens a workspace flyout (Open 360 AI / Cloud SIEM / OrionIQ), fixing a one-way door out of OrionIQ, plus a dark-theme contrast fix and a drag-floor bump. Real, fully-shipped UI, but it's cross-product nav chrome — same category as the 2026-09-11 sidenav account-selector (#276) and 2026-09-09 sidenav scroll-fade (#215) calls, both "no doc change." Applied the same standard here.
+  * The rest: vendor-sync / weekly-job CI fixes (#319, #316, #314, #288), `chore: version packages` ×6, test-only changes (#325, #323), a `serve:mesh` script fix (#310), and a deploy gate on the onboarding survey (#308) — infra/tooling, no product surface.
+* `OIQ-AI-service` (`main`) — 2 commits, both backend-only, neither reachable by a customer:
+  * **#472** (kevkle, ORIONIQ-1500) — adds the OIHV hypothesize stage; `spec.profile` enum gains `"oihv"` (contract 3.9.0 → 3.10.0, additive). Confirmed flag-gated (`RCA_OIHV_SUPERGRAPH_ENABLED`) and set only by this repo's own `oihv-escalation-snapshot` tooling (`request_models.py`: "'oihv' selects the OIHV supergraph (flag-gated)"). No caller in `Artemis` or `gaia-hermes-ws` sets it. **Not documented** — same "shipped in code, not in the product" shape as the 2026-08-31/09-07/09-09 entries.
+  * **#478** (augment770-dev, ORIONIQ-1620) — new `spec.knowledgeBase.accountDocs` field lets a request grant per-file read/read-write access to the account's knowledge-base documents (contract 3.8.0 → 3.9.0, additive). The PR's own "Agent builder" section says the grant is meant to be authored by the Agent Builder, but no `Artemis` commit in this or any prior scanned window adds a UI for it, and `api.md`'s documented `context.*` request fields don't include a `spec` object at all. **Not documented — recheck once an Artemis Agent Builder PR surfaces it.**
+* `gaia-hermes-ws` (`master`) — 8 commits, 7 out of OrionIQ scope (APPZ-3369/3367/3368/3326/3361/3004/3356 — SIEM Summary, Data Hub Metrics, OSD deep links, Pendo removal). The 8th, **ORIONIQ-1625** (#17070, Gavriel-M), is further cleanup of already-dead legacy-chat leftovers (dead locals, stale e2e assertions) that the 2026-09-09/10 entries already logged as removed; it also fixes an unrelated pre-existing bug in the Explore exceptions-search dictionary join, which is not an OrionIQ surface. **No doc change.**
+* `oiq-resources` (`main`) — zero commits since 2026-09-09.
+
+No PR opened for doc content — nothing here needs one. No new Slack notification sent — nothing here is new information for the team.
+
+### 2026-09-18 — daily scan (since 2026-09-17 06:15), no doc changes
+
+Checked #968 first for unresolved reviewer feedback per the "address comments first" rule — none (only the Netlify bot's deploy-preview comment, zero reviews); `mergeable_state` is `blocked` (pending required review/approval, not a check failure — nothing for this bot to fix).
+
+Scanned commits merged to each repo's default branch since the last run:
+
+* `Artemis` (`main`) — 7 commits:
+  * **#290** (ralongit, ORIONIQ-1304/1377) — `feat(orioniq-be): price the Alert Digest and Alert Tuning Report agents`. Adds billing/cap pricing (`AlertDigest`: $2, `AlertTuningReport`: $8, product id 100) to `apps/orioniq-be/src/config.js`. Backend-only pricing table — see the `oiq-resources` line below: both agent types' marketplace templates were merged *and* reverted the same morning, so there is nothing customer-visible to price yet. The config is now pre-wired for whenever (if) either template lands and stays merged. **No doc change.**
+  * **#334** (RoyiSitbon) — `fix(orioniq): the schedule dropdowns open where they can be seen` — a positioning/overflow fix on the scheduling UI. This repo doesn't describe dropdown placement at that level of detail. **No doc change.**
+  * **#327** (amir-noyman) — `fix(orioniq): the settings tabs read as one surface` — visual grouping fix on the Settings page tabs. **No doc change.**
+  * **#331** (RoyiSitbon) — `test(orioniq): live within the tenant's secret-version write budget` — test-only. **No doc change.**
+  * **#332** (amir-noyman) and **#326** (amir-noyman) — Artemis design-system fixes (`MenuItem` control-scale alignment; a progress-bar surface token). Not OrionIQ-scoped at all — this repo doesn't document Artemis's internal component library, same standard as the 2026-09-16 `#279`/MenuItem-Pressable entry. **No doc change, no assignee action.**
+  * `chore: version packages` — no code.
+* `OIQ-AI-service` (`main`) — 1 commit, **#483** (kevkle) — `docs(skills): rewrite the oihv reasoning audit, resync the RCA status surfaces`. Rewrites this repo's own internal Claude-skill and RCA-operational-memory files (`.claude/`, `docs/design_decisions/`) — no route, schema, or runtime behavior change reachable by a customer. **No doc change.**
+* `gaia-hermes-ws` (`master`) — 3 commits, all out of OrionIQ scope: `APPZ-3376` (Unified Dashboards / Perses router navigation bug), `APPZ-3363` (service worker reload behavior), `APPZ-3331` (AI Observability trace-waterfall summary header — AI Observability is the separate Jaeger/OpenSearch trace viewer, out of scope per the standing filter rule applied every prior cycle it's come up).
+* `oiq-resources` (`main`) — 3 commits, net **zero** catalog change, but a pattern worth flagging:
+  * PR #97 (ralongit) merged both `alert-digest.json` and `alert-tuning-report.json` marketplace templates onto `main` at 09:06, then `ralongit` reverted the merge at 09:08 — five minutes later, no stated reason in either commit. Live catalog is unchanged from what `marketplace.md` already reflects (5 templates; confirmed against `marketplace/templates/` at the post-revert head — neither file is present).
+  * This is the **second** time `alert-digest` specifically has been merged to `main` and reverted same-day (first: PR #81 on 2026-09-08, already logged in the 2026-09-09 entry). `alert-tuning-report`'s own dedicated main-track PR (#83) has been open, unmerged, since 2026-08-13, separate from today's combined add/revert.
+  * **No doc change** (nothing live to document) — but see the new "Recurring documentation patterns" bullet below; this is now a repeating shape, not a one-off, and it's what produced the orphaned Artemis pricing config noted above.
+
+No PR opened for doc content — nothing here needs one. Assignee added to #968: **ralongit** (author of the one in-scope Artemis commit, #290, and of the oiq-resources add/revert audited above), joining no prior assignees (#968 had none). No new Slack notification sent, consistent with this bot's standing practice of only notifying the team when a doc-content change lands or a genuinely new blocker needs their attention — neither is true this cycle.
+
+### 2026-09-19 — daily scan (since 2026-09-18 06:21), no doc changes
+
+Checked #968 first for unresolved reviewer feedback per the "address comments first" rule — still none (only the Netlify bot's deploy-preview comment, zero reviews). The Netlify deploy preview is live: https://deploy-preview-968--deluxe-empanada-3ebf3b.netlify.app.
+
+Scanned commits merged to each repo's default branch since the last run:
+
+* `Artemis` (`main`) — zero commits. Confirmed by checking the latest commit on `main` directly (`chore: version packages` #329, 2026-09-17T12:35), not just an empty windowed query.
+* `OIQ-AI-service` (`main`) — zero commits.
+* `oiq-resources` (`main`) — zero commits. Latest commit on `main` is still the 2026-09-17 09:08 revert of PR #97 (the alert-digest/alert-tuning-report add-and-revert already logged in the 2026-09-18 entry) — nothing new.
+* `gaia-hermes-ws` (`master`) — 5 commits, all out of OrionIQ scope: **APPZ-2883** (restores OSD asset uploads to NetStorage on master deploys — CDN/deploy plumbing for Unified Dashboards, not OrionIQ), **APPZ-3336** and **APPZ-3334** (AI Observability: export conversation to markdown, and alias-name translation in filters/smart search — AI Observability is the separate Jaeger/OpenSearch trace-tracing product, out of scope per the standing filter rule applied every prior cycle it's come up), **APPZ-3346** (SPIKE: cursor-movement stutter fix on Unified Dashboards/Perses panels), **APPZ-3374** (import-preview panel sizing on Unified Dashboards). None touch `app-ai` or any OrionIQ-facing surface.
+
+Doc changes made: none — nothing in scope merged anywhere in the window.
+
+No PR opened for doc content — nothing here needs one. No assignee change to #968 — no new in-scope commit, so no new author to add. No new Slack notification sent, consistent with this bot's standing practice of only notifying the team when a doc-content change lands or a genuinely new blocker needs their attention — neither is true this cycle.
