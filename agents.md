@@ -399,3 +399,18 @@ Scanned commits merged to each repo's default branch since the last run:
   * **No doc change** (nothing live to document) — but see the new "Recurring documentation patterns" bullet below; this is now a repeating shape, not a one-off, and it's what produced the orphaned Artemis pricing config noted above.
 
 No PR opened for doc content — nothing here needs one. Assignee added to #968: **ralongit** (author of the one in-scope Artemis commit, #290, and of the oiq-resources add/revert audited above), joining no prior assignees (#968 had none). No new Slack notification sent, consistent with this bot's standing practice of only notifying the team when a doc-content change lands or a genuinely new blocker needs their attention — neither is true this cycle.
+
+### 2026-09-19 — daily scan (since 2026-09-18 06:21), no doc changes
+
+Checked #968 first for unresolved reviewer feedback per the "address comments first" rule — still none (only the Netlify bot's deploy-preview comment, zero reviews). The Netlify deploy preview is live: https://deploy-preview-968--deluxe-empanada-3ebf3b.netlify.app.
+
+Scanned commits merged to each repo's default branch since the last run:
+
+* `Artemis` (`main`) — zero commits. Confirmed by checking the latest commit on `main` directly (`chore: version packages` #329, 2026-09-17T12:35), not just an empty windowed query.
+* `OIQ-AI-service` (`main`) — zero commits.
+* `oiq-resources` (`main`) — zero commits. Latest commit on `main` is still the 2026-09-17 09:08 revert of PR #97 (the alert-digest/alert-tuning-report add-and-revert already logged in the 2026-09-18 entry) — nothing new.
+* `gaia-hermes-ws` (`master`) — 5 commits, all out of OrionIQ scope: **APPZ-2883** (restores OSD asset uploads to NetStorage on master deploys — CDN/deploy plumbing for Unified Dashboards, not OrionIQ), **APPZ-3336** and **APPZ-3334** (AI Observability: export conversation to markdown, and alias-name translation in filters/smart search — AI Observability is the separate Jaeger/OpenSearch trace-tracing product, out of scope per the standing filter rule applied every prior cycle it's come up), **APPZ-3346** (SPIKE: cursor-movement stutter fix on Unified Dashboards/Perses panels), **APPZ-3374** (import-preview panel sizing on Unified Dashboards). None touch `app-ai` or any OrionIQ-facing surface.
+
+Doc changes made: none — nothing in scope merged anywhere in the window.
+
+No PR opened for doc content — nothing here needs one. No assignee change to #968 — no new in-scope commit, so no new author to add. No new Slack notification sent, consistent with this bot's standing practice of only notifying the team when a doc-content change lands or a genuinely new blocker needs their attention — neither is true this cycle.
