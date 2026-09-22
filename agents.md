@@ -78,8 +78,8 @@ This is a **migration, not a cleanup**, and it's a separate PR: 20 inbound links
 
 An endpoint existing in `public.routes.ts` is not proof a feature is available to customers. Check for a UI before documenting it, and when in doubt ask the feature's owner.
 
-* **Agent lessons** (`GET /v2/ai-agent/:agentId/lessons`, `PUT .../lessons/:lessonId/status`, ORIONIQ-1491 / ORIONIQ-1144). The endpoints are live and the backend learns from feedback, but there is **no lessons UI anywhere** in `Artemis` or `app-ui`, and rollout is gated per account. Documented in the first run and removed on review. Document it when the UI lands.
-* The in-app API reference (`Artemis` `apps/orioniq/.../AgentEdit/api-endpoints.ts`) is a good signal here: it lists what the product actually exposes, and it did **not** list the lessons endpoints.
+* ~~**Agent lessons**~~ — **closed 2026-09-22.** `Artemis`#333 (ORIONIQ-1670) shipped the Learning section in the agent edit form and flipped `learn_from_feedback` to on-by-default. Documented in `create-agent.md` (new "Learning" section) and cross-linked from `agents-hub.md`'s feedback paragraph. Left here as the worked example of the rule: an endpoint existing in `public.routes.ts`/`ai.routes.ts` is not proof of a customer-visible feature — check for a UI before documenting, and revisit once one lands, as happened here after ~4 weeks (first flagged 2026-08-27).
+* The in-app API reference (`Artemis` `apps/orioniq/.../AgentEdit/api-endpoints.ts`) is a good signal here: it lists what the product actually exposes.
 
 ## Known gaps not yet documented
 
@@ -96,6 +96,8 @@ An endpoint existing in `public.routes.ts` is not proof a feature is available t
 The bot's instructions say to post the PR link immediately, then **edit that same message** in place once Netlify comments its Deploy Preview link on the PR (never post the preview link as a second message or thread reply). As of 2026-09-04, the Slack MCP tools available to this bot (`slack_send_message`, `slack_send_message_draft`, `slack_schedule_message`, reactions, canvas, search/read) include **no message-edit / `chat.update` equivalent**. There is no way to satisfy that instruction literally with current tooling.
 
 Until an edit-capable tool is added, the practical fallback is a threaded reply on the original notification with the preview link once it lands (clearly worse than an edit, but better than leaving the team without the link at all) — note this deviation explicitly when it happens rather than silently substituting it. Confirmed still the case on 2026-09-10 — same tool list, no edit method.
+
+**Refinement, 2026-09-22:** this bot doesn't post a notification just because a PR exists — only when the PR carries a real doc-content change or a genuinely new blocker. #968 sat open five days (2026-09-17 through 2026-09-21) with zero Slack activity for exactly this reason; the first post went out only once real content landed. When the preview link is already live by the time that first post is due (as it was here — Netlify had commented days earlier), post it inline immediately; the "edit vs. reply" problem above only bites when the link lands *after* the first post.
 
 ## Run log
 
@@ -448,3 +450,22 @@ Doc changes made: none — the one in-scope commit is a skill-file edit this rep
 No PR opened for doc content — nothing here needs one. No assignee change to #968 — ralongit (the commit's author) is already an assignee from the 2026-09-18 cycle. No new Slack notification sent, consistent with this bot's standing practice of only notifying the team when a doc-content change lands or a genuinely new blocker needs their attention — neither is true this cycle.
 
 Fourth straight quiet cycle for doc *content* (2026-09-18's flurry was the last content-relevant activity), though today's `oiq-resources` commit is the first non-empty scan result since 2026-09-17 — the slowdown flagged in the 2026-09-20 entry looks like normal cadence, not a stall.
+
+### 2026-09-22 — daily scan (since 2026-09-21), doc changes made
+
+Checked #968 first for unresolved reviewer feedback per the "address comments first" rule — still none (only the Netlify bot's deploy-preview comment, zero reviews); the Netlify deploy preview is still live: https://deploy-preview-968--deluxe-empanada-3ebf3b.netlify.app.
+
+Scanned commits merged to each repo's default branch since the last run:
+
+* **`Artemis` (`main`) — #333 (yotamloe, ORIONIQ-1670): "learn from feedback is on by default."** `learn_from_feedback` flips from opt-in to opt-out — absence of the stored field now means enabled, both in the injection gate and in the agent edit form, so no backfill was needed and no agent silently lost lessons it already had. This is the UI-landing half of the gap flagged as "shipped in code but NOT in the product" since this bot's very first run (2026-08-27: `Artemis`#201 added a Learning toggle to the edit form on 2026-09-02, but the feature stayed opt-in and this repo never had cause to write it up as a customer-facing capability worth a section). With today's default flip making it something every agent now does unless explicitly turned off, it crossed the line into "needs documenting."
+  * Added a new **Learning** section to `create-agent.md`: on-by-default framing, the opt-out toggle's effect (pauses new lessons and stops applying existing ones; nothing is deleted), the 20-active-lesson cap and what happens as it's approached/reached, and the reflection billing note (20 free per account all-time, then $1 each — sourced from `gaia-hermes-ws`#16993's billing description, still accurate).
+  * Cross-linked from `agents-hub.md`'s feedback-note paragraph ("a note that teaches the agent something becomes a lesson").
+  * Updated the "Shipped in code but NOT in the product" entry above to record the closure rather than deleting it — it's the clearest worked example in this file of that rule actually paying off.
+  * `chore: version packages` (#339) — no code.
+* `OIQ-AI-service` (`main`) — zero commits.
+* `gaia-hermes-ws` (`master`) — 5 commits, all out of OrionIQ scope: `APPZ-3379` (AI Observability error handling instead of a bare "no results"), `APPZ-1767` (Unified Dashboards keyboard-shortcut legend), `APPZ-3256` (public-API DAST scan tooling under `tools/`), `APPZ-3380` (stat-panel tooltip stutter fix), `APPZ-3330` (BETA badge on the AI Observability tab). AI Observability and Unified Dashboards are both out of OrionIQ scope per the standing filter rule applied every prior cycle; the DAST tooling scans the public API broadly but isn't OrionIQ-specific either.
+* `oiq-resources` (`main`) — zero commits.
+
+PR #968 updated: title and description rewritten to lead with today's real doc content instead of the stale "no doc changes" framing from when the PR was first opened. Assignees updated to add **yotamloe** (author of #333), alongside the existing **ralongit**.
+
+**First Slack notification for this PR sent this cycle** — none had gone out before, since every prior cycle back to 2026-09-17 had nothing customer-facing to tell the team about (per the standing "only notify when a doc-content change lands or a genuinely new blocker needs attention" practice recorded in the 2026-09-18 through 2026-09-21 entries). Today's Learning-section addition is the first thing in this PR's life actually worth surfacing. Posted with the PR link, the (already-live) Netlify preview link, and the two assignees. No edit-in-place needed this time since the preview link was already available before the post went out — see "Slack notification mechanics" above for why an edit isn't possible with current tooling regardless.
