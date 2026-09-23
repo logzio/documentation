@@ -495,3 +495,4 @@ Scanned commits merged to each repo's default branch since the last run:
 Doc changes made: none. Updated the "Known gaps" OrionIQ-chat entry above — the next-step suggestion is now a third shipped iteration on the same blocker, and as of this cycle it also reaches the Open 360 drawer, the exact surface `assistantiq.md` already documents (badly). No PR content follows from that update, same reasoning as the 2026-09-11 entry.
 
 PR #968: description updated to record this cycle under "Audited, no doc change needed." Assignees unchanged — per the 2026-09-10/11 precedent, this bot doesn't add assignees for commits blocked on the standing chat-page gap, and no other in-scope commit this cycle needed scope review beyond what's logged above. No new Slack notification — nothing here is new information beyond what the thread and this file's "Known gaps" entry already carry.
+
