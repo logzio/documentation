@@ -104,6 +104,18 @@ Configure where agent results are sent after each invocation. You can select fro
 - **Email addresses** of team members.
 - **Pre-configured notification endpoints** such as Slack channels, Microsoft Teams webhooks, or custom API endpoints.
 
+### Learning
+
+Agents can learn from the feedback you leave on their invocations (see [Provide feedback](/docs/user-guide/orioniq/agents-hub/#provide-feedback)) — a written note that teaches the agent something becomes a lesson, applied to its future runs. Lessons are advisory: they never override the agent's runbook or your account instructions.
+
+**Learn from feedback** is on by default for every agent. Use the toggle to pause it: the agent keeps the lessons it already has, but stops accepting new ones and stops applying any of them to its runs until you turn learning back on. Nothing is deleted.
+
+An agent can hold up to 20 active lessons at a time. As that limit gets close, a warning appears here; once it's reached, new feedback is acknowledged but produces no further lessons until you disable an existing one to make room.
+
+:::note
+Writing a note is billed once it's accepted for review, whether or not it ends up teaching the agent anything: the first 20 reflections per account are free (all-time), then $1 each.
+:::
+
 ## Finalize and create
 
 Once you've reviewed the agent definition and configured the settings, click **Create Agent**. The agent becomes available in the [Agents Hub](/docs/user-guide/orioniq/agents-hub/) where you can monitor its invocations and manage its settings.
