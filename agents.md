@@ -580,3 +580,18 @@ Scanned commits merged to each repo's default branch since the last run:
 No screenshots found on any of today's PRs marked for documentation use.
 
 Doc changes made: none. PR #968: description rewritten to record this cycle under "Audited, no doc change needed." No assignee change — ralongit and Gavriel-M, today's two authors, are both already assignees. No new Slack notification sent — nothing here is new information for the team beyond what the thread and this file's existing entries already carry, consistent with this bot's standing practice of only notifying when a doc-content change lands or a genuinely new blocker needs attention.
+
+### 2026-09-29 — daily scan (since 2026-09-28 06:10), no doc changes
+
+* `Artemis` (`main`) — two commits, both Gavriel-M:
+  * **ORIONIQ-1713** (#371) — marketplace agents switch themselves off when their free runs are used up; `/marketplace/templates` returns `freeRuns`. Gated behind the `oiq-marketplace-free-trial` account flag, and `/marketplace/templates` is a BFF route, not the customer-callable `/v2` surface. `marketplace.md` has never described pricing or free runs. Not yet a general behavior, so **no doc change**. Recheck once the flag is removed or a trial UI lands (gaia-hermes-ws #17125 already registered its analytics events).
+  * **ORIONIQ-1717** (#374) — rail row leading-slot and collapsed-row shape in the OrionIQ sidenav. Design-system styling, same verdict as #373. **No doc change.**
+* `OIQ-AI-service` (`main`) — two commits, both yotamloe:
+  * **#455 / ORIONIQ-1433** — agent persistent memory phase 1: new `spec.knowledgeBase.agentDocs` grant (single `scratchpad` document, `read`/`readWrite`), `/kb/agent-docs/...` routes on the internal AI Backend, contract 3.11.0. `AGENT_MEMORY_ENABLED` is a kill switch and App-AI does not send the grant yet, so no customer path exists. Same class as `accountDocs` (2026-09-17): flagged to recheck once an Agent Builder UI or App-AI setting exposes it. **No doc change.**
+  * **#501** — Traceloop hook unwrapping and an instrumentation allowlist. Internal observability plumbing. **No doc change.**
+* `gaia-hermes-ws` — 11 commits, all AI Observability (trace waterfall, run status, monitoring dashboard), Span Explorer, K8s 360 dashboards, Finance console, Perses submodule or an ArgoCD URL. Out of OrionIQ scope, same standing filter rule.
+* `oiq-resources` — zero commits.
+
+No screenshots found on any of today's PRs marked for documentation use.
+
+Doc changes made: none. PR #968: description rewritten to record this cycle. Assignees unchanged except adding yotamloe's existing entry check: Gavriel-M, yotamloe, ralongit and RoyiSitbon are already assignees. No new Slack notification sent, per the standing practice of notifying only when a doc-content change lands or a new blocker appears.
