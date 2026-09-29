@@ -594,4 +594,4 @@ Doc changes made: none. PR #968: description rewritten to record this cycle unde
 
 No screenshots found on any of today's PRs marked for documentation use.
 
-Doc changes made: none. PR #968: description rewritten to record this cycle. Assignees unchanged except adding yotamloe's existing entry check: Gavriel-M, yotamloe, ralongit and RoyiSitbon are already assignees. No new Slack notification sent, per the standing practice of notifying only when a doc-content change lands or a new blocker appears.
+Doc changes made: none. PR #968: description rewritten to record this cycle. No assignee change: today's authors, Gavriel-M and yotamloe, are already assignees. No new Slack notification sent, per the standing practice of notifying only when a doc-content change lands or a new blocker appears.
