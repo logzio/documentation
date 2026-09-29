@@ -54,7 +54,7 @@ export TRACELOOP_LOGGING_ENABLED=true
 
 ## Download and configure the OpenTelemetry collector
 
-Create a dedicated directory on the collector host and download the [OpenTelemetry collector contrib](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases) for your operating system.
+Create a dedicated directory on the collector host and download the [OpenTelemetry collector contrib](https://github.com/open-telemetry/opentelemetry-collector-releases/releases) for your operating system.
 
 :::note
 This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
@@ -135,7 +135,7 @@ service:
 Not every OpenLLMetry SDK emits all three signals. Check your SDK's guide and the [Traceloop configuration options](https://www.traceloop.com/docs/openllmetry/configuration) for what it exports, and remove any pipeline you don't need.
 :::
 
-#### Tail sampling
+### Tail sampling
 
 {@include: ../../_include/tracing-shipping/tail-sampling.md}
 
@@ -149,10 +149,11 @@ To run the collector in Docker instead, mount the configuration file:
 docker run \
 -p 4318:4318 \
 -v <PATH-TO>/config.yaml:/etc/otelcol-contrib/config.yaml \
-otel/opentelemetry-collector-contrib:0.111.0
+otel/opentelemetry-collector-contrib:<VERSION>
 ```
 
 * Replace `<PATH-TO>` with the path to the `config.yaml` file on your system.
+* Replace `<VERSION>` with the collector version to run (see [available versions](https://hub.docker.com/r/otel/opentelemetry-collector-contrib/tags)).
 
 {@include: ../../_include/tracing-shipping/collector-run-note.md}
 
@@ -161,5 +162,5 @@ otel/opentelemetry-collector-contrib:0.111.0
 Run your LLM application to generate some data, then give it time to process:
 
 * **Traces** appear in your [Tracing](https://app.logz.io/#/dashboard/jaeger) dashboard. Each LLM call is a span, with the model, prompt, completion and token usage as span attributes.
-* **Metrics** appear in your [Metrics](https://app.logz.io/#/dashboard/metrics/) dashboard, under metric names starting with `gen_ai.` and `db.`.
+* **Metrics** appear in your [Metrics](https://app.logz.io/#/dashboard/metrics/) dashboard, under metric names starting with `gen_ai_`, `llm_` or `db_`.
 * **Logs** appear in [Explore](https://app.logz.io/#/dashboard/explore).
