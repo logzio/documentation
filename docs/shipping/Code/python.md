@@ -1077,7 +1077,7 @@ export OTEL_RESOURCE_ATTRIBUTES="service.name=<<YOUR-SERVICE-NAME>>"
 
 Create a directory on your Python application and download the relevant [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector-contrib/releases/tag/v0.111.0). Create a `config.yaml` with the following parameters:
 
-* {@include: ../../_include/tracing-shipping/replace-tracing-token.md}
+{@include: ../../_include/tracing-shipping/replace-tracing-token.md}
 
 {@include: ../../_include/tracing-shipping/collector-config.md}
 
