@@ -595,3 +595,19 @@ Doc changes made: none. PR #968: description rewritten to record this cycle unde
 No screenshots found on any of today's PRs marked for documentation use.
 
 Doc changes made: none. PR #968: description rewritten to record this cycle. No assignee change: today's authors, Gavriel-M and yotamloe, are already assignees. No new Slack notification sent, per the standing practice of notifying only when a doc-content change lands or a new blocker appears.
+
+### 2026-10-01 — daily scan (since 2026-09-30 06:00), no doc changes
+
+PR #968 has no unresolved reviewer threads (one approval, zero review threads). Master merged into the branch to clear the `behind` state.
+
+* `Artemis` (`main`):
+  * **ORIONIQ-1700** (#368, ralongit) — Custom API integration (`custom-api`) gets its own connect form (host, No auth / Bearer / API key in header or query / Basic auth, health-check path). Shown only to accounts with the `oiq-custom-api` flag. **No doc change** while flag-gated. Recheck when the flag is removed: `integrations.md` auth methods table and catalog categories would need Custom API, its auth choices and the host rules.
+  * **ORIONIQ-1716** (#385) and **ORIONIQ-1714** (#377) — free-trial analytics events and trial notices in channel deliveries. Same `oiq-marketplace-free-trial` flag as #371 and #372. **No doc change.**
+  * #384 (list row animation), #389 (tables separator fix, amir-noyman), #386 (vendor refresh bot). Design system or internal. **No doc change.**
+* `OIQ-AI-service` (`main`) — **#453** (ralongit, ORIONIQ-1700, ORIONIQ-1219, ORIONIQ-1547): customer hosts per account (`CUSTOMER_HOSTS_ACCOUNT_IDS`), configurable auth type, response caps, per-account connection test rate limit from the manifest (`rateLimit`), `none` auth. Account-gated backend work behind the same Custom API switch. **No doc change**, same recheck condition as #368.
+* `oiq-resources` (`main`) — **#107** (ralongit): `custom-api` integration manifest and skill. Non-GET calls go through `execute_api_write`. Same flag. **No doc change.**
+* `gaia-hermes-ws` (`master`) — 3 commits (restore UI, SIEM summary dashboard, Firefox chart performance). Out of OrionIQ scope.
+
+No screenshots marked for documentation use. No new assignees (ralongit and Gavriel-M are already assigned; amir-noyman's commit is out of scope). No Slack message: no doc content change landed.
+
+Pattern: an account-gated feature (flag or account list) is logged and rechecked, not documented, until it is generally available. Custom API now joins the free-trial and `agentDocs` recheck list.
