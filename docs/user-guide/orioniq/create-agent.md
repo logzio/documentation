@@ -91,7 +91,9 @@ Account-wide limits are set separately — see [Settings → Capping](/docs/user
 
 Pick the observability platform and accounts this agent can query. Toggle the scope chips to choose Logs, Metrics, or both — each scope has its own accounts list.
 
-Which scopes you have to fill in follows the **Agent tools** you chose above: an agent declaring a logs tool set needs a logs data source, and the agent won't save until every declared scope has one.
+Data Sources is available for every trigger type. Which scopes you have to fill in follows the **Agent tools** you chose above: a scheduled agent declaring a logs tool set needs a logs data source, and it won't save until every declared scope has one. For API, Alert, and Deployment agents, picking a data source is optional.
+
+When you create an alert-linked AI analysis agent, it starts with the accounts named in the alert, and you can edit them here. If the alert queries all accounts, the agent follows the alert instead and picks up new sub-accounts. Later changes to the alert don't overwrite the accounts you saved. If you remove every account, the agent falls back to the alert's accounts.
 
 ### Integrations
 

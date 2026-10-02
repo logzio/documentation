@@ -611,3 +611,16 @@ PR #968 has no unresolved reviewer threads (one approval, zero review threads). 
 No screenshots marked for documentation use. No new assignees (ralongit and Gavriel-M are already assigned; amir-noyman's commit is out of scope). No Slack message: no doc content change landed.
 
 Pattern: an account-gated feature (flag or account list) is logged and rechecked, not documented, until it is generally available. Custom API now joins the free-trial and `agentDocs` recheck list.
+
+### 2026-10-02 — daily scan (since 2026-10-01 06:00)
+
+PR #968 has no unresolved reviewer threads (one approval, zero review threads).
+
+* `Artemis` (`main`):
+  * **ORIONIQ-436, ORIONIQ-1691** (#365, ralongit) — Data sources now shows for API, Alert and Deployment agents (optional there, still required for scheduled). v2 alert AI-analysis agents are seeded with the alert's accounts, editable, and fall back to the alert's own when cleared. **Documented** in `create-agent.md` > Data Sources.
+  * #392, #394, #399 (Gavriel-M, ORIONIQ-1737, 1740, 1744): rail animation, animated OrionIQ mark, relative times in chat. Visual polish. **No doc change.**
+  * #390 (Gavriel-M, ORIONIQ-1716): free-trial UI events. Behind `oiq-marketplace-free-trial`. **No doc change.**
+* `OIQ-AI-service`, `oiq-resources` — no commits.
+* `gaia-hermes-ws` — 2 commits (APPZ-3345, APPZ-3433, AI Observability run hydration and conversation parsing). Out of OrionIQ scope.
+
+No screenshots marked for documentation use. Assignees already include ralongit and Gavriel-M.
