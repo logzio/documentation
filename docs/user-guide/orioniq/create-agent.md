@@ -91,7 +91,9 @@ Account-wide limits are set separately — see [Settings → Capping](/docs/user
 
 Pick the observability platform and accounts this agent can query. Toggle the scope chips to choose Logs, Metrics, or both — each scope has its own accounts list.
 
-Which scopes you have to fill in follows the **Agent tools** you chose above: an agent declaring a logs tool set needs a logs data source, and the agent won't save until every declared scope has one.
+Data Sources is available for every trigger type. Which scopes you have to fill in follows the **Agent tools** you chose above: a scheduled agent declaring a logs tool set needs a logs data source, and it won't save until every declared scope has one. For API, Alert, and Deployment agents, picking a data source is optional.
+
+When you create an alert-linked AI analysis agent, it starts with the accounts named in the alert, and you can edit them here. If the alert queries all accounts, the agent follows the alert instead and picks up new sub-accounts. Later changes to the alert don't overwrite the accounts you saved. If you remove every account, the agent falls back to the alert's accounts.
 
 ### Integrations
 
@@ -103,6 +105,18 @@ Configure where agent results are sent after each invocation. You can select fro
 
 - **Email addresses** of team members.
 - **Pre-configured notification endpoints** such as Slack channels, Microsoft Teams webhooks, or custom API endpoints.
+
+### Learning
+
+Agents can learn from the feedback you leave on their invocations (see [Provide feedback](/docs/user-guide/orioniq/agents-hub/#provide-feedback)) — a written note that teaches the agent something becomes a lesson, applied to its future runs. Lessons are advisory: they never override the agent's runbook or your account instructions.
+
+**Learn from feedback** is on by default for every agent. Use the toggle to pause it: the agent keeps the lessons it already has, but stops accepting new ones and stops applying any of them to its runs until you turn learning back on. Nothing is deleted.
+
+An agent can hold up to 20 active lessons at a time. As that limit gets close, a warning appears here; once it's reached, new feedback is acknowledged but produces no further lessons until you disable an existing one to make room.
+
+:::note
+Writing a note is billed once it's accepted for review, whether or not it ends up teaching the agent anything: the first 20 reflections per account are free (all-time), then $1 each.
+:::
 
 ## Finalize and create
 
