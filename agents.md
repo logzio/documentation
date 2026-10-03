@@ -624,3 +624,11 @@ PR #968 has no unresolved reviewer threads (one approval, zero review threads).
 * `gaia-hermes-ws` — 2 commits (APPZ-3345, APPZ-3433, AI Observability run hydration and conversation parsing). Out of OrionIQ scope.
 
 No screenshots marked for documentation use. Assignees already include ralongit and Gavriel-M.
+
+### 2026-10-03 — daily scan (since 2026-10-02 06:00), no doc changes
+
+* `Artemis`, `OIQ-AI-service` — no commits.
+* `oiq-resources` — #110 and #111 (ralongit): PostHog integration gets a gated write surface (`enableWrite`), more read operations, a new icon, and guide fixes for the insight query format. Catalog depth only, and PostHog is not named anywhere in this repo. **No doc change.**
+* `gaia-hermes-ws` — #17152 (APPZ-3451): Unified Dashboards use the legacy searchable-accounts endpoint. Dashboards are not OrionIQ. Out of scope.
+
+No screenshots marked for documentation use. Assignees unchanged.
