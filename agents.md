@@ -632,3 +632,12 @@ No screenshots marked for documentation use. Assignees already include ralongit 
 * `gaia-hermes-ws` — #17152 (APPZ-3451): Unified Dashboards use the legacy searchable-accounts endpoint. Dashboards are not OrionIQ. Out of scope.
 
 No screenshots marked for documentation use. Assignees unchanged.
+
+### 2026-10-04 — daily scan (since 2026-10-03 06:00), no doc changes
+
+* `Artemis` — #397, #398, #400, #401 (Gavriel-M), plus the automated version PR #403.
+  * #397 (ORIONIQ-1742): marketplace free trial is stored on the agent (`freeTrialState`, `freeRunsLeftAfter`) instead of reading `oiq-marketplace-free-trial` per run. Still behind the flag, internal testing only. **No doc change.** Recheck the free-trial and run-history API fields when the flag is generally available.
+  * #398, #400, #401 (ORIONIQ-1745, 1746, 1747): greeting removed from the first chat message, new user message pinned to the top, `TravellingLayer` design system component. Visual polish. **No doc change.**
+* `OIQ-AI-service`, `gaia-hermes-ws`, `oiq-resources` — no commits.
+
+No screenshots marked for documentation use. Assignees unchanged.
