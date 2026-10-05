@@ -34,6 +34,42 @@ Follow the Traceloop installation guide for your language:
 | Go | [Getting started with Go](https://www.traceloop.com/docs/openllmetry/getting-started-go) |
 | Ruby | [Getting started with Ruby](https://www.traceloop.com/docs/openllmetry/getting-started-ruby) |
 
+:::note
+Use the latest SDK release. For Python, `traceloop-sdk` 0.57.0 or later is required.
+:::
+
+### Supported frameworks
+
+AI Observability currently supports applications built with **LangChain** or **LangGraph**. Each agent invocation appears as a run, with its steps, prompts, responses, model and token usage. Support for more frameworks and direct LLM SDK calls is coming soon.
+
+If you call an LLM SDK directly (for example OpenAI, Anthropic or Bedrock), wrap each agent request in a workflow so it appears as a run:
+
+```python
+from traceloop.sdk.decorators import workflow
+
+@workflow(name="support_agent")
+def handle_request(question):
+    ...
+```
+
+### Group runs into sessions (optional)
+
+To see the runs of one conversation together, pass a conversation ID:
+
+```python
+from traceloop.sdk import Traceloop
+
+Traceloop.set_association_properties({"thread_id": conversation_id})
+```
+
+### Prompt and response capture
+
+By default, OpenLLMetry records prompts, responses, and tool inputs and outputs on the spans. These may contain personal data. To turn this off:
+
+```shell
+export TRACELOOP_TRACE_CONTENT=false
+```
+
 ## Point the SDK at your collector
 
 Set the following environment variables for your application:
@@ -71,25 +107,6 @@ receivers:
 
 processors:
   batch:
-  tail_sampling:
-    policies:
-      [
-        {
-          name: policy-errors,
-          type: status_code,
-          status_code: {status_codes: [ERROR]}
-        },
-        {
-          name: policy-slow,
-          type: latency,
-          latency: {threshold_ms: 1000}
-        },
-        {
-          name: policy-random-ok,
-          type: probabilistic,
-          probabilistic: {sampling_percentage: 10}
-        }
-      ]
 
 exporters:
   logzio/traces:
@@ -114,7 +131,7 @@ service:
   pipelines:
     traces:
       receivers: [otlp]
-      processors: [tail_sampling, batch]
+      processors: [batch]
       exporters: [logzio/traces]
     logs:
       receivers: [otlp]
@@ -135,9 +152,7 @@ service:
 Not every OpenLLMetry SDK emits all three signals. Check your SDK's guide and the [Traceloop configuration options](https://www.traceloop.com/docs/openllmetry/configuration) for what it exports, and remove any pipeline you don't need.
 :::
 
-### Tail sampling
-
-{@include: ../../_include/tracing-shipping/tail-sampling.md}
+The configuration doesn't sample traces, so every agent run is kept and run counts stay accurate.
 
 ## Start the collector
 
@@ -161,6 +176,7 @@ otel/opentelemetry-collector-contrib:<VERSION>
 
 Run your LLM application to generate some data, then give it time to process:
 
+* **AI Observability** shows your agent runs. Search runs, open a run to see each step, and use the **Monitoring** tab for an overview of volume, errors, latency and tokens. AI Observability is in beta; contact [Logz.io Support](mailto:help@logz.io) to enable it for your account.
 * **Traces** appear in your [Tracing](https://app.logz.io/#/dashboard/jaeger) dashboard. Each LLM call is a span, with the model, prompt, completion and token usage as span attributes.
 * **Metrics** appear in your [Metrics](https://app.logz.io/#/dashboard/metrics/) dashboard, under metric names starting with `gen_ai_`, `llm_` or `db_`.
 * **Logs** appear in [Explore](https://app.logz.io/#/dashboard/explore).
