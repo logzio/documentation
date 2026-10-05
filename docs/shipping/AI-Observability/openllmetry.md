@@ -37,40 +37,17 @@ Follow the Traceloop installation guide for your language:
 | Ruby | [Getting started with Ruby](https://www.traceloop.com/docs/openllmetry/getting-started-ruby) |
 
 :::note
+AI Observability currently supports **Python** and **Node.js** applications built with **LangChain** or **LangGraph**. Support for more frameworks, direct LLM SDK calls and other languages is coming soon.
+
 Use the latest SDK release. For Python, `traceloop-sdk` 0.57.0 or later is required.
 :::
 
-### Supported frameworks
+### Optional settings
 
-AI Observability currently supports applications built with **LangChain** or **LangGraph**. Each agent invocation appears as a run, with its steps, prompts, responses, model and token usage. Support for more frameworks and direct LLM SDK calls is coming soon.
-
-If you call an LLM SDK directly (for example OpenAI, Anthropic or Bedrock), wrap each agent request in a workflow so it appears as a run:
-
-```python
-from traceloop.sdk.decorators import workflow
-
-@workflow(name="support_agent")
-def handle_request(question):
-    ...
-```
-
-### Group runs into sessions (optional)
-
-To see the runs of one conversation together, pass a conversation ID:
-
-```python
-from traceloop.sdk import Traceloop
-
-Traceloop.set_association_properties({"thread_id": conversation_id})
-```
-
-### Prompt and response capture
-
-By default, OpenLLMetry records prompts, responses, and tool inputs and outputs on the spans. These may contain personal data. To turn this off:
-
-```shell
-export TRACELOOP_TRACE_CONTENT=false
-```
+| Setting | When you need it | Guide (Python and Node.js) |
+|---|---|---|
+| Workflow | Your app calls an LLM SDK directly (for example OpenAI, Anthropic or Bedrock) instead of LangChain or LangGraph. Wrap each agent request in a workflow so it appears as a run. | [Workflow annotations](https://www.traceloop.com/docs/openllmetry/tracing/annotations) |
+| Session | You want to see the runs of one conversation together. Set the association property `thread_id` to your conversation ID. | [Association properties](https://www.traceloop.com/docs/openllmetry/tracing/association) |
 
 ## Send your data to Logz.io
 
@@ -110,9 +87,13 @@ env:
     value: http://logzio-apm-collector.monitoring.svc.cluster.local:4318
   - name: TRACELOOP_METRICS_ENABLED
     value: "false"
+  # Optional: set to "false" to stop recording prompts and responses
+  - name: TRACELOOP_TRACE_CONTENT
+    value: "true"
 ```
 
-The APM collector receives traces only, so SDK metrics are turned off. AI Observability is built from traces.
+* The APM collector receives traces only, so SDK metrics are turned off. AI Observability is built from traces.
+* By default, OpenLLMetry records prompts, responses, and tool inputs and outputs on the spans. These may contain personal data. Set `TRACELOOP_TRACE_CONTENT` to `"false"` to turn this off.
 
 The service name shown in Logz.io comes from the SDK's `app_name` (`appName` in Node.js) initialization option.
 
@@ -125,6 +106,8 @@ Set the following environment variables for your application:
 
 ```shell
 export TRACELOOP_BASE_URL=http://<<COLLECTOR-HOST>>:4318
+# Optional: set to false to stop recording prompts and responses
+export TRACELOOP_TRACE_CONTENT=true
 ```
 
 If your SDK supports it, you can also send prompts and completions as log events:
@@ -134,6 +117,7 @@ export TRACELOOP_LOGGING_ENABLED=true
 ```
 
 * Replace `<<COLLECTOR-HOST>>` with the hostname of the OpenTelemetry collector, for example `localhost`.
+* By default, OpenLLMetry records prompts, responses, and tool inputs and outputs on the spans. These may contain personal data. Set `TRACELOOP_TRACE_CONTENT=false` to turn this off.
 * The service name shown in Logz.io comes from the SDK's `app_name` (`appName` in Node.js) initialization option. See the [Traceloop configuration options](https://www.traceloop.com/docs/openllmetry/configuration).
 
 
