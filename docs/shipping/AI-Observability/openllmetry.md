@@ -231,5 +231,5 @@ Run your LLM application to generate some data, then give it time to process:
 
 * **AI Observability** shows your agent runs. Search runs, open a run to see each step, and use the **Monitoring** tab for an overview of volume, errors, latency and tokens. AI Observability is in beta; contact [Logz.io Support](mailto:help@logz.io) to enable it for your account.
 * **Traces** appear in your [Tracing](https://app.logz.io/#/dashboard/jaeger) dashboard. Each LLM call is a span, with the model, prompt, completion and token usage as span attributes.
-* **Metrics** appear in your [Metrics](https://app.logz.io/#/dashboard/metrics/) dashboard, under metric names starting with `gen_ai_`, `llm_` or `db_`.
-* **Logs** appear in [Explore](https://app.logz.io/#/dashboard/explore).
+* **Metrics** (OpenTelemetry collector setup) appear in your [Metrics](https://app.logz.io/#/dashboard/metrics/) dashboard, under metric names starting with `gen_ai_`, `llm_` or `db_`.
+* **Logs** (OpenTelemetry collector setup) appear in [Explore](https://app.logz.io/#/dashboard/explore).
