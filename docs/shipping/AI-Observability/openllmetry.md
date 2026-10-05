@@ -4,7 +4,7 @@ title: OpenLLMetry
 overview: OpenLLMetry by Traceloop is an open source set of OpenTelemetry instrumentations for LLM applications. Use it to send traces of your LLM and vector database calls - prompts, completions, token usage and latency - to Logz.io.
 product: ['tracing','metrics','logs']
 os: ['windows', 'linux', 'mac']
-filters: ['Other']
+filters: ['AI Observability']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/traceloop.png
 logs_dashboards: []
 logs_alerts: []
@@ -14,13 +14,16 @@ metrics_alerts: []
 drop_filter: []
 ---
 
-OpenLLMetry instruments your LLM application with OpenTelemetry and emits standard OTLP data. To send it to Logz.io, point the Traceloop SDK at an OpenTelemetry collector and configure the collector with the Logz.io exporters.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+OpenLLMetry instruments your LLM application with OpenTelemetry and emits standard OTLP data. To send it to Logz.io, point the Traceloop SDK at a collector that ships to Logz.io: the Logz.io APM collector on Kubernetes, or an OpenTelemetry collector on any host.
 
 **Before you begin, you'll need**:
 
 * An LLM application (OpenAI, Anthropic, LangChain, LlamaIndex, and [more](https://www.traceloop.com/docs/openllmetry/introduction))
 * An active Logz.io account
-* Port `4318` available on the collector host
+* A Kubernetes cluster with [Helm](https://helm.sh/), or a host with port `4318` available for the collector
 
 ## Instrument your application
 
@@ -70,7 +73,54 @@ By default, OpenLLMetry records prompts, responses, and tool inputs and outputs 
 export TRACELOOP_TRACE_CONTENT=false
 ```
 
-## Point the SDK at your collector
+## Send your data to Logz.io
+
+<Tabs>
+<TabItem value="kubernetes" label="Kubernetes" default>
+
+### Deploy the Logz.io APM collector
+
+If you already run the `logzio-monitoring` chart with `logzio-apm-collector.enabled=true`, skip to the next step.
+
+```shell
+helm repo add logzio-helm https://logzio.github.io/logzio-helm && helm repo update
+
+helm install -n monitoring --create-namespace \
+--set logzio-apm-collector.enabled=true \
+--set logzio-apm-collector.SamplingProbability=100 \
+--set global.logzioTracesToken="<<TRACING-SHIPPING-TOKEN>>" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set global.env_id="<<CLUSTER-NAME>>" \
+logzio-monitoring logzio-helm/logzio-monitoring
+```
+
+{@include: ../../_include/tracing-shipping/replace-tracing-token.md}
+* Replace `<<CLUSTER-NAME>>` with a name for your cluster. It appears as the Environment of your runs.
+
+`SamplingProbability=100` keeps every trace, so every agent run appears in AI Observability.
+
+For all chart options, see [Kubernetes](https://docs.logz.io/docs/shipping/Containers/Kubernetes/).
+
+### Point your application at the collector
+
+Add the following environment variables to your application's container:
+
+```yaml
+env:
+  - name: TRACELOOP_BASE_URL
+    value: http://logzio-apm-collector.monitoring.svc.cluster.local:4318
+  - name: TRACELOOP_METRICS_ENABLED
+    value: "false"
+```
+
+The APM collector receives traces only, so SDK metrics are turned off. AI Observability is built from traces.
+
+The service name shown in Logz.io comes from the SDK's `app_name` (`appName` in Node.js) initialization option.
+
+</TabItem>
+<TabItem value="collector" label="OpenTelemetry collector">
+
+### Point the SDK at your collector
 
 Set the following environment variables for your application:
 
@@ -88,7 +138,7 @@ export TRACELOOP_LOGGING_ENABLED=true
 * The service name shown in Logz.io comes from the SDK's `app_name` (`appName` in Node.js) initialization option. See the [Traceloop configuration options](https://www.traceloop.com/docs/openllmetry/configuration).
 
 
-## Download and configure the OpenTelemetry collector
+### Download and configure the OpenTelemetry collector
 
 Create a dedicated directory on the collector host and download the [OpenTelemetry collector contrib](https://github.com/open-telemetry/opentelemetry-collector-releases/releases) for your operating system.
 
@@ -154,7 +204,7 @@ Not every OpenLLMetry SDK emits all three signals. Check your SDK's guide and th
 
 The configuration doesn't sample traces, so every agent run is kept and run counts stay accurate.
 
-## Start the collector
+### Start the collector
 
 {@include: ../../_include/tracing-shipping/collector-run.md}
 
@@ -171,6 +221,9 @@ otel/opentelemetry-collector-contrib:<VERSION>
 * Replace `<VERSION>` with the collector version to run (see [available versions](https://hub.docker.com/r/otel/opentelemetry-collector-contrib/tags)).
 
 {@include: ../../_include/tracing-shipping/collector-run-note.md}
+
+</TabItem>
+</Tabs>
 
 ## View your data in Logz.io
 
