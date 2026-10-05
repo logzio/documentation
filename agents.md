@@ -641,3 +641,16 @@ No screenshots marked for documentation use. Assignees unchanged.
 * `OIQ-AI-service`, `gaia-hermes-ws`, `oiq-resources` — no commits.
 
 No screenshots marked for documentation use. Assignees unchanged.
+
+### 2026-10-05 — daily scan (since 2026-10-04 06:00), no doc changes
+
+* `gaia-hermes-ws` — #17159 (RoyiSitbon, ORIONIQ-1756) deletes the `app-ai` service. gaia callers move to `/orioniq-be/*` directly and the rewrite shim is removed. The customer API (`/v2/ai-agent/...`) is unchanged and `api.md` uses `<<API-URL>>`, so **no doc change now.** The PR's own checklist says the `AI/LEGACY_REDIRECT` drain and the config repoints must finish first. **Recheck the 307 redirect note in `api.md` once the deletion is deployed**, and remove it if redirects no longer occur.
+  * #17140 (APPZ-3432) and #17139 (APPZ-3434): Unified Dashboards and K8s 360. Out of OrionIQ scope.
+* `Artemis` — #412 (RoyiSitbon, ORIONIQ-1756) makes `orioniq-be` serve the legacy `/v2/incoming-webhooks/*` path used by existing Datadog and New Relic webhook URLs, and drops the `oiq-artemis-be` branching. Compatibility for existing URLs. Webhook triggers are not documented here. **No doc change.**
+  * #409 (RoyiSitbon): alerts list filter moves to the URL. UI behavior only.
+  * #404, #402 (Gavriel-M, ORIONIQ-1749, 1752): chat fade-in and thinking card fixes. Visual polish.
+  * #410 (CI smoke), #370 (tests), version PRs #417, #418, #423: internal.
+* `OIQ-AI-service` — #509 (yotamloe, ORIONIQ-1741): Agent Builder prompt now allows read grants on `ACCOUNT.md`. Prompt wording fix. **No doc change.**
+* `oiq-resources` — no commits.
+
+No screenshots marked for documentation use. Assignees unchanged (RoyiSitbon, yotamloe, Gavriel-M already assigned).
