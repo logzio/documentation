@@ -10,8 +10,7 @@ The Logz.io Public API MCP (Model Context Protocol) server allows LLM clients (C
 
 ### Prerequisites
 
-* A Logz.io API token (create in your Logz.io account settings).
-* A Metrics API token ([create via API](https://api-docs.logz.io/docs/logz/manage-api-tokens)).
+* A Logz.io API token (create in your Logz.io account settings). The same token is used for logs, metrics, dashboards, and alerts. You don't need a separate metrics API token.
 * A supported LLM client with MCP integration. Setup instructions vary per client.
 
 ## Setup
@@ -28,15 +27,13 @@ Below is a generic example configuration:
       "mcp-remote",
       "https://api.logz.io/mcp",
       "--header",
-      "X-API-TOKEN:<<YOUR-LOGZIO-API-TOKEN>>",
-      "--header",
-      "X-METRIC-API-TOKEN:<<YOUR-LOGZIO-METRIC-API-TOKEN>>"
+      "X-API-TOKEN:<<YOUR-LOGZIO-API-TOKEN>>"
     ]
   }
 }
 ```
 
-Replace `<<YOUR-LOGZIO-API-TOKEN>>` and `<<YOUR-LOGZIO-METRIC-API-TOKEN>>` with your actual tokens.
+Replace `<<YOUR-LOGZIO-API-TOKEN>>` with your actual token.
 
 The domain prefix (`api`) is region-specific. Those are the regions available:
 
@@ -56,6 +53,13 @@ After setup is complete, you can query your Logz.io data. Ask questions about yo
 ![Main dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/mcp/mcp-results.png)
 
 
+## Choosing the account to query
+
+The API token belongs to one Logz.io account, but the MCP server can query other accounts that account is allowed to read:
+
+* **Metrics**: every metrics tool requires an `account_id`, the metrics account to query. Use `get_metrics_accounts` to list the metrics accounts. A metrics account can be queried when your token's account is one of its authorized accounts.
+* **Logs**: the log search tools accept an optional `account_id` to search another account your token may search, such as a sub account. Use `get_associated_accounts` to list them. Without `account_id`, the token's own account is searched. `scroll_logs` always reads the token's own account.
+
 ## Available tools
 
 The MCP server exposes tools grouped by domain. Each tool follows the MCP request/response schema.
@@ -72,14 +76,16 @@ Tools for managing and retrieving account information:
 
 ### Metrics management 
 
-Tools for querying metrics:
+Tools for querying metrics. All of them require `account_id` (int), the metrics account to query.
 
 | Tool | Description | Parameters | API Link |
 | ---- | ----------- | ---------- | ---------- |
-| `query_prometheus_metrics` | Run a PromQL query at a single timestamp. | `query` (string, required), `time` (string, optional), `timeout` (string, optional) | [Link](https://api-docs.logz.io/docs/logz/post-instant-query/) |
-| `query_prometheus_metrics_range` | Run a PromQL query over a time range. | `query` (string, required), `start` (string, required), `end` (string, required), `step` (string, required), `timeout` (string, optional) | [Link](https://api-docs.logz.io/docs/logz/post-range-query) |
-| `get_available_metrics` | List available Prometheus metric names. | None |   |
-| `get_metric_labels` | List available labels for a metric. | `metric_name` (string, required) | [Link](https://api-docs.logz.io/docs/logz/post-series-by-labels) |
+| `query_prometheus_metrics` | Run a PromQL query at a single timestamp. | `account_id` (int, required), `query` (string, required), `time` (string, optional), `timeout` (string, optional) | [Link](https://api-docs.logz.io/docs/logz/post-instant-query-for-metrics-account) |
+| `query_prometheus_metrics_range` | Run a PromQL query over a time range. | `account_id` (int, required), `query` (string, required), `start` (string, required), `end` (string, required), `step` (string, required), `timeout` (string, optional) | [Link](https://api-docs.logz.io/docs/logz/post-range-query-for-metrics-account) |
+| `get_available_metrics` | List the metric names available in the metrics account. | `account_id` (int, required), `match` (string, optional), `start` (string, optional), `end` (string, optional), `limit` (int, optional) | [Link](https://api-docs.logz.io/docs/logz/get-label-values-for-metrics-account) |
+| `get_metric_labels` | List the label names of a metric. | `account_id` (int, required), `metric_name` (string, required), `start` (string, optional), `end` (string, optional), `limit` (int, optional) | [Link](https://api-docs.logz.io/docs/logz/get-label-names-for-metrics-account) |
+| `get_metric_series` | List the time series that match a selector, with their full label sets. | `account_id` (int, required), `match` (string, required), `start` (string, optional), `end` (string, optional), `limit` (int, optional) | [Link](https://api-docs.logz.io/docs/logz/get-series-by-labels-for-metrics-account) |
+| `get_metric_metadata` | Get the type, help text, and unit of metrics. | `account_id` (int, required), `metric_name` (string, optional), `limit` (int, optional) | [Link](https://api-docs.logz.io/docs/logz/get-metric-metadata-for-metrics-account) |
 
 ### Logs management 
 
@@ -87,13 +93,14 @@ Tools for searching, filtering, and managing logs:
 
 | Tool | Description | Parameters | API Link |
 | ---- | ----------- | ---------- | ---------- |
-| `search_logs` | Search logs with Elasticsearch DSL. | `query` (object, required), `size` (int, optional), `from` (int, optional), `sort` (array, optional) , day_offset(int 0 or positive, optional) | [Link](https://api-docs.logz.io/docs/logz/search) |
-| `scroll_logs` | Scroll through large sets of log data. | `query` (object, optional), `scroll_id` (string, optional), `size` (int, optional), `scroll` (string, optional) | [Link](https://api-docs.logz.io/docs/logz/scroll) |
-| `search_logs_simple` | Full-text search across all log fields. | `search_term` (string, required), `size` (int, optional), `from` (int, optional) | [Link](https://api-docs.logz.io/docs/logz/search) |
-| `search_logs_by_timestamp` | Search logs within a specific time range. | `start_time` (string, required), `end_time` (string, required), `search_term` (string, optional), `size` (int, optional), `from` (int, optional) | [Link](https://api-docs.logz.io/docs/logz/search) |
-| `get_log_structures` | Get the 40 most frequent log record structures. | None |   |
+| `search_logs` | Search logs with Elasticsearch DSL. | `query` (object, required), `size` (int, optional), `from` (int, optional), `sort` (array, optional), `day_offset` (int, optional), `account_id` (int, optional) | [Link](https://api-docs.logz.io/docs/logz/search) |
+| `scroll_logs` | Scroll through large sets of log data in the token's own account. | `query` (object, optional), `scroll_id` (string, optional), `size` (int, optional), `scroll` (string, optional) | [Link](https://api-docs.logz.io/docs/logz/scroll) |
+| `search_logs_simple` | Full-text search across all log fields. | `search_term` (string, required), `size` (int, optional), `from` (int, optional), `day_offset` (int, optional), `account_id` (int, optional) | [Link](https://api-docs.logz.io/docs/logz/search) |
+| `search_logs_by_timestamp` | Search logs within a specific time range. | `start_time` (string, required), `end_time` (string, required), `search_term` (string, optional), `size` (int, optional), `from` (int, optional), `day_offset` (int, optional), `account_id` (int, optional) | [Link](https://api-docs.logz.io/docs/logz/search) |
 | `get_all_log_types` | List all log types available. | None | [Link](https://api-docs.logz.io/docs/logz/get-log-types/) |
 | `retrieve_drop_filters` | Retrieve all configured drop filters. | None | [Link](https://api-docs.logz.io/docs/logz/get-all-for-account) |
+
+Log searches cover the last 2 calendar days by default. Use `day_offset` to search older data.
 
 ### Dashboards & folders
 
@@ -103,12 +110,17 @@ Tools for creating and managing dashboards and dashboard folders:
 | ---  | ----------- | ---------- | ---------- |
 | `get_all_dashboards` | List all dashboards with UIDs. | None | [Link](https://api-docs.logz.io/docs/logz/get-all-dashboards) |
 | `get_dashboard_by_id` | Retrieve a dashboard by UID. | `folder_id` (string, required), `uid` (string, required) | [Link](https://api-docs.logz.io/docs/logz/get-dashboard-by-id) |
+| `get_dashboards_by_user` | List the dashboards created by a user. | `user_id` (string, required) |  |
 | `create_dashboard` | Create a dashboard from configuration.  | `folder_id` (string, required), `dashboard_config` (object, required) | [Link](https://api-docs.logz.io/docs/logz/create-a-new-dashboard) |
 | `update_dashboard` | Update a dashboard. | `folder_id` (string, required), `uid` (string, required), `dashboard_config` (object, required) | [Link](https://api-docs.logz.io/docs/logz/update-an-existing-dashboard) |
 | `move_dashboard` | Move a dashboard to a different folder. | `uid` (string, required), `target_folder_id` (string, required) | [Link](https://api-docs.logz.io/docs/logz/move-a-dashboard-to-a-different-folder) |
 | `get_all_dashboard_folders` | List all dashboard folders. | `with_dashboards` (string, optional) | [Link](https://api-docs.logz.io/docs/logz/get-all-dashboards-folders) |
+| `get_dashboard_folder_by_name` | Retrieve a dashboard folder by name. | `name` (string, required) |  |
+| `search_dashboard_folders` | Search dashboard folders by name. | `query` (string, required), `limit` (int, optional), `page` (int, optional), `sort` (string, optional) |  |
 | `create_dashboard_folder` | Create a new dashboard folder. | `name` (string, required) | [Link](https://api-docs.logz.io/docs/logz/create-dashboards-folder) |
+| `get_all_global_data_sources` | List all global data sources. | None |  |
 | `get_dashboard_schema_example` | Retrieve an example dashboard schema. | None |  |
+| `get_datasource_schema_example` | Retrieve an example data source schema. | None |  |
 
 
 ### Alerts & insights
@@ -118,8 +130,8 @@ Tools for alerts and insights:
 | Tool | Description | Parameters | API Link |
 | ---- | ----------- | ---------- | ---------- | 
 | `get_all_alerts`       | List all configured alerts.     | None | [Link](https://api-docs.logz.io/docs/logz/get-all-alerts) |
-| `get_triggered_alerts` | List all triggered alerts.      | None | [Link](https://api-docs.logz.io/docs/logz/triggered-alerts) |
-| `get_insights`         | Get insights matching criteria. | `startDate` (int, optional), `endDate` (int, optional), `size` (int, optional, 1–100), `search` (string, optional)| [Link](https://api-docs.logz.io/docs/logz/get-public-insights) |
+| `get_triggered_alerts` | List triggered alerts.      | `from` (int, optional), `size` (int, optional), `search` (string, optional), `severities` (array, optional), `tags` (array, optional) | [Link](https://api-docs.logz.io/docs/logz/triggered-alerts) |
+| `get_insights`         | Get insights matching criteria. | `from` (int, optional), `size` (int, optional, 1–100), `asc` (boolean, optional), `search` (string, optional) | [Link](https://api-docs.logz.io/docs/logz/get-public-insights) |
 
 ## Best practices
 
