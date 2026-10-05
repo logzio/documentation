@@ -22,8 +22,7 @@ OpenLLMetry instruments your LLM application with OpenTelemetry and emits standa
 **Before you begin, you'll need**:
 
 * An LLM application (OpenAI, Anthropic, LangChain, LlamaIndex, and [more](https://www.traceloop.com/docs/openllmetry/introduction))
-* An active Logz.io account
-* A Kubernetes cluster with [Helm](https://helm.sh/), or a host with port `4318` available for the collector
+* An active Logz.io Tracing account
 
 ## Instrument your application
 
