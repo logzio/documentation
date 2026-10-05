@@ -1204,4 +1204,8 @@
 /docs/user-guide/orioniq/utilities/				/docs/user-guide/orioniq/integrations/
 /docs/user-guide/orioniq/utilities				/docs/user-guide/orioniq/integrations/
 
+# OpenLLMetry moved from Other to AI Observability
+/docs/shipping/Other/OpenLLMetry-data/				/docs/shipping/AI-Observability/OpenLLMetry-data/
+/docs/shipping/Other/OpenLLMetry-data				/docs/shipping/AI-Observability/OpenLLMetry-data/
+
 /:splat				/
