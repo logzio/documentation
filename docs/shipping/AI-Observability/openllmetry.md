@@ -4,7 +4,7 @@ title: OpenLLMetry
 overview: OpenLLMetry by Traceloop is an open source set of OpenTelemetry instrumentations for LLM applications. Use it to send traces of your LLM and vector database calls - prompts, completions, token usage and latency - to Logz.io.
 product: ['tracing','metrics','logs']
 os: ['windows', 'linux', 'mac']
-filters: ['Other']
+filters: ['AI Observability']
 logo: https://logzbucket.s3.eu-west-1.amazonaws.com/logz-docs/shipper-logos/traceloop.png
 logs_dashboards: []
 logs_alerts: []
@@ -14,13 +14,15 @@ metrics_alerts: []
 drop_filter: []
 ---
 
-OpenLLMetry instruments your LLM application with OpenTelemetry and emits standard OTLP data. To send it to Logz.io, point the Traceloop SDK at an OpenTelemetry collector and configure the collector with the Logz.io exporters.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+OpenLLMetry instruments your LLM application with OpenTelemetry and emits standard OTLP data. To send it to Logz.io, point the Traceloop SDK at a collector that ships to Logz.io: the Logz.io APM collector on Kubernetes, or an OpenTelemetry collector on any host.
 
 **Before you begin, you'll need**:
 
 * An LLM application (OpenAI, Anthropic, LangChain, LlamaIndex, and [more](https://www.traceloop.com/docs/openllmetry/introduction))
-* An active Logz.io account
-* Port `4318` available on the collector host
+* An active Logz.io Tracing account
 
 ## Instrument your application
 
@@ -34,12 +36,78 @@ Follow the Traceloop installation guide for your language:
 | Go | [Getting started with Go](https://www.traceloop.com/docs/openllmetry/getting-started-go) |
 | Ruby | [Getting started with Ruby](https://www.traceloop.com/docs/openllmetry/getting-started-ruby) |
 
-## Point the SDK at your collector
+:::note
+AI Observability currently supports **Python** and **Node.js** applications built with **LangChain** or **LangGraph**. Support for more frameworks, direct LLM SDK calls and other languages is coming soon.
+
+Use the latest SDK release. For Python, `traceloop-sdk` 0.57.0 or later is required.
+:::
+
+### Optional settings
+
+| Setting | When you need it | Guide (Python and Node.js) |
+|---|---|---|
+| Workflow | Your app calls an LLM SDK directly (for example OpenAI, Anthropic or Bedrock) instead of LangChain or LangGraph. Wrap each agent request in a workflow so it appears as a run. | [Workflow annotations](https://www.traceloop.com/docs/openllmetry/tracing/annotations) |
+| Session | You want to see the runs of one conversation together. Set the association property `thread_id` to your conversation ID. | [Association properties](https://www.traceloop.com/docs/openllmetry/tracing/association) |
+
+## Send your data to Logz.io
+
+<Tabs>
+<TabItem value="kubernetes" label="Kubernetes" default>
+
+### Deploy the Logz.io APM collector
+
+If you already run the `logzio-monitoring` chart with `logzio-apm-collector.enabled=true`, skip to the next step.
+
+```shell
+helm repo add logzio-helm https://logzio.github.io/logzio-helm && helm repo update
+
+helm install -n monitoring --create-namespace \
+--set logzio-apm-collector.enabled=true \
+--set logzio-apm-collector.SamplingProbability=100 \
+--set global.logzioTracesToken="<<TRACING-SHIPPING-TOKEN>>" \
+--set global.logzioRegion="<<LOGZIO_ACCOUNT_REGION_CODE>>" \
+--set global.env_id="<<CLUSTER-NAME>>" \
+logzio-monitoring logzio-helm/logzio-monitoring
+```
+
+{@include: ../../_include/tracing-shipping/replace-tracing-token.md}
+* Replace `<<CLUSTER-NAME>>` with a name for your cluster. It appears as the Environment of your runs.
+
+`SamplingProbability=100` keeps every trace, so every agent run appears in AI Observability.
+
+For all chart options, see [Kubernetes](https://docs.logz.io/docs/shipping/Containers/Kubernetes/).
+
+### Point your application at the collector
+
+Add the following environment variables to your application's container:
+
+```yaml
+env:
+  - name: TRACELOOP_BASE_URL
+    value: http://logzio-apm-collector.monitoring.svc.cluster.local:4318
+  - name: TRACELOOP_METRICS_ENABLED
+    value: "false"
+  # Optional: set to "false" to stop recording prompts and responses
+  - name: TRACELOOP_TRACE_CONTENT
+    value: "true"
+```
+
+* The APM collector receives traces only, so SDK metrics are turned off. AI Observability is built from traces.
+* By default, OpenLLMetry records prompts, responses, and tool inputs and outputs on the spans. These may contain personal data. Set `TRACELOOP_TRACE_CONTENT` to `"false"` to turn this off.
+
+The service name shown in Logz.io comes from the SDK's `app_name` (`appName` in Node.js) initialization option.
+
+</TabItem>
+<TabItem value="collector" label="OpenTelemetry collector">
+
+### Point the SDK at your collector
 
 Set the following environment variables for your application:
 
 ```shell
 export TRACELOOP_BASE_URL=http://<<COLLECTOR-HOST>>:4318
+# Optional: set to false to stop recording prompts and responses
+export TRACELOOP_TRACE_CONTENT=true
 ```
 
 If your SDK supports it, you can also send prompts and completions as log events:
@@ -49,10 +117,11 @@ export TRACELOOP_LOGGING_ENABLED=true
 ```
 
 * Replace `<<COLLECTOR-HOST>>` with the hostname of the OpenTelemetry collector, for example `localhost`.
+* By default, OpenLLMetry records prompts, responses, and tool inputs and outputs on the spans. These may contain personal data. Set `TRACELOOP_TRACE_CONTENT=false` to turn this off.
 * The service name shown in Logz.io comes from the SDK's `app_name` (`appName` in Node.js) initialization option. See the [Traceloop configuration options](https://www.traceloop.com/docs/openllmetry/configuration).
 
 
-## Download and configure the OpenTelemetry collector
+### Download and configure the OpenTelemetry collector
 
 Create a dedicated directory on the collector host and download the [OpenTelemetry collector contrib](https://github.com/open-telemetry/opentelemetry-collector-releases/releases) for your operating system.
 
@@ -71,25 +140,6 @@ receivers:
 
 processors:
   batch:
-  tail_sampling:
-    policies:
-      [
-        {
-          name: policy-errors,
-          type: status_code,
-          status_code: {status_codes: [ERROR]}
-        },
-        {
-          name: policy-slow,
-          type: latency,
-          latency: {threshold_ms: 1000}
-        },
-        {
-          name: policy-random-ok,
-          type: probabilistic,
-          probabilistic: {sampling_percentage: 10}
-        }
-      ]
 
 exporters:
   logzio/traces:
@@ -114,7 +164,7 @@ service:
   pipelines:
     traces:
       receivers: [otlp]
-      processors: [tail_sampling, batch]
+      processors: [batch]
       exporters: [logzio/traces]
     logs:
       receivers: [otlp]
@@ -135,11 +185,9 @@ service:
 Not every OpenLLMetry SDK emits all three signals. Check your SDK's guide and the [Traceloop configuration options](https://www.traceloop.com/docs/openllmetry/configuration) for what it exports, and remove any pipeline you don't need.
 :::
 
-### Tail sampling
+The configuration doesn't sample traces, so every agent run is kept and run counts stay accurate.
 
-{@include: ../../_include/tracing-shipping/tail-sampling.md}
-
-## Start the collector
+### Start the collector
 
 {@include: ../../_include/tracing-shipping/collector-run.md}
 
@@ -157,10 +205,14 @@ otel/opentelemetry-collector-contrib:<VERSION>
 
 {@include: ../../_include/tracing-shipping/collector-run-note.md}
 
+</TabItem>
+</Tabs>
+
 ## View your data in Logz.io
 
 Run your LLM application to generate some data, then give it time to process:
 
+* **AI Observability** shows your agent runs. Search runs, open a run to see each step, and use the **Monitoring** tab for an overview of volume, errors, latency and tokens. AI Observability is in beta; contact [Logz.io Support](mailto:help@logz.io) to enable it for your account.
 * **Traces** appear in your [Tracing](https://app.logz.io/#/dashboard/jaeger) dashboard. Each LLM call is a span, with the model, prompt, completion and token usage as span attributes.
-* **Metrics** appear in your [Metrics](https://app.logz.io/#/dashboard/metrics/) dashboard, under metric names starting with `gen_ai_`, `llm_` or `db_`.
-* **Logs** appear in [Explore](https://app.logz.io/#/dashboard/explore).
+* **Metrics** (OpenTelemetry collector setup) appear in your [Metrics](https://app.logz.io/#/dashboard/metrics/) dashboard, under metric names starting with `gen_ai_`, `llm_` or `db_`.
+* **Logs** (OpenTelemetry collector setup) appear in [Explore](https://app.logz.io/#/dashboard/explore).

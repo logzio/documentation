@@ -1,0 +1,7 @@
+{
+  "label": "AI Observability",
+  "position": 1,
+  "customProps": {
+    "description": "Send traces from your AI agents and LLM applications."
+  }
+}
