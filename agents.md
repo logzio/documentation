@@ -654,3 +654,15 @@ No screenshots marked for documentation use. Assignees unchanged.
 * `oiq-resources` — no commits.
 
 No screenshots marked for documentation use. Assignees unchanged (RoyiSitbon, yotamloe, Gavriel-M already assigned).
+
+### 2026-10-06 - daily scan (since 2026-10-05 06:00), no doc changes
+
+* `Artemis` - #388 (Gavriel-M, ORIONIQ-1730) moves public API auth to the gateway. Only API tokens are accepted on the public routes, and anything else returns `401` "Missing or invalid API token". This matches the `401` note already in `api.md`. **No doc change.**
+  * #421, #422 (galangel, ORIONIQ-1657): the server builds the run handoff, and the UI continues a run in chat from it. Internal UI and BFF flow, not a public route. No doc change.
+  * #356, #437 (RoyiSitbon, ORIONIQ-1687): the alert-triggered run names the group that tripped a group-by alert. Run input wording only. No doc change.
+  * #330 (galangel): models stop shipping the investigation strategy to clients. Internal. #408, #420, #391, #393, #352, #424, #425, #192: UI and design system polish. Version PRs: internal.
+* `OIQ-AI-service` - #480, #486 (kevkle, ORIONIQ-1628, 1671, 1581): RCA/OIHV profile internals (log catalog, incident report in the hypothesize bundle, onset ladder removal) and Bedrock pricing rows. No customer-facing route or schema. No doc change.
+* `gaia-hermes-ws` - #17085 (Gavriel-M, ORIONIQ-1661): admin AI settings write sends the consolidated `aiEnabled`. Already described in `ai-settings.md`. #17138, #17157: gateway fake and analytics event. Internal. #17149, #17150, #17161, #17162: out of OrionIQ scope.
+* `oiq-resources` - no commits.
+
+No screenshots marked for documentation use. Assignees updated to add galangel and kevkle.
