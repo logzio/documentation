@@ -95,9 +95,13 @@ Data Sources is available for every trigger type. Which scopes you have to fill 
 
 When you create an alert-linked AI analysis agent, it starts with the accounts named in the alert, and you can edit them here. If the alert queries all accounts, the agent follows the alert instead and picks up new sub-accounts. Later changes to the alert don't overwrite the accounts you saved. If you remove every account, the agent falls back to the alert's accounts.
 
+**Allow Logz.io API access** lets the agent read from your Logz.io accounts through the Logz.io public API, using a token OrionIQ provisions. It is off by default, for new agents and for templates that don't turn it on. The checkbox appears for agents that use a logs tool set and stays disabled until at least one selected Logz.io account has API Read enabled in **Integrations > Management**. If your connections fail to load, it is disabled with a note asking you to refresh. An agent without a logs data source always saves with API access off. For the scopes, see [Logz.io API access](/docs/user-guide/orioniq/integrations/#logzio-api-access).
+
 ### Integrations
 
 Connect third-party tools — Slack, Jira, Confluence, and the rest — that this agent can use as context. Only integrations your account has already connected are available here; connect new ones from the [Integrations](/docs/user-guide/orioniq/integrations/) page.
+
+An integration you add to an agent must be connected before you can save. If its connection needs reauthentication or has expired, the save is blocked until you reconnect it or remove it. An integration that is only unreachable shows a warning and doesn't block the save. Integrations the agent already had never block it. **Select all** adds every available integration to your current selection instead of replacing it.
 
 ### Notification recipients
 

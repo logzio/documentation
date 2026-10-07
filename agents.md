@@ -666,3 +666,14 @@ No screenshots marked for documentation use. Assignees unchanged (RoyiSitbon, yo
 * `oiq-resources` - no commits.
 
 No screenshots marked for documentation use. Assignees updated to add galangel and kevkle.
+
+### 2026-10-07 - daily scan (since 2026-10-06 06:09), doc changes made
+
+* `Artemis` - #335 (ralongit): **Allow Logz.io API access** now defaults to off for new agents and templates, is saved only when the checkbox was offered, and shows a notice when connections fail to load. A template's `spec.enableInternalIntegrations` reaches the agent form. Added to `create-agent.md` Data Sources. The checkbox was not documented before.
+  * #411 (Gavriel-M, ORIONIQ-1759): an integration added in the current edit must be connected before the agent saves. `unreachable` only warns, saved references never block, and Select all appends. Added to `create-agent.md` Integrations. The server does not enforce this yet (ORIONIQ-1762).
+  * #442 (RoyiSitbon, ORIONIQ-1687): group-by alert samples left out of the run message. Run input wording. No doc change.
+  * #413 (ralongit, ORIONIQ-1763): markdown links open in a new tab, empty runbook no longer shows "null". Polish. #450, #444, #415, #414, #405, #419, #434 and version PR #441: UI polish and tests. No doc change.
+* `gaia-hermes-ws` - #17171 (Gavriel-M, ORIONIQ-1750): Open 360 drawer adopts the living mark. Visual only. Other commits (APPZ-3486, 3435, 3464, 3452, 3437) are out of OrionIQ scope.
+* `OIQ-AI-service`, `oiq-resources` - no commits.
+
+No screenshots marked for documentation use. Assignees unchanged.
