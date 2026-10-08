@@ -677,3 +677,14 @@ No screenshots marked for documentation use. Assignees updated to add galangel a
 * `OIQ-AI-service`, `oiq-resources` - no commits.
 
 No screenshots marked for documentation use. Assignees unchanged.
+
+### 2026-10-08 - daily scan (since 2026-10-07 06:09), no doc changes
+
+* `Artemis` - #451, #453 (RoyiSitbon, ORIONIQ-1782): `orioniq-be` serves a Swagger UI for every endpoint, and Swagger calls public routes with `X-API-TOKEN`. Developer tooling on the service, no route or schema change. No doc change. Recheck `api.md` if the Swagger UI is announced to customers.
+  * #447, #448 (galangel, ORIONIQ-1776): welcome survey served as typed questions from the memory feature and rendered by question type. Not covered in `memory.md` today. No doc change until the survey is described as a customer feature.
+  * #446 (Gavriel-M, ORIONIQ-1753): live thinking card starts collapsed. #455 (galangel, ORIONIQ-1791): RCA finding prefixes shown as chips. UI polish. No doc change.
+* `OIQ-AI-service` - #514 (yotamloe, ORIONIQ-1772): `agentDocs` can grant `lessons` (contract 3.12.0, additive, App-AI facing) and Agent Builder keeps the grant across edit turns. Internal contract. #519 (kevkle, ORIONIQ-1785): runtime agents move to Sonnet 5.5. Model internals. No doc change.
+* `oiq-resources` - #113 (Gavriel-M, ORIONIQ-1786): `spec.knowledgeBase.accountDocs.files` is now configurable on every active marketplace template, so account docs a user attaches are kept on save. Account docs are not documented in `create-agent.md` or `marketplace.md`. No doc change until the feature is described there.
+* `gaia-hermes-ws` - APPZ-3375, 3313, 3457, 3397, 3472: consumption, load performance, internal dashboards and AI Observability. Out of OrionIQ scope.
+
+No unresolved reviewer comments on the PR. No screenshots marked for documentation use. Assignees unchanged.
