@@ -110,16 +110,16 @@ Tools for creating and managing dashboards and dashboard folders:
 | ---  | ----------- | ---------- | ---------- |
 | `get_all_dashboards` | List all dashboards with UIDs. | None | [Link](https://api-docs.logz.io/docs/logz/get-all-dashboards) |
 | `get_dashboard_by_id` | Retrieve a dashboard by UID. | `folder_id` (string, required), `uid` (string, required) | [Link](https://api-docs.logz.io/docs/logz/get-dashboard-by-id) |
-| `get_dashboards_by_user` | List the dashboards created by a user. | `user_id` (string, required) |  |
-| `create_dashboard` | Create a dashboard from configuration.  | `folder_id` (string, required), `dashboard_config` (object, required) | [Link](https://api-docs.logz.io/docs/logz/create-a-new-dashboard) |
+| `get_dashboard_creators` | List the account users who created dashboards, with their IDs and full names. Use an ID as the `created_by` of `search_dashboards`. | None |  |
+| `create_dashboard` | Create a dashboard from configuration. `get_dashboard_schema_example` returns a configuration you can start from. | `folder_id` (string, required), `dashboard_config` (object, required) | [Link](https://api-docs.logz.io/docs/logz/create-a-new-dashboard) |
 | `update_dashboard` | Update a dashboard. | `folder_id` (string, required), `uid` (string, required), `dashboard_config` (object, required) | [Link](https://api-docs.logz.io/docs/logz/update-an-existing-dashboard) |
-| `move_dashboard` | Move a dashboard to a different folder. | `uid` (string, required), `target_folder_id` (string, required) | [Link](https://api-docs.logz.io/docs/logz/move-a-dashboard-to-a-different-folder) |
+| `move_dashboard` | Move a dashboard to a different folder. | `uid` (string, required), `folder_id` (string, required), `target_folder_id` (string, required) | [Link](https://api-docs.logz.io/docs/logz/move-a-dashboard-to-a-different-folder) |
 | `get_all_dashboard_folders` | List all dashboard folders. | `with_dashboards` (string, optional) | [Link](https://api-docs.logz.io/docs/logz/get-all-dashboards-folders) |
-| `get_dashboard_folder_by_name` | Retrieve a dashboard folder by name. | `name` (string, required) |  |
-| `search_dashboard_folders` | Search dashboard folders by name. | `query` (string, required), `limit` (int, optional), `page` (int, optional), `sort` (string, optional) |  |
+| `get_dashboard_folder_by_name` | Retrieve a dashboard folder by its display name. The folder ID it returns is the `folder_id` other tools take. | `name` (string, required) |  |
+| `search_dashboards` | Search dashboards by title, by creator, or both. Returns each match with its UID and folder. | `query` (string, optional), `created_by` (int, optional), `limit` (int, optional), `page` (int, optional) |  |
 | `create_dashboard_folder` | Create a new dashboard folder. | `name` (string, required) | [Link](https://api-docs.logz.io/docs/logz/create-dashboards-folder) |
 | `get_all_global_data_sources` | List all global data sources. | None |  |
-| `get_dashboard_schema_example` | Retrieve an example dashboard schema. | None |  |
+| `get_dashboard_schema_example` | Retrieve an example dashboard configuration for `create_dashboard`, with one log-count panel. Replace its placeholder account ID with your log account ID. | None |  |
 | `get_datasource_schema_example` | Retrieve an example data source schema. | None |  |
 
 
