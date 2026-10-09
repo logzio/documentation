@@ -27,9 +27,32 @@ Agent templates are organized into the following categories:
 
 Use the search bar at the top of the page to find specific agent templates, or click a category tab to filter the list.
 
-## Install an agent template
+## Activate an agent template
 
-To install an agent template, find the template you want and click **Install**. The agent is added to your [Agents Hub](/docs/user-guide/orioniq/agents-hub/) where you can configure its trigger, notification recipients, and other settings before activating it.
+To activate an agent template, click **View details** on its card, then click **Activate**. The preview turns into a short setup dialog, and the agent is created switched on.
+
+The template decides which sections the dialog shows. A section appears only when the template lets you change it. Anything hidden keeps the template's value.
+
+| Section | What you set |
+|---|---|
+| **Trigger** | The trigger type and, for a scheduled agent, the schedule. |
+| **Runbook** | The instructions for agents triggered by an API call, an alert, or a deployment. A scheduled agent shows its context message and run frequency instead. |
+| **Output detail** | **Summary** by default, unless the template sets a level. |
+| **Data sources** | The accounts the agent reads from. For an agent that reads logs, the account you are on is selected by default. |
+| **Integrations** | The integrations the agent can use. |
+| **Notification recipients** | Who gets notified of the agent's results. |
+
+Data sources, Integrations, and Notification recipients appear as one-line summaries that expand in place. If something required is missing, such as a data source or a reconnected integration, the row opens so you can fix it.
+
+Learning is off for agents activated from the Marketplace, because it is billed separately. You can turn it on later in the agent's **Agent details** form. See [Learning](/docs/user-guide/orioniq/create-agent/).
+
+Click **All settings** to move your draft into the full agent form in the side panel, with everything you entered so far. Click **Show details** or **Hide details** to switch between the template description and the setup form.
+
+If you close the dialog after changing the setup, OrionIQ asks before it discards your changes.
+
+After you click **Activate agent**, a confirmation shows how the agent runs. Click **Open in Agents Hub** to see the new agent in the [Agents Hub](/docs/user-guide/orioniq/agents-hub/), filtered to the template's agent type.
+
+You can activate a template more than once. Once agents exist for a template, its card and preview show the number of active agents. Click it to open the Agents Hub filtered to those agents. To switch an agent off, use the Agents Hub.
 
 If a template you're interested in is not yet available, click **Add to Wish List** to signal your interest. This helps Logz.io prioritize which templates to build next.
 

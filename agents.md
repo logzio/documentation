@@ -688,3 +688,16 @@ No screenshots marked for documentation use. Assignees unchanged.
 * `gaia-hermes-ws` - APPZ-3375, 3313, 3457, 3397, 3472: consumption, load performance, internal dashboards and AI Observability. Out of OrionIQ scope.
 
 No unresolved reviewer comments on the PR. No screenshots marked for documentation use. Assignees unchanged.
+
+### 2026-10-09 - daily scan (since 2026-10-08 06:09), doc changes made
+
+* `Artemis` - #416 (Gavriel-M, ORIONIQ-1419): Marketplace agents are activated from a setup dialog in the template preview, replacing the chat builder path. The agent is created switched on with learning off, the card and preview show an active agent count linking to the Agents Hub, and `orioniq-be` skips free-trial enrollment for agents created off. Rewrote the install section of `marketplace.md` as **Activate an agent template**. The old text still said **Install**, which no longer exists. Source of wording: `Marketplace/constants.ts` (`ACTIVATION_MESSAGES`).
+  * #457 (Gavriel-M, ORIONIQ-1796): **Open in Agents Hub** after activation filters the hub by the agent type. Covered in the same section.
+  * #462 (ralongit, ORIONIQ-1798): saving an RCA system agent now keeps nested configurable paths such as the account docs file. Account docs are still not documented. No doc change.
+  * Version PRs #459, #445 and vendor refresh #443: internal.
+* `gaia-hermes-ws` - ORIONIQ-1794 (Gavriel-M): analytics event registration. Internal. #17182, #17164, #17172, #17178: out of OrionIQ scope.
+* `OIQ-AI-service`, `oiq-resources` - no commits.
+
+Open question for the owner: `marketplace.md` still says **+ Create New Agent**, while the vocabulary table says **Build an Agent**. Not changed, since the Marketplace page copy was not verified this run.
+
+No unresolved reviewer comments on the PR. No screenshots marked for documentation use. Assignees unchanged.
