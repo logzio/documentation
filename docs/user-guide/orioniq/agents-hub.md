@@ -132,7 +132,7 @@ Once a run finishes, a **Was this useful?** rating sits in the panel's footer, v
 
 Clicking a thumb registers immediately and opens a note composer. Add a free-text note explaining the rating — a rating alone doesn't teach the agent anything, only a written note does — or click **Skip** to leave just the rating. You can return to a rated run at any time to add, view, or edit its note.
 
-Feedback helps improve AI performance over time and gives you a way to track agent reliability.
+Feedback helps improve AI performance over time and gives you a way to track agent reliability. A note that teaches the agent something becomes a lesson, applied to that agent's future runs — see [Learning](/docs/user-guide/orioniq/create-agent/#learning) in the agent's configuration for the on/off toggle and how lessons are billed.
 
 You can monitor feedback scores and coverage across all your agents from the [Usage & Performance Dashboard](/docs/user-guide/orioniq/usage-performance/), and submit or read feedback programmatically with the [OrionIQ API](/docs/user-guide/orioniq/api/).
 
