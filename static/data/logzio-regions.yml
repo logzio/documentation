@@ -1,0 +1,105 @@
+# This file is an array of Logz.io regions
+# Each entry has these properties:
+#   title: Human readable title, determined by the cloud provider
+#     AWS: https://aws.amazon.com/about-aws/global-infrastructure/regions_az/?p=ngi&loc=2
+#   cloud: `AWS`
+#   suffix: The two-letter region code that we append to the app, listener, and api urls. No suffix for US East.
+#   listener-ips: Array of IP addresses. Any changes to IP addresses must be reviewed and approved by DevOps.
+
+- title: US East (Northern Virginia)
+  cloud: AWS
+  listener-ips:
+    - 23.22.183.192
+    - 34.196.246.79
+    - 34.198.121.5
+    - 34.198.165.82
+    - 34.198.180.160
+    - 34.198.249.114
+    - 34.198.80.79
+    - 34.199.22.38
+    - 34.199.36.125
+    - 34.203.20.169
+    - 52.20.49.54
+    - 52.21.71.179
+    - 52.70.60.216
+    - 52.87.10.17
+    - 52.87.4.83
+    - 54.210.40.1
+    - 54.82.127.215
+    - 3.214.18.103
+    - 107.22.168.224
+    - 50.16.72.19
+    - 34.236.219.188
+    - 44.209.43.33
+    - 34.238.54.86
+    - 3.81.182.79
+    - 3.210.42.33
+    - 3.221.190.247
+    - 3.224.120.154
+    - 3.226.120.231
+    - 18.207.40.14
+    - 18.208.10.80
+    - 34.205.169.251
+    - 34.205.187.188
+    - 34.235.27.234
+    - 35.168.125.235
+    - 35.169.215.236
+    - 35.171.66.196
+    - 44.214.85.172
+    - 44.215.166.248
+    - 52.206.224.241
+    - 52.4.223.231
+    - 52.4.247.229
+    - 52.54.46.197
+    - 52.7.61.36
+    - 52.73.134.130
+    - 54.157.167.140
+    - 54.161.14.64
+    - 54.208.68.202
+
+- suffix: au
+  title: Asia Pacific (Sydney)
+  cloud: AWS
+  listener-ips:
+    - 3.105.145.247
+    - 13.237.162.172
+    - 54.79.44.34
+    - 52.64.121.114
+    - 13.210.77.135
+    - 13.54.20.120
+    - 3.104.255.132
+    - 54.206.91.46
+- suffix: ca
+  title: Canada (Central)
+  cloud: AWS
+  listener-ips:
+    - 99.79.1.61
+    - 99.79.120.32
+    - 35.183.215.94
+    - 99.79.19.140
+    - 35.182.102.133
+    - 52.60.247.110
+    - 99.79.113.22
+    - 52.60.89.173
+- suffix: eu
+  title: Europe (Frankfurt)
+  cloud: AWS
+  listener-ips:
+    - 35.157.100.82
+    - 35.157.104.194
+    - 35.157.126.82
+    - 35.157.19.97
+    - 35.157.71.116
+    - 52.28.67.139
+    - 52.57.102.144
+    - 52.57.139.219
+    - 52.57.23.254
+    - 52.57.24.166
+- suffix: uk
+  title: Europe (London)
+  cloud: AWS
+  listener-ips:
+    - 3.11.223.182
+    - 3.9.200.96
+    - 35.178.96.162
+    - 35.179.57.204
