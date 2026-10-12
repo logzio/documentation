@@ -701,3 +701,13 @@ No unresolved reviewer comments on the PR. No screenshots marked for documentati
 Open question for the owner: `marketplace.md` still says **+ Create New Agent**, while the vocabulary table says **Build an Agent**. Not changed, since the Marketplace page copy was not verified this run.
 
 No unresolved reviewer comments on the PR. No screenshots marked for documentation use. Assignees unchanged.
+
+### 2026-10-12 - daily scan (since 2026-10-11 06:09), no doc changes
+
+* `Artemis` - #460, #461 (Gavriel-M, ORIONIQ-1794): a **Keep running after the free runs** checkbox on marketplace agents, so an agent moves from its free trial to paid instead of switching off. Gated by the `oiqMarketplaceFreeTrial` flag and visible only to users who can see pricing. The free-trial feature is not documented anywhere in `docs/user-guide/orioniq/`, so there is nothing to extend. Add it with the free-trial feature when that is described.
+  * #466 (Gavriel-M, ORIONIQ-1809): the Agents Hub opens every agent on its **Agent details** form instead of the chat builder. `agents-hub.md` says "open the agent's details" and "configuration", which already matches. No doc change.
+  * #458 (Gavriel-M, ORIONIQ-1795): a partial agent update keeps the marketplace agent's spec. Bug fix. #467: page-header layout fix.
+* `gaia-hermes-ws` - #17195, #17185, #17192: finance console, SIEM Lucene editor, date picker colors. Out of OrionIQ scope.
+* `OIQ-AI-service`, `oiq-resources` - no commits.
+
+No unresolved reviewer comments on the PR. No screenshots marked for documentation use. Assignees unchanged.
