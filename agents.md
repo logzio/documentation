@@ -711,3 +711,13 @@ No unresolved reviewer comments on the PR. No screenshots marked for documentati
 * `OIQ-AI-service`, `oiq-resources` - no commits.
 
 No unresolved reviewer comments on the PR. No screenshots marked for documentation use. Assignees unchanged.
+
+### 2026-10-14 - daily scan (since 2026-10-13 06:09), doc changes made
+
+* `Artemis` - #476 (Gavriel-M, ORIONIQ-1823): the `oiq-marketplace-free-trial` flag is removed, so the free trial is on for every account. Closes the open item from 2026-10-12. Added a **Free trial** section to `marketplace.md`. Source of wording: `AgentCommon/constants.ts` (`FREE_TRIAL_MESSAGES`) and `free-trial.util.ts`. The free run count and per-run price are template and Consul data, so the section does not quote them.
+  * #438 (yotamloe, ORIONIQ-1433, ORIONIQ-1772): agent memory, with a Memory **Agent docs** tab and a "Remember between runs" toggle in the agent editor. Not documented. Real memory still needs the per-account `oiq-agent-docs` flag and ai-service 3.12.0 in the region, so it is a staged rollout. Revisit when the flag is removed. `memory.md` stays accurate for account and user documents.
+  * #473 and #475 (Gavriel-M, ORIONIQ-1811): `GET /orioniq-be/integrations/connection-options` and an `agentConfig` body on `PUT /agents/alert/:alertId/rca`. Session routes for the Open 360 alert form. No gaia UI has merged yet, so nothing is customer-visible. Not part of the public `/v2` API, so `api.md` is unchanged. Revisit when the alert form change lands in `gaia-hermes-ws`.
+  * #464, #465 (galangel, ORIONIQ-1793): chat turn context as `turnContext` data. Internal. #478 and its revert #485: filter chip focus, net zero. #481, #479, #480, #482, #463: vendor and release chores.
+* `OIQ-AI-service` - #520 (augment770-dev, ORIONIQ-1799): one default date and time format in answers. Prompt behavior, no route or schema change. #523: ECR image build workflow. No doc change.
+* `gaia-hermes-ws` - #17196 and #17179 (Unified Dashboards, APPZ-3423 and APPZ-1937), #17191 (fake gateway for local dev). Out of OrionIQ scope.
+* `oiq-resources` - no commits.
