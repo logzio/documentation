@@ -721,3 +721,15 @@ No unresolved reviewer comments on the PR. No screenshots marked for documentati
 * `OIQ-AI-service` - #520 (augment770-dev, ORIONIQ-1799): one default date and time format in answers. Prompt behavior, no route or schema change. #523: ECR image build workflow. No doc change.
 * `gaia-hermes-ws` - #17196 and #17179 (Unified Dashboards, APPZ-3423 and APPZ-1937), #17191 (fake gateway for local dev). Out of OrionIQ scope.
 * `oiq-resources` - no commits.
+
+### 2026-10-15 - daily scan (since 2026-10-14), doc changes made
+
+* `Artemis` - #369 (Gavriel-M, ORIONIQ-1683): new public `POST /v1/orioniq-be/agents/search`, gateway-authenticated with an API token, scoped to the token's own account, `pageSize` capped at 50. It is the first route of the **v1 public URL convention** (`/v1/orioniq-be/<collection>[/:id][/<action>]`); the 12 existing `/v2` endpoints are frozen. Added **List agents** to `api.md`. Source of the field list: the PR body and `public.routes.ts`. Known gap in the endpoint: security-rule agents also show "Logz.io Alert" in `displayName`.
+  * #474, #488, #489 (RoyiSitbon): the structured RCA answer renders as a report in the invocation drawer, with stats, a pie chart and named investigators on the Analysis tab. Not documented: no verified copy for the report, and `agents-hub.md` describes the Output tab only in general terms. Revisit with the RCA v2 flag rollout.
+  * #487, #486: filter chip focus fix, RUM listener leak. Internal.
+* `gaia-hermes-ws` - #17199, #17200 (Gavriel-M, ORIONIQ-1811): the alert and SIEM rule AI Analysis step gets a **Configure your agent** dialog (instructions, output detail, recipients) saved with the alert or rule. It retires the **Configure agent after saving** checkbox, and the hub link is now **Manage in Agents Hub**. Updated the three pages that described the old checkbox: both `configure-alerts-explore.md` twins and `manage-security-rules.md`. The dialog is behind the RCA v2 flag per the PR test plan, and the PR has no screenshots.
+  * #17207 (typed swagger, TypeScript bump), #17203 (Span Explorer), #17204 (Unified Dashboards legend): out of OrionIQ scope.
+* `OIQ-AI-service` - #528, #522 (kevkle): RCA OIHV loop and deepagent telemetry domain. Internal runtime, no public route or schema change.
+* `oiq-resources` - no commits.
+
+Existing PR #975 had no unresolved reviewer comments. No screenshots marked for documentation use. Assignees extended with the authors of the triggering commits.

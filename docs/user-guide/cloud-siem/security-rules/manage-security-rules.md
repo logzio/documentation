@@ -176,7 +176,9 @@ Every run is stored in the agent's invocation history, where you can read the fu
 
 #### Configure the agent
 
-Turning the toggle on creates an OrionIQ agent for the rule, and you can update it at any time. Select **Configure agent after saving** to open it right after you save, or manage it later from the Agents Hub — the rule form links to it with **Manage in Agent Hub**.
+Turning the toggle on creates an OrionIQ agent for the rule when you save it. Select **Configure your agent** to set the agent's instructions, output detail (Summary or Detailed), and recipients. **Apply** adds your changes to the rule form, and they are saved with the rule. Turning the toggle off and saving removes the agent and its settings. The button is disabled on protected rules and for read-only users.
+
+For full agent configuration, use **Manage in Agents Hub**, which opens the agent in the Agents Hub.
 
 The agent is editable like any other, so beyond the settings above you can:
 
