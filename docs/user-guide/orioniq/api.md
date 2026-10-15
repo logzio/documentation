@@ -2,13 +2,13 @@
 sidebar_position: 9
 title: OrionIQ API
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: Trigger OrionIQ agents, poll for results, send follow-ups, and submit feedback using the OrionIQ API.
-keywords: [OrionIQ, API, agents, trigger agent, agent run, feedback, api token, automation]
+description: List agents, trigger OrionIQ agents, poll for results, send follow-ups, and submit feedback using the OrionIQ API.
+keywords: [OrionIQ, API, agents, list agents, agent ID, trigger agent, agent run, feedback, api token, automation]
 ---
 
 Agents configured with the **API** trigger run on demand when you call the OrionIQ API. Use it to start a run from a CI pipeline, an incident workflow, or any external system, then poll for the result.
 
-To get an agent's ID and a ready-to-copy request for each endpoint, open the agent's actions menu in the [Agents Hub](/docs/user-guide/orioniq/agents-hub/) and select **API References**.
+To get an agent's ID and a ready-to-copy request for each endpoint, open the agent's actions menu in the [Agents Hub](/docs/user-guide/orioniq/agents-hub/) and select **API References**. To look agents up with the API instead, use [List agents](#list-agents).
 
 ## Authentication
 
@@ -33,6 +33,78 @@ If AI features are disabled for the account, [Run an agent](#run-an-agent) and [
 :::note
 If the account has reached its configured AI usage cap, [Run an agent](#run-an-agent) and [Send a follow-up](#send-a-follow-up) return `429` (`errorCode: "CAP_EXCEEDED"`). See [OrionIQ Settings → Capping](/docs/user-guide/orioniq/settings/#capping) for usage and budget limits.
 :::
+
+## List agents
+
+```
+POST /v1/orioniq-be/agents/search
+```
+
+Returns the agents in the token's account, so you can find an agent ID without opening the Agents Hub. Sub-account agents are not included. Listing starts no AI work, so it also works when AI features are disabled.
+
+### Sample request
+
+```shell
+curl -X POST -L \
+  https://<<API-URL>>/v1/orioniq-be/agents/search \
+  -H 'Content-Type: application/json' \
+  -H 'X-API-TOKEN: <<API-TOKEN>>' \
+  -d '{
+    "filter": {
+      "searchTerm": "checkout",
+      "active": true
+    },
+    "pagination": {
+      "pageNumber": 1,
+      "pageSize": 20
+    }
+  }'
+```
+
+All fields are optional. A filter value the API cannot use is ignored.
+
+| Field | Description |
+|---|---|
+| `filter.searchTerm` | Returns agents whose title contains this text. |
+| `filter.type` | Filters by agent type. |
+| `filter.trigger` | Filters by trigger. An unknown value returns no results. |
+| `filter.active` | `true` for enabled agents, `false` for disabled ones. |
+| `filter.createdBy` | Filters by creator. |
+| `pagination.pageNumber` | The page to return. |
+| `pagination.pageSize` | Results per page. Defaults to 50 and is capped at 50. |
+
+Results are ordered by creation time, newest first.
+
+### Response
+
+```json
+{
+  "total": 1,
+  "results": [
+    {
+      "id": "<agent-id>",
+      "name": "<agent-name>",
+      "displayName": "Checkout Latency Review",
+      "description": "Reviews latency on the checkout service.",
+      "type": "<agent-type>",
+      "trigger": "<trigger>",
+      "active": true,
+      "isSystemAgent": false,
+      "createdAt": "2026-10-01T08:00:00Z",
+      "updatedAt": "2026-10-10T09:30:00Z",
+      "lastRun": "2026-10-14T06:00:00Z"
+    }
+  ],
+  "pagination": {
+    "pageNumber": 1,
+    "pageSize": 20
+  }
+}
+```
+
+`total` is the number of matching agents across all pages. A page past the end returns an empty `results` list. Use `displayName` as the agent's title. Each `id` works as `<<AGENT-ID>>` in the other endpoints.
+
+A request authenticated with a session or share token instead of an API token returns `401`.
 
 ## Run an agent
 
