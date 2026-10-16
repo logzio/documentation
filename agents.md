@@ -711,3 +711,35 @@ No unresolved reviewer comments on the PR. No screenshots marked for documentati
 * `OIQ-AI-service`, `oiq-resources` - no commits.
 
 No unresolved reviewer comments on the PR. No screenshots marked for documentation use. Assignees unchanged.
+
+### 2026-10-14 - daily scan (since 2026-10-13 06:09), doc changes made
+
+* `Artemis` - #476 (Gavriel-M, ORIONIQ-1823): the `oiq-marketplace-free-trial` flag is removed, so the free trial is on for every account. Closes the open item from 2026-10-12. Added a **Free trial** section to `marketplace.md`. Source of wording: `AgentCommon/constants.ts` (`FREE_TRIAL_MESSAGES`) and `free-trial.util.ts`. The free run count and per-run price are template and Consul data, so the section does not quote them.
+  * #438 (yotamloe, ORIONIQ-1433, ORIONIQ-1772): agent memory, with a Memory **Agent docs** tab and a "Remember between runs" toggle in the agent editor. Not documented. Real memory still needs the per-account `oiq-agent-docs` flag and ai-service 3.12.0 in the region, so it is a staged rollout. Revisit when the flag is removed. `memory.md` stays accurate for account and user documents.
+  * #473 and #475 (Gavriel-M, ORIONIQ-1811): `GET /orioniq-be/integrations/connection-options` and an `agentConfig` body on `PUT /agents/alert/:alertId/rca`. Session routes for the Open 360 alert form. No gaia UI has merged yet, so nothing is customer-visible. Not part of the public `/v2` API, so `api.md` is unchanged. Revisit when the alert form change lands in `gaia-hermes-ws`.
+  * #464, #465 (galangel, ORIONIQ-1793): chat turn context as `turnContext` data. Internal. #478 and its revert #485: filter chip focus, net zero. #481, #479, #480, #482, #463: vendor and release chores.
+* `OIQ-AI-service` - #520 (augment770-dev, ORIONIQ-1799): one default date and time format in answers. Prompt behavior, no route or schema change. #523: ECR image build workflow. No doc change.
+* `gaia-hermes-ws` - #17196 and #17179 (Unified Dashboards, APPZ-3423 and APPZ-1937), #17191 (fake gateway for local dev). Out of OrionIQ scope.
+* `oiq-resources` - no commits.
+
+### 2026-10-15 - daily scan (since 2026-10-14), doc changes made
+
+* `Artemis` - #369 (Gavriel-M, ORIONIQ-1683): new public `POST /v1/orioniq-be/agents/search`, gateway-authenticated with an API token, scoped to the token's own account, `pageSize` capped at 50. It is the first route of the **v1 public URL convention** (`/v1/orioniq-be/<collection>[/:id][/<action>]`); the 12 existing `/v2` endpoints are frozen. Added **List agents** to `api.md`. Source of the field list: the PR body and `public.routes.ts`. Known gap in the endpoint: security-rule agents also show "Logz.io Alert" in `displayName`.
+  * #474, #488, #489 (RoyiSitbon): the structured RCA answer renders as a report in the invocation drawer, with stats, a pie chart and named investigators on the Analysis tab. Not documented: no verified copy for the report, and `agents-hub.md` describes the Output tab only in general terms. Revisit with the RCA v2 flag rollout.
+  * #487, #486: filter chip focus fix, RUM listener leak. Internal.
+* `gaia-hermes-ws` - #17199, #17200 (Gavriel-M, ORIONIQ-1811): the alert and SIEM rule AI Analysis step gets a **Configure your agent** dialog (instructions, output detail, recipients) saved with the alert or rule. It retires the **Configure agent after saving** checkbox, and the hub link is now **Manage in Agents Hub**. Updated the three pages that described the old checkbox: both `configure-alerts-explore.md` twins and `manage-security-rules.md`. The dialog is behind the RCA v2 flag per the PR test plan, and the PR has no screenshots.
+  * #17207 (typed swagger, TypeScript bump), #17203 (Span Explorer), #17204 (Unified Dashboards legend): out of OrionIQ scope.
+* `OIQ-AI-service` - #528, #522 (kevkle): RCA OIHV loop and deepagent telemetry domain. Internal runtime, no public route or schema change.
+* `oiq-resources` - no commits.
+
+Existing PR #975 had no unresolved reviewer comments. No screenshots marked for documentation use. Assignees extended with the authors of the triggering commits.
+
+### 2026-10-16 - daily scan (since 2026-10-15 06:00), doc changes made
+
+* `Artemis` - #501 (Gavriel-M, ORIONIQ-1683): `POST /v1/orioniq-be/agents/search` now honors `sort` (first entry only; fields `name`, `type`, `active`, `createdAt`, `updatedAt`, `lastRun`; bad entry falls back to `createdAt` desc). Added the `sort` rows and example to **List agents** in `api.md`. Source: `agent-search-filters.ts` and the swagger constants.
+  * #492 (yotamloe, ORIONIQ-1841): agent builder takes its account from the session. Internal fix. #493 (RoyiSitbon): RCA report moved into `orion-chat`, still no verified copy. #498, #483: version packages.
+* `gaia-hermes-ws` - #17217 (RoyiSitbon, ORIONIQ-1833): Open 360 drawer renders the RCA report and the onboarding survey is served by orioniq-be (`/orioniq-be/user-docs/survey`, session route). #17202, #17205, #17206, #17216 (Gavriel-M, ORIONIQ-1811, ORIONIQ-1830, ORIONIQ-1621): integrations picker and form-agnostic RCA agent setup modal, analytics events. Same RCA v2 flag as #17199 and #17200, no screenshots, not documented yet. #17211, #17212, #17214 (APPZ-3491): Swagger for other services, out of scope.
+* `OIQ-AI-service` - #525, #521 (galangel): CI image tags and dev-namespace overrides. Internal.
+* `oiq-resources` - #115 (Gavriel-M, ORIONIQ-1621): agent memory made configurable in marketplace templates. Still behind the `oiq-agent-docs` flag, not documented. Revisit when the flag is removed.
+
+Existing PR #975 had no unresolved reviewer comments. Appended to its branch. Gavriel-M, RoyiSitbon and galangel are the authors of triggering commits; vicmiletsky's commits were out of scope.

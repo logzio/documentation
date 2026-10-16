@@ -54,6 +54,14 @@ After you click **Activate agent**, a confirmation shows how the agent runs. Cli
 
 You can activate a template more than once. Once agents exist for a template, its card and preview show the number of active agents. Click it to open the Agents Hub filtered to those agents. To switch an agent off, use the Agents Hub.
 
+## Free trial
+
+Every agent you activate from the Marketplace starts with a free trial. The template card, the preview, the activation dialog, and the confirmation after you activate all show how many free runs the agent has.
+
+When the free runs are used, the agent switches off automatically and nothing is charged. In the [Agents Hub](/docs/user-guide/orioniq/agents-hub/), the **Cost** column shows the runs left, and an agent whose trial is over is marked **Trial ended**. Nothing runs or is charged until you turn it back on, and turning it on again asks you to confirm that each run is billed.
+
+If you can see pricing, the activation dialog and the agent form also offer **Keep running after the free runs**. Select it to let the agent keep running, billed per run, once the trial ends.
+
 If a template you're interested in is not yet available, click **Add to Wish List** to signal your interest. This helps Logz.io prioritize which templates to build next.
 
 You can also click **+ Create New Agent** in the top right corner to build a custom agent from scratch.
