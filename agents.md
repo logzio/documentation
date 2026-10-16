@@ -733,3 +733,13 @@ No unresolved reviewer comments on the PR. No screenshots marked for documentati
 * `oiq-resources` - no commits.
 
 Existing PR #975 had no unresolved reviewer comments. No screenshots marked for documentation use. Assignees extended with the authors of the triggering commits.
+
+### 2026-10-16 - daily scan (since 2026-10-15 06:00), doc changes made
+
+* `Artemis` - #501 (Gavriel-M, ORIONIQ-1683): `POST /v1/orioniq-be/agents/search` now honors `sort` (first entry only; fields `name`, `type`, `active`, `createdAt`, `updatedAt`, `lastRun`; bad entry falls back to `createdAt` desc). Added the `sort` rows and example to **List agents** in `api.md`. Source: `agent-search-filters.ts` and the swagger constants.
+  * #492 (yotamloe, ORIONIQ-1841): agent builder takes its account from the session. Internal fix. #493 (RoyiSitbon): RCA report moved into `orion-chat`, still no verified copy. #498, #483: version packages.
+* `gaia-hermes-ws` - #17217 (RoyiSitbon, ORIONIQ-1833): Open 360 drawer renders the RCA report and the onboarding survey is served by orioniq-be (`/orioniq-be/user-docs/survey`, session route). #17202, #17205, #17206, #17216 (Gavriel-M, ORIONIQ-1811, ORIONIQ-1830, ORIONIQ-1621): integrations picker and form-agnostic RCA agent setup modal, analytics events. Same RCA v2 flag as #17199 and #17200, no screenshots, not documented yet. #17211, #17212, #17214 (APPZ-3491): Swagger for other services, out of scope.
+* `OIQ-AI-service` - #525, #521 (galangel): CI image tags and dev-namespace overrides. Internal.
+* `oiq-resources` - #115 (Gavriel-M, ORIONIQ-1621): agent memory made configurable in marketplace templates. Still behind the `oiq-agent-docs` flag, not documented. Revisit when the flag is removed.
+
+Existing PR #975 had no unresolved reviewer comments. Appended to its branch. Gavriel-M, RoyiSitbon and galangel are the authors of triggering commits; vicmiletsky's commits were out of scope.
