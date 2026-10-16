@@ -54,6 +54,12 @@ curl -X POST -L \
       "searchTerm": "checkout",
       "active": true
     },
+    "sort": [
+      {
+        "field": "lastRun",
+        "descending": true
+      }
+    ],
     "pagination": {
       "pageNumber": 1,
       "pageSize": 20
@@ -70,10 +76,12 @@ All fields are optional. A filter value the API cannot use is ignored.
 | `filter.trigger` | Filters by trigger. An unknown value returns no results. |
 | `filter.active` | `true` for enabled agents, `false` for disabled ones. |
 | `filter.createdBy` | Filters by creator. |
+| `sort` | A list where only the first entry is used. Each entry takes a `field` and an optional `descending` flag (default `false`). |
+| `sort[].field` | One of `name`, `type`, `active`, `createdAt`, `updatedAt`, or `lastRun`. |
 | `pagination.pageNumber` | The page to return. |
 | `pagination.pageSize` | Results per page. Defaults to 50 and is capped at 50. |
 
-Results are ordered by creation time, newest first.
+Results are ordered by creation time, newest first, unless you set `sort`. An unusable `sort` entry falls back to the default order. In ascending order, agents that never ran come first when sorting by `lastRun`.
 
 ### Response
 
