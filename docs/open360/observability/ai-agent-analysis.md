@@ -1,56 +1,60 @@
 ---
 sidebar_position: 2
 title: AI Agent Analysis
-description: Enable automated AI-powered root cause analysis for your alerts in Logz.io.
+description: Automated AI root cause analysis for your alerts and security rules, powered by OrionIQ.
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-keywords: [AI, observability, AI agent, proactive, proactive rca, rca, root cause analysis, Assistant, iq, logs, metrics, traces, siem, insights, analysis, services, logz.io, log alerts, real-time rca]
+keywords: [AI, observability, AI agent, OrionIQ, rca, root cause analysis, alerts, logs, metrics, traces, siem, insights, analysis, logz.io, real-time rca]
 ---
 
-AI Agent Analysis automates investigations when alerts are triggered in your Logz.io environment—helping you understand not just what happened, but why.
+AI Agent Analysis runs an automated root cause investigation every time an alert or Cloud SIEM rule triggers, so you understand not just what happened, but why.
 
-When an alert fires, the AI Agent instantly kicks into action. It analyzes logs, metrics, and patterns around the event to uncover root causes and surface key findings—delivering real-time, actionable insights directly to a chosen Slack channel and storing them in the AI Agent chat for future reference.
+When the alert fires, an [OrionIQ](https://docs.logz.io/docs/user-guide/orioniq/) agent dedicated to that alert starts investigating immediately. It correlates error logs, checks for related metric anomalies, inspects recent deployments, traces the affected request paths, and summarizes the probable root cause with recommended remediation steps. The report is delivered to the recipients you choose and attached to the triggered alert, and every run is kept in the agent's invocation history.
 
-By minimizing the gap between detection and resolution, AI Agent Analysis helps you act faster, especially for high-impact services or workflows where every second counts.
+AI Agent Analysis is available for log alerts, metric alerts, and Cloud SIEM security rules.
 
+## What you get
 
-## Activate AI Agent Analysis
+Each analysis is a structured report:
 
-:::caution note
-AI Agent Analysis runs **once every hour**.
-:::
+* **Root cause verdict** with a confidence level, so you know how much weight to give it.
+* **Findings**, each tagged with a severity and its source: logs, metrics, traces, or a connected integration such as Slack, Jira, or Confluence. Every finding is backed by the query the agent ran, so you can verify it yourself.
+* **Recommended remediation steps.**
+* **Open questions and evidence gaps**, where the agent could not confirm something, rather than a guess.
 
-To enable AI Agent Analysis:
+Choose **Summary** for a short write-up or **Detailed** for the full investigation. You can read the full analysis, including the agent's reasoning steps and the tool calls it made, in the **Invocations** tab of the [Agents Hub](https://docs.logz.io/docs/user-guide/orioniq/agents-hub/).
 
-* Go to your [Alerts](https://app.logz.io/360/alerts/triggered) page.
+## Turn on AI Agent Analysis
 
-* Create a new alert or edit an existing one.
-
-* Scroll to **AI Agent Analysis** and check the **Activate AI Agent Analysis** box:
+1. Open the alert from [Alerts](https://app.logz.io/360/alerts/triggered) or the rule from Cloud SIEM, or create a new one.
+2. Give the alert a **clear description**. The description is the context the agent reasons against, so a vague one produces a vague analysis.
+3. Scroll to **AI Agent Analysis** and check **Activate AI Agent Analysis**.
 
     ![AI Analysis](https://dytvr9ot2sszz.cloudfront.net/logz-docs/open360/alerts/ai-agent-analysis-360.png)
 
-* Click **Add instructions**. A pop-up will open where you can document a step-by-step flow and instructions for investigating and resolving this alert. [Read more about Alert instructions](https://docs.logz.io/docs/open360/alerts/instructions/). Click Save & Confirm to continue.
+4. Click **Configure your agent** to set how the investigation runs:
 
+    * **Instructions and runbook** - a step-by-step playbook the agent follows when it investigates: what to check, where to look, and what to do next. [Read more about Alert instructions](https://docs.logz.io/docs/open360/alerts/instructions/).
+    * **Output detail** - Summary or Detailed.
+    * **Integrations** - the connected tools the agent can draw on, such as Slack, Jira, and Confluence. See [OrionIQ integrations](https://docs.logz.io/docs/user-guide/orioniq/integrations/).
+    * **Recipients** - by default the analysis goes to the alert's own notification endpoints. Select recipients manually when the analysis is for a different audience than the alert, for example a shared channel or specific email addresses.
 
-* Click the **Configure endpoint** link. You'll be directed to your General Settings page.
+5. Save the alert. The agent runs automatically on every trigger.
 
-* Scroll down to the **AI Agent Analysis Endpoint** section and choose an endpoint for receiving the AI-generated analysis report. The list includes all of the Slack channels from your list of defined notification endpoints.
+Enabling AI Agent Analysis creates an OrionIQ agent for the alert. You can also manage it like any other agent from the Agents Hub, including its daily invocation cap and the accounts it reads from.
 
-    ![notification endpoint](https://dytvr9ot2sszz.cloudfront.net/logz-docs/open360/alerts/general-settings-ai-config.png)
+## Read the analysis
 
-* Navigate **back to the alert** and scroll to the **Alert Metadata** section. It's required to add a clear, relevant description to help the AI generate more accurate, context-aware insights.
+* **On the triggered alert** - in the Alerts **Status** tab, alerts with analysis enabled show its status, and you can open the generated root cause analysis next to the trigger. See [Triggered alerts](https://docs.logz.io/docs/open360/alerts/triggered-alerts/).
+* **Where you were notified** - Slack, Microsoft Teams, email, or any custom webhook endpoint you selected as a recipient.
+* **In the Agents Hub** - the **Invocations** tab keeps every run, with the full report, the agent's reasoning, and the queries it ran. Rate each run there; a note that teaches the agent something becomes a lesson applied to its future runs. See [Provide feedback](https://docs.logz.io/docs/user-guide/orioniq/agents-hub/#provide-feedback).
 
-Finish to configure your alert and save it. Every time the alert triggers, it'll automatically run the AI Agent Analysis and provide you will more insights and data.
+## Investigate on demand
 
-The report will be sent to your **configured Slack channel** or **email addresses added**, and can also be accessed anytime in the AI Agent chat by clicking the **View History** icon.
-
-<img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/ai-agent-history.gif" alt="agent-history" width="500"/>
-
+You don't have to wait for the next trigger. In the Alerts **Status** tab, choose **Investigate with AI** on any triggered log alert event to run the analysis on that event now.
 
 ## Need help?
 
 * Step-by-step: [Configure an Alert](https://docs.logz.io/docs/open360/alerts/configure-alerts-explore/)
-
+* [OrionIQ Agents Hub](https://docs.logz.io/docs/user-guide/orioniq/agents-hub/)
 * [AI Agent FAQ](https://docs.logz.io/docs/open360/observability/faq/)
-
 * [Contact Support](mailto:help@logz.io)

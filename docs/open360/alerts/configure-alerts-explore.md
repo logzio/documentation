@@ -214,10 +214,6 @@ To enable it:
 
 Once triggered, the AI Agent will analyze related logs, metrics, and patterns. A summary of its findings is sent to the recipients you chose, and every run is stored in the agent's **invocation history**, where you can read the full analysis and rate it — see the Invocations tab of the OrionIQ [Agents Hub](/docs/user-guide/orioniq/agents-hub/).
 
-:::caution note
-AI Agent Analysis runs **once every hour**.
-:::
-
 #### Configure the agent
 
 Enabling AI Agent Analysis creates an OrionIQ agent for the alert. Select **Configure agent after saving** to open it right after you save, or manage it later from the Agents Hub — the alert form links to it with **Manage in Agent Hub**.
