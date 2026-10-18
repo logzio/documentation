@@ -7,6 +7,200 @@ keywords: [release notes, logzio, logs, metrics, traces, logz.io, updates, relea
 toc_max_heading_level: 2
 ---
 
+## October 2026
+
+### AI Agent Analysis
+
+* **Configure AI Agent Analysis from the alert form**
+
+    Set up AI Agent Analysis without leaving your alert or Cloud SIEM rule. Add investigation instructions (runbook), choose a summary or detailed report, pick the integrations the agent can use, such as Slack, Jira and Confluence, and set recipients. Everything saves with the alert.
+
+    [Learn more about AI Agent Analysis](https://docs.logz.io/docs/open360/observability/ai-agent-analysis/)
+
+### Cloud SIEM
+
+* **Lookup lists in rule queries**
+
+    Reference lookup lists directly in Cloud SIEM rule queries, with suggestions in the query editor as you type.
+
+### Logz.io MCP server
+
+* **Dashboard tools**
+
+    The Logz.io MCP server can now work with Unified Dashboards, so your AI assistants can find and use your dashboards.
+
+    [Learn more about the Logz.io MCP server](https://docs.logz.io/docs/open360/logzio-mcp/)
+
+## July 2026
+
+### OrionIQ
+
+* **OrionIQ chat on every page**
+
+    Ask OrionIQ from a drawer on any Open 360 AI page. It picks up context from where you are, including Explore, APM, Kubernetes 360, dashboards and integrations. Answers link back to the logs, metrics and docs they came from, and you can create an alert or add a query to a dashboard straight from an answer.
+
+### AI Agent Analysis
+
+* **AI Agent Analysis for Cloud SIEM rules**
+
+    AI Agent Analysis now also runs on Cloud SIEM security rules, with the same options as log and metric alerts.
+
+    [Learn more about AI Agent Analysis](https://docs.logz.io/docs/open360/observability/ai-agent-analysis/)
+
+### Distributed Tracing
+
+* **Span Explore**
+
+    Search and filter spans in Explore, with field suggestions, saved searches and an interactive request-rate and latency chart. Open any trace in a redesigned trace view with waterfall, flame graph and node graph modes. Span attributes link straight to Kubernetes 360, dashboards and APM.
+
+    [Learn more about Span Explore](https://docs.logz.io/docs/open360/explore/spans/)
+
+* **Span Compare**
+
+    Compare failed spans with successful ones, or slow with fast, for any operation. Get a ranked list of the attributes that set each group apart, and open those spans in Explore.
+
+    [Learn more about Span Compare](https://docs.logz.io/docs/open360/apm/compare-spans/)
+
+### Account & API
+
+* **API token roles**
+
+    Give each API token a role (view, create or edit) to limit what it can do. Existing tokens keep full access until you change them.
+
+    [Manage API tokens](https://docs.logz.io/docs/open360/settings/api-tokens/)
+
+## June 2026
+
+### AI Agent Analysis
+
+* **Upgraded AI Agent Analysis**
+
+    AI Agent Analysis now runs on a new investigation agent that digs deeper into the logs, metrics and traces around each triggered alert. The alerts list shows which alerts have analysis turned on, and you can upgrade existing alerts in one click.
+
+    [Learn more about AI Agent Analysis](https://docs.logz.io/docs/open360/observability/ai-agent-analysis/)
+
+### OrionIQ
+
+* **AI usage caps**
+
+    Set usage caps for OrionIQ chat and agents, and see how many tokens each conversation used.
+
+    [AI Settings](https://docs.logz.io/docs/open360/settings/ai-settings/)
+
+### Explore
+
+* **Kubernetes metrics inside your logs**
+
+    Expand a Kubernetes log to see the pod and node CPU, memory and restarts at the time the log was written. Open the pod, workload or node in Kubernetes 360 in one click.
+
+### Unified Dashboards
+
+* **Private dashboards**
+
+    Make a dashboard private and share it only with specific users, as viewers or editors.
+
+## May 2026
+
+### OrionIQ
+
+* **OrionIQ general agent**
+
+    Ask OrionIQ about your logs and metrics in plain language, without building a dedicated agent first. Conversations open in tabs, keep running in the background, and show each step OrionIQ takes to reach an answer.
+
+* **OrionIQ integrations**
+
+    Connect external tools and data sources, such as Datadog, Slack, Jira and Confluence, so OrionIQ agents can use them during investigations. Test each connection before you save it.
+
+    [OrionIQ integrations](https://docs.logz.io/docs/user-guide/orioniq/integrations/)
+
+### Unified Dashboards
+
+* **Create an alert from any dashboard panel**
+
+    Click the bell icon on a panel to open a new alert that's already filled in with the panel's queries and accounts.
+
+## April 2026
+
+### AI Agent Analysis
+
+* **AI Agent Analysis is generally available**
+
+    AI Agent Analysis is out of beta. When an alert triggers, the AI agent automatically investigates the related logs, metrics and traces and delivers its root cause findings to your chosen channels.
+
+    [Learn more about AI Agent Analysis](https://docs.logz.io/docs/open360/observability/ai-agent-analysis/)
+
+### Unified Dashboards
+
+* **Unified Dashboards are generally available**
+
+    Unified Dashboards are out of beta. Link chart points to other dashboards with dashboard-to-dashboard drilldowns, which open in a side drawer and carry your variables and time range with them.
+
+    [Learn more about drilldowns](https://docs.logz.io/docs/open360/dashboards/drilldowns/)
+
+### Explore
+
+* **Explore Metrics**
+
+    Query metrics with PromQL directly in Explore, with charts, tables, a label filter pane and a metric browser. Jump from any chart point to related logs or traces, or create an alert from the query.
+
+    [Learn more about Explore Metrics](https://docs.logz.io/docs/open360/explore/explore-metrics/)
+
+### Cloud SIEM
+
+* **Cloud SIEM in Open 360 AI**
+
+    Cloud SIEM rules, Event Management, threat feeds and lookups are now available natively in Open 360 AI, with OrionIQ on every SIEM page.
+
+## March 2026
+
+### OrionIQ
+
+* **Agent Marketplace**
+
+    Start from ready-made agent templates and create a preconfigured OrionIQ agent in one click.
+
+    [Agent Marketplace](https://docs.logz.io/docs/user-guide/orioniq/marketplace/)
+
+## February 2026
+
+### OrionIQ
+
+* **Agent Builder**
+
+    Describe what you need in a chat, and Agent Builder plans and configures an OrionIQ agent for you, including its triggers, schedule and recipients.
+
+    [Create an agent](https://docs.logz.io/docs/user-guide/orioniq/create-agent/)
+
+## January 2026
+
+### OrionIQ
+
+* **OrionIQ Agents Hub**
+
+    See every agent run, track invocations and feedback on a Performance page, and turn agents on or off from one place.
+
+    [Agents Hub](https://docs.logz.io/docs/user-guide/orioniq/agents-hub/)
+
+## December 2025
+
+### Explore
+
+* **Live Tail in Explore**
+
+    Live Tail is now built into Explore in Open 360 AI. Stream logs in real time and filter the stream as it runs.
+
+    [Learn more about Live Tail](https://docs.logz.io/docs/open360/explore/live-tail/)
+
+## November 2025
+
+### Open 360 AI
+
+* **Global search**
+
+    Press Ctrl+K (Cmd+K on Mac) anywhere in Open 360 AI to jump to pages, saved searches and dashboards.
+
+    [Learn more about global search](https://docs.logz.io/docs/open360/global-search/)
+
 ## September 2025
 
 ### Open 360 AI
