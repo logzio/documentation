@@ -73,6 +73,8 @@ Your listener host and API host will always be in the same region as your Promet
 |Europe (Frankfurt)|AWS|app-eu.logz.io|listener-eu.logz.io|api-eu.logz.io|eu|eu-central-1|
 |Europe (London)|AWS|app-uk.logz.io|listener-uk.logz.io|api-uk.logz.io|uk|eu-west-2|
 
+## Data security and resilience
 
+All customer data hosted by Logz.io is encrypted at rest, and data in transit is encrypted using TLS 1.2 or higher. Data within each region is stored across multiple availability zones.
 
-
+Logz.io maintains a disaster recovery plan and runs disaster recovery exercises at least once a year. These controls are reviewed as part of Logz.io's annual SOC 2 Type 2 audit.
