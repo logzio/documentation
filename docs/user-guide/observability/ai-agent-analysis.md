@@ -6,10 +6,6 @@ image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.
 keywords: [AI, observability, AI agent, proactive, proactive rca, rca, root cause analysis, Assistant, iq, logs, metrics, traces, siem, insights, analysis, services, logz.io, log alerts, real-time rca]
 ---
 
-:::info note
-AI Agent Analysis is currently in **beta**. We're actively improving it based on user feedback, so functionality and results may evolve over time.
-:::
-
 AI Agent Analysis automates investigations when alerts are triggered in your Logz.io environment—helping you understand not just what happened, but why.
 
 When an alert fires, the AI Agent instantly kicks into action. It analyzes logs, metrics, and patterns around the event to uncover root causes and surface key findings—delivering real-time, actionable insights directly to a chosen Slack channel and storing them in the AI Agent chat for future reference.
