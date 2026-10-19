@@ -75,6 +75,6 @@ Your listener host and API host will always be in the same region as your Promet
 
 ## Data security and resilience
 
-All customer data hosted by Logz.io is encrypted at rest using AES-256, with encryption keys managed in AWS Key Management Service (KMS), whose hardware security modules are FIPS 140-3 validated. Data in transit is encrypted using TLS 1.2 or higher. Data within each region is stored across multiple availability zones.
+All customer data hosted by Logz.io is encrypted at rest using AES-256, with encryption keys managed in AWS Key Management Service (KMS), whose hardware security modules are FIPS 140-3 validated. Data in transit is encrypted using TLS 1.2 or higher. Data within each region is stored across multiple availability zones. Sensitive configuration values, such as integration credentials, are encrypted individually and stored separately from the rest of the configuration.
 
 Logz.io maintains a disaster recovery plan and runs disaster recovery exercises at least once a year. These controls are reviewed as part of Logz.io's annual SOC 2 Type 2 audit.
