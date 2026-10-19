@@ -743,3 +743,12 @@ Existing PR #975 had no unresolved reviewer comments. No screenshots marked for 
 * `oiq-resources` - #115 (Gavriel-M, ORIONIQ-1621): agent memory made configurable in marketplace templates. Still behind the `oiq-agent-docs` flag, not documented. Revisit when the flag is removed.
 
 Existing PR #975 had no unresolved reviewer comments. Appended to its branch. Gavriel-M, RoyiSitbon and galangel are the authors of triggering commits; vicmiletsky's commits were out of scope.
+
+### 2026-10-19 - daily scan (since 2026-10-18 06:00), no doc changes
+
+* `Artemis` - #494 (Gavriel-M, ORIONIQ-1621): agent memory now covers every agent except chat and Alert AI Analysis v1, on by default per run. Still shown only when `memoryAvailable` answers true, which needs the pod-mounted `oiq-agent-docs` flag. Not documented. Revisit when the flag is removed.
+* `OIQ-AI-service` - #526 (augment770-dev, ORIONIQ-1827): Haiku 5.5 and named invocation profiles. #529 (yotamloe, ORIONIQ-1486): `@timestamp` rejected in aggregation tools. #532 (ralongit): agents may use the integration writes they hold. Internal runtime and prompt behavior, no public route or schema change.
+* `oiq-resources` - #116 to #119 (ralongit, ORIONIQ-1377): fixes to the Alert Digest and Alert Tuning Report templates and the `logzio_api.md` skill (unified alert events filters, log-alert grouping by title, alert links by name). The six tuning patterns and the alert links already match the `marketplace.md` descriptions. No doc change.
+* `gaia-hermes-ws` - no commits.
+
+Existing PR #975 had no unresolved reviewer comments and is approved. No screenshots marked for documentation use. Appended the log entry only. Assignees unchanged.
