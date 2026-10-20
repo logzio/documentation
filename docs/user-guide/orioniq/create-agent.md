@@ -119,7 +119,7 @@ Agents can learn from the feedback you leave on their invocations (see [Provide 
 An agent can hold up to 20 active lessons at a time. As that limit gets close, a warning appears here; once it's reached, new feedback is acknowledged but produces no further lessons until you disable an existing one to make room.
 
 :::note
-Writing a note is billed once it's accepted for review, whether or not it ends up teaching the agent anything: the first 20 reflections per account are free (all-time), then $1 each.
+Writing a note is free. Each accepted note is still recorded as an invocation, at no cost, and it does not count against your AI budget.
 :::
 
 ## Finalize and create
