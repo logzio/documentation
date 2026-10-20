@@ -212,5 +212,5 @@ GET /v2/ai-agent/<<AGENT-ID>>/feedback/<session-id>
 Returns the feedback record for a run, in the same shape as a single entry in the Submit feedback response. Returns `404` when the run has no feedback.
 
 :::note
-Agents don't have to be reachable over the API to be rated. Runs started by a Scheduled or Alert trigger can be rated from the Agents Hub, and the same feedback endpoints apply to them.
+Agents don't have to be reachable over the API to be rated. Runs started by a Scheduled, Deployment, or Alert trigger can be rated from the Agents Hub, and the same feedback endpoints apply to them.
 :::

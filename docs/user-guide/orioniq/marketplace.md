@@ -3,7 +3,7 @@ sidebar_position: 4
 title: Marketplace
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Browse and install pre-built AI agent templates from the OrionIQ Marketplace.
-keywords: [OrionIQ, marketplace, agent templates, pre-built agents, incident, compliance, detection]
+keywords: [OrionIQ, marketplace, agent templates, pre-built agents, incident, deployment, compliance, detection]
 ---
 
 The OrionIQ Marketplace provides a catalog of pre-built agent templates that you can install and start using right away. These templates cover common observability and security use cases, so you can get value from OrionIQ without building agents from scratch.
@@ -19,6 +19,7 @@ Agent templates are organized into the following categories:
 | Category | Description |
 |---|---|
 | **Incident** | Agents that help investigate and resolve incidents, such as root cause analysis and support ticket investigation. |
+| **Deployment** | Agents that validate system health after deployments and detect regressions. |
 | **Compliance** | Agents that scan for sensitive data and help prevent compliance violations (for example, GDPR/CCPA). |
 | **Detection** | Agents that monitor for security threats, suspicious logins, and brute-force attacks. |
 | **Alerting** | Agents that filter and prioritize alerts to surface high-confidence, high-impact events. |
@@ -55,7 +56,7 @@ The template decides which sections the dialog shows. A section appears only whe
 | Section | What you set |
 |---|---|
 | **Trigger** | The trigger type and, for a scheduled agent, the schedule. |
-| **Runbook** | The instructions for agents triggered by an API call or an alert. A scheduled agent shows its context message and run frequency instead. |
+| **Runbook** | The instructions for agents triggered by an API call, an alert, or a deployment. A scheduled agent shows its context message and run frequency instead. |
 | **Output detail** | **Summary** by default, unless the template sets a level. |
 | **Data sources** | The accounts the agent reads from. For an agent that reads logs, the account you are on is selected by default. |
 | **Integrations** | The integrations the agent can use. |

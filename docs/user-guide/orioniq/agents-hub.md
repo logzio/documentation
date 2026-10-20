@@ -20,7 +20,7 @@ The **Agents** tab displays a list of all agents in your account. Each agent row
 |---|---|
 | **Name** | The agent name. Click to open the agent's details. |
 | **Type** | The agent type (for example, Custom). |
-| **Triggered By** | How the agent is triggered (Scheduled, API, or Alert). |
+| **Triggered By** | How the agent is triggered (Scheduled, API, Deployment, or Alert). |
 | **Created By** | The user who created the agent. Agents provisioned by the platform, such as alert root cause analysis agents, are attributed to Logz.io. |
 | **Created At** | The date and time the agent was created. |
 | **Updated At** | The date and time the agent was last modified. A run on its own doesn't change this. |
