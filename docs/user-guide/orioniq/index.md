@@ -14,7 +14,7 @@ You can access OrionIQ from the left navigation menu. The OrionIQ section includ
 
 **[Agents Hub](/docs/user-guide/orioniq/agents-hub/)**: View, manage, and monitor all of your agents in one place. Track agent invocations, review execution results, and toggle agents on or off.
 
-**[Marketplace](/docs/user-guide/orioniq/marketplace/)**: Browse and install pre-built agent templates for common use cases such as incident analysis, deployment validation, compliance scanning, and security monitoring.
+**[Marketplace](/docs/user-guide/orioniq/marketplace/)**: Browse and install pre-built agent templates for common use cases such as incident analysis, compliance scanning, and security monitoring.
 
 **[Integrations](/docs/user-guide/orioniq/integrations/)**: Connect external systems to your agents. Integrations provide agents with context and interoperability by integrating with tools like ticketing systems, collaboration platforms, and cloud services.
 

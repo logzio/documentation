@@ -78,7 +78,6 @@ Choose how the agent will run by selecting a trigger type:
 |---|---|
 | **API** | The agent runs when called via the [OrionIQ API](/docs/user-guide/orioniq/api/). Use this for on-demand or externally triggered invocations. |
 | **Scheduled** | The agent runs automatically at defined intervals (for example, every 3 hours or once a day). |
-| **Deployment** | The agent runs automatically when a deployment event is detected. |
 | **Alert** | The agent runs automatically when a Logz.io alert is triggered. |
 
 ### Daily Invocation Cap
@@ -95,7 +94,7 @@ Pick the observability platform and accounts this agent can query. Toggle the sc
 
 With **Logs + Metrics (deep)**, a coordinating agent plans the investigation and assigns each part to specialized logs, metrics, and integration sub-agents, then combines their findings. It decides each next step from what the previous step returned rather than following a fixed sequence.
 
-Data Sources is available for every trigger type. Which scopes you have to fill in follows the **Agent tools** you chose above: a scheduled agent declaring a logs tool set needs a logs data source, and it won't save until every declared scope has one. For API, Alert, and Deployment agents, picking a data source is optional.
+Data Sources is available for every trigger type. Which scopes you have to fill in follows the **Agent tools** you chose above: a scheduled agent declaring a logs tool set needs a logs data source, and it won't save until every declared scope has one. For API and Alert agents, picking a data source is optional.
 
 When you create an alert-linked AI analysis agent, it starts with the accounts named in the alert, and you can edit them here. If the alert queries all accounts, the agent follows the alert instead and picks up new sub-accounts. Later changes to the alert don't overwrite the accounts you saved. If you remove every account, the agent falls back to the alert's accounts.
 
