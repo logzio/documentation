@@ -752,3 +752,13 @@ Existing PR #975 had no unresolved reviewer comments. Appended to its branch. Ga
 * `gaia-hermes-ws` - no commits.
 
 Existing PR #975 had no unresolved reviewer comments and is approved. No screenshots marked for documentation use. Appended the log entry only. Assignees unchanged.
+
+### 2026-10-20 - daily scan (since 2026-10-19 06:00), doc changes made
+
+* `Artemis` - #512 (yotamloe, ORIONIQ-1858): feedback reflections are free. Price $0, no free-usage count, no AI budget check, still recorded as a $0 invocation. Removed the "$1 after 20 free" note in `create-agent.md`.
+  * #507 (ralongit, ORIONIQ-1850): Connect modal shows Agent permissions above How to connect and hides the auth-method tile for single-method integrations. `integrations.md` stays accurate. #495, #496 (Gavriel-M, ORIONIQ-1621): shared Memory files on an agent, still behind the memory flag, not documented. #508 (RoyiSitbon): RCA report tidy-up, still no verified copy. #503, #513, #514: internal.
+* `oiq-resources` - 9a7ff36 (ralongit): `alert-tuning-report` and `scheduled-error-logs-report` moved from Summary to Detailed. Every template now ships Detailed, so `marketplace.md` says so instead of "Summary by default".
+* `gaia-hermes-ws` (`master`) - #17208, #17221 (Gavriel-M, ORIONIQ-1830, 1849): the alerts list AI Analysis cell opens the RCA agent setup dialog directly. Not documented: `triggered-alerts.md` covers the triggered list, and no verified copy exists for the alert configuration list. #17209 (APPZ-3497): AI Observability drilldown, out of scope.
+* `OIQ-AI-service` - #536, #527, #533 (kevkle, RoyiSitbon), #535, #534 (augment770-dev): RCA OIHV internals, model construction, smoke-test fake LLM. Internal.
+
+Existing PR #975 had no unresolved reviewer comments. Merged `master` into its branch (it was behind). No screenshots marked for documentation use. Assignees extended with yotamloe and ralongit.

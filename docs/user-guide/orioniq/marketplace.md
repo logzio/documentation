@@ -49,14 +49,14 @@ The template decides which sections the dialog shows. A section appears only whe
 |---|---|
 | **Trigger** | The trigger type and, for a scheduled agent, the schedule. |
 | **Runbook** | The instructions for agents triggered by an API call, an alert, or a deployment. A scheduled agent shows its context message and run frequency instead. |
-| **Output detail** | **Summary** by default, unless the template sets a level. |
+| **Output detail** | The template's level. Every current template starts at **Detailed**. |
 | **Data sources** | The accounts the agent reads from. For an agent that reads logs, the account you are on is selected by default. |
 | **Integrations** | The integrations the agent can use. |
 | **Notification recipients** | Who gets notified of the agent's results. |
 
 Data sources, Integrations, and Notification recipients appear as one-line summaries that expand in place. If something required is missing, such as a data source or a reconnected integration, the row opens so you can fix it.
 
-Learning is off for agents activated from the Marketplace, because it is billed separately. You can turn it on later in the agent's **Agent details** form. See [Learning](/docs/user-guide/orioniq/create-agent/).
+Learning is off for agents activated from the Marketplace. You can turn it on later in the agent's **Agent details** form. See [Learning](/docs/user-guide/orioniq/create-agent/).
 
 Click **All settings** to move your draft into the full agent form in the side panel, with everything you entered so far. Click **Show details** or **Hide details** to switch between the template description and the setup form.
 
