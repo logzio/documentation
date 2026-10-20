@@ -41,6 +41,8 @@ Administrators can track the budget and ingestion usage from the [Plan and Usage
 
 Usage data is updated daily.
 
+Consumed budget is broken down per sub-account and per day, split into ingestion and indexing cost, so you can charge each team or environment for the data it sends. To allocate spend, give each team or environment its own sub-account and ship its data with that sub-account's token.
+
 :::tip note
 On-demand charges apply only after your entire allocated budget has been consumed. They are not relevant for Pay As You Go plans. 
 :::
