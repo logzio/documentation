@@ -52,8 +52,6 @@ Click **Connect** on an integration and provide its credentials. Which method an
 | **Basic Auth** | Connect with an email address and API token. |
 | **None** | A few public data sources, such as MITRE ATT&CK and Hacker News, need no credentials at all. |
 
-Credentials are encrypted individually and stored separately from the connection's other settings. They are never shown again after you save them.
-
 ## Management
 
 The **Management** tab lists your account's connections. A Logz.io account with sub-accounts appears as a single connection here — its **Needs attention** status reflects the account or any of its sub-accounts.
@@ -90,8 +88,6 @@ By default, agents can only read from a connected integration. To let an agent w
 2. **Per connection**, in the connect form or **Configure**. Integrations that support write actions show an **Agent permissions** choice of **Read** or **Read & Write**. It's only selectable once the account-wide setting allows it.
 
 Both levels must allow write for an agent to actually write through a given connection. Not every integration supports write actions — those show Read only, with no choice to make.
-
-Because agents start read-only, you can rehearse a remediation before allowing it: run the agent manually against your live systems with **Read** permission, and it marks each remediation as recommended rather than applied. Review the result, then grant **Read & Write** to let the agent act.
 
 ## Logz.io API access
 

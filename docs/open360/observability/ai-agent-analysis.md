@@ -21,9 +21,9 @@ Each analysis is a structured report:
 * **Recommended remediation steps.**
 * **Open questions and evidence gaps**, where the agent could not confirm something, rather than a guess.
 
-The confidence level follows fixed rules: **High** requires a confirmed mechanism, matching timing, and a shared signal, and any lower confidence lists the evidence gaps behind it. Each recommended remediation step addresses a specific finding or evidence gap in the report. Findings that come from a connected integration, such as a Slack message or a Jira ticket, are reported as testimony and are never rated above medium severity unless logs or metrics confirm them.
+When the report shows a confidence level, it follows fixed rules: **High** requires a confirmed mechanism, matching timing, and a shared signal, and any lower level lists the evidence gaps behind it. Each recommended step addresses a specific finding or evidence gap in the report. Findings that come from a connected integration, such as a Slack message or a Jira ticket, are rated medium severity at most unless logs or metrics confirm them.
 
-Choose **Summary** for a short write-up or **Detailed** for the full investigation. A **Detailed** report opens with an executive summary, written after the analysis, that restates only claims made in the findings below it. You can read the full analysis, including the agent's reasoning steps and the tool calls it made, in the **Invocations** tab of the [Agents Hub](https://docs.logz.io/docs/user-guide/orioniq/agents-hub/).
+Choose **Summary** for a short write-up or **Detailed** for the full investigation. A **Detailed** report includes an executive summary, written after the analysis, that restates only claims made in the findings. You can read the full analysis, including the agent's reasoning steps and the tool calls it made, in the **Invocations** tab of the [Agents Hub](https://docs.logz.io/docs/user-guide/orioniq/agents-hub/).
 
 ## Turn on AI Agent Analysis
 
