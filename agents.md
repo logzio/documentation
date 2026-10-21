@@ -762,3 +762,13 @@ Existing PR #975 had no unresolved reviewer comments and is approved. No screens
 * `OIQ-AI-service` - #536, #527, #533 (kevkle, RoyiSitbon), #535, #534 (augment770-dev): RCA OIHV internals, model construction, smoke-test fake LLM. Internal.
 
 Existing PR #975 had no unresolved reviewer comments. Merged `master` into its branch (it was behind). No screenshots marked for documentation use. Assignees extended with yotamloe and ralongit.
+
+### 2026-10-21 - daily scan (since 2026-10-20 06:09), doc changes made
+
+* `gaia-hermes-ws` - #17224, #17227 (Gavriel-M, ORIONIQ-1849, ORIONIQ-1861): the **Configure your agent** dialog now has a **Data sources** section (alert accounts plus added log or metrics accounts), shows the agent's price per run with free runs left, and no longer has an output detail field. Updated the three pages that list the dialog settings: both `configure-alerts-explore.md` twins and `manage-security-rules.md`. The SIEM page does not mention data sources, since the section only renders when the form passes an alert scope. Source of truth: `RcaAgentSetupSections.tsx` and `rca-agent-setup-price.util.ts`.
+  * #17229 (internal legacy dashboard endpoints for support tools), #17228, #17226, #17225, #17215, #17210, #17219: out of OrionIQ scope.
+* `oiq-resources` - 8d07ead (ralongit, ORIONIQ-1434): the **Exception Analysis** template ships to `main` (category Incident, weekly by default, requires the Exceptions capability from Logz.io Support). Added a row to the Available templates table in `marketplace.md`. The 2026-10-20 revert and reapply of the same merge is net zero.
+* `Artemis` - #504 (Gavriel-M, ORIONIQ-1849): the alert RCA session route accepts data sources. Session route, not part of the public `/v2` API. #497 (Gavriel-M) and #530: memory file usage, still behind the memory flag. #522 (RoyiSitbon): RCA report fixes, still no verified copy. #517, #510, #519, #499: UI colour, avatar, vendor and version chores.
+* `OIQ-AI-service` - #544, #543 (kevkle, RoyiSitbon): the OIHV RCA answer contract moves to 5.0.0 with customer status wording, an App-AI contract and not a public OrionIQ route. #524 (yotamloe): memory doc audit events to the gaia audit indexer, off unless configured. #530: kb_delete guard. No doc change.
+
+Existing PR #975 had no unresolved reviewer comments. Merged `master` into its branch. No screenshots marked for documentation use. Assignees already include the authors of the triggering commits.
