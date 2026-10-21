@@ -63,6 +63,8 @@ You can adjust the data according to your monitoring needs. The filters at the t
 
 The map lets you visualize your system architecture, understand the connections between elements, and focus on your services and operations. 
 
+The map is built automatically from your trace telemetry and stays current with no manual configuration. Alongside your services, it shows the databases and messaging systems each service calls, such as PostgreSQL, Redis, or Kafka, so infrastructure dependencies appear next to the services that rely on them.
+
 The filters change the time frame, service, environment, and operations. You can choose to view the data according to the following:
 
 * **Request rate** - Number of requests per second, in numeral and graph view

@@ -39,6 +39,14 @@ Use the search bar at the top of the page to find specific agent templates, or c
 | **Error Logs Analysis** | Alerting | Daily | Breaks down errors and warnings by application, compares them with the previous period, and highlights spikes. |
 | **Log Distribution Monitor** | Performance | Daily | Analyzes log volume distribution and trends across services to detect anomalies, identify cost drivers, and keep logging healthy. |
 
+### How Incident Triage works
+
+Incident Triage executes your runbook step by step and follows its branches, recording each step as met, not met, branched, or skipped.
+
+When the agent's integrations have **Read & Write** permission (see [Agent permissions](/docs/user-guide/orioniq/integrations/#agent-permissions)), it applies the remediation your runbook authorizes, such as updating a Logz.io alert, opening a Jira ticket, or adding a PagerDuty note, and marks each remediation item as applied or recommended.
+
+It then checks live telemetry and reports the incident as resolved, contained, active, or needing escalation. A resolved verdict requires the triggering condition to be absent from the evidence and a runbook remediation to be in effect; otherwise the agent escalates to a human.
+
 ## Activate an agent template
 
 To activate an agent template, click **View details** on its card, then click **Activate**. The preview turns into a short setup dialog, and the agent is created switched on.

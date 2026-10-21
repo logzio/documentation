@@ -8,7 +8,7 @@ keywords: [logz.io, alerts, log alerts, metric alerts, log analysis, explore, ob
 
 Alerts are essential for ensuring you’re notified of critical events. Setting up the right alert is a cornerstone of proactive development, DevOps, and validation practices.
 
-Logz.io alerts help you continuously monitor logs and metrics data and notify you when specific conditions are met.
+Logz.io alerts help you continuously monitor logs, metrics, and traces (through span metrics and the APM Anomaly Detector) and notify you when specific conditions are met.
 
 ### Create a log alert
 
