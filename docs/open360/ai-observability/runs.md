@@ -13,7 +13,9 @@ A **run** is one request to your agent, from the user's message to the final ans
 <img src="/img/open360/ai-observability-runs-page.png" alt="AI Observability page showing the filter pane, token usage graph, and the runs table" width="900"/>
 
 :::info Early access
-AI Observability is in early access, and any account can request it. [Request access](https://share-eu1.hsforms.com/17oWpR-IkSYyGRb6IAPWANQ2f7cbu?utm_campaign=ai-observability-docs) to turn it on for your account.
+AI Observability is in early access, and any account can request it.
+
+<a className="button button--primary" href="https://share-eu1.hsforms.com/17oWpR-IkSYyGRb6IAPWANQ2f7cbu?utm_campaign=ai-observability-docs" target="_blank" rel="noopener noreferrer">Request access</a>
 :::
 
 ## Before you begin
