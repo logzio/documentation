@@ -10,7 +10,7 @@ An AI agent rarely fails loudly. It answers, sounds confident, and the answer is
 
 A **run** is one request to your agent, from the user's message to the final answer. Each run is a trace. Its **steps** are the LLM calls, tool calls, and tasks inside it. Because the run is an ordinary trace, the services your agent calls appear in the same timeline. When a run goes wrong because of a backend service, you see that service fail inside the run.
 
-<img src="/img/open360/ai-observability-runs-page.png" alt="AI Observability page showing the filter pane, token usage graph, and the runs table" width="900"/>
+<img src="/img/open360/ai-observability-runs-page.png" alt="AI Observability page showing the filter pane, token usage graph, and the runs table" width="900" style={{marginBottom: "1.5rem"}}/>
 
 :::info Early access
 AI Observability is in early access, and any account can request it.
