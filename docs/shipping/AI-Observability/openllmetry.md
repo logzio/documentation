@@ -212,7 +212,7 @@ otel/opentelemetry-collector-contrib:<VERSION>
 
 Run your LLM application to generate some data, then give it time to process:
 
-* **AI Observability** shows your agent runs. Search and filter runs, then open a run to see each step, its prompts and tool calls, and its tokens. See [AI Runs](/docs/open360/ai-observability/runs/). AI Observability is in early access; contact [Logz.io Support](mailto:help@logz.io) to turn it on for your account.
+* **AI Observability** shows your agent runs. Search and filter runs, then open a run to see each step, its prompts and tool calls, and its tokens. See [AI Runs](/docs/open360/ai-observability/runs/). AI Observability is in early access; [request access](https://share-eu1.hsforms.com/17oWpR-IkSYyGRb6IAPWANQ2f7cbu?utm_campaign=ai-observability-docs) to turn it on for your account.
 * **Traces** appear in your [Tracing](https://app.logz.io/#/dashboard/jaeger) dashboard. Each LLM call is a span, with the model, prompt, completion and token usage as span attributes.
 * **Metrics** (OpenTelemetry collector setup) appear in your [Metrics](https://app.logz.io/#/dashboard/metrics/) dashboard, under metric names starting with `gen_ai_`, `llm_` or `db_`.
 * **Logs** (OpenTelemetry collector setup) appear in [Explore](https://app.logz.io/#/dashboard/explore).

@@ -13,7 +13,7 @@ A **run** is one request to your agent, from the user's message to the final ans
 <img src="/img/open360/ai-observability-runs-page.png" alt="AI Observability page showing the filter pane, token usage graph, and the runs table" width="900"/>
 
 :::info Early access
-AI Observability is in early access, and any account can request it. Contact [Logz.io Support](mailto:help@logz.io) to turn it on for your account.
+AI Observability is in early access, and any account can request it. [Request access](https://share-eu1.hsforms.com/17oWpR-IkSYyGRb6IAPWANQ2f7cbu?utm_campaign=ai-observability-docs) to turn it on for your account.
 :::
 
 ## Before you begin
@@ -111,7 +111,7 @@ A chat with your agent usually takes several runs, one per message. To see all t
 
 ## Troubleshooting
 
-**I don't see AI Observability in the navigation.** It isn't turned on for your account yet. Contact [Logz.io Support](mailto:help@logz.io).
+**I don't see AI Observability in the navigation.** It isn't turned on for your account yet. [Request access](https://share-eu1.hsforms.com/17oWpR-IkSYyGRb6IAPWANQ2f7cbu?utm_campaign=ai-observability-docs).
 
 **The page shows the setup screen.** No runs arrived in the selected accounts and time range. Check that the right tracing account is selected, widen the time range, and confirm your application sends traces as described in the [OpenLLMetry guide](/docs/shipping/AI-Observability/OpenLLMetry-data).
 
