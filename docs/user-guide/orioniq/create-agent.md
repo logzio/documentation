@@ -56,6 +56,8 @@ The specification the agent runs from, generated for you on the **Create** tab. 
 | **Output detail** | Response verbosity — **Summary** or **Detailed**. Ignored when a structured output schema is set. |
 | **Structured output** | A JSON Schema for the agent's response, enforced at inference. Use it when a downstream system consumes the output. |
 
+A runbook can branch on what earlier steps find, and can call any integration action the agent has write access to, such as creating a Jira issue or updating a Logz.io alert. If your runbook lives in Confluence or GitHub, reference it in the **Runbook** field and add that integration to the agent: the agent pulls the current version at run time, so the runbook's version history stays in your own source control.
+
 The raw JSON behind these fields is under **Advanced · Agent Definition**, which is where the agent's payload lives. Fields sent on an API invocation override the matching fields in it — see the [OrionIQ API](/docs/user-guide/orioniq/api/).
 
 :::note
@@ -91,6 +93,8 @@ Account-wide limits are set separately — see [Settings → Capping](/docs/user
 
 Pick the observability platform and accounts this agent can query. Toggle the scope chips to choose Logs, Metrics, or both — each scope has its own accounts list.
 
+With **Logs + Metrics (deep)**, a coordinating agent plans the investigation and assigns each part to specialized logs, metrics, and integration sub-agents, then combines their findings. It decides each next step from what the previous step returned rather than following a fixed sequence.
+
 Data Sources is available for every trigger type. Which scopes you have to fill in follows the **Agent tools** you chose above: a scheduled agent declaring a logs tool set needs a logs data source, and it won't save until every declared scope has one. For API, Alert, and Deployment agents, picking a data source is optional.
 
 When you create an alert-linked AI analysis agent, it starts with the accounts named in the alert, and you can edit them here. If the alert queries all accounts, the agent follows the alert instead and picks up new sub-accounts. Later changes to the alert don't overwrite the accounts you saved. If you remove every account, the agent falls back to the alert's accounts.
@@ -117,6 +121,8 @@ Agents can learn from the feedback you leave on their invocations (see [Provide 
 **Learn from feedback** is on by default for every agent. Use the toggle to pause it: the agent keeps the lessons it already has, but stops accepting new ones and stops applying any of them to its runs until you turn learning back on. Nothing is deleted.
 
 An agent can hold up to 20 active lessons at a time. As that limit gets close, a warning appears here; once it's reached, new feedback is acknowledged but produces no further lessons until you disable an existing one to make room.
+
+Each lesson has its own **On/Off** switch. Turning a lesson off removes it from future runs without deleting it, and turning it back on restores it, so you can roll back what the agent has learned one lesson at a time.
 
 :::note
 Writing a note is free. Each accepted note is still recorded as an invocation, at no cost, and it does not count against your AI budget.
