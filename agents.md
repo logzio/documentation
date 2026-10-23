@@ -772,3 +772,13 @@ Existing PR #975 had no unresolved reviewer comments. Merged `master` into its b
 * `OIQ-AI-service` - #544, #543 (kevkle, RoyiSitbon): the OIHV RCA answer contract moves to 5.0.0 with customer status wording, an App-AI contract and not a public OrionIQ route. #524 (yotamloe): memory doc audit events to the gaia audit indexer, off unless configured. #530: kb_delete guard. No doc change.
 
 Existing PR #975 had no unresolved reviewer comments. Merged `master` into its branch. No screenshots marked for documentation use. Assignees already include the authors of the triggering commits.
+
+### 2026-10-23 - daily scan (since 2026-10-22 06:00), doc changes made
+
+* `oiq-resources` - #100 (ralongit, ORIONIQ-1450): the **Log Patterns Analysis** template ships to `main` (category Alerting, weekly by default, daily by editing the message's cadence line). Added a row to the Available templates table in `marketplace.md`. Follow-up commits (#147 and others) only tune the report shape.
+  * ORIONIQ-1894 (ralongit): a SigmaHQ keyless integration and a CVE-to-Cloud-SIEM-rule procedure in the `logzio_security_api` skill, with `OIQ-AI-service` #591 adding the `convert_sigma_rule` tool. It is chat and agent behavior on Cloud SIEM tenants with no UI or public route, and OrionIQ for SIEM is still undocumented. Not documented. Revisit with the OrionIQ chat page.
+* `Artemis` - #543 (ralongit): Log Patterns Analysis price, label and tag colour. Prices are per-environment config, not documented. #561 (RoyiSitbon): `Custom3` "POC" agent type, free per invocation, behind `oiq-hermes-agent-types`. Not documented while flagged. #556: service-to-service route without a session, internal. #557, #551, #549, #550: UI and body-limit chores.
+* `OIQ-AI-service` - #464 (`get_log_patterns` tool, no route), #592 (kevkle, RCA OIHV eligibility), #569 (research sim). Internal.
+* `gaia-hermes-ws` - #17235, #17218 (TypeScript and Node upgrades), #17197 (Unified Dashboards trace drilldown). Out of OrionIQ scope.
+
+Existing PR #975 had no unresolved reviewer comments. Merged `master` into its branch. No screenshots marked for documentation use. Assignees already include the authors of the triggering commits.
