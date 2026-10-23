@@ -125,7 +125,7 @@ An agent can hold up to 20 active lessons at a time. As that limit gets close, a
 Each lesson has its own **On/Off** switch. Turning a lesson off removes it from future runs without deleting it, and turning it back on restores it, so you can roll back what the agent has learned one lesson at a time.
 
 :::note
-Writing a note is billed once it's accepted for review, whether or not it ends up teaching the agent anything: the first 20 reflections per account are free (all-time), then $1 each.
+Writing a note is free. Each accepted note is still recorded as an invocation, at no cost, and it does not count against your AI budget.
 :::
 
 ## Finalize and create

@@ -34,9 +34,11 @@ Use the search bar at the top of the page to find specific agent templates, or c
 | **Alert AI Analysis** | Incident | When an alert fires | Correlates error logs, related metric anomalies, recent deployments, and the affected request paths, then summarizes the root cause with recommended remediation steps. This is the agent behind [AI Agent Analysis](/docs/open360/observability/ai-agent-analysis/). |
 | **Root Cause Analysis** | Incident | On demand (API) | Reconstructs the incident timeline, correlates logs, metrics, and traces, inspects recent deployments and configuration changes, and produces a ranked set of probable root causes with supporting evidence and remediation recommendations. |
 | **Incident Triage** | Incident | On demand (API) | Loads your runbook, walks through its diagnostic steps against live logs and metrics, evaluates the findings against the runbook's decision points, applies the prescribed remediation guidance, and produces a prioritized list of next steps for the responder. |
+| **Exception Analysis** | Incident | Weekly | Reads the exceptions Logz.io already clusters for your account and groups variants of the same fault into families. Each family is sorted as new, spiking, ongoing, resolved, or muted, with occurrence counts, a trend, and a link to the logs. Daily runs open with a ranked list of what needs attention today. Exceptions you ask it to ignore stay muted, with your reason, until you ask for them back. Requires the Exceptions capability on the account, which Logz.io Support enables. |
 | **Alert Digest** | Alerting | Weekly | Summarizes what fired, what resolved, and how long alerts stayed triggered, with a period-over-period comparison, top offenders, first-time alerts, and incident-like episodes. |
 | **Alert Tuning Report** | Alerting | Weekly | Analyzes triggered-alert history across log and metric alerts and produces a ranked list of concrete tuning recommendations: flapping alerts, fast self-resolvers, severity miscalibration, alerts that always fire together, dead alerts, and services whose alerts went quiet. Each recommendation cites the current value, the proposed value, the supporting numbers, and a link to the alert definition. |
 | **Error Logs Analysis** | Alerting | Daily | Breaks down errors and warnings by application, compares them with the previous period, and highlights spikes. |
+| **Log Patterns Analysis** | Alerting | Weekly | Reads the patterns Logz.io already groups your logs into, for this period and the one before, at any log level. It reports patterns that are new, growing against their own earlier count, steady, or gone. Each item names the pattern's level and service and links to its logs, and the report closes with the share of logs the patterns matched. Exception-tagged logs are left to Exception Analysis. For a daily report, set the schedule to daily and change the opening "Cadence: weekly" in the message to "Cadence: daily". |
 | **Log Distribution Monitor** | Performance | Daily | Analyzes log volume distribution and trends across services to detect anomalies, identify cost drivers, and keep logging healthy. |
 
 ### How Incident Triage works
@@ -57,14 +59,14 @@ The template decides which sections the dialog shows. A section appears only whe
 |---|---|
 | **Trigger** | The trigger type and, for a scheduled agent, the schedule. |
 | **Runbook** | The instructions for agents triggered by an API call, an alert, or a deployment. A scheduled agent shows its context message and run frequency instead. |
-| **Output detail** | **Summary** by default, unless the template sets a level. |
+| **Output detail** | The template's level. Every current template starts at **Detailed**. |
 | **Data sources** | The accounts the agent reads from. For an agent that reads logs, the account you are on is selected by default. |
 | **Integrations** | The integrations the agent can use. |
 | **Notification recipients** | Who gets notified of the agent's results. |
 
 Data sources, Integrations, and Notification recipients appear as one-line summaries that expand in place. If something required is missing, such as a data source or a reconnected integration, the row opens so you can fix it.
 
-Learning is off for agents activated from the Marketplace, because it is billed separately. You can turn it on later in the agent's **Agent details** form. See [Learning](/docs/user-guide/orioniq/create-agent/).
+Learning is off for agents activated from the Marketplace. You can turn it on later in the agent's **Agent details** form. See [Learning](/docs/user-guide/orioniq/create-agent/).
 
 Click **All settings** to move your draft into the full agent form in the side panel, with everything you entered so far. Click **Show details** or **Hide details** to switch between the template description and the setup form.
 
@@ -73,6 +75,14 @@ If you close the dialog after changing the setup, OrionIQ asks before it discard
 After you click **Activate agent**, a confirmation shows how the agent runs. Click **Open in Agents Hub** to see the new agent in the [Agents Hub](/docs/user-guide/orioniq/agents-hub/), filtered to the template's agent type.
 
 You can activate a template more than once. Once agents exist for a template, its card and preview show the number of active agents. Click it to open the Agents Hub filtered to those agents. To switch an agent off, use the Agents Hub.
+
+## Free trial
+
+Every agent you activate from the Marketplace starts with a free trial. The template card, the preview, the activation dialog, and the confirmation after you activate all show how many free runs the agent has.
+
+When the free runs are used, the agent switches off automatically and nothing is charged. In the [Agents Hub](/docs/user-guide/orioniq/agents-hub/), the **Cost** column shows the runs left, and an agent whose trial is over is marked **Trial ended**. Nothing runs or is charged until you turn it back on, and turning it on again asks you to confirm that each run is billed.
+
+If you can see pricing, the activation dialog and the agent form also offer **Keep running after the free runs**. Select it to let the agent keep running, billed per run, once the trial ends.
 
 If a template you're interested in is not yet available, click **Add to Wish List** to signal your interest. This helps Logz.io prioritize which templates to build next.
 

@@ -189,7 +189,9 @@ AI Agent Analysis runs **once every hour**.
 
 #### Configure the agent
 
-Enabling AI Agent Analysis creates an OrionIQ agent for the alert. Select **Configure agent after saving** to open it right after you save, or manage it later from the Agents Hub — the alert form links to it with **Manage in Agent Hub**.
+Enabling AI Agent Analysis creates an OrionIQ agent for the alert when you save it. Select **Configure your agent** to set the agent's instructions, data sources, integrations, and recipients. **Data sources** lists the accounts the alert covers, and you can add log or metrics accounts for the agent to investigate. The dialog also shows the agent's price per run, with any free runs left. **Apply** adds your changes to the alert form, and they are saved with the alert. Turning AI Agent Analysis off and saving removes the agent and its settings.
+
+For full agent configuration, use **Manage in Agents Hub**, which opens the agent in the Agents Hub.
 
 The agent is editable like any other, so beyond the settings on this page you can:
 
