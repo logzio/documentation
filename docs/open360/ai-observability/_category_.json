@@ -1,0 +1,8 @@
+{
+  "label": "AI Observability",
+  "position": 2.5,
+  "link": {
+    "type": "generated-index",
+    "description": "See what your AI agents and LLM applications did on every run, and why a run went wrong."
+  }
+}
