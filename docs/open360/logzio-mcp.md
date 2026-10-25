@@ -59,7 +59,7 @@ The API token belongs to one Logz.io account, but the MCP server can query other
 
 * **Metrics**: every metrics tool requires an `account_id`, the metrics account to query. Use `get_metrics_accounts` to list the metrics accounts. A metrics account can be queried when your token's account is one of its authorized accounts.
 * **Logs**: the log search tools accept an optional `account_id` to search another account your token may search, such as a sub account. Use `get_associated_accounts` to list them. Without `account_id`, the token's own account is searched. `scroll_logs` always reads the token's own account.
-* **OrionIQ agents**: `list_ai_agents` lists only the agents of the token's own account. A run reads the accounts given in `log_account_ids` and `metric_account_ids`. Without them, it reads the logs of the token's own account.
+* **OrionIQ agents**: `list_ai_agents` lists only the agents of the token's own account. A run reads the accounts given in `log_account_ids` and `metric_account_ids`. Without them, it reads the data the agent is set up to read in OrionIQ.
 
 ## Available tools
 
