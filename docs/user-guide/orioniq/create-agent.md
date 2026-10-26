@@ -40,8 +40,8 @@ The configuration is a series of sections. Work through them in order.
 
 | Field | Description |
 |---|---|
-| **Agent Name** | A descriptive name for your agent. |
-| **Description** | A brief explanation of what the agent does. |
+| **Agent Name** | A descriptive name for your agent, up to 191 characters. It can't start with `logz-` or `orioniq-general`. |
+| **Description** | A brief explanation of what the agent does, up to 191 characters. |
 | **Active** | Enable or disable the agent. When disabled, it won't run regardless of its trigger. For an alert-linked agent this is managed from the alert definition. |
 
 ### Agent Definition
@@ -70,7 +70,7 @@ Structured output schemas must be flat: properties can be primitives or arrays o
 |---|---|
 | **Type** | The agent type. Determines how the agent is priced and which data it can reach. |
 | **Trigger** | How the agent runs — see below. |
-| **Schedule** | For a Scheduled trigger, the interval the agent runs on. |
+| **Schedule** | For a Scheduled trigger, the interval the agent runs on. An hourly interval must be a whole number of hours. A weekly schedule shows the day in your local time. |
 
 Choose how the agent will run by selecting a trigger type:
 
@@ -78,8 +78,9 @@ Choose how the agent will run by selecting a trigger type:
 |---|---|
 | **API** | The agent runs when called via the [OrionIQ API](/docs/user-guide/orioniq/api/). Use this for on-demand or externally triggered invocations. |
 | **Scheduled** | The agent runs automatically at defined intervals (for example, every 3 hours or once a day). |
-| **Deployment** | The agent runs automatically when a deployment event is detected. |
 | **Alert** | The agent runs automatically when a Logz.io alert is triggered. |
+
+The Deployment trigger is no longer offered. An agent already set to it still shows it, but nothing starts it, so switch it to another trigger.
 
 ### Daily Invocation Cap
 
@@ -95,7 +96,7 @@ Pick the observability platform and accounts this agent can query. Toggle the sc
 
 With **Logs + Metrics (deep)**, a coordinating agent plans the investigation and assigns each part to specialized logs, metrics, and integration sub-agents, then combines their findings. It decides each next step from what the previous step returned rather than following a fixed sequence.
 
-Data Sources is available for every trigger type. Which scopes you have to fill in follows the **Agent tools** you chose above: a scheduled agent declaring a logs tool set needs a logs data source, and it won't save until every declared scope has one. For API, Alert, and Deployment agents, picking a data source is optional.
+Data Sources is available for every trigger type. Which scopes you have to fill in follows the **Agent tools** you chose above: a scheduled agent declaring a logs tool set needs a logs data source, and it won't save until every declared scope has one. For API and Alert agents, picking a data source is optional.
 
 When you create an alert-linked AI analysis agent, it starts with the accounts named in the alert, and you can edit them here. If the alert queries all accounts, the agent follows the alert instead and picks up new sub-accounts. Later changes to the alert don't overwrite the accounts you saved. If you remove every account, the agent falls back to the alert's accounts.
 
