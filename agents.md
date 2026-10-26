@@ -782,3 +782,10 @@ Existing PR #975 had no unresolved reviewer comments. Merged `master` into its b
 * `gaia-hermes-ws` - #17235, #17218 (TypeScript and Node upgrades), #17197 (Unified Dashboards trace drilldown). Out of OrionIQ scope.
 
 Existing PR #975 had no unresolved reviewer comments. Merged `master` into its branch. No screenshots marked for documentation use. Assignees already include the authors of the triggering commits.
+
+### 2026-10-26
+
+* `Artemis` - #559, #547, #565, #530, #529 (Gavriel-M, ORIONIQ-1876, 1869, 1877, 1868, 1870): marketplace card Data and Trigger tags, per-account template price, template-locked "All settings" form and required Triage runbook, Deployment trigger no longer offered, whole-hour schedules and local weekly day, 191-character name and description limit. Updated `marketplace.md` and `create-agent.md`. The create-agent and marketplace routes are not in the public `api.md`, so their new 400/404/503 shapes are not documented. #528, #552, #553, #571: design system and base image chores.
+* `oiq-resources` - #143, #145 (ralongit): agent skill text for CVE research and SIEM rule guards. No UI or public route. Not documented.
+* `OIQ-AI-service`, `gaia-hermes-ws` - no commits in the window.
+* PR #975 had no unresolved comments. Commits for this run were pushed to its existing branch `claude/gracious-thompson-n77ck0`, not the session branch.

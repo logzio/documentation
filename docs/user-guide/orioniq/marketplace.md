@@ -25,6 +25,8 @@ Agent templates are organized into the following categories:
 | **Alerting** | Agents that filter and prioritize alerts to surface high-confidence, high-impact events. |
 | **Performance** | Agents that identify early degradation patterns in latency, error rates, and throughput. |
 
+Each card shows two tags: **Data** (Logs, Metrics, or Logs + Metrics) and **Trigger** (Scheduled, On demand, or Per alert). A card whose template sets neither shows no tags.
+
 Use the search bar at the top of the page to find specific agent templates, or click a category tab to filter the list.
 
 ## Available templates
@@ -58,7 +60,7 @@ The template decides which sections the dialog shows. A section appears only whe
 | Section | What you set |
 |---|---|
 | **Trigger** | The trigger type and, for a scheduled agent, the schedule. |
-| **Runbook** | The instructions for agents triggered by an API call, an alert, or a deployment. A scheduled agent shows its context message and run frequency instead. |
+| **Runbook** | Required when the template needs one, as for Incident Triage. The instructions for agents triggered by an API call, an alert, or a deployment. A scheduled agent shows its context message and run frequency instead. |
 | **Output detail** | The template's level. Every current template starts at **Detailed**. |
 | **Data sources** | The accounts the agent reads from. For an agent that reads logs, the account you are on is selected by default. |
 | **Integrations** | The integrations the agent can use. |
@@ -68,7 +70,7 @@ Data sources, Integrations, and Notification recipients appear as one-line summa
 
 Learning is off for agents activated from the Marketplace. You can turn it on later in the agent's **Agent details** form. See [Learning](/docs/user-guide/orioniq/create-agent/).
 
-Click **All settings** to move your draft into the full agent form in the side panel, with everything you entered so far. Click **Show details** or **Hide details** to switch between the template description and the setup form.
+Click **All settings** to move your draft into the full agent form in the side panel, with everything you entered so far. The form offers only the fields the template lets you change, plus the name, description, and **Active**. Click **Show details** or **Hide details** to switch between the template description and the setup form.
 
 If you close the dialog after changing the setup, OrionIQ asks before it discards your changes.
 
@@ -81,6 +83,8 @@ You can activate a template more than once. Once agents exist for a template, it
 Every agent you activate from the Marketplace starts with a free trial. The template card, the preview, the activation dialog, and the confirmation after you activate all show how many free runs the agent has.
 
 When the free runs are used, the agent switches off automatically and nothing is charged. In the [Agents Hub](/docs/user-guide/orioniq/agents-hub/), the **Cost** column shows the runs left, and an agent whose trial is over is marked **Trial ended**. Nothing runs or is charged until you turn it back on, and turning it on again asks you to confirm that each run is billed.
+
+Template cards and previews show your account's own price per run. If the price can't be loaded, the price is left out and the free trial is still offered.
 
 If you can see pricing, the activation dialog and the agent form also offer **Keep running after the free runs**. Select it to let the agent keep running, billed per run, once the trial ends.
 
