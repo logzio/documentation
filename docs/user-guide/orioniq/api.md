@@ -146,7 +146,7 @@ curl -X POST -L \
 | `context.message` | The prompt for this run. |
 | `context.additionalContext` | Optional free-text context to pass to the agent. |
 | `context.timerange` | Optional `startTime` and `endTime` bounding the data the agent analyzes. |
-| `context.security` | Optional list of accounts to query, each with an optional `filter` of `field` and `value`. |
+| `context.security` | The accounts the run reads. Each entry takes a `requestedAccountId`, a `type` of `log` or `metric`, and an optional `filter` of `field` and `value`. Always send at least one entry. Without it, the run falls back to the accounts saved on the agent, and a Scheduled agent, or one with none saved, fails with `422`. An account the API token can't read is dropped, and a run with none left is rejected with `403`. |
 | `integrations` | Optional list of integration connections the run may use. |
 
 Fields you send override the matching fields in the agent's saved **Payload (JSON)**.
@@ -294,3 +294,65 @@ Returns the feedback record for a run, in the same shape as a single entry in th
 :::note
 Agents don't have to be reachable over the API to be rated. Runs started by a Scheduled, Deployment, or Alert trigger can be rated from the Agents Hub, and the same feedback endpoints apply to them.
 :::
+
+## List lessons
+
+```
+GET /v2/ai-agent/<<AGENT-ID>>/lessons
+```
+
+Returns what the agent has learned from feedback. Active lessons are applied to the agent's runs while its Learning setting is on.
+
+### Sample request
+
+```shell
+curl -X GET -L \
+  https://<<API-URL>>/v2/ai-agent/<<AGENT-ID>>/lessons \
+  -H 'X-API-TOKEN: <<API-TOKEN>>'
+```
+
+### Response
+
+```json
+{
+  "lessons": [
+    {
+      "lessonId": "<lesson-id>",
+      "status": "active",
+      "situation": "<when-it-applies>",
+      "rule": "<what-the-agent-does>",
+      "whyNote": "<why-it-was-learned>",
+      "feedbackRef": "<agent-id>:<session-id>",
+      "createdAt": "2026-10-14T06:00:00Z",
+      "lastLoaded": "2026-10-15T06:00:00Z",
+      "isUpdated": false
+    }
+  ]
+}
+```
+
+`status` is `active` or `disabled`. Apart from `lessonId` and `isUpdated`, every field is optional and can be missing.
+
+## Set lesson status
+
+```
+PUT /v2/ai-agent/<<AGENT-ID>>/lessons/<lesson-id>/status
+```
+
+Turns a lesson on or off. A disabled lesson is kept but no longer applied to the agent's runs.
+
+### Sample request
+
+```shell
+curl -X PUT -L \
+  https://<<API-URL>>/v2/ai-agent/<<AGENT-ID>>/lessons/<lesson-id>/status \
+  -H 'Content-Type: application/json' \
+  -H 'X-API-TOKEN: <<API-TOKEN>>' \
+  -d '{
+    "enabled": false
+  }'
+```
+
+### Response
+
+The updated lesson, in the same shape as an entry in the List lessons response, with `status` set to `disabled` or `active`.

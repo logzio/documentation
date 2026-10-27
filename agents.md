@@ -789,3 +789,7 @@ Existing PR #975 had no unresolved reviewer comments. Merged `master` into its b
 * `oiq-resources` - #143, #145 (ralongit): agent skill text for CVE research and SIEM rule guards. No UI or public route. Not documented.
 * `OIQ-AI-service`, `gaia-hermes-ws` - no commits in the window.
 * PR #975 had no unresolved comments. Commits for this run were pushed to its existing branch `claude/gracious-thompson-n77ck0`, not the session branch.
+
+## Run notes
+
+* 2026-10-27: The in-app API reference (`api-endpoints.ts`) now lists lessons and agents search. `api.md` mirrors both. Schedule validation and `schedule.tz` (ORIONIQ-1880) are documented in one line on the Schedule row of `create-agent.md`, since `POST` and `PUT /orioniq-be/agents` are not on the public API page.
