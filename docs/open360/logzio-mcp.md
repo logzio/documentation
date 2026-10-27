@@ -57,8 +57,8 @@ After setup is complete, you can query your Logz.io data. Ask questions about yo
 
 The API token belongs to one Logz.io account, but the MCP server can query other accounts that account is allowed to read:
 
-* **Metrics**: every metrics tool requires an `account_id`, the metrics account to query. Use `get_metrics_accounts` to list the metrics accounts. A metrics account can be queried when your token's account is one of its authorized accounts.
-* **Logs**: the log search tools accept an optional `account_id` to search another account your token may search, such as a sub account. Use `get_associated_accounts` to list them. Without `account_id`, the token's own account is searched. `scroll_logs` always reads the token's own account.
+* **Metrics**: every metrics tool requires an `account_id`, the metrics account to query. Use `get_metrics_accounts` to list the metrics accounts your token can query, that is, the metrics accounts whose authorized accounts include your token's account. It works with read-only tokens too.
+* **Logs**: the log search tools accept an optional `account_id` to search another account your token may search, such as a sub account. Use `get_associated_accounts` to list them; it needs an admin API token, so read-only and regular tokens can't use it. Without `account_id`, the token's own account is searched. `scroll_logs` always reads the token's own account.
 
 ## Available tools
 
@@ -71,8 +71,8 @@ Tools for managing and retrieving account information:
 | Tool                      | Description                         | Parameters | API Link |
 | ------------------------- | ----------------------------------- | ---------- | ---------- |
 | `get_account_info` | Retrieve account name and ID for the current token. | None | [Link](https://api-docs.logz.io/docs/logz/who-am-i/) |
-| `get_associated_accounts` | List all accounts associated with the current account (including sub-accounts for owners). | None |  |
-| `get_metrics_accounts` | List all metrics accounts with details. | None | [Link](https://api-docs.logz.io/docs/logz/get-a-list-of-all-metrics-accounts) |
+| `get_associated_accounts` | List all accounts associated with the current account (including sub-accounts for owners). Needs an admin API token. | None |  |
+| `get_metrics_accounts` | List the metrics accounts the current token can query (ID and name), for the `account_id` of the metrics tools. Works with read-only tokens. | None |  |
 
 ### Metrics management 
 
