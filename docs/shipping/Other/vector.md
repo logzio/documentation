@@ -44,6 +44,7 @@ Find the complete configuration docs at [http sink](https://vector.dev/docs/refe
   type = "http" # Don't change this setting
   inputs = ["YOUR_SOURCE_ID"]
   encoding.codec = "json" # enum: "json" or "text"
+  framing.method = "newline_delimited"
 
   # More information on uri below this code block
   uri = "https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=vector"
