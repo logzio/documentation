@@ -70,7 +70,7 @@ Structured output schemas must be flat: properties can be primitives or arrays o
 |---|---|
 | **Type** | The agent type. Determines how the agent is priced and which data it can reach. |
 | **Trigger** | How the agent runs — see below. |
-| **Schedule** | For a Scheduled trigger, the interval the agent runs on. An hourly interval must be a whole number of hours. A weekly schedule shows the day in your local time. The agent runs at the hour in its saved time zone, and follows daylight saving changes. An agent with no saved time zone runs on UTC. |
+| **Schedule** | For a Scheduled trigger, the interval the agent runs on. An hourly interval must be a whole number of hours. The agent saves the time zone you pick (**Local** uses your browser's time zone, or choose **UTC**), and runs at the hour and weekly day you set in that zone, following daylight saving changes. An agent saved before time zones were stored runs on UTC and shows its hour converted to your local time. When the agent's time zone differs from yours, the schedule summary and the marketplace plan name it, for example "Weekly on Monday at 09:00 (America/New_York)". |
 
 Choose how the agent will run by selecting a trigger type:
 
