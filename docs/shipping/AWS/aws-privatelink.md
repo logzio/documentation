@@ -56,8 +56,11 @@ To get started, send your AWS Account ID and the region you'll connect from to y
 
     * Select the **VPC** where the endpoint should be established.
 
-    * Choose the **subnets** in which the endpoint will be deployed. If you’re connecting from us-east-1, the endpoint service is available in AZ IDs **use1-az4** and **use1-az6**.
-
+    * Choose the **subnets** in which the endpoint will be deployed. If you're connecting from the same region as your Logz.io account, the endpoint service is available in the following AZ IDs:
+        * **us-east-1**: `use1-az4`, `use1-az6`
+        * **eu-west-2**: `euw2-az2`
+        * **eu-central-1**: `euc1-az3`
+      
     * Select **security groups**. Make sure they allow outbound traffic for the specific endpoint IPs on the required ports.
 
 ### 3. Validate and enable the endpoint
