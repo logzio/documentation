@@ -56,7 +56,7 @@ To get started, send your AWS Account ID and the region you'll connect from to y
 
     * Select the **VPC** where the endpoint should be established.
 
-    * Choose the **subnets** in which the endpoint will be deployed.
+    * Choose the **subnets** in which the endpoint will be deployed. If you’re connecting from us-east-1, select subnets in AZ IDs use1-az4 and use1-az6.
 
     * Select **security groups**. Make sure they allow outbound traffic for the specific endpoint IPs on the required ports.
 
