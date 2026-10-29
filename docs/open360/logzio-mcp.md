@@ -1,12 +1,12 @@
 ---
 sidebar_position: 8
 title: Logz.io MCP Server
-description: Use Logz.io MCP to quickly and easily query your logs, metrics, dashboards, and alerts.
+description: Use Logz.io MCP to quickly and easily query your logs, metrics, dashboards, and alerts, and run OrionIQ AI agents.
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-keywords: [logz.io, mcp, model context protocol, llm tools, observability, logs, metrics, prometheus, promql, dashboards, alerts, elasticsearch, ai agents, integrations]
+keywords: [logz.io, mcp, model context protocol, llm tools, observability, logs, metrics, prometheus, promql, dashboards, alerts, elasticsearch, ai agents, orioniq, root cause analysis, integrations]
 ---
 
-The Logz.io Public API MCP (Model Context Protocol) server allows LLM clients (Claude, Cursor, ChatGPT, etc.) to access observability data - logs, metrics, dashboards, and alerts, in a standardized way. With MCP, AI agents can fetch context and trigger actions without custom integrations.
+The Logz.io Public API MCP (Model Context Protocol) server allows LLM clients (Claude, Cursor, ChatGPT, etc.) to access observability data - logs, metrics, dashboards, and alerts, and to run OrionIQ AI agents, in a standardized way. With MCP, AI agents can fetch context and trigger actions without custom integrations.
 
 ### Prerequisites
 
@@ -59,6 +59,7 @@ The API token belongs to one Logz.io account, but the MCP server can query other
 
 * **Metrics**: every metrics tool requires an `account_id`, the metrics account to query. Use `get_metrics_accounts` to list the metrics accounts your token can query, that is, the metrics accounts whose authorized accounts include your token's account. It works with read-only tokens too.
 * **Logs**: the log search tools accept an optional `account_id` to search another account your token may search, such as a sub account. Use `get_associated_accounts` to list them; it needs an admin API token, so read-only and regular tokens can't use it. Without `account_id`, the token's own account is searched. `scroll_logs` always reads the token's own account.
+* **OrionIQ agents**: `list_ai_agents` lists only the agents of the token's own account. A run reads the accounts given in `log_account_ids` and `metric_account_ids`. Without them, it reads the data the agent is set up to read in OrionIQ; if the agent has none set up, the run fails and the result asks for account IDs. An agent that reads only logs or only metrics accepts only that kind of account.
 
 ## Available tools
 
@@ -132,6 +133,23 @@ Tools for alerts and insights:
 | `get_all_alerts`       | List all configured alerts.     | None | [Link](https://api-docs.logz.io/docs/logz/get-all-alerts) |
 | `get_triggered_alerts` | List triggered alerts.      | `from` (int, optional), `size` (int, optional), `search` (string, optional), `severities` (array, optional), `tags` (array, optional) | [Link](https://api-docs.logz.io/docs/logz/triggered-alerts) |
 | `get_insights`         | Get insights matching criteria. | `from` (int, optional), `size` (int, optional, 1–100), `asc` (boolean, optional), `search` (string, optional) | [Link](https://api-docs.logz.io/docs/logz/get-public-insights) |
+
+### OrionIQ AI agents
+
+Tools for running [OrionIQ](/docs/user-guide/orioniq/) agents, such as a root cause analysis:
+
+| Tool | Description | Parameters | API Link |
+| ---- | ----------- | ---------- | ---------- |
+| `list_ai_agents` | List the account's agents with their IDs, newest first. By default, lists only active agents with the **Api** trigger. Agents with other triggers can be run too: set `trigger` to `any` to include them, and `state` to `any` to include inactive ones. | `search_term` (string, optional), `type` (string, optional), `trigger` (`Api`, `Alert`, `Scheduled`, `Deployment` or `any`, optional), `state` (`active`, `inactive` or `any`, optional), `page_number` (int, optional), `page_size` (int, optional, 1–50) |  |
+| `invoke_ai_agent` | Start an agent run. Returns a `session_id` right away; the run itself takes a few minutes. | `agent_id` (string, required, the agent's ID from `list_ai_agents`), `message` (string, required), `additional_context` (string, optional), `start_time` (string, optional), `end_time` (string, optional), `log_account_ids` (array, optional), `metric_account_ids` (array, optional) | [Link](/docs/user-guide/orioniq/api/#run-an-agent) |
+| `get_ai_agent_result` | Get the result of a run. Waits up to `wait_seconds` for the run to finish, then returns either the report or `loading`. On `loading`, the run is still in progress: call the tool again to keep waiting. | `agent_id` (string, required), `session_id` (string, required, as returned by `invoke_ai_agent`), `wait_seconds` (int, optional, 0–40, default 20) | [Link](/docs/user-guide/orioniq/api/#get-run-status) |
+| `send_ai_agent_followup` | Ask a follow-up question in the same session, once the previous answer is ready. While the previous answer is still loading, or its status can't be read, the follow-up is not sent. The agent keeps the conversation so far, but not the parameters of earlier turns: pass the account IDs, time range and additional context again. Read the answer with `get_ai_agent_result`. | `agent_id` (string, required), `session_id` (string, required), `message` (string, required), plus the optional parameters of `invoke_ai_agent` | [Link](/docs/user-guide/orioniq/api/#send-a-follow-up) |
+
+A run is asynchronous: start it with `invoke_ai_agent`, then call `get_ai_agent_result` until it returns the report. Through MCP, the result can be read until 15 minutes after the run started or 10 minutes after it finished, whichever comes first; after that it returns `canceled` or `timeout`. A report longer than 20 KB is shortened. The full run stays available in the **Invocations** tab of the [Agents Hub](/docs/user-guide/orioniq/agents-hub/#invocations-tab).
+
+:::note
+Each agent run (`invoke_ai_agent`) and follow-up (`send_ai_agent_followup`) counts against the account's AI usage. Your AI assistant therefore asks you to confirm before it starts one, unless you explicitly asked for it. Listing agents and reading results don't count. AI must be enabled for the account, and only active agents can run: `list_ai_agents` shows whether each agent is active.
+:::
 
 ## Best practices
 
