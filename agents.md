@@ -793,3 +793,8 @@ Existing PR #975 had no unresolved reviewer comments. Merged `master` into its b
 ## Run notes
 
 * 2026-10-27: The in-app API reference (`api-endpoints.ts`) now lists lessons and agents search. `api.md` mirrors both. Schedule validation and `schedule.tz` (ORIONIQ-1880) are documented in one line on the Schedule row of `create-agent.md`, since `POST` and `PUT /orioniq-be/agents` are not on the public API page.
+
+## Run notes
+
+* **2026-10-29:** Artemis #570 deleted the Marketplace preview and activation dialog ("All settings" included) and replaced it with the guided Review, Set up, and Done flow. Its notes live in `apps/orioniq/CLAUDE.md` under "Guided activation"; the file is about 250 KB, so fetch it to disk and read that section only. Artemis #575 made `POST /v2/orioniq-be/ai-agent/:agentId` return `404` for an agent the caller's account can't access.
+* The existing agent PR is reused until it merges; its description is rewritten on every run.

@@ -160,7 +160,7 @@ Fields you send override the matching fields in the agent's saved **Payload (JSO
 }
 ```
 
-A disabled agent returns `404`, unless its trigger type is Alert. When OrionIQ is temporarily shut down for maintenance, the endpoint returns `503`.
+An agent that doesn't exist, or that your account can't access, returns `404`. A disabled agent also returns `404`, unless its trigger type is Alert. When OrionIQ is temporarily shut down for maintenance, the endpoint returns `503`.
 
 ## Get run status
 
