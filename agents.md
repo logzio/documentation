@@ -798,3 +798,11 @@ Existing PR #975 had no unresolved reviewer comments. Merged `master` into its b
 
 * **2026-10-29:** Artemis #570 deleted the Marketplace preview and activation dialog ("All settings" included) and replaced it with the guided Review, Set up, and Done flow. Its notes live in `apps/orioniq/CLAUDE.md` under "Guided activation"; the file is about 250 KB, so fetch it to disk and read that section only. Artemis #575 made `POST /v2/orioniq-be/ai-agent/:agentId` return `404` for an agent the caller's account can't access.
 * The existing agent PR is reused until it merges; its description is rewritten on every run.
+
+### 2026-10-30
+
+* `Artemis` - #610 (RoyiSitbon): the run Input tab is now sections (Request, This Run, Agent Configuration, Identifiers) with a Formatted and JSON switch. Updated `agents-hub.md`, using `InputDetailsTab.tsx` for the labels. #137 (ralongit, ORIONIQ-1385): contextual recommendations served by `orioniq-be`. UI surface with no verified copy and a `/recommendations` route used by the apps, not public. #628, #599, #579, #580: analytics and surface groundwork, no doc change.
+* `OIQ-AI-service` - #437 and follow-ups: the `/recommendations` contract (5.3.0), an App-AI contract, not public. #631 registers gaia's chat drawer surfaces.
+* `gaia-hermes-ws` - #17273 (APPZ-3650): agent-created SIEM events (`source` Agent) in Event Management, no "Investigate in Explore" for them. Not documented: no existing page names that action and the backend (gaia-full#17641) is unverified here. Revisit with OrionIQ for SIEM. #17292 analytics events, #17291 package bump, #17272 MCP metrics accounts (not OrionIQ).
+* `oiq-resources` - #156 (augment770-dev, ORIONIQ-1943): a Create a Security Event section in the `logzio` SIEM skill, agent behavior with no UI. #152, #155: broadcast recommendations authored here, internal.
+* PR #975 had no unresolved comments. Commits go to its existing branch `claude/gracious-thompson-n77ck0`.
