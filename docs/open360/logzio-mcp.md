@@ -57,8 +57,8 @@ After setup is complete, you can query your Logz.io data. Ask questions about yo
 
 The API token belongs to one Logz.io account, but the MCP server can query other accounts that account is allowed to read:
 
-* **Metrics**: every metrics tool requires an `account_id`, the metrics account to query. Use `get_metrics_accounts` to list the metrics accounts. A metrics account can be queried when your token's account is one of its authorized accounts.
-* **Logs**: the log search tools accept an optional `account_id` to search another account your token may search, such as a sub account. Use `get_associated_accounts` to list them. Without `account_id`, the token's own account is searched. `scroll_logs` always reads the token's own account.
+* **Metrics**: every metrics tool requires an `account_id`, the metrics account to query. Use `get_metrics_accounts` to list the metrics accounts that your token can query. A metrics account is on the list if your token's account is one of its authorized accounts. This tool also works with read-only tokens.
+* **Logs**: the log search tools accept an optional `account_id` to search another account your token may search, such as a sub account. Use `get_associated_accounts` to list them; it needs an admin API token, so read-only and regular tokens can't use it. Without `account_id`, the token's own account is searched. `scroll_logs` always reads the token's own account.
 * **OrionIQ agents**: `list_ai_agents` lists only the agents of the token's own account. A run reads the accounts given in `log_account_ids` and `metric_account_ids`. Without them, it reads the data the agent is set up to read in OrionIQ; if the agent has none set up, the run fails and the result asks for account IDs. An agent that reads only logs or only metrics accepts only that kind of account.
 
 ## Available tools
@@ -72,8 +72,8 @@ Tools for managing and retrieving account information:
 | Tool                      | Description                         | Parameters | API Link |
 | ------------------------- | ----------------------------------- | ---------- | ---------- |
 | `get_account_info` | Retrieve account name and ID for the current token. | None | [Link](https://api-docs.logz.io/docs/logz/who-am-i/) |
-| `get_associated_accounts` | List all accounts associated with the current account (including sub-accounts for owners). | None |  |
-| `get_metrics_accounts` | List all metrics accounts with details. | None | [Link](https://api-docs.logz.io/docs/logz/get-a-list-of-all-metrics-accounts) |
+| `get_associated_accounts` | List all accounts associated with the current account (including sub-accounts for owners). Needs an admin API token. | None |  |
+| `get_metrics_accounts` | List the metrics accounts the current token can query (ID and name), for the `account_id` of the metrics tools. Works with read-only tokens. | None |  |
 
 ### Metrics management 
 
