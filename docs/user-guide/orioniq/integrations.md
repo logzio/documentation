@@ -50,7 +50,7 @@ Click **Connect** on an integration and provide its credentials. Which method an
 |---|---|
 | **API Key** | Connect using the provider's API token. This is what most integrations use. |
 | **Basic Auth** | Connect with an email address and API token. |
-| **None** | A few public data sources, such as MITRE ATT&CK and Hacker News, need no credentials at all. |
+| **None** | A few public data sources, such as MITRE ATT&CK, Hacker News, and the Tor exit list, need no credentials at all. |
 
 ## Management
 

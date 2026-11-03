@@ -806,3 +806,12 @@ Existing PR #975 had no unresolved reviewer comments. Merged `master` into its b
 * `gaia-hermes-ws` - #17273 (APPZ-3650): agent-created SIEM events (`source` Agent) in Event Management, no "Investigate in Explore" for them. Not documented: no existing page names that action and the backend (gaia-full#17641) is unverified here. Revisit with OrionIQ for SIEM. #17292 analytics events, #17291 package bump, #17272 MCP metrics accounts (not OrionIQ).
 * `oiq-resources` - #156 (augment770-dev, ORIONIQ-1943): a Create a Security Event section in the `logzio` SIEM skill, agent behavior with no UI. #152, #155: broadcast recommendations authored here, internal.
 * PR #975 had no unresolved comments. Commits go to its existing branch `claude/gracious-thompson-n77ck0`.
+
+### 2026-11-03
+
+* `Artemis` - #646 (RoyiSitbon, ORIONIQ-1957) and `gaia-hermes-ws` #17313: turning RCA off now switches the alert's v2 agent off and keeps its settings and run history, and deleting an alert or rule removes its agents (new session route `DELETE /orioniq-be/agents/alert/:alertId/rca`). Replaced the "removes the agent and its settings" sentence on both `configure-alerts-explore.md` twins and `manage-security-rules.md`. Session route, not in `api.md`.
+  * #643, #645, #649 (ralongit, ORIONIQ-1954, 1955, 1956): SecurityRulesManagement, SocTriage and CveAnalyzer agent types registered. Their templates are not on `oiq-resources` `main` yet, so not documented. Revisit when they ship to `main`.
+  * #642 and `OIQ-AI-service` #641, `gaia-hermes-ws` #17312 (ORIONIQ-1385): new-chat recommendation card, integration categories, "For you" rejections. Internal contract, still no verified copy. #644: placeholder colour fix.
+* `oiq-resources` - #181 (ralongit): keyless Tor exit list integration. Added it to the **None** auth examples in `integrations.md`. #175: Exception Analysis memory switch, behind the memory flag. #168, #170 and follow-ups: Alert Digest and Alert Tuning Report link and coverage fixes, already in line with `marketplace.md`. #172, #177, #180: skill guide fixes, agent behavior only.
+* `gaia-hermes-ws` - #17315 (Gavriel-M, ORIONIQ-1963): chat drawer offered on AI sub-pages, no verified copy. #17314: package bump. Other commits (APM, tracing, React 19, Nx cache, dashboards) are out of scope.
+* `OIQ-AI-service` - #629 scheduler docs, internal.
