@@ -87,11 +87,13 @@ In this example, the **budget is $1,000**, and the individual unit prices are:
 | Open 360 logging hot retention extension      | Per 1GB per day   | $0.03 |
 | Open 360 logging cold tier retention          | Per 1GB per day   | $0.001 |
 | Open 360 metrics + 18 months retention        | 1,000 UTM per day | $0.20 |
-| Open 360 traces                               | Per 1GB per day   | $0.92 |
+| Open 360 traces                               | Per 1GB per day   | $0.30 |
 | Open 360 security addon                       | Per 1GB per day   | $0.35 |
 
 :::note
 New metrics pricing ($0.20 per 1,000 UTM per day, previously $0.40) starts October 1, 2026, for new consumption plans only. Existing plans keep their current rate.
+
+New traces pricing ($0.30 per 1GB per day, previously $0.92) starts November 1, 2026, for new consumption plans only. Existing plans keep their current rate.
 :::
 
 Based on these prices, the cost is $0.92 per 1GB per day for Open 360 logging index + 7 days hot retention period.
@@ -111,7 +113,7 @@ Budget used per 1 day:
 | Open 360 logging index + 7 days hot retention   | 2GB            | $0.92          | $1.84               |
 | Open 360 logging index + 30 days hot retention  | 3GB            | $1.61          | $4.83               |
 | Open 360 metrics                                | 7,000 UTM      | $0.20          | $1.4                |
-| Open 360 tracing                                | 4GB            | $0.92          | $3.68               |
+| Open 360 tracing                                | 4GB            | $0.30          | $1.20               |
 | Open 360 security addon                         | 5GB            | $0.35          | $1.75               | 
 
-At the end of the day, $13.5 was spent, leaving a remaining budget of $986.5.
+At the end of the day, $11.02 was spent, leaving a remaining budget of $988.98.
