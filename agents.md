@@ -815,3 +815,11 @@ Existing PR #975 had no unresolved reviewer comments. Merged `master` into its b
 * `oiq-resources` - #181 (ralongit): keyless Tor exit list integration. Added it to the **None** auth examples in `integrations.md`. #175: Exception Analysis memory switch, behind the memory flag. #168, #170 and follow-ups: Alert Digest and Alert Tuning Report link and coverage fixes, already in line with `marketplace.md`. #172, #177, #180: skill guide fixes, agent behavior only.
 * `gaia-hermes-ws` - #17315 (Gavriel-M, ORIONIQ-1963): chat drawer offered on AI sub-pages, no verified copy. #17314: package bump. Other commits (APM, tracing, React 19, Nx cache, dashboards) are out of scope.
 * `OIQ-AI-service` - #629 scheduler docs, internal.
+
+### 2026-11-04
+
+* `oiq-resources` - Security Rules Management, CVE Analyzer and SOC Triage shipped to `main` (#187, #189, #192, #194 to #201, ralongit), along with the `workspaces` and `writes` template fields. Closes the open item from 2026-11-03. Added three rows and a **Cloud SIEM agents** section to `marketplace.md`. Source of wording: the `display` blocks and guidelines in the three template JSON files. The Shodan date filter note (#184) and the SOC Triage runbook copy are covered by the same section.
+* `Artemis` - #648 (ralongit, ORIONIQ-1953): templates carry a workspace, and **Before you start** says "This agent needs a Cloud SIEM account. Switch to Cloud SIEM to set it up." in the other workspace. Documented in the same section. #662 (Gavriel-M, ORIONIQ-1989): the after-free-runs choice for RCA agents and a paused-agent guard, which the existing **After the free runs** text already covers. #663, #660, #661, #664, #657, #658, #656: UI, design system and release chores.
+* `OIQ-AI-service` - #644 (augment770-dev, ORIONIQ-1980): the generic LMDA profile returns a markdown answer again, restoring the previous behavior, so no doc change. #647 (galangel): a mobile new-chat recommendation card, internal contract, not documented.
+* `gaia-hermes-ws` - #17321, #17322 (Gavriel-M, ORIONIQ-1992): RCA banner billing note and shared save hook, no verified copy. Other commits are out of OrionIQ scope.
+* PR #975 had no unresolved comments. Commits go to its existing branch `claude/gracious-thompson-n77ck0`.
