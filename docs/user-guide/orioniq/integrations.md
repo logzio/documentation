@@ -10,6 +10,8 @@ Integrations connect your OrionIQ agents to external systems, giving them access
 
 To access Integrations, navigate to **OrionIQ > Integrations** in the left navigation menu.
 
+In Open 360 and Cloud SIEM, open **AI Agents > AI Connectors** in the left navigation menu. The page is titled **Connectors**. The old `/integrations/ai` address redirects there.
+
 ![OrionIQ Integrations](https://dytvr9ot2sszz.cloudfront.net/logz-docs/orioniq/orioniq-utilities.png)
 
 The page has two tabs:
