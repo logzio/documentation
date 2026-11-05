@@ -44,6 +44,7 @@ Use the search bar at the top of the page to find specific agent templates, or c
 | **Log Distribution Monitor** | Performance | Daily | Analyzes log volume distribution and trends across services to detect anomalies, identify cost drivers, and keep logging healthy. |
 | **Security Rules Management** | Detection | Weekly | Cloud SIEM only. Finds the threats your security rules miss, closes the gaps with detection rules tested against 7 days of logs, and keeps the rules it created up to date. It covers nine threat categories: anomalous logins, suspicious execution, denial of service, CVE exploitation, data exfiltration, privilege escalation, defense evasion, malware and command-and-control, and cloud resource abuse. It recommends changes to rules people wrote and never edits them. |
 | **CVE Analyzer** | Detection | Weekly | Cloud SIEM only. Checks the week's high-severity CVEs (CVSS 8.5 or higher) for the products in your logs, then the ones known or likely to be exploited. It reports which touch your environment, creates a tested rule where an exposed CVE has none, keeps its own rules up to date, and suggests improvements to existing ones. A CVE with no related data in the selected accounts is reported as no action needed. |
+| **CVE Sweep** | Detection | Weekly | Open 360 only. Read-only. Sweeps the week's high-severity CVEs (CVSS 8.5 or higher) for the products your logs come from, using Shodan CVEDB and MITRE CVE, and reports only the ones that connect to your data: which log accounts run the product, at which version, and whether your logs or metrics show signs of exploitation. It recommends patches, log sources, and alerts, and changes nothing. |
 | **SOC Triage** | Incident | On demand (API) | Cloud SIEM only. Turns a fired security rule into a verdict: true positive, false positive, or benign true positive, with escalate or close. It works through your runbook step by step, maps the activity to its MITRE ATT&CK technique, traces the same user, host, or address across your accounts, and lists the response steps. It gives no verdict without a runbook. |
 
 ### Cloud SIEM agents
@@ -51,6 +52,8 @@ Use the search bar at the top of the page to find specific agent templates, or c
 Security Rules Management, CVE Analyzer, and SOC Triage are offered in the Cloud SIEM workspace. In Open 360 their cards are visible, but **Set up** stays off and **Before you start** says "This agent needs a Cloud SIEM account. Switch to Cloud SIEM to set it up."
 
 Each one needs a Cloud SIEM (Security) account connection. Security Rules Management and CVE Analyzer also need write access on that connection, and without it they report the rules they would create instead of creating them. SOC Triage needs your runbook, which is required. A run with a blank runbook reads the event and the rule, gives no verdict, and asks you to add the runbook first. None of the three edits a rule written by a person. Security Rules Management and CVE Analyzer recommend changes to those rules instead.
+
+CVE Sweep is the Open 360 counterpart. It needs no Cloud SIEM account. It reads the Shodan CVEDB and MITRE CVE integrations, which are public and need no credentials, plus the log and metric accounts you select. See [Integrations](/docs/user-guide/orioniq/integrations/).
 
 
 ### How Incident Triage works
@@ -91,7 +94,7 @@ The side panel summarizes the agent, its expected runs, and its cost. On narrow 
 
 Billing choices:
 
-* **After the free runs**: **Turn off** (the default) or **Keep running**, billed per run. If you can't see pricing, the choice is not offered.
+* **After the free runs**: **Keep running** (the default), billed per run, or **Turn off**. If you can't see pricing, the choice is not offered.
 * **Daily run limit**: For agents that run on demand, set the maximum runs a day. It starts at 5. Clear the box for no limit.
 
 Click **Activate agent**. If required fields are missing, the dialog lists how many need attention and moves you to the first one. If you close the dialog after changing the setup, OrionIQ asks before it discards your changes.
@@ -122,11 +125,11 @@ You can activate a template more than once. Once agents exist for a template, it
 
 Every agent you activate from the Marketplace starts with a free trial. The template card, the Review and Set up steps, and the Done step all show how many free runs the agent has.
 
-When the free runs are used, the agent switches off automatically and nothing is charged. In the [Agents Hub](/docs/user-guide/orioniq/agents-hub/), the **Cost** column shows the runs left, and an agent whose trial is over is marked **Trial ended**. Nothing runs or is charged until you turn it back on, and turning it on again asks you to confirm that each run is billed.
+If you choose **Turn off**, the agent switches off when the free runs are used and nothing is charged. In the [Agents Hub](/docs/user-guide/orioniq/agents-hub/), the **Cost** column shows the runs left, and an agent whose trial is over is marked **Trial ended**. Nothing runs or is charged until you turn it back on, and turning it on again asks you to confirm that each run is billed.
 
 Template cards and the Review step show your account's own price per run. If the price can't be loaded, the price is left out and the free trial is still offered.
 
-If you can see pricing, Set up and the agent form also offer **Keep running** after the free runs. Select it to let the agent keep running, billed per run, once the trial ends.
+If you can see pricing, Set up and the agent form also offer the after-free-runs choice, and **Keep running** is selected by default. The agent then keeps running, billed per run, once the trial ends. Select **Turn off** to stop it instead. The choice is offered only for agents activated from the Marketplace, not for custom agents.
 
 If a template you're interested in is not yet available, click **Add to Wish List** to signal your interest. This helps Logz.io prioritize which templates to build next.
 

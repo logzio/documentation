@@ -823,3 +823,10 @@ Existing PR #975 had no unresolved reviewer comments. Merged `master` into its b
 * `OIQ-AI-service` - #644 (augment770-dev, ORIONIQ-1980): the generic LMDA profile returns a markdown answer again, restoring the previous behavior, so no doc change. #647 (galangel): a mobile new-chat recommendation card, internal contract, not documented.
 * `gaia-hermes-ws` - #17321, #17322 (Gavriel-M, ORIONIQ-1992): RCA banner billing note and shared save hook, no verified copy. Other commits are out of OrionIQ scope.
 * PR #975 had no unresolved comments. Commits go to its existing branch `claude/gracious-thompson-n77ck0`.
+
+### 2026-11-05
+
+* `Artemis` - #674 (Gavriel-M, ORIONIQ-2012): a new agent from a template starts with **Keep running** selected, so the after-free-runs default flipped from Turn off. #671 (ORIONIQ-2011): the choice is offered only on Marketplace agents. #673 (ORIONIQ-2000) and `gaia-hermes-ws` #17344 (ORIONIQ-2002): the Integrations page is titled **Connectors** and sits under **AI Agents > AI Connectors** in Open 360 and Cloud SIEM. Updated `marketplace.md` and `integrations.md`.
+* `oiq-resources` - #193 (ralongit): CVE Sweep template, Open 360, read-only. Added a row and a note to `marketplace.md`. The Open 360 keyless-lookup fix (`OIQ-AI-service` #653) means a run needs no connection to read those public hosts, but the template still lists the integrations as a prerequisite, so the page says they need no credentials and does not claim a connection is optional. #207 and the earlier SOC Triage, CVE Analyzer and Security Rules Management copy and guideline fixes: agent behavior only, no change.
+* Not documented: `OIQ-AI-service` #646 (OIHV answer contract 7.0.0, RCA report sections), `Artemis` #681 (RCA report layout), #650 and `Artemis` #680 (`POST /recommendations/reset`, used by OrionIQ Mobile), `gaia-hermes-ws` #17347 (New tags on Home and AI Agents), #17343 (surfaces hidden when AI is off, already stated by the AI usage switch), and #642 (scheduler fetch). Internal contracts or no verified copy.
+* PR #975 had no unresolved comments. Commits go to its existing branch `claude/gracious-thompson-n77ck0`.
