@@ -31,7 +31,7 @@ Labels:
 * `env_id`
 * `status_code`
 
-Currently, infrastructure and logs are only supported in the Kubernetes 360 environment. For more details, refer to the [Kubernetes 360 Prerequisites](https://docs.logz.io/docs/k8s-360/kubernetes-360-pre/) documentation.
+Currently, infrastructure and logs are only supported in the Kubernetes 360 environment. For more details, refer to the [Kubernetes 360 Prerequisites](/docs/open360/k8s-360/kubernetes-360-pre/) documentation.
 
 ## Services overview
 
