@@ -47,15 +47,6 @@ Use the search bar at the top of the page to find specific agent templates, or c
 | **CVE Sweep** | Detection | Weekly | Open 360 only. Read-only. Sweeps the high-severity CVEs (CVSS 8.5 or higher) of the last 90 days for the products your logs come from, using Shodan CVEDB and MITRE CVE, and reports only the ones that connect to your data: which log accounts run the product, at which version, and whether your logs or metrics show signs of exploitation. It recommends patches, log sources, and alerts, and changes nothing. |
 | **SOC Triage** | Incident | On demand (API) | Cloud SIEM only. Turns a fired security rule into a verdict: true positive, false positive, or benign true positive, with escalate or close. It works through your runbook step by step, maps the activity to its MITRE ATT&CK technique, traces the same user, host, or address across your accounts, and lists the response steps. It gives no verdict without a runbook. |
 
-### Cloud SIEM agents
-
-Security Rules Management, CVE Analyzer, and SOC Triage are offered in the Cloud SIEM workspace. In Open 360 their cards are visible, but **Set up** stays off and **Before you start** says "This agent needs a Cloud SIEM account. Switch to Cloud SIEM to set it up."
-
-Each one needs a Cloud SIEM (Security) account connection. Security Rules Management and CVE Analyzer also need write access on that connection, and without it they report the rules they would create instead of creating them. SOC Triage needs your runbook, which is required. A run with a blank runbook reads the event and the rule, gives no verdict, and asks you to add the runbook first. None of the three edits a rule written by a person. Security Rules Management and CVE Analyzer recommend changes to those rules instead.
-
-CVE Sweep is the Open 360 counterpart. It needs no Cloud SIEM account. It reads the Shodan CVEDB and MITRE CVE integrations, which are public and need no credentials, plus the log and metric accounts you select. See [Integrations](/docs/user-guide/orioniq/integrations/).
-
-
 ### How Incident Triage works
 
 Incident Triage executes your runbook step by step and follows its branches, recording each step as met, not met, branched, or skipped.

@@ -843,3 +843,7 @@ Existing PR #975 had no unresolved reviewer comments. Merged `master` into its b
 * `OIQ-AI-service` #612 and #658 (augment770-dev, kevkle): `mode` (reactive, deliberate, analytical, thorough) on `/oiq-bot` and `/ai-agent` spec, with legacy fast/advanced ignored. These are the internal ai-service endpoints, not the public `/v2/ai-agent` routes in `api.md`, so no change.
 * `Artemis` (#711, #713, #714, #715, #717, #718, #719, #721) and `gaia-hermes-ws` (ORIONIQ-1984, 2054, 2058, 2064, 2066): UI, sidenav and tooling changes with no verified copy or public API change. Not documented.
 * PR #975 had no unresolved comments. Commits go to its existing branch `claude/gracious-thompson-n77ck0`.
+
+### 2026-11-09 - review round on PR #975
+
+* ralongit asked to drop the **Cloud SIEM agents** section from `marketplace.md`. It restated what the Available templates table and the in-product cards already say (Cloud SIEM only, Open 360 only, the runbook requirement). Removed it. Lesson: a per-template caveat goes in the table row, not in a separate section that repeats the row.
