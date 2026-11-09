@@ -126,13 +126,25 @@ Tools for creating and managing dashboards and dashboard folders:
 
 ### Alerts & insights
 
-Tools for alerts and insights:
+Tools for [alerts](/docs/open360/alerts/intro-alerts/) and insights. The alert tools cover log alerts and metric alerts together. Each alert has a type, `logs` or `metrics`, and an ID: a number for a log alert, a string for a metric alert.
 
 | Tool | Description | Parameters | API Link |
-| ---- | ----------- | ---------- | ---------- | 
-| `get_all_alerts`       | List all configured alerts.     | None | [Link](https://api-docs.logz.io/docs/logz/get-all-alerts) |
-| `get_triggered_alerts` | List triggered alerts.      | `from` (int, optional), `size` (int, optional), `search` (string, optional), `severities` (array, optional), `tags` (array, optional) | [Link](https://api-docs.logz.io/docs/logz/triggered-alerts) |
+| ---- | ----------- | ---------- | ---------- |
+| `get_all_alerts` | Search log and metric alerts. Returns one page of alerts (25 by default) and the `total` number of matches. | `search_term` (string, optional), `source` (`logs` or `metrics`, optional), `severities` (array, optional), `tags` (array, optional), `enabled` (boolean, optional), `sort_by` (`title`, `severity`, `tags`, `updatedAt`, `createdBy`, `updatedBy` or `enabled`, optional), `sort_direction` (`ASC` or `DESC`, optional), `page_number` (int, optional), `page_size` (int, optional) |  |
+| `get_triggered_alerts` | Search alert events: which alerts triggered, resolved, are pending or have no data. Covers the last 60 minutes by default, newest first. | `from` (int, optional, UNIX seconds), `to` (int, optional, UNIX seconds, needs `from`), `states` (`TRIGGERED`, `RESOLVED`, `PENDING` or `NO_DATA`, array, optional), `search_term` (string, optional), `source` (`logs` or `metrics`, optional), `alert_ids` (array, optional), `severities` (array, optional), `tags` (array, optional), `is_muted` (boolean, optional), `sort_by` (string, optional), `sort_direction` (`ASC` or `DESC`, optional), `page_number` (int, optional), `page_size` (int, optional) |  |
+| `get_alert_by_id` | Retrieve an alert by type and ID. | `type` (`logs` or `metrics`, required), `id` (int or string, required) |  |
+| `create_alert` | Create a log or metric alert. Its `alertConfiguration.type`, `LOG_ALERT` or `METRIC_ALERT`, selects the type. `get_alert_schema_example` returns an alert you can start from. | `alert` (object, required) |  |
+| `update_alert` | Replace an alert. Fields left out return to their defaults, so start from the alert that `get_alert_by_id` returns and change only what you need. | `id` (int or string, required), `alert` (object, required) |  |
+| `enable_alert` | Enable an alert. | `type` (`logs` or `metrics`, required), `id` (int or string, required) |  |
+| `disable_alert` | Disable an alert. It stops triggering and sending notifications until you enable it again. | `type` (`logs` or `metrics`, required), `id` (int or string, required) |  |
+| `get_alert_schema_example` | Retrieve an example alert for `create_alert`, one log alert and one metric alert, with notes on the allowed values. Replace their placeholder account ID with your own. | None |  |
 | `get_insights`         | Get insights matching criteria. | `from` (int, optional), `size` (int, optional, 1–100), `asc` (boolean, optional), `search` (string, optional) | [Link](https://api-docs.logz.io/docs/logz/get-public-insights) |
+
+Severities are `INFO`, `LOW`, `MEDIUM`, `HIGH` and `SEVERE`.
+
+:::note
+Any API token can read alerts, including read-only tokens. Creating, updating, enabling and disabling alerts needs a token that can manage alerts. These tools change your account's alerts, so your AI assistant can ask you to confirm before it runs one. The MCP server can't delete alerts: delete them in Logz.io.
+:::
 
 ### OrionIQ AI agents
 
