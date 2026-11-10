@@ -32,7 +32,7 @@ You have full control over your API tokens, to create and delete them at any tim
 
 ## Manage API tokens with the API
 
-You can also list and delete the API tokens of an account with the Logz.io API, for example to rotate tokens from an automation.
+You can also list and delete the API tokens of your account and of its sub accounts with the Logz.io API, for example to rotate tokens from an automation.
 
 Both calls need an API token with the **Admin** role. API tokens created before token roles were introduced have the same permissions as Admin.
 
@@ -54,13 +54,21 @@ curl -X GET \
   -H 'X-API-TOKEN: <<API-TOKEN>>'
 ```
 
-The response lists every API token of the account:
+By default, the call lists the API tokens of the account that owns `<<API-TOKEN>>`. To list the API tokens of one of its sub accounts, add the sub account ID in the `accountId` query parameter:
+
+```shell
+curl -X GET \
+  'https://<<API-URL>>/v1/api-tokens?accountId=<<SUB-ACCOUNT-ID>>' \
+  -H 'Content-Type: application/json' \
+  -H 'X-API-TOKEN: <<API-TOKEN>>'
+```
+
+The response lists the API tokens of the account. It doesn't include the token values:
 
 | Field | Description |
 |---|---|
 | `id` | The token ID. Use it to delete the token. |
 | `name` | The token name. |
-| `token` | The token value. |
 | `createdAt` | When the token was created (timestamp). |
 | `lastUsed` | When the token was last used (timestamp), or `null` if it was never used. |
 | `role` | The token role: `ADMIN`, `REGULAR` (User), `READ_ONLY`, or `CUSTOM`. |
@@ -70,7 +78,6 @@ The response lists every API token of the account:
   {
     "id": 2050070,
     "name": "ci-pipeline",
-    "token": "<<TOKEN-VALUE>>",
     "createdAt": "<<TIMESTAMP>>",
     "lastUsed": null,
     "role": "ADMIN"
@@ -78,13 +85,18 @@ The response lists every API token of the account:
 ]
 ```
 
+| Status | Meaning |
+|---|---|
+| `200` | The list of API tokens. |
+| `403` | The token in `X-API-TOKEN` doesn't have the Admin role, or `accountId` isn't its account or one of its sub accounts (error code `api-tokens/ACCOUNT_NOT_ACCESSIBLE`). |
+
 ### Delete an API token
 
 ```
 DELETE /v1/api-tokens/{id}
 ```
 
-Replace `<<TOKEN-ID>>` with the `id` of the token to delete.
+You can delete an API token of your account or of one of its sub accounts. Replace `<<TOKEN-ID>>` with the `id` of the token to delete.
 
 ```shell
 curl -X DELETE \
@@ -93,7 +105,7 @@ curl -X DELETE \
   -H 'X-API-TOKEN: <<API-TOKEN>>'
 ```
 
-The response is the deleted token, in the same format as one item of the list above.
+The response is the deleted token: the same fields as one item of the list above, plus `token`, the token value.
 
 :::note
 An API token can't delete itself. To delete the token you're calling with, use a different Admin API token.
@@ -104,7 +116,7 @@ An API token can't delete itself. To delete the token you're calling with, use a
 | `200` | The token was deleted. |
 | `400` | The token in `X-API-TOKEN` tried to delete itself. |
 | `403` | The token in `X-API-TOKEN` doesn't have the Admin role. |
-| `404` | No API token with this ID exists in the account. |
+| `404` | No API token with this ID exists in your account or in any of its sub accounts. |
 
 Deleting a token affects any integrations that use that token. Make sure you update integrations that use a token you deleted.
 
