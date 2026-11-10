@@ -847,3 +847,10 @@ Existing PR #975 had no unresolved reviewer comments. Merged `master` into its b
 ### 2026-11-09 - review round on PR #975
 
 * ralongit asked to drop the **Cloud SIEM agents** section from `marketplace.md`. It restated what the Available templates table and the in-product cards already say (Cloud SIEM only, Open 360 only, the runbook requirement). Removed it. Lesson: a per-template caveat goes in the table row, not in a separate section that repeats the row.
+
+### 2026-11-10
+
+* `oiq-resources` - #244 (ralongit, ORIONIQ-2075): Cloud SIEM removed Logz.io metrics, so CVE Analyzer, Security Rules Management and SOC Triage run as `log_agent` and read no metrics. Removed "and metrics" from the CVE Analyzer row in `marketplace.md`. CVE Sweep (Open 360) still reads metrics. The Security Rules Management and SOC Triage rows never mentioned metrics. `Artemis` #733 is the matching backend change.
+* Not documented: CVE Analyzer, Security Rules Management and CVE Sweep 15-day Shodan slicing, run budgets and report layout (#250, #251, #252, agent internals); Attack Simulator marks (`oiq_simulation`) ignored by the Cloud SIEM agents (#248, no Attack Simulator page exists); the CVSS v4 score floor (#242, agent internals); `Artemis` #666 Security Rules Digest and Tuning reports (staging-only per the commit message); `Artemis` #654 and #737 RCA 2.0 top ARR campaign (account-targeted campaign, no general doc surface); `OIQ-AI-service` #651, #652, #660 (health probe, checkpoint pool, SSRF exempt hosts, internal ops); `gaia-hermes-ws` APPZ-3552 and APPZ-3715 (APM and public API tokens, not OrionIQ). The rest are `Artemis` design system and OrionIQ-in-Open-360 UI changes with no verified copy.
+* PR #975 had no unresolved comments. Commits go to its existing branch `claude/gracious-thompson-n77ck0`.
+
