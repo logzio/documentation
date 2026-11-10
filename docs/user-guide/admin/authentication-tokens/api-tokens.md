@@ -32,14 +32,58 @@ You have full control over your API tokens, to create and delete them at any tim
 
 ## Manage API tokens with the API
 
-You can also list and delete the API tokens of your account and of its sub accounts with the Logz.io API, for example to rotate tokens from an automation.
+You can also create API tokens for your sub accounts, and list and delete the API tokens of your account and of its sub accounts with the Logz.io API, for example to rotate tokens from an automation.
 
-Both calls need an API token with the **Admin** role. API tokens created before token roles were introduced have the same permissions as Admin.
+These calls need an API token with the **Admin** role. API tokens created before token roles were introduced have the same permissions as Admin.
 
 In the code blocks below:
 
 * Replace `<<API-TOKEN>>` with an Admin [API token](https://app.logz.io/#/dashboard/settings/manage-tokens/api) of the account.
 * Replace `<<API-URL>>` with your region's base API URL. For more information on finding your account's region, see [Account region](/docs/user-guide/admin/hosting-regions/account-region/).
+
+### Create an API token for a sub account
+
+```
+POST /v1/api-tokens/sub-account
+```
+
+Run it with an Admin API token of the account that owns the sub account. You can't create an API token for your own account with the API; use **+ New API token** in the app instead.
+
+```shell
+curl -X POST \
+  https://<<API-URL>>/v1/api-tokens/sub-account \
+  -H 'Content-Type: application/json' \
+  -H 'X-API-TOKEN: <<API-TOKEN>>' \
+  -d '{
+    "name": "<<TOKEN-NAME>>",
+    "accountId": <<SUB-ACCOUNT-ID>>,
+    "role": "ADMIN"
+  }'
+```
+
+| Field | Required | Description |
+|---|---|---|
+| `name` | Yes | The name of the new token. |
+| `accountId` | Yes | The ID of the sub account. |
+| `role` | No | The role of the new token: `ADMIN`, `REGULAR` (User), `READ_ONLY`, or `CUSTOM`. Defaults to `ADMIN`. |
+
+The response is the new token, including its value:
+
+```json
+{
+  "id": 2050071,
+  "name": "<<TOKEN-NAME>>",
+  "token": "<<TOKEN-VALUE>>",
+  "createdAt": "<<TIMESTAMP>>",
+  "role": "ADMIN"
+}
+```
+
+| Status | Meaning |
+|---|---|
+| `200` | The token was created. |
+| `403` | The token in `X-API-TOKEN` doesn't have the Admin role, or its account doesn't own the sub account. |
+| `404` | The sub account, or its owner account, wasn't found. |
 
 ### List the API tokens of an account
 
