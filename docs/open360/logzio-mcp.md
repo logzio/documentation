@@ -126,7 +126,7 @@ Tools for creating and managing dashboards and dashboard folders:
 
 ### Alerts & insights
 
-Tools for [alerts](/docs/open360/alerts/intro-alerts/) and insights. The alert tools cover log alerts and metric alerts together. Each alert has a type, `logs` or `metrics`, and an ID: a number for a log alert, a string for a metric alert.
+Tools for [alerts](/docs/open360/alerts/intro-alerts/) and insights. The alert tools cover log alerts and metric alerts together. Each alert has a type, `logs` or `metrics`, and an ID, which the tools take as `get_all_alerts` returns it. In search results the type is in `alertConfiguration.type`: `LOG_ALERT` is `logs` and `METRIC_ALERT` is `metrics`.
 
 | Tool | Description | Parameters | API Link |
 | ---- | ----------- | ---------- | ---------- |
