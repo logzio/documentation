@@ -96,7 +96,7 @@ Pick the observability platform and accounts this agent can query. Toggle the sc
 
 With **Logs + Metrics (deep)**, a coordinating agent plans the investigation and assigns each part to specialized logs, metrics, and integration sub-agents, then combines their findings. It decides each next step from what the previous step returned rather than following a fixed sequence.
 
-Data Sources is available for every trigger type. Which scopes you have to fill in follows the **Agent tools** you chose above: a scheduled agent declaring a logs tool set needs a logs data source, and it won't save until every declared scope has one. For API and Alert agents, picking a data source is optional.
+Data Sources is available for every trigger type. Which scopes you have to fill in follows the **Agent tools** you chose above: a scheduled agent declaring a logs tool set needs a logs data source, and it won't save until every declared scope has one. For API and Alert agents, picking a data source is optional. In Cloud SIEM, the Logz.io card offers Logs only, so a **Logs + Metrics (deep)** agent needs just a logs data source.
 
 When you create an alert-linked AI analysis agent, it starts with the accounts named in the alert, and you can edit them here. If the alert queries all accounts, the agent follows the alert instead and picks up new sub-accounts. Later changes to the alert don't overwrite the accounts you saved. If you remove every account, the agent falls back to the alert's accounts.
 

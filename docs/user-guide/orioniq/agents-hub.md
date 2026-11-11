@@ -22,12 +22,12 @@ The **Agents** tab displays a list of all agents in your account. Each agent row
 | **Type** | The agent type (for example, Custom). |
 | **Triggered By** | How the agent is triggered (Scheduled, API, Deployment, or Alert). |
 | **Created By** | The user who created the agent. Agents provisioned by the platform, such as alert root cause analysis agents, are attributed to Logz.io. |
+| **Activation** | Toggle to enable or disable the agent. A Marketplace agent whose free trial is over is marked **Trial ended**. |
+| **Free/Billed** | Whether the agent's runs are billed. While the agent has free runs left, the cell shows a tag with the number left. Once they are used, it shows **Billed**. Agent types with no charge show nothing. For prices, see the [Marketplace](/docs/user-guide/orioniq/marketplace/). |
 | **Created At** | The date and time the agent was created. |
 | **Updated At** | The date and time the agent was last modified. A run on its own doesn't change this. |
 | **Updated By** | The user who last modified the agent. Empty when no edit has been recorded. |
 | **Last Run** | The date and time of the agent's most recent invocation. |
-| **Activation** | Toggle to enable or disable the agent. |
-| **Invocation Cost** | The cost charged when this agent is triggered. |
 | **Daily Cap** | Per-agent daily invocation limit, configured in each agent's settings. |
 | **Actions** | The agent's **Triggers** menu and its actions menu. |
 
