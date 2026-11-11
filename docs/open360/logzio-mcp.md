@@ -123,6 +123,19 @@ Tools for creating and managing dashboards and dashboard folders:
 | `get_dashboard_schema_example` | Retrieve an example dashboard configuration for `create_dashboard`, with one log-count panel. Replace its placeholder account ID with your log account ID. | None |  |
 | `get_datasource_schema_example` | Retrieve an example data source schema. | None |  |
 
+### Grafana alerts
+
+Tools for reading the alert rules in [Logz.io Metrics](/docs/user-guide/infrastructure-monitoring/metrics-alert-manager/), which is built on Grafana. These rules are separate from the alerts in [Alerts & insights](#alerts--insights). The tools only read: create new alerts with the alert tools.
+
+| Tool | Description | Parameters | API Link |
+| ---- | ----------- | ---------- | ---------- |
+| `get_all_grafana_alerts` | List Grafana alert rules, sorted by folder, rule group and title. Returns a summary of each rule: UID, title, folder, rule group, whether it is paused, pending period, labels, summary, description, runbook URL and the dashboard panel it was created from. Set `state` to list only the rules that are firing or pending now, with the time they entered that state. | `search` (string, optional, part of the title), `folder` (string, optional, folder title or UID), `paused` (boolean, optional), `state` (`firing` or `pending`, optional), `limit` (int, optional, 1–200, default 50), `offset` (int, optional) |  |
+| `get_grafana_alert_by_uid` | Retrieve a Grafana alert rule as Grafana defines it: its queries, condition, pending period, no-data and error handling, labels and annotations. | `uid` (string, required) |  |
+
+:::note
+The Grafana tools need an API token with the **Admin** or **User** [role](/docs/open360/settings/api-tokens/). Grafana refuses read-only tokens.
+:::
+
 
 ### Alerts & insights
 
