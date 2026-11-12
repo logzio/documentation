@@ -25,7 +25,7 @@ Agent templates are organized into the following categories:
 | **Alerting** | Agents that filter and prioritize alerts to surface high-confidence, high-impact events. |
 | **Performance** | Agents that identify early degradation patterns in latency, error rates, and throughput. |
 
-Each card shows two tags: **Data** (Logs, Metrics, or Logs + Metrics) and **Trigger** (Scheduled, On demand, or Per alert). A card whose template sets neither shows no tags.
+Each card shows two tags: **Data** (Logs, Metrics, or Logs + Metrics) and **Trigger** (Scheduled, On demand, or Per alert). A card whose template sets neither shows no tags. The Review step shows the same tags. Cloud SIEM has no Logz.io metrics, so there an agent that reads logs and metrics is tagged Logs.
 
 Use the search bar at the top of the page to find specific agent templates, or click a category tab to filter the list.
 
@@ -59,7 +59,9 @@ It then checks live telemetry and reports the incident as resolved, contained, a
 
 ## Activate an agent template
 
-Click a template card to open a three-step dialog: **Review**, **Set up**, and **Done**. The agent is created switched on when you finish **Set up**.
+Click **View details** on a template card to open a three-step dialog: **Review**, **Set up**, and **Done**. The agent is created switched on when you finish **Set up**.
+
+**Alert AI Analysis** is the exception. You turn it on from an alert, not from the Marketplace, so its dialog shows Review only, with a **Close** button. A **Runs on your alerts** notice links to your alerts with **Go to alerts**. In Cloud SIEM, it links to your rules with **Go to rules**. See [AI Agent Analysis](/docs/open360/observability/ai-agent-analysis/).
 
 ### Review
 
@@ -112,7 +114,7 @@ The **What you set up** panel recaps your choices. To change them later, open th
 
 Click **Open in Agents Hub** to see the new agent, or **Done** to close the dialog.
 
-You can activate a template more than once. Once agents exist for a template, its card shows the number of active agents. Click it to open the Agents Hub filtered to those agents. To switch an agent off, use the Agents Hub.
+You can activate a template more than once. Once agents exist for a template, its card shows the number of active agents, up to 99+. Click it to open the Agents Hub filtered to those agents. To switch an agent off, use the Agents Hub.
 
 ## Free trial
 

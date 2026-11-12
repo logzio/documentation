@@ -865,3 +865,15 @@ Existing PR #975 had no unresolved reviewer comments. Merged `master` into its b
 * `OIQ-AI-service` - #661, #531 (yotamloe, augment770-dev): workload identity and agent scratchpad internals. No change.
 * Pattern: pricing moved out of the product's tables and dialogs and into the Marketplace. When a doc page states a price per run, check whether the surface still shows one.
 * PR #975 had no unresolved comments. Commits go to its existing branch `claude/gracious-thompson-n77ck0`.
+
+### 2026-11-12
+
+* `Artemis` - #774 (Gavriel-M, ORIONIQ-2093): Alert AI Analysis (auto-rca) gets **View details** like every card, and its dialog is Review alone: no Stepper, a **Close** button, and a **Runs on your alerts** notice with **Go to alerts** (or **Go to rules** in Cloud SIEM). The **Installed** card state is gone, and the active-agents badge caps at 99+. Added an exception paragraph under **Activate an agent template** in `marketplace.md`. Source of wording: `GUIDED_ACTIVATION_MESSAGES` in `Marketplace/GuidedActivation/constants.ts`.
+  * #764 (ralongit, ORIONIQ-2075): the card's Data tag follows the workspace's data lanes, so a Cloud SIEM deep agent is tagged Logs, and the Review step shows the card's tags. One sentence added to the tags paragraph in `marketplace.md`.
+  * #545 (ralongit, ORIONIQ-1857) and `OIQ-AI-service` #570: the `oiq-custom-api` flag is gone, so the **Custom API** integration shows for every account, and customer hosts are gated by `oiq-backend-customer-hosts` only. Added a **Connect your own API** subsection to `integrations.md` from the `custom-api.json` manifest's labels and help text. The backend flag is an operator switch and is not documented.
+  * Not documented: #760 (recent invocations beside the embedded chat, no chat page yet), #773 (Feedback Coverage chip colour), #770 (campaign report to Slack, internal), #775 and the version PRs.
+* `oiq-resources` - #285, #286, #287 (ralongit): CVE Analyzer v39, CVE Sweep v11, Alert Digest and Alert Tuning Report v4. Report shape and guidelines only, no `display` text changed. No change.
+* `gaia-hermes-ws` - fa4e0e21 (Gavriel-M, ORIONIQ-2097): the disabled header AI button no longer says Coming soon, which no page mentions. 04125e2d (ORIONIQ-2096): internal admin menu. APPZ commits are out of scope.
+* `OIQ-AI-service` - #666: account names in the agent prompt, internal.
+* Pattern: a manifest's `label` and `helpText` are product-approved copy for a connect form. When an integration stops being flag-gated, document its fields from the manifest, not from the UI code.
+* PR #975 had no unresolved comments. Commits go to its existing branch `claude/gracious-thompson-n77ck0`.
