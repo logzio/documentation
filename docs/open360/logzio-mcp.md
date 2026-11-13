@@ -123,6 +123,23 @@ Tools for creating and managing dashboards and dashboard folders:
 | `get_dashboard_schema_example` | Retrieve an example dashboard configuration for `create_dashboard`, with one log-count panel. Replace its placeholder account ID with your log account ID. | None |  |
 | `get_datasource_schema_example` | Retrieve an example data source schema. | None |  |
 
+### Metrics dashboards & alerts
+
+Tools for reading the dashboards and alert rules in Logz.io Metrics (see [Metrics Alert Manager](/docs/user-guide/infrastructure-monitoring/metrics-alert-manager/)). They are separate from the dashboards in [Dashboards & folders](#dashboards--folders) and the alerts in [Alerts & insights](#alerts--insights). These tools only read: create new dashboards and alerts with those tools.
+
+| Tool | Description | Parameters | API Link |
+| ---- | ----------- | ---------- | ---------- |
+| `search_metrics_dashboards` | Search metrics dashboards. Returns each match with its UID, title, folder, tags and URL; dashboards in the General folder show `General`. Results come in pages of `page_size`; when a page is full, the result includes `nextPageNumber`. | `query` (string, optional, part of the title), `tags` (array, optional, a dashboard must have all of them), `folder_uids` (array, optional, folder UIDs, not titles; `general` is the General folder), `page_number` (int, optional), `page_size` (int, optional, 1–1000, default 100) |  |
+| `get_metrics_dashboard_by_uid` | Retrieve a metrics dashboard: its folder, tags, time range and variables, and its panels with their row, type, data source and queries. Layout and display options are left out. Panels come in pages of `limit`. Each data source shows the Logz.io account it reads as `accountId`, which the metrics tools take as `account_id`. Set `panel_id` to get one panel exactly as it is stored. | `uid` (string, required), `panel_id` (int or string, optional), `limit` (int, optional, 1–200, default 50), `offset` (int, optional) |  |
+| `get_all_metrics_alerts` | List metrics alert rules, sorted by folder, rule group and title. Returns a summary of each rule: UID, title, folder, rule group, whether it is paused, pending period, labels, summary, description, runbook URL and the dashboard panel it was created from. Set `state` to list only the rules that are firing or pending now, with the time they entered that state. Long summaries (over 200 characters) and descriptions (over 500) are shortened; `get_metrics_alert_by_uid` returns them in full. | `search` (string, optional, part of the title), `folder` (string, optional, folder title or UID), `paused` (boolean, optional), `state` (`firing` or `pending`, optional), `limit` (int, optional, 1–200, default 50), `offset` (int, optional) |  |
+| `get_metrics_alert_by_uid` | Retrieve a metrics alert rule as it is defined: its queries, condition, pending period, no-data and error handling, labels and annotations. | `uid` (string, required) |  |
+
+A metrics alert rule that was created from a dashboard panel returns that panel's `dashboardUid` and `panelId`. Pass them to `get_metrics_dashboard_by_uid` as `uid` and `panel_id` to see the panel.
+
+:::note
+The metrics dashboard and alert tools need an API token with the **Admin** or **User** [role](/docs/open360/settings/api-tokens/). Read-only tokens are refused.
+:::
+
 
 ### Alerts & insights
 
