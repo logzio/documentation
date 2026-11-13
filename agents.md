@@ -877,3 +877,16 @@ Existing PR #975 had no unresolved reviewer comments. Merged `master` into its b
 * `OIQ-AI-service` - #666: account names in the agent prompt, internal.
 * Pattern: a manifest's `label` and `helpText` are product-approved copy for a connect form. When an integration stops being flag-gated, document its fields from the manifest, not from the UI code.
 * PR #975 had no unresolved comments. Commits go to its existing branch `claude/gracious-thompson-n77ck0`.
+
+### 2026-11-13
+
+* `Artemis` #782 and `oiq-resources` cbe706c, #289 to #293 (ralongit): **Vulnerability Threat Sweep** (`VulnerabilityThreatSweep`) replaces **CVE Sweep** (`CveSweep`). `cve-sweep.json` is deleted and `vulnerability-threat-sweep.json` (v19) is on `main`, Open 360 only, weekly, read-only. Replaced the CVE Sweep row in `marketplace.md` from the new template's `display` text. Agents installed as `CveSweep` keep the old type and must be activated again from the new template, so the row says so.
+* `Artemis` #777 (Gavriel-M, ORIONIQ-2094): $ prices show only on the Marketplace. The Agents Hub tooltips, the keep-running label and the billing consents name no amount, and the consent links "See pricing in the Marketplace." Added one sentence to the Free trial section of `marketplace.md`. `agents-hub.md` already points to the Marketplace for prices.
+* Not documented:
+  * `Artemis` #725 (ralongit): Custom API **Expected response** fields (Expected status, Response field, Field equals). They appear only once `custom-api.json` declares the configs, and it does not yet on `oiq-resources` `main`; the probe change (`OIQ-AI-service` #657) is not merged. Add them to the **Connect your own API** subsection of `integrations.md` when both land. Wording: `CustomApiFields.tsx`.
+  * `Artemis` #765: the "Before you start" notice shows only unmet checks. The notice is not described in `marketplace.md`.
+  * `Artemis` #783, #784, #724, #750, #772, #779, #780, #554 and version PR #771: RCA campaign banner, billing, recommendation scores, staging host, chat and drawer UI. No customer doc surface.
+  * `gaia-hermes-ws` #17401, #17412 (Gavriel-M, ORIONIQ-2088, 2100): RCA setup banner and Agent created toast in Open 360, behind the OrionIQ pages rollout. #17323, #17420: analytics and a package bump. APPZ commits are out of scope.
+  * `OIQ-AI-service` #645 (recommendations), #672 (AgentCore release CI): internal.
+* Pattern: a UI change gated on a manifest config ships before the config does. Check `oiq-resources` `main` for the config before documenting the fields.
+* PR #975 had no unresolved comments. Commits go to its existing branch `claude/gracious-thompson-n77ck0`.
