@@ -10,6 +10,8 @@ Integrations connect your OrionIQ agents to external systems, giving them access
 
 To access Integrations, navigate to **OrionIQ > Integrations** in the left navigation menu.
 
+In Open 360 and Cloud SIEM, open **AI Agents > AI Connectors** in the left navigation menu. The page is titled **Connectors**. The old `/integrations/ai` address redirects there.
+
 ![OrionIQ Integrations](https://dytvr9ot2sszz.cloudfront.net/logz-docs/orioniq/orioniq-utilities.png)
 
 The page has two tabs:
@@ -50,7 +52,22 @@ Click **Connect** on an integration and provide its credentials. Which method an
 |---|---|
 | **API Key** | Connect using the provider's API token. This is what most integrations use. |
 | **Basic Auth** | Connect with an email address and API token. |
-| **None** | A few public data sources, such as MITRE ATT&CK and Hacker News, need no credentials at all. |
+| **None** | A few public data sources, such as MITRE ATT&CK, Hacker News, and the Tor exit list, need no credentials at all. |
+
+### Connect your own API
+
+The **Custom API** integration, under **Developer Tools**, connects an HTTPS API of your own. It is available to every account. The agent calls the endpoints that its instructions describe.
+
+| Field | What you set |
+|---|---|
+| **API host** | The hostname only, with no `https://`, port, or path. It must have a public DNS name and serve HTTPS. |
+| **Auth type** | How the credential is sent on every request: **No auth**, **Bearer token**, **API key (header)**, **API key (query parameter)**, or **Basic auth (username:password)**. |
+| **API key name** | The header or query parameter name. Used only by the two API key auth types. |
+| **Credential** | The bearer token, the API key, or `username:password`. Leave it empty for No auth. It is stored encrypted and never shown to the agent. |
+| **Health-check method** | **GET**, or **POST** with no body for an API that accepts only POST. |
+| **Health-check path** | The endpoint the connection test calls, with no leading slash. Required for GET. With POST, leave it empty to call the host's root. |
+
+The connection test counts a 2xx response as connected, and a 400, 401, 403, or 422 as a rejected credential.
 
 ## Management
 

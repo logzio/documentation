@@ -22,12 +22,12 @@ The **Agents** tab displays a list of all agents in your account. Each agent row
 | **Type** | The agent type (for example, Custom). |
 | **Triggered By** | How the agent is triggered (Scheduled, API, Deployment, or Alert). |
 | **Created By** | The user who created the agent. Agents provisioned by the platform, such as alert root cause analysis agents, are attributed to Logz.io. |
+| **Activation** | Toggle to enable or disable the agent. A Marketplace agent whose free trial is over is marked **Trial ended**. |
+| **Free/Billed** | Whether the agent's runs are billed. While the agent has free runs left, the cell shows a tag with the number left. Once they are used, it shows **Billed**. Agent types with no charge show nothing. For prices, see the [Marketplace](/docs/user-guide/orioniq/marketplace/). |
 | **Created At** | The date and time the agent was created. |
 | **Updated At** | The date and time the agent was last modified. A run on its own doesn't change this. |
 | **Updated By** | The user who last modified the agent. Empty when no edit has been recorded. |
 | **Last Run** | The date and time of the agent's most recent invocation. |
-| **Activation** | Toggle to enable or disable the agent. |
-| **Invocation Cost** | The cost charged when this agent is triggered. |
 | **Daily Cap** | Per-agent daily invocation limit, configured in each agent's settings. |
 | **Actions** | The agent's **Triggers** menu and its actions menu. |
 
@@ -112,7 +112,18 @@ Click on any invocation to open the **Agent Invocation Details** panel, which co
 
 ### Input
 
-Shows the agent's specification (the instructions and guidelines provided to the agent) and the context used for the invocation, including filters and account information.
+Shows what the agent received for this run, in sections:
+
+| Section | What it shows |
+|---|---|
+| **Request** | The message that started the run and any additional context. |
+| **This Run** | The time range, the accounts queried, and other run-specific values such as the alert trigger time. |
+| **Agent Configuration** | Log and metric accounts, sub-agents, output detail, and the memory and shared files the agent could read. |
+| **Identifiers** | The session ID and agent ID, each with a copy button. |
+
+Long text, such as an alert body, scrolls inside its own box. Fields that come from the agent's template aren't shown. A note says so and offers **View template**.
+
+Use the **Formatted** and **JSON** switch in the toolbar to see the same input as sections or as raw JSON. The copy and export buttons next to it act on the tab you are viewing.
 
 ### Analysis
 

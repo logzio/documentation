@@ -52,7 +52,6 @@ The summary table at the bottom of the dashboard provides a per-agent breakdown 
 | **Invocations** | Total number of invocations during the selected period. |
 | **Avg. Feedback Score** | The average feedback score received across all invocations. |
 | **Feedback Coverage** | The percentage of invocations that received feedback. |
-| **Invocation Cost** | The cost charged per invocation of the agent. |
 | **Total Cost ($)** | The total cost of the agent's invocations during the selected period. |
 
 Invocations whose agent no longer exists — for example, a deleted agent — are grouped under **Unknown Agent**, one row per agent type, so the totals stay complete.
