@@ -896,3 +896,9 @@ Existing PR #975 had no unresolved reviewer comments. Merged `master` into its b
 * `Artemis`, `OIQ-AI-service`, `oiq-resources` - no commits since the 2026-11-13 run. The newest heads (#784, #672, #293) are already logged above.
 * `gaia-hermes-ws` - 8 commits, all APPZ: MCP read-only metrics dashboard tools (APPZ-3429, the general Logz.io MCP server), API tokens resolving tracing and metrics accounts (APPZ-3750), APM services inventory and Kubernetes layers (APPZ-3615, 3559), K8s 360 log search (APPZ-3614), SIEM Explore new-tab menu (APPZ-3765) and AI Observability workflow fields (APPZ-3724). No file under an OrionIQ, `app-ai` or AI Analysis path. Out of scope.
 * No doc change, no new assignee, no Slack message. PR #975 had no unresolved comments. Commits go to its existing branch `claude/gracious-thompson-n77ck0`.
+
+### 2026-11-15
+
+* `Artemis` #792 (galangel): OrionIQ Mobile push notifications reach Android through Firebase Cloud Messaging. `POST /orioniq-be/user/devices` accepts `platform: "android"`. It is a signed-in user route (`401` with no user), not an `X-API-TOKEN` public route, and the mobile app has no page here (see Known gaps). No doc change. Add Android next to iOS when mobile push notifications get a page.
+* `OIQ-AI-service`, `gaia-hermes-ws`, `oiq-resources` - no commits since the 2026-11-14 run.
+* No doc change, no new assignee (galangel already assigned), no Slack message. PR #975 had no unresolved comments. Commits go to its existing branch `claude/gracious-thompson-n77ck0`.
