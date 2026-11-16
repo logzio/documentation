@@ -66,8 +66,11 @@ The **Custom API** integration, under **Developer Tools**, connects an HTTPS API
 | **Credential** | The bearer token, the API key, or `username:password`. Leave it empty for No auth. It is stored encrypted and never shown to the agent. |
 | **Health-check method** | **GET**, or **POST** with no body for an API that accepts only POST. |
 | **Health-check path** | The endpoint the connection test calls, with no leading slash. Required for GET. With POST, leave it empty to call the host's root. |
+| **Expected status** | Optional. The status codes that prove the credential works, separated by commas, for example `400` for an API that refuses an empty POST only after accepting the credential. Leave it empty for any 2xx. 401, 403, 404, 405, 407, 429, and 5xx can't be expected. |
+| **Response field** | Optional. A field a good response carries, written as `$.a.b`. Leave it empty to check the status only. |
+| **Field equals** | Optional. The value the response field must equal, written as text: `true`, `1`, `null`, or `ok`. Leave it empty if the field only has to be there. |
 
-The connection test counts a 2xx response as connected, and a 400, 401, 403, or 422 as a rejected credential.
+By default, the connection test counts a 2xx response as connected, and a 400, 401, 403, or 422 as a rejected credential. Set **Expected status**, **Response field**, or **Field equals** to change what counts as connected.
 
 ## Management
 
