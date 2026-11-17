@@ -3,7 +3,7 @@ sidebar_position: 4
 title: Marketplace
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Browse and install pre-built AI agent templates from the OrionIQ Marketplace.
-keywords: [OrionIQ, marketplace, agent templates, pre-built agents, incident, deployment, compliance, detection]
+keywords: [OrionIQ, marketplace, agent templates, pre-built agents, incident, detection, alerting, Cloud SIEM]
 ---
 
 The OrionIQ Marketplace provides a catalog of pre-built agent templates that you can install and start using right away. These templates cover common observability and security use cases, so you can get value from OrionIQ without building agents from scratch.
@@ -19,8 +19,6 @@ Agent templates are organized into the following categories:
 | Category | Description |
 |---|---|
 | **Incident** | Agents that help investigate and resolve incidents, such as root cause analysis and support ticket investigation. |
-| **Deployment** | Agents that validate system health after deployments and detect regressions. |
-| **Compliance** | Agents that scan for sensitive data and help prevent compliance violations (for example, GDPR/CCPA). |
 | **Detection** | Agents that monitor for security threats, suspicious logins, and brute-force attacks. |
 | **Alerting** | Agents that filter and prioritize alerts to surface high-confidence, high-impact events. |
 | **Performance** | Agents that identify early degradation patterns in latency, error rates, and throughput. |
@@ -29,19 +27,23 @@ Each card shows two tags: **Data** (Logs, Metrics, or Logs + Metrics) and **Trig
 
 Use the search bar at the top of the page to find specific agent templates, or click a category tab to filter the list.
 
+The Marketplace groups its templates into an **Open 360** section and a **Cloud SIEM** section, by the workspace each template runs in. The section for the workspace you are in comes first.
+
 ## Available templates
 
 | Template | Category | Runs | What it does |
 |---|---|---|---|
-| **Alert AI Analysis** | Incident | When an alert fires | Correlates error logs, related metric anomalies, recent deployments, and the affected request paths, then summarizes the root cause with recommended remediation steps. This is the agent behind [AI Agent Analysis](/docs/open360/observability/ai-agent-analysis/). |
-| **Root Cause Analysis** | Incident | On demand (API) | Reconstructs the incident timeline, correlates logs, metrics, and traces, inspects recent deployments and configuration changes, and produces a ranked set of probable root causes with supporting evidence and remediation recommendations. |
-| **Incident Triage** | Incident | On demand (API) | Loads your runbook, walks through its diagnostic steps against live logs and metrics, evaluates the findings against the runbook's decision points, applies the prescribed remediation guidance, and produces a prioritized list of next steps for the responder. |
-| **Exception Analysis** | Incident | Weekly | Reads the exceptions Logz.io already clusters for your account and groups variants of the same fault into families. Each family is sorted as new, spiking, ongoing, resolved, or muted, with occurrence counts, a trend, and a link to the logs. Daily runs open with a ranked list of what needs attention today. Exceptions you ask it to ignore stay muted, with your reason, until you ask for them back. Requires the Exceptions capability on the account, which Logz.io Support enables. |
-| **Alert Digest** | Alerting | Weekly | Summarizes what fired, what resolved, and how long alerts stayed triggered, with a period-over-period comparison, top offenders, first-time alerts, and incident-like episodes. |
-| **Alert Tuning Report** | Alerting | Weekly | Analyzes triggered-alert history across log and metric alerts and produces a ranked list of concrete tuning recommendations: flapping alerts, fast self-resolvers, severity miscalibration, alerts that always fire together, dead alerts, and services whose alerts went quiet. Each recommendation cites the current value, the proposed value, the supporting numbers, and a link to the alert definition. |
-| **Error Logs Analysis** | Alerting | Daily | Breaks down errors and warnings by application, compares them with the previous period, and highlights spikes. |
-| **Log Patterns Analysis** | Alerting | Weekly | Reads the patterns Logz.io already groups your logs into, for this period and the one before, at any log level. It reports patterns that are new, growing against their own earlier count, steady, or gone. Each item names the pattern's level and service and links to its logs, and the report closes with the share of logs the patterns matched. Exception-tagged logs are left to Exception Analysis. For a daily report, set the schedule to daily and change the opening "Cadence: weekly" in the message to "Cadence: daily". |
-| **Log Distribution Monitor** | Performance | Daily | Analyzes log volume distribution and trends across services to detect anomalies, identify cost drivers, and keep logging healthy. |
+| **Alert AI Analysis** | Incident | When an alert fires | Open 360 only. Correlates error logs, related metric anomalies, recent deployments, and the affected request paths, then summarizes the root cause with recommended remediation steps. This is the agent behind [AI Agent Analysis](/docs/open360/observability/ai-agent-analysis/). |
+| **Rule AI Analysis** | Incident | When a security rule fires | Cloud SIEM only. Finds the logs and changes that match the rule, checks recent deployments, and traces the affected request paths. It says whether the data shows an attack, a misconfiguration, or a broken log source, then names the most likely root cause and the steps to fix it. This is the agent behind a security rule's [Alert AI Analysis](/docs/user-guide/cloud-siem/security-rules/manage-security-rules/) step. |
+| **Root Cause Analysis** | Incident | On demand (API) | Open 360 only. Reconstructs the incident timeline, correlates logs, metrics, and traces, inspects recent deployments and configuration changes, and produces a ranked set of probable root causes with supporting evidence and remediation recommendations. |
+| **Security Root Cause Analysis** | Incident | On demand (API) | Cloud SIEM only. Rebuilds the incident timeline from your logs, checks recent deployments and configuration changes, and follows request paths through the trace IDs in the logs. It says whether the data shows an attack, a misconfiguration, or a broken log source, and ranks the possible root causes with the evidence and the steps to fix each. |
+| **Incident Triage** | Incident | On demand (API) | Open 360 only. Loads your runbook, walks through its diagnostic steps against live logs and metrics, evaluates the findings against the runbook's decision points, applies the prescribed remediation guidance, and produces a prioritized list of next steps for the responder. |
+| **Exception Analysis** | Incident | Weekly | Open 360 only. Reads the exceptions Logz.io already clusters for your account and groups variants of the same fault into families. Each family is sorted as new, spiking, ongoing, resolved, or muted, with occurrence counts, a trend, and a link to the logs. Daily runs open with a ranked list of what needs attention today. Exceptions you ask it to ignore stay muted, with your reason, until you ask for them back. Requires the Exceptions capability on the account, which Logz.io Support enables. |
+| **Alert Digest** | Alerting | Weekly | Open 360 only. Summarizes what fired, what resolved, and how long alerts stayed triggered, with a period-over-period comparison, top offenders, first-time alerts, and incident-like episodes. |
+| **Alert Tuning Report** | Alerting | Weekly | Open 360 only. Analyzes triggered-alert history across log and metric alerts and produces a ranked list of concrete tuning recommendations: flapping alerts, fast self-resolvers, severity miscalibration, alerts that always fire together, dead alerts, and services whose alerts went quiet. Each recommendation cites the current value, the proposed value, the supporting numbers, and a link to the alert definition. |
+| **Error Logs Analysis** | Alerting | Daily | Open 360 only. Breaks down errors and warnings by application, compares them with the previous period, and highlights spikes. |
+| **Log Patterns Analysis** | Alerting | Weekly | Open 360 only. Reads the patterns Logz.io already groups your logs into, for this period and the one before, at any log level. It reports patterns that are new, growing against their own earlier count, steady, or gone. Each item names the pattern's level and service and links to its logs, and the report closes with the share of logs the patterns matched. Exception-tagged logs are left to Exception Analysis. For a daily report, set the schedule to daily and change the opening "Cadence: weekly" in the message to "Cadence: daily". |
+| **Log Distribution Monitor** | Performance | Daily | Open 360 only. Analyzes log volume distribution and trends across services to detect anomalies, identify cost drivers, and keep logging healthy. |
 | **Identity Threat Hunter** | Detection | Daily | Cloud SIEM only. Finds the login attacks your security rules miss: brute force, password spraying, logins without MFA, MFA fatigue, and logins from Tor or flagged addresses. |
 | **Malicious Command Hunter** | Detection | Daily | Cloud SIEM only. Finds the suspicious commands your security rules miss: shells spawned by servers, download-and-run commands, encoded commands, credential-dumping tools, and commands run in containers or through cloud consoles. |
 | **DDoS Detector** | Detection | Daily | Cloud SIEM only. Finds the floods and volumetric abuse your security rules miss: request floods per source, bursts of 429 and 503 responses, connection floods, and API throttling. Its burst rules are measured against your normal traffic. |
@@ -55,6 +57,8 @@ Use the search bar at the top of the page to find specific agent templates, or c
 | **CVE Analyst** | Detection | Daily | Cloud SIEM only. Formerly **CVE Analyzer**. Checks the high-severity CVEs (CVSS 8.5 or higher) of the last 90 days against the last day of your logs, then the ones known or likely to be exploited. It reports which touch your environment, creates a tested rule where an exposed CVE has none, keeps its own rules up to date, and suggests improvements to existing ones. A CVE with no related data in the selected accounts is reported as no action needed. |
 | **Vulnerability Threat Sweep** | Detection | Weekly | Open 360 only. Read-only. Finds the products, runtimes, and versions in your logs, metrics, and container images, including dependency scanner alerts, and checks them against the last 90 days' vulnerabilities at severity 8.5 of 10 or higher, then the ones attackers already use. It reports which services run an affected version, whether your logs and metrics show attack signs since the last run, and what to do, most urgent first: upgrade, check a version, send a log source, or add an alert. It replaces **CVE Sweep**. To keep sweeping with an agent you activated from CVE Sweep, activate Vulnerability Threat Sweep in its place. |
 | **SOC Triage** | Incident | On demand (API) | Cloud SIEM only. Turns a fired security rule into a verdict: true positive, false positive, or benign true positive, with escalate or close. It works through your runbook step by step, maps the activity to its MITRE ATT&CK technique, traces the same user, host, or address across your accounts, and lists the response steps. It gives no verdict without a runbook. |
+
+Cloud SIEM has its own copy of four Open 360 templates. Each copy works like its original and is named with a **Security** prefix: **Security Exception Analysis**, **Security Error Logs Analysis**, **Security Log Patterns Analysis**, and **Security Log Distribution Monitor**.
 
 ### Security rule agents
 
@@ -74,7 +78,7 @@ It then checks live telemetry and reports the incident as resolved, contained, a
 
 Click **View details** on a template card to open a three-step dialog: **Review**, **Set up**, and **Done**. The agent is created switched on when you finish **Set up**.
 
-**Alert AI Analysis** is the exception. You turn it on from an alert, not from the Marketplace, so its dialog shows Review only, with a **Close** button. A **Runs on your alerts** notice links to your alerts with **Go to alerts**. In Cloud SIEM, it links to your rules with **Go to rules**. See [AI Agent Analysis](/docs/open360/observability/ai-agent-analysis/).
+**Alert AI Analysis** and **Rule AI Analysis** are the exception. You turn them on from an alert or a security rule, not from the Marketplace, so their dialog shows Review only, with a **Close** button. A **Runs on your alerts** notice links to your alerts with **Go to alerts**, or to your rules with **Go to rules** in Cloud SIEM. See [AI Agent Analysis](/docs/open360/observability/ai-agent-analysis/).
 
 ### Review
 
@@ -139,6 +143,4 @@ Template cards and the Review step show your account's own price per run. If the
 
 If you can see pricing, Set up and the agent form also offer the after-free-runs choice, and **Keep running** is selected by default. The agent then keeps running, billed per run, once the trial ends. Select **Turn off** to stop it instead. The choice is offered only for agents activated from the Marketplace, not for custom agents.
 
-If a template you're interested in is not yet available, click **Add to Wish List** to signal your interest. This helps Logz.io prioritize which templates to build next.
-
-You can also click **+ Create New Agent** in the top right corner to build a custom agent from scratch.
+To build a custom agent from scratch, click **Build an Agent** in the top right corner.
