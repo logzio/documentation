@@ -920,3 +920,13 @@ Existing PR #975 had no unresolved reviewer comments. Merged `master` into its b
 * Not documented: `Artemis` #802, #832 and `gaia-hermes-ws` #17434, #17447 (notification service and the app-admin Notification Center, internal admin tooling); `Artemis` #827 and `gaia-hermes-ws` #17443 (RCA campaign report and banner look); `Artemis` #836 (agent context docs); `OIQ-AI-service` #692 (Cloud SIEM RCA templates default to the deep agent), #693 (builder validator sample cap), #690 (memory reflection cost), #695 (OIHV alert features), all internal. APPZ commits are out of scope.
 * Pattern: when a Cloud SIEM copy matches its original word for word, list it once in a sentence; give it a row only when its `howItWorks` differs.
 * PR #991 had no unresolved comments. Commits go to its existing branch `claude/gracious-thompson-wgh1am`. Merged `master` into it (it was behind).
+
+### 2026-11-18
+
+* `oiq-resources` 380fa05 and `Artemis` #846 (ralongit): **Data Exfiltration Hunter** is renamed **Data Theft Coverage Check** (`DataTheftCoverageCheck`, template `data-theft-coverage-check`). Its rules carry the new tag, and the old tag is still recognised. Renamed the row in `marketplace.md` with a "Formerly" note, as for CVE Analyst.
+* `oiq-resources` #322, #324 (ralongit): Vulnerability Threat Sweep finds the latest version of each product and groups its report by account and product after a summary. Updated the row's second half from the template's `howItWorks`. #325, #328 and the VTS v25 to v31 commits are report rules only.
+* `oiq-resources` #323 and `OIQ-AI-service` #746 (ralongit): keyless **endoflife.date** integration, readable on Open 360 runs. Added it to the **None** auth examples in `integrations.md`.
+* Not documented:
+  * `oiq-resources` #333 and `gaia-hermes-ws` #17394 (ralongit, ORIONIQ-2080): the per-account OrionIQ **Shipping** switch, its `logzio-http-listener` internal integration, and the protected "OrionIQ Shipping Token (System generated)" with **Rotate** in Manage tokens. `Artemis` `main` has no Shipping switch UI yet. Recheck: when it lands, document the switch in `integrations.md` and the protected token on the shipping tokens page.
+  * `Artemis` #856 (stopped run handed to chat as stopped), #851 and `gaia-hermes-ws` #17455 (mobile analytics batch), #844, #835, #838 (notification center), #831 (GitHub quota), #853, #852, and the design system commits. `OIQ-AI-service` #752 (mobile recommendation card), #689 (OIHV replay). `oiq-resources` #330 (Grafana `grafana_path` optional, per-connector config depth), #332 and b66ec47 (report shapes). APPZ commits are out of scope.
+* PR #991 had no unresolved comments or reviews. Commits go to its existing branch `claude/gracious-thompson-wgh1am`.
