@@ -92,8 +92,8 @@ The template decides which fields appear. A field shows only when the template l
 
 | Field | What you set |
 |---|---|
-| **Name** | Shown only when you already have agents from this template. It is prefilled, for example "Alert Digest 2". |
-| **Runbook** | Required when the template needs one, as for Incident Triage. Shown for agents that run on demand. |
+| **Name** | Prefilled with the template's name. When you already have agents from this template, it is numbered, for example "Alert Digest 2". |
+| **Runbook** | Required when the template needs one, as for Incident Triage. Shown for agents that run on demand, and for a scheduled template that ships its own runbook. |
 | **Data sources** | The accounts and connections the agent reads logs and metrics from. For an agent that reads logs, the account you are on is selected by default. |
 | **Schedule** | For a scheduled agent: how often it repeats, the day, the hour, and the time zone. The next run is shown in the schedule's own zone. |
 | **Send results to** | Who gets notified of the agent's results. |
@@ -108,6 +108,8 @@ Billing choices:
 
 * **After the free runs**: **Keep running** (the default), billed per run, or **Turn off**. If you can't see pricing, the choice is not offered.
 * **Daily run limit**: For agents that run on demand, set the maximum runs a day. It starts at 5. Clear the box for no limit.
+
+If you already have an agent from this template with the same runbook, data sources, schedule, integrations, and instructions, Set up warns **You already have an agent with this setup** and links to it. An agent that is turned off still counts. The warning doesn't block you: the first **Activate agent** points at the warning, and a second click creates the agent.
 
 Click **Activate agent**. If required fields are missing, the dialog lists how many need attention and moves you to the first one. If you close the dialog after changing the setup, OrionIQ asks before it discards your changes.
 

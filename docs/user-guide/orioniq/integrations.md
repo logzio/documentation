@@ -104,7 +104,7 @@ Open a connection's actions menu to **Configure** its credentials, **Revalidate*
 
 By default, agents can only read from a connected integration. To let an agent write to one too — opening a ticket, updating an alert, and so on — grant write access at two levels:
 
-1. **Account-wide**, in **OrionIQ > Settings > Account > Agent permissions** (admins only). This is the account's master switch: while it's set to **Read**, no individual connection can be given write access, whatever that connection's own setting.
+1. **Account-wide**, with the **Permissions** select in the **Management** tab header, next to **Add integration**. It reads **Permissions: Read** or **Permissions: Read & Write**. **Read** is the default: agents read your connectors' data and change nothing. **Read & Write** lets agents also make changes on the connections you allow. Only an account admin can change it; for everyone else the select is disabled. This is the account's master switch: while it's set to **Read**, no individual connection can be given write access, whatever that connection's own setting.
 2. **Per connection**, in the connect form or **Configure**. Integrations that support write actions show an **Agent permissions** choice of **Read** or **Read & Write**. It's only selectable once the account-wide setting allows it.
 
 Both levels must allow write for an agent to actually write through a given connection. Not every integration supports write actions — those show Read only, with no choice to make.
@@ -119,10 +119,19 @@ The Logz.io integration is connected by default and gives agents access to your 
 | **Read** | The agent can call the Logz.io public API but can't change anything. |
 | **Write** | The agent can create and update Logz.io objects. Implies Read. |
 | **Admin** | The agent has the same role as Manage API Tokens. Implies Read and Write. |
+| **Shipping** | Agents can send logs into the account. |
 
 Enabling API access creates one system-generated API token per selected account, at the highest scope you chose. Changing or turning off API access deletes that token; agents keep their telemetry access, and a lower scope gets a new token at that scope.
 
 Owner, sub-accounts, and Security accounts have a public API. Metrics, Timeless, and Restored accounts do not, so API scopes aren't available for them.
+
+### Shipping
+
+Turning on **Shipping** for an account creates a log shipping token named **OrionIQ Shipping Token (System generated)** in that account, and agents send logs to the account's listener with it. Before you save, the dialog lists the accounts that get a token. Turning Shipping off deletes the token and lists the agents that ship logs to those accounts and will stop.
+
+Shipping needs agent permissions set to **Read & Write** (see [Agent permissions](#agent-permissions)). While they are set to **Read**, Shipping can be turned off but not on, and a Shipping token that is already set up can't send logs. Turning Shipping on also needs permission to manage API tokens, and the account must be under its plan's limit for enabled log shipping tokens.
+
+You can't edit, delete, or disable the OrionIQ token in **Manage tokens**. To replace it, use **Rotate** there. See [Log shipping tokens](/docs/user-guide/admin/authentication-tokens/log-shipping-tokens/#orioniq-shipping-token).
 
 To request an integration that isn't yet available, click **Add to Wish List** on the integration you're interested in. This helps Logz.io prioritize which integrations to support next.
 
