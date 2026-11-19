@@ -33,24 +33,45 @@ according to the [instructions from Fluent Bit](https://docs.fluentbit.io/manual
 
 ### Install and configure the Logz.io plugin
 
-For Linux:
+The commands below download the latest version of the plugin. To use a specific version, replace `latest` in the URL with the version tag (for example, `v0.8.0`). You can find tags on the [Releases page](https://github.com/logzio/fluent-bit-logzio-output/releases).
+
+For Linux (amd64):
 
 ```shell
 wget -O /fluent-bit/plugins/out_logzio.so \
-https://github.com/logzio/fluent-bit-logzio-output/raw/master/build/out_logzio-linux.so
+https://github.com/logzio/fluent-bit-logzio-output/releases/latest/download/out_logzio-linux-amd64.so
 ```
 
-For MacOS:
+For Linux (arm64):
 
 ```shell
 wget -O /fluent-bit/plugins/out_logzio.so \
-    https://github.com/logzio/fluent-bit-logzio-output/raw/master/build/out_logzio-macOS.so
+https://github.com/logzio/fluent-bit-logzio-output/releases/latest/download/out_logzio-linux-arm64.so
 ```
 
-For Windows:
+For macOS (amd64):
 
 ```shell
-wget https://github.com/logzio/fluent-bit-logzio-output/raw/master/build/out_logzio-windows.so
+wget -O /fluent-bit/plugins/out_logzio.so \
+https://github.com/logzio/fluent-bit-logzio-output/releases/latest/download/out_logzio-macos-amd64.so
+```
+
+For macOS (arm64):
+
+```shell
+wget -O /fluent-bit/plugins/out_logzio.so \
+https://github.com/logzio/fluent-bit-logzio-output/releases/latest/download/out_logzio-macos-arm64.so
+```
+
+For Windows (amd64):
+
+```powershell
+$pluginDir = "C:\fluent-bit\plugins" # Example path - change if yours is different
+$fileName = "out_logzio-windows-amd64.dll"
+$downloadUrl = "https://github.com/logzio/fluent-bit-logzio-output/releases/latest/download/{0}" -f $fileName
+$outputFile = Join-Path $pluginDir "out_logzio.dll"
+
+Invoke-WebRequest -Uri $downloadUrl -OutFile $outputFile
 ```
 
 In your Fluent Bit configuration file (`fluent-bit.conf` by default),
@@ -100,7 +121,7 @@ fluent-bit -e /fluent-bit/plugins/out_logzio.so \
 Windows:
 
 ```shell
-C:\PROGRA~1\td-agent-bit\bin\fluent-bit.exe -c C:\PROGRA~1\td-agent-bit\conf\fluent-bit.conf -e <<PATH_TO_PLUGIN>>\out_logzio-windows.so
+C:\PROGRA~1\td-agent-bit\bin\fluent-bit.exe -c C:\PROGRA~1\td-agent-bit\conf\fluent-bit.conf -e <<PATH_TO_PLUGIN>>\out_logzio.dll
 ```
 
 ### Check Logz.io for your logs
