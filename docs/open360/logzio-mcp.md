@@ -125,7 +125,7 @@ Tools for creating and managing dashboards and dashboard folders:
 
 ### Metrics dashboards & alerts
 
-Tools for reading the dashboards and alert rules in Logz.io Metrics (see [Metrics Alert Manager](/docs/user-guide/infrastructure-monitoring/metrics-alert-manager/)). They are separate from the dashboards in [Dashboards & folders](#dashboards--folders) and the alerts in [Alerts & insights](#alerts--insights). These tools only read: create new dashboards and alerts with those tools.
+Tools for reading the dashboards and alert rules in Logz.io Metrics (see [Metrics Alert Manager](/docs/user-guide/infrastructure-monitoring/metrics-alert-manager/)). They are separate from the dashboards in [Dashboards & folders](#dashboards--folders) and the alerts in [Alerts & insights](#alerts--insights). These tools only read. To create a dashboard, use `create_dashboard`. To create an alert, use `create_alert`.
 
 | Tool | Description | Parameters | API Link |
 | ---- | ----------- | ---------- | ---------- |
