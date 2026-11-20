@@ -125,11 +125,15 @@ Enabling API access creates one system-generated API token per selected account,
 
 Owner, sub-accounts, and Security accounts have a public API. Metrics, Timeless, and Restored accounts do not, so API scopes aren't available for them.
 
+**Write**, **Admin**, and **Shipping** need agent permissions set to **Read & Write** (see [Agent permissions](#agent-permissions)). While they are set to **Read**, these three can be turned off but not on, and agents can't use a grant that is already on.
+
 ### Shipping
 
 Turning on **Shipping** for an account creates a log shipping token named **OrionIQ Shipping Token (System generated)** in that account, and agents send logs to the account's listener with it. Before you save, the dialog lists the accounts that get a token. Turning Shipping off deletes the token and lists the agents that ship logs to those accounts and will stop.
 
-Shipping needs agent permissions set to **Read & Write** (see [Agent permissions](#agent-permissions)). While they are set to **Read**, Shipping can be turned off but not on, and a Shipping token that is already set up can't send logs. Turning Shipping on also needs permission to manage API tokens, and the account must be under its plan's limit for enabled log shipping tokens.
+Shipping is available for owner accounts and sub-accounts. Security accounts don't accept agent logs, so their Shipping box is disabled. Turning Shipping on needs permission to manage API tokens, and the account must be under its plan's limit for enabled log shipping tokens.
+
+Each account with Shipping on gets a **Log shipping** connection. In the **Management** tab it shows the account's name and **Shipping Token** in the **Connection** column. To let an agent ship logs, add that connection in the agent's **Integrations**, where it's listed as **Log shipping:** followed by the account's name and ID.
 
 You can't edit, delete, or disable the OrionIQ token in **Manage tokens**. To replace it, use **Rotate** there. See [Log shipping tokens](/docs/user-guide/admin/authentication-tokens/log-shipping-tokens/#orioniq-shipping-token).
 

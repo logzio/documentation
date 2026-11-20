@@ -100,6 +100,12 @@ An invocation ends in one of the following outcomes:
 
 ![Invocations tab showing agent run history](https://dytvr9ot2sszz.cloudfront.net/logz-docs/orioniq/orioniq-invocations.png)
 
+Every row has a **Feedback** button, which opens the run at its feedback note once the run finishes (see [Provide feedback](#provide-feedback)). Finished runs also show **Re-invoke**, except runs of alert-triggered agents.
+
+### Invocations of a deleted agent
+
+A deleted agent's invocations stay in the table, with their text muted. Hovering the agent's name shows **Agent deleted -** followed by the agent's name. These rows have no **Re-invoke**, and in the **Agent Invocation Details** panel **Re-invoke** and **Agent definition** are disabled with the same reason.
+
 ### Stop a running invocation
 
 While an invocation is **Running**, its row shows a **Stop invocation** button in place of Re-invoke, and the same button is in the footer of the **Agent Invocation Details** panel. Stopping is asynchronous: the button confirms only that the request went through, and the run finishes on its own as **Stopped** a few seconds later.
@@ -145,7 +151,7 @@ The toolbar's **Agent definition** and **Agent invocations** links take you from
 
 Once a run finishes, a **Was this useful?** rating sits in the panel's footer, visible on every tab — it rates the run as a whole, not one tab's content. You can't rate a run that's still in progress.
 
-Clicking a thumb registers immediately and opens a note composer. Add a free-text note explaining the rating — a rating alone doesn't teach the agent anything, only a written note does — or click **Skip** to leave just the rating. You can return to a rated run at any time to add, view, or edit its note.
+Clicking a thumb registers immediately and opens a note composer. Add a free-text note explaining the rating — a rating alone doesn't teach the agent anything, only a written note does — or click **Skip** to leave just the rating. You can return to a rated run at any time to add, view, or edit its note. Read-only users can't rate a run, but they can still open a note someone left on it.
 
 Feedback helps improve AI performance over time and gives you a way to track agent reliability. A note that teaches the agent something becomes a lesson, applied to that agent's future runs — see [Learning](/docs/user-guide/orioniq/create-agent/#learning) in the agent's configuration for the on/off toggle and how lessons are billed.
 
