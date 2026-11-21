@@ -955,3 +955,11 @@ Existing PR #975 had no unresolved reviewer comments. Merged `master` into its b
 * Pattern: in MDX, a literal `<name>` inside bold parses as a tag. Describe placeholders in words ("followed by the agent's name") instead.
 * PR #991 had no unresolved comments (ralongit approved at 038d055). Commits go to its existing branch `claude/gracious-thompson-wgh1am`. No new assignee: the doc-triggering commits are all ralongit's.
 * Slack: posted a new message in #orion-iq-team with the PR and the preview link inline (live since 2026-11-16), mentioning ralongit, galangel, Gavriel-M. galangel's Slack ID is the bot's own user (`UJ44VJPF1`); a name search for "Gal Angel" finds nothing.
+
+### 2026-11-21
+
+* `Artemis` #915 (galangel, ralongit, ORIONIQ-2165): Set up fills in the account's metrics account when it has exactly one, so the first **Activate agent** goes through. When the account has no metrics account and no metrics connection, Set up shows no Metrics row and the hub form no longer requires a metrics source for an agent that reads logs. Extended the **Data sources** row of the Set up table in `marketplace.md` and the Cloud SIEM sentence under Data Sources in `create-agent.md`. Source: `activation-form.util.ts`, `data-lanes.util.ts` (`isMetricsLaneOptional`), `use-has-metric-sources.hook.ts`.
+* `gaia-hermes-ws` #17476 (ralongit, ORIONIQ-2080): `app-ui` moves to `@artemis-ui/orioniq-surfaces` 8.0.1, which carries the Shipping fixes already documented on 2026-11-20. No change. APPZ commits (#17479, #17482, #17480, #17474) are out of scope.
+* Not documented: `Artemis` #895 (PR rules), #918 (test date fix), version PR #901. `OIQ-AI-service`, `oiq-resources`: no commits since the 2026-11-20 run.
+* Pattern: a bug fix can change a documented default. Read the fix's util diff for new defaults and newly optional fields, not only its title.
+* PR #991 had no unresolved comments (ralongit approved at 038d055). Commits go to its existing branch `claude/gracious-thompson-wgh1am`. galangel is already assigned.
