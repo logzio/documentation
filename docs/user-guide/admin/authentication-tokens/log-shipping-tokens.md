@@ -35,6 +35,14 @@ You can have several tokens enabled simultaneously. The limit is indicated direc
 
 If there is only one token, it can't be disabled or deleted.
 
+### OrionIQ shipping token
+
+When an admin turns on **Shipping** for an account in OrionIQ (see [Logz.io API access](/docs/user-guide/orioniq/integrations/#shipping)), OrionIQ creates a token named **OrionIQ Shipping Token (System generated)** and its agents ship logs with it. OrionIQ manages this token:
+
+* It has no **edit** or **delete** button. While it is enabled, its toggle is locked. To remove it, turn off Shipping for the account in OrionIQ.
+* No other token can use its name.
+* To replace it, hover over the token and click **Rotate**, then confirm. OrionIQ switches to a new token and deletes the old one. Anything else that still ships with the old token stops shipping.
+
 
 ### Using log shipping tokens
 
