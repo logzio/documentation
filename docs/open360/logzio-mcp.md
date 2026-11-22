@@ -123,16 +123,45 @@ Tools for creating and managing dashboards and dashboard folders:
 | `get_dashboard_schema_example` | Retrieve an example dashboard configuration for `create_dashboard`, with one log-count panel. Replace its placeholder account ID with your log account ID. | None |  |
 | `get_datasource_schema_example` | Retrieve an example data source schema. | None |  |
 
+### Metrics dashboards & alerts
+
+Tools for reading the dashboards and alert rules in Logz.io Metrics (see [Metrics Alert Manager](/docs/user-guide/infrastructure-monitoring/metrics-alert-manager/)). They are separate from the dashboards in [Dashboards & folders](#dashboards--folders) and the alerts in [Alerts & insights](#alerts--insights). These tools only read. To create a dashboard, use `create_dashboard`. To create an alert, use `create_alert`.
+
+| Tool | Description | Parameters | API Link |
+| ---- | ----------- | ---------- | ---------- |
+| `search_metrics_dashboards` | Search metrics dashboards. Returns each match with its UID, title, folder, tags and URL; dashboards in the General folder show `General`. Results come in pages of `page_size`; when a page is full, the result includes `nextPageNumber`. | `query` (string, optional, part of the title), `tags` (array, optional, a dashboard must have all of them), `folder_uids` (array, optional, folder UIDs, not titles; `general` is the General folder), `page_number` (int, optional), `page_size` (int, optional, 1–1000, default 100) |  |
+| `get_metrics_dashboard_by_uid` | Retrieve a metrics dashboard: its folder, tags, time range and variables, and its panels with their row, type, data source and queries. Layout and display options are left out. Panels come in pages of `limit`. Each data source shows the Logz.io account it reads as `accountId`, which the metrics tools take as `account_id`. Set `panel_id` to get one panel exactly as it is stored. | `uid` (string, required), `panel_id` (int or string, optional), `limit` (int, optional, 1–200, default 50), `offset` (int, optional) |  |
+| `get_all_metrics_alerts` | List metrics alert rules, sorted by folder, rule group and title. Returns a summary of each rule: UID, title, folder, rule group, whether it is paused, pending period, labels, summary, description, runbook URL and the dashboard panel it was created from. Set `state` to list only the rules that are firing or pending now, with the time they entered that state. Long summaries (over 200 characters) and descriptions (over 500) are shortened; `get_metrics_alert_by_uid` returns them in full. | `search` (string, optional, part of the title), `folder` (string, optional, folder title or UID), `paused` (boolean, optional), `state` (`firing` or `pending`, optional), `limit` (int, optional, 1–200, default 50), `offset` (int, optional) |  |
+| `get_metrics_alert_by_uid` | Retrieve a metrics alert rule as it is defined: its queries, condition, pending period, no-data and error handling, labels and annotations. | `uid` (string, required) |  |
+
+A metrics alert rule that was created from a dashboard panel returns that panel's `dashboardUid` and `panelId`. Pass them to `get_metrics_dashboard_by_uid` as `uid` and `panel_id` to see the panel.
+
+:::note
+The metrics dashboard and alert tools need an API token with the **Admin** or **User** [role](/docs/open360/settings/api-tokens/). Read-only tokens are refused.
+:::
+
 
 ### Alerts & insights
 
-Tools for alerts and insights:
+Tools for [alerts](/docs/open360/alerts/intro-alerts/) and insights. The alert tools cover log alerts and metric alerts together. Each alert has a type, `logs` or `metrics`, and an ID, which the tools take as `get_all_alerts` returns it. In search results the type is in `alertConfiguration.type`: `LOG_ALERT` is `logs` and `METRIC_ALERT` is `metrics`.
 
 | Tool | Description | Parameters | API Link |
-| ---- | ----------- | ---------- | ---------- | 
-| `get_all_alerts`       | List all configured alerts.     | None | [Link](https://api-docs.logz.io/docs/logz/get-all-alerts) |
-| `get_triggered_alerts` | List triggered alerts.      | `from` (int, optional), `size` (int, optional), `search` (string, optional), `severities` (array, optional), `tags` (array, optional) | [Link](https://api-docs.logz.io/docs/logz/triggered-alerts) |
+| ---- | ----------- | ---------- | ---------- |
+| `get_all_alerts` | Search log and metric alerts. Returns one page of alerts (25 by default) and the `total` number of matches. | `search_term` (string, optional), `source` (`logs` or `metrics`, optional), `severities` (array, optional), `tags` (array, optional), `enabled` (boolean, optional), `sort_by` (`title`, `severity`, `tags`, `updatedAt`, `createdBy`, `updatedBy` or `enabled`, optional), `sort_direction` (`ASC` or `DESC`, optional), `page_number` (int, optional), `page_size` (int, optional) |  |
+| `get_triggered_alerts` | Search alert events: which alerts triggered, resolved, are pending or have no data. Covers the last 60 minutes by default, newest first. | `from` (int, optional, UNIX seconds), `to` (int, optional, UNIX seconds, needs `from`), `states` (`TRIGGERED`, `RESOLVED`, `PENDING` or `NO_DATA`, array, optional), `search_term` (string, optional), `source` (`logs` or `metrics`, optional), `alert_ids` (array, optional), `severities` (array, optional), `tags` (array, optional), `is_muted` (boolean, optional), `sort_by` (string, optional), `sort_direction` (`ASC` or `DESC`, optional), `page_number` (int, optional), `page_size` (int, optional) |  |
+| `get_alert_by_id` | Retrieve an alert by type and ID. | `type` (`logs` or `metrics`, required), `id` (int or string, required) |  |
+| `create_alert` | Create a log or metric alert. Its `alertConfiguration.type`, `LOG_ALERT` or `METRIC_ALERT`, selects the type. `get_alert_schema_example` returns an alert you can start from. | `alert` (object, required) |  |
+| `update_alert` | Replace an alert. Fields left out return to their defaults, so start from the alert that `get_alert_by_id` returns and change only what you need. | `id` (int or string, required), `alert` (object, required) |  |
+| `enable_alert` | Enable an alert. | `type` (`logs` or `metrics`, required), `id` (int or string, required) |  |
+| `disable_alert` | Disable an alert. It stops triggering and sending notifications until you enable it again. | `type` (`logs` or `metrics`, required), `id` (int or string, required) |  |
+| `get_alert_schema_example` | Retrieve an example alert for `create_alert`, one log alert and one metric alert, with notes on the allowed values. Replace their placeholder account ID with your own. | None |  |
 | `get_insights`         | Get insights matching criteria. | `from` (int, optional), `size` (int, optional, 1–100), `asc` (boolean, optional), `search` (string, optional) | [Link](https://api-docs.logz.io/docs/logz/get-public-insights) |
+
+Severities are `INFO`, `LOW`, `MEDIUM`, `HIGH` and `SEVERE`.
+
+:::note
+Any API token can read alerts, including read-only tokens. Creating, updating, enabling and disabling alerts needs a token that can manage alerts. These tools change your account's alerts, so your AI assistant can ask you to confirm before it runs one. The MCP server can't delete alerts: delete them in Logz.io.
+:::
 
 ### OrionIQ AI agents
 
