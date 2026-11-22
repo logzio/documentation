@@ -965,3 +965,11 @@ Existing PR #975 had no unresolved reviewer comments. Merged `master` into its b
 * Pattern: a bug fix can change a documented default. Read the fix's util diff for new defaults and newly optional fields, not only its title.
 * PR #991 had no unresolved comments (ralongit approved at 038d055). Commits go to its existing branch `claude/gracious-thompson-wgh1am`. galangel is already assigned.
 * Slack: posted a new message in #orion-iq-team with the PR and the preview link inline (live since 2026-11-16), mentioning ralongit, galangel, Gavriel-M.
+
+### 2026-11-22
+
+* `Artemis` #921 (galangel): the **Agent Invocation Details** panel reads the run as the server draws it (`GET /orioniq-be/agent-runs/:id?view=1`). The Input tab's **Formatted** / **JSON** switch is gone (`run-drawer-drops-raw` changeset, `INPUT_VIEW_OPTIONS` removed), so the toolbar keeps only **Copy**, **Download** and **Share report**. Rewrote that sentence in `agents-hub.md` and added the **Other Details** row the Input table had been missing (`build-run-input.ts` section titles). The new `GET /orioniq-be/agent-runs/:runId/steps` and the `?view=1` fields are app routes, not public API.
+* Not documented: `Artemis` #929 (CI runner), version PR #925. `OIQ-AI-service`, `gaia-hermes-ws`, `oiq-resources`: no commits since the 2026-11-21 run.
+* Recheck: `Artemis` #919 is still open. Same follow-up as 2026-11-21.
+* Pattern: a changeset that removes an export (`run-drawer-drops-raw`, a major on `orioniq-surfaces`) is a quick signal that a visible control went away. Read the changesets of a large refactor PR before its diff.
+* PR #991 had no unresolved comments. Commits go to its existing branch `claude/gracious-thompson-wgh1am`. galangel is already assigned.
