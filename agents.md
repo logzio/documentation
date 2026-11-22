@@ -973,3 +973,4 @@ Existing PR #975 had no unresolved reviewer comments. Merged `master` into its b
 * Recheck: `Artemis` #919 is still open. Same follow-up as 2026-11-21.
 * Pattern: a changeset that removes an export (`run-drawer-drops-raw`, a major on `orioniq-surfaces`) is a quick signal that a visible control went away. Read the changesets of a large refactor PR before its diff.
 * PR #991 had no unresolved comments. Commits go to its existing branch `claude/gracious-thompson-wgh1am`. galangel is already assigned.
+* Slack: posted a new message in #orion-iq-team with the PR and the preview link inline (live since 2026-11-16), mentioning ralongit, galangel, Gavriel-M. Merged `master` into the branch (it was 12 commits behind).
