@@ -28,7 +28,7 @@ Settings that apply to everyone on the account.
 
 ## Capping
 
-Controls what OrionIQ is allowed to spend. Admins can also reach this from the **Capping** button on the [Agents Hub](/docs/user-guide/orioniq/agents-hub/).
+Controls what OrionIQ is allowed to spend. Admins can also reach this from the **Capping** button on the [Agents Hub](/docs/user-guide/orioniq/agents-hub/), and from **Settings > Plan and usage > AI Capping** in the Logz.io console. See [AI Capping](/docs/open360/settings/ai-settings/).
 
 | Limit | Description |
 |---|---|

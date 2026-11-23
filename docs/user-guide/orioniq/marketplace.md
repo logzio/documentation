@@ -94,7 +94,7 @@ The template decides which fields appear. A field shows only when the template l
 |---|---|
 | **Name** | Prefilled with the template's name. When you already have agents from this template, it is numbered, for example "Alert Digest 2". |
 | **Runbook** | Required when the template needs one, as for Incident Triage. Shown for agents that run on demand, and for a scheduled template that ships its own runbook. |
-| **Data sources** | The accounts and connections the agent reads logs and metrics from. For an agent that reads logs, the account you are on is selected by default. For an agent that reads metrics, the account's metrics account is selected when it has exactly one. If the account has no metrics account or metrics connection, the Metrics row isn't shown and the agent reads logs only. |
+| **Data sources** | The accounts and connections the agent reads logs and metrics from. For an agent that reads logs, the account you are on is selected by default. For an agent that reads metrics, the account's Logz.io metrics account is selected when it has exactly one. When it has none and the agent can read more than one platform, the first connected metrics connection on another platform, such as Grafana, is selected instead. Otherwise the Metrics row isn't shown and the agent reads logs only. |
 | **Schedule** | For a scheduled agent: how often it repeats, the day, the hour, and the time zone. The next run is shown in the schedule's own zone. |
 | **Send results to** | Who gets notified of the agent's results. |
 | **Integrations** | The integrations the agent can use. |
