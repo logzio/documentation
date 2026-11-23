@@ -92,3 +92,7 @@ If you choose **Aggregations**, click +<i class="li li-plus"></i> to add a colum
 ![Optimizer aggregation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/optimizr-aggreg2_aug2021.png)
 
 Click **Save** to save your optimizer. Logz.io will start sending your logs to the configured timeless account.
+
+## Configure optimizers with the API
+
+You can create, update, and delete optimizers with the Logz.io API. See the [optimizers API reference](https://api-docs.logz.io/docs/logz/optimizers), and [Manage timeless accounts with the API](/docs/user-guide/integrations/api-cookbook/manage-timeless-accounts-with-the-api/) for an example that writes into a timeless account.
