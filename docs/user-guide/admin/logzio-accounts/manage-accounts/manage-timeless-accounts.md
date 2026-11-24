@@ -57,3 +57,7 @@ Select **Clean the account** to delete log data from your timeless. A popup will
 To delete a Timeless account, click the **⋮** icon and select **Remove account**. This will permanently delete all associated data.
 
 This action cannot be undone.
+
+## Manage timeless accounts with the API
+
+You can update, clean, and delete timeless accounts, and manage the optimizers that write into them, with the Logz.io API. See [Manage timeless accounts with the API](/docs/user-guide/integrations/api-cookbook/manage-timeless-accounts-with-the-api/) for the whole flow, and the [timeless accounts API reference](https://api-docs.logz.io/docs/logz/manage-timeless-accounts) for every request.
