@@ -124,13 +124,13 @@ Shows what the agent received for this run, in sections:
 |---|---|
 | **Request** | The message that started the run and any additional context. |
 | **This Run** | The time range, the accounts queried, and other run-specific values such as the alert trigger time. |
-| **Agent Configuration** | Log and metric accounts, sub-agents, output detail, and the memory and shared files the agent could read. |
+| **Agent Configuration** | Log and metric accounts, output detail, and the memory and shared files the agent could read. |
 | **Other Details** | Any other values the run received, such as the alert's name. |
 | **Identifiers** | The session ID and agent ID, each with a copy button. |
 
 Long text, such as an alert body, scrolls inside its own box. Fields that come from the agent's template aren't shown. A note says so and offers **View template**.
 
-The **Copy** and **Download** buttons in the toolbar act on the tab you are viewing.
+The **Copy** and **Download** buttons in the toolbar act on the tab you are viewing. The link button beside the panel's close button copies a link that opens this invocation in Run History.
 
 ### Analysis
 

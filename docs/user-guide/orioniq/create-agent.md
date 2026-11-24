@@ -52,7 +52,7 @@ The specification the agent runs from, generated for you on the **Create** tab. 
 |---|---|
 | **Runbook** | Mandatory step-by-step procedure the agent follows, in order. |
 | **Guidelines** | Custom instructions for the agent. |
-| **Agent tools** | Which tool set the agent uses: **Log agent**, **Metric agent**, **Logs + Metrics (deep)**, or **Integration agent**. This decides what the agent can query, so it has to match the data sources you pick below. |
+| **Data sources** | What the agent reads: **Logs**, **Metrics**, **Logs + Metrics (Multi agent)**, or **Integrations**. This decides what the agent can query, so it has to match the data sources you pick below. |
 | **Output detail** | Response verbosity — **Summary** or **Detailed**. Ignored when a structured output schema is set. |
 | **Structured output** | A JSON Schema for the agent's response, enforced at inference. Use it when a downstream system consumes the output. |
 
@@ -94,13 +94,13 @@ Account-wide limits are set separately — see [Settings → Capping](/docs/user
 
 Pick the observability platform and accounts this agent can query. Toggle the scope chips to choose Logs, Metrics, or both — each scope has its own accounts list.
 
-With **Logs + Metrics (deep)**, a coordinating agent plans the investigation and assigns each part to specialized logs, metrics, and integration sub-agents, then combines their findings. It decides each next step from what the previous step returned rather than following a fixed sequence.
+With **Logs + Metrics (Multi agent)**, a coordinating agent plans the investigation and assigns each part to specialized logs, metrics, and integration sub-agents, then combines their findings. It decides each next step from what the previous step returned rather than following a fixed sequence.
 
-Data Sources is available for every trigger type. Which scopes you have to fill in follows the **Agent tools** you chose above: a scheduled agent declaring a logs tool set needs a logs data source, and it won't save until every declared scope has one. For API and Alert agents, picking a data source is optional. In Cloud SIEM, the Logz.io card offers Logs only, so a **Logs + Metrics (deep)** agent needs just a logs data source. The same holds in Open 360 when the account has no Logz.io metrics account, unless the agent can read more than one platform and the account has a metrics connection on another one. A scope chip with nothing to pick is disabled, and its tooltip says why, for example "This account has no Logz.io metrics accounts."
+Data Sources is available for every trigger type. Which scopes you have to fill in follows the **Data sources** you chose above: a scheduled agent that reads logs needs a logs data source, and it won't save until every declared scope has one. A scheduled Multi agent needs only one source: logs, metrics, or an integration. For API and Alert agents, picking a data source is optional. In Cloud SIEM, the Logz.io card offers Logs only. The same holds in Open 360 when the account has no Logz.io metrics account, unless the agent can read more than one platform and the account has a metrics connection on another one. A scope chip with nothing to pick is disabled, and its tooltip says why, for example "This account has no Logz.io metrics accounts."
 
 When you create an alert-linked AI analysis agent, it starts with the accounts named in the alert, and you can edit them here. If the alert queries all accounts, the agent follows the alert instead and picks up new sub-accounts. Later changes to the alert don't overwrite the accounts you saved. If you remove every account, the agent falls back to the alert's accounts.
 
-**Allow Logz.io API access** lets the agent read from your Logz.io accounts through the Logz.io public API, using a token OrionIQ provisions. It is off by default, for new agents and for templates that don't turn it on. The checkbox appears for agents that use a logs tool set and stays disabled until at least one selected Logz.io account has API Read enabled in **Integrations > Management**. If your connections fail to load, it is disabled with a note asking you to refresh. An agent without a logs data source always saves with API access off. For the scopes, see [Logz.io API access](/docs/user-guide/orioniq/integrations/#logzio-api-access).
+**Allow Logz.io API access** lets the agent read from your Logz.io accounts through the Logz.io public API, using a token OrionIQ provisions. It is off by default, for new agents and for templates that don't turn it on. The checkbox appears for agents that read logs and stays disabled until at least one selected Logz.io account has API Read enabled in **Integrations > Management**. If your connections fail to load, it is disabled with a note asking you to refresh. An agent without a logs data source always saves with API access off. For the scopes, see [Logz.io API access](/docs/user-guide/orioniq/integrations/#logzio-api-access).
 
 ### Integrations
 

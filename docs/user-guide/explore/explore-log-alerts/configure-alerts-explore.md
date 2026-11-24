@@ -195,7 +195,7 @@ For full agent configuration, use **Manage in Agents Hub**, which opens the agen
 
 The agent is editable like any other, so beyond the settings on this page you can:
 
-* Set its instructions, guidelines, and **Agent tools**.
+* Set its instructions, guidelines, and **Data sources**.
 * Give it **Integrations** — Slack, Jira, Confluence, and the rest — so the analysis can draw on them.
 * Adjust its own **daily invocation cap** and soft limit, independently of your account-wide caps.
 

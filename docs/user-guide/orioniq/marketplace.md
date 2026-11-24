@@ -23,7 +23,7 @@ Agent templates are organized into the following categories:
 | **Alerting** | Agents that filter and prioritize alerts to surface high-confidence, high-impact events. |
 | **Performance** | Agents that identify early degradation patterns in latency, error rates, and throughput. |
 
-Each card shows two tags: **Data** (Logs, Metrics, or Logs + Metrics) and **Trigger** (Scheduled, On demand, or Per alert). A card whose template sets neither shows no tags. The Review step shows the same tags. Cloud SIEM has no Logz.io metrics, so there an agent that reads logs and metrics is tagged Logs.
+Each card shows two tags: **Data** (Logs, Metrics, or Multi agent for an agent that reads both) and **Trigger** (Scheduled, On demand, or Per alert). A card whose template sets neither shows no tags. The Review step shows the same tags. Cloud SIEM has no Logz.io metrics, so there an agent that reads logs and metrics is tagged Logs.
 
 Use the search bar at the top of the page to find specific agent templates, or click a category tab to filter the list.
 
@@ -34,7 +34,7 @@ The Marketplace groups its templates into an **Open 360** section and a **Cloud 
 | Template | Category | Runs | What it does |
 |---|---|---|---|
 | **Alert AI Analysis** | Incident | When an alert fires | Open 360 only. Correlates error logs, related metric anomalies, recent deployments, and the affected request paths, then summarizes the root cause with recommended remediation steps. This is the agent behind [AI Agent Analysis](/docs/open360/observability/ai-agent-analysis/). |
-| **Rule AI Analysis** | Incident | When a security rule fires | Cloud SIEM only. Finds the logs and changes that match the rule, checks recent deployments, and traces the affected request paths. It says whether the data shows an attack, a misconfiguration, or a broken log source, then names the most likely root cause and the steps to fix it. This is the agent behind a security rule's [Alert AI Analysis](/docs/user-guide/cloud-siem/security-rules/manage-security-rules/) step. |
+| **Rule AI Analysis** | Incident | When a security rule fires | Cloud SIEM only. Finds the logs and changes that match the rule, checks recent deployments, and traces the affected request paths. It says whether the data shows an attack, a misconfiguration, or a broken log source, then names the most likely root cause and the steps to fix it. This is the agent behind a security rule's [Rule AI Analysis](/docs/user-guide/cloud-siem/security-rules/manage-security-rules/) step. |
 | **Root Cause Analysis** | Incident | On demand (API) | Open 360 only. Reconstructs the incident timeline, correlates logs, metrics, and traces, inspects recent deployments and configuration changes, and produces a ranked set of probable root causes with supporting evidence and remediation recommendations. |
 | **Security Root Cause Analysis** | Incident | On demand (API) | Cloud SIEM only. Rebuilds the incident timeline from your logs, checks recent deployments and configuration changes, and follows request paths through the trace IDs in the logs. It says whether the data shows an attack, a misconfiguration, or a broken log source, and ranks the possible root causes with the evidence and the steps to fix each. |
 | **Incident Triage** | Incident | On demand (API) | Open 360 only. Loads your runbook, walks through its diagnostic steps against live logs and metrics, evaluates the findings against the runbook's decision points, applies the prescribed remediation guidance, and produces a prioritized list of next steps for the responder. |
