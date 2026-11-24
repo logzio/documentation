@@ -202,6 +202,10 @@ A request without `optimizerIds`, or with only one end of the time range, return
 
 ## Remove the optimizers {#remove-the-optimizers}
 
+:::caution
+You can't delete your last timeless account. Before you remove the optimizers of an account you plan to delete, [list your timeless accounts](#find-your-timeless-account) and make sure you have at least one more. If it's your last one, keep its optimizers: the account can't be deleted anyway.
+:::
+
 A timeless account can't be deleted while optimizers write into it. List them:
 
 ```shell
@@ -237,4 +241,4 @@ The response is the deleted timeless account. Deleting a timeless account perman
 The request fails when:
 
 * **Optimizers still write into the account.** The response is `403 Forbidden`, and its message lists the optimizers to delete first, for example `Delete these optimizers first: 1001 (Checkout errors)`.
-* **It's your last timeless account.** An account can't delete its last timeless account, and the response is `400 Bad Request` with the message `Deleting the last timeless index is not allowed`. To stop storing data in it, [remove its optimizers](#remove-the-optimizers) and [delete its data](#preview-and-delete-data) instead.
+* **It's your last timeless account.** The response is `400 Bad Request` with the message `Deleting the last timeless index is not allowed`. [Check this before you remove its optimizers](#remove-the-optimizers).
