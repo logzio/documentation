@@ -121,7 +121,11 @@ The Logz.io integration is connected by default and gives agents access to your 
 | **Admin** | The agent has the same role as Manage API Tokens. Implies Read and Write. |
 | **Shipping** | Agents can send logs into the account. |
 
-Enabling API access creates one system-generated API token per selected account, at the highest scope you chose. Changing or turning off API access deletes that token; agents keep their telemetry access, and a lower scope gets a new token at that scope.
+Each account gets one API token for OrionIQ, named **OrionIQ API Token (System generated)**, with the role of the highest scope you chose: read-only for Read, user for Write, admin for Admin. **Read** is on by default when OrionIQ first finds an account, if you can manage API tokens and the account's plan has API access. Untick it to delete the token.
+
+The token can be shared by more than one account's OrionIQ, for example the owner account's or a Cloud SIEM account that scans this account. Changing the scope replaces the token with one at the new role for all of them. Turning off API access deletes the token, unless another account's OrionIQ still uses it. Agents keep their telemetry access either way.
+
+You can't delete the OrionIQ API token or change its role in **Manage tokens**. To replace it, use **Rotate** there. A token deleted outside OrionIQ isn't replaced on its own: rotate it, or turn API access off and on. See [Manage API Tokens](/docs/user-guide/admin/authentication-tokens/api-tokens/#orioniq-api-token).
 
 Owner, sub-accounts, and Security accounts have a public API. Metrics, Timeless, and Restored accounts do not, so API scopes aren't available for them.
 
@@ -135,7 +139,7 @@ Shipping is available for owner accounts and sub-accounts. Security accounts don
 
 Each account with Shipping on gets a **Log shipping** connection. In the **Management** tab it shows the account's name and **Shipping Token** in the **Connection** column. To let an agent ship logs, add that connection in the agent's **Integrations**, where it's listed as **Log shipping:** followed by the account's name and ID.
 
-You can't edit, delete, or disable the OrionIQ token in **Manage tokens**. To replace it, use **Rotate** there. See [Log shipping tokens](/docs/user-guide/admin/authentication-tokens/log-shipping-tokens/#orioniq-shipping-token).
+You can't edit, delete, or disable the OrionIQ shipping token in **Manage tokens**. To replace it, use **Rotate** there. See [Log shipping tokens](/docs/user-guide/admin/authentication-tokens/log-shipping-tokens/#orioniq-shipping-token).
 
 To request an integration that isn't yet available, click **Add to Wish List** on the integration you're interested in. This helps Logz.io prioritize which integrations to support next.
 

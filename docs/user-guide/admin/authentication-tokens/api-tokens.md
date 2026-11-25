@@ -30,6 +30,15 @@ You have full control over your API tokens, to create and delete them at any tim
 
   Deleting a token affects any integrations that use that token. Make sure you update integrations that use a token you deleted.
 
+### OrionIQ API token
+
+When API access is on for an account in OrionIQ (see [Logz.io API access](/docs/user-guide/orioniq/integrations/#logzio-api-access)), OrionIQ creates a token named **OrionIQ API Token (System generated)** and its agents call the Logz.io API with it. OrionIQ manages this token:
+
+* It has no **edit** or **delete** button. To remove it, turn off API access for the account in OrionIQ.
+* No other token can use its name.
+* To replace it, hover over the token and click **Rotate**, then confirm. OrionIQ switches to a new token with the same role and deletes the old one. Anything else that still uses the old token loses access.
+* Rotating needs permission to manage API tokens, and the account's plan must include API access.
+
 ## Manage API tokens with the API
 
 You can also create API tokens for your sub accounts, and list and delete the API tokens of your account and of its sub accounts with the Logz.io API, for example to rotate tokens from an automation.
