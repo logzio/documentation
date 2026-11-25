@@ -1004,3 +1004,4 @@ Existing PR #975 had no unresolved reviewer comments. Merged `master` into its b
 * Pattern: a branch commit can wait a week before it reaches `main` inside an unrelated merge. Diff template `config.trigger` between the window's ends, not only the merge titles.
 * PR #991 had no unresolved comments. Commits go to its existing branch `claude/gracious-thompson-wgh1am`. ralongit is already assigned.
 
+* Slack: posted a new message in #orion-iq-team with the PR and the preview link inline (live since 2026-11-16), mentioning ralongit, galangel, Gavriel-M.
