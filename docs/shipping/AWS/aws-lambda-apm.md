@@ -55,7 +55,7 @@ Deleting the stack removes all three and restores your functions' original confi
 
 ## Choose what to send
 
-Each data type can be turned on or off. Turn off anything you already send to Logz.io another way, so you don't pay for it twice.
+Each data type can be turned on or off. Turn off anything you already send to Logz.io another way, so it doesn't arrive twice.
 
 | Data | Parameter | What it adds |
 | --- | --- | --- |
@@ -201,13 +201,6 @@ Send a few requests to your functions, then wait about 3 minutes.
 **Logs** include each line your function writes with `console`, with its level and trace ID, and Lambda init and error records. Lambda's per-invocation START and END lines are dropped to keep log volume down.
 
 **AWS service metrics** carry the AWS `account` and `region` and the resource name in lower case (for example `functionname`, `queuename`).
-
-## Performance and cost
-
-* The layer adds about 1 MB per function and runs as a Lambda extension. After each invocation it spends roughly 20-40 ms sending telemetry. Lambda bills this time, but your caller doesn't wait for it.
-* Cold starts take longer while the layer loads. Check the `cold start` span on your own functions to see the difference.
-* The gateway collector runs as one ECS Fargate task (1 vCPU, 2 GB).
-* Every invocation is traced.
 
 ## Update or remove
 
