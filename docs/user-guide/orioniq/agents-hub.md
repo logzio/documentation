@@ -31,6 +31,8 @@ The **Agents** tab displays a list of all agents in your account. Each agent row
 | **Daily Cap** | Per-agent daily invocation limit, configured in each agent's settings. |
 | **Actions** | The agent's **Triggers** menu and its actions menu. |
 
+To change which columns show, click **Choose columns** at the end of the filter row. You can also drag a header to reorder its column, and use the menu on a header or on a row of the column list to sort by that column or pin it. **Name** and **Type** always show, and **Actions** stays pinned on the right. Your layout is saved in your browser.
+
 To create a new agent directly from this page, click **Build an Agent** in the top right corner.
 
 ### Triggers
@@ -86,7 +88,7 @@ They can't create, edit, activate, delete, or manually trigger agents, stop a ru
 
 ## Invocations tab
 
-The **Invocations** tab displays the run history for all agents. Each row represents a single invocation and includes the agent name, type, trigger method, who created it, the execution time, and the outcome.
+The **Invocations** tab displays the run history for all agents. Each row represents a single invocation and includes the agent name, type, trigger method, who created it, the execution time, and the outcome. You can choose, reorder, sort, and pin the columns the same way as on the Agents tab. **Triggered Agent** and **Time** always show.
 
 An invocation ends in one of the following outcomes:
 

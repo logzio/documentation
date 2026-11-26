@@ -27,7 +27,7 @@ Requests may receive a `307 Temporary Redirect` to an equivalent path, as part o
 :::
 
 :::note
-If AI features are disabled for the account, [Run an agent](#run-an-agent) and [Send a follow-up](#send-a-follow-up) return `403`. Polling for a result, enabling or disabling an agent, and feedback stay available either way, so you can still retrieve a run you already started and turn an agent off. See [AI Settings](/docs/open360/settings/ai-settings/) for enabling AI on an account.
+If AI features are disabled for the account, [Run an agent](#run-an-agent) and [Send a follow-up](#send-a-follow-up) return `403`. A blocked (inactive) account, such as one whose trial expired, gets the same `403` with `errorCode: "ACCOUNT_INACTIVE"`, even if AI is turned on for it. Polling for a result, enabling or disabling an agent, and feedback stay available either way, so you can still retrieve a run you already started and turn an agent off. See [AI Settings](/docs/open360/settings/ai-settings/) for enabling AI on an account.
 :::
 
 :::note

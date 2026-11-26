@@ -42,7 +42,7 @@ Integrations are organized into the following categories:
 | **Finance & Payments** | AWS Cost Explorer, Azure Cost Management, Alpaca |
 | **HR & People** | BambooHR, Ashby, Breezy HR |
 
-Use the search bar to find a specific integration, or click a category tab to filter the list. The catalog is ordered by popularity, so the integrations most accounts connect appear first.
+Use the search bar to find a specific integration, or pick one or more categories from the **Categories** menu to filter the list. Each category shows how many integrations it holds. Turn on **My Integrations** in the same menu to see only the categories your account's integrations are in, and click **Select All** to show the whole catalog again. The catalog is ordered by popularity, so the integrations most accounts connect appear first.
 
 ## Connect an integration
 
