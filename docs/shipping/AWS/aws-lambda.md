@@ -147,6 +147,10 @@ Install the pre-built dashboard to enhance the observability of your metrics.
 
 ## Traces
 
+:::tip
+For Node.js functions, use [AWS Lambda APM](https://docs.logz.io/docs/shipping/AWS/AWS-Lambda-APM): one stack sends traces, APM metrics, function logs with trace IDs and AWS metrics, with no per-function setup.
+:::
+
 Deploy this integration for automatic instrumentation on AWS Lambda, forwarding traces to Logz.io. This involves adding an OpenTelemetry collector layer and configuring environment variables without modifying your application code.
 
 These guides provide step-by-step instructions for sending traces with OpenTelemetry, tailored to your application's programming language:

@@ -755,6 +755,10 @@ Give your traces some time to ingest, and then open your [Tracing account](https
 
 <TabItem value="lambda-opentelemetry" label="Lambda via OpenTelemetry" default>
 
+:::tip
+To instrument many Lambda functions at once and get APM service pages, use [AWS Lambda APM](https://docs.logz.io/docs/shipping/AWS/AWS-Lambda-APM) instead: one CloudFormation stack, no per-function steps.
+:::
+
 Deploy this integration to auto-instrument your Node.js application running on AWS Lambda and send the traces to your Logz.io account. This is done by adding a dedicated layer for OpenTelemetry collector, a dedicated layer for Node.js auto-instrumentation and configuring environment variables of these layers. This integration will require no change to your application code.
 
 :::note
