@@ -83,7 +83,7 @@ The **Management** tab lists your account's connections. A Logz.io account with 
 | **Status** | The connection's health — see below. |
 | **Connected by** | The user who created the connection. |
 | **Used by** | How many agents use the connection. Click the count to see which ones, with a link to each agent's invocations and its definition. |
-| **Connection** | The connection's name, and the authentication method it uses. |
+| **Connection** | The connection's name, and the authentication method it uses. For the system-managed Logz.io connection, it shows the highest Logz.io API access granted: **Telemetry**, **Read**, **Write**, or **Admin**. |
 | **Updated by** | The user who last changed the connection. |
 | **Updated at** | When the connection was last changed. |
 | **Validated at** | When the connection's credentials were last verified. |
@@ -121,7 +121,7 @@ The Logz.io integration is connected by default and gives agents access to your 
 | **Admin** | The agent has the same role as Manage API Tokens. Implies Read and Write. |
 | **Shipping** | Agents can send logs into the account. |
 
-Each account gets one API token for OrionIQ, named **OrionIQ API Token (System generated)**, with the role of the highest scope you chose: read-only for Read, user for Write, admin for Admin. **Read** is on by default when OrionIQ first finds an account, if you can manage API tokens and the account's plan has API access. Untick it to delete the token.
+Each account gets one API token for OrionIQ, named **OrionIQ API Token (System generated)**, with the role of the highest scope you chose: read-only for Read, user for Write, admin for Admin. **Read** is on by default when OrionIQ first finds an account, if you can manage API tokens and the account's plan has API access. Accounts connected before Read became the default are offered it once as well. Untick it to delete the token. Once you turn Read off, it stays off.
 
 The token can be shared by more than one account's OrionIQ, for example the owner account's or a Cloud SIEM account that scans this account. Changing the scope replaces the token with one at the new role for all of them. Turning off API access deletes the token, unless another account's OrionIQ still uses it. Agents keep their telemetry access either way.
 
