@@ -7,6 +7,16 @@ keywords: [release notes, logzio, logs, metrics, traces, logz.io, updates, relea
 toc_max_heading_level: 2
 ---
 
+## November 2026
+
+### Logz.io MCP server
+
+* **Sign in with Logz.io**
+
+    Connect your AI assistant to the Logz.io MCP server with your Logz.io login instead of an API token. The tools then work with your own role in the account you pick, and changes you make show your name. Access tokens now refresh on their own, so you no longer sign in again every day.
+
+    [Learn more about the Logz.io MCP server](https://docs.logz.io/docs/open360/logzio-mcp/)
+
 ## October 2026
 
 ### AI Agent Analysis

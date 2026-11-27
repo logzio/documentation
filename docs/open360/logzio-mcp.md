@@ -10,7 +10,7 @@ The Logz.io Public API MCP (Model Context Protocol) server allows LLM clients (C
 
 ### Prerequisites
 
-* A Logz.io API token (create in your Logz.io account settings). The same token is used for logs, metrics, dashboards, and alerts. You don't need a separate metrics API token.
+* A Logz.io API token (create in your Logz.io account settings), or a Logz.io user account to [sign in with Logz.io](#sign-in-with-logzio). The same token or sign-in is used for logs, metrics, dashboards, and alerts. You don't need a separate metrics API token.
 * A supported LLM client with MCP integration. Setup instructions vary per client.
 
 ## Setup
@@ -35,6 +35,22 @@ Below is a generic example configuration:
 
 Replace `<<YOUR-LOGZIO-API-TOKEN>>` with your actual token.
 
+To connect with your Logz.io user instead of a token, leave out the `--header` line:
+
+```json
+{
+  "logz.io public api": {
+    "command": "npx",
+    "args": [
+      "mcp-remote",
+      "https://api.logz.io/mcp"
+    ]
+  }
+}
+```
+
+The client then opens the Logz.io authorize page in your browser. Click **Sign in with Logz.io**, sign in as you do in the Logz.io app, pick the account to work with, and approve the client. A client with built-in OAuth support, such as Claude, needs only the URL. See [Sign in with Logz.io](#sign-in-with-logzio) for how it works.
+
 The domain prefix (`api`) is region-specific. Those are the regions available:
 
 * `https://api.logz.io/mcp` (US) us-east-1
@@ -55,11 +71,13 @@ After setup is complete, you can query your Logz.io data. Ask questions about yo
 
 ## Choosing the account to query
 
-The API token belongs to one Logz.io account, but the MCP server can query other accounts that account is allowed to read:
+The API token belongs to one Logz.io account, and a sign-in works with the account you picked on the approval page. In both cases, the MCP server can also query other accounts that account is allowed to read:
 
 * **Metrics**: every metrics tool requires an `account_id`, the metrics account to query. Use `get_metrics_accounts` to list the metrics accounts that your token can query. A metrics account is on the list if your token's account is one of its authorized accounts. This tool also works with read-only tokens.
 * **Logs**: the log search tools accept an optional `account_id` to search another account your token may search, such as a sub account. Use `get_associated_accounts` to list them; it needs an admin API token, so read-only and regular tokens can't use it. Without `account_id`, the token's own account is searched. `scroll_logs` always reads the token's own account.
 * **OrionIQ agents**: `list_ai_agents` lists only the agents of the token's own account. A run reads the accounts given in `log_account_ids` and `metric_account_ids`. Without them, it reads the data the agent is set up to read in OrionIQ; if the agent has none set up, the run fails and the result asks for account IDs. An agent that reads only logs or only metrics accepts only that kind of account.
+
+With a sign-in, the account you picked stays for the whole connection. To work with another account, re-authenticate in your client.
 
 ## Available tools
 
@@ -137,7 +155,7 @@ Tools for reading the dashboards and alert rules in Logz.io Metrics (see [Metric
 A metrics alert rule that was created from a dashboard panel returns that panel's `dashboardUid` and `panelId`. Pass them to `get_metrics_dashboard_by_uid` as `uid` and `panel_id` to see the panel.
 
 :::note
-The metrics dashboard and alert tools need an API token with the **Admin** or **User** [role](/docs/open360/settings/api-tokens/). Read-only tokens are refused.
+The metrics dashboard and alert tools need an API token with the **Admin** or **User** [role](/docs/open360/settings/api-tokens/), or a signed-in user with one of these roles. Read-only tokens and read-only users are refused.
 :::
 
 
@@ -160,7 +178,7 @@ Tools for [alerts](/docs/open360/alerts/intro-alerts/) and insights. The alert t
 Severities are `INFO`, `LOW`, `MEDIUM`, `HIGH` and `SEVERE`.
 
 :::note
-Any API token can read alerts, including read-only tokens. Creating, updating, enabling and disabling alerts needs a token that can manage alerts. These tools change your account's alerts, so your AI assistant can ask you to confirm before it runs one. The MCP server can't delete alerts: delete them in Logz.io.
+Any API token can read alerts, including read-only tokens, and so can any signed-in user. Creating, updating, enabling and disabling alerts needs a token that can manage alerts, or a signed-in user who can. An alert changed by a signed-in user shows that user in its audit fields. These tools change your account's alerts, so your AI assistant can ask you to confirm before it runs one. The MCP server can't delete alerts: delete them in Logz.io.
 :::
 
 ### OrionIQ AI agents
@@ -189,9 +207,9 @@ Each agent run (`invoke_ai_agent`) and follow-up (`send_ai_agent_followup`) coun
 
 ## OAuth 2.0 Support for Logz.io MCP Server
 
-The MCP server supports OAuth 2.0 Authorization Code flow with PKCE, allowing third-party tools such as **AWS Bedrock Agent** to connect without manually sharing static API tokens.
+The MCP server supports the OAuth 2.0 Authorization Code flow with PKCE, so clients such as Claude or **AWS Bedrock Agent** connect without a static API token in their configuration. On the authorize page you either sign in with your Logz.io user or enter an API token.
 
-Existing integrations that pass `X-API-Token` directly continue to work unchanged.
+Existing integrations that pass `X-API-TOKEN` directly continue to work unchanged.
 
 ---
 
@@ -208,24 +226,45 @@ or Similar Client         MCP Server                    User
        |<─ { client_id, client_secret } ─|                           |
        |                                  |                           |
        |── redirect user to /authorize ──────────────────────────────>|
-       |                                  |<── enters Logz.io token ─|
+       |                                  |<── signs in with Logz.io ─|
+       |                                  |    or enters an API token |
+       |                                  |── approval page ─────────>|
+       |                                  |<── Approve ──────────────|
        |<── redirect with ?code=... ──────────────────────────────────|
        |                                  |                           |
        |── POST /token (code + PKCE) ────>|                           |
-       |<─ { access_token } ─────────────|                           |
+       |<─ { access_token, refresh_token }|                           |
        |                                  |                           |
        |── POST /mcp  Authorization: Bearer <token>  ──────────────>|
+       |                                  |                           |
+       |── POST /token (refresh_token) ──>|   (when the access       |
+       |<─ { access_token, refresh_token }|    token expires)         |
 ```
 
 1. The agent discovers OAuth metadata at `/.well-known/oauth-authorization-server`.
 2. The agent registers as a client via `POST /register`.
-3. The user is redirected to `/authorize` where they enter their Logz.io API token.
-4. The server issues an authorization code and redirects back to the agent.
-5. The agent exchanges the code for a JWT access token via `POST /token`.
-6. The agent attaches `Authorization: Bearer <token>` to every MCP request.
-7. The server decrypts the token and injects the Logz.io API token transparently.
+3. The user is redirected to `/authorize`, where they click **Sign in with Logz.io** or enter a Logz.io API token.
+4. After a sign-in, an approval page shows which client asked for access and where the result goes. A user with several accounts picks the one to work with. Only **Approve** grants access.
+5. The server issues an authorization code and redirects back to the agent.
+6. The agent exchanges the code for an access token and a refresh token via `POST /token`.
+7. The agent attaches `Authorization: Bearer <token>` to every MCP request.
+8. The server decrypts the token and uses the API token or the Logz.io session upstream.
 
-The Logz.io API token is **never sent to the agent** — it is encrypted inside the JWT and only the MCP server can read it.
+The API token or the Logz.io session is **never sent to the agent** — it is encrypted inside the JWT and only the MCP server can read it.
+
+### Sign in with Logz.io
+
+A sign-in uses the same login as the Logz.io app, including SSO and MFA. The MCP server then works as your user, in the account you picked on the approval page:
+
+* Every tool acts with your role in that account, as in the Logz.io app. A read-only user cannot create or change dashboards and alerts.
+* Changes you make, such as a new alert, show your user name in the audit fields.
+* `get_account_info` returns your user next to the account.
+
+To work with another account, disconnect the MCP server in your client and sign in again.
+
+### Token lifetime and refresh
+
+The access token expires after 24 hours for an API token and after 1 hour for a sign-in. The client renews it with the refresh token (`grant_type=refresh_token`) without asking you again, for up to 30 days after the login. After 30 days, or when the Logz.io session ends, the refresh is refused and the client asks you to sign in again.
 
 ---
 
