@@ -3,7 +3,7 @@ sidebar_position: 8
 title: Logz.io MCP Server
 description: Use Logz.io MCP to quickly and easily query your logs, metrics, dashboards, and alerts, and run OrionIQ AI agents.
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-keywords: [logz.io, mcp, model context protocol, llm tools, observability, logs, metrics, prometheus, promql, dashboards, alerts, elasticsearch, ai agents, orioniq, root cause analysis, integrations]
+keywords: [logz.io, mcp, model context protocol, llm tools, observability, logs, metrics, prometheus, promql, dashboards, opensearch dashboards, alerts, elasticsearch, ai agents, orioniq, root cause analysis, integrations]
 ---
 
 The Logz.io Public API MCP (Model Context Protocol) server allows LLM clients (Claude, Cursor, ChatGPT, etc.) to access observability data - logs, metrics, dashboards, and alerts, and to run OrionIQ AI agents, in a standardized way. With MCP, AI agents can fetch context and trigger actions without custom integrations.
@@ -58,7 +58,7 @@ After setup is complete, you can query your Logz.io data. Ask questions about yo
 The API token belongs to one Logz.io account, but the MCP server can query other accounts that account is allowed to read:
 
 * **Metrics**: every metrics tool requires an `account_id`, the metrics account to query. Use `get_metrics_accounts` to list the metrics accounts that your token can query. A metrics account is on the list if your token's account is one of its authorized accounts. This tool also works with read-only tokens.
-* **Logs**: the log search tools accept an optional `account_id` to search another account your token may search, such as a sub account. Use `get_associated_accounts` to list them; it needs an admin API token, so read-only and regular tokens can't use it. Without `account_id`, the token's own account is searched. `scroll_logs` always reads the token's own account.
+* **Logs**: the log search tools accept an optional `account_id` to search another account your token may search, such as a sub account. Use `get_associated_accounts` to list them: the token's own account, its searchable sub accounts, timeless accounts and restored archives. It works with any API token, including read-only tokens. Without `account_id`, the token's own account is searched. `scroll_logs` always reads the token's own account.
 * **OrionIQ agents**: `list_ai_agents` lists only the agents of the token's own account. A run reads the accounts given in `log_account_ids` and `metric_account_ids`. Without them, it reads the data the agent is set up to read in OrionIQ; if the agent has none set up, the run fails and the result asks for account IDs. An agent that reads only logs or only metrics accepts only that kind of account.
 
 ## Available tools
@@ -72,7 +72,7 @@ Tools for managing and retrieving account information:
 | Tool                      | Description                         | Parameters | API Link |
 | ------------------------- | ----------------------------------- | ---------- | ---------- |
 | `get_account_info` | Retrieve account name and ID for the current token. | None | [Link](https://api-docs.logz.io/docs/logz/who-am-i/) |
-| `get_associated_accounts` | List all accounts associated with the current account (including sub-accounts for owners). Needs an admin API token. | None |  |
+| `get_associated_accounts` | List the log accounts the current token can search (ID, name and type), for the `account_id` of the log search tools: the token's own account, its searchable sub accounts, timeless accounts and restored archives. Works with read-only tokens. | None |  |
 | `get_metrics_accounts` | List the metrics accounts the current token can query (ID and name), for the `account_id` of the metrics tools. Works with read-only tokens. | None |  |
 
 ### Metrics management 
@@ -94,8 +94,8 @@ Tools for searching, filtering, and managing logs:
 
 | Tool | Description | Parameters | API Link |
 | ---- | ----------- | ---------- | ---------- |
-| `search_logs` | Search logs with Elasticsearch DSL. | `query` (object, required), `size` (int, optional), `from` (int, optional), `sort` (array, optional), `day_offset` (int, optional), `account_id` (int, optional) | [Link](https://api-docs.logz.io/docs/logz/search) |
-| `scroll_logs` | Scroll through large sets of log data in the token's own account. | `query` (object, optional), `scroll_id` (string, optional), `size` (int, optional), `scroll` (string, optional) | [Link](https://api-docs.logz.io/docs/logz/scroll) |
+| `search_logs` | Search logs with Elasticsearch DSL. Returns up to 1,000 aggregated or 10,000 non-aggregated results. | `query` (object, required), `size` (int, optional, max 10000), `from` (int, optional), `sort` (array, optional), `_source` (object, optional), `post_filter` (object, optional), `docvalue_fields` (array, optional), `version` (boolean, optional), `stored_fields` (array, optional), `highlight` (object, optional), `aggregations` (object, optional), `day_offset` (int, optional), `account_id` (int, optional) | [Link](https://api-docs.logz.io/docs/logz/search) |
+| `scroll_logs` | Scroll through large sets of log data in the token's own account. Send a `query` to get the first page and a scroll ID, then the `scroll_id` to get each next page. A scroll expires after 20 minutes. | `query` (object, optional), `scroll_id` (string, optional), `size` (int, optional, max 1000), `from` (int, optional), `sort` (array, optional), `_source` (object, optional), `post_filter` (object, optional), `aggregations` (object, optional), `scroll` (string, optional, max `5m`) | [Link](https://api-docs.logz.io/docs/logz/scroll) |
 | `search_logs_simple` | Full-text search across all log fields. | `search_term` (string, required), `size` (int, optional), `from` (int, optional), `day_offset` (int, optional), `account_id` (int, optional) | [Link](https://api-docs.logz.io/docs/logz/search) |
 | `search_logs_by_timestamp` | Search logs within a specific time range. | `start_time` (string, required), `end_time` (string, required), `search_term` (string, optional), `size` (int, optional), `from` (int, optional), `day_offset` (int, optional), `account_id` (int, optional) | [Link](https://api-docs.logz.io/docs/logz/search) |
 | `get_all_log_types` | List all log types available. | None | [Link](https://api-docs.logz.io/docs/logz/get-log-types/) |
@@ -112,16 +112,24 @@ Tools for creating and managing dashboards and dashboard folders:
 | `get_all_dashboards` | List all dashboards with UIDs. | None | [Link](https://api-docs.logz.io/docs/logz/get-all-dashboards) |
 | `get_dashboard_by_id` | Retrieve a dashboard by UID. | `folder_id` (string, required), `uid` (string, required) | [Link](https://api-docs.logz.io/docs/logz/get-dashboard-by-id) |
 | `get_dashboard_creators` | List the account users who created dashboards, with their IDs and full names. Use an ID as the `created_by` of `search_dashboards`. | None |  |
-| `create_dashboard` | Create a dashboard from configuration. `get_dashboard_schema_example` returns a configuration you can start from. | `folder_id` (string, required), `dashboard_config` (object, required) | [Link](https://api-docs.logz.io/docs/logz/create-a-new-dashboard) |
-| `update_dashboard` | Update a dashboard. | `folder_id` (string, required), `uid` (string, required), `dashboard_config` (object, required) | [Link](https://api-docs.logz.io/docs/logz/update-an-existing-dashboard) |
+| `create_dashboard` | Create a dashboard from configuration. `get_dashboard_schema_example` returns a configuration you can start from. For metrics panels, see [Metrics data sources](#metrics-data-sources). | `folder_id` (string, required), `dashboard_config` (object, required) | [Link](https://api-docs.logz.io/docs/logz/create-a-new-dashboard) |
+| `update_dashboard` | Update a dashboard. For metrics panels, see [Metrics data sources](#metrics-data-sources). | `folder_id` (string, required), `uid` (string, required), `dashboard_config` (object, required) | [Link](https://api-docs.logz.io/docs/logz/update-an-existing-dashboard) |
 | `move_dashboard` | Move a dashboard to a different folder. | `uid` (string, required), `folder_id` (string, required), `target_folder_id` (string, required) | [Link](https://api-docs.logz.io/docs/logz/move-a-dashboard-to-a-different-folder) |
 | `get_all_dashboard_folders` | List all dashboard folders. | `with_dashboards` (string, optional) | [Link](https://api-docs.logz.io/docs/logz/get-all-dashboards-folders) |
 | `get_dashboard_folder_by_name` | Retrieve a dashboard folder by its display name. The folder ID it returns is the `folder_id` other tools take. | `name` (string, required) |  |
 | `search_dashboards` | Search dashboards by title, by creator, or both. Returns each match with its UID and folder. | `query` (string, optional), `created_by` (int, optional), `limit` (int, optional), `page` (int, optional) |  |
 | `create_dashboard_folder` | Create a new dashboard folder. | `name` (string, required) | [Link](https://api-docs.logz.io/docs/logz/create-dashboards-folder) |
-| `get_all_global_data_sources` | List all global data sources. | None |  |
 | `get_dashboard_schema_example` | Retrieve an example dashboard configuration for `create_dashboard`, with one log-count panel. Replace its placeholder account ID with your log account ID. | None |  |
-| `get_datasource_schema_example` | Retrieve an example data source schema. | None |  |
+
+#### Metrics data sources
+
+You don't need to create or look up a data source for a metrics panel. Every metrics account your token can query is already a Prometheus data source, named `prom-<metricsAccountId>`. A Prometheus query references it as:
+
+```json
+"datasource": { "kind": "PrometheusDatasource", "name": "prom-<metricsAccountId>" }
+```
+
+Use `get_metrics_accounts` to get the metrics account IDs.
 
 ### Metrics dashboards & alerts
 
@@ -141,6 +149,17 @@ The metrics dashboard and alert tools need an API token with the **Admin** or **
 :::
 
 
+### OpenSearch Dashboards
+
+Tools for reading the account's OpenSearch Dashboards (OSD) dashboards, the Kibana-style log dashboards. They are separate from the dashboards in [Dashboards & folders](#dashboards--folders) and [Metrics dashboards & alerts](#metrics-dashboards--alerts). These tools only read. To create a dashboard, use `create_dashboard`.
+
+| Tool | Description | Parameters | API Link |
+| ---- | ----------- | ---------- | ---------- |
+| `search_osd_dashboards` | Search OSD dashboards. Returns each match with its ID, title and description, newest first, or best match first when you set `search`. `total` counts every match, but only the first 10,000 can be paged through. | `search` (string, optional, every word must appear in the title or description; the last word can be a prefix), `page_number` (int, optional), `page_size` (int, optional, 1–100, default 25) |  |
+| `get_osd_dashboard_by_id` | Retrieve an OSD dashboard as it is stored: its title, description, time range, panels and saved search, and the visualizations and saved searches its panels show. Index names appear as `logzioCustomerIndex` placeholders. | `id` (string, required, from `search_osd_dashboards`) |  |
+
+Only dashboards saved in the token's own account are covered: dashboards that another account shares into its OSD can't be listed or read. Any API token can use these tools, including read-only tokens.
+
 ### Alerts & insights
 
 Tools for [alerts](/docs/open360/alerts/intro-alerts/) and insights. The alert tools cover log alerts and metric alerts together. Each alert has a type, `logs` or `metrics`, and an ID, which the tools take as `get_all_alerts` returns it. In search results the type is in `alertConfiguration.type`: `LOG_ALERT` is `logs` and `METRIC_ALERT` is `metrics`.
@@ -148,14 +167,14 @@ Tools for [alerts](/docs/open360/alerts/intro-alerts/) and insights. The alert t
 | Tool | Description | Parameters | API Link |
 | ---- | ----------- | ---------- | ---------- |
 | `get_all_alerts` | Search log and metric alerts. Returns one page of alerts (25 by default) and the `total` number of matches. | `search_term` (string, optional), `source` (`logs` or `metrics`, optional), `severities` (array, optional), `tags` (array, optional), `enabled` (boolean, optional), `sort_by` (`title`, `severity`, `tags`, `updatedAt`, `createdBy`, `updatedBy` or `enabled`, optional), `sort_direction` (`ASC` or `DESC`, optional), `page_number` (int, optional), `page_size` (int, optional) |  |
-| `get_triggered_alerts` | Search alert events: which alerts triggered, resolved, are pending or have no data. Covers the last 60 minutes by default, newest first. | `from` (int, optional, UNIX seconds), `to` (int, optional, UNIX seconds, needs `from`), `states` (`TRIGGERED`, `RESOLVED`, `PENDING` or `NO_DATA`, array, optional), `search_term` (string, optional), `source` (`logs` or `metrics`, optional), `alert_ids` (array, optional), `severities` (array, optional), `tags` (array, optional), `is_muted` (boolean, optional), `sort_by` (string, optional), `sort_direction` (`ASC` or `DESC`, optional), `page_number` (int, optional), `page_size` (int, optional) |  |
+| `get_triggered_alerts` | Search alert events: which alerts triggered, resolved, are pending or have no data. Covers the last 60 minutes by default, newest first. | `from` (int, optional, UNIX seconds), `to` (int, optional, UNIX seconds, needs `from`), `states` (`TRIGGERED`, `RESOLVED`, `PENDING` or `NO_DATA`, array, optional), `search_term` (string, optional), `source` (`logs` or `metrics`, optional), `alert_ids` (array, optional), `severities` (array, optional), `tags` (array, optional), `is_muted` (boolean, optional), `sort_by` (`lastTriggeredAt`, `name`, `groups`, `severity`, `state`, `tags`, `reason` or `isMuted`, optional), `sort_direction` (`ASC` or `DESC`, optional), `page_number` (int, optional), `page_size` (int, optional) |  |
 | `get_alert_by_id` | Retrieve an alert by type and ID. | `type` (`logs` or `metrics`, required), `id` (int or string, required) |  |
 | `create_alert` | Create a log or metric alert. Its `alertConfiguration.type`, `LOG_ALERT` or `METRIC_ALERT`, selects the type. `get_alert_schema_example` returns an alert you can start from. | `alert` (object, required) |  |
 | `update_alert` | Replace an alert. Fields left out return to their defaults, so start from the alert that `get_alert_by_id` returns and change only what you need. | `id` (int or string, required), `alert` (object, required) |  |
 | `enable_alert` | Enable an alert. | `type` (`logs` or `metrics`, required), `id` (int or string, required) |  |
 | `disable_alert` | Disable an alert. It stops triggering and sending notifications until you enable it again. | `type` (`logs` or `metrics`, required), `id` (int or string, required) |  |
 | `get_alert_schema_example` | Retrieve an example alert for `create_alert`, one log alert and one metric alert, with notes on the allowed values. Replace their placeholder account ID with your own. | None |  |
-| `get_insights`         | Get insights matching criteria. | `from` (int, optional), `size` (int, optional, 1–100), `asc` (boolean, optional), `search` (string, optional) | [Link](https://api-docs.logz.io/docs/logz/get-public-insights) |
+| `get_insights` | Get insights matching criteria. Covers the last 15 minutes by default. Needs Insights permissions. | `startDate` (int, optional, UNIX milliseconds), `endDate` (int, optional, UNIX milliseconds), `from` (int, optional), `size` (int, optional, 1–100), `insightTypes` (array, optional, such as `PUBLIC_CI` or `LOGCEPTION`), `tagNames` (array, optional), `logTypes` (array, optional), `onlyNew` (boolean, optional, only insights that first occurred in the time range), `sortBy` (`FIRST_OCCURRENCE`, `LAST_OCCURRENCE` or `COUNT`, optional), `asc` (boolean, optional), `search` (string, optional, part of the insight title) | [Link](https://api-docs.logz.io/docs/logz/get-public-insights) |
 
 Severities are `INFO`, `LOW`, `MEDIUM`, `HIGH` and `SEVERE`.
 
