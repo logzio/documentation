@@ -42,7 +42,7 @@ Integrations are organized into the following categories:
 | **Finance & Payments** | AWS Cost Explorer, Azure Cost Management, Alpaca |
 | **HR & People** | BambooHR, Ashby, Breezy HR |
 
-Use the search bar to find a specific integration, or click a category tab to filter the list. The catalog is ordered by popularity, so the integrations most accounts connect appear first.
+Use the search bar to find a specific integration, or pick one or more categories from the **Categories** menu to filter the list. Each category shows how many integrations it holds. Turn on **My Integrations** in the same menu to see only the categories your account's integrations are in, and click **Select All** to show the whole catalog again. The catalog is ordered by popularity, so the integrations most accounts connect appear first.
 
 ## Connect an integration
 
@@ -52,7 +52,7 @@ Click **Connect** on an integration and provide its credentials. Which method an
 |---|---|
 | **API Key** | Connect using the provider's API token. This is what most integrations use. |
 | **Basic Auth** | Connect with an email address and API token. |
-| **None** | A few public data sources, such as MITRE ATT&CK, Hacker News, and the Tor exit list, need no credentials at all. |
+| **None** | A few public data sources, such as MITRE ATT&CK, Hacker News, the Tor exit list, and endoflife.date, need no credentials at all. |
 
 ### Connect your own API
 
@@ -66,8 +66,11 @@ The **Custom API** integration, under **Developer Tools**, connects an HTTPS API
 | **Credential** | The bearer token, the API key, or `username:password`. Leave it empty for No auth. It is stored encrypted and never shown to the agent. |
 | **Health-check method** | **GET**, or **POST** with no body for an API that accepts only POST. |
 | **Health-check path** | The endpoint the connection test calls, with no leading slash. Required for GET. With POST, leave it empty to call the host's root. |
+| **Expected status** | Optional. The status codes that prove the credential works, separated by commas, for example `400` for an API that refuses an empty POST only after accepting the credential. Leave it empty for any 2xx. 401, 403, 404, 405, 407, 429, and 5xx can't be expected. |
+| **Response field** | Optional. A field a good response carries, written as `$.a.b`. Leave it empty to check the status only. |
+| **Field equals** | Optional. The value the response field must equal, written as text: `true`, `1`, `null`, or `ok`. Leave it empty if the field only has to be there. |
 
-The connection test counts a 2xx response as connected, and a 400, 401, 403, or 422 as a rejected credential.
+By default, the connection test counts a 2xx response as connected, and a 400, 401, 403, or 422 as a rejected credential. Set **Expected status**, **Response field**, or **Field equals** to change what counts as connected.
 
 ## Management
 
@@ -80,7 +83,7 @@ The **Management** tab lists your account's connections. A Logz.io account with 
 | **Status** | The connection's health — see below. |
 | **Connected by** | The user who created the connection. |
 | **Used by** | How many agents use the connection. Click the count to see which ones, with a link to each agent's invocations and its definition. |
-| **Connection** | The connection's name, and the authentication method it uses. |
+| **Connection** | The connection's name, and the authentication method it uses. For the system-managed Logz.io connection, it shows the highest Logz.io API access granted: **Telemetry**, **Read**, **Write**, or **Admin**. |
 | **Updated by** | The user who last changed the connection. |
 | **Updated at** | When the connection was last changed. |
 | **Validated at** | When the connection's credentials were last verified. |
@@ -101,7 +104,7 @@ Open a connection's actions menu to **Configure** its credentials, **Revalidate*
 
 By default, agents can only read from a connected integration. To let an agent write to one too — opening a ticket, updating an alert, and so on — grant write access at two levels:
 
-1. **Account-wide**, in **OrionIQ > Settings > Account > Agent permissions** (admins only). This is the account's master switch: while it's set to **Read**, no individual connection can be given write access, whatever that connection's own setting.
+1. **Account-wide**, with the **Permissions** select in the **Management** tab header, next to **Add integration**. It reads **Permissions: Read** or **Permissions: Read & Write**. **Read** is the default: agents read your connectors' data and change nothing. **Read & Write** lets agents also make changes on the connections you allow. Only an account admin can change it; for everyone else the select is disabled. This is the account's master switch: while it's set to **Read**, no individual connection can be given write access, whatever that connection's own setting.
 2. **Per connection**, in the connect form or **Configure**. Integrations that support write actions show an **Agent permissions** choice of **Read** or **Read & Write**. It's only selectable once the account-wide setting allows it.
 
 Both levels must allow write for an agent to actually write through a given connection. Not every integration supports write actions — those show Read only, with no choice to make.
@@ -116,10 +119,27 @@ The Logz.io integration is connected by default and gives agents access to your 
 | **Read** | The agent can call the Logz.io public API but can't change anything. |
 | **Write** | The agent can create and update Logz.io objects. Implies Read. |
 | **Admin** | The agent has the same role as Manage API Tokens. Implies Read and Write. |
+| **Shipping** | Agents can send logs into the account. |
 
-Enabling API access creates one system-generated API token per selected account, at the highest scope you chose. Changing or turning off API access deletes that token; agents keep their telemetry access, and a lower scope gets a new token at that scope.
+Each account gets one API token for OrionIQ, named **OrionIQ API Token (System generated)**, with the role of the highest scope you chose: read-only for Read, user for Write, admin for Admin. **Read** is on by default when OrionIQ first finds an account, if you can manage API tokens and the account's plan has API access. Accounts connected before Read became the default are offered it once as well. Untick it to delete the token. Once you turn Read off, it stays off.
+
+The token can be shared by more than one account's OrionIQ, for example the owner account's or a Cloud SIEM account that scans this account. Changing the scope replaces the token with one at the new role for all of them. Turning off API access deletes the token, unless another account's OrionIQ still uses it. Agents keep their telemetry access either way.
+
+You can't delete the OrionIQ API token or change its role in **Manage tokens**. To replace it, use **Rotate** there. A token deleted outside OrionIQ isn't replaced on its own: rotate it, or turn API access off and on. See [Manage API Tokens](/docs/user-guide/admin/authentication-tokens/api-tokens/#orioniq-api-token).
 
 Owner, sub-accounts, and Security accounts have a public API. Metrics, Timeless, and Restored accounts do not, so API scopes aren't available for them.
+
+**Write**, **Admin**, and **Shipping** need agent permissions set to **Read & Write** (see [Agent permissions](#agent-permissions)). While they are set to **Read**, these three can be turned off but not on, and agents can't use a grant that is already on.
+
+### Shipping
+
+Turning on **Shipping** for an account creates a log shipping token named **OrionIQ Shipping Token (System generated)** in that account, and agents send logs to the account's listener with it. Before you save, the dialog lists the accounts that get a token. Turning Shipping off deletes the token and lists the agents that ship logs to those accounts and will stop.
+
+Shipping is available for owner accounts and sub-accounts. Security accounts don't accept agent logs, so their Shipping box is disabled. Turning Shipping on needs permission to manage API tokens, and the account must be under its plan's limit for enabled log shipping tokens.
+
+Each account with Shipping on gets a **Log shipping** connection. In the **Management** tab it shows the account's name and **Shipping Token** in the **Connection** column. To let an agent ship logs, add that connection in the agent's **Integrations**, where it's listed as **Log shipping:** followed by the account's name and ID.
+
+You can't edit, delete, or disable the OrionIQ shipping token in **Manage tokens**. To replace it, use **Rotate** there. See [Log shipping tokens](/docs/user-guide/admin/authentication-tokens/log-shipping-tokens/#orioniq-shipping-token).
 
 To request an integration that isn't yet available, click **Add to Wish List** on the integration you're interested in. This helps Logz.io prioritize which integrations to support next.
 

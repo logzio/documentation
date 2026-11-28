@@ -160,9 +160,9 @@ If the rule includes any aggregation or group by field, the notification output 
 
 ![Add email](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/siem-add-email-dec.gif)
 
-### *(Optional)* Alert AI Analysis
+### *(Optional)* Rule AI Analysis
 
-Security rules support the same AI-powered investigation as alerts. In the **Alert AI Analysis** step, turn the toggle on and Logz.io's AI Agent investigates the cause of the rule the moment it triggers, then delivers its findings to the recipients you choose.
+Security rules support the same AI-powered investigation as alerts. In the **Rule AI Analysis** step, turn the toggle on and Logz.io's AI Agent investigates the cause of the rule the moment it triggers, then delivers its findings to the recipients you choose.
 
 | Setting | Description |
 |---|---|
@@ -182,14 +182,14 @@ For full agent configuration, use **Manage in Agents Hub**, which opens the agen
 
 The agent is editable like any other, so beyond the settings above you can:
 
-* Set its instructions, guidelines, and **Agent tools**.
+* Set its instructions, guidelines, and **Data sources**.
 * Give it **Integrations** — Slack, Jira, Confluence, and the rest — so the analysis can draw on them.
 * Adjust its own daily cap and soft limit, independently of your account-wide caps.
 
 See [Create an Agent](/docs/user-guide/orioniq/create-agent/) for what each section does.
 
 :::note
-Alert AI Analysis requires AI features to be enabled on your account. If the step is missing or the toggle is unavailable, contact [Logz.io support](https://logz.io/support-page/).
+Rule AI Analysis requires AI features to be enabled on your account. If the step is missing or the toggle is unavailable, contact [Logz.io support](https://logz.io/support-page/).
 :::
 
 ### Save your rule

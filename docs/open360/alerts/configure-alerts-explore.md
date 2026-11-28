@@ -216,13 +216,13 @@ Once triggered, the AI Agent will analyze related logs, metrics, and patterns. A
 
 #### Configure the agent
 
-Enabling AI Agent Analysis creates an OrionIQ agent for the alert when you save it. Select **Configure your agent** to set the agent's instructions, data sources, integrations, and recipients. **Data sources** lists the accounts the alert covers, and you can add log or metrics accounts for the agent to investigate. The dialog also shows any free runs the agent has left and links to the Marketplace for pricing. **Apply** adds your changes to the alert form, and they are saved with the alert. Turning AI Agent Analysis off and saving switches the agent off and keeps its settings and run history. Turning it back on switches the same agent on again. Deleting the alert removes its agents.
+Enabling AI Agent Analysis creates an OrionIQ agent for the alert when you save it. Select **Configure your agent** to set the agent's instructions, data sources, integrations, and recipients. **Data sources** lists the accounts the alert covers, and you can add log or metrics accounts for the agent to investigate. The dialog also shows any free runs the agent has left and links to the Marketplace for pricing. **Apply** adds your changes to the alert form, and they are saved with the alert. Turning AI Agent Analysis off and saving switches the agent off and keeps its settings and run history. Turning it back on switches the same agent on again. You can also switch the agent on or off from its **Activation** toggle in the Agents Hub, which updates the alert to match. Deleting the alert removes its agents.
 
 For full agent configuration, use **Manage in Agents Hub**, which opens the agent in the Agents Hub.
 
 The agent is editable like any other, so beyond the settings on this page you can:
 
-* Set its instructions, guidelines, and **Agent tools**.
+* Set its instructions, guidelines, and **Data sources**.
 * Give it **Integrations** — Slack, Jira, Confluence, and the rest — so the analysis can draw on them.
 * Adjust its own **daily invocation cap** and soft limit, independently of your account-wide caps.
 

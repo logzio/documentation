@@ -12,7 +12,7 @@ To get an agent's ID and a ready-to-copy request for each endpoint, open the age
 
 ## Authentication
 
-All requests must include the `x-api-token` header.
+Authenticate each request with an API token in the `x-api-token` header.
 
 In the code blocks below:
 
@@ -22,12 +22,14 @@ In the code blocks below:
 
 A request with a missing or invalid token returns `401`.
 
+The endpoints also accept a signed-in Logz.io user's session instead of an API token. A run or follow-up started with a session is recorded under that user. A read-only user's session can list agents and read results, feedback, and lessons, but gets `403` on everything that changes something: running an agent, sending a follow-up, enabling or disabling an agent, sending feedback, and setting a lesson's status. If the user's role can't be checked, those requests return `503`; try again later. API tokens are not affected. Poll a run with the same credential that started it, or it's reported as `canceled`.
+
 :::note
 Requests may receive a `307 Temporary Redirect` to an equivalent path, as part of an ongoing backend migration. The redirect preserves the request method and body, so make sure your HTTP client follows redirects — `curl` needs `-L`; most other HTTP clients and libraries follow by default.
 :::
 
 :::note
-If AI features are disabled for the account, [Run an agent](#run-an-agent) and [Send a follow-up](#send-a-follow-up) return `403`. Polling for a result, enabling or disabling an agent, and feedback stay available either way, so you can still retrieve a run you already started and turn an agent off. See [AI Settings](/docs/open360/settings/ai-settings/) for enabling AI on an account.
+If AI features are disabled for the account, [Run an agent](#run-an-agent) and [Send a follow-up](#send-a-follow-up) return `403`. A blocked (inactive) account, such as one whose trial expired, gets the same `403` with `errorCode: "ACCOUNT_INACTIVE"`, even if AI is turned on for it. Polling for a result, enabling or disabling an agent, and feedback stay available either way, so you can still retrieve a run you already started and turn an agent off. See [AI Settings](/docs/open360/settings/ai-settings/) for enabling AI on an account.
 :::
 
 :::note
@@ -40,7 +42,7 @@ If the account has reached its configured AI usage cap, [Run an agent](#run-an-a
 POST /v1/orioniq-be/agents/search
 ```
 
-Returns the agents in the token's account, so you can find an agent ID without opening the Agents Hub. Sub-account agents are not included. Listing starts no AI work, so it also works when AI features are disabled.
+Returns the agents in your account, so you can find an agent ID without opening the Agents Hub. Sub-account agents are not included. Listing starts no AI work, so it also works when AI features are disabled.
 
 ### Sample request
 
@@ -112,7 +114,7 @@ Results are ordered by creation time, newest first, unless you set `sort`. An un
 
 `total` is the number of matching agents across all pages. A page past the end returns an empty `results` list. Use `displayName` as the agent's title. Each `id` works as `<<AGENT-ID>>` in the other endpoints.
 
-A request authenticated with a session or share token instead of an API token returns `401`.
+A request authenticated with a share token returns `401`.
 
 ## Run an agent
 
@@ -146,7 +148,7 @@ curl -X POST -L \
 | `context.message` | The prompt for this run. |
 | `context.additionalContext` | Optional free-text context to pass to the agent. |
 | `context.timerange` | Optional `startTime` and `endTime` bounding the data the agent analyzes. |
-| `context.security` | The accounts the run reads. Each entry takes a `requestedAccountId`, a `type` of `log` or `metric`, and an optional `filter` of `field` and `value`. Always send at least one entry. Without it, the run falls back to the accounts saved on the agent, and a Scheduled agent, or one with none saved, fails with `422`. An account the API token can't read is dropped, and a run with none left is rejected with `403`. |
+| `context.security` | The accounts the run reads. Each entry takes a `requestedAccountId`, a `type` of `log` or `metric`, and an optional `filter` of `field` and `value`. Always send at least one entry. Without it, the run falls back to the accounts saved on the agent, and a Scheduled agent, or one with none saved, fails with `422`. An account you can't read is dropped, and a run with none left is rejected with `403`. |
 | `integrations` | Optional list of integration connections the run may use. |
 
 Fields you send override the matching fields in the agent's saved **Payload (JSON)**.

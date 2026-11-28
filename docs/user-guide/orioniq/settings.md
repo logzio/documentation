@@ -24,12 +24,11 @@ Settings that apply to everyone on the account.
 | Setting | Description |
 |---|---|
 | **OrionIQ name** | The name everyone on the account uses to address the assistant. It appears in the sidebar. |
-| **Agent permissions** | Admins only. The account-wide switch for what agents may do on connected integrations — **Read** or **Read & Write**. A connection can only be granted write access while this is set to **Read & Write**. See [Agent permissions](/docs/user-guide/orioniq/integrations/#agent-permissions). |
 | **OrionIQ Regions** | Where your account data is stored (**Data hosting**) and where the LLM serving OrionIQ runs (**LLM model hosting**). Both are set during account provisioning and can't be edited. |
 
 ## Capping
 
-Controls what OrionIQ is allowed to spend. Admins can also reach this from the **Capping** button on the [Agents Hub](/docs/user-guide/orioniq/agents-hub/).
+Controls what OrionIQ is allowed to spend. Admins can also reach this from the **Capping** button on the [Agents Hub](/docs/user-guide/orioniq/agents-hub/), and from **Settings > Plan and usage > AI Capping** in the Logz.io console. See [AI Capping](/docs/open360/settings/ai-settings/).
 
 | Limit | Description |
 |---|---|

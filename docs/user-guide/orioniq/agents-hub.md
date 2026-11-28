@@ -22,7 +22,7 @@ The **Agents** tab displays a list of all agents in your account. Each agent row
 | **Type** | The agent type (for example, Custom). |
 | **Triggered By** | How the agent is triggered (Scheduled, API, Deployment, or Alert). |
 | **Created By** | The user who created the agent. Agents provisioned by the platform, such as alert root cause analysis agents, are attributed to Logz.io. |
-| **Activation** | Toggle to enable or disable the agent. A Marketplace agent whose free trial is over is marked **Trial ended**. |
+| **Activation** | Toggle to enable or disable the agent. A Marketplace agent whose free trial is over is marked **Trial ended**. For an alert's AI Analysis agent, the toggle also turns AI Agent Analysis on or off in the alert itself, so you need permission to edit the alert. A Cloud SIEM rule's agent is switched from the rule and shows **Managed from the alert definition**. |
 | **Free/Billed** | Whether the agent's runs are billed. While the agent has free runs left, the cell shows a tag with the number left. Once they are used, it shows **Billed**. Agent types with no charge show nothing. For prices, see the [Marketplace](/docs/user-guide/orioniq/marketplace/). |
 | **Created At** | The date and time the agent was created. |
 | **Updated At** | The date and time the agent was last modified. A run on its own doesn't change this. |
@@ -30,6 +30,8 @@ The **Agents** tab displays a list of all agents in your account. Each agent row
 | **Last Run** | The date and time of the agent's most recent invocation. |
 | **Daily Cap** | Per-agent daily invocation limit, configured in each agent's settings. |
 | **Actions** | The agent's **Triggers** menu and its actions menu. |
+
+To change which columns show, click **Choose columns** at the end of the filter row. You can also drag a header to reorder its column, and use the menu on a header or on a row of the column list to sort by that column or pin it. **Name** and **Type** always show, and **Actions** stays pinned on the right. Your layout is saved in your browser.
 
 To create a new agent directly from this page, click **Build an Agent** in the top right corner.
 
@@ -86,7 +88,7 @@ They can't create, edit, activate, delete, or manually trigger agents, stop a ru
 
 ## Invocations tab
 
-The **Invocations** tab displays the run history for all agents. Each row represents a single invocation and includes the agent name, type, trigger method, who created it, the execution time, and the outcome.
+The **Invocations** tab displays the run history for all agents. Each row represents a single invocation and includes the agent name, type, trigger method, who created it, the execution time, and the outcome. You can choose, reorder, sort, and pin the columns the same way as on the Agents tab. **Triggered Agent** and **Time** always show.
 
 An invocation ends in one of the following outcomes:
 
@@ -99,6 +101,12 @@ An invocation ends in one of the following outcomes:
 | **Incomplete** | The run couldn't finish — it timed out, ran out of context, or hit an internal error. The reason is shown with the output. |
 
 ![Invocations tab showing agent run history](https://dytvr9ot2sszz.cloudfront.net/logz-docs/orioniq/orioniq-invocations.png)
+
+Every row has a **Feedback** button, which opens the run at its feedback note once the run finishes (see [Provide feedback](#provide-feedback)). Finished runs also show **Re-invoke**, except runs of alert-triggered agents.
+
+### Invocations of a deleted agent
+
+A deleted agent's invocations stay in the table, with their text muted. Hovering the agent's name shows **Agent deleted -** followed by the agent's name. These rows have no **Re-invoke**, and in the **Agent Invocation Details** panel **Re-invoke** and **Agent definition** are disabled with the same reason.
 
 ### Stop a running invocation
 
@@ -118,12 +126,13 @@ Shows what the agent received for this run, in sections:
 |---|---|
 | **Request** | The message that started the run and any additional context. |
 | **This Run** | The time range, the accounts queried, and other run-specific values such as the alert trigger time. |
-| **Agent Configuration** | Log and metric accounts, sub-agents, output detail, and the memory and shared files the agent could read. |
+| **Agent Configuration** | Log and metric accounts, output detail, and the memory and shared files the agent could read. |
+| **Other Details** | Any other values the run received, such as the alert's name. |
 | **Identifiers** | The session ID and agent ID, each with a copy button. |
 
 Long text, such as an alert body, scrolls inside its own box. Fields that come from the agent's template aren't shown. A note says so and offers **View template**.
 
-Use the **Formatted** and **JSON** switch in the toolbar to see the same input as sections or as raw JSON. The copy and export buttons next to it act on the tab you are viewing.
+The **Copy** and **Download** buttons in the toolbar act on the tab you are viewing. The link button beside the panel's close button copies a link that opens this invocation in Run History.
 
 ### Analysis
 
@@ -145,7 +154,7 @@ The toolbar's **Agent definition** and **Agent invocations** links take you from
 
 Once a run finishes, a **Was this useful?** rating sits in the panel's footer, visible on every tab — it rates the run as a whole, not one tab's content. You can't rate a run that's still in progress.
 
-Clicking a thumb registers immediately and opens a note composer. Add a free-text note explaining the rating — a rating alone doesn't teach the agent anything, only a written note does — or click **Skip** to leave just the rating. You can return to a rated run at any time to add, view, or edit its note.
+Clicking a thumb registers immediately and opens a note composer. Add a free-text note explaining the rating — a rating alone doesn't teach the agent anything, only a written note does — or click **Skip** to leave just the rating. You can return to a rated run at any time to add, view, or edit its note. Read-only users can't rate a run, but they can still open a note someone left on it.
 
 Feedback helps improve AI performance over time and gives you a way to track agent reliability. A note that teaches the agent something becomes a lesson, applied to that agent's future runs — see [Learning](/docs/user-guide/orioniq/create-agent/#learning) in the agent's configuration for the on/off toggle and how lessons are billed.
 
