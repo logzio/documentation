@@ -42,7 +42,7 @@ The configuration is a series of sections. Work through them in order.
 |---|---|
 | **Agent Name** | A descriptive name for your agent, up to 191 characters. It can't start with `logz-` or `orioniq-general`. |
 | **Description** | A brief explanation of what the agent does, up to 191 characters. |
-| **Active** | Enable or disable the agent. When disabled, it won't run regardless of its trigger. For an alert-linked agent this is managed from the alert definition. |
+| **Active** | Enable or disable the agent. When disabled, it won't run regardless of its trigger. For an alert's AI Analysis agent, the toggle saves right away and also turns AI Agent Analysis on or off in the alert. A Cloud SIEM rule's agent is managed from the rule. |
 
 ### Agent Definition
 

@@ -22,7 +22,7 @@ The **Agents** tab displays a list of all agents in your account. Each agent row
 | **Type** | The agent type (for example, Custom). |
 | **Triggered By** | How the agent is triggered (Scheduled, API, Deployment, or Alert). |
 | **Created By** | The user who created the agent. Agents provisioned by the platform, such as alert root cause analysis agents, are attributed to Logz.io. |
-| **Activation** | Toggle to enable or disable the agent. A Marketplace agent whose free trial is over is marked **Trial ended**. |
+| **Activation** | Toggle to enable or disable the agent. A Marketplace agent whose free trial is over is marked **Trial ended**. For an alert's AI Analysis agent, the toggle also turns AI Agent Analysis on or off in the alert itself, so you need permission to edit the alert. A Cloud SIEM rule's agent is switched from the rule and shows **Managed from the alert definition**. |
 | **Free/Billed** | Whether the agent's runs are billed. While the agent has free runs left, the cell shows a tag with the number left. Once they are used, it shows **Billed**. Agent types with no charge show nothing. For prices, see the [Marketplace](/docs/user-guide/orioniq/marketplace/). |
 | **Created At** | The date and time the agent was created. |
 | **Updated At** | The date and time the agent was last modified. A run on its own doesn't change this. |
