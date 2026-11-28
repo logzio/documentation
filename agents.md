@@ -1033,3 +1033,4 @@ Existing PR #975 had no unresolved reviewer comments. Merged `master` into its b
 * Pattern: a lock reason string ("Managed from the alert definition") is a quick grep target in `docs/`. When a lock opens up, grep its old wording and the pages that said "managed from the alert".
 * Known gap update: the chat now has three named modes (Quick, Balanced, Expert) shown on each answer. One more shipped feature on the chat page blocker.
 * PR #991 had no unresolved comments (ralongit approved at 038d055). Commits go to its existing branch `claude/gracious-thompson-wgh1am`. Added RoyiSitbon as assignee.
+* Slack: posted a new message in #orion-iq-team with the PR and the preview link inline (live since 2026-11-16), mentioning RoyiSitbon (`UKFU2N4MD`), ralongit, galangel, Gavriel-M, amir-noyman.
